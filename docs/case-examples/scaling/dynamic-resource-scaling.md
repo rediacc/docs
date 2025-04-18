@@ -29,7 +29,7 @@ The company's software engineers are experiencing performance issues with **on-p
 
 System engineer Yüksel develops **a hybrid model** with Rediacc:
 
-![Hybrid Cloud Scaling](/img/hybrid-cloud-scaling.svg)
+![Hybrid Cloud Scaling](./img/hybrid-cloud-scaling.svg)
 
 ### 1. **Instant Cloud Migration**
 * During office hours, on-premise services are cloned to the cloud **with all data and configurations**
