@@ -1,3 +1,9 @@
 {
-    "label": "Scaling"
+    "label": "Scaling",
+    "position": 2,
+    "link": {
+        "description": "Explore solutions for scaling your infrastructure."
+    },
+    "type": "generated-index",
+    "description": "Learn how to scale your infrastructure dynamically and modernize legacy database systems for optimal performance."
 }
