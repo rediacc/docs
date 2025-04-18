@@ -22,7 +22,7 @@ The company continued taking full backups daily because it prioritized security.
 
 Mehmet discovered Rediacc, and with this system:
 
-![Backup Diagram](/img/backup-optimization.png)
+![Backup Diagram](/img/backup-optimization.svg)
 
 ### Smart Backup Technology
 * **Full backups appear to be taken**, but only **changed data** is physically stored

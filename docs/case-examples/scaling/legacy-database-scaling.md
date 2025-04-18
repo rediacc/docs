@@ -33,7 +33,7 @@ The company's services in the cloud environment were **struggling to respond**. 
 
 System engineer Yüksel, using Rediacc's cross-backup feature:
 
-![Legacy DB Scaling](/img/legacy-scaling.png)
+![Legacy DB Scaling](/img/legacy-scaling.svg)
 
 ### 1. **Real-time Data Replication**
 * Changes in the legacy database were transferred to other servers **at 10-15 minute intervals**
