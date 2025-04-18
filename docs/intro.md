@@ -2,46 +2,35 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# What is Rediacc?
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Rediacc is a system software that enables software applications and large data sets to run on different machines without requiring installation, featuring fast cloning and backup capabilities. SSH connection is sufficient.
 
-## Getting Started
+## Definitions
 
-Get started by **creating a new site**.
+**Container:** System software that allows any software to run on different machines without requiring installation. It can create multiple instances of the same software within seconds.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+**Service:** Can be a database like Oracle, an on-premise GitLab service, or an application providing REST API services. Each service has its own files, which can consist of a single executable file or thousands of files.
 
-### What you'll need
+**Repo:** A virtual disk file called "repo" in Rediacc. Its size can range from 4 GB to thousands of TB. It contains services and all files related to these services.
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- A server can have a single repo or multiple repos. This preference affects performance and distribution flexibility. For example, if phpMyAdmin and MySQL run under the same repo, they start on the same server. Separate repos should be created for them to run on different servers.
 
-## Generate a new site
+- Each repo has its own container host instance (Docker Instance). Services with the same name don't conflict in different repos; this situation is automatically managed by Rediacc.
 
-Generate a new Docusaurus site using the **classic template**.
+**CoW (Copy-on-Write) File System:** Rediacc is built on this file system.
 
-The classic template will automatically be added to your project after you run the command:
+- When a file is copied, it is not physically duplicated; instead, it is treated as if there are two copies.
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+- If one of the files changes, *only the changed part* occupies a new area on the disk. For example, if a 1 GB text file is copied and "ABC" is added to the end, the total size of the two files becomes 1 GB + 3 bytes.
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+- This system is also used in backing up repos. When taking a backup on the same machine, only a virtual copy of the repo is created.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+## How Does It Work?
 
-## Start your site
+Rediacc intelligently uses the capabilities of the operating system kernel (e.g., file system isolation and resource management) to:
 
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- Clone services within seconds,
+- Keep backups efficiently,
+- Store all data encrypted,
+- Run software seamlessly in different environments.
