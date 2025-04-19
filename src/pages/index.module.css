@@ -8,6 +8,8 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, #1a365d 0%, #2b4c7e 100%);
+  color: white;
 }
 
 @media screen and (max-width: 996px) {
@@ -16,8 +18,376 @@
   }
 }
 
+.audienceCallout {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffc107;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mainHeadline {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.subheadline {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bulletPoints {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+}
+
+.bulletPoints ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.bulletPoints li {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.ctaButton {
+  margin: 2rem 0 1rem;
+}
+
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Problem Section */
+.problemSection {
+  background-color: #f9f9f9;
+  padding: 4rem 0;
+}
+
+.problemContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.problemContent h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #1a365d;
+}
+
+.problemContent p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.problemContent ul {
+  margin-bottom: 2rem;
+}
+
+.problemContent li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Solution Section */
+.solutionSection {
+  background-color: white;
+  padding: 4rem 0;
+}
+
+.solutionSection h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #1a365d;
+}
+
+.solutionContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.solutionContent p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.solutionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.solutionItem {
+  background: #f5f7fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.solutionItem h3 {
+  margin-bottom: 1rem;
+  color: #1a365d;
+}
+
+/* Credentials Section */
+.credentialsSection {
+  background-color: #1a365d;
+  color: white;
+  padding: 4rem 0;
+}
+
+.credentialsSection h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.credentialsContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.credentialsStats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 3rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat h3 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #ffc107;
+}
+
+.logos, .awards {
+  margin-bottom: 2rem;
+}
+
+.logos p, .awards p {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.logoGrid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Benefits Section */
+.benefitsSection {
+  background-color: #f9f9f9;
+  padding: 4rem 0;
+}
+
+.benefitsSection h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #1a365d;
+}
+
+.benefitsList {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.benefit {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.benefit h3 {
+  margin-bottom: 1rem;
+  color: #1a365d;
+}
+
+/* Testimonials Section */
+.testimonialsSection {
+  background-color: white;
+  padding: 4rem 0;
+}
+
+.testimonialsSection h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #1a365d;
+}
+
+.testimonialGrid {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial {
+  background: #f5f7fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.testimonial:before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-size: 4rem;
+  color: rgba(26, 54, 93, 0.1);
+}
+
+.testimonial p {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.testimonialAuthor {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Offer Section */
+.offerSection {
+  background: linear-gradient(135deg, #1a365d 0%, #2b4c7e 100%);
+  color: white;
+  padding: 4rem 0;
+}
+
+.offerSection h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.offerContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.offerContent p, .offerContent ul {
+  margin-bottom: 1.5rem;
+}
+
+.offerContent li {
+  margin-bottom: 0.5rem;
+}
+
+.bonuses {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.bonus {
+  margin-bottom: 1.5rem;
+}
+
+.bonus h4 {
+  color: #ffc107;
+  margin-bottom: 0.5rem;
+}
+
+.valueStack {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.valueStack h3 {
+  text-decoration: line-through;
+  margin-bottom: 0.5rem;
+}
+
+.valueStack h4 {
+  color: #ffc107;
+  font-size: 1.75rem;
+}
+
+.scarcity {
+  background: rgba(255, 193, 7, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  border: 1px solid #ffc107;
+}
+
+.guarantee {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.guarantee h3 {
+  color: #ffc107;
+  margin-bottom: 1rem;
+}
+
+.offerCta {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* Closing Section */
+.closingSection {
+  background-color: #f9f9f9;
+  padding: 4rem 0;
+}
+
+.closingContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.closingContent p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.finalCta {
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .mainHeadline {
+    font-size: 2rem;
+  }
+  
+  .solutionGrid, .benefitsList, .testimonialGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .credentialsStats {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
