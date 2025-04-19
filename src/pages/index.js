@@ -19,8 +19,14 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Rediacc Documentation
+            to="/docs/features">
+            Explore Features
+          </Link>
+          <Link
+            className="button button--outline button--secondary button--lg"
+            to="/docs/case-examples/backup/zero-cost"
+            style={{marginLeft: '0.5rem'}}>
+            View Case Examples
           </Link>
         </div>
       </div>
@@ -32,8 +38,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title} - Be Ready to Accelerate`}
+      description="Rediacc offers powerful features designed to make your systems more resilient, flexible, and secure with intelligent backup solutions, advanced security, and seamless scaling.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
