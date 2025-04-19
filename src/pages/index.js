@@ -7,39 +7,56 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
+// Import SVG images
+const HeroGraphic = require('@site/static/img/hero-graphic.svg').default;
+const IntelligentBackupIcon = require('@site/static/img/intelligent-backup.svg').default;
+const AdvancedSecurityIcon = require('@site/static/img/advanced-security.svg').default;
+const SeamlessScalingIcon = require('@site/static/img/seamless-scaling.svg').default;
+const CompanyLogo1 = require('@site/static/img/company-logo1.svg').default;
+const CompanyLogo2 = require('@site/static/img/company-logo2.svg').default;
+const CompanyLogo3 = require('@site/static/img/company-logo3.svg').default;
+
 function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h2" className={styles.audienceCallout}>
-          ATTENTION BUSINESS OWNERS AND ENTREPRENEURS
-        </Heading>
-        
-        <Heading as="h1" className={styles.mainHeadline}>
-          Discover How To Cut Your System Costs By Up To 90% While Making Your Business More Resilient, Flexible, And Secure — GUARANTEED!
-        </Heading>
-        
-        <p className={styles.subheadline}>
-          Our Revolutionary Platform Has Helped Over 500+ Businesses Save Thousands On IT Costs While Boosting Performance And Security
-        </p>
-        
-        <div className={styles.bulletPoints}>
-          <ul>
-            <li>The "Set-and-Forget" backup system that protects your business from catastrophic data loss</li>
-            <li>Why 90% of companies are overpaying for their system infrastructure (and how to fix it)</li>
-            <li>The little-known scaling secret that big tech companies don't want you to discover</li>
-            <li>How to implement enterprise-grade security without breaking the bank</li>
-            <li>The 3-step formula for instant system recovery that works even during major outages</li>
-            <li>Why traditional backup solutions fail when you need them most (and our guaranteed solution)</li>
-          </ul>
-        </div>
-        
-        <div className={styles.ctaButton}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/request-demo">
-            Get Your FREE System Assessment Today →
-          </Link>
+        <div className={styles.heroContent}>
+          <div className={styles.heroText}>
+            <Heading as="h2" className={styles.audienceCallout}>
+              ATTENTION BUSINESS OWNERS AND ENTREPRENEURS
+            </Heading>
+            
+            <Heading as="h1" className={styles.mainHeadline}>
+              Discover How To Cut Your System Costs By Up To 90% While Making Your Business More Resilient, Flexible, And Secure — GUARANTEED!
+            </Heading>
+            
+            <p className={styles.subheadline}>
+              Our Revolutionary Platform Has Helped Over 500+ Businesses Save Thousands On IT Costs While Boosting Performance And Security
+            </p>
+            
+            <div className={styles.bulletPoints}>
+              <ul>
+                <li>The "Set-and-Forget" backup system that protects your business from catastrophic data loss</li>
+                <li>Why 90% of companies are overpaying for their system infrastructure (and how to fix it)</li>
+                <li>The little-known scaling secret that big tech companies don't want you to discover</li>
+                <li>How to implement enterprise-grade security without breaking the bank</li>
+                <li>The 3-step formula for instant system recovery that works even during major outages</li>
+                <li>Why traditional backup solutions fail when you need them most (and our guaranteed solution)</li>
+              </ul>
+            </div>
+            
+            <div className={styles.ctaButton}>
+              <Link
+                className="button button--secondary button--lg"
+                to="/request-demo">
+                Get Your FREE System Assessment Today →
+              </Link>
+            </div>
+          </div>
+          
+          <div className={styles.heroGraphic}>
+            <HeroGraphic className={styles.heroImage} />
+          </div>
         </div>
       </div>
     </header>
@@ -105,17 +122,26 @@ function SolutionSection() {
           
           <div className={styles.solutionGrid}>
             <div className={styles.solutionItem}>
-              <h3>💾 Intelligent Backup</h3>
+              <div className={styles.solutionIcon}>
+                <IntelligentBackupIcon />
+              </div>
+              <h3>Intelligent Backup</h3>
               <p>Our differential backup technology stores only what changes, reducing storage costs by up to 90% while making restores lightning-fast.</p>
             </div>
             
             <div className={styles.solutionItem}>
-              <h3>🛡️ Advanced Security</h3>
+              <div className={styles.solutionIcon}>
+                <AdvancedSecurityIcon />
+              </div>
+              <h3>Advanced Security</h3>
               <p>Enterprise-grade protection with automated threat detection, repository encryption, and multi-factor authentication across all tiers.</p>
             </div>
             
             <div className={styles.solutionItem}>
-              <h3>📈 Seamless Scaling</h3>
+              <div className={styles.solutionIcon}>
+                <SeamlessScalingIcon />
+              </div>
+              <h3>Seamless Scaling</h3>
               <p>Instantly clone your environment to the cloud during peak hours and synchronize changes back when demand decreases.</p>
             </div>
           </div>
@@ -152,7 +178,9 @@ function CredentialsSection() {
           <div className={styles.logos}>
             <p>Trusted by leading companies:</p>
             <div className={styles.logoGrid}>
-              {/* Logos would go here */}
+              <CompanyLogo1 className={styles.companyLogo} />
+              <CompanyLogo2 className={styles.companyLogo} />
+              <CompanyLogo3 className={styles.companyLogo} />
             </div>
           </div>
           

@@ -18,6 +18,28 @@
   }
 }
 
+.heroContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heroText {
+  text-align: left;
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.heroGraphic {
+  flex: 1;
+  max-width: 600px;
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+}
+
 .audienceCallout {
   font-size: 1.5rem;
   font-weight: 700;
@@ -38,14 +60,11 @@
   font-size: 1.25rem;
   margin-bottom: 2rem;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .bulletPoints {
   text-align: left;
-  max-width: 800px;
-  margin: 0 auto 2rem;
+  margin-bottom: 2rem;
   background: rgba(255, 255, 255, 0.1);
   padding: 1.5rem 2rem;
   border-radius: 8px;
@@ -136,6 +155,16 @@
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.solutionIcon {
+  margin-bottom: 1rem;
+}
+
+.solutionIcon svg {
+  width: 80px;
+  height: 80px;
 }
 
 .solutionItem h3 {
@@ -191,6 +220,18 @@
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.companyLogo {
+  width: 150px;
+  height: 60px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.companyLogo:hover {
+  transform: translateY(-5px);
 }
 
 /* Benefits Section */
@@ -377,6 +418,28 @@
   margin-top: 2rem;
 }
 
+@media screen and (max-width: 992px) {
+  .heroContent {
+    flex-direction: column;
+  }
+  
+  .heroText {
+    text-align: center;
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .bulletPoints {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .heroGraphic {
+    max-width: 100%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .mainHeadline {
     font-size: 2rem;
@@ -389,5 +452,10 @@
   .credentialsStats {
     flex-direction: column;
     gap: 2rem;
+  }
+  
+  .companyLogo {
+    width: 120px;
+    height: 50px;
   }
 }

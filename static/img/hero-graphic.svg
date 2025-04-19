@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300" fill="none">
+  <!-- Background layer -->
+  <path d="M0 0H600V300H0V0Z" fill="url(#paint0_linear)" />
+  
+  <!-- Server racks -->
+  <rect x="80" y="120" width="120" height="160" rx="4" fill="#2B4C7E" stroke="#1A365D" stroke-width="4" />
+  <rect x="100" y="140" width="80" height="10" rx="2" fill="#4FD1C5" />
+  <rect x="100" y="160" width="80" height="10" rx="2" fill="#4FD1C5" />
+  <rect x="100" y="180" width="80" height="10" rx="2" fill="#4FD1C5" />
+  <rect x="100" y="200" width="80" height="10" rx="2" fill="#4FD1C5" />
+  <rect x="100" y="220" width="80" height="10" rx="2" fill="#4FD1C5" />
+  <rect x="100" y="240" width="80" height="10" rx="2" fill="#4FD1C5" />
+  
+  <!-- Cloud server -->
+  <path d="M400 100C400 77.9086 417.909 60 440 60C456.569 60 470.571 70.0032 477.004 84.3702C479.413 83.478 482.033 83 484.75 83C500.464 83 513.25 95.7862 513.25 111.5C513.25 112.477 513.188 113.441 513.066 114.388C521.386 119.846 527 129.134 527 139.75C527 156.322 513.572 169.75 497 169.75H387C370.428 169.75 357 156.322 357 139.75C357 126.827 364.951 115.751 376.348 111.292C376.12 109.561 376 107.793 376 106C376 83.9086 393.909 66 416 66C429.402 66 441.232 72.7285 448.484 83.149C444.46 89.6838 442 97.5174 442 106C442 107.793 442.12 109.561 442.348 111.292C430.951 115.751 423 126.827 423 139.75C423 156.322 436.428 169.75 453 169.75H463" stroke="#FFC107" stroke-width="4" />
+  
+  <!-- Data flow lines -->
+  <path d="M200 140C250 140 350 180 400 140" stroke="#4FD1C5" stroke-width="3" stroke-dasharray="6 6" />
+  <path d="M400 200C350 200 250 160 200 200" stroke="#4FD1C5" stroke-width="3" stroke-dasharray="6 6" />
+  
+  <!-- Cost reduction indicator -->
+  <circle cx="300" cy="140" r="40" fill="#EBF4FF" />
+  <path d="M300 120L300 160" stroke="#1A365D" stroke-width="4" />
+  <path d="M320 140L280 140" stroke="#1A365D" stroke-width="4" />
+  <path d="M310 130L290 150" stroke="#D32F2F" stroke-width="4" />
+  <path d="M290 130L310 150" stroke="#D32F2F" stroke-width="4" />
+  
+  <!-- Stars -->
+  <path d="M500 60L504 70H514L506 76L510 86L500 80L490 86L494 76L486 70H496L500 60Z" fill="#FFC107" />
+  <path d="M540 100L543 107H550L544 111L547 118L540 114L533 118L536 111L530 107H537L540 100Z" fill="#FFC107" />
+  <path d="M460 30L463 37H470L464 41L467 48L460 44L453 48L456 41L450 37H457L460 30Z" fill="#FFC107" />
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="paint0_linear" x1="300" y1="0" x2="300" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A365D" stop-opacity="0" />
+      <stop offset="1" stop-color="#1A365D" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+</svg> 
