@@ -1,0 +1,93 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f5f7fa" />
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="60" fill="#2c3e50" />
+  <text x="30" y="38" font-family="Arial" font-size="22" fill="white" font-weight="bold">REDIACC</text>
+  
+  <!-- User Info -->
+  <circle cx="760" cy="30" r="20" fill="#4a7aff" />
+  <text x="760" y="35" font-family="Arial" font-size="14" text-anchor="middle" fill="white">A</text>
+  
+  <!-- Sidebar Navigation -->
+  <rect x="0" y="60" width="200" height="540" fill="#2c3e50" />
+  
+  <!-- Navigation Items -->
+  <text x="20" y="135" font-family="Arial" font-size="14" fill="#b8c2cc">Dashboard</text>
+  <text x="20" y="175" font-family="Arial" font-size="14" fill="#b8c2cc">Infrastructure</text>
+  <text x="20" y="215" font-family="Arial" font-size="14" fill="#b8c2cc">Team Management</text>
+  
+  <rect x="0" y="230" width="200" height="40" fill="#3498db" />
+  <text x="20" y="255" font-family="Arial" font-size="14" fill="white">Resources</text>
+  
+  <text x="40" y="290" font-family="Arial" font-size="14" fill="#ffffff">Repositories</text>
+  <text x="40" y="320" font-family="Arial" font-size="14" fill="#b8c2cc">Storage</text>
+  <text x="40" y="350" font-family="Arial" font-size="14" fill="#b8c2cc">Schedules</text>
+  
+  <text x="20" y="390" font-family="Arial" font-size="14" fill="#b8c2cc">Operations</text>
+  <text x="20" y="430" font-family="Arial" font-size="14" fill="#b8c2cc">Administration</text>
+  
+  <!-- Page Title and Buttons -->
+  <text x="220" y="100" font-family="Arial" font-size="24" fill="#333" font-weight="bold">Repositories</text>
+  
+  <!-- Team Selector -->
+  <rect x="220" y="80" width="200" height="35" rx="4" fill="white" stroke="#cfd4da" stroke-width="1" />
+  <text x="235" y="104" font-family="Arial" font-size="14" fill="#333">Development Team</text>
+  <text x="400" y="104" font-family="Arial" font-size="14" fill="#333">▼</text>
+  
+  <rect x="680" y="80" width="100" height="35" rx="4" fill="#4a7aff" />
+  <text x="730" y="104" font-family="Arial" font-size="14" text-anchor="middle" fill="white" font-weight="bold">Add Repo</text>
+  
+  <!-- Table Header -->
+  <rect x="220" y="130" width="560" height="40" rx="4" fill="#f1f5f9" />
+  <text x="240" y="155" font-family="Arial" font-size="14" fill="#333" font-weight="bold">Repository Name</text>
+  <text x="420" y="155" font-family="Arial" font-size="14" fill="#333" font-weight="bold">Size</text>
+  <text x="520" y="155" font-family="Arial" font-size="14" fill="#333" font-weight="bold">Last Updated</text>
+  <text x="730" y="155" font-family="Arial" font-size="14" fill="#333" font-weight="bold">Actions</text>
+  
+  <!-- Table Rows -->
+  <rect x="220" y="170" width="560" height="50" fill="white" stroke="#e1e5eb" stroke-width="1" />
+  <text x="240" y="200" font-family="Arial" font-size="14" fill="#333">Frontend Code</text>
+  <text x="420" y="200" font-family="Arial" font-size="14" fill="#333">256 MB</text>
+  <text x="520" y="200" font-family="Arial" font-size="14" fill="#333">2025-04-25 09:30</text>
+  <text x="720" y="200" font-family="Arial" font-size="14" fill="#4a7aff">Edit</text>
+  <text x="760" y="200" font-family="Arial" font-size="14" fill="#ff4a4a">Remove</text>
+  
+  <rect x="220" y="220" width="560" height="50" fill="white" stroke="#e1e5eb" stroke-width="1" />
+  <text x="240" y="250" font-family="Arial" font-size="14" fill="#333">Backend API</text>
+  <text x="420" y="250" font-family="Arial" font-size="14" fill="#333">128 MB</text>
+  <text x="520" y="250" font-family="Arial" font-size="14" fill="#333">2025-04-24 16:45</text>
+  <text x="720" y="250" font-family="Arial" font-size="14" fill="#4a7aff">Edit</text>
+  <text x="760" y="250" font-family="Arial" font-size="14" fill="#ff4a4a">Remove</text>
+  
+  <rect x="220" y="270" width="560" height="50" fill="white" stroke="#e1e5eb" stroke-width="1" />
+  <text x="240" y="300" font-family="Arial" font-size="14" fill="#333">Database Schema</text>
+  <text x="420" y="300" font-family="Arial" font-size="14" fill="#333">64 MB</text>
+  <text x="520" y="300" font-family="Arial" font-size="14" fill="#333">2025-04-23 14:20</text>
+  <text x="720" y="300" font-family="Arial" font-size="14" fill="#4a7aff">Edit</text>
+  <text x="760" y="300" font-family="Arial" font-size="14" fill="#ff4a4a">Remove</text>
+  
+  <!-- Add Repository Modal -->
+  <rect x="200" y="150" width="400" height="300" rx="8" fill="white" stroke="#e1e5eb" stroke-width="1" />
+  <rect x="200" y="150" width="400" height="50" rx="8" fill="#f1f5f9" />
+  <text x="220" y="180" font-family="Arial" font-size="16" fill="#333" font-weight="bold">Add Repository</text>
+  <text x="580" y="180" font-family="Arial" font-size="16" fill="#999">×</text>
+  
+  <!-- Form Fields -->
+  <text x="220" y="220" font-family="Arial" font-size="14" fill="#333">Repository Name:</text>
+  <rect x="220" y="230" width="360" height="35" rx="4" fill="white" stroke="#cfd4da" stroke-width="1" />
+  
+  <text x="220" y="290" font-family="Arial" font-size="14" fill="#333">Repository Information:</text>
+  <rect x="220" y="300" width="360" height="80" rx="4" fill="white" stroke="#cfd4da" stroke-width="1" />
+  
+  <!-- Vault Fields (with lock icon to indicate encryption) -->
+  <text x="220" y="400" font-family="Arial" font-size="14" fill="#333">Credentials (Encrypted):</text>
+  <rect x="220" y="410" width="360" height="35" rx="4" fill="white" stroke="#cfd4da" stroke-width="1" />
+  <circle cx="570" cy="427" r="10" fill="#f1f5f9" />
+  <text x="570" y="432" font-family="Arial" font-size="12" text-anchor="middle" fill="#666">🔒</text>
+  
+  <!-- Submit Button -->
+  <rect x="470" y="390" width="110" height="35" rx="4" fill="#4a7aff" />
+  <text x="525" y="413" font-family="Arial" font-size="14" text-anchor="middle" fill="white" font-weight="bold">Save</text>
+</svg>

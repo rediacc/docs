@@ -1,0 +1,76 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f5f7fa" />
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="60" fill="#2c3e50" />
+  <text x="30" y="38" font-family="Arial" font-size="22" fill="white" font-weight="bold">REDIACC</text>
+  
+  <!-- User Info -->
+  <circle cx="760" cy="30" r="20" fill="#4a7aff" />
+  <text x="760" y="35" font-family="Arial" font-size="14" text-anchor="middle" fill="white">A</text>
+  
+  <!-- Sidebar Navigation -->
+  <rect x="0" y="60" width="200" height="540" fill="#2c3e50" />
+  
+  <!-- Navigation Items -->
+  <text x="20" y="135" font-family="Arial" font-size="14" fill="#b8c2cc">Dashboard</text>
+  <text x="20" y="175" font-family="Arial" font-size="14" fill="#b8c2cc">Infrastructure</text>
+  
+  <rect x="0" y="190" width="200" height="40" fill="#3498db" />
+  <text x="20" y="215" font-family="Arial" font-size="14" fill="white">Team Management</text>
+  
+  <text x="40" y="250" font-family="Arial" font-size="14" fill="#ffffff">Teams</text>
+  <text x="40" y="280" font-family="Arial" font-size="14" fill="#b8c2cc">Participants</text>
+  
+  <text x="20" y="320" font-family="Arial" font-size="14" fill="#b8c2cc">Resources</text>
+  <text x="20" y="360" font-family="Arial" font-size="14" fill="#b8c2cc">Operations</text>
+  <text x="20" y="400" font-family="Arial" font-size="14" fill="#b8c2cc">Administration</text>
+  
+  <!-- Page Title and Buttons -->
+  <text x="220" y="100" font-family="Arial" font-size="24" fill="#333" font-weight="bold">Teams</text>
+  
+  <rect x="680" y="80" width="100" height="35" rx="4" fill="#4a7aff" />
+  <text x="730" y="104" font-family="Arial" font-size="14" text-anchor="middle" fill="white" font-weight="bold">Add Team</text>
+  
+  <!-- Table Header -->
+  <rect x="220" y="130" width="560" height="40" rx="4" fill="#f1f5f9" />
+  <text x="240" y="155" font-family="Arial" font-size="14" fill="#333" font-weight="bold">Team Name</text>
+  <text x="380" y="155" font-family="Arial" font-size="14" fill="#333" font-weight="bold">Members</text>
+  <text x="470" y="155" font-family="Arial" font-size="14" fill="#333" font-weight="bold">Machines</text>
+  <text x="570" y="155" font-family="Arial" font-size="14" fill="#333" font-weight="bold">Repositories</text>
+  <text x="730" y="155" font-family="Arial" font-size="14" fill="#333" font-weight="bold">Actions</text>
+  
+  <!-- Table Rows -->
+  <rect x="220" y="170" width="560" height="50" fill="white" stroke="#e1e5eb" stroke-width="1" />
+  <text x="240" y="200" font-family="Arial" font-size="14" fill="#333">Development Team</text>
+  <text x="380" y="200" font-family="Arial" font-size="14" fill="#333">8</text>
+  <text x="470" y="200" font-family="Arial" font-size="14" fill="#333">5</text>
+  <text x="570" y="200" font-family="Arial" font-size="14" fill="#333">3</text>
+  <text x="700" y="200" font-family="Arial" font-size="14" fill="#4a7aff">Edit</text>
+  <text x="740" y="200" font-family="Arial" font-size="14" fill="#ff4a4a">Remove</text>
+  
+  <rect x="220" y="220" width="560" height="50" fill="white" stroke="#e1e5eb" stroke-width="1" />
+  <text x="240" y="250" font-family="Arial" font-size="14" fill="#333">Operations Team</text>
+  <text x="380" y="250" font-family="Arial" font-size="14" fill="#333">6</text>
+  <text x="470" y="250" font-family="Arial" font-size="14" fill="#333">10</text>
+  <text x="570" y="250" font-family="Arial" font-size="14" fill="#333">2</text>
+  <text x="700" y="250" font-family="Arial" font-size="14" fill="#4a7aff">Edit</text>
+  <text x="740" y="250" font-family="Arial" font-size="14" fill="#ff4a4a">Remove</text>
+  
+  <rect x="220" y="270" width="560" height="50" fill="white" stroke="#e1e5eb" stroke-width="1" />
+  <text x="240" y="300" font-family="Arial" font-size="14" fill="#333">Security Team</text>
+  <text x="380" y="300" font-family="Arial" font-size="14" fill="#333">4</text>
+  <text x="470" y="300" font-family="Arial" font-size="14" fill="#333">2</text>
+  <text x="570" y="300" font-family="Arial" font-size="14" fill="#333">1</text>
+  <text x="700" y="300" font-family="Arial" font-size="14" fill="#4a7aff">Edit</text>
+  <text x="740" y="300" font-family="Arial" font-size="14" fill="#ff4a4a">Remove</text>
+  
+  <rect x="220" y="320" width="560" height="50" fill="white" stroke="#e1e5eb" stroke-width="1" />
+  <text x="240" y="350" font-family="Arial" font-size="14" fill="#333">Default Team</text>
+  <text x="380" y="350" font-family="Arial" font-size="14" fill="#333">2</text>
+  <text x="470" y="350" font-family="Arial" font-size="14" fill="#333">1</text>
+  <text x="570" y="350" font-family="Arial" font-size="14" fill="#333">0</text>
+  <text x="700" y="350" font-family="Arial" font-size="14" fill="#4a7aff">Edit</text>
+  <text x="740" y="350" font-family="Arial" font-size="14" fill="#ff4a4a">Remove</text>
+</svg>

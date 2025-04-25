@@ -1,0 +1,93 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f5f7fa" />
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="60" fill="#2c3e50" />
+  <text x="30" y="38" font-family="Arial" font-size="22" fill="white" font-weight="bold">REDIACC</text>
+  
+  <!-- User Info -->
+  <circle cx="760" cy="30" r="20" fill="#4a7aff" />
+  <text x="760" y="35" font-family="Arial" font-size="14" text-anchor="middle" fill="white">A</text>
+  
+  <!-- Sidebar Navigation -->
+  <rect x="0" y="60" width="200" height="540" fill="#2c3e50" />
+  
+  <!-- Navigation Items -->
+  <text x="20" y="135" font-family="Arial" font-size="14" fill="#b8c2cc">Dashboard</text>
+  <text x="20" y="175" font-family="Arial" font-size="14" fill="#b8c2cc">Infrastructure</text>
+  <text x="20" y="215" font-family="Arial" font-size="14" fill="#b8c2cc">Team Management</text>
+  <text x="20" y="255" font-family="Arial" font-size="14" fill="#b8c2cc">Resources</text>
+  <text x="20" y="295" font-family="Arial" font-size="14" fill="#b8c2cc">Operations</text>
+  
+  <rect x="0" y="310" width="200" height="40" fill="#3498db" />
+  <text x="20" y="335" font-family="Arial" font-size="14" fill="white">Administration</text>
+  
+  <text x="40" y="370" font-family="Arial" font-size="14" fill="#ffffff">Company Settings</text>
+  <text x="40" y="400" font-family="Arial" font-size="14" fill="#b8c2cc">User Management</text>
+  
+  <!-- Page Title -->
+  <text x="220" y="100" font-family="Arial" font-size="24" fill="#333" font-weight="bold">Company Settings</text>
+  
+  <!-- Save Button -->
+  <rect x="680" y="80" width="100" height="35" rx="4" fill="#4a7aff" />
+  <text x="730" y="104" font-family="Arial" font-size="14" text-anchor="middle" fill="white" font-weight="bold">Save</text>
+  
+  <!-- Settings Form -->
+  <rect x="220" y="130" width="560" height="450" rx="8" fill="white" stroke="#e1e5eb" stroke-width="1" />
+  
+  <!-- Basic Information Section -->
+  <text x="240" y="160" font-family="Arial" font-size="18" fill="#333" font-weight="bold">Basic Information</text>
+  <line x1="240" y1="170" x2="760" y2="170" stroke="#e1e5eb" stroke-width="1" />
+  
+  <text x="240" y="200" font-family="Arial" font-size="14" fill="#333">Company Name:</text>
+  <rect x="240" y="210" width="520" height="35" rx="4" fill="white" stroke="#cfd4da" stroke-width="1" />
+  <text x="250" y="233" font-family="Arial" font-size="14" fill="#333">Acme Technologies</text>
+  
+  <text x="240" y="270" font-family="Arial" font-size="14" fill="#333">Company Logo:</text>
+  <rect x="240" y="280" width="100" height="35" rx="4" fill="#f1f5f9" stroke="#cfd4da" stroke-width="1" />
+  <text x="290" y="303" font-family="Arial" font-size="14" fill="#333" text-anchor="middle">Upload</text>
+  
+  <!-- Contact Information Section -->
+  <text x="240" y="350" font-family="Arial" font-size="18" fill="#333" font-weight="bold">Contact Information</text>
+  <line x1="240" y1="360" x2="760" y2="360" stroke="#e1e5eb" stroke-width="1" />
+  
+  <text x="240" y="390" font-family="Arial" font-size="14" fill="#333">Primary Email:</text>
+  <rect x="240" y="400" width="520" height="35" rx="4" fill="white" stroke="#cfd4da" stroke-width="1" />
+  <text x="250" y="423" font-family="Arial" font-size="14" fill="#333">info@acme.com</text>
+  
+  <text x="240" y="460" font-family="Arial" font-size="14" fill="#333">Address:</text>
+  <rect x="240" y="470" width="520" height="70" rx="4" fill="white" stroke="#cfd4da" stroke-width="1" />
+  <text x="250" y="493" font-family="Arial" font-size="14" fill="#333">123 Main Street</text>
+  <text x="250" y="513" font-family="Arial" font-size="14" fill="#333">San Francisco, CA 94105</text>
+  
+  <!-- System Preferences Section -->
+  <text x="240" y="570" font-family="Arial" font-size="18" fill="#333" font-weight="bold">System Preferences</text>
+  <line x1="240" y1="580" x2="760" y2="580" stroke="#e1e5eb" stroke-width="1" />
+  
+  <text x="240" y="600" font-family="Arial" font-size="14" fill="#333">Default Timezone:</text>
+  <rect x="240" y="610" width="250" height="35" rx="4" fill="white" stroke="#cfd4da" stroke-width="1" />
+  <text x="250" y="633" font-family="Arial" font-size="14" fill="#333">America/Los_Angeles (UTC-07:00)</text>
+  <text x="480" y="633" font-family="Arial" font-size="14" fill="#333">▼</text>
+  
+  <text x="510" y="600" font-family="Arial" font-size="14" fill="#333">Default Language:</text>
+  <rect x="510" y="610" width="250" height="35" rx="4" fill="white" stroke="#cfd4da" stroke-width="1" />
+  <text x="520" y="633" font-family="Arial" font-size="14" fill="#333">English (US)</text>
+  <text x="750" y="633" font-family="Arial" font-size="14" fill="#333">▼</text>
+  
+  <!-- Hidden/Encrypted Fields Section -->
+  <text x="240" y="660" font-family="Arial" font-size="18" fill="#333" font-weight="bold">Security Settings</text>
+  <line x1="240" y1="670" x2="760" y2="670" stroke="#e1e5eb" stroke-width="1" />
+  
+  <text x="240" y="700" font-family="Arial" font-size="14" fill="#333">API Keys (Encrypted):</text>
+  <rect x="240" y="710" width="520" height="35" rx="4" fill="white" stroke="#cfd4da" stroke-width="1" />
+  <text x="250" y="733" font-family="Arial" font-size="14" fill="#333">••••••••••••••••••••••••</text>
+  <circle cx="750" cy="727" r="10" fill="#f1f5f9" />
+  <text x="750" y="732" font-family="Arial" font-size="12" text-anchor="middle" fill="#666">🔒</text>
+  
+  <text x="240" y="760" font-family="Arial" font-size="14" fill="#333">Authentication Settings (Encrypted):</text>
+  <rect x="240" y="770" width="520" height="35" rx="4" fill="white" stroke="#cfd4da" stroke-width="1" />
+  <text x="250" y="793" font-family="Arial" font-size="14" fill="#333">••••••••••••••••••••••••</text>
+  <circle cx="750" cy="787" r="10" fill="#f1f5f9" />
+  <text x="750" y="792" font-family="Arial" font-size="12" text-anchor="middle" fill="#666">🔒</text>
+</svg>
