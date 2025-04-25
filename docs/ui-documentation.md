@@ -8,6 +8,38 @@ sidebar_position: 3
 
 The Rediacc web application is designed to provide a comprehensive management interface for the Rediacc system, which allows software and large data to operate across different machines without requiring installation. The interface provides a logical hierarchy of navigation and functionality based on the system's architecture.
 
+### Key Features and Pages
+
+#### Authentication & Registration
+- Login page for existing users
+- Registration form for new companies
+
+#### Dashboard
+- Overview of system statistics (machines, queue items, teams, repositories)
+- Recent activity log
+- System status information
+
+#### Infrastructure Management
+- Regions: Geographic or logical divisions for system deployment
+- Bridges: Connection points within regions that facilitate communication
+- Machines: Servers and other computing resources assigned to teams and bridges
+
+#### Team Management
+- Teams: Logical groupings of users and resources
+- Participants: User membership management within teams
+
+#### Resource Management
+- Repositories: Code storage that teams can access
+- Storage: Data storage configurations
+- Schedules: Automated tasks and operations
+
+#### Operations
+- Queue Management: Task submission and processing across machines
+
+#### Administration
+- Company Settings: Organization-wide configuration
+- User Management: User account administration
+
 This document outlines the UI structure, navigation, page details, data fields, and user flows of the application.
 
 ## Navigation Menu Structure
