@@ -97,6 +97,12 @@ const config = {
           {to: '/docs/about/founders-story', label: 'About', position: 'left'},
           {to: '/blog', label: 'Blog', position: 'left'},
           {
+            href: '/web/index.html',
+            label: 'Web App',
+            position: 'right',
+            target: '_blank',
+          },
+          {
             href: 'https://github.com/rediacc/rediacc',
             label: 'GitHub',
             position: 'right',
