@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participants</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Participants</h1>
+            <button class="btn" onclick="toggleModal('addUserModal')">Add User</button>
+        </div>
+        
+        <div class="page-filters">
+            <select class="filter-select" id="team-filter">
+                <option value="development">Development Team</option>
+                <option value="operations">Operations Team</option>
+                <option value="security">Security Team</option>
+                <option value="default">Default Team</option>
+            </select>
+        </div>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>User Email</th>
+                    <th>Status</th>
+                    <th>Last Login</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>john.smith@acme.com</td>
+                    <td>
+                        <span class="badge badge-success">Active</span>
+                    </td>
+                    <td>2025-04-25 09:15</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>sarah.jones@acme.com</td>
+                    <td>
+                        <span class="badge badge-success">Active</span>
+                    </td>
+                    <td>2025-04-25 08:45</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>mike.white@acme.com</td>
+                    <td>
+                        <span class="badge badge-success">Active</span>
+                    </td>
+                    <td>2025-04-24 17:30</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>alex.chen@acme.com</td>
+                    <td>
+                        <span class="badge badge-danger">Inactive</span>
+                    </td>
+                    <td>2025-04-23 14:20</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>rachel.green@acme.com</td>
+                    <td>
+                        <span class="badge badge-warning">Pending</span>
+                    </td>
+                    <td>-</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Add User Modal -->
+        <div id="addUserModal" class="modal hidden">
+            <div class="modal-header">
+                <h3 class="modal-title">Add User to Team</h3>
+                <button class="modal-close" onclick="toggleModal('addUserModal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="user-email">User Email</label>
+                <input type="email" id="user-email" class="form-control" placeholder="Enter user email">
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="toggleModal('addUserModal')">Cancel</button>
+                <button class="btn">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('participants');
+            }
+            
+            // Add event listeners to the team filter
+            document.getElementById('team-filter').addEventListener('change', function() {
+                loadParticipantsData(this.value);
+            });
+            
+            // Load participants data for the selected team
+            loadParticipantsData('development');
+        });
+
+        function loadParticipantsData(teamId) {
+            // This would normally be an API call to fetch data
+            console.log(`Loading participants data for team: ${teamId}`);
+        }
+
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                if (modal.classList.contains('hidden')) {
+                    modal.classList.remove('hidden');
+                } else {
+                    modal.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

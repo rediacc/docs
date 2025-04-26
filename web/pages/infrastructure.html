@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infrastructure</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Infrastructure Overview</h1>
+        </div>
+        
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">Regions</div>
+                <div class="card-value">4</div>
+                <a href="javascript:void(0);" onclick="navigateTo('regions')" class="btn" style="margin-top: 15px;">Manage Regions</a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Bridges</div>
+                <div class="card-value">7</div>
+                <a href="javascript:void(0);" onclick="navigateTo('bridges')" class="btn" style="margin-top: 15px;">Manage Bridges</a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Machines</div>
+                <div class="card-value">24</div>
+                <a href="javascript:void(0);" onclick="navigateTo('machines')" class="btn" style="margin-top: 15px;">Manage Machines</a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Total Queue Items</div>
+                <div class="card-value">12</div>
+                <a href="javascript:void(0);" onclick="navigateTo('queue')" class="btn" style="margin-top: 15px;">View Queue</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Infrastructure Health</div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Status</th>
+                        <th>Uptime</th>
+                        <th>Last Check</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Production Bridge 1</td>
+                        <td>
+                            <span class="status-indicator status-online"></span>
+                            Online
+                        </td>
+                        <td>5d 12h 34m</td>
+                        <td>2025-04-25 09:45</td>
+                    </tr>
+                    <tr>
+                        <td>Development Bridge</td>
+                        <td>
+                            <span class="status-indicator status-online"></span>
+                            Online
+                        </td>
+                        <td>3d 08h 22m</td>
+                        <td>2025-04-25 09:45</td>
+                    </tr>
+                    <tr>
+                        <td>Testing Bridge</td>
+                        <td>
+                            <span class="status-indicator status-degraded"></span>
+                            Degraded
+                        </td>
+                        <td>1d 15h 48m</td>
+                        <td>2025-04-25 09:45</td>
+                    </tr>
+                    <tr>
+                        <td>Database Service</td>
+                        <td>
+                            <span class="status-indicator status-online"></span>
+                            Online
+                        </td>
+                        <td>10d 06h 12m</td>
+                        <td>2025-04-25 09:45</td>
+                    </tr>
+                    <tr>
+                        <td>Authentication Service</td>
+                        <td>
+                            <span class="status-indicator status-online"></span>
+                            Online
+                        </td>
+                        <td>10d 06h 12m</td>
+                        <td>2025-04-25 09:45</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Recent Infrastructure Events</div>
+            <ul class="activity-feed">
+                <li class="activity-item">
+                    <div class="activity-message">Machine 'Web Server 1' was added to Production Bridge 1</div>
+                    <div class="activity-time">5 mins ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message">Testing Bridge reported performance degradation</div>
+                    <div class="activity-time">35 mins ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message">New region 'Asian Data Center' was created</div>
+                    <div class="activity-time">2 hours ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message">Machine 'Test Server' went offline</div>
+                    <div class="activity-time">12 hours ago</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('infrastructure');
+            }
+            
+            // Load infrastructure data
+            loadInfrastructureData();
+        });
+
+        function loadInfrastructureData() {
+            // This would normally be an API call to fetch data
+            console.log("Loading infrastructure data...");
+        }
+        
+        function navigateTo(page) {
+            // Navigate to the specified page using the parent window function
+            if (window.parent && window.parent.loadPage) {
+                window.parent.loadPage(page);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDIACC</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/content.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Main Header -->
+        <header class="main-header">
+            <div class="logo">REDIACC</div>
+            <div class="user-profile">
+                <div class="avatar">A</div>
+            </div>
+        </header>
+
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <ul class="nav-menu">
+                <li class="nav-item" data-page="dashboard">
+                    <a href="javascript:void(0);" onclick="loadPage('dashboard')">Dashboard</a>
+                </li>
+                <li class="nav-item" data-page="infrastructure">
+                    <a href="javascript:void(0);" onclick="loadPage('infrastructure')">Infrastructure</a>
+                    <ul class="sub-menu">
+                        <li><a href="javascript:void(0);" onclick="loadPage('regions')">Regions</a></li>
+                        <li><a href="javascript:void(0);" onclick="loadPage('bridges')">Bridges</a></li>
+                        <li><a href="javascript:void(0);" onclick="loadPage('machines')">Machines</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item" data-page="team-management">
+                    <a href="javascript:void(0);" onclick="loadPage('team-management')">Team Management</a>
+                    <ul class="sub-menu">
+                        <li><a href="javascript:void(0);" onclick="loadPage('teams')">Teams</a></li>
+                        <li><a href="javascript:void(0);" onclick="loadPage('participants')">Participants</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item" data-page="resources">
+                    <a href="javascript:void(0);" onclick="loadPage('resources')">Resources</a>
+                    <ul class="sub-menu">
+                        <li><a href="javascript:void(0);" onclick="loadPage('repositories')">Repositories</a></li>
+                        <li><a href="javascript:void(0);" onclick="loadPage('storage')">Storage</a></li>
+                        <li><a href="javascript:void(0);" onclick="loadPage('schedules')">Schedules</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item" data-page="operations">
+                    <a href="javascript:void(0);" onclick="loadPage('operations')">Operations</a>
+                    <ul class="sub-menu">
+                        <li><a href="javascript:void(0);" onclick="loadPage('queue')">Queue Management</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item" data-page="administration">
+                    <a href="javascript:void(0);" onclick="loadPage('administration')">Administration</a>
+                    <ul class="sub-menu">
+                        <li><a href="javascript:void(0);" onclick="loadPage('company-settings')">Company Settings</a></li>
+                        <li><a href="javascript:void(0);" onclick="loadPage('user-management')">User Management</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <iframe id="content-frame" src="pages/dashboard.html" frameborder="0"></iframe>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

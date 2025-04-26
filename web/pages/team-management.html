@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Management</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Team Management Overview</h1>
+        </div>
+        
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">Teams</div>
+                <div class="card-value">4</div>
+                <a href="javascript:void(0);" onclick="navigateTo('teams')" class="btn" style="margin-top: 15px;">Manage Teams</a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Total Members</div>
+                <div class="card-value">20</div>
+                <a href="javascript:void(0);" onclick="navigateTo('participants')" class="btn" style="margin-top: 15px;">Manage Participants</a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Average Team Size</div>
+                <div class="card-value">5</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Active Sessions</div>
+                <div class="card-value">12</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Team Structure</div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Team Name</th>
+                        <th>Members</th>
+                        <th>Resources</th>
+                        <th>Machines</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Development Team</td>
+                        <td>8</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td class="action-links">
+                            <a href="javascript:void(0);" onclick="viewTeamDetails('development')" class="action-link edit-link">View Details</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Operations Team</td>
+                        <td>6</td>
+                        <td>5</td>
+                        <td>10</td>
+                        <td class="action-links">
+                            <a href="javascript:void(0);" onclick="viewTeamDetails('operations')" class="action-link edit-link">View Details</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Security Team</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td class="action-links">
+                            <a href="javascript:void(0);" onclick="viewTeamDetails('security')" class="action-link edit-link">View Details</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Default Team</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td class="action-links">
+                            <a href="javascript:void(0);" onclick="viewTeamDetails('default')" class="action-link edit-link">View Details</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Recent Team Activity</div>
+            <ul class="activity-feed">
+                <li class="activity-item">
+                    <div class="activity-message">User 'rachel.green@acme.com' added to Development Team</div>
+                    <div class="activity-time">25 mins ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message">New repository 'Frontend Code' created for Development Team</div>
+                    <div class="activity-time">2 hours ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message">Machine 'Web Server 1' assigned to Operations Team</div>
+                    <div class="activity-time">3 hours ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message">Security Team created</div>
+                    <div class="activity-time">1 day ago</div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">User Distribution</div>
+            <div style="padding: 20px; display: flex; justify-content: space-around; align-items: center;">
+                <div style="text-align: center;">
+                    <div style="font-weight: bold; font-size: 16px; margin-bottom: 10px;">Development Team</div>
+                    <div style="width: 100px; height: 100px; border-radius: 50%; background-color: #4e73df; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 24px;">8</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-weight: bold; font-size: 16px; margin-bottom: 10px;">Operations Team</div>
+                    <div style="width: 100px; height: 100px; border-radius: 50%; background-color: #1cc88a; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 24px;">6</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-weight: bold; font-size: 16px; margin-bottom: 10px;">Security Team</div>
+                    <div style="width: 100px; height: 100px; border-radius: 50%; background-color: #36b9cc; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 24px;">4</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-weight: bold; font-size: 16px; margin-bottom: 10px;">Default Team</div>
+                    <div style="width: 100px; height: 100px; border-radius: 50%; background-color: #f6c23e; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 24px;">2</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('team-management');
+            }
+            
+            // Load team management data
+            loadTeamManagementData();
+        });
+
+        function loadTeamManagementData() {
+            // This would normally be an API call to fetch data
+            console.log("Loading team management data...");
+        }
+        
+        function navigateTo(page) {
+            // Navigate to the specified page using the parent window function
+            if (window.parent && window.parent.loadPage) {
+                window.parent.loadPage(page);
+            }
+        }
+        
+        function viewTeamDetails(teamId) {
+            // Navigate to the teams page with the specific team selected
+            navigateTo('teams');
+            // In a real application, we would also pass the team ID to pre-select
+            console.log("Viewing details for team: " + teamId);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machines</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Machines</h1>
+            <button class="btn" onclick="toggleModal('addMachineModal')">Add Machine</button>
+        </div>
+        
+        <div class="page-filters">
+            <select class="filter-select" id="team-filter">
+                <option value="development">Development Team</option>
+                <option value="operations">Operations Team</option>
+                <option value="security">Security Team</option>
+                <option value="default">Default Team</option>
+            </select>
+            
+            <select class="filter-select" id="bridge-filter">
+                <option value="production1">Production Bridge 1</option>
+                <option value="development">Development Bridge</option>
+                <option value="testing">Testing Bridge</option>
+            </select>
+        </div>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Machine Name</th>
+                    <th>Bridge</th>
+                    <th>Status</th>
+                    <th>Queue Items</th>
+                    <th>Last Activity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Web Server 1</td>
+                    <td>Production Bridge 1</td>
+                    <td>
+                        <span class="status-indicator status-online"></span>
+                        Online
+                    </td>
+                    <td>3</td>
+                    <td>2025-04-25 09:10</td>
+                    <td class="action-links">
+                        <div class="dropdown">
+                            <span class="action-link">•••</span>
+                            <div class="dropdown-content">
+                                <a href="#">Edit</a>
+                                <a href="#">Change Bridge</a>
+                                <a href="#">View Queue</a>
+                                <a href="#" class="text-danger">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Web Server 2</td>
+                    <td>Production Bridge 1</td>
+                    <td>
+                        <span class="status-indicator status-online"></span>
+                        Online
+                    </td>
+                    <td>1</td>
+                    <td>2025-04-25 08:45</td>
+                    <td class="action-links">
+                        <div class="dropdown">
+                            <span class="action-link">•••</span>
+                            <div class="dropdown-content">
+                                <a href="#">Edit</a>
+                                <a href="#">Change Bridge</a>
+                                <a href="#">View Queue</a>
+                                <a href="#" class="text-danger">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>DB Server 1</td>
+                    <td>Production Bridge 1</td>
+                    <td>
+                        <span class="status-indicator status-degraded"></span>
+                        Degraded
+                    </td>
+                    <td>2</td>
+                    <td>2025-04-25 08:30</td>
+                    <td class="action-links">
+                        <div class="dropdown">
+                            <span class="action-link">•••</span>
+                            <div class="dropdown-content">
+                                <a href="#">Edit</a>
+                                <a href="#">Change Bridge</a>
+                                <a href="#">View Queue</a>
+                                <a href="#" class="text-danger">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Test Server</td>
+                    <td>Testing Bridge</td>
+                    <td>
+                        <span class="status-indicator status-offline"></span>
+                        Offline
+                    </td>
+                    <td>0</td>
+                    <td>2025-04-24 17:45</td>
+                    <td class="action-links">
+                        <div class="dropdown">
+                            <span class="action-link">•••</span>
+                            <div class="dropdown-content">
+                                <a href="#">Edit</a>
+                                <a href="#">Change Bridge</a>
+                                <a href="#">View Queue</a>
+                                <a href="#" class="text-danger">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Add Machine Modal -->
+        <div id="addMachineModal" class="modal hidden">
+            <div class="modal-header">
+                <h3 class="modal-title">Add Machine</h3>
+                <button class="modal-close" onclick="toggleModal('addMachineModal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="machine-name">Machine Name</label>
+                <input type="text" id="machine-name" class="form-control" placeholder="Enter machine name">
+            </div>
+            <div class="form-group">
+                <label for="machine-team">Team</label>
+                <select id="machine-team" class="form-control">
+                    <option value="development">Development Team</option>
+                    <option value="operations">Operations Team</option>
+                    <option value="security">Security Team</option>
+                    <option value="default">Default Team</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="machine-bridge">Bridge</label>
+                <select id="machine-bridge" class="form-control">
+                    <option value="production1">Production Bridge 1</option>
+                    <option value="development">Development Bridge</option>
+                    <option value="testing">Testing Bridge</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="machine-config">Machine Configuration (Encrypted)</label>
+                <textarea id="machine-config" class="form-control" rows="4"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="toggleModal('addMachineModal')">Cancel</button>
+                <button class="btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('machines');
+            }
+            
+            // Add event listeners to the filters
+            document.getElementById('team-filter').addEventListener('change', function() {
+                filterMachines();
+            });
+            
+            document.getElementById('bridge-filter').addEventListener('change', function() {
+                filterMachines();
+            });
+            
+            // Load machine data
+            loadMachineData();
+        });
+
+        function loadMachineData() {
+            // This would normally be an API call to fetch data
+            console.log("Loading machine data...");
+        }
+
+        function filterMachines() {
+            const teamId = document.getElementById('team-filter').value;
+            const bridgeId = document.getElementById('bridge-filter').value;
+            
+            // This would normally filter the data based on selection
+            console.log(`Filtering machines by team: ${teamId} and bridge: ${bridgeId}`);
+        }
+
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                if (modal.classList.contains('hidden')) {
+                    modal.classList.remove('hidden');
+                } else {
+                    modal.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

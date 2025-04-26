@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Storage</h1>
+            <button class="btn" onclick="toggleModal('addStorageModal')">Add Storage</button>
+        </div>
+        
+        <div class="page-filters">
+            <select class="filter-select" id="team-filter">
+                <option value="operations">Operations Team</option>
+                <option value="development">Development Team</option>
+                <option value="security">Security Team</option>
+                <option value="default">Default Team</option>
+            </select>
+        </div>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Storage Name</th>
+                    <th>Size</th>
+                    <th>Type</th>
+                    <th>Location</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Main Storage</td>
+                    <td>2 TB</td>
+                    <td>Blob</td>
+                    <td>US-East</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Backup Storage</td>
+                    <td>5 TB</td>
+                    <td>S3</td>
+                    <td>US-West</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Archive</td>
+                    <td>10 TB</td>
+                    <td>Glacier</td>
+                    <td>US-Central</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Edit Storage Modal -->
+        <div id="editStorageModal" class="modal hidden">
+            <div class="modal-header">
+                <h3 class="modal-title">Edit Storage</h3>
+                <button class="modal-close" onclick="toggleModal('editStorageModal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="edit-storage-name">Storage Name:</label>
+                <input type="text" id="edit-storage-name" class="form-control" value="Backup Storage">
+            </div>
+            <div class="form-group">
+                <label for="edit-storage-type">Type:</label>
+                <input type="text" id="edit-storage-type" class="form-control" value="S3">
+            </div>
+            <div class="form-group">
+                <label for="edit-storage-location">Location:</label>
+                <input type="text" id="edit-storage-location" class="form-control" value="US-West">
+            </div>
+            <div class="form-group">
+                <label for="edit-storage-connection">Connection String (Encrypted):</label>
+                <input type="password" id="edit-storage-connection" class="form-control" value="••••••••••••••••••••••••">
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="toggleModal('editStorageModal')">Cancel</button>
+                <button class="btn">Save</button>
+            </div>
+        </div>
+        
+        <!-- Add Storage Modal -->
+        <div id="addStorageModal" class="modal hidden">
+            <div class="modal-header">
+                <h3 class="modal-title">Add Storage</h3>
+                <button class="modal-close" onclick="toggleModal('addStorageModal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="storage-name">Storage Name:</label>
+                <input type="text" id="storage-name" class="form-control" placeholder="Enter storage name">
+            </div>
+            <div class="form-group">
+                <label for="storage-team">Team:</label>
+                <select id="storage-team" class="form-control">
+                    <option value="operations">Operations Team</option>
+                    <option value="development">Development Team</option>
+                    <option value="security">Security Team</option>
+                    <option value="default">Default Team</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="storage-type">Type:</label>
+                <select id="storage-type" class="form-control">
+                    <option value="blob">Blob</option>
+                    <option value="s3">S3</option>
+                    <option value="glacier">Glacier</option>
+                    <option value="file">File Share</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="storage-location">Location:</label>
+                <input type="text" id="storage-location" class="form-control" placeholder="Enter location (e.g., US-East)">
+            </div>
+            <div class="form-group">
+                <label for="storage-connection">Connection String (Encrypted):</label>
+                <input type="password" id="storage-connection" class="form-control">
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="toggleModal('addStorageModal')">Cancel</button>
+                <button class="btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('storage');
+            }
+            
+            // Add event listeners to edit buttons
+            document.querySelectorAll('.edit-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    toggleModal('editStorageModal');
+                });
+            });
+            
+            // Load storage data
+            loadStorageData();
+        });
+
+        function loadStorageData() {
+            // This would normally be an API call to fetch data
+            console.log("Loading storage data...");
+        }
+
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                if (modal.classList.contains('hidden')) {
+                    modal.classList.remove('hidden');
+                } else {
+                    modal.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

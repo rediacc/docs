@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repositories</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Repositories</h1>
+            <button class="btn" onclick="toggleModal('addRepoModal')">Add Repo</button>
+        </div>
+        
+        <div class="page-filters">
+            <select class="filter-select" id="team-filter">
+                <option value="development">Development Team</option>
+                <option value="operations">Operations Team</option>
+                <option value="security">Security Team</option>
+                <option value="default">Default Team</option>
+            </select>
+        </div>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Repository Name</th>
+                    <th>Size</th>
+                    <th>Last Updated</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Frontend Code</td>
+                    <td>258 MB</td>
+                    <td>2025-04-25 09:30</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Backend API</td>
+                    <td>126 MB</td>
+                    <td>2025-04-24 16:45</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Security Scripts</td>
+                    <td>45 MB</td>
+                    <td>2025-04-23 14:20</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Add Repository Modal -->
+        <div id="addRepoModal" class="modal hidden">
+            <div class="modal-header">
+                <h3 class="modal-title">Add Repository</h3>
+                <button class="modal-close" onclick="toggleModal('addRepoModal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="repo-name">Repository Name:</label>
+                <input type="text" id="repo-name" class="form-control" placeholder="Enter repository name">
+            </div>
+            <div class="form-group">
+                <label for="repo-team">Team:</label>
+                <select id="repo-team" class="form-control">
+                    <option value="development">Development Team</option>
+                    <option value="operations">Operations Team</option>
+                    <option value="security">Security Team</option>
+                    <option value="default">Default Team</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="repo-info">Repository Information:</label>
+                <textarea id="repo-info" class="form-control" rows="4" placeholder="Enter repository description and details"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="repo-credentials">Credentials (Encrypted):</label>
+                <textarea id="repo-credentials" class="form-control" rows="4"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="toggleModal('addRepoModal')">Cancel</button>
+                <button class="btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('repositories');
+            }
+            
+            // Load repository data
+            loadRepositoryData();
+        });
+
+        function loadRepositoryData() {
+            // This would normally be an API call to fetch data
+            console.log("Loading repository data...");
+        }
+
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                if (modal.classList.contains('hidden')) {
+                    modal.classList.remove('hidden');
+                } else {
+                    modal.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

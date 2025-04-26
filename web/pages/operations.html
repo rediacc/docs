@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operations</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Operations Dashboard</h1>
+        </div>
+        
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">Pending Queue Items</div>
+                <div class="card-value">8</div>
+                <a href="javascript:void(0);" onclick="navigateTo('queue')" class="btn" style="margin-top: 15px;">Manage Queue</a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Active Schedules</div>
+                <div class="card-value">12</div>
+                <a href="javascript:void(0);" onclick="navigateTo('schedules')" class="btn" style="margin-top: 15px;">Manage Schedules</a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Jobs Running</div>
+                <div class="card-value">4</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Average Response Time</div>
+                <div class="card-value">1.8s</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Current System Load</div>
+            <div style="height: 150px; display: flex; align-items: center; justify-content: space-around;">
+                <div style="text-align: center;">
+                    <div style="font-size: 16px; color: #555;">CPU</div>
+                    <div style="position: relative; width: 100px; height: 100px; border-radius: 50%; background-color: #f3f3f3; margin: 10px auto;">
+                        <div style="position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px; border-radius: 50%; background-color: #4e73df; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 20px;">45%</div>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 16px; color: #555;">Memory</div>
+                    <div style="position: relative; width: 100px; height: 100px; border-radius: 50%; background-color: #f3f3f3; margin: 10px auto;">
+                        <div style="position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px; border-radius: 50%; background-color: #1cc88a; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 20px;">62%</div>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 16px; color: #555;">Disk</div>
+                    <div style="position: relative; width: 100px; height: 100px; border-radius: 50%; background-color: #f3f3f3; margin: 10px auto;">
+                        <div style="position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px; border-radius: 50%; background-color: #36b9cc; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 20px;">28%</div>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 16px; color: #555;">Network</div>
+                    <div style="position: relative; width: 100px; height: 100px; border-radius: 50%; background-color: #f3f3f3; margin: 10px auto;">
+                        <div style="position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px; border-radius: 50%; background-color: #f6c23e; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 20px;">76%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Active Jobs</div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Job ID</th>
+                        <th>Type</th>
+                        <th>Machine</th>
+                        <th>Started</th>
+                        <th>Duration</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>JOB-1245</td>
+                        <td>Database Backup</td>
+                        <td>DB Server 1</td>
+                        <td>2025-04-25 09:10</td>
+                        <td>25m 32s</td>
+                        <td>
+                            <span class="badge badge-warning">Running</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>JOB-1244</td>
+                        <td>System Update</td>
+                        <td>Web Server 2</td>
+                        <td>2025-04-25 09:05</td>
+                        <td>30m 18s</td>
+                        <td>
+                            <span class="badge badge-warning">Running</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>JOB-1243</td>
+                        <td>Log Analysis</td>
+                        <td>Web Server 1</td>
+                        <td>2025-04-25 09:00</td>
+                        <td>35m 27s</td>
+                        <td>
+                            <span class="badge badge-warning">Running</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>JOB-1242</td>
+                        <td>Security Scan</td>
+                        <td>Security Server</td>
+                        <td>2025-04-25 08:45</td>
+                        <td>50m 02s</td>
+                        <td>
+                            <span class="badge badge-warning">Running</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Recent Operation Events</div>
+            <ul class="activity-feed">
+                <li class="activity-item">
+                    <div class="activity-message">Job JOB-1241 completed successfully</div>
+                    <div class="activity-time">10 mins ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message">Database backup schedule triggered</div>
+                    <div class="activity-time">25 mins ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message">System health check completed</div>
+                    <div class="activity-time">1 hour ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message">Job JOB-1240 failed with error</div>
+                    <div class="activity-time">2 hours ago</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('operations');
+            }
+            
+            // Load operations data
+            loadOperationsData();
+        });
+
+        function loadOperationsData() {
+            // This would normally be an API call to fetch data
+            console.log("Loading operations data...");
+        }
+        
+        function navigateTo(page) {
+            // Navigate to the specified page using the parent window function
+            if (window.parent && window.parent.loadPage) {
+                window.parent.loadPage(page);
+            }
+        }
+    </script>
+</body>
+</html>

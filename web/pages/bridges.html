@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridges</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Bridges</h1>
+            <button class="btn" onclick="toggleModal('addBridgeModal')">Add Bridge</button>
+        </div>
+        
+        <div class="page-filters">
+            <select class="filter-select" id="region-filter">
+                <option value="west-coast">West Coast Data Center</option>
+                <option value="east-coast">East Coast Data Center</option>
+                <option value="europe">European Data Center</option>
+                <option value="default">Default Region</option>
+            </select>
+        </div>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Bridge Name</th>
+                    <th>Machine Count</th>
+                    <th>Status</th>
+                    <th>Last Connection</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Production Bridge 1</td>
+                    <td>5</td>
+                    <td>
+                        <span class="status-indicator status-online"></span>
+                        Online
+                    </td>
+                    <td>2025-04-25 09:15</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Development Bridge</td>
+                    <td>3</td>
+                    <td>
+                        <span class="status-indicator status-online"></span>
+                        Online
+                    </td>
+                    <td>2025-04-25 09:12</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Testing Bridge</td>
+                    <td>2</td>
+                    <td>
+                        <span class="status-indicator status-degraded"></span>
+                        Degraded
+                    </td>
+                    <td>2025-04-25 08:55</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Add Bridge Modal -->
+        <div id="addBridgeModal" class="modal hidden">
+            <div class="modal-header">
+                <h3 class="modal-title">Add Bridge</h3>
+                <button class="modal-close" onclick="toggleModal('addBridgeModal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="bridge-name">Bridge Name</label>
+                <input type="text" id="bridge-name" class="form-control" placeholder="Enter bridge name">
+            </div>
+            <div class="form-group">
+                <label for="bridge-region">Region</label>
+                <select id="bridge-region" class="form-control">
+                    <option value="west-coast">West Coast Data Center</option>
+                    <option value="east-coast">East Coast Data Center</option>
+                    <option value="europe">European Data Center</option>
+                    <option value="default">Default Region</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="bridge-config">Bridge Configuration (Encrypted)</label>
+                <textarea id="bridge-config" class="form-control" rows="4"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="toggleModal('addBridgeModal')">Cancel</button>
+                <button class="btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('bridges');
+            }
+            
+            // Load bridge data (in a real application, this would be an API call)
+            loadBridgeData();
+        });
+
+        function loadBridgeData() {
+            // This would normally be an API call to fetch data
+            console.log("Loading bridge data...");
+        }
+
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                if (modal.classList.contains('hidden')) {
+                    modal.classList.remove('hidden');
+                } else {
+                    modal.classList.add('hidden');
+                }
+            }
+        }
+    </script>

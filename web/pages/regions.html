@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regions</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Regions</h1>
+            <button class="btn" onclick="toggleModal('addRegionModal')">Add Region</button>
+        </div>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Region Name</th>
+                    <th>Bridge Count</th>
+                    <th>Creation Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>West Coast Data Center</td>
+                    <td>3</td>
+                    <td>2025-04-20</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>East Coast Data Center</td>
+                    <td>2</td>
+                    <td>2025-04-21</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>European Data Center</td>
+                    <td>1</td>
+                    <td>2025-04-22</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Default Region</td>
+                    <td>1</td>
+                    <td>2025-04-23</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Add Region Modal -->
+        <div id="addRegionModal" class="modal hidden">
+            <div class="modal-header">
+                <h3 class="modal-title">Add Region</h3>
+                <button class="modal-close" onclick="toggleModal('addRegionModal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="region-name">Region Name:</label>
+                <input type="text" id="region-name" class="form-control" placeholder="Enter region name">
+            </div>
+            <div class="form-group">
+                <label for="region-description">Region Description:</label>
+                <textarea id="region-description" class="form-control" rows="3" placeholder="Enter region description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="region-vault">Region Vault Data (Encrypted):</label>
+                <textarea id="region-vault" class="form-control" rows="4"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="toggleModal('addRegionModal')">Cancel</button>
+                <button class="btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('regions');
+            }
+            
+            // Load region data
+            loadRegionData();
+        });
+
+        function loadRegionData() {
+            // This would normally be an API call to fetch data
+            console.log("Loading region data...");
+        }
+
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                if (modal.classList.contains('hidden')) {
+                    modal.classList.remove('hidden');
+                } else {
+                    modal.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

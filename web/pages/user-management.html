@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">User Management</h1>
+            <button class="btn" onclick="toggleModal('addUserModal')">Add User</button>
+        </div>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Created Date</th>
+                    <th>Last Login</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>admin@acme.com</td>
+                    <td>
+                        <span class="badge badge-success">Active</span>
+                    </td>
+                    <td>2025-04-23</td>
+                    <td>2025-04-25 09:30</td>
+                    <td class="action-links">
+                        <div class="dropdown">
+                            <span class="action-link">•••</span>
+                            <div class="dropdown-content">
+                                <a href="#">Reset Password</a>
+                                <a href="#">Activate</a>
+                                <a href="#">Deactivate</a>
+                                <a href="#" class="text-danger">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>john.smith@acme.com</td>
+                    <td>
+                        <span class="badge badge-success">Active</span>
+                    </td>
+                    <td>2025-04-23</td>
+                    <td>2025-04-25 09:15</td>
+                    <td class="action-links">
+                        <div class="dropdown">
+                            <span class="action-link">•••</span>
+                            <div class="dropdown-content">
+                                <a href="#">Reset Password</a>
+                                <a href="#">Activate</a>
+                                <a href="#">Deactivate</a>
+                                <a href="#" class="text-danger">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>sarah.jones@acme.com</td>
+                    <td>
+                        <span class="badge badge-success">Active</span>
+                    </td>
+                    <td>2025-04-23</td>
+                    <td>2025-04-25 08:45</td>
+                    <td class="action-links">
+                        <div class="dropdown">
+                            <span class="action-link">•••</span>
+                            <div class="dropdown-content">
+                                <a href="#">Reset Password</a>
+                                <a href="#">Activate</a>
+                                <a href="#">Deactivate</a>
+                                <a href="#" class="text-danger">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>mike.white@acme.com</td>
+                    <td>
+                        <span class="badge badge-success">Active</span>
+                    </td>
+                    <td>2025-04-24</td>
+                    <td>2025-04-24 17:30</td>
+                    <td class="action-links">
+                        <div class="dropdown">
+                            <span class="action-link">•••</span>
+                            <div class="dropdown-content">
+                                <a href="#">Reset Password</a>
+                                <a href="#">Activate</a>
+                                <a href="#">Deactivate</a>
+                                <a href="#" class="text-danger">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>rachel.green@acme.com</td>
+                    <td>
+                        <span class="badge badge-warning">Pending</span>
+                    </td>
+                    <td>2025-04-25</td>
+                    <td>-</td>
+                    <td class="action-links">
+                        <div class="dropdown">
+                            <span class="action-link">•••</span>
+                            <div class="dropdown-content">
+                                <a href="#">Reset Password</a>
+                                <a href="#">Activate</a>
+                                <a href="#">Deactivate</a>
+                                <a href="#" class="text-danger">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>alex.chen@acme.com</td>
+                    <td>
+                        <span class="badge badge-danger">Inactive</span>
+                    </td>
+                    <td>2025-04-21</td>
+                    <td>2025-04-23 14:20</td>
+                    <td class="action-links">
+                        <div class="dropdown">
+                            <span class="action-link">•••</span>
+                            <div class="dropdown-content">
+                                <a href="#">Reset Password</a>
+                                <a href="#">Activate</a>
+                                <a href="#">Deactivate</a>
+                                <a href="#" class="text-danger">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Add User Modal -->
+        <div id="addUserModal" class="modal hidden">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New User</h3>
+                <button class="modal-close" onclick="toggleModal('addUserModal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="user-email">Email Address</label>
+                <input type="email" id="user-email" class="form-control" placeholder="Enter email address">
+            </div>
+            <div class="form-group">
+                <label for="user-password">Temporary Password</label>
+                <input type="password" id="user-password" class="form-control" placeholder="Enter temporary password">
+            </div>
+            <div class="form-group">
+                <label for="user-confirm-password">Confirm Password</label>
+                <input type="password" id="user-confirm-password" class="form-control" placeholder="Confirm password">
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="toggleModal('addUserModal')">Cancel</button>
+                <button class="btn">Add User</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('user-management');
+            }
+            
+            // Load user data
+            loadUserData();
+        });
+
+        function loadUserData() {
+            // This would normally be an API call to fetch data
+            console.log("Loading user data...");
+        }
+
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                if (modal.classList.contains('hidden')) {
+                    modal.classList.remove('hidden');
+                } else {
+                    modal.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

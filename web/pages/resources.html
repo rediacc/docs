@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Resources Overview</h1>
+        </div>
+        
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">Repositories</div>
+                <div class="card-value">8</div>
+                <a href="javascript:void(0);" onclick="navigateTo('repositories')" class="btn" style="margin-top: 15px;">Manage Repositories</a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Storage</div>
+                <div class="card-value">3</div>
+                <a href="javascript:void(0);" onclick="navigateTo('storage')" class="btn" style="margin-top: 15px;">Manage Storage</a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Schedules</div>
+                <div class="card-value">12</div>
+                <a href="javascript:void(0);" onclick="navigateTo('schedules')" class="btn" style="margin-top: 15px;">Manage Schedules</a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Total Size</div>
+                <div class="card-value">17.8 TB</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Resource Utilization</div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Resource</th>
+                        <th>Type</th>
+                        <th>Size</th>
+                        <th>Usage</th>
+                        <th>Team</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Main Storage</td>
+                        <td>Blob</td>
+                        <td>2 TB</td>
+                        <td>
+                            <div style="width: 100%; background-color: #f3f3f3; height: 20px; border-radius: 10px; overflow: hidden;">
+                                <div style="width: 45%; background-color: #4e73df; height: 100%;"></div>
+                            </div>
+                            <div style="text-align: right;">45%</div>
+                        </td>
+                        <td>Operations Team</td>
+                    </tr>
+                    <tr>
+                        <td>Backup Storage</td>
+                        <td>S3</td>
+                        <td>5 TB</td>
+                        <td>
+                            <div style="width: 100%; background-color: #f3f3f3; height: 20px; border-radius: 10px; overflow: hidden;">
+                                <div style="width: 78%; background-color: #f6c23e; height: 100%;"></div>
+                            </div>
+                            <div style="text-align: right;">78%</div>
+                        </td>
+                        <td>Operations Team</td>
+                    </tr>
+                    <tr>
+                        <td>Archive</td>
+                        <td>Glacier</td>
+                        <td>10 TB</td>
+                        <td>
+                            <div style="width: 100%; background-color: #f3f3f3; height: 20px; border-radius: 10px; overflow: hidden;">
+                                <div style="width: 92%; background-color: #e74a3b; height: 100%;"></div>
+                            </div>
+                            <div style="text-align: right;">92%</div>
+                        </td>
+                        <td>Operations Team</td>
+                    </tr>
+                    <tr>
+                        <td>Frontend Code</td>
+                        <td>Git</td>
+                        <td>258 MB</td>
+                        <td>
+                            <div style="width: 100%; background-color: #f3f3f3; height: 20px; border-radius: 10px; overflow: hidden;">
+                                <div style="width: 15%; background-color: #1cc88a; height: 100%;"></div>
+                            </div>
+                            <div style="text-align: right;">15%</div>
+                        </td>
+                        <td>Development Team</td>
+                    </tr>
+                    <tr>
+                        <td>Backend API</td>
+                        <td>Git</td>
+                        <td>126 MB</td>
+                        <td>
+                            <div style="width: 100%; background-color: #f3f3f3; height: 20px; border-radius: 10px; overflow: hidden;">
+                                <div style="width: 22%; background-color: #1cc88a; height: 100%;"></div>
+                            </div>
+                            <div style="text-align: right;">22%</div>
+                        </td>
+                        <td>Development Team</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Scheduled Tasks</div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Schedule Name</th>
+                        <th>Status</th>
+                        <th>Next Run</th>
+                        <th>Team</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Daily Backup</td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td>2025-04-26 00:00</td>
+                        <td>Operations Team</td>
+                    </tr>
+                    <tr>
+                        <td>Weekly Report</td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td>2025-04-28 00:00</td>
+                        <td>Operations Team</td>
+                    </tr>
+                    <tr>
+                        <td>Log Cleanup</td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td>2025-04-25 12:00</td>
+                        <td>Operations Team</td>
+                    </tr>
+                    <tr>
+                        <td>Health Check</td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td>2025-04-25 12:00</td>
+                        <td>Operations Team</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('resources');
+            }
+            
+            // Load resources data
+            loadResourcesData();
+        });
+
+        function loadResourcesData() {
+            // This would normally be an API call to fetch data
+            console.log("Loading resources data...");
+        }
+        
+        function navigateTo(page) {
+            // Navigate to the specified page using the parent window function
+            if (window.parent && window.parent.loadPage) {
+                window.parent.loadPage(page);
+            }
+        }
+    </script>
+</body>
+</html>

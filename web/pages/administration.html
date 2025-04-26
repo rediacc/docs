@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Administration Dashboard</h1>
+        </div>
+        
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">Company Settings</div>
+                <p style="margin-bottom: 15px;">Manage company-wide settings, security policies, and API configurations.</p>
+                <a href="javascript:void(0);" onclick="navigateTo('company-settings')" class="btn">Manage Settings</a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">User Management</div>
+                <p style="margin-bottom: 15px;">Manage user accounts, permissions, and activations.</p>
+                <a href="javascript:void(0);" onclick="navigateTo('user-management')" class="btn">Manage Users</a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">System Health</div>
+                <div style="display: flex; margin-top: 15px; margin-bottom: 15px;">
+                    <div style="flex: 1; text-align: center;">
+                        <div style="font-size: 14px; color: #555;">Database</div>
+                        <div style="font-size: 18px; font-weight: bold; color: #1cc88a;">Healthy</div>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <div style="font-size: 14px; color: #555;">API</div>
+                        <div style="font-size: 18px; font-weight: bold; color: #1cc88a;">Healthy</div>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <div style="font-size: 14px; color: #555;">Storage</div>
+                        <div style="font-size: 18px; font-weight: bold; color: #1cc88a;">Healthy</div>
+                    </div>
+                </div>
+                <a href="javascript:void(0);" onclick="runSystemCheck()" class="btn">Run System Check</a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Backup & Recovery</div>
+                <p style="margin-bottom: 15px;">Last backup: <strong>2025-04-25 01:00</strong></p>
+                <div style="display: flex; gap: 10px;">
+                    <a href="javascript:void(0);" onclick="initiateBackup()" class="btn">Backup Now</a>
+                    <a href="javascript:void(0);" onclick="showRestoreOptions()" class="btn">Restore Options</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">User Activity</div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Action</th>
+                        <th>Resource</th>
+                        <th>Time</th>
+                        <th>IP Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>admin@acme.com</td>
+                        <td>Login</td>
+                        <td>-</td>
+                        <td>2025-04-25 09:30</td>
+                        <td>192.168.1.100</td>
+                    </tr>
+                    <tr>
+                        <td>john.smith@acme.com</td>
+                        <td>Create</td>
+                        <td>Repository: Frontend Code</td>
+                        <td>2025-04-25 09:20</td>
+                        <td>192.168.1.101</td>
+                    </tr>
+                    <tr>
+                        <td>sarah.jones@acme.com</td>
+                        <td>Update</td>
+                        <td>Machine: Web Server 1</td>
+                        <td>2025-04-25 09:15</td>
+                        <td>192.168.1.102</td>
+                    </tr>
+                    <tr>
+                        <td>admin@acme.com</td>
+                        <td>Add User</td>
+                        <td>User: rachel.green@acme.com</td>
+                        <td>2025-04-25 09:00</td>
+                        <td>192.168.1.100</td>
+                    </tr>
+                    <tr>
+                        <td>mike.white@acme.com</td>
+                        <td>Delete</td>
+                        <td>Queue Item: 1242</td>
+                        <td>2025-04-25 08:55</td>
+                        <td>192.168.1.103</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">System Notifications</div>
+            <ul class="activity-feed">
+                <li class="activity-item">
+                    <div class="activity-message" style="color: #e74a3b;"><strong>Warning:</strong> Storage "Archive" is at 92% capacity.</div>
+                    <div class="activity-time">1 hour ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message" style="color: #f6c23e;"><strong>Notice:</strong> 5 inactive user accounts detected.</div>
+                    <div class="activity-time">3 hours ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message" style="color: #1cc88a;"><strong>Success:</strong> System backup completed successfully.</div>
+                    <div class="activity-time">24 hours ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message" style="color: #4e73df;"><strong>Info:</strong> System update available (v2.5.3).</div>
+                    <div class="activity-time">2 days ago</div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Backup Modal -->
+        <div id="backupModal" class="modal hidden">
+            <div class="modal-header">
+                <h3 class="modal-title">Backup System</h3>
+                <button class="modal-close" onclick="toggleModal('backupModal')">&times;</button>
+            </div>
+            <div>
+                <p>Are you sure you want to initiate a full system backup? This process may take some time to complete.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="toggleModal('backupModal')">Cancel</button>
+                <button class="btn" onclick="startBackupProcess()">Start Backup</button>
+            </div>
+        </div>
+        
+        <!-- Restore Modal -->
+        <div id="restoreModal" class="modal hidden">
+            <div class="modal-header">
+                <h3 class="modal-title">Restore Options</h3>
+                <button class="modal-close" onclick="toggleModal('restoreModal')">&times;</button>
+            </div>
+            <div>
+                <p>Select a backup point to restore from:</p>
+                <div class="form-group">
+                    <select id="restore-point" class="form-control">
+                        <option value="backup-1">2025-04-25 01:00 - Full Backup</option>
+                        <option value="backup-2">2025-04-24 01:00 - Full Backup</option>
+                        <option value="backup-3">2025-04-23 01:00 - Full Backup</option>
+                        <option value="backup-4">2025-04-22 01:00 - Full Backup</option>
+                        <option value="backup-5">2025-04-21 01:00 - Full Backup</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Restore Options:</label>
+                    <div>
+                        <label><input type="checkbox" checked> System Settings</label><br>
+                        <label><input type="checkbox" checked> User Accounts</label><br>
+                        <label><input type="checkbox" checked> Team Configurations</label><br>
+                        <label><input type="checkbox" checked> Resource Definitions</label><br>
+                        <label><input type="checkbox"> Queue Data</label><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label style="color: #e74a3b;">
+                        <input type="checkbox"> I understand that this operation will overwrite current data
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="toggleModal('restoreModal')">Cancel</button>
+                <button class="btn" onclick="startRestoreProcess()">Start Restore</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('administration');
+            }
+            
+            // Load administration data
+            loadAdministrationData();
+        });
+
+        function loadAdministrationData() {
+            // This would normally be an API call to fetch data
+            console.log("Loading administration data...");
+        }
+        
+        function navigateTo(page) {
+            // Navigate to the specified page using the parent window function
+            if (window.parent && window.parent.loadPage) {
+                window.parent.loadPage(page);
+            }
+        }
+        
+        function runSystemCheck() {
+            // This would normally trigger a system health check
+            console.log("Running system health check...");
+            alert("System health check initiated. This may take a few minutes to complete.");
+        }
+        
+        function initiateBackup() {
+            // Show the backup confirmation modal
+            toggleModal('backupModal');
+        }
+        
+        function showRestoreOptions() {
+            // Show the restore options modal
+            toggleModal('restoreModal');
+        }
+        
+        function startBackupProcess() {
+            // This would normally initiate the backup process
+            toggleModal('backupModal');
+            console.log("Starting backup process...");
+            alert("Backup process initiated. You will be notified when complete.");
+        }
+        
+        function startRestoreProcess() {
+            // This would normally initiate the restore process
+            toggleModal('restoreModal');
+            console.log("Starting restore process...");
+            alert("Restore process initiated. System will be temporarily unavailable during restore.");
+        }
+        
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                if (modal.classList.contains('hidden')) {
+                    modal.classList.remove('hidden');
+                } else {
+                    modal.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

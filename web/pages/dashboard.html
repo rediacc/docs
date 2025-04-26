@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Dashboard</h1>
+        </div>
+        
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">Active Machines</div>
+                <div class="card-value">24</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Queue Items</div>
+                <div class="card-value">12</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Teams</div>
+                <div class="card-value">5</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Repositories</div>
+                <div class="card-value">8</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Recent Activities</div>
+            <ul class="activity-feed">
+                <li class="activity-item">
+                    <div class="activity-message">Machine 'Web Server 1' was added</div>
+                    <div class="activity-time">5 mins ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message">New repository 'Frontend Code' created</div>
+                    <div class="activity-time">20 mins ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message">Team 'Development Team' was created</div>
+                    <div class="activity-time">1 hour ago</div>
+                </li>
+                <li class="activity-item">
+                    <div class="activity-message">User 'john@acme.com' was activated</div>
+                    <div class="activity-time">2 hours ago</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Dashboard-specific JavaScript can go here
+        document.addEventListener('DOMContentLoaded', function() {
+            // This ensures the parent window sidebar gets updated correctly
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('dashboard');
+            }
+        });
+    </script>
+</body>
+</html>

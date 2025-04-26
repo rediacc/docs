@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Settings</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Company Settings</h1>
+            <button class="btn" onclick="saveCompanySettings()">Save Changes</button>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">General Information</div>
+            <div class="form-group">
+                <label for="company-name">Company Name:</label>
+                <input type="text" id="company-name" class="form-control" value="Acme Corporation">
+            </div>
+            <div class="form-group">
+                <label for="company-description">Company Description:</label>
+                <textarea id="company-description" class="form-control" rows="3">Acme Corporation is a leading provider of technology solutions for the modern enterprise.</textarea>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Security Settings</div>
+            <div class="form-group">
+                <label for="session-timeout">Session Timeout (minutes):</label>
+                <input type="number" id="session-timeout" class="form-control" value="30" min="5" max="120">
+            </div>
+            <div class="form-group">
+                <label for="password-policy">Password Policy:</label>
+                <select id="password-policy" class="form-control">
+                    <option value="standard" selected>Standard (8+ chars, 1 uppercase, 1 number)</option>
+                    <option value="strong">Strong (12+ chars, uppercase, lowercase, number, special)</option>
+                    <option value="very-strong">Very Strong (16+ chars, complex requirements)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mfa-required">
+                    <input type="checkbox" id="mfa-required" checked> Require Multi-Factor Authentication
+                </label>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">API Settings</div>
+            <div class="form-group">
+                <label for="api-key">API Key:</label>
+                <div class="input-group">
+                    <input type="password" id="api-key" class="form-control" value="A1B2C3D4E5F6G7H8I9J0" readonly>
+                    <button class="btn" onclick="regenerateApiKey()">Regenerate</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="api-timeout">API Request Timeout (seconds):</label>
+                <input type="number" id="api-timeout" class="form-control" value="30" min="5" max="120">
+            </div>
+            <div class="form-group">
+                <label for="rate-limit">Rate Limit (requests per minute):</label>
+                <input type="number" id="rate-limit" class="form-control" value="100" min="10" max="1000">
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">Notification Settings</div>
+            <div class="form-group">
+                <label for="admin-email">Admin Email:</label>
+                <input type="email" id="admin-email" class="form-control" value="admin@acme.com">
+            </div>
+            <div class="form-group">
+                <label for="alert-email">
+                    <input type="checkbox" id="alert-email" checked> Send Email Alerts
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="alert-sms">
+                    <input type="checkbox" id="alert-sms"> Send SMS Alerts
+                </label>
+            </div>
+            <div class="form-group">
+                <label>Alert Levels:</label>
+                <div>
+                    <label><input type="checkbox" checked> Critical</label>
+                    <label><input type="checkbox" checked> Error</label>
+                    <label><input type="checkbox" checked> Warning</label>
+                    <label><input type="checkbox"> Info</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('company-settings');
+            }
+            
+            // Load company settings
+            loadCompanySettings();
+        });
+
+        function loadCompanySettings() {
+            // This would normally be an API call to fetch data
+            console.log("Loading company settings...");
+        }
+
+        function saveCompanySettings() {
+            // This would normally be an API call to save data
+            console.log("Saving company settings...");
+            
+            // Show a success message
+            if (window.parent && window.parent.parentFunctions) {
+                window.parent.parentFunctions.showNotification('Settings saved successfully.', 'success');
+            } else {
+                alert('Settings saved successfully.');
+            }
+        }
+
+        function regenerateApiKey() {
+            // This would normally be an API call to regenerate the API key
+            const newApiKey = generateRandomKey(20);
+            document.getElementById('api-key').value = newApiKey;
+            
+            // Show a warning message
+            if (window.parent && window.parent.parentFunctions) {
+                window.parent.parentFunctions.showNotification('API key has been regenerated. Make sure to update any systems using the old key.', 'warning');
+            } else {
+                alert('API key has been regenerated. Make sure to update any systems using the old key.');
+            }
+        }
+
+        function generateRandomKey(length) {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
+        }
+    </script>
+</body>
+</html>

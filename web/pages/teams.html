@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Teams</h1>
+            <button class="btn" onclick="toggleModal('addTeamModal')">Add Team</button>
+        </div>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Team Name</th>
+                    <th>Members</th>
+                    <th>Machines</th>
+                    <th>Repositories</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Development Team</td>
+                    <td>8</td>
+                    <td>5</td>
+                    <td>3</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Operations Team</td>
+                    <td>6</td>
+                    <td>10</td>
+                    <td>2</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Security Team</td>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Default Team</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td class="action-links">
+                        <a href="#" class="action-link edit-link">Edit</a>
+                        <a href="#" class="action-link delete-link">Remove</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Add Team Modal -->
+        <div id="addTeamModal" class="modal hidden">
+            <div class="modal-header">
+                <h3 class="modal-title">Add Team</h3>
+                <button class="modal-close" onclick="toggleModal('addTeamModal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="team-name">Team Name</label>
+                <input type="text" id="team-name" class="form-control" placeholder="Enter team name">
+            </div>
+            <div class="form-group">
+                <label for="team-description">Team Description</label>
+                <textarea id="team-description" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="team-vault">Team Vault Data (Encrypted)</label>
+                <textarea id="team-vault" class="form-control" rows="4"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="toggleModal('addTeamModal')">Cancel</button>
+                <button class="btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('teams');
+            }
+            
+            // Load team data
+            loadTeamData();
+        });
+
+        function loadTeamData() {
+            // This would normally be an API call to fetch data
+            console.log("Loading team data...");
+        }
+
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                if (modal.classList.contains('hidden')) {
+                    modal.classList.remove('hidden');
+                } else {
+                    modal.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

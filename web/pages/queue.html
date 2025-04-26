@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Management</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/content.css">
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Queue Management</h1>
+            <button class="btn" onclick="toggleModal('addQueueItemModal')">Add Item</button>
+        </div>
+        
+        <div class="page-filters">
+            <select class="filter-select" id="team-filter">
+                <option value="development">Development Team</option>
+                <option value="operations">Operations Team</option>
+                <option value="security">Security Team</option>
+                <option value="default">Default Team</option>
+            </select>
+            
+            <select class="filter-select" id="machine-filter">
+                <option value="all">All Machines</option>
+                <option value="web1">Web Server 1</option>
+                <option value="web2">Web Server 2</option>
+                <option value="db1">DB Server 1</option>
+                <option value="test">Test Server</option>
+            </select>
+        </div>
+        
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Queue ID</th>
+                    <th>Machine</th>
+                    <th>Submission Time</th>
+                    <th>Status</th>
+                    <th>Response</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1246</td>
+                    <td>Web Server 1</td>
+                    <td>2025-04-25 09:35</td>
+                    <td><span class="badge badge-success">Completed</span></td>
+                    <td>✓</td>
+                    <td class="action-links">
+                        <div class="dropdown">
+                            <span class="action-link">•••</span>
+                            <div class="dropdown-content">
+                                <a href="#">View Details</a>
+                                <a href="#">Respond</a>
+                                <a href="#" class="text-danger">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1245</td>
+                    <td>Web Server 2</td>
+                    <td>2025-04-25 09:20</td>
+                    <td><span class="badge badge-warning">Processing</span></td>
+                    <td>—</td>
+                    <td class="action-links">
+                        <div class="dropdown">
+                            <span class="action-link">•••</span>
+                            <div class="dropdown-content">
+                                <a href="#">View Details</a>
+                                <a href="#">Respond</a>
+                                <a href="#" class="text-danger">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1244</td>
+                    <td>DB Server 1</td>
+                    <td>2025-04-25 09:05</td>
+                    <td><span class="badge badge-warning">Processing</span></td>
+                    <td>—</td>
+                    <td class="action-links">
+                        <div class="dropdown">
+                            <span class="action-link">•••</span>
+                            <div class="dropdown-content">
+                                <a href="#">View Details</a>
+                                <a href="#">Respond</a>
+                                <a href="#" class="text-danger">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>1243</td>
+                    <td>Web Server 1</td>
+                    <td>2025-04-25 08:50</td>
+                    <td><span class="badge badge-danger">Failed</span></td>
+                    <td>X</td>
+                    <td class="action-links">
+                        <div class="dropdown">
+                            <span class="action-link">•••</span>
+                            <div class="dropdown-content">
+                                <a href="#">View Details</a>
+                                <a href="#">Respond</a>
+                                <a href="#" class="text-danger">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Respond to Queue Item Modal -->
+        <div id="respondModal" class="modal hidden">
+            <div class="modal-header">
+                <h3 class="modal-title">Respond to Queue Item</h3>
+                <button class="modal-close" onclick="toggleModal('respondModal')">&times;</button>
+            </div>
+            <div>
+                <p><strong>Queue ID:</strong> <span id="response-queue-id">1246</span></p>
+                <p><strong>Machine:</strong> <span id="response-machine">Web Server 1</span></p>
+                <p><strong>Submitted:</strong> <span id="response-time">2025-04-25 09:35</span></p>
+            </div>
+            <div class="form-group">
+                <label for="response-data">Response Data (Encrypted):</label>
+                <textarea id="response-data" class="form-control" rows="6"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="toggleModal('respondModal')">Cancel</button>
+                <button class="btn">Submit</button>
+            </div>
+        </div>
+        
+        <!-- Add Queue Item Modal -->
+        <div id="addQueueItemModal" class="modal hidden">
+            <div class="modal-header">
+                <h3 class="modal-title">Add Queue Item</h3>
+                <button class="modal-close" onclick="toggleModal('addQueueItemModal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="queue-team">Team</label>
+                <select id="queue-team" class="form-control">
+                    <option value="development">Development Team</option>
+                    <option value="operations">Operations Team</option>
+                    <option value="security">Security Team</option>
+                    <option value="default">Default Team</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="queue-machine">Machine</label>
+                <select id="queue-machine" class="form-control">
+                    <option value="web1">Web Server 1</option>
+                    <option value="web2">Web Server 2</option>
+                    <option value="db1">DB Server 1</option>
+                    <option value="test">Test Server</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="queue-data">Queue Data (Encrypted):</label>
+                <textarea id="queue-data" class="form-control" rows="6"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="toggleModal('addQueueItemModal')">Cancel</button>
+                <button class="btn">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update parent sidebar active state
+            if (window.parent && window.parent.updateSidebarActiveState) {
+                window.parent.updateSidebarActiveState('queue');
+            }
+            
+            // Add event listeners to the filters
+            document.getElementById('team-filter').addEventListener('change', function() {
+                filterQueue();
+            });
+            
+            document.getElementById('machine-filter').addEventListener('change', function() {
+                filterQueue();
+            });
+            
+            // Load queue data
+            loadQueueData();
+        });
+
+        function loadQueueData() {
+            // This would normally be an API call to fetch data
+            console.log("Loading queue data...");
+        }
+
+        function filterQueue() {
+            const teamId = document.getElementById('team-filter').value;
+            const machineId = document.getElementById('machine-filter').value;
+            
+            // This would normally filter the data based on selection
+            console.log(`Filtering queue by team: ${teamId} and machine: ${machineId}`);
+        }
+
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                if (modal.classList.contains('hidden')) {
+                    modal.classList.remove('hidden');
+                } else {
+                    modal.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
