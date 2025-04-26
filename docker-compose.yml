@@ -1,7 +1,9 @@
 version: '3.8'
 
 services:
-  web:
+  offers:
+    image: rediacc/offers:latest
+    container_name: offers
     build:
       context: .
       dockerfile: Dockerfile
