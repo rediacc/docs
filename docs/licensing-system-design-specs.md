@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 4
 title: Licensing System Design Specifications
 description: Comprehensive design specifications for the Licensing System web application
 ---
