@@ -8,23 +8,33 @@ Rediacc is a system software that enables software applications and large data s
 
 ## Definitions
 
-**Container:** System software that allows any software to run on different machines without requiring installation. It can create multiple instances of the same software within seconds.
+**Container:** Think of a container as a portable package that contains everything a piece of software needs to run. Similar to how shipping containers can be moved from ship to truck without unpacking, software containers can run on any machine without installation. Rediacc uses containers to create multiple instances of the same software within seconds.
 
-**Service:** Can be a database like Oracle, an on-premise GitLab service, or an application providing REST API services. Each service has its own files, which can consist of a single executable file or thousands of files.
+**Service:** Any standalone software application that provides specific functionality. Examples include:
+- Databases (MySQL, PostgreSQL, Oracle)
+- Web servers (Apache, Nginx)
+- Applications (GitLab, Jira, custom apps)
+- API services
 
-**Repo:** A virtual disk file called "repo" in Rediacc. Its size can range from 4 GB to thousands of TB. It contains services and all files related to these services.
+Each service has its own set of files, ranging from a single executable to thousands of files and directories.
 
-- A server can have a single repo or multiple repos. This preference affects performance and distribution flexibility. For example, if phpMyAdmin and MySQL run under the same repo, they start on the same server. Separate repos should be created for them to run on different servers.
+**Repo:** Short for "repository," a repo in Rediacc is like a virtual hard drive that contains all the files and configurations for your services. Key points:
+- Size ranges from 4 GB to thousands of TB
+- Can hold multiple related services
+- Has its own isolated environment (Docker instance)
+- Can be quickly cloned, backed up, or moved between machines
 
-- Each repo has its own container host instance (Docker Instance). Services with the same name don't conflict in different repos; this situation is automatically managed by Rediacc.
+Think of repos as self-contained environments where your services live. If two services need to run on the same machine, put them in the same repo. If they need to run on different machines, create separate repos.
 
-**CoW (Copy-on-Write) File System:** Rediacc is built on this file system.
+**CoW (Copy-on-Write) File System:** A smart storage technology that saves space and time. Here's how it works:
 
-- When a file is copied, it is not physically duplicated; instead, it is treated as if there are two copies.
+- **Efficient Copying:** When you copy a file, no actual duplication happens until changes are made. It's like having two people share the same book - no need for a second copy until one person wants to write notes in their copy.
 
-- If one of the files changes, *only the changed part* occupies a new area on the disk. For example, if a 1 GB text file is copied and "ABC" is added to the end, the total size of the two files becomes 1 GB + 3 bytes.
+- **Space-Saving Changes:** Only the modified parts consume additional storage. For example:
+  * If you copy a 10 GB database file and change just 5 MB of data, you only use 10 GB + 5 MB of space (not 20 GB)
+  * If you make 100 copies of a repo for testing and don't change anything, they take up the same space as one copy
 
-- This system is also used in backing up repos. When taking a backup on the same machine, only a virtual copy of the repo is created.
+- **Fast Backups:** Backups take seconds instead of hours because only references are created, not full copies. Actual duplication happens only for changed data.
 
 ## How Does It Work?
 
@@ -34,3 +44,27 @@ Rediacc intelligently uses the capabilities of the operating system kernel (e.g.
 - Keep backups efficiently,
 - Store all data encrypted,
 - Run software seamlessly in different environments.
+
+## Key Benefits
+
+- **Zero-Cost Backups**: Save up to 90% on storage costs with differential backup technology that stores only changed data.
+- **Time Travel**: Restore systems to any point in time with automated snapshots.
+- **Cross Backup**: Securely back up data to remote servers with minimal bandwidth usage.
+- **Security**: End-to-end encryption for all repositories and real-time defense against suspicious activities.
+- **Seamless Scaling**: Instantly clone environments to handle peak demand and sync back to on-premise systems when needed.
+- **Risk-Free Upgrades**: Test changes on instant clones without affecting production systems.
+
+## Origin Story
+
+Rediacc was born from the founder's personal challenges with data loss and system availability. Originally conceived as "Remote Dictionary Accelerated" (a GPU-accelerated version of Redis), the name evolved to also represent "Ready to Accelerate"—reflecting its mission to help businesses operate with flexibility and resilience, ready to accelerate whenever opportunities or challenges arise.
+
+## Management Interface
+
+Rediacc includes a comprehensive web application for managing:
+- Infrastructure (regions, bridges, machines)
+- Teams and users
+- Resources (repositories, storage, schedules)
+- Operations (queue management)
+- Administration (company settings, user management)
+
+Available in multiple tiers from Community to Elite, Rediacc provides scalable solutions for individual developers, growing teams, businesses, and enterprise organizations.
