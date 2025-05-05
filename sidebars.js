@@ -18,7 +18,6 @@ const sidebars = {
   // Custom organized sidebar
   tutorialSidebar: [
     'intro',
-    'features',
     'ui-documentation',
     {
       type: 'category',
@@ -86,15 +85,7 @@ const sidebars = {
           ],
         },
       ],
-    },
-    {
-      type: 'category',
-      label: 'About Rediacc',
-      items: [
-        'about/founders-story',
-        'about/name-origin',
-      ],
-    },
+    }
   ],
 };
 
