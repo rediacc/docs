@@ -18,49 +18,47 @@ const sidebars = {
   // Custom organized sidebar
   tutorialSidebar: [
     'intro',
-    'ui-documentation',
+    'web-application',
     {
       type: 'category',
-      label: 'Case Examples',
+      label: 'Backup Solutions',
       collapsed: false,
       items: [
-        {
-          type: 'category',
-          label: 'Backup Solutions',
-          items: [
-            'case-examples/backup/zero-cost',
-            'case-examples/backup/time-travel',
-            'case-examples/backup/cross-backup',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Scaling Solutions',
-          items: [
-            'case-examples/scaling/dynamic-resource-scaling',
-            'case-examples/scaling/legacy-database-scaling',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Security Solutions',
-          items: [
-            'case-examples/security/real-time-defense',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Administration',
-          items: [
-            'case-examples/administration/risk-free-upgrades',
-            'case-examples/administration/blackout',
-          ],
-        },
+        'case-examples/backup/zero-cost',
+        'case-examples/backup/time-travel',
+        'case-examples/backup/cross-backup',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Scaling Solutions',
+      collapsed: false,
+      items: [
+        'case-examples/scaling/dynamic-resource-scaling',
+        'case-examples/scaling/legacy-database-scaling',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Security Solutions',
+      collapsed: false,
+      items: [
+        'case-examples/security/real-time-defense',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Administration',
+      collapsed: false,
+      items: [
+        'case-examples/administration/risk-free-upgrades',
+        'case-examples/administration/blackout',
       ],
     },
     {
       type: 'category',
       label: 'REST API',
+      collapsed: false,
       items: [
         'rest-api/introduction',
         'rest-api/authentication',
@@ -85,7 +83,7 @@ const sidebars = {
           ],
         },
       ],
-    }
+    },
   ],
 };
 

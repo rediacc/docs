@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# UI Documentation
+# Web Application
 
 ## Rediacc Web Application Overview
 
