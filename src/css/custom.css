@@ -18,22 +18,25 @@
   /* Secondary olive color */
   --ifm-color-secondary: #808000; /* olive */
   
-  /* Background colors */
-  --ifm-background-color: #ffffff;
-  --ifm-background-surface-color: #f8f9fa;
+  /* Background colors - Forced to match react-app */
+  --ifm-background-color: #111827; /* bg-gray-900 - match react-app */
+  --ifm-background-surface-color: #1f2937; /* bg-gray-800 - match react-app */
+  
+  /* Text color for dark background */
+  --ifm-font-color-base: #ffffff;
   
   /* Code blocks */
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   
   /* Custom variables for our simplified layout */
   --docs-padding-top: 2rem;
   --docs-max-width: 1400px;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  /* Dark mode olive theme */
+/* We're enforcing dark mode by default for all themes */
+[data-theme='dark'], [data-theme='light'] {
+  /* Theme colors */
   --ifm-color-primary: #7d9b49; /* lighter olive for dark mode */
   --ifm-color-primary-dark: #6c8541;
   --ifm-color-primary-darker: #617839;
@@ -42,10 +45,10 @@
   --ifm-color-primary-lighter: #9bbc61;
   --ifm-color-primary-lightest: #accf72;
   
-  /* Secondary olive color for dark mode */
+  /* Secondary olive color */
   --ifm-color-secondary: #9a9a00; /* lighter olive */
   
-  /* Dark mode background colors to match react-app */
+  /* Background colors to match react-app */
   --ifm-background-color: #111827; /* bg-gray-900 */
   --ifm-background-surface-color: #1f2937; /* bg-gray-800 */
   

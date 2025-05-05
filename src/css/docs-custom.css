@@ -3,6 +3,11 @@
  * Theme is integrated with the main react-app
  */
 
+/* Force dark background on all elements */
+:root {
+  background-color: #111827 !important; /* bg-gray-900 - match react-app */
+}
+
 /* Custom variables for our simplified layout */
 :root {
   /* These variables are set in custom.css */
@@ -31,6 +36,7 @@
   max-width: var(--docs-max-width);
   margin: 0 auto;
   padding: var(--docs-padding-top) 1rem 2rem;
+  background-color: #111827; /* bg-gray-900 - explicitly set to match react-app */
 }
 
 /* Make the sidebar stay in place even without navbar */
@@ -47,6 +53,7 @@
 /* Full-width layout without extra padding */
 .docPage {
   padding: 0 !important;
+  background-color: #111827 !important; /* bg-gray-900 - match react-app */
 }
 
 /* Enhance sidebar styling to match react-app */
@@ -194,9 +201,11 @@
   background-color: rgba(96, 165, 250, 0.1);
 }
 
-/* Remove extra spacing caused by missing navbar */
-body {
+/* Remove extra spacing caused by missing navbar and enforce dark background */
+html, body {
   padding-top: 0;
+  background-color: #111827 !important; /* bg-gray-900 - explicitly set to match react-app */
+  color: #ffffff !important;
 }
 
 .theme-doc-markdown.markdown {
@@ -258,6 +267,9 @@ body {
 /* Style the TOC (table of contents) */
 .table-of-contents {
   font-size: 0.9rem;
+  background-color: #1f2937; /* bg-gray-800 - match react-app */
+  border-radius: 8px;
+  padding: 1rem;
 }
 
 .table-of-contents__link {
