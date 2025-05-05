@@ -1,0 +1,245 @@
+/**
+ * Custom CSS for simplified documentation site
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  
+  /* Custom variables for our simplified layout */
+  --docs-padding-top: 2rem;
+  --docs-max-width: 1200px;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Adjustments for simplified docs */
+/* Hide the navbar completely */
+.navbar {
+  display: none !important;
+}
+
+/* Hide navbar sidebar */
+.navbar-sidebar {
+  display: none !important;
+}
+
+/* Hide footer */
+.footer {
+  display: none !important;
+}
+
+/* Custom styles for documentation pages */
+.main-wrapper {
+  max-width: var(--docs-max-width);
+  margin: 0 auto;
+  padding: var(--docs-padding-top) 1rem 2rem;
+}
+
+/* Make the sidebar stay in place even without navbar */
+.main-wrapper .container {
+  padding-top: 1rem;
+  margin-top: 0;
+}
+
+/* Improve the docs main container */
+.container--fluid {
+  padding: 0 !important;
+}
+
+/* Full-width layout without extra padding */
+.docPage {
+  padding: 0 !important;
+}
+
+/* Enhance sidebar styling */
+.docSidebarContainer {
+  border-right: 1px solid var(--ifm-toc-border-color);
+  will-change: width;
+  margin-top: 0;
+  padding-top: 0;
+  width: 300px !important;
+  background-color: #f8f9fa;
+}
+
+/* Dark mode sidebar styling */
+[data-theme='dark'] .docSidebarContainer {
+  background-color: #242526;
+}
+
+/* Add some padding to the sidebar */
+.menu {
+  padding: 1rem 0.8rem !important;
+  font-size: 0.95rem;
+}
+
+/* Add sidebar header */
+.menu:before {
+  content: "Documentation";
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  color: var(--ifm-color-primary);
+}
+
+/* Make category labels stand out */
+.menu__list-item-collapsible {
+  font-weight: 600;
+}
+
+/* Primary level items styling */
+.menu__link {
+  border-radius: 6px;
+  margin: 0.2rem 0;
+  padding: 0.6rem 0.8rem;
+  transition: all 0.2s ease;
+}
+
+/* Active item styling */
+.menu__link--active {
+  font-weight: 600;
+  background-color: rgba(46, 133, 85, 0.1);
+  border-left: 3px solid #2e8555;
+}
+
+/* Hover effect for menu items */
+.menu__link:hover {
+  background-color: rgba(46, 133, 85, 0.05);
+}
+
+/* Nested categories styling */
+.menu__list .menu__list {
+  margin-left: 0.5rem;
+  padding-left: 0.8rem;
+  border-left: 1px solid var(--ifm-toc-border-color);
+}
+
+/* Menu category headings */
+.menu__list-item-collapsible .menu__link {
+  font-size: 1.05rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Add icons to menu items */
+.menu__list-item-collapsible .menu__link:before {
+  content: '';
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+}
+
+/* Category-specific icons */
+.menu__list-item-collapsible .menu__link:has(+.menu__list .menu__link[href*="case-examples"]):before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%232e8555"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>');
+}
+
+.menu__list-item-collapsible .menu__link:has(+.menu__list .menu__link[href*="rest-api"]):before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%232e8555"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/></svg>');
+}
+
+.menu__list-item-collapsible .menu__link:has(+.menu__list .menu__link[href*="about"]):before {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%232e8555"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>');
+}
+
+/* Nested category headings */
+.menu__list .menu__list .menu__list-item-collapsible .menu__link {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Remove icons from nested categories */
+.menu__list .menu__list .menu__list-item-collapsible .menu__link:before {
+  display: none;
+}
+
+/* Improve readability of documentation content */
+.markdown {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.markdown h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.markdown h2 {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.markdown h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.markdown p {
+  margin-bottom: 1rem;
+}
+
+.markdown ul, .markdown ol {
+  padding-left: 2rem;
+}
+
+/* Make code blocks more readable */
+.markdown .prism-code {
+  font-size: 0.9rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+}
+
+/* Fix table styles */
+.markdown table {
+  display: table;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.markdown table thead tr {
+  border-bottom: 2px solid var(--ifm-table-border-color);
+}
+
+.markdown table th, .markdown table td {
+  padding: 0.75rem;
+}
+
+/* Remove extra spacing caused by missing navbar */
+body {
+  padding-top: 0;
+}
+
+.theme-doc-markdown.markdown {
+  padding-top: 0;
+}

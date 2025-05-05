@@ -51,24 +51,13 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/rediacc/rediacc/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/rediacc/rediacc/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          routeBasePath: '/', // Serve docs at the site root
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: [
+            './src/css/custom.css',
+            './src/css/docs-custom.css'
+          ],
         },
       }),
     ],
@@ -79,92 +68,27 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      // Hide navbar completely through CSS
       navbar: {
-        title: 'Rediacc',
-        logo: {
-          alt: 'Rediacc Logo',
-          src: 'img/logo.svg',
+        style: 'dark',
+        hideOnScroll: true,
+        items: [],
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
         },
-        items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Documentation',
-          },
-          {to: '/docs/features', label: 'Features', position: 'left'},
-          {
-            to: '/docs/case-examples/backup/zero-cost',
-            label: 'Case Examples',
-            position: 'left',
-          },
-          {to: '/docs/about/founders-story', label: 'About', position: 'left'},
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: '/web/index.html',
-            label: 'Web App',
-            position: 'right',
-            target: '_blank',
-          },
-          {
-            href: 'https://github.com/rediacc/rediacc',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
+      },
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
       },
       footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Documentation',
-            items: [
-              {
-                label: 'Getting Started',
-                to: '/docs/intro',
-              },
-              {
-                label: 'Features',
-                to: '/docs/features',
-              },
-              {
-                label: 'Case Examples',
-                to: '/docs/case-examples/backup/zero-cost',
-              },
-            ],
-          },
-          {
-            title: 'About',
-            items: [
-              {
-                label: 'Founder\'s Story',
-                to: '/docs/about/founders-story',
-              },
-              {
-                label: 'The Meaning of Rediacc',
-                to: '/docs/about/name-origin',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/rediacc/rediacc',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/rediacc',
-              },
-              {
-                label: 'LinkedIn',
-                href: 'https://linkedin.com/company/rediacc',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} Rediacc. Be Ready to Accelerate.`,
+        style: 'light',
+        links: [],
+        copyright: ' ',
       },
       prism: {
         theme: prismThemes.github,
