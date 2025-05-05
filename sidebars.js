@@ -24,9 +24,9 @@ const sidebars = {
       label: 'Backup Solutions',
       collapsed: false,
       items: [
-        'case-examples/backup/zero-cost',
-        'case-examples/backup/time-travel',
-        'case-examples/backup/cross-backup',
+        'backup/zero-cost',
+        'backup/time-travel',
+        'backup/cross-backup',
       ],
     },
     {
@@ -34,8 +34,8 @@ const sidebars = {
       label: 'Scaling Solutions',
       collapsed: false,
       items: [
-        'case-examples/scaling/dynamic-resource-scaling',
-        'case-examples/scaling/legacy-database-scaling',
+        'scaling/dynamic-resource-scaling',
+        'scaling/legacy-database-scaling',
       ],
     },
     {
@@ -43,7 +43,7 @@ const sidebars = {
       label: 'Security Solutions',
       collapsed: false,
       items: [
-        'case-examples/security/real-time-defense',
+        'security/real-time-defense',
       ],
     },
     {
@@ -51,8 +51,8 @@ const sidebars = {
       label: 'Administration',
       collapsed: false,
       items: [
-        'case-examples/administration/risk-free-upgrades',
-        'case-examples/administration/blackout',
+        'administration/risk-free-upgrades',
+        'administration/blackout',
       ],
     },
     {

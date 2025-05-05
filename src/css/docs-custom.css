@@ -111,58 +111,6 @@
   background-color: rgba(61, 126, 255, 0.05); /* Updated to match blue-600 with opacity */
 }
 
-/* Nested categories styling */
-.menu__list .menu__list {
-  margin-left: 0.5rem;
-  padding-left: 0.8rem;
-  border-left: 1px solid var(--ifm-toc-border-color);
-}
-
-/* Menu category headings */
-.menu__list-item-collapsible .menu__link {
-  font-size: 1.05rem;
-  font-weight: 600;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Add icons to menu items */
-.menu__list-item-collapsible .menu__link:before {
-  content: '';
-  display: inline-block;
-  width: 1.2rem;
-  height: 1.2rem;
-  margin-right: 0.5rem;
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.7;
-}
-
-/* Category-specific icons with updated colors */
-.menu__list-item-collapsible .menu__link:has(+.menu__list .menu__link[href*="case-examples"]):before {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%233d7eff"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>');
-}
-
-.menu__list-item-collapsible .menu__link:has(+.menu__list .menu__link[href*="rest-api"]):before {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%233d7eff"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/></svg>');
-}
-
-.menu__list-item-collapsible .menu__link:has(+.menu__list .menu__link[href*="about"]):before {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%233d7eff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>');
-}
-
-/* Nested category headings */
-.menu__list .menu__list .menu__list-item-collapsible .menu__link {
-  font-size: 0.95rem;
-  font-weight: 500;
-}
-
-/* Remove icons from nested categories */
-.menu__list .menu__list .menu__list-item-collapsible .menu__link:before {
-  display: none;
-}
-
 /* Improve readability of documentation content */
 .markdown {
   font-size: 16px;
