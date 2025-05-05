@@ -17,8 +17,12 @@ const config = {
   // Set the production url of your site here
   url: 'https://rediacc.com',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  // When integrated with the React app, all content is served under /docs/
+  baseUrl: '/docs/',
+  // Custom configuration for integration with React app
+  customFields: {
+    isIntegratedWithReactApp: true,
+  },
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
