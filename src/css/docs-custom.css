@@ -129,12 +129,25 @@
   margin-bottom: 1.5rem;
   margin-top: 0;
   padding-top: 0;
-  /* Add gradient background to h1 headings to match react-app's style */
+  color: white; /* Default color for all h1 headers, making emojis visible */
+}
+
+/* Apply gradient only to specific headers without emojis via a class */
+.gradient-header {
   background: linear-gradient(to right, var(--ifm-color-primary), var(--ifm-color-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: inline-block;
+}
+
+/* Ensure emojis are visible in headers */
+.emoji-header, [data-has-emoji="true"] {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: inherit !important;
+  background-clip: unset !important;
+  color: white !important;
 }
 
 .markdown h2 {

@@ -34,6 +34,15 @@
   --docs-max-width: 1400px;
 }
 
+/* Reset any potential gradient text effects applied to emoji characters */
+[data-emoji] {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: inherit !important;
+  background-clip: unset !important;
+  color: white !important;
+}
+
 /* We're enforcing dark mode by default for all themes */
 [data-theme='dark'], [data-theme='light'] {
   /* Theme colors */

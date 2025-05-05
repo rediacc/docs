@@ -62,6 +62,14 @@ const config = {
       }),
     ],
   ],
+  
+  // Add client-side scripts
+  scripts: [
+    {
+      src: '/docs/emojiHeaderFix.js',
+      async: true,
+    },
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
