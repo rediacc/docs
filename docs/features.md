@@ -12,96 +12,107 @@ Rediacc offers a range of powerful features designed to make your systems more r
 
 | Feature | Community | Advanced | Premium | Elite |
 |---------|:---------:|:--------:|:-------:|:-----:|
-| Bridges/Networks/Data Centers | 0 | 0 | 2 | 3 |
-| Concurrent Jobs | 1 | 3 | 5 | 11 |
-| Job Scheduling | 0 | 3 | 5 | 11 |
-| Organizations | 1 | 1 | 1 | 3 |
-| Repo Size (GB) | 4 | 64 | 1024 | 4096 |
-| Live Credit (Hours) | 0 | 3 | 5 | 11 |
-| Machines | 3 | 5 | 10 | 111 |
-| Repos | 3 | 5 | 7 | 11 |
-| Storages | 2 | 5 | 7 | 11 |
+| Machines | 3 | 10 | 25 | 250 |
+| Repo Size (GB) | 5 | 100 | 2048 | 8192 |
+| Organizations | 1 | 1 | 2 | 5 |
+| Repos | 3 | 7 | 10 | 20 |
+| Storages | 2 | 7 | 10 | 20 |
+| Concurrent Jobs | 1 | 5 | 10 | 20 |
+| Job Scheduling | - | 5 | 10 | Unlimited |
+| Bridges/Networks/Data Centers | - | 1 | 3 | 5 |
+| Live Credit (Hours) | - | 5 | 10 | 20 |
 
 ## Integration & Access
 
 | Feature | Community | Advanced | Premium | Elite |
 |---------|:---------:|:--------:|:-------:|:-----:|
-| API Access | ❌ | ✅ | ✅ | ✅ |
-| Bridge-Initiated Connection | ❌ | ❌ | ✅ | ✅ |
-| Cloud-based Integrations | ❌ | ✅ | ✅ | ✅ |
-| Collaborators | Up to 3 | Unlimited | Internal workspaces (private) | Internal workspaces (private) |
-| Customizable Branding | ❌ | ❌ | ❌ | ✅ |
-| Dedicated Cloud | ❌ | ❌ | ❌ | ✅ |
-| External Plugins | ❌ | ❌ | ✅ | ✅ |
-| Mail Notifications | ❌ | ✅ | ✅ | ✅ |
-| On-Premise Installation | ❌ | ❌ | ❌ | ✅ |
-| Role-based Access Control | ❌ | ❌ | ✅ | ✅ |
+| API Access | ✅ (Limited) | ✅ | ✅ | ✅ |
+| Mail Notifications | ✅ (Basic) | ✅ | ✅ | ✅ |
+| Collaborators | Up to 3 | Up to 15 | Unlimited | Unlimited |
+| Role-based Access Control | - | ✅ | ✅ | ✅ |
+| Cloud-based Integrations | - | ✅ | ✅ | ✅ |
+| Bridge-Initiated Connection | - | ✅ | ✅ | ✅ |
+| External Plugins | - | ✅ | ✅ | ✅ |
+| Dedicated Cloud | - | - | ✅ | ✅ |
+| Customizable Branding | - | - | ✅ | ✅ |
+| On-Premise Installation | - | - | - | ✅ |
 
 ## Security & Management
 
 | Feature | Community | Advanced | Premium | Elite |
 |---------|:---------:|:--------:|:-------:|:-----:|
-| Middleware-Initiated Connection | ✅ | ✅ | ✅ | ✅ |
 | Repo Encryption | ✅ | ✅ | ✅ | ✅ |
-| Repo Resizing | ❌ | ✅ | ✅ | ✅ |
-| Shared Cloud | ✅ | ✅ | ❌ | ❌ |
 | 2FA | ✅ | ✅ | ✅ | ✅ |
-| User Groups | 1 | 3 | Unlimited | Unlimited |
-| Zero Sync (Rediacс/Ceph FS) | ❌ | ❌ | ❌ | ✅ |
-| Command Line Interface | ❌ | ❌ | ✅ | ✅ |
-| File Upload | ❌ | ❌ | ❌ | ✅ |
+| Enhanced Encryption | ✅ | ✅ | ✅ | ✅ |
+| Middleware-Initiated Connection | ✅ | ✅ | ✅ | ✅ |
+| Command Line Interface | - | ✅ | ✅ | ✅ |
+| Repo Resizing | - | ✅ | ✅ | ✅ |
+| File Upload | - | ✅ | ✅ | ✅ |
+| User Groups | 1 | 5 | Unlimited | Unlimited |
+| Audit Logging | - | Basic | Advanced | Enterprise |
+| Zero Sync (Rediacс/Ceph FS) | - | - | ✅ | ✅ |
+| Compliance Reports | - | - | ✅ | ✅ |
 
 ## Platforms & Applications
 
 | Feature | Community | Advanced | Premium | Elite |
 |---------|:---------:|:--------:|:-------:|:-----:|
-| Android & iOS Mobile Apps | ❌ | ✅ | ✅ | ✅ |
-| Push Notifications | ❌ | ✅ | ✅ | ✅ |
 | Web Application | ✅ | ✅ | ✅ | ✅ |
 | Progressive Web App | ✅ | ✅ | ✅ | ✅ |
+| Desktop Applications | - | ✅ | ✅ | ✅ |
+| Android & iOS Mobile Apps | - | ✅ | ✅ | ✅ |
+| Push Notifications | - | ✅ | ✅ | ✅ |
+| Offline Mode | - | Limited | ✅ | ✅ |
 
 ## Feature Highlights
 
 ### 💾 Intelligent Backup Solutions
 
-Rediacc transforms how you think about backups with our innovative approach:
+Rediacc transforms how you think about backups:
 
-- **Zero-Cost Backups**: Save up to 90% on storage costs with our smart differential backup technology that only stores changed data while giving you the experience of full backups.
-- **Time Travel Capabilities**: Restore your system to any point in time with automated snapshots taken as frequently as every hour without consuming excessive storage.
-- **Cross Backup Technology**: Securely back up your data to remote or intercontinental servers with minimal bandwidth usage, reducing backup times from weeks to minutes.
+- **Smart Storage Savings**: Cut storage costs by 95% with our smart backup technology that only saves changed data.
+- **Point-in-Time Recovery**: Restore systems to any moment with frequent snapshots that use minimal storage space.
+- **Fast Remote Backups**: Back up to distant servers quickly using minimal bandwidth, turning weeks into minutes.
+- **Smart Scheduling**: Our system learns your patterns to optimize backup timing and storage use.
 
 ### 🛡️ Advanced Security
 
-Keep your systems and data secure with Rediacc's comprehensive security features:
+Keep your systems and data secure with Rediacc:
 
-- **Real-Time Defense**: Our AI-based analysis detects abnormal activities and automatically blocks suspicious data transfers, preventing costly data breaches.
-- **Repo Encryption**: All your repositories are encrypted, ensuring data security both at rest and in transit.
-- **Multi-factor Authentication**: Secure your account with 2FA across all pricing tiers.
+- **Threat Blocking**: Smart monitoring catches and stops unusual activity before data breaches happen.
+- **Strong Encryption**: Your data is locked down with top-grade protection when stored or moving between systems.
+- **Two-Step Login**: Extra account protection with two-factor authentication on all plans.
+- **Regulation Ready**: Built-in tools help you meet key rules like GDPR, HIPAA, and SOC2.
+- **Always Watching**: Ongoing scans find and fix weak spots in your system before they become problems.
 
 ### 📈 Seamless Scaling
 
-Adapt to changing demands with Rediacc's flexible scaling solutions:
+Grow and shrink your systems as needed with Rediacc:
 
-- **Dynamic Resource Scaling**: Instantly clone your environment to the cloud during peak hours and synchronize changes back to on-premise systems when demand decreases.
-- **Risk-Free Upgrades**: Test upgrades and changes on instant clones of your production environment without affecting live systems, eliminating downtime and risk.
-- **Flexible Resource Allocation**: Adjust your computing resources based on actual needs, optimizing costs while maintaining performance.
+- **Cloud Bursting**: Move to the cloud during busy times, then sync back when things slow down.
+- **Safe Updates**: Test changes on exact copies of your system without touching live operations.
+- **Resource Matching**: Use only what you need, when you need it to keep costs low and performance high.
+- **Mix and Match**: Blend your own hardware with cloud services for the best balance of control and flexibility.
+- **Hands-Free Growth**: Systems that automatically grow or shrink based on your actual usage patterns.
 
 ## Use Cases
 
 Rediacc is designed to address real-world challenges faced by businesses and developers:
 
-- **System Administrators**: Perform risk-free upgrades, implement cost-effective backup strategies, and ensure business continuity.
-- **DevOps Teams**: Create consistent development environments, automate testing, and streamline deployments.
-- **Security Teams**: Enhance threat detection, implement real-time defense mechanisms, and maintain comprehensive audit trails.
-- **Cloud Architects**: Design hybrid cloud solutions, optimize resource allocation, and reduce cloud spending.
+- **System Administrators**: Perform risk-free upgrades, implement cost-effective backup strategies, and ensure business continuity with minimal downtime.
+- **DevOps Teams**: Create consistent development environments, automate testing, streamline deployments, and implement CI/CD pipelines with ease.
+- **Security Teams**: Enhance threat detection, implement real-time defense mechanisms, maintain comprehensive audit trails, and ensure compliance with industry regulations.
+- **Cloud Architects**: Design hybrid cloud solutions, optimize resource allocation, reduce cloud spending, and implement disaster recovery strategies.
+- **Database Administrators**: Scale legacy databases without downtime, implement efficient backup solutions, and optimize performance.
+- **Enterprise IT**: Implement unified management across multiple environments, ensure data sovereignty, and maintain consistent security policies.
 
 ## Get Started
 
 Ready to accelerate your business with Rediacc? Choose the tier that matches your needs:
 
-- **Community**: Perfect for individual developers and small projects
-- **Advanced**: Ideal for growing teams with increased resource requirements
-- **Premium**: Designed for businesses needing enhanced security and integration capabilities
-- **Elite**: Enterprise-grade solution with maximum resources and complete feature set
+- **Community**: Free for individual developers and small projects - perfect for learning and experimentation
+- **Advanced**: Ideal for growing teams with increased resource requirements and basic integration needs
+- **Premium**: Designed for businesses requiring enhanced security, performance, and advanced integration capabilities
+- **Elite**: Enterprise-grade solution with maximum resources, dedicated support, and complete feature set
 
-Contact our sales team to discuss custom requirements or schedule a demo. 
+All paid plans come with a 30-day money-back guarantee and free technical support. Enterprise customers receive dedicated account management and priority support. Use our [pricing calculator](/pricing) to estimate costs based on your specific needs or [schedule a demo](/request-demo) to learn more.

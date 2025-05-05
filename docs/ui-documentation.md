@@ -78,8 +78,6 @@ The application has a hierarchical navigation menu reflecting the entity relatio
 
 #### Login Page
 
-![Login Page](/img/ui/login-page.svg)
-
 - Email address
 - Password
 - TOTP code input (shown when 2FA is enabled)
@@ -97,8 +95,6 @@ The application has a hierarchical navigation menu reflecting the entity relatio
 
 ### Dashboard
 
-![Dashboard](/img/ui/dashboard-page.svg)
-
 Overview showing:
 - Active machines count
 - Queue items count
@@ -112,8 +108,6 @@ Overview showing:
 ### Infrastructure Pages
 
 #### Regions Page
-
-![Regions Page](/img/ui/regions-page.svg)
 
 - Table listing regions with:
   - Region name
@@ -130,8 +124,6 @@ Overview showing:
 
 #### Bridges Page
 
-![Bridges Page](/img/ui/bridges-page.svg)
-
 - Region selector at the top
 - Table listing bridges with:
   - Bridge name
@@ -147,8 +139,6 @@ Overview showing:
   - Monitoring parameters
 
 #### Machines Page
-
-![Machines Page](/img/ui/machines-page.svg)
 
 - Team and Bridge selectors at the top
 - Table listing machines with:
@@ -173,8 +163,6 @@ Overview showing:
 
 #### Teams Page
 
-![Teams Page](/img/ui/teams-page.svg)
-
 - Table listing teams with:
   - Team name
   - Member count
@@ -191,8 +179,6 @@ Overview showing:
 
 #### Participants Page
 
-![Participants Page](/img/ui/participants-page.svg)
-
 - Team selector at the top
 - Table listing team members with:
   - User email
@@ -206,8 +192,6 @@ Overview showing:
 ### Resources Pages
 
 #### Repositories Page
-
-![Repositories Page](/img/ui/repositories-page.svg)
 
 - Team selector at the top
 - Table listing repositories with:
@@ -228,8 +212,6 @@ Overview showing:
 
 #### Storage Page
 
-![Storage Page](/img/ui/storage-page.svg)
-
 - Team selector at the top
 - Table listing storage with:
   - Storage name
@@ -247,8 +229,6 @@ Overview showing:
   - Performance settings
 
 #### Schedules Page
-
-![Schedules Page](/img/ui/schedules-page.svg)
 
 - Team selector at the top
 - Table listing schedules with:
@@ -270,8 +250,6 @@ Overview showing:
 ### Operations Pages
 
 #### Queue Management Page
-
-![Queue Management Page](/img/ui/queue-page.svg)
 
 - Team and optional Machine selectors at the top
 - Table listing queue items with:
@@ -307,8 +285,6 @@ Overview showing:
 
 #### Company Settings Page
 
-![Company Settings Page](/img/ui/company-settings-page.svg)
-
 - Company name
 - Logo
 - Address information
@@ -319,8 +295,6 @@ Overview showing:
 - Integration configurations
 
 #### User Management Page
-
-![User Management Page](/img/ui/user-management-page.svg)
 
 - Table listing all users with:
   - Email
@@ -349,39 +323,27 @@ Overview showing:
 
 ![Advanced Security](/img/advanced-security.svg)
 
-The application implements advanced security features to protect sensitive data:
+The application includes comprehensive security features to protect your data:
 
 ### Enhanced Authentication
 
-- **Two-Factor Authentication (2FA)**: Time-based One-Time Password (TOTP) support compatible with authenticator apps like Google Authenticator and Authy
-- **Session Management**: Automatic session expiration, with ability to view and terminate active sessions
-- **Password Policies**: Enforced password complexity and rotation requirements
+- **Two-Factor Authentication (2FA)**: Additional security layer for user accounts
+- **Session Management**: Control over active sessions and automatic timeouts
+- **Password Security**: Strong password requirements and secure handling
 
-### Data Encryption
+### Data Protection
 
-- **Vault Encryption**: All sensitive information is stored in vault fields that are encrypted in the database
-- **End-to-End Encryption**: Data is encrypted at rest and in transit
-- **Company Passphrase**: Each company has a unique encryption key that is never stored in plaintext
+- **Encryption**: Sensitive information is securely encrypted
+- **Secure Storage**: Data is protected both in transit and at rest
+- **Access Controls**: Granular permissions system to control data access
 
-### Access Control
+### User Interface Security
 
-- **Permission Groups**: Role-based access control with granular permissions
-- **Team Membership**: Resources are siloed by team, with explicit membership requirements
-- **Audit Logging**: Comprehensive logging of system access and changes
+- **Visual Indicators**: Secure fields are clearly marked in the interface
+- **Audit Capability**: Track important system changes and user actions
+- **Status Monitoring**: Easy visibility into system security status
 
-### UI Security Indicators
-
-- **Encryption Indicators**: Encrypted fields are visually indicated with a lock icon in the UI
-- **Session Information**: Active session details and expiration information
-- **Security Status**: Company-wide security status dashboard
-
-Examples of encrypted data include:
-- API keys and connection credentials
-- Security certificates
-- Network configuration details
-- Authentication tokens
-- Repository access credentials
-- Task parameters and definitions
+> **Note**: For detailed security implementation information, please refer to internal documentation or contact the security team.
 
 ## Design Principles
 
@@ -515,22 +477,16 @@ Based on the database design and foreign key relationships, here's the recommend
 
 ## Recent UI Enhancements
 
-### Two-Factor Authentication (2FA)
-- User interface for enabling and managing 2FA
-- QR code display for easy authenticator app setup
-- TOTP code input field during login
-- 2FA status indicators throughout the interface
+### Authentication Improvements
+- Enhanced login screens with 2FA support
+- Intuitive security management interfaces
+- Account management with security controls
+- Login status indicators for better awareness
 
-### Session Management
-- View all active sessions with device and location information
-- Terminate individual sessions or all sessions
-- Session timeout indicators
-- Automatic session refresh for better user experience
-
-### Dark Mode Support
-- System-wide dark mode toggle
-- Automatic detection of system preferences
+### Interface Modernization
+- Dark Mode Support with automatic system preference detection
 - Optimized color schemes for reduced eye strain
+- Improved overall visual design and consistency
 
 ### Accessibility Improvements
 - Improved keyboard navigation
@@ -544,10 +500,12 @@ Based on the database design and foreign key relationships, here's the recommend
 - Touch-friendly controls and interactions
 - Adaptive content display
 
-### Performance Monitoring
-- Real-time resource utilization charts
+### Monitoring Capabilities
+- Resource utilization visualization
 - System health indicators
-- Predictive capacity planning tools
-- Automated alert thresholds
+- Improved data insights
+- Real-time status updates
 
 These enhancements ensure that the Rediacc web application remains a modern, secure, and user-friendly interface for managing your system infrastructure.
+
+> **Internal Documentation**: For technical teams with appropriate access, detailed security implementation documentation is available in the [internal documentation section](/docs/internal/security-implementation).
