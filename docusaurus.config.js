@@ -72,7 +72,18 @@ const config = {
       navbar: {
         style: 'dark',
         hideOnScroll: true,
-        items: [],
+        logo: {
+          alt: 'Rediacc Logo',
+          src: 'img/logo_white.png',
+        },
+        items: [
+          {
+            to: '../',
+            label: 'Back to Home',
+            position: 'right',
+            target: '_self',
+          },
+        ],
       },
       docs: {
         sidebar: {
@@ -82,7 +93,7 @@ const config = {
       },
       colorMode: {
         defaultMode: 'dark',
-        disableSwitch: true,
+        disableSwitch: false,
         respectPrefersColorScheme: false,
       },
       footer: {

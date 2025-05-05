@@ -6,17 +6,17 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* Match primary colors with react-app's theme */
-  --ifm-color-primary: #3d7eff; /* blue-600 */
-  --ifm-color-primary-dark: #2563eb; /* blue-700 */
-  --ifm-color-primary-darker: #1d4ed8; /* blue-800 */
-  --ifm-color-primary-darkest: #1e40af; /* blue-900 */
-  --ifm-color-primary-light: #60a5fa; /* blue-500 */
-  --ifm-color-primary-lighter: #93c5fd; /* blue-400 */
-  --ifm-color-primary-lightest: #bfdbfe; /* blue-300 */
+  /* Olive green theme */
+  --ifm-color-primary: #556b2f; /* olive-drab */
+  --ifm-color-primary-dark: #4c6029;
+  --ifm-color-primary-darker: #435524;
+  --ifm-color-primary-darkest: #394a1e;
+  --ifm-color-primary-light: #617839;
+  --ifm-color-primary-lighter: #6c8541;
+  --ifm-color-primary-lightest: #7d9b49;
   
-  /* Secondary indigo color from the gradient */
-  --ifm-color-secondary: #4f46e5; /* indigo-600 */
+  /* Secondary olive color */
+  --ifm-color-secondary: #808000; /* olive */
   
   /* Background colors */
   --ifm-background-color: #ffffff;
@@ -33,17 +33,17 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  /* Match dark mode with react-app's dark theme */
-  --ifm-color-primary: #60a5fa; /* blue-500 */
-  --ifm-color-primary-dark: #3d7eff; /* blue-600 */
-  --ifm-color-primary-darker: #2563eb; /* blue-700 */
-  --ifm-color-primary-darkest: #1d4ed8; /* blue-800 */
-  --ifm-color-primary-light: #93c5fd; /* blue-400 */
-  --ifm-color-primary-lighter: #bfdbfe; /* blue-300 */
-  --ifm-color-primary-lightest: #dbeafe; /* blue-200 */
+  /* Dark mode olive theme */
+  --ifm-color-primary: #7d9b49; /* lighter olive for dark mode */
+  --ifm-color-primary-dark: #6c8541;
+  --ifm-color-primary-darker: #617839;
+  --ifm-color-primary-darkest: #556b2f;
+  --ifm-color-primary-light: #8bac51;
+  --ifm-color-primary-lighter: #9bbc61;
+  --ifm-color-primary-lightest: #accf72;
   
-  /* Secondary indigo color from the gradient */
-  --ifm-color-secondary: #818cf8; /* indigo-400 */
+  /* Secondary olive color for dark mode */
+  --ifm-color-secondary: #9a9a00; /* lighter olive */
   
   /* Dark mode background colors to match react-app */
   --ifm-background-color: #111827; /* bg-gray-900 */
@@ -57,8 +57,8 @@
   
   /* Scrollbar styling */
   --ifm-scrollbar-track-background-color: #1a202c;
-  --ifm-scrollbar-thumb-background-color: #3d7eff;
-  --ifm-scrollbar-thumb-hover-background-color: #4f46e5;
+  --ifm-scrollbar-thumb-background-color: #556b2f; /* olive-drab */
+  --ifm-scrollbar-thumb-hover-background-color: #808000; /* olive */
 }
 
 /* Custom scrollbar to match react-app */
@@ -81,7 +81,7 @@
 
 /* Improved focus states for accessibility */
 a:focus, button:focus, input:focus, select:focus, textarea:focus {
-  outline: 2px solid #3d7eff;
+  outline: 2px solid #556b2f; /* olive-drab */
   outline-offset: 2px;
 }
 
