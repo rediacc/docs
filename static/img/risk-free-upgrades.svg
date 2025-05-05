@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="60" fill="#FFF5F5" />
+  
+  <!-- Servers with test & production -->
+  <rect x="24" y="38" width="28" height="44" rx="3" fill="#1A365D" />
+  <rect x="68" y="38" width="28" height="44" rx="3" fill="#1A365D" />
+  
+  <!-- Server lights -->
+  <circle cx="38" cy="46" r="3" fill="#4FD1C5" />
+  <circle cx="82" cy="46" r="3" fill="#4FD1C5" />
+  
+  <!-- Server slots -->
+  <rect x="28" y="54" width="20" height="3" rx="1" fill="#4FD1C5" />
+  <rect x="28" y="60" width="20" height="3" rx="1" fill="#4FD1C5" />
+  <rect x="28" y="66" width="20" height="3" rx="1" fill="#4FD1C5" />
+  
+  <rect x="72" y="54" width="20" height="3" rx="1" fill="#4FD1C5" />
+  <rect x="72" y="60" width="20" height="3" rx="1" fill="#4FD1C5" />
+  <rect x="72" y="66" width="20" height="3" rx="1" fill="#4FD1C5" />
+  
+  <!-- Labels -->
+  <rect x="28" y="74" width="20" height="10" rx="2" fill="#4FD1C5" />
+  <rect x="72" y="74" width="20" height="10" rx="2" fill="#4FD1C5" />
+  
+  <!-- Clone/copy arrow -->
+  <path d="M52 60H68" stroke="#1A365D" stroke-width="3" stroke-linecap="round" />
+  <path d="M68 60L62 56V64" stroke="#1A365D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Version numbers -->
+  <circle cx="38" cy="30" r="10" fill="#4FD1C5" stroke="#1A365D" stroke-width="2" />
+  <path d="M35 30V27H38.5C39.3 27 40 27.7 40 28.5C40 29.3 39.3 30 38.5 30H35Z" fill="#1A365D" />
+  <path d="M35 30V33H38.5C39.3 33 40 32.3 40 31.5C40 30.7 39.3 30 38.5 30H35Z" fill="#1A365D" />
+  
+  <circle cx="82" cy="30" r="10" fill="#4FD1C5" stroke="#1A365D" stroke-width="2" />
+  <path d="M78 27L78 33H82.5C83.9 33 85 31.9 85 30.5V29.5C85 28.1 83.9 27 82.5 27H78Z" fill="#1A365D" />
+  
+  <!-- Checkmark -->
+  <circle cx="38" cy="94" r="10" fill="#4FD1C5" stroke="#1A365D" stroke-width="2" />
+  <path d="M33 94L36 97L43 90" stroke="#1A365D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Arrow pointing to production -->
+  <path d="M48 94H72" stroke="#1A365D" stroke-width="3" stroke-linecap="round" />
+  <path d="M72 94L66 90V98" stroke="#1A365D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

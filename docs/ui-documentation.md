@@ -11,13 +11,15 @@ The Rediacc web application is designed to provide a comprehensive management in
 ### Key Features and Pages
 
 #### Authentication & Registration
-- Login page for existing users
+- Login page for existing users with enhanced 2FA support
 - Registration form for new companies
+- Session management with automatic logout for inactive sessions
 
 #### Dashboard
 - Overview of system statistics (machines, queue items, teams, repositories)
 - Recent activity log
 - System status information
+- Resource utilization charts
 
 #### Infrastructure Management
 - Regions: Geographic or logical divisions for system deployment
@@ -35,10 +37,12 @@ The Rediacc web application is designed to provide a comprehensive management in
 
 #### Operations
 - Queue Management: Task submission and processing across machines
+- Monitoring: Real-time system metrics and alerts
 
 #### Administration
 - Company Settings: Organization-wide configuration
 - User Management: User account administration
+- Permission Groups: Role-based access control management
 
 This document outlines the UI structure, navigation, page details, data fields, and user flows of the application.
 
@@ -62,9 +66,11 @@ The application has a hierarchical navigation menu reflecting the entity relatio
   - Schedules
 - **Operations**
   - Queue Management
+  - Monitoring
 - **Administration**
   - Company Settings
   - User Management
+  - Permission Groups
 
 ## Page Details & Data Fields
 
@@ -76,7 +82,10 @@ The application has a hierarchical navigation menu reflecting the entity relatio
 
 - Email address
 - Password
+- TOTP code input (shown when 2FA is enabled)
 - Login button
+- "Remember this device" option
+- Password reset link
 
 #### Register Page
 
@@ -84,6 +93,7 @@ The application has a hierarchical navigation menu reflecting the entity relatio
 - Admin email
 - Password
 - Confirm password
+- Terms and conditions checkbox
 
 ### Dashboard
 
@@ -96,6 +106,8 @@ Overview showing:
 - Repositories count
 - Recent activities
 - System status
+- Resource utilization charts
+- Quick action buttons
 
 ### Infrastructure Pages
 
@@ -106,6 +118,7 @@ Overview showing:
 - Table listing regions with:
   - Region name
   - Bridge count
+  - Status indicator
   - Creation date
 - Add/Edit/Remove region buttons
 - **Vault data (encrypted):**
@@ -143,6 +156,7 @@ Overview showing:
   - Bridge name
   - Status indicator
   - Queue item count
+  - Resource utilization
   - Last activity timestamp
 - Add/Edit/Remove machine buttons
 - Move machine to another bridge option
@@ -166,6 +180,7 @@ Overview showing:
   - Member count
   - Machine count
   - Repository count
+  - Resource utilization
 - Add/Edit/Remove team buttons
 - **Vault data (encrypted):**
   - Team-specific security policies
@@ -181,9 +196,12 @@ Overview showing:
 - Team selector at the top
 - Table listing team members with:
   - User email
+  - Role within team
   - Activation status
+  - 2FA status
   - Last login date
 - Add/Remove participant buttons
+- Manage permissions button
 
 ### Resources Pages
 
@@ -195,8 +213,11 @@ Overview showing:
 - Table listing repositories with:
   - Repository name
   - Size
+  - Status
+  - Version count
   - Last updated date
 - Add/Edit/Remove repo buttons
+- Clone repository option
 - **Vault data (encrypted):**
   - Repository URLs
   - Authentication credentials
@@ -214,6 +235,7 @@ Overview showing:
   - Storage name
   - Size
   - Type
+  - Usage percentage
   - Location
 - Add/Edit/Remove storage buttons
 - **Vault data (encrypted):**
@@ -234,7 +256,9 @@ Overview showing:
   - Status (active/inactive)
   - Next run time
   - Last run time
+  - Success/failure status
 - Add/Edit/Remove schedule buttons
+- Run now option
 - **Vault data (encrypted):**
   - Schedule triggers
   - Task definitions
@@ -255,6 +279,7 @@ Overview showing:
   - Machine name
   - Submission time
   - Status
+  - Priority level
   - Response status
 - Add queue item button
 - Respond to queue item option
@@ -268,6 +293,16 @@ Overview showing:
   - Error logs
   - Performance metrics
 
+#### Monitoring Page
+
+- Team and optional Machine selectors at the top
+- CPU, memory, and disk usage charts
+- Network activity graphs
+- Error rate indicators
+- Active session counts
+- System alerts and notifications
+- Timeline of significant events
+
 ### Administration Pages
 
 #### Company Settings Page
@@ -279,6 +314,9 @@ Overview showing:
 - Address information
 - Contact details
 - System preferences
+- Security settings
+- Retention policies
+- Integration configurations
 
 #### User Management Page
 
@@ -287,19 +325,55 @@ Overview showing:
 - Table listing all users with:
   - Email
   - Account status
+  - 2FA status
+  - Last active session
   - Account creation date
   - Last login date
 - Add/Activate/Deactivate user buttons
 - Reset password option
+- Enable/Disable 2FA option
+- Assign permission group
+
+#### Permission Groups Page
+
+- Table listing permission groups with:
+  - Group name
+  - User count
+  - Permission count
+  - Description
+- Add/Edit/Remove permission group buttons
+- Assign permissions to group option
+- View users in group option
 
 ## Security Features
 
 ![Advanced Security](/img/advanced-security.svg)
 
-The application implements security for sensitive data through vault encryption:
+The application implements advanced security features to protect sensitive data:
 
-- Sensitive information is stored in vault fields that are encrypted in the database
-- Encrypted fields are visually indicated with a lock icon in the UI
+### Enhanced Authentication
+
+- **Two-Factor Authentication (2FA)**: Time-based One-Time Password (TOTP) support compatible with authenticator apps like Google Authenticator and Authy
+- **Session Management**: Automatic session expiration, with ability to view and terminate active sessions
+- **Password Policies**: Enforced password complexity and rotation requirements
+
+### Data Encryption
+
+- **Vault Encryption**: All sensitive information is stored in vault fields that are encrypted in the database
+- **End-to-End Encryption**: Data is encrypted at rest and in transit
+- **Company Passphrase**: Each company has a unique encryption key that is never stored in plaintext
+
+### Access Control
+
+- **Permission Groups**: Role-based access control with granular permissions
+- **Team Membership**: Resources are siloed by team, with explicit membership requirements
+- **Audit Logging**: Comprehensive logging of system access and changes
+
+### UI Security Indicators
+
+- **Encryption Indicators**: Encrypted fields are visually indicated with a lock icon in the UI
+- **Session Information**: Active session details and expiration information
+- **Security Status**: Company-wide security status dashboard
 
 Examples of encrypted data include:
 - API keys and connection credentials
@@ -317,8 +391,10 @@ The interface follows several key design principles:
 - **Entity Relationships:** UI reflects the relationships between entities (e.g., regions contain bridges)
 - **Security Visibility:** Encrypted fields are clearly marked without exposing sensitive data
 - **Consistent Actions:** Add, edit, remove functions appear consistently across entities
-- **Responsive Design:** Designed for desktop browser use with adaptable components
+- **Responsive Design:** Designed for desktop browser use with adaptable components for different screen sizes
 - **Modal Interactions:** Forms for creating and editing items appear in modal dialogs
+- **Dark Mode Support:** Interface supports light and dark mode based on user preference
+- **Accessibility:** Compliant with WCAG 2.1 AA standards
 
 ## User Flow and Setup Sequence
 
@@ -327,10 +403,12 @@ Based on the database design and foreign key relationships, here's the recommend
 ### Company Registration
 1. Create the first admin account
 2. System creates a default team, region, and bridge automatically
+3. Set up 2FA for the admin account (recommended)
 
 ### Team Setup
 1. Create additional teams as needed
 2. Add participants (users) to teams
+3. Configure permission groups and assign users
 
 ### Infrastructure Setup
 1. Create regions (representing geographical or logical divisions)
@@ -355,10 +433,12 @@ Based on the database design and foreign key relationships, here's the recommend
 1. User enters company name "Acme Technologies", admin email "admin@acme.com", and password
 2. System creates the company record with a default "Default Team", "Default Region", and "Default Bridge"
 3. User receives an activation email and activates the account
+4. User is prompted to set up 2FA (optional but recommended)
 
 #### Login to System
 1. User logs in with credentials
-2. System presents the dashboard showing the default configuration
+2. If 2FA is enabled, user enters the 6-digit code from their authenticator app
+3. System presents the dashboard showing the default configuration
 
 ### Infrastructure Setup
 
@@ -431,4 +511,43 @@ Based on the database design and foreign key relationships, here's the recommend
 2. Views pending queue items
 3. Selects an item and clicks "Respond"
 4. Enters response data (stored in vault)
-5. System updates the queue item with response information 
+5. System updates the queue item with response information
+
+## Recent UI Enhancements
+
+### Two-Factor Authentication (2FA)
+- User interface for enabling and managing 2FA
+- QR code display for easy authenticator app setup
+- TOTP code input field during login
+- 2FA status indicators throughout the interface
+
+### Session Management
+- View all active sessions with device and location information
+- Terminate individual sessions or all sessions
+- Session timeout indicators
+- Automatic session refresh for better user experience
+
+### Dark Mode Support
+- System-wide dark mode toggle
+- Automatic detection of system preferences
+- Optimized color schemes for reduced eye strain
+
+### Accessibility Improvements
+- Improved keyboard navigation
+- Enhanced screen reader support
+- Better color contrast ratios
+- Focus indicators for interactive elements
+
+### Responsive Enhancements
+- Optimized layouts for various screen sizes
+- Improved mobile navigation
+- Touch-friendly controls and interactions
+- Adaptive content display
+
+### Performance Monitoring
+- Real-time resource utilization charts
+- System health indicators
+- Predictive capacity planning tools
+- Automated alert thresholds
+
+These enhancements ensure that the Rediacc web application remains a modern, secure, and user-friendly interface for managing your system infrastructure.

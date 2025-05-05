@@ -40,17 +40,8 @@
   height: auto;
 }
 
-.audienceCallout {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #ffc107;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
 .mainHeadline {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.2;
@@ -60,252 +51,207 @@
   font-size: 1.25rem;
   margin-bottom: 2rem;
   max-width: 800px;
+  line-height: 1.6;
 }
 
-.bulletPoints {
-  text-align: left;
-  margin-bottom: 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1.5rem 2rem;
-  border-radius: 8px;
-}
-
-.bulletPoints ul {
-  margin: 0;
-  padding-left: 1.5rem;
-}
-
-.bulletPoints li {
-  margin-bottom: 0.75rem;
-  font-size: 1.1rem;
-}
-
-.ctaButton {
-  margin: 2rem 0 1rem;
-}
-
-.buttons {
+.ctaButtons {
   display: flex;
-  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Section Styling */
+.sectionTitle {
+  text-align: center;
+  color: #1a365d;
+  margin-bottom: 2.5rem;
+  font-size: 2.25rem;
+}
+
+/* Features Section */
+.featuresSection {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featureCard {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.featureIcon {
+  margin-bottom: 1.5rem;
+  display: flex;
   justify-content: center;
 }
 
-/* Problem Section */
-.problemSection {
-  background-color: #f9f9f9;
-  padding: 4rem 0;
+.featureIcon svg {
+  width: 64px;
+  height: 64px;
 }
 
-.problemContent {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.problemContent h2 {
-  margin-bottom: 2rem;
-  text-align: center;
+.featureCard h3 {
   color: #1a365d;
-}
-
-.problemContent p {
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-}
-
-.problemContent ul {
-  margin-bottom: 2rem;
-}
-
-.problemContent li {
   margin-bottom: 1rem;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 }
 
-/* Solution Section */
-.solutionSection {
+.featureCard p {
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* How It Works Section */
+.howItWorksSection {
+  padding: 5rem 0;
   background-color: white;
-  padding: 4rem 0;
 }
 
-.solutionSection h2 {
-  margin-bottom: 2rem;
-  text-align: center;
-  color: #1a365d;
-}
-
-.solutionContent {
-  max-width: 800px;
+.howItWorksContent {
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.solutionContent p {
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
+.introText {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #4a5568;
 }
 
-.solutionGrid {
+.stepsContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
 }
 
-.solutionItem {
-  background: #f5f7fa;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.step {
   text-align: center;
+  padding: 2rem;
+  position: relative;
 }
 
-.solutionIcon {
-  margin-bottom: 1rem;
-}
-
-.solutionIcon svg {
-  width: 80px;
-  height: 80px;
-}
-
-.solutionItem h3 {
-  margin-bottom: 1rem;
-  color: #1a365d;
-}
-
-/* Credentials Section */
-.credentialsSection {
+.stepNumber {
   background-color: #1a365d;
   color: white;
-  padding: 4rem 0;
-}
-
-.credentialsSection h2 {
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.credentialsContent {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.credentialsStats {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 3rem;
-}
-
-.stat {
-  text-align: center;
-}
-
-.stat h3 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  color: #ffc107;
-}
-
-.logos, .awards {
-  margin-bottom: 2rem;
-}
-
-.logos p, .awards p {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.logoGrid {
-  display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0 auto 1.5rem;
 }
 
-.companyLogo {
-  width: 150px;
-  height: 60px;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
-  transition: transform 0.3s ease;
-}
-
-.companyLogo:hover {
-  transform: translateY(-5px);
-}
-
-/* Benefits Section */
-.benefitsSection {
-  background-color: #f9f9f9;
-  padding: 4rem 0;
-}
-
-.benefitsSection h2 {
-  margin-bottom: 2rem;
-  text-align: center;
+.step h3 {
   color: #1a365d;
-}
-
-.benefitsList {
-  max-width: 800px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2rem;
-}
-
-.benefit {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.benefit h3 {
   margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.step p {
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* Use Cases Section */
+.useCasesSection {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+.useCasesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.useCase {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.useCase h3 {
   color: #1a365d;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.useCase ul {
+  padding-left: 1.5rem;
+}
+
+.useCase li {
+  margin-bottom: 0.75rem;
+  color: #4a5568;
+  line-height: 1.5;
 }
 
 /* Testimonials Section */
 .testimonialsSection {
+  padding: 5rem 0;
   background-color: white;
-  padding: 4rem 0;
-}
-
-.testimonialsSection h2 {
-  margin-bottom: 2rem;
-  text-align: center;
-  color: #1a365d;
 }
 
 .testimonialGrid {
-  max-width: 800px;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
 }
 
 .testimonial {
-  background: #f5f7fa;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   position: relative;
 }
 
 .testimonial:before {
   content: '"';
   position: absolute;
-  top: -10px;
-  left: 10px;
+  top: 0;
+  left: 15px;
   font-size: 4rem;
   color: rgba(26, 54, 93, 0.1);
+  line-height: 1;
 }
 
 .testimonial p {
   font-style: italic;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  color: #4a5568;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
 }
 
 .testimonialAuthor {
@@ -313,111 +259,78 @@
   flex-direction: column;
 }
 
-/* Offer Section */
-.offerSection {
+.testimonialAuthor strong {
+  color: #1a365d;
+}
+
+.testimonialAuthor span {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.trustedBy {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.trustedBy p {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  color: #4a5568;
+}
+
+.logoGrid {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.companyLogo {
+  width: 150px;
+  height: 60px;
+  transition: transform 0.3s ease;
+  filter: grayscale(100%) opacity(0.7);
+}
+
+.companyLogo:hover {
+  transform: translateY(-5px);
+  filter: grayscale(0%) opacity(1);
+}
+
+/* Get Started Section */
+.getStartedSection {
+  padding: 5rem 0;
   background: linear-gradient(135deg, #1a365d 0%, #2b4c7e 100%);
   color: white;
-  padding: 4rem 0;
 }
 
-.offerSection h2 {
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.offerContent {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.offerContent p, .offerContent ul {
-  margin-bottom: 1.5rem;
-}
-
-.offerContent li {
-  margin-bottom: 0.5rem;
-}
-
-.bonuses {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 2rem 0;
-}
-
-.bonus {
-  margin-bottom: 1.5rem;
-}
-
-.bonus h4 {
-  color: #ffc107;
-  margin-bottom: 0.5rem;
-}
-
-.valueStack {
-  text-align: center;
-  margin: 2rem 0;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-}
-
-.valueStack h3 {
-  text-decoration: line-through;
-  margin-bottom: 0.5rem;
-}
-
-.valueStack h4 {
-  color: #ffc107;
-  font-size: 1.75rem;
-}
-
-.scarcity {
-  background: rgba(255, 193, 7, 0.2);
-  padding: 1rem;
-  border-radius: 8px;
-  margin: 2rem 0;
-  border: 1px solid #ffc107;
-}
-
-.guarantee {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 2rem 0;
-}
-
-.guarantee h3 {
-  color: #ffc107;
-  margin-bottom: 1rem;
-}
-
-.offerCta {
-  text-align: center;
-  margin: 2rem 0;
-}
-
-/* Closing Section */
-.closingSection {
-  background-color: #f9f9f9;
-  padding: 4rem 0;
-}
-
-.closingContent {
+.getStartedContent {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
 }
 
-.closingContent p {
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
+.getStartedContent h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2.25rem;
 }
 
-.finalCta {
+.getStartedContent p {
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+.getStartedButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
   margin-top: 2rem;
 }
 
+/* Responsive Adjustments */
 @media screen and (max-width: 992px) {
   .heroContent {
     flex-direction: column;
@@ -429,29 +342,36 @@
     margin-bottom: 2rem;
   }
   
-  .bulletPoints {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+  .ctaButtons {
+    justify-content: center;
   }
   
   .heroGraphic {
     max-width: 100%;
   }
+  
+  .getStartedButtons {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .mainHeadline {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
   
-  .solutionGrid, .benefitsList, .testimonialGrid {
+  .featuresGrid, 
+  .stepsContainer,
+  .useCasesGrid, 
+  .testimonialGrid {
     grid-template-columns: 1fr;
   }
   
-  .credentialsStats {
+  .ctaButtons,
+  .getStartedButtons {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
   }
   
   .companyLogo {
