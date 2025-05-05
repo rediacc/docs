@@ -16,7 +16,7 @@
   
   /* Custom variables for our simplified layout */
   --docs-padding-top: 2rem;
-  --docs-max-width: 1200px;
+  --docs-max-width: 1400px;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -76,7 +76,7 @@
   will-change: width;
   margin-top: 0;
   padding-top: 0;
-  width: 300px !important;
+  width: 270px !important;
   background-color: #f8f9fa;
 }
 
