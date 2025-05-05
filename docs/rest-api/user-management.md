@@ -103,6 +103,110 @@ Rediacc-RequestToken: {request-credential}
 - The new user is initially not activated and must be activated using EnableUserAccount.
 - The new user is automatically added to the same teams as the creating user.
 
+## Manage User 2FA
+
+Enables or disables two-factor authentication for a user.
+
+### Endpoint
+
+```
+POST /api/StoredProcedure/ManageUser2FA
+```
+
+### Headers
+
+```
+Content-Type: application/json
+Rediacc-RequestToken: {request-credential}
+```
+
+### Request Body
+
+For enabling 2FA:
+```json
+{
+  "action": "enable",
+  "verificationCode": "123456"  // Optional for initial setup verification
+}
+```
+
+For disabling 2FA:
+```json
+{
+  "action": "disable",
+  "verificationCode": "123456"  // Required to confirm identity
+}
+```
+
+### Response
+
+When enabling 2FA (first call without verification code):
+```json
+{
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 0,
+      "data": [
+        {
+          "secretKey": "BASE32ENCODEDKEY",
+          "qrCodeUri": "otpauth://totp/Rediacc:user@example.com?secret=BASE32ENCODEDKEY&issuer=Rediacc",
+          "result": "2FA setup initiated - verification required"
+        }
+      ]
+    }
+  ],
+  "outputs": {}
+}
+```
+
+When completing 2FA setup (with verification code):
+```json
+{
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 0,
+      "data": [
+        {
+          "result": "2FA successfully enabled"
+        }
+      ]
+    }
+  ],
+  "outputs": {}
+}
+```
+
+When disabling 2FA:
+```json
+{
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 0,
+      "data": [
+        {
+          "result": "2FA successfully disabled"
+        }
+      ]
+    }
+  ],
+  "outputs": {}
+}
+```
+
+### Business Rules
+
+- Users can only enable/disable 2FA for their own account.
+- When enabling 2FA, a secret key is generated and must be verified with a valid TOTP code.
+- When disabling 2FA, a valid TOTP code must be provided to confirm identity.
+- The 2FA secret is stored encrypted in the user's vault.
+- The setup process generates a QR code URI that can be displayed to the user for scanning with authenticator apps.
+
 ## Update User Email
 
 Changes the email address of a user.
@@ -309,7 +413,8 @@ Rediacc-RequestToken: {request-credential}
           "vaultContent": "{\"profile\":{...}}",
           "permissionsName": "Administrators",
           "companyName": "Acme Corporation",
-          "teamCount": 2
+          "teamCount": 2,
+          "twoFactorEnabled": true
         },
         {
           "userEmail": "user2@example.com",
@@ -318,7 +423,8 @@ Rediacc-RequestToken: {request-credential}
           "vaultContent": "{\"profile\":{...}}",
           "permissionsName": "Users",
           "companyName": "Acme Corporation",
-          "teamCount": 1
+          "teamCount": 1,
+          "twoFactorEnabled": false
         }
       ]
     }
@@ -330,5 +436,5 @@ Rediacc-RequestToken: {request-credential}
 ### Business Rules
 
 - Users can only view user information within their own company.
-- The response includes each user's activation status, permission group, and team participation count.
+- The response includes each user's activation status, permission group, team participation count, and 2FA status.
 - The vault content is decrypted using the company passphrase derived from the authenticated user's password.

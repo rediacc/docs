@@ -14,6 +14,7 @@ All sensitive data in the Rediacc Middleware system is encrypted using strong en
 2. **Password Security**: User passwords are never stored directly. Instead, a hash of the password is used as an encryption key.
 3. **Company Passphrase**: Each company has a random passphrase that is used to encrypt all vault data associated with the company.
 4. **Decryption**: Data is decrypted only when needed, using the company passphrase derived from the user's password.
+5. **Chunked Storage**: Large vault data is automatically split into chunks of manageable size (max 3072 characters per chunk) for secure and efficient storage and retrieval.
 
 ## Authentication Flow
 
@@ -29,12 +30,35 @@ The authentication flow in Rediacc Middleware follows these steps:
    - The system retrieves the encrypted company passphrase from the user record.
    - The system decrypts the company passphrase using the provided password hash.
    - If the decryption succeeds, the user is authenticated.
+   - If 2FA is enabled for the user, a valid TOTP code must also be provided.
 
 3. **Session Management**:
    - Upon successful authentication, a unique request credential (GUID) is generated.
    - The credential is used to encrypt the company passphrase, and the result is stored in a request record.
    - The request credential is returned to the client for use in subsequent API calls.
    - Each API call refreshes the request credential, implementing a sliding session expiration.
+
+## Two-Factor Authentication
+
+The system implements Time-based One-Time Password (TOTP) two-factor authentication:
+
+1. **Secret Generation**:
+   - Each user can have a unique TOTP secret key.
+   - Keys are generated using a cryptographically secure random generator.
+   - Keys are Base32-encoded for easy input into authenticator apps.
+
+2. **Secret Storage**:
+   - TOTP secrets are stored encrypted in the user's vault.
+   - Secrets are never exposed in plaintext form through API responses.
+
+3. **Code Validation**:
+   - TOTP codes are 6-digit numbers valid for 30 seconds.
+   - The system allows a ±1 step window to account for clock skew.
+   - The validation uses HMAC-SHA1 as specified by RFC 6238.
+
+4. **Implementation**:
+   - 2FA is implemented directly in the database using T-SQL.
+   - The implementation includes Base32 encoding/decoding and HMAC-SHA1 functionality.
 
 ## Authorization Model
 
@@ -65,13 +89,19 @@ The vault system provides secure storage for structured data:
    - Each vault has a version number for optimistic concurrency control.
    - Each vault belongs to a specific resource (company, team, machine, etc.).
 
-2. **Vault Operations**:
-   - Create: Creates a new vault with initial data.
-   - Read: Retrieves and decrypts vault data.
-   - Update: Updates vault data with new content.
-   - Delete: Securely removes a vault and its data.
+2. **Chunked Storage**:
+   - Large vault data is automatically split into multiple chunks.
+   - Each chunk has a maximum size of 3072 characters.
+   - Chunks are stored with order information for proper reassembly.
+   - The chunking is transparent to API consumers.
 
-3. **Concurrency Control**:
+3. **Vault Operations**:
+   - Create: Creates a new vault with initial data.
+   - Read: Retrieves and decrypts vault data, automatically reassembling chunked data.
+   - Update: Updates vault data with new content, handling chunking as needed.
+   - Delete: Securely removes a vault and all its associated chunks.
+
+4. **Concurrency Control**:
    - When updating a vault, the client must provide the current version number.
    - If the version matches, the update proceeds and the version is incremented.
    - If the version does not match, the update fails with a concurrency error.
@@ -105,6 +135,11 @@ The system implements several security best practices for data handling:
    - The system never stores plain text passwords.
    - Password hashes are generated client-side and never transmitted as plain text.
    - The system uses the password hash only for decryption, not for direct comparison.
+
+5. **Random String Generation**:
+   - Enhanced random string generation for security-critical components.
+   - Supports multiple encoding formats (Alphanumeric, Base32, Alphanumeric with special characters).
+   - Used for session tokens, verification data, and 2FA secrets.
 
 ## Database Security
 

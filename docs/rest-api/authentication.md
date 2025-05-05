@@ -28,7 +28,8 @@ Rediacc-UserHash: {user-password-hash}
 
 ```json
 {
-  "name": "Session Name"  // A name to identify this authentication session
+  "name": "Session Name",  // A name to identify this authentication session
+  "twoFactorCode": "123456"  // Optional: TOTP code if 2FA is enabled for the user
 }
 ```
 
@@ -60,6 +61,38 @@ Rediacc-UserHash: {user-password-hash}
 - The session name cannot be empty.
 - The verification data (transmitted automatically) cannot be empty.
 - The provided user hash must correctly decrypt the stored password for the user.
+- If 2FA is enabled for the user, a valid TOTP code must be provided.
+- TOTP codes are 6-digit numbers and valid for 30 seconds, with a 1-step window for time skew.
+
+## Two-Factor Authentication
+
+Rediacc supports Time-based One-Time Password (TOTP) two-factor authentication for additional security.
+
+### TOTP Implementation
+
+- TOTP follows the RFC 6238 standard, compatible with authenticator apps like Google Authenticator and Authy
+- Each user can have a unique TOTP secret stored securely in their vault
+- TOTP codes are 6 digits and valid for 30 seconds
+- A time skew window of ±30 seconds is allowed to account for clock differences
+
+### Setting Up 2FA
+
+2FA can be enabled or disabled using the ManageUser2FA procedure. When enabling 2FA:
+
+1. The system generates a secure Base32-encoded secret key
+2. The secret is stored encrypted in the user's vault
+3. A QR code or manual entry key should be provided to the user for their authenticator app
+4. The user must verify their 2FA setup by entering a valid code before 2FA is fully enabled
+
+### Authenticating with 2FA
+
+When 2FA is enabled for a user:
+
+1. The user provides their regular credentials (email and password hash)
+2. The system checks if 2FA is enabled for the user
+3. If enabled, the system expects a 6-digit TOTP code in the authentication request
+4. The system validates the TOTP code against the stored secret
+5. Only if all verification steps pass is the authentication successful
 
 ## Logout User Session
 
