@@ -6,25 +6,86 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Match primary colors with react-app's theme */
+  --ifm-color-primary: #3d7eff; /* blue-600 */
+  --ifm-color-primary-dark: #2563eb; /* blue-700 */
+  --ifm-color-primary-darker: #1d4ed8; /* blue-800 */
+  --ifm-color-primary-darkest: #1e40af; /* blue-900 */
+  --ifm-color-primary-light: #60a5fa; /* blue-500 */
+  --ifm-color-primary-lighter: #93c5fd; /* blue-400 */
+  --ifm-color-primary-lightest: #bfdbfe; /* blue-300 */
+  
+  /* Secondary indigo color from the gradient */
+  --ifm-color-secondary: #4f46e5; /* indigo-600 */
+  
+  /* Background colors */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f8f9fa;
+  
+  /* Code blocks */
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  
+  /* Custom variables for our simplified layout */
+  --docs-padding-top: 2rem;
+  --docs-max-width: 1400px;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  /* Match dark mode with react-app's dark theme */
+  --ifm-color-primary: #60a5fa; /* blue-500 */
+  --ifm-color-primary-dark: #3d7eff; /* blue-600 */
+  --ifm-color-primary-darker: #2563eb; /* blue-700 */
+  --ifm-color-primary-darkest: #1d4ed8; /* blue-800 */
+  --ifm-color-primary-light: #93c5fd; /* blue-400 */
+  --ifm-color-primary-lighter: #bfdbfe; /* blue-300 */
+  --ifm-color-primary-lightest: #dbeafe; /* blue-200 */
+  
+  /* Secondary indigo color from the gradient */
+  --ifm-color-secondary: #818cf8; /* indigo-400 */
+  
+  /* Dark mode background colors to match react-app */
+  --ifm-background-color: #111827; /* bg-gray-900 */
+  --ifm-background-surface-color: #1f2937; /* bg-gray-800 */
+  
+  /* Text color */
+  --ifm-font-color-base: #ffffff;
+  
+  /* Code blocks */
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  
+  /* Scrollbar styling */
+  --ifm-scrollbar-track-background-color: #1a202c;
+  --ifm-scrollbar-thumb-background-color: #3d7eff;
+  --ifm-scrollbar-thumb-hover-background-color: #4f46e5;
+}
+
+/* Custom scrollbar to match react-app */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ifm-scrollbar-track-background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-scrollbar-thumb-background-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-scrollbar-thumb-hover-background-color);
+}
+
+/* Improved focus states for accessibility */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+  outline: 2px solid #3d7eff;
+  outline-offset: 2px;
+}
+
+/* Font family to match react-app */
+body {
+  font-family: 'Inter', sans-serif;
 }

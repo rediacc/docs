@@ -1,34 +1,13 @@
 /**
  * Custom CSS for simplified documentation site
+ * Theme is integrated with the main react-app
  */
 
-/* You can override the default Infima variables here. */
+/* Custom variables for our simplified layout */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  
-  /* Custom variables for our simplified layout */
+  /* These variables are set in custom.css */
   --docs-padding-top: 2rem;
   --docs-max-width: 1400px;
-}
-
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
 /* Adjustments for simplified docs */
@@ -70,19 +49,23 @@
   padding: 0 !important;
 }
 
-/* Enhance sidebar styling */
+/* Enhance sidebar styling to match react-app */
 .docSidebarContainer {
   border-right: 1px solid var(--ifm-toc-border-color);
   will-change: width;
   margin-top: 0;
   padding-top: 0;
   width: 270px !important;
-  background-color: #f8f9fa;
+}
+
+/* Light mode sidebar styling */
+.docSidebarContainer {
+  background-color: var(--ifm-background-surface-color);
 }
 
 /* Dark mode sidebar styling */
 [data-theme='dark'] .docSidebarContainer {
-  background-color: #242526;
+  background-color: var(--ifm-background-surface-color);
 }
 
 /* Add some padding to the sidebar */
@@ -119,13 +102,13 @@
 /* Active item styling */
 .menu__link--active {
   font-weight: 600;
-  background-color: rgba(46, 133, 85, 0.1);
-  border-left: 3px solid #2e8555;
+  background-color: rgba(61, 126, 255, 0.1); /* Updated to match blue-600 with opacity */
+  border-left: 3px solid var(--ifm-color-primary);
 }
 
 /* Hover effect for menu items */
 .menu__link:hover {
-  background-color: rgba(46, 133, 85, 0.05);
+  background-color: rgba(61, 126, 255, 0.05); /* Updated to match blue-600 with opacity */
 }
 
 /* Nested categories styling */
@@ -156,17 +139,17 @@
   opacity: 0.7;
 }
 
-/* Category-specific icons */
+/* Category-specific icons with updated colors */
 .menu__list-item-collapsible .menu__link:has(+.menu__list .menu__link[href*="case-examples"]):before {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%232e8555"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%233d7eff"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>');
 }
 
 .menu__list-item-collapsible .menu__link:has(+.menu__list .menu__link[href*="rest-api"]):before {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%232e8555"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%233d7eff"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/></svg>');
 }
 
 .menu__list-item-collapsible .menu__link:has(+.menu__list .menu__link[href*="about"]):before {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%232e8555"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%233d7eff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>');
 }
 
 /* Nested category headings */
@@ -191,6 +174,12 @@
   margin-bottom: 1.5rem;
   margin-top: 0;
   padding-top: 0;
+  /* Add gradient background to h1 headings to match react-app's style */
+  background: linear-gradient(to right, var(--ifm-color-primary), var(--ifm-color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
 }
 
 .markdown h2 {
@@ -210,6 +199,18 @@
 
 .markdown ul, .markdown ol {
   padding-left: 2rem;
+}
+
+/* Custom styles for links to match react-app */
+.markdown a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.markdown a:hover {
+  text-decoration: underline;
 }
 
 /* Make code blocks more readable */
@@ -235,6 +236,16 @@
   padding: 0.75rem;
 }
 
+/* Make table headers match the primary color */
+.markdown table th {
+  background-color: rgba(61, 126, 255, 0.1);
+  color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .markdown table th {
+  background-color: rgba(96, 165, 250, 0.1);
+}
+
 /* Remove extra spacing caused by missing navbar */
 body {
   padding-top: 0;
@@ -242,4 +253,74 @@ body {
 
 .theme-doc-markdown.markdown {
   padding-top: 0;
+}
+
+/* Style blockquotes to match react-app style */
+.markdown blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  background-color: rgba(61, 126, 255, 0.05);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0 6px 6px 0;
+}
+
+[data-theme='dark'] .markdown blockquote {
+  background-color: rgba(96, 165, 250, 0.05);
+}
+
+/* Admonitions (notes, warnings, etc) to match react-app style */
+.admonition {
+  border-radius: 6px;
+  border-left-width: 4px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.admonition-heading h5 {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+/* Override button styles to match react-app */
+.button {
+  border-radius: 9999px; /* rounded-full */
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.button--primary {
+  background: linear-gradient(to right, #3d7eff, #4f46e5);
+  border: none;
+}
+
+.button--primary:hover {
+  background: linear-gradient(to right, #2563eb, #4338ca);
+  transform: translateY(-1px);
+}
+
+.button--secondary {
+  background-color: #1f2937; /* bg-gray-800 */
+  border: none;
+}
+
+.button--secondary:hover {
+  background-color: #374151; /* bg-gray-700 */
+}
+
+/* Style the TOC (table of contents) */
+.table-of-contents {
+  font-size: 0.9rem;
+}
+
+.table-of-contents__link {
+  transition: all 0.2s ease;
+}
+
+.table-of-contents__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+.table-of-contents__link--active {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
 }
