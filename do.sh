@@ -6,7 +6,7 @@ set -e
 # Function to run the development server
 function dev() {
   echo "Starting development server..."
-  npm run start
+  npm run start -- --no-open
 }
 
 # Function to build the production site
