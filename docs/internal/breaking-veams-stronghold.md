@@ -140,10 +140,10 @@ The following comparison demonstrates typical cost savings when switching from V
 
 | Scenario | Veeam Cost | Our Cost | Savings | Key Factors |
 |----------|------------|----------|---------|------------|
-| **Mid-size company**<br>100 VMs, 20TB data | $36,000/year | $26,400/year | **27% savings** | - Unlimited VMs within TB allocation<br>- No per-workload charges |
-| **Enterprise**<br>500 VMs, 100TB data | $175,000/year | $126,000/year | **28% savings** | - Volume discounting<br>- Simpler licensing model<br>- No separate products needed |
-| **NAS-heavy environment**<br>50TB file share data | $25,000/year | $7,500/year | **70% savings** | - No NAS premium charges<br>- TB-based pricing advantages |
-| **Hybrid environment**<br>On-prem + cloud + SaaS | $85,000/year | $59,500/year | **30% savings** | - Single license covers all environments<br>- No separate SaaS protection costs |
+| **Mid-size company**<br/>100 VMs, 20TB data | $36,000/year | $26,400/year | **27% savings** | - Unlimited VMs within TB allocation<br/>- No per-workload charges |
+| **Enterprise**<br/>500 VMs, 100TB data | $175,000/year | $126,000/year | **28% savings** | - Volume discounting<br/>- Simpler licensing model<br/>- No separate products needed |
+| **NAS-heavy environment**<br/>50TB file share data | $25,000/year | $7,500/year | **70% savings** | - No NAS premium charges<br/>- TB-based pricing advantages |
+| **Hybrid environment**<br/>On-prem + cloud + SaaS | $85,000/year | $59,500/year | **30% savings** | - Single license covers all environments<br/>- No separate SaaS protection costs |
 
 These calculations are based on industry benchmarks and reported customer costs. While individual environments will vary, our approach consistently delivers significant savings while providing superior technology.
 

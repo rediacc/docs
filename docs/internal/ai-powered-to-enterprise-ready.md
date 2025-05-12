@@ -277,9 +277,9 @@ Track these key performance indicators to measure AI sales effectiveness:
 
 ### 1. Operational efficiency
 
-- Response time to inquiries (target <3 seconds)
-- Task completion rate (target >85%)
-- Error rate (target <5%)
+- Response time to inquiries (target &lt;3 seconds)
+- Task completion rate (target &gt;85%)
+- Error rate (target &lt;5%)
 - Time savings compared to traditional process
 
 ### 2. Sales performance
