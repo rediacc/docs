@@ -5,10 +5,10 @@ set -e
 
 # Function to run the development server
 function dev() {
-  echo "Starting development server..."
-  # Kill any process running on port 3000
-  lsof -ti:3000 | xargs kill -9 2>/dev/null || true
-  npm run start -- --no-open
+  echo "Starting development server on port 3001..."
+  # Kill any process running on port 3001
+  lsof -ti:3001 | xargs kill -9 2>/dev/null || true
+  npm run start -- --port 3001 --no-open
 }
 
 # Function to build the production site
