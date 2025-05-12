@@ -43,7 +43,7 @@ function docker_stop() {
 
 # Help message
 function show_help() {
-  echo "Usage: ./do.sh [COMMAND]"
+  echo "Usage: ./go [COMMAND]"
   echo ""
   echo "Commands:"
   echo "  dev           Start the development server"
