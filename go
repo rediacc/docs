@@ -32,13 +32,13 @@ function clean() {
 # Function to run docker for production
 function docker_prod() {
   echo "Building and starting Docker container..."
-  docker-compose up --build -d
+  docker compose up --build -d
 }
 
 # Function to stop docker container
 function docker_stop() {
   echo "Stopping Docker container..."
-  docker-compose down
+  docker compose down
 }
 
 # Help message
