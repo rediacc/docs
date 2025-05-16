@@ -35,10 +35,44 @@ function docker_prod() {
   docker compose up --build -d
 }
 
+# Function to run docker for development
+function docker_dev() {
+  echo "Building and starting Docker container for development..."
+  # Remove existing container if it exists
+  docker stop docs-dev 2>/dev/null || true
+  docker rm docs-dev 2>/dev/null || true
+  # Create a Dockerfile.dev if it doesn't exist
+  if [ ! -f "Dockerfile.dev" ]; then
+    cat > Dockerfile.dev << 'EOF'
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files and install dependencies  
+COPY package.json package-lock.json ./
+RUN npm ci
+
+# Copy the rest of the application
+COPY . .
+
+# Expose port 3001 for development
+EXPOSE 3001
+
+# Run the development server
+CMD ["npm", "run", "start", "--", "--port", "3001", "--host", "0.0.0.0"]
+EOF
+  fi
+  # Build and run the development container
+  docker build -f Dockerfile.dev -t docs-dev .
+  docker run -d -p 3001:3001 --name docs-dev -v "$(pwd)":/app -v /app/node_modules docs-dev
+}
+
 # Function to stop docker container
 function docker_stop() {
   echo "Stopping Docker container..."
   docker compose down
+  docker stop docs-dev 2>/dev/null || true
+  docker rm docs-dev 2>/dev/null || true
 }
 
 # Help message
@@ -51,6 +85,7 @@ function show_help() {
   echo "  serve         Serve the built site"
   echo "  clean         Clean build artifacts"
   echo "  docker_prod   Build and start Docker container"
+  echo "  docker_dev    Build and start Docker container (development)"
   echo "  docker_stop   Stop Docker container"
   echo "  help          Show this help message"
   echo ""
@@ -73,6 +108,8 @@ elif [ "$1" == "clean" ]; then
   clean
 elif [ "$1" == "docker_prod" ]; then
   docker_prod
+elif [ "$1" == "docker_dev" ]; then
+  docker_dev
 elif [ "$1" == "docker_stop" ]; then
   docker_stop
 else
