@@ -86,7 +86,7 @@ const config = {
         },
         items: [
           {
-            to: '../',
+            href: '/',
             label: 'Back to Home',
             position: 'right',
             target: '_self',

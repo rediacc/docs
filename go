@@ -75,6 +75,55 @@ function docker_stop() {
   docker rm docs-dev 2>/dev/null || true
 }
 
+# Function to create release build
+function release() {
+  echo "Creating release build..."
+  
+  # Get the root directory
+  ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  BIN_DIR="$ROOT_DIR/bin"
+  
+  # Clean up bin directory
+  echo "Cleaning up bin directory..."
+  rm -rf "$BIN_DIR"
+  mkdir -p "$BIN_DIR"
+  
+  # Build the documentation first
+  if ! build; then
+    echo "Build failed! Release aborted."
+    exit 1
+  fi
+  
+  # Get version from package.json
+  VERSION=$(node -p "require('./package.json').version")
+  
+  # Copy built files
+  echo "Copying build files to bin..."
+  cp -r "$ROOT_DIR/build/"* "$BIN_DIR/"
+  
+  # Create version info file
+  echo "{
+  \"version\": \"${VERSION}\",
+  \"buildDate\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\",
+  \"gitCommit\": \"$(git rev-parse --short HEAD 2>/dev/null || echo 'unknown')\"
+}" > "$BIN_DIR/version.json"
+  
+  echo ""
+  echo "Release build created successfully!"
+  echo "Version: ${VERSION}"
+  echo "Files copied to: $BIN_DIR"
+  
+  # Copy to root bin/docs for nginx serving
+  echo "Copying to root bin/docs directory for nginx..."
+  ROOT_BIN_DOCS="$ROOT_DIR/../bin/docs"
+  # Clean and recreate docs subdirectory
+  rm -rf "$ROOT_BIN_DOCS"
+  mkdir -p "$ROOT_BIN_DOCS"
+  # Copy all files to root bin/docs
+  cp -r "$BIN_DIR/"* "$ROOT_BIN_DOCS/"
+  echo "Files also copied to: $ROOT_BIN_DOCS"
+}
+
 # Help message
 function show_help() {
   echo "Usage: ./go [COMMAND]"
@@ -84,6 +133,7 @@ function show_help() {
   echo "  build         Build the production site"
   echo "  serve         Serve the built site"
   echo "  clean         Clean build artifacts"
+  echo "  release       Build and create release files in bin/"
   echo "  docker_prod   Build and start Docker container"
   echo "  docker_dev    Build and start Docker container (development)"
   echo "  docker_stop   Stop Docker container"
@@ -112,6 +162,8 @@ elif [ "$1" == "docker_dev" ]; then
   docker_dev
 elif [ "$1" == "docker_stop" ]; then
   docker_stop
+elif [ "$1" == "release" ]; then
+  release
 else
   show_help
 fi 
