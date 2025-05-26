@@ -113,13 +113,13 @@ function release() {
   echo "Version: ${VERSION}"
   echo "Files copied to: $BIN_DIR"
   
-  # Copy to root bin/docs for nginx serving
-  echo "Copying to root bin/docs directory for nginx..."
-  ROOT_BIN_DOCS="$ROOT_DIR/../bin/docs"
+  # Copy to root bin/html/docs for nginx serving
+  echo "Copying to root bin/html/docs directory for nginx..."
+  ROOT_BIN_DOCS="$ROOT_DIR/../bin/html/docs"
   # Clean and recreate docs subdirectory
   rm -rf "$ROOT_BIN_DOCS"
   mkdir -p "$ROOT_BIN_DOCS"
-  # Copy all files to root bin/docs
+  # Copy all files to root bin/html/docs
   cp -r "$BIN_DIR/"* "$ROOT_BIN_DOCS/"
   echo "Files also copied to: $ROOT_BIN_DOCS"
 }
