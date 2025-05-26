@@ -23,7 +23,7 @@ Rediacc Middleware is a secure data management system that provides a set of RES
 All API endpoints are accessed through HTTP POST requests to the following base URL:
 
 ```
-http://your-server:8080/api/StoredProcedure/{procedure-name}
+http://your-server:7322/api/StoredProcedure/{procedure-name}
 ```
 
 ### Authentication Headers
