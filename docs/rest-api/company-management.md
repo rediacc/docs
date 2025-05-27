@@ -53,7 +53,7 @@ Rediacc-UserHash: {user-password-hash}
   - A default region named "Default Region"
   - A default bridge named "Default Bridge" in the default region
 - The initial user is created with the "Administrators" permission group but is not activated.
-- The user must be activated separately using the EnableUserAccount procedure.
+- The user must be activated separately using the ActivateUserAccount procedure.
 - The user is automatically added to the "Default Team".
 
 ## Get Company Secure Data

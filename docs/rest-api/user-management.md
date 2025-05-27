@@ -13,7 +13,7 @@ Activates a previously created user account, allowing the user to log in.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/EnableUserAccount
+POST /api/StoredProcedure/ActivateUserAccount
 ```
 
 ### Headers
@@ -100,7 +100,7 @@ Rediacc-RequestToken: {request-credential}
 - The new user is created in the same company as the authenticated user.
 - The email address must not already exist in the system.
 - The user hash must be exactly 32 bytes.
-- The new user is initially not activated and must be activated using EnableUserAccount.
+- The new user is initially not activated and must be activated using ActivateUserAccount.
 - The new user is automatically added to the same teams as the creating user.
 
 ## Manage User 2FA
