@@ -3,11 +3,6 @@
  * Theme is integrated with the main react-app
  */
 
-/* Force dark background on all elements */
-:root {
-  background-color: #111827 !important; /* bg-gray-900 - match react-app */
-}
-
 /* Custom variables for our simplified layout */
 :root {
   /* These variables are set in custom.css */
@@ -16,10 +11,85 @@
 }
 
 /* Adjustments for simplified docs */
-/* Hide the navbar completely */
+/* Hide the navbar but keep theme toggle visible */
 .navbar {
-  display: none !important;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: auto;
+  width: auto;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  z-index: 1000;
 }
+
+/* Hide all navbar content except theme toggle */
+.navbar__inner {
+  padding: 0;
+}
+
+.navbar__items {
+  display: none;
+}
+
+.navbar__brand {
+  display: none;
+}
+
+.navbar__toggle {
+  display: none;
+}
+
+/* Show only the theme toggle and Back to Home */
+.navbar__items--right {
+  display: flex !important;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+
+/* Style the Back to Home link */
+.navbar__link {
+  display: inline-flex !important;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--ifm-background-surface-color);
+  border: 2px solid var(--ifm-toc-border-color);
+  border-radius: 9999px;
+  color: var(--ifm-font-color-base);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Light theme - Back to Home styling */
+:root .navbar__link {
+  background-color: #ffffff;
+  border-color: #e5e7eb;
+  color: #111827;
+}
+
+/* Dark theme - Back to Home styling */
+[data-theme='dark'] .navbar__link {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+/* Hover state for Back to Home */
+.navbar__link:hover {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
 
 /* Hide navbar sidebar */
 .navbar-sidebar {
@@ -36,7 +106,7 @@
   max-width: var(--docs-max-width);
   margin: 0 auto;
   padding: var(--docs-padding-top) 1rem 2rem;
-  background-color: #111827; /* bg-gray-900 - explicitly set to match react-app */
+  background-color: var(--ifm-background-color);
 }
 
 /* Make the sidebar stay in place even without navbar */
@@ -53,7 +123,7 @@
 /* Full-width layout without extra padding */
 .docPage {
   padding: 0 !important;
-  background-color: #111827 !important; /* bg-gray-900 - match react-app */
+  background-color: var(--ifm-background-color) !important;
 }
 
 /* Enhance sidebar styling to match react-app */
@@ -63,16 +133,7 @@
   margin-top: 0;
   padding-top: 0;
   width: 270px !important;
-}
-
-/* Light mode sidebar styling */
-.docSidebarContainer {
-  background-color: var(--ifm-background-surface-color);
-}
-
-/* Dark mode sidebar styling */
-[data-theme='dark'] .docSidebarContainer {
-  background-color: var(--ifm-background-surface-color);
+  background-color: var(--ifm-sidebar-background-color);
 }
 
 /* Add some padding to the sidebar */
@@ -109,13 +170,13 @@
 /* Active item styling */
 .menu__link--active {
   font-weight: 600;
-  background-color: rgba(61, 126, 255, 0.1); /* Updated to match blue-600 with opacity */
+  background-color: rgba(85, 107, 47, 0.1); /* Primary color with opacity */
   border-left: 3px solid var(--ifm-color-primary);
 }
 
 /* Hover effect for menu items */
 .menu__link:hover {
-  background-color: rgba(61, 126, 255, 0.05); /* Updated to match blue-600 with opacity */
+  background-color: rgba(85, 107, 47, 0.05); /* Primary color with lower opacity */
 }
 
 /* Improve readability of documentation content */
@@ -129,7 +190,7 @@
   margin-bottom: 1.5rem;
   margin-top: 0;
   padding-top: 0;
-  color: white; /* Default color for all h1 headers, making emojis visible */
+  color: var(--ifm-heading-color);
 }
 
 /* Apply gradient only to specific headers without emojis via a class */
@@ -147,22 +208,25 @@
   -webkit-background-clip: unset !important;
   -webkit-text-fill-color: inherit !important;
   background-clip: unset !important;
-  color: white !important;
+  color: var(--ifm-heading-color) !important;
 }
 
 .markdown h2 {
   font-size: 1.8rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
 }
 
 .markdown h3 {
   font-size: 1.5rem;
   margin-top: 1.5rem;
+  color: var(--ifm-heading-color);
 }
 
 .markdown p {
   margin-bottom: 1rem;
+  color: var(--ifm-font-color-base);
 }
 
 .markdown ul, .markdown ol {
@@ -206,19 +270,15 @@
 
 /* Make table headers match the primary color */
 .markdown table th {
-  background-color: rgba(61, 126, 255, 0.1);
+  background-color: rgba(85, 107, 47, 0.1);
   color: var(--ifm-color-primary);
 }
 
-[data-theme='dark'] .markdown table th {
-  background-color: rgba(96, 165, 250, 0.1);
-}
-
-/* Remove extra spacing caused by missing navbar and enforce dark background */
+/* Remove extra spacing caused by missing navbar */
 html, body {
   padding-top: 0;
-  background-color: #111827 !important; /* bg-gray-900 - explicitly set to match react-app */
-  color: #ffffff !important;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
 }
 
 .theme-doc-markdown.markdown {
@@ -228,21 +288,17 @@ html, body {
 /* Style blockquotes to match react-app style */
 .markdown blockquote {
   border-left: 4px solid var(--ifm-color-primary);
-  background-color: rgba(61, 126, 255, 0.05);
+  background-color: rgba(85, 107, 47, 0.05);
   padding: 1rem;
   margin: 1.5rem 0;
   border-radius: 0 6px 6px 0;
-}
-
-[data-theme='dark'] .markdown blockquote {
-  background-color: rgba(96, 165, 250, 0.05);
 }
 
 /* Admonitions (notes, warnings, etc) to match react-app style */
 .admonition {
   border-radius: 6px;
   border-left-width: 4px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--color-shadow);
 }
 
 .admonition-heading h5 {
@@ -259,34 +315,40 @@ html, body {
 }
 
 .button--primary {
-  background: linear-gradient(to right, #3d7eff, #4f46e5);
+  background: linear-gradient(to right, var(--color-brand-primary), var(--color-brand-secondary));
   border: none;
+  color: white;
 }
 
 .button--primary:hover {
-  background: linear-gradient(to right, #2563eb, #4338ca);
+  background: linear-gradient(to right, var(--color-brand-dark-hover), var(--color-brand-darker-hover));
   transform: translateY(-1px);
+  color: white;
 }
 
 .button--secondary {
-  background-color: #1f2937; /* bg-gray-800 */
-  border: none;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--color-border);
+  color: var(--ifm-font-color-base);
 }
 
 .button--secondary:hover {
-  background-color: #374151; /* bg-gray-700 */
+  background-color: var(--ifm-color-emphasis-300);
+  color: var(--ifm-font-color-base);
 }
 
 /* Style the TOC (table of contents) */
 .table-of-contents {
   font-size: 0.9rem;
-  background-color: #1f2937; /* bg-gray-800 - match react-app */
+  background-color: var(--ifm-background-surface-color);
   border-radius: 8px;
   padding: 1rem;
+  border: 1px solid var(--ifm-toc-border-color);
 }
 
 .table-of-contents__link {
   transition: all 0.2s ease;
+  color: var(--ifm-font-color-secondary);
 }
 
 .table-of-contents__link:hover {
@@ -296,4 +358,60 @@ html, body {
 .table-of-contents__link--active {
   font-weight: 600;
   color: var(--ifm-color-primary);
+}
+
+/* Fix for doc container background */
+.docMainContainer_node_modules-\@docusaurus-theme-classic-lib-theme-DocPage-Layout-Main-styles-module {
+  background-color: var(--ifm-background-color);
+}
+
+/* Ensure proper theme colors for all elements */
+.theme-doc-footer {
+  background-color: var(--ifm-background-surface-color);
+  border-top: 1px solid var(--ifm-toc-border-color);
+}
+
+/* Pagination buttons */
+.pagination-nav__link {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--color-border);
+  color: var(--ifm-font-color-base);
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+  background-color: var(--ifm-background-surface-color);
+}
+
+/* Ensure code blocks follow theme */
+pre[class*="language-"] {
+  background-color: var(--ifm-background-surface-color) !important;
+}
+
+/* Fix category caret colors */
+.menu__caret:before {
+  border-color: var(--ifm-menu-color) transparent;
+}
+
+/* Fix edit this page link */
+.theme-doc-footer-edit-meta-row {
+  color: var(--ifm-font-color-secondary);
+}
+
+/* Ensure all doc content follows theme */
+article {
+  color: var(--ifm-font-color-base);
+}
+
+/* Light theme specific fixes */
+:root {
+  /* Ensure light theme backgrounds */
+  --docusaurus-collapse-button-bg: var(--ifm-background-surface-color);
+  --docusaurus-collapse-button-bg-hover: var(--ifm-color-emphasis-300);
+}
+
+/* Dark theme specific fixes */
+[data-theme='dark'] {
+  --docusaurus-collapse-button-bg: var(--ifm-background-surface-color);
+  --docusaurus-collapse-button-bg-hover: var(--ifm-color-emphasis-300);
 }

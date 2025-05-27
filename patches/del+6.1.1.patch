@@ -1,0 +1,20 @@
+diff --git a/node_modules/del/index.js b/node_modules/del/index.js
+index 1234567..abcdefg 100644
+--- a/node_modules/del/index.js
++++ b/node_modules/del/index.js
+@@ -10,7 +10,13 @@ const pMap = require('p-map');
+ const rimraf = require('rimraf');
+ const slash = require('slash');
+ 
+-const rimrafP = promisify(rimraf);
++// Fix for Node.js v22 compatibility
++let rimrafP;
++if (typeof rimraf === 'function') {
++  rimrafP = promisify(rimraf);
++} else {
++  rimrafP = rimraf.rimraf || rimraf.default || promisify(rimraf.rimrafSync || rimraf);
++}
+ 
+ const rimrafOptions = {
+ 	glob: false,
+EOF < /dev/null

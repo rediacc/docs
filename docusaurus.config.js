@@ -78,18 +78,20 @@ const config = {
       image: 'img/docusaurus-social-card.jpg',
       // Hide navbar completely through CSS
       navbar: {
-        style: 'dark',
+        style: 'primary',
         hideOnScroll: true,
         logo: {
           alt: 'Rediacc Logo',
-          src: 'img/logo_white.png',
+          src: 'img/logo_black.png',
+          srcDark: 'img/logo_white.png',
         },
         items: [
           {
-            href: '/',
+            href: '/../',
             label: 'Back to Home',
             position: 'right',
             target: '_self',
+            className: 'navbar-back-home',
           },
         ],
       },
@@ -100,9 +102,9 @@ const config = {
         },
       },
       colorMode: {
-        defaultMode: 'dark',
-        disableSwitch: true,
-        respectPrefersColorScheme: false,
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
       },
       footer: {
         style: 'light',

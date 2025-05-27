@@ -4,10 +4,10 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* Common brand colors that stay consistent across themes */
 :root {
-  /* Olive green theme */
-  --ifm-color-primary: #556b2f; /* olive-drab */
+  /* Brand colors */
+  --ifm-color-primary: #556b2f;
   --ifm-color-primary-dark: #4c6029;
   --ifm-color-primary-darker: #435524;
   --ifm-color-primary-darkest: #394a1e;
@@ -15,23 +15,114 @@
   --ifm-color-primary-lighter: #6c8541;
   --ifm-color-primary-lightest: #7d9b49;
   
-  /* Secondary olive color */
-  --ifm-color-secondary: #808000; /* olive */
+  /* Secondary brand color */
+  --ifm-color-secondary: #808000;
   
-  /* Background colors - Forced to match react-app */
-  --ifm-background-color: #111827; /* bg-gray-900 - match react-app */
-  --ifm-background-surface-color: #1f2937; /* bg-gray-800 - match react-app */
+  /* Custom brand colors matching offers app */
+  --color-brand-primary: #556b2f;
+  --color-brand-secondary: #808000;
+  --color-brand-accent: #7d9b49;
+  --color-brand-dark-hover: #4c6029;
+  --color-brand-darker-hover: #6e6e00;
   
-  /* Text color for dark background */
-  --ifm-font-color-base: #ffffff;
+  /* Accent colors */
+  --color-accent-purple: #8b5cf6;
+  --color-accent-indigo: #6366f1;
+  
+  /* Status colors */
+  --color-status-error: #ef4444;
+  --color-status-success: #22c55e;
+  --color-status-info: #3b82f6;
+  --color-status-warning: #f59e0b;
   
   /* Code blocks */
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   
   /* Custom variables for our simplified layout */
   --docs-padding-top: 2rem;
   --docs-max-width: 1400px;
+}
+
+/* Light theme (default) - matching offers app */
+:root {
+  /* Background colors */
+  --ifm-background-color: #f9fafb;
+  --ifm-background-surface-color: #f3f4f6;
+  --ifm-navbar-background-color: #f9fafb;
+  --ifm-sidebar-background-color: #f3f4f6;
+  --ifm-toc-border-color: #e5e7eb;
+  --ifm-color-emphasis-300: #e5e7eb;
+  
+  /* Text colors */
+  --ifm-font-color-base: #111827;
+  --ifm-font-color-secondary: #1f2937;
+  --ifm-heading-color: #111827;
+  --ifm-menu-color: #1f2937;
+  --ifm-navbar-link-color: #1f2937;
+  
+  /* Borders and dividers */
+  --ifm-hr-border-color: #e5e7eb;
+  --ifm-table-border-color: #e5e7eb;
+  
+  /* Code blocks for light theme */
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.05);
+  
+  /* Custom shadow and opacity colors */
+  --color-shadow: rgba(0, 0, 0, 0.05);
+  --color-border: rgba(229, 231, 235, 0.8);
+  --color-card-bg: rgba(243, 244, 246, 0.7);
+  
+  /* Scrollbar styling for light theme */
+  --ifm-scrollbar-track-background-color: #f3f4f6;
+  --ifm-scrollbar-thumb-background-color: #9ca3af;
+  --ifm-scrollbar-thumb-hover-background-color: #6b7280;
+}
+
+/* Dark theme - matching offers app */
+[data-theme='dark'] {
+  /* Theme colors - lighter olive for dark mode */
+  --ifm-color-primary: #7d9b49;
+  --ifm-color-primary-dark: #6c8541;
+  --ifm-color-primary-darker: #617839;
+  --ifm-color-primary-darkest: #556b2f;
+  --ifm-color-primary-light: #8bac51;
+  --ifm-color-primary-lighter: #9bbc61;
+  --ifm-color-primary-lightest: #accf72;
+  
+  /* Secondary color for dark mode */
+  --ifm-color-secondary: #9a9a00;
+  
+  /* Background colors matching offers app */
+  --ifm-background-color: #111827;
+  --ifm-background-surface-color: #1f2937;
+  --ifm-navbar-background-color: #111827;
+  --ifm-sidebar-background-color: #1f2937;
+  --ifm-toc-border-color: #374151;
+  --ifm-color-emphasis-300: #374151;
+  
+  /* Text colors */
+  --ifm-font-color-base: #ffffff;
+  --ifm-font-color-secondary: #d1d5db;
+  --ifm-heading-color: #ffffff;
+  --ifm-menu-color: #d1d5db;
+  --ifm-navbar-link-color: #d1d5db;
+  
+  /* Borders and dividers */
+  --ifm-hr-border-color: #374151;
+  --ifm-table-border-color: #374151;
+  
+  /* Code blocks for dark theme */
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  
+  /* Custom shadow and opacity colors */
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-border: rgba(31, 41, 55, 0.8);
+  --color-card-bg: rgba(31, 41, 55, 0.5);
+  
+  /* Scrollbar styling for dark theme */
+  --ifm-scrollbar-track-background-color: #1a202c;
+  --ifm-scrollbar-thumb-background-color: #556b2f;
+  --ifm-scrollbar-thumb-hover-background-color: #808000;
 }
 
 /* Reset any potential gradient text effects applied to emoji characters */
@@ -40,40 +131,10 @@
   -webkit-background-clip: unset !important;
   -webkit-text-fill-color: inherit !important;
   background-clip: unset !important;
-  color: white !important;
+  color: inherit !important;
 }
 
-/* We're enforcing dark mode by default for all themes */
-[data-theme='dark'], [data-theme='light'] {
-  /* Theme colors */
-  --ifm-color-primary: #7d9b49; /* lighter olive for dark mode */
-  --ifm-color-primary-dark: #6c8541;
-  --ifm-color-primary-darker: #617839;
-  --ifm-color-primary-darkest: #556b2f;
-  --ifm-color-primary-light: #8bac51;
-  --ifm-color-primary-lighter: #9bbc61;
-  --ifm-color-primary-lightest: #accf72;
-  
-  /* Secondary olive color */
-  --ifm-color-secondary: #9a9a00; /* lighter olive */
-  
-  /* Background colors to match react-app */
-  --ifm-background-color: #111827; /* bg-gray-900 */
-  --ifm-background-surface-color: #1f2937; /* bg-gray-800 */
-  
-  /* Text color */
-  --ifm-font-color-base: #ffffff;
-  
-  /* Code blocks */
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  
-  /* Scrollbar styling */
-  --ifm-scrollbar-track-background-color: #1a202c;
-  --ifm-scrollbar-thumb-background-color: #556b2f; /* olive-drab */
-  --ifm-scrollbar-thumb-hover-background-color: #808000; /* olive */
-}
-
-/* Custom scrollbar to match react-app */
+/* Custom scrollbar styling */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -93,11 +154,140 @@
 
 /* Improved focus states for accessibility */
 a:focus, button:focus, input:focus, select:focus, textarea:focus {
-  outline: 2px solid #556b2f; /* olive-drab */
+  outline: 2px solid var(--ifm-color-primary);
   outline-offset: 2px;
 }
 
-/* Font family to match react-app */
+/* Font family to match offers app */
 body {
   font-family: 'Inter', sans-serif;
+}
+
+/* Fix for dark mode navbar */
+[data-theme='dark'] .navbar {
+  background-color: var(--ifm-navbar-background-color);
+}
+
+/* Fix for dark mode sidebar */
+[data-theme='dark'] .theme-doc-sidebar-container {
+  background-color: var(--ifm-sidebar-background-color);
+}
+
+/* Theme toggle button styles */
+.navbar__toggle {
+  color: var(--ifm-navbar-link-color);
+}
+
+/* Cards and content boxes */
+.card {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--color-border);
+}
+
+/* Admonitions theme support */
+.admonition {
+  background-color: var(--ifm-background-surface-color);
+  border-left-color: var(--ifm-color-primary);
+}
+
+/* Tables theme support */
+table {
+  background-color: var(--ifm-background-surface-color);
+}
+
+table thead tr {
+  background-color: var(--ifm-background-color);
+}
+
+/* Code blocks theme support */
+.prism-code {
+  background-color: var(--ifm-background-surface-color) !important;
+}
+
+/* Search box theme support */
+.navbar__search-input {
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+}
+
+/* Footer adjustments */
+.footer {
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-secondary);
+}
+
+/* Ensure theme consistency throughout */
+.navbar__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+.menu__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* Dropdown menus */
+.dropdown__menu {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--color-border);
+}
+
+/* Pagination theme support */
+.pagination-nav__link {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--color-border);
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+}
+
+/* Custom theme toggle button */
+.custom-theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 2.5rem;
+  height: 2.5rem;
+  box-shadow: var(--color-shadow);
+}
+
+.custom-theme-toggle:hover {
+  background-color: var(--ifm-color-emphasis-300);
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.custom-theme-toggle:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.custom-theme-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.2s ease;
+}
+
+.custom-theme-toggle:hover svg {
+  transform: rotate(15deg);
+}
+
+/* Ensure theme toggle is visible on mobile */
+@media (max-width: 996px) {
+  .custom-theme-toggle {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
 }
