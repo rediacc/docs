@@ -233,7 +233,7 @@ Rediacc-RequestToken: {request-credential}
 
 ```json
 {
-  "team": "Engineering Team",
+  "teamName": "Engineering Team",
   "newUserEmail": "user@example.com"
 }
 ```
