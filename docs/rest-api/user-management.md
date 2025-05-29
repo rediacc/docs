@@ -327,7 +327,7 @@ Deactivates a user account, preventing the user from logging in.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/UpdateUserActivation
+POST /api/StoredProcedure/UpdateUserToDeactivated
 ```
 
 ### Headers

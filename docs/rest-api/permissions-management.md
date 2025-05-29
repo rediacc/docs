@@ -174,7 +174,7 @@ Assigns a user to a different permission group.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/UpdateUserPermissionGroup
+POST /api/StoredProcedure/UpdateUserAssignedPermissions
 ```
 
 ### Headers

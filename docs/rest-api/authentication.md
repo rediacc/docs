@@ -101,7 +101,7 @@ Ends an authentication session, invalidating the request token.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/DeleteUserSession
+POST /api/StoredProcedure/DeleteUserRequest
 ```
 
 ### Headers
@@ -150,7 +150,7 @@ Retrieves a list of active authentication sessions for the current user.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/GetUserSessions
+POST /api/StoredProcedure/GetUserRequests
 ```
 
 ### Headers
