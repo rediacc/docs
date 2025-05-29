@@ -296,7 +296,7 @@ Rediacc-RequestToken: {request-credential}
       "resultSetIndex": 0,
       "data": [
         {
-          "nextReqeustCredential": "a4f10918-1459-4764-948d-7bb423cee032"
+          "nextRequestCredential": "a4f10918-1459-4764-948d-7bb423cee032"
         }
       ]
     },

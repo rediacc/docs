@@ -44,7 +44,7 @@ Rediacc-UserHash: {user-password-hash}
       "resultSetIndex": 0,
       "data": [
         {
-          "nextReqeustCredential": "7f5040b0-a0c7-4a08-9176-bdc386bd9bd4"
+          "nextRequestCredential": "7f5040b0-a0c7-4a08-9176-bdc386bd9bd4"
         }
       ]
     }
