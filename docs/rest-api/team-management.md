@@ -387,7 +387,7 @@ Retrieves a list of all teams in the authenticated user's company.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/GetAllCompanyTeams
+POST /api/StoredProcedure/GetCompanyTeams
 ```
 
 ### Headers

@@ -110,7 +110,7 @@ Enables or disables two-factor authentication for a user.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/ManageUser2FA
+POST /api/StoredProcedure/UpdateUser2FA
 ```
 
 ### Headers
@@ -327,7 +327,7 @@ Deactivates a user account, preventing the user from logging in.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/DisableUserAccount
+POST /api/StoredProcedure/DeactivateUserAccount
 ```
 
 ### Headers

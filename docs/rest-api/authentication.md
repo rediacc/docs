@@ -77,7 +77,7 @@ Rediacc supports Time-based One-Time Password (TOTP) two-factor authentication f
 
 ### Setting Up 2FA
 
-2FA can be enabled or disabled using the ManageUser2FA procedure. When enabling 2FA:
+2FA can be enabled or disabled using the UpdateUser2FA procedure. When enabling 2FA:
 
 1. The system generates a secure Base32-encoded secret key
 2. The secret is stored encrypted in the user's vault

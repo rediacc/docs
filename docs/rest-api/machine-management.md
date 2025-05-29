@@ -125,7 +125,7 @@ Moves a machine from one bridge to another.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/ChangeMachineBridge
+POST /api/StoredProcedure/UpdateMachineBridge
 ```
 
 ### Headers
