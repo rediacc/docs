@@ -274,7 +274,7 @@ Removes a user from a team.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/RemoveUserFromTeam
+POST /api/StoredProcedure/DeleteUserFromTeam
 ```
 
 ### Headers

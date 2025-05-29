@@ -380,7 +380,7 @@ Retrieves a list of all users in the authenticated user's company.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/GetAllCompanyUsers
+POST /api/StoredProcedure/GetCompanyUsers
 ```
 
 ### Headers

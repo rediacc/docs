@@ -126,7 +126,7 @@ Updates the response of a queue item that already has a response.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/UpdateQueueItemResponse
+POST /api/StoredProcedure/AddQueueItemResponse
 ```
 
 ### Headers

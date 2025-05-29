@@ -119,7 +119,7 @@ Removes a permission from a permission group.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/RemovePermissionFromGroup
+POST /api/StoredProcedure/DeletePermissionFromGroup
 ```
 
 ### Headers
