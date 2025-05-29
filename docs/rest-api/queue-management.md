@@ -69,7 +69,7 @@ Adds a response to an existing queue item, typically when a job is completed.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/AddQueueItemResponse
+POST /api/StoredProcedure/UpdateQueueItemResponse
 ```
 
 ### Headers
@@ -126,7 +126,7 @@ Updates the response of a queue item that already has a response.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/AddQueueItemResponse
+POST /api/StoredProcedure/UpdateQueueItemResponse
 ```
 
 ### Headers
@@ -298,7 +298,7 @@ Retrieves pending queue items (items without responses) for a specific machine o
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/GetNextQueueItems
+POST /api/StoredProcedure/GetQueueItemsNext
 ```
 
 ### Headers

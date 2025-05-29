@@ -101,7 +101,7 @@ Ends an authentication session, invalidating the request token.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/LogoutUserSession
+POST /api/StoredProcedure/DeleteUserSession
 ```
 
 ### Headers

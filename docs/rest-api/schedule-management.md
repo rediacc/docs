@@ -122,7 +122,7 @@ Updates the encrypted vault data for a schedule.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/UpdateScheduleSecureData
+POST /api/StoredProcedure/UpdateScheduleVault
 ```
 
 ### Headers

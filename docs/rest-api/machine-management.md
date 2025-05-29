@@ -182,7 +182,7 @@ Updates the encrypted vault data for a machine.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/UpdateMachineSecureData
+POST /api/StoredProcedure/UpdateMachineVault
 ```
 
 ### Headers

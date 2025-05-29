@@ -122,7 +122,7 @@ Updates the encrypted vault data for a repository.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/UpdateRepositorySecureData
+POST /api/StoredProcedure/UpdateRepositoryVault
 ```
 
 ### Headers

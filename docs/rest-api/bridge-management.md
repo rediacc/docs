@@ -123,7 +123,7 @@ Updates the encrypted vault data for a bridge.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/UpdateBridgeSecureData
+POST /api/StoredProcedure/UpdateBridgeVault
 ```
 
 ### Headers

@@ -63,7 +63,7 @@ Retrieves the secure data vault for the current user's company.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/GetCompanySecureData
+POST /api/StoredProcedure/GetCompanyVault
 ```
 
 ### Headers
@@ -113,7 +113,7 @@ Updates the secure data vault for the current user's company.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/UpdateCompanySecureData
+POST /api/StoredProcedure/UpdateCompanyVault
 ```
 
 ### Headers
@@ -168,7 +168,7 @@ Retrieves details about the current user's company, including statistics.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/GetUserCompanyDetails
+POST /api/StoredProcedure/GetUserCompany
 ```
 
 ### Headers

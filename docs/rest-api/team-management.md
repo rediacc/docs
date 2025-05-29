@@ -120,7 +120,7 @@ Updates the encrypted vault data for a team.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/UpdateTeamSecureData
+POST /api/StoredProcedure/UpdateTeamVault
 ```
 
 ### Headers
@@ -219,7 +219,7 @@ Adds an existing user as a member of a team.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/AddUserToTeam
+POST /api/StoredProcedure/CreateTeamMembership
 ```
 
 ### Headers

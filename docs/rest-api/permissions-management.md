@@ -65,7 +65,7 @@ Adds a specific permission to a permission group.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/AddPermissionToGroup
+POST /api/StoredProcedure/CreatePermissionInGroup
 ```
 
 ### Headers
@@ -308,7 +308,7 @@ Rediacc-RequestToken: {request-credential}
         {
           "permissionGroupName": "Administrators",
           "userCount": 2,
-          "permissions": "AddPermissionToGroup, AddQueueItemResponse, AddUserToTeam, ..."
+          "permissions": "CreatePermissionInGroup, UpdateQueueItemResponse, CreateTeamMembership, ..."
         },
         {
           "permissionGroupName": "Developers",

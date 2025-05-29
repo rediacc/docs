@@ -122,7 +122,7 @@ Updates the encrypted vault data for a storage resource.
 ### Endpoint
 
 ```
-POST /api/StoredProcedure/UpdateStorageSecureData
+POST /api/StoredProcedure/UpdateStorageVault
 ```
 
 ### Headers
