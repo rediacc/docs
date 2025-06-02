@@ -25,8 +25,10 @@ function serve() {
 
 # Function to clean up
 function clean() {
-  echo "Cleaning build artifacts..."
+  echo "Cleaning build artifacts and cache..."
   npm run clear
+  rm -rf node_modules/.cache .docusaurus
+  echo "Cache cleared successfully"
 }
 
 # Function to run docker for production
@@ -87,6 +89,10 @@ function release() {
   echo "Cleaning up bin directory..."
   rm -rf "$BIN_DIR"
   mkdir -p "$BIN_DIR"
+  
+  # Clear cache before build to avoid webpack issues
+  echo "Clearing cache before build..."
+  rm -rf node_modules/.cache .docusaurus
   
   # Build the documentation first
   if ! build; then
