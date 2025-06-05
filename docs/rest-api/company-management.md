@@ -51,7 +51,7 @@ Rediacc-UserHash: {user-password-hash}
   - A default "Administrators" permission group
   - A default team named "Default Team"
   - A default region named "Default Region"
-  - A default bridge named "Default Bridge" in the default region
+  - A Shared Bridge named "Shared Bridge" in the default region
 - The initial user is created with the "Administrators" permission group but is not activated.
 - The user must be activated separately using the ActivateUserAccount procedure.
 - The user is automatically added to the "Default Team".

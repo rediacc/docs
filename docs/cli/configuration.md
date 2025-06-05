@@ -97,7 +97,7 @@ jobs:
 # Infrastructure Defaults
 infra:
   default_region: "us-east-1"           # Default region for operations
-  default_bridge: ""                    # Default bridge name
+  default_bridge: ""                    # Shared Bridge name
   machine_check_interval: "30s"         # Machine health check interval
 
 # Teams
