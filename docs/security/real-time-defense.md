@@ -33,7 +33,7 @@ The company is a large-scale organization serving millions of customers:
 * The attack was carried out through **an overlooked vulnerability**
 
 **Effects:**
-* Risk of **32 million TL** fine due to **GDPR (General Data Protection Regulation)** violation
+* Risk of **$900,000 USD** fine due to **GDPR (General Data Protection Regulation)** violation
 * Customer trust decreased by **70%**
 * The company's stock value decreased by **24% in 1 week**
 
