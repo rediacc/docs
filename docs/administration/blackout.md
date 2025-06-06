@@ -4,6 +4,8 @@ sidebar_position: 4
 
 # 🏦 Banking Continuity During Blackout
 
+> **When The Lights Go Out, Your Business Stays On.**
+
 :::danger Crisis Scenario
 A massive blackout affected Spain and Portugal on April 28, 2025, triggered by a damaged transmission line in France. The power outage brought down critical IT infrastructure, causing major banks and tech companies to lose access to their systems.
 :::

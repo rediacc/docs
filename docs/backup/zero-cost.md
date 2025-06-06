@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # 💰 Zero-Cost
 
+> **Eliminate The Backup Nightmares That Keep SysAdmins Working Weekends.**
+
 ## 🔍 The Problem
 
 Mehmet works as a system administrator in an e-commerce company. The company has a **10 TB** database and needs a **daily full backup**. This is because:

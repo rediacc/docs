@@ -4,6 +4,8 @@ sidebar_position: 2
 
 # ⏱️ Time Travel
 
+> **When Others Lose Data Forever, You Can Travel Back In Time.**
+
 :::danger Crisis Scenario
 A newly hired employee **accidentally deleted** critical data from the live database 3 weeks ago. The company's backup system only kept backups for 2 weeks, making data recovery nearly impossible through conventional means.
 :::

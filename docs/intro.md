@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # What is Rediacc?
 
+> **Amateurs Hope For Successful Deployments. Professionals Ensure Them. Which Are You?**
+
 Rediacc is a system software that enables software applications and large data sets to run on different machines without requiring installation, featuring fast cloning and backup capabilities. SSH connection is sufficient.
 
 ## Definitions

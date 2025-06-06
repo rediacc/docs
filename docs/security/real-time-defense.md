@@ -4,6 +4,10 @@ sidebar_position: 1
 
 # 🛡️ Real-Time Defense
 
+> **While Others React To Breaches, Your Team Can Prevent Them.**
+>
+> **Eliminate The Security Vulnerabilities That Keep CISO's Awake At Night.**
+
 :::danger Crisis Scenario
 A hacker group infiltrated a company's systems, stealing **all customer data** and demanding ransom.
 Within 45 minutes, **1.2 TB of data** was leaked outside the company due to an overlooked vulnerability.

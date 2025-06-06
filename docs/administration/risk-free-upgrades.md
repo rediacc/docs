@@ -4,6 +4,8 @@ sidebar_position: 3
 
 # 🔄 Risk-Free Upgrades
 
+> **Test Everything. Risk Nothing. Upgrade With Confidence.**
+
 :::danger Crisis Scenario
 During a database upgrade, an **unexpected error** occurred that prevented reverting to the old version or proceeding to the new one. Customers couldn't access systems, and 5000+ employees couldn't work.
 :::

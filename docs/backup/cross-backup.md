@@ -4,6 +4,8 @@ sidebar_position: 4
 
 # 🔄 Cross Backup
 
+> **When Disaster Strikes, Will Your Data Survive? With Rediacc, It Always Does.**
+
 :::danger Crisis Scenario
 After a customer call, services were found to be not working due to a **disk failure**. The remote backup server's last backup was **3 weeks old**, leading to significant data loss.
 :::

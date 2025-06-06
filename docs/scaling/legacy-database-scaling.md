@@ -4,6 +4,8 @@ sidebar_position: 2
 
 # 🏛️ Legacy Database Scaling
 
+> **Your Legacy Database Is Holding You Back. Break Free Without Breaking It.**
+
 :::danger Crisis Scenario
 Despite scaling servers 10 times with Kubernetes, performance only improved 2 times. Customers complained about slow query times, costs increased without satisfactory results, and reputation was at risk.
 :::
