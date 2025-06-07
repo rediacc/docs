@@ -4,23 +4,25 @@
 >
 > **Is Your Development Environment Slowing You Down? Code Without Constraints.**
 
-The Rediacc CLI is a powerful command-line interface that provides comprehensive access to the Rediacc platform's features. Built with Go and designed for automation, it enables infrastructure management, backup operations, team collaboration, and system administration from your terminal.
+The Rediacc CLI is a powerful command-line interface that provides comprehensive access to the Rediacc platform's features. Built with Python for cross-platform compatibility and designed for automation, it enables infrastructure management, backup operations, team collaboration, queue management, and system administration from your terminal.
 
 ## Overview
 
 The CLI communicates with Rediacc's middleware API to provide secure, authenticated access to:
 
-- **Authentication & User Management** - Login, user creation, and session management
+- **Authentication & User Management** - Login, user creation, session management, and 2FA support
 - **Company Administration** - Company setup, settings, and subscription management  
 - **Team Management** - Team creation, member management, and collaboration tools
 - **Infrastructure Operations** - Region, bridge, and machine management
-- **Job Management** - Backup jobs, repository management, and scheduling
-- **Configuration** - CLI settings, output formatting, and preferences
+- **Resource Management** - Repository, storage, and schedule management
+- **Queue Operations** - Create and manage queue items, process jobs with bash functions
+- **Permission Management** - Create groups, assign permissions, and manage user access
+- **Configuration** - CLI settings stored in `~/.rediacc/config.json`
 
 ## Architecture
 
 ```
-CLI (Go) → HTTP/REST → Middleware (.NET) → SQL Server (Stored Procedures)
+CLI (Python) → HTTP/REST → Middleware (.NET) → SQL Server (Stored Procedures)
 ```
 
 The CLI acts as a client to the Rediacc middleware, which handles business logic and database operations through stored procedures.
@@ -28,49 +30,64 @@ The CLI acts as a client to the Rediacc middleware, which handles business logic
 ## Key Features
 
 ### 🔐 **Secure Authentication**
-- Session-based login with automatic credential refresh
-- Multi-factor authentication support
+- Session-based login with automatic token refresh
+- Two-factor authentication (2FA) support
 - Role-based permissions and access control
+- Secure password hashing (SHA-256)
 
 ### 🏢 **Company Management**
-- Company creation and configuration
+- Company creation with activation codes
 - User provisioning and activation
-- Subscription and limits management
+- Subscription plan management (COMMUNITY, ADVANCED, PREMIUM, ELITE)
+- Company vault for secure configuration storage
 
 ### 👥 **Team Collaboration**
 - Team creation and management
-- Member assignment and permissions
-- Secure vault operations
+- Member assignment and removal
+- Secure vault operations with versioning
+- Team-based resource isolation
 
 ### 🏗️ **Infrastructure Control**
 - Multi-region deployment management
 - Bridge and machine orchestration
 - Resource scaling and monitoring
+- Vault-based configuration management
+
+### 📦 **Queue Management**
+- Create queue items for job execution
+- Support for bash functions with parameters
+- Priority-based queue processing (1-5 levels)
+- Response tracking and completion status
 
 ### 📊 **Flexible Output**
-- Multiple output formats: table, JSON, YAML, text
-- Colored output and formatting options
-- Scriptable automation support
+- Multiple output formats: text and JSON
+- Colored terminal output for better readability
+- Machine-readable JSON for automation
+- Table formatting for list operations
 
 ## Quick Start
 
-1. **Installation**: Download the binary or build from source
-2. **Configuration**: Set up your server connection
+1. **Installation**: Install Python 3 and download the CLI script
+2. **Configuration**: Set the server URL environment variable
 3. **Authentication**: Login with your credentials
 4. **Explore**: Use built-in help to discover commands
 
 ```bash
-# Check CLI version
-rediacc --version
-
-# Configure server
-rediacc config set server.url "https://your-server.com"
+# Set server URL (optional, defaults to localhost:8080)
+export REDIACC_API_URL="https://your-server.com"
 
 # Login
-rediacc auth login --email user@example.com
+rediacc-cli login --email user@example.com --password yourpassword
 
-# Explore available commands
-rediacc --help
+# Create your first company (if needed)
+rediacc-cli create company "Your Company" --email admin@company.com --password adminpass
+
+# List available commands
+rediacc-cli -h
+
+# Get help for specific commands
+rediacc-cli create -h
+rediacc-cli list -h
 ```
 
 ## Getting Help
@@ -79,28 +96,40 @@ Every command includes comprehensive help documentation:
 
 ```bash
 # Global help
-rediacc --help
+rediacc-cli -h
 
-# Command group help
-rediacc auth --help
+# Command help
+rediacc-cli create -h
+rediacc-cli list -h
 
-# Specific command help
-rediacc auth login --help
+# Subcommand help
+rediacc-cli create company -h
+rediacc-cli create user -h
 ```
 
 ## Configuration
 
-The CLI uses a YAML configuration file located at `~/.rediacc-cli.yaml` by default. All settings can be managed through the CLI:
+The CLI stores configuration in `~/.rediacc/config.json`. The configuration is automatically managed when you login/logout:
 
 ```bash
-# View current configuration
-rediacc config list
+# Configuration is stored automatically on login
+rediacc-cli login --email user@example.com
 
-# Set a configuration value
-rediacc config set format.default json
+# View current authentication status
+cat ~/.rediacc/config.json
 
-# Get a specific value
-rediacc config get server.url
+# Logout clears the stored credentials
+rediacc-cli logout
+```
+
+### Environment Variables
+
+```bash
+# Set middleware server URL (defaults to localhost:8080)
+export REDIACC_API_URL="https://api.rediacc.com"
+
+# Set middleware port (defaults to 8080)
+export SYSTEM_MIDDLEWARE_PORT="8080"
 ```
 
 ## Next Steps

@@ -6,9 +6,9 @@ Teams are the core organizational unit in Rediacc for collaboration, resource ma
 
 Team operations include:
 - **Team Management**: Create, delete, and configure teams
-- **Member Management**: Add, remove, and manage team members
+- **Member Management**: Add and remove team members
 - **Access Control**: Team-based permissions and resource access
-- **Vault Operations**: Secure team data storage
+- **Vault Operations**: Secure team configuration storage
 
 ## Team Operations
 
@@ -18,40 +18,35 @@ View all teams in your company:
 
 ```bash
 # List teams (table format)
-rediacc teams list
+rediacc-cli list teams
 
 # JSON output
-rediacc teams list --output json
+rediacc-cli list teams --output json
 ```
 
 **Example output:**
+```
+Team Name     Members  Machines  Repos  Storage  Schedules  
+-----------  --------  --------  -----  -------  ----------  
+Development         5        12      8        3         15  
+Operations          3         8      4        2         10  
+Security            2         4      2        1          5  
+```
+
+**JSON output includes vault data:**
 ```json
-[
-  {
-    "teamName": "Development",
-    "companyName": "YourCompany",
-    "memberCount": 5,
-    "machineCount": 12,
-    "repoCount": 8,
-    "scheduleCount": 15,
-    "storageCount": 3,
-    "isMember": 1,
-    "vaultContent": "{}",
-    "vaultVersion": 1
-  },
-  {
-    "teamName": "Operations", 
-    "companyName": "YourCompany",
-    "memberCount": 3,
-    "machineCount": 8,
-    "repoCount": 4,
-    "scheduleCount": 10,
-    "storageCount": 2,
-    "isMember": 0,
-    "vaultContent": "{}",
-    "vaultVersion": 1
-  }
-]
+{
+  "teamName": "Development",
+  "companyName": "YourCompany",
+  "memberCount": 5,
+  "machineCount": 12,
+  "repoCount": 8,
+  "scheduleCount": 15,
+  "storageCount": 3,
+  "isMember": 1,
+  "vaultContent": "{\"lead\": \"john@company.com\"}",
+  "vaultVersion": 1
+}
 ```
 
 ### Create Team
@@ -60,194 +55,190 @@ Create a new team:
 
 ```bash
 # Create team
-rediacc teams create "Development"
+rediacc-cli create team "Development"
 
-# Create team with description
-rediacc teams create "QA Team" --description "Quality Assurance and Testing"
+# Create team with vault data
+rediacc-cli create team "Operations" --vault '{"description": "System operations team"}'
+
+# Create team with vault from file
+rediacc-cli create team "Security" --vault-file team-config.json
 ```
 
 **Success output:**
 ```
-✓ Team 'Development' created successfully
+Successfully created team: Development
 ```
 
 :::info Resource Limits
-Team creation is subject to your subscription limits. If you exceed the limit, upgrade your subscription or contact support.
+Team creation is subject to your subscription limits. Check your limits with `rediacc-cli list resource-limits`.
 :::
 
-### Delete Team
+### Update Team
 
-Delete an existing team:
-
-```bash
-# Delete team (requires confirmation)
-rediacc teams delete "Old Team"
-
-# Force delete without confirmation
-rediacc teams delete "Old Team" --force
-```
-
-**Warning:** Deleting a team removes all associated resources, schedules, and configurations.
-
-### Rename Team
-
-Change a team's name:
+Update team name or vault data:
 
 ```bash
 # Rename team
-rediacc teams rename "Old Name" "New Name"
+rediacc-cli update team "OldName" --new-name "NewName"
+
+# Update vault data
+rediacc-cli update team "Development" --vault '{"lead": "jane@company.com", "budget": 100000}'
+
+# Update vault from file with version control
+rediacc-cli update team "Development" --vault-file config.json --vault-version 2
+```
+
+### Delete Team
+
+Delete a team and all its resources:
+
+```bash
+# Delete team (with confirmation)
+rediacc-cli rm team "Old Team"
+
+# Force delete without confirmation
+rediacc-cli rm team "Old Team" --force
+```
+
+**Warning:** Deleting a team removes all associated machines, repositories, storage, and schedules.
+
+## Team Vault Management
+
+### Set Team Vault
+
+Directly manage team vault data:
+
+```bash
+# Set vault data interactively (enter JSON and press Ctrl+D)
+rediacc-cli vault set team "Development"
+
+# Set vault data from file
+rediacc-cli vault set team "Development" vault-data.json
+
+# Set vault data from stdin
+echo '{"config": "value"}' | rediacc-cli vault set team "Development" -
+
+# Set with specific version
+rediacc-cli vault set team "Development" data.json --vault-version 3
+```
+
+### View Team Vault
+
+Team vault data is included when listing teams:
+
+```bash
+# View specific team's vault content
+rediacc-cli list teams --output json | jq '.data[] | select(.teamName == "Development") | .vaultContent'
+
+# Check vault version
+rediacc-cli list teams --output json | jq '.data[] | select(.teamName == "Development") | .vaultVersion'
 ```
 
 ## Member Management
 
-### List Team Members
-
-View all members of a team:
-
-```bash
-# List members
-rediacc teams members list "Development"
-
-# JSON output
-rediacc teams members list "Development" --output json
-```
-
-**Example output:**
-```json
-[
-  {
-    "userEmail": "dev1@company.com",
-    "userName": "John Developer",
-    "role": "Member",
-    "joinDate": "2024-01-15",
-    "lastActive": "2024-03-10",
-    "permissions": "Developer"
-  },
-  {
-    "userEmail": "lead@company.com", 
-    "userName": "Jane Lead",
-    "role": "Team Lead",
-    "joinDate": "2024-01-01",
-    "lastActive": "2024-03-11",
-    "permissions": "Team Admin"
-  }
-]
-```
-
 ### Add Team Member
 
-Add a user to a team:
+Add users to a team:
 
 ```bash
-# Add member to team
-rediacc teams members add "Development" "newdev@company.com"
+# Add user to team
+rediacc-cli team-member add "Development" user@company.com
 
-# Add with specific role
-rediacc teams members add "Development" "senior@company.com" --role "Team Lead"
+# Add multiple users
+for user in dev1@company.com dev2@company.com dev3@company.com; do
+  rediacc-cli team-member add "Development" $user
+done
 ```
 
-**Requirements:**
-- User must exist in the company
-- User must be activated
-- You must have permission to manage the team
+**Success output:**
+```
+Successfully added user@company.com to team Development
+```
 
 ### Remove Team Member
 
-Remove a user from a team:
+Remove users from a team:
 
 ```bash
-# Remove member
-rediacc teams members remove "Development" "olddev@company.com"
+# Remove user from team (with confirmation)
+rediacc-cli team-member remove "Development" user@company.com
 
 # Force removal without confirmation
-rediacc teams members remove "Development" "olddev@company.com" --force
+rediacc-cli team-member remove "Development" user@company.com --force
+
+# Remove multiple users
+for user in user1@company.com user2@company.com; do
+  rediacc-cli team-member remove "Development" $user --force
+done
 ```
 
-### Update Member Role
+### List Team Members
 
-Change a member's role in the team:
+Team membership information is shown in the team list:
 
 ```bash
-# Update member role
-rediacc teams members role "Development" "dev@company.com" "Team Lead"
+# See member count for all teams
+rediacc-cli list teams
 
-# Remove elevated role (back to member)
-rediacc teams members role "Development" "dev@company.com" "Member"
+# Get detailed team info
+rediacc-cli list teams --output json | jq '.data[] | select(.teamName == "Development")'
+
+# Check if you're a member of a team
+rediacc-cli list teams --output json | jq '.data[] | select(.teamName == "Development") | .isMember'
 ```
 
-## Team Configuration
+## Team Resources
 
-### Team Information
+### Team Machines
 
-Get detailed information about a team:
+Machines are associated with teams for access control:
 
 ```bash
-# View team details
-rediacc teams info "Development"
+# Create machine for team
+rediacc-cli create machine "Development" "london-bridge" "web-server-1" \
+  --vault '{"ip": "192.168.1.10", "role": "web"}'
 
-# JSON output
-rediacc teams info "Development" --output json
+# List team's machine count
+rediacc-cli list teams --output json | jq '.data[] | select(.teamName == "Development") | .machineCount'
 ```
 
-### Team Settings
+### Team Repositories
 
-Configure team settings:
+Repositories belong to teams:
 
 ```bash
-# View team settings
-rediacc teams settings "Development"
+# Create repository for team
+rediacc-cli create repository "Development" "app-backend" \
+  --vault '{"type": "git", "url": "git@github.com:company/backend.git"}'
 
-# Update team description
-rediacc teams settings "Development" set description "Full-stack development team"
-
-# Set team defaults
-rediacc teams settings "Development" set default_region "us-east-1"
-rediacc teams settings "Development" set backup_retention "30d"
+# Check repository count
+rediacc-cli list teams --output json | jq '.data[] | select(.teamName == "Development") | .repoCount'
 ```
 
-## Vault Operations
+### Team Storage
 
-Teams have secure vaults for storing encrypted configuration data.
-
-### View Team Vault
+Storage allocations per team:
 
 ```bash
-# View vault contents
-rediacc teams vault get "Development"
+# Create storage for team
+rediacc-cli create storage "Development" "dev-backups" \
+  --vault '{"size": "1TB", "type": "s3"}'
 
-# JSON output
-rediacc teams vault get "Development" --output json
+# View storage count
+rediacc-cli list teams --output json | jq '.data[] | select(.teamName == "Development") | .storageCount'
 ```
 
-**Example vault structure:**
-```json
-{
-  "environment": {
-    "staging_url": "https://staging.company.com",
-    "production_url": "https://app.company.com"
-  },
-  "credentials": {
-    "database_config": "encrypted_data_here",
-    "api_keys": "encrypted_keys_here"
-  },
-  "settings": {
-    "deployment_branch": "main",
-    "auto_deploy": true
-  }
-}
-```
+### Team Schedules
 
-### Update Team Vault
+Schedules for automated tasks:
 
 ```bash
-# Interactive vault update
-rediacc teams vault update "Development"
+# Create schedule for team
+rediacc-cli create schedule "Development" "nightly-backup" \
+  --vault '{"cron": "0 2 * * *", "task": "backup"}'
 
-# Update from file
-rediacc teams vault update "Development" --file vault-config.json
-
-# Update specific key
-rediacc teams vault set "Development" "environment.staging_url" "https://new-staging.com"
+# Check schedule count
+rediacc-cli list teams --output json | jq '.data[] | select(.teamName == "Development") | .scheduleCount'
 ```
 
 ## Team Workflows
@@ -255,224 +246,231 @@ rediacc teams vault set "Development" "environment.staging_url" "https://new-sta
 ### Complete Team Setup
 
 ```bash
+#!/bin/bash
+# Script to set up a complete team environment
+
+TEAM_NAME="Mobile Development"
+
 # 1. Create team
-rediacc teams create "Data Science"
+rediacc-cli create team "$TEAM_NAME" \
+  --vault '{"description": "Mobile app development team", "budget": 50000}'
 
 # 2. Add team members
-rediacc teams members add "Data Science" "scientist1@company.com"
-rediacc teams members add "Data Science" "scientist2@company.com"
-rediacc teams members add "Data Science" "lead@company.com" --role "Team Lead"
+MEMBERS=("alice@company.com" "bob@company.com" "charlie@company.com")
+for member in "${MEMBERS[@]}"; do
+  rediacc-cli team-member add "$TEAM_NAME" $member
+done
 
-# 3. Configure team settings
-rediacc teams settings "Data Science" set description "ML and data analytics team"
-rediacc teams settings "Data Science" set default_region "us-west-2"
+# 3. Create development machines
+rediacc-cli create machine "$TEAM_NAME" "dev-bridge" "mobile-dev-1" \
+  --vault '{"os": "Ubuntu 22.04", "cores": 4, "ram": "16GB"}'
 
-# 4. Set up team vault
-rediacc teams vault set "Data Science" "ml_models.storage" "s3://ml-models-bucket"
-rediacc teams vault set "Data Science" "jupyter.url" "https://jupyter.company.com"
+rediacc-cli create machine "$TEAM_NAME" "dev-bridge" "mobile-build-1" \
+  --vault '{"os": "macOS", "cores": 8, "ram": "32GB"}'
 
-# 5. Verify setup
-rediacc teams info "Data Science"
-rediacc teams members list "Data Science"
+# 4. Create repositories
+rediacc-cli create repository "$TEAM_NAME" "mobile-app" \
+  --vault '{"type": "git", "main_branch": "develop"}'
+
+rediacc-cli create repository "$TEAM_NAME" "mobile-api" \
+  --vault '{"type": "git", "main_branch": "main"}'
+
+# 5. Set up storage
+rediacc-cli create storage "$TEAM_NAME" "mobile-artifacts" \
+  --vault '{"size": "500GB", "type": "s3", "bucket": "mobile-builds"}'
+
+# 6. Create schedules
+rediacc-cli create schedule "$TEAM_NAME" "nightly-tests" \
+  --vault '{"cron": "0 1 * * *", "command": "npm test"}'
+
+echo "Team $TEAM_NAME setup complete!"
 ```
 
 ### Team Migration
 
 ```bash
-# Export team configuration
-rediacc teams info "Development" --output json > team-config.json
-rediacc teams members list "Development" --output json > team-members.json
-rediacc teams vault get "Development" --output json > team-vault.json
+#!/bin/bash
+# Migrate team to new structure
 
-# Create new team with same configuration
-rediacc teams create "Development-New"
+OLD_TEAM="Legacy Team"
+NEW_TEAM="Modern Team"
 
-# Restore members (script)
-cat team-members.json | jq -r '.[].userEmail' | while read email; do
-  rediacc teams members add "Development-New" "$email"
-done
+# 1. Create new team with updated config
+OLD_VAULT=$(rediacc-cli list teams --output json | jq -r ".data[] | select(.teamName == \"$OLD_TEAM\") | .vaultContent")
+rediacc-cli create team "$NEW_TEAM" --vault "$OLD_VAULT"
 
-# Restore vault
-rediacc teams vault update "Development-New" --file team-vault.json
+# 2. Get team members (you'll need to track members separately)
+# Then add them to new team
+rediacc-cli team-member add "$NEW_TEAM" "member@company.com"
+
+# 3. Migrate configurations
+echo "Migration from $OLD_TEAM to $NEW_TEAM started"
+
+# 4. After verification, remove old team
+read -p "Delete old team $OLD_TEAM? (y/N) " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  rediacc-cli rm team "$OLD_TEAM" --force
+fi
 ```
 
-## Access Control
-
-### Team Permissions
-
-Teams control access to resources:
-
-- **Team Members**: Can view team resources and participate in operations
-- **Team Leads**: Can manage team members and modify team settings
-- **Team Admins**: Full control over team configuration and resources
-
-### Resource Access
-
-Teams provide access to:
-- **Machines**: Infrastructure resources assigned to the team
-- **Repositories**: Code repositories and backup targets
-- **Schedules**: Automated backup and maintenance schedules
-- **Storage**: Team-specific storage allocations
-
-### Permission Examples
+### Team Access Audit
 
 ```bash
+#!/bin/bash
+# Audit team access and resources
+
+echo "=== Team Access Audit ==="
+echo
+
+# List all teams with access info
+rediacc-cli list teams --output json | jq -r '.data[] | 
+  "\(.teamName):\n  Members: \(.memberCount)\n  You have access: \(if .isMember == 1 then "Yes" else "No" end)\n  Resources: \(.machineCount) machines, \(.repoCount) repos, \(.storageCount) storage\n"'
+
 # Check your team memberships
-rediacc teams list | grep '"isMember": 1'
-
-# View teams you can manage
-rediacc teams list --role admin
-
-# Check specific team permissions
-rediacc teams permissions "Development"
-```
-
-## Monitoring and Reporting
-
-### Team Usage
-
-```bash
-# View team resource usage
-rediacc teams usage "Development"
-
-# Historical usage data
-rediacc teams usage "Development" --period "30d"
-```
-
-### Team Activity
-
-```bash
-# Recent team activity
-rediacc teams activity "Development"
-
-# Member activity
-rediacc teams activity "Development" --member "dev@company.com"
-```
-
-### Team Reports
-
-```bash
-# Generate team report
-rediacc teams report "Development" --format pdf --output team-report.pdf
-
-# Weekly summary
-rediacc teams report "Development" --period "7d" --format email
-```
-
-## Automation Examples
-
-### Team Provisioning Script
-
-```bash
-#!/bin/bash
-# Automated team provisioning
-
-TEAM_NAME="$1"
-TEAM_LEAD="$2"
-MEMBERS="$3"  # Comma-separated list
-
-# Create team
-rediacc teams create "$TEAM_NAME"
-
-# Add team lead
-rediacc teams members add "$TEAM_NAME" "$TEAM_LEAD" --role "Team Lead"
-
-# Add members
-IFS=',' read -ra MEMBER_LIST <<< "$MEMBERS"
-for member in "${MEMBER_LIST[@]}"; do
-  rediacc teams members add "$TEAM_NAME" "$member"
-done
-
-# Set default configuration
-rediacc teams settings "$TEAM_NAME" set backup_retention "30d"
-rediacc teams settings "$TEAM_NAME" set default_region "us-east-1"
-
-echo "Team '$TEAM_NAME' provisioned successfully"
-```
-
-### Team Cleanup Script
-
-```bash
-#!/bin/bash
-# Remove inactive team members
-
-TEAM_NAME="$1"
-DAYS_INACTIVE="$2"
-
-# Get members inactive for specified days
-INACTIVE_MEMBERS=$(rediacc teams members list "$TEAM_NAME" --output json | \
-  jq -r --arg days "$DAYS_INACTIVE" \
-  '.[] | select(.lastActive < (now - ($days | tonumber) * 86400)) | .userEmail')
-
-# Remove inactive members
-for member in $INACTIVE_MEMBERS; do
-  echo "Removing inactive member: $member"
-  rediacc teams members remove "$TEAM_NAME" "$member" --force
-done
-```
-
-## Error Handling
-
-### Common Errors
-
-**Team Not Found:**
-```
-Error: failed to get team info: API error: Team 'NonExistent' not found in your company
-```
-
-**Permission Denied:**
-```
-Error: failed to add member: API error: Insufficient permissions to manage team 'Development'
-```
-
-**Resource Limits:**
-```
-Error: failed to create team: API error: Resource limit exceeded for teams. Please upgrade your subscription
-```
-
-**User Already Member:**
-```
-Error: failed to add member: API error: User 'user@company.com' is already a member of team 'Development'
-```
-
-### Troubleshooting
-
-```bash
-# Check team existence
-rediacc teams list | grep "TeamName"
-
-# Verify your team permissions
-rediacc teams list --show-roles
-
-# Check user status
-rediacc auth user info user@company.com
-
-# Debug mode
-rediacc --debug teams members add "Development" "user@company.com"
+echo "=== Your Team Memberships ==="
+rediacc-cli list teams --output json | jq -r '.data[] | select(.isMember == 1) | .teamName'
 ```
 
 ## Best Practices
 
-### Organization
-- Use descriptive team names
-- Align teams with organizational structure
-- Document team purposes and responsibilities
-- Regular review of team membership
+### Team Organization
 
-### Security
-- Limit team lead permissions appropriately
-- Regular audit of team access
-- Use team vaults for sensitive data
-- Monitor team activity logs
+1. **Clear Naming**: Use descriptive team names that reflect purpose
+   ```bash
+   # Good examples
+   rediacc-cli create team "Frontend Development"
+   rediacc-cli create team "Database Administration"
+   rediacc-cli create team "Customer Support Engineering"
+   
+   # Avoid generic names
+   # "Team 1", "Group A", "Misc"
+   ```
+
+2. **Team Structure**: Organize teams by function or project
+   - Development teams by technology stack
+   - Operations teams by responsibility area
+   - Cross-functional teams for projects
+
+3. **Vault Data Standards**: Use consistent vault schemas
+   ```json
+   {
+     "description": "Team purpose",
+     "lead": "lead@company.com",
+     "slack_channel": "#team-dev",
+     "cost_center": "CC-1234",
+     "tags": ["frontend", "react", "mobile"]
+   }
+   ```
+
+### Security Practices
+
+1. **Minimum Access**: Add only necessary members
+2. **Regular Reviews**: Audit team membership quarterly
+3. **Vault Encryption**: Sensitive data is automatically encrypted
+4. **Access Logging**: All team operations are logged
 
 ### Resource Management
-- Monitor team resource usage
-- Set appropriate team quotas
-- Regular cleanup of unused teams
-- Document team resource allocations
 
-### Collaboration
-- Clear team member roles
-- Regular team member reviews
-- Use team vaults for shared configuration
-- Maintain team documentation
+1. **Resource Limits**: Monitor team resource usage
+   ```bash
+   # Check team resources
+   rediacc-cli list teams --output json | jq '.data[] | 
+     {team: .teamName, machines: .machineCount, repos: .repoCount}'
+   ```
+
+2. **Cleanup Unused**: Remove inactive teams and members
+3. **Cost Allocation**: Use vault data for budget tracking
+
+## Troubleshooting
+
+### Common Issues
+
+**Team Creation Failed:**
+```
+Error: API Error: Maximum number of teams reached for subscription
+```
+Solution: Check your subscription limits or upgrade your plan.
+
+**Member Add Failed:**
+```
+Error: API Error: User not found or not activated
+```
+Solution: Ensure the user exists and is activated first.
+
+**Permission Denied:**
+```
+Error: API Error: User is not a member of the specified team
+```
+Solution: Verify you have access to the team or request access.
+
+### Debug Commands
+
+```bash
+# Verify team exists
+rediacc-cli list teams | grep "TeamName"
+
+# Check team details
+rediacc-cli list teams --output json | jq '.data[] | select(.teamName == "TeamName")'
+
+# Verify user exists before adding
+rediacc-cli list users | grep "user@company.com"
+
+# Check your team memberships
+rediacc-cli list teams --output json | jq '.data[] | select(.isMember == 1) | .teamName'
+```
+
+## Integration Examples
+
+### CI/CD Integration
+
+```bash
+#!/bin/bash
+# Setup team for CI/CD pipeline
+
+# Create CI/CD team
+rediacc-cli create team "CI-CD" --vault '{
+  "description": "Continuous Integration and Deployment",
+  "jenkins_url": "https://jenkins.company.com",
+  "docker_registry": "registry.company.com"
+}'
+
+# Add CI/CD service accounts
+rediacc-cli team-member add "CI-CD" "jenkins@company.com"
+rediacc-cli team-member add "CI-CD" "github-actions@company.com"
+
+# Create build machines
+for i in {1..3}; do
+  rediacc-cli create machine "CI-CD" "ci-bridge" "build-agent-$i" \
+    --vault '{"type": "docker", "image": "company/build-agent:latest"}'
+done
+```
+
+### Multi-Team Collaboration
+
+```bash
+#!/bin/bash
+# Set up shared resources between teams
+
+# Create shared storage accessible by multiple teams
+TEAMS=("Frontend" "Backend" "QA")
+
+for team in "${TEAMS[@]}"; do
+  rediacc-cli create storage "$team" "shared-artifacts" \
+    --vault '{
+      "type": "nfs",
+      "mount": "/shared/artifacts",
+      "permissions": "read-only"
+    }'
+done
+
+# Document sharing in team vaults
+for team in "${TEAMS[@]}"; do
+  rediacc-cli vault set team "$team" --vault '{
+    "shared_resources": {
+      "artifacts": "/shared/artifacts",
+      "docs": "https://docs.company.com"
+    }
+  }'
+done
+```

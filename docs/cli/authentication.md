@@ -14,38 +14,41 @@ Authentication in Rediacc CLI involves:
 ### Login
 
 ```bash
-# Interactive login
-rediacc auth login --email user@example.com --password mypassword
+# Basic login
+rediacc-cli login --email user@example.com --password mypassword
 
-# Check login status
-rediacc auth status
+# Login with session name
+rediacc-cli login --email user@example.com --password mypassword --session-name "My CLI Session"
+
+# Login with 2FA code
+rediacc-cli login --email user@example.com --password mypassword --tfa-code 123456
+
+# Login with specific permissions
+rediacc-cli login --email user@example.com --password mypassword --permissions "Administrators"
+
+# Login with token expiration (hours)
+rediacc-cli login --email user@example.com --password mypassword --expiration 48
+
+# Login for specific target (e.g., bridge token)
+rediacc-cli login --email user@example.com --password mypassword --target "bridge-name"
 ```
 
 **Response:**
 ```
-Status: Logged in as user@example.com
-Server: https://your-server.com
-Session: Active
-Request Credential: abc123...
+Successfully logged in as user@example.com
 ```
 
 ### Logout
 
 ```bash
 # Logout current session
-rediacc auth logout
+rediacc-cli logout
 ```
 
-### Check Status
-
-```bash
-# View current authentication status
-rediacc auth status
+**Response:**
 ```
-
-**Possible outputs:**
-- `Status: Not logged in`
-- `Status: Logged in as user@example.com`
+Successfully logged out
+```
 
 ## User Management
 
@@ -55,10 +58,10 @@ List all users in your company:
 
 ```bash
 # List users (table format)
-rediacc auth user list
+rediacc-cli list users
 
 # List users (JSON format)
-rediacc auth user list --output json
+rediacc-cli list users --output json
 ```
 
 **Example output:**
@@ -79,23 +82,30 @@ rediacc auth user list --output json
 Create a new user account:
 
 ```bash
-# Create user
-rediacc auth user create \
-  --email newuser@company.com \
-  --password securepassword123
+# Create user (will prompt for password)
+rediacc-cli create user newuser@company.com
+
+# Create user with password
+rediacc-cli create user newuser@company.com --password securepassword123
+
+# Create user with activation code
+rediacc-cli create user newuser@company.com --password securepassword123 --activation-code 12345
 ```
 
-:::info Admin Password Required
-When creating users, you'll be prompted to enter your admin password for security verification.
+:::info Password Input
+If password is not provided via --password flag, you'll be prompted to enter it securely.
 :::
 
-### User Information
+### Get User Company
 
-Get detailed information about a user:
+Get the company associated with the authenticated user:
 
 ```bash
-# Get user details
-rediacc auth user info user@company.com
+# Get user's company information
+rediacc-cli list user-company
+
+# JSON output
+rediacc-cli list user-company --output json
 ```
 
 ### Activate User
@@ -103,8 +113,11 @@ rediacc auth user info user@company.com
 Activate a user account:
 
 ```bash
-# Activate user
-rediacc auth user activate user@company.com
+# Activate user with default code (111111)
+rediacc-cli user activate user@company.com
+
+# Activate user with specific code
+rediacc-cli user activate user@company.com --code 123456
 ```
 
 ### Deactivate User
@@ -112,17 +125,47 @@ rediacc auth user activate user@company.com
 Deactivate a user account:
 
 ```bash
-# Deactivate user
-rediacc auth user deactivate user@company.com
+# Deactivate user (with confirmation)
+rediacc-cli user deactivate user@company.com
+
+# Deactivate user (skip confirmation)
+rediacc-cli user deactivate user@company.com --force
 ```
 
 ### Update Password
 
-Change a user's password:
+Change the current user's password:
 
 ```bash
-# Update user password
-rediacc auth user update-password user@company.com
+# Update password (will prompt for new password)
+rediacc-cli user update-password
+
+# Update password directly
+rediacc-cli user update-password --new-password newsecurepassword123
+```
+
+### Update Email
+
+Change a user's email address:
+
+```bash
+# Update user email
+rediacc-cli user update-email current@company.com new@company.com
+```
+
+### Update 2FA Settings
+
+Enable or disable two-factor authentication:
+
+```bash
+# Enable 2FA (will prompt for password)
+rediacc-cli user update-2fa 1
+
+# Disable 2FA with current code
+rediacc-cli user update-2fa 0 --password mypassword --current-code 123456
+
+# Enable 2FA with password
+rediacc-cli user update-2fa true --password mypassword
 ```
 
 ## Authentication Workflow
@@ -136,23 +179,25 @@ rediacc auth user update-password user@company.com
 
 ```bash
 # Step 1: Create company (first time only)
-rediacc company create \
-  --name "Your Company" \
-  --admin-email admin@company.com \
-  --admin-password adminpass123
+rediacc-cli create company "Your Company" \
+  --email admin@company.com \
+  --password adminpass123 \
+  --plan COMMUNITY
 
 # Step 2: Login as admin
-rediacc auth login \
+rediacc-cli login \
   --email admin@company.com \
   --password adminpass123
 
 # Step 3: Create team members
-rediacc auth user create \
-  --email user1@company.com \
+rediacc-cli create user user1@company.com \
   --password userpass123
 
-# Step 4: Users can now login
-rediacc auth login \
+# Step 4: Activate the user
+rediacc-cli user activate user1@company.com
+
+# Step 5: Users can now login
+rediacc-cli login \
   --email user1@company.com \
   --password userpass123
 ```
@@ -161,27 +206,34 @@ rediacc auth login \
 
 ```bash
 # Login
-rediacc auth login --email your@email.com --password yourpassword
+rediacc-cli login --email your@email.com --password yourpassword
 
 # Work with CLI
-rediacc teams list
-rediacc company info
+rediacc-cli list teams
+rediacc-cli list users
+rediacc-cli list regions
+
+# Create resources
+rediacc-cli create team "Development"
+rediacc-cli create region "US-East"
 
 # Logout when done
-rediacc auth logout
+rediacc-cli logout
 ```
 
 ## Security Features
 
 ### Session Management
-- **Automatic Refresh**: Sessions are automatically refreshed during use
-- **Secure Storage**: Credentials stored securely in config file
-- **Timeout Handling**: Sessions expire after inactivity
+- **Token Chain**: Each request receives a new token for the next request
+- **Secure Storage**: Credentials stored in `~/.rediacc/config.json`
+- **Automatic Update**: Tokens are automatically updated after each API call
+- **Session Expiration**: Configure token expiration with --expiration flag
 
 ### Password Security
-- **Hash Protection**: Passwords are SHA-256 hashed before transmission
-- **Secure Headers**: Authentication uses secure HTTP headers
-- **Admin Verification**: Sensitive operations require admin password confirmation
+- **Hash Protection**: Passwords are SHA-256 hashed with 0x prefix before transmission
+- **Secure Headers**: Authentication uses Rediacc-UserEmail and Rediacc-UserHash headers
+- **Token Authentication**: API operations use Rediacc-RequestToken header
+- **No Plain Text**: Passwords never transmitted or stored in plain text
 
 ### Permission Control
 - **Role-Based Access**: Users assigned to permission groups
@@ -192,23 +244,27 @@ rediacc auth logout
 
 ### Authentication Settings
 
-```bash
-# View auth configuration
-rediacc config get auth
+Authentication configuration is automatically managed:
 
-# Clear stored credentials
-rediacc config set auth.email ""
-rediacc config set auth.session_token ""
+```bash
+# Configuration is stored on login
+rediacc-cli login --email user@example.com
+
+# View stored configuration
+cat ~/.rediacc/config.json
+
+# Configuration is cleared on logout
+rediacc-cli logout
 ```
 
 ### Server Settings
 
 ```bash
-# Set server URL
-rediacc config set server.url "https://your-server.com"
+# Set server URL via environment variable
+export REDIACC_API_URL="https://your-server.com"
 
-# Set timeout
-rediacc config set server.timeout "60s"
+# Set middleware port
+export SYSTEM_MIDDLEWARE_PORT="8080"
 ```
 
 ## Error Handling
@@ -217,34 +273,42 @@ rediacc config set server.timeout "60s"
 
 **Invalid Credentials:**
 ```
-Error: login failed: API error: User with email user@example.com not found, not activated, or has invalid permissions.
+Error: Login failed: API Error: User with email user@example.com not found, not activated, or has invalid permissions.
 ```
 
 **Session Expired:**
 ```
-Error: API error: Invalid request credential or verification data.
+Error: Not authenticated. Please login first.
 ```
 
-**User Not Activated:**
+**Invalid Token:**
 ```
-Error: API error: User with email user@example.com not found, not activated, or has invalid permissions.
+Error: API Error: Invalid request credential or verification data.
+```
+
+**User Not Found:**
+```
+Error: API Error: User with email user@example.com not found.
 ```
 
 ### Troubleshooting
 
 ```bash
 # Check server connectivity
-rediacc config get server.url
+echo $REDIACC_API_URL
 
-# Verify user status
-rediacc auth status
+# Verify configuration exists
+ls -la ~/.rediacc/config.json
 
 # Re-login if session expired
-rediacc auth logout
-rediacc auth login --email your@email.com
+rediacc-cli logout
+rediacc-cli login --email your@email.com
 
-# Debug mode for detailed errors
-rediacc --debug auth login --email your@email.com
+# Use JSON output for debugging
+rediacc-cli list users --output json
+
+# Check middleware connectivity
+curl -X POST $REDIACC_API_URL/api/StoredProcedure/GetCompanyUsers
 ```
 
 ## Best Practices
@@ -273,33 +337,40 @@ rediacc --debug auth login --email your@email.com
 
 ```bash
 # Admin creates new user
-rediacc auth user create \
-  --email newbie@company.com \
+rediacc-cli create user newbie@company.com \
   --password temp123
 
 # Admin activates user
-rediacc auth user activate newbie@company.com
+rediacc-cli user activate newbie@company.com
 
 # New user can now login
-rediacc auth login \
+rediacc-cli login \
   --email newbie@company.com \
   --password temp123
 
-# User changes password
-rediacc auth user update-password newbie@company.com
+# User changes their own password
+rediacc-cli user update-password --new-password newsecurepass123
+
+# User enables 2FA
+rediacc-cli user update-2fa 1 --password newsecurepass123
 ```
 
 ### Batch User Operations
 
 ```bash
 # List all users and save to file
-rediacc auth user list --output json > users.json
+rediacc-cli list users --output json > users.json
 
-# Check activation status
-rediacc auth user list | grep -v "activated.*true"
+# Parse JSON output with jq
+rediacc-cli list users --output json | jq '.data[] | select(.activated == false)'
 
 # Activate multiple users (bash script)
 for email in user1@company.com user2@company.com; do
-  rediacc auth user activate $email
+  rediacc-cli user activate $email
 done
+
+# Create multiple users from file
+while IFS=, read -r email password; do
+  rediacc-cli create user "$email" --password "$password"
+done < users.csv
 ```

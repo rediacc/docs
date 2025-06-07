@@ -84,6 +84,24 @@ const sidebars = {
         },
       ],
     },
+    {
+      type: 'category',
+      label: 'Command Line Interface',
+      collapsed: false,
+      items: [
+        'cli/introduction',
+        'cli/installation',
+        'cli/authentication',
+        'cli/company',
+        'cli/teams',
+        'cli/infrastructure',
+        'cli/jobs',
+        'cli/queue',
+        'cli/permissions',
+        'cli/configuration',
+        'cli/tutorial',
+      ],
+    },
   ],
 };
 

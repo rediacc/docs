@@ -6,10 +6,10 @@ Company management commands handle company creation, configuration, and administ
 
 Company operations include:
 - **Company Creation**: Initial setup with admin user
-- **Company Information**: View settings and details
-- **User Management**: Company-wide user operations
-- **Subscription Management**: Plan and limits information
-- **Vault Operations**: Secure company data storage
+- **Company Information**: View dashboard and subscription details
+- **Subscription Management**: View plans and resource limits
+- **Vault Operations**: Secure company-wide configuration storage
+- **Data Graph**: Access company resource relationships
 
 ## Company Operations
 
@@ -18,388 +18,449 @@ Company operations include:
 Create a new company with admin user (first-time setup):
 
 ```bash
-# Create company with admin user
-rediacc company create \
-  --name "Your Company Name" \
-  --admin-email admin@yourcompany.com \
-  --admin-password securepassword123
+# Create company with basic plan
+rediacc-cli create company "Your Company Name" \
+  --email admin@yourcompany.com \
+  --password securepassword123
+
+# Create with specific subscription plan
+rediacc-cli create company "Enterprise Corp" \
+  --email admin@enterprise.com \
+  --password adminpass123 \
+  --plan PREMIUM
+
+# Create with custom activation code
+rediacc-cli create company "Startup Inc" \
+  --email founder@startup.com \
+  --password founderpass \
+  --activation-code "SPECIAL2024"
 ```
+
+**Available Plans:**
+- `COMMUNITY` - Free tier with basic features (default)
+- `ADVANCED` - Enhanced features and limits
+- `PREMIUM` - Professional features with priority support
+- `ELITE` - Enterprise features with maximum resources
 
 **What happens:**
 1. Creates new company record
-2. Creates admin user account
-3. Automatically activates admin user
-4. Sets up default team and permissions
-5. Assigns Community subscription plan
+2. Creates admin user account  
+3. Sets up default permissions
+4. Initializes subscription plan
+5. Returns success confirmation
 
 **Success output:**
 ```
-✓ Company 'Your Company Name' created successfully
-✓ Admin user 'admin@yourcompany.com' activated
+Successfully created company: Your Company Name
 ```
 
-### Company Information
+### View Company Dashboard
 
-View detailed company information:
+Get comprehensive company information including limits and usage:
 
 ```bash
-# View company details
-rediacc company info
+# View dashboard information
+rediacc-cli list resource-limits
 
-# JSON output for scripting
-rediacc company info --output json
+# JSON output for parsing
+rediacc-cli list resource-limits --output json
 ```
 
 **Example output:**
+```
+Company Name    Plan        Max Teams  Max Regions  Max Machines  Max Storage  
+-------------  ----------  ----------  -----------  ------------  -----------  
+Your Company   COMMUNITY            3            2            10           50  
+```
+
+### View Subscription Information
+
+Check current subscription details:
+
+```bash
+# View subscription info
+rediacc-cli list subscription
+
+# JSON format with full details
+rediacc-cli list subscription --output json
+```
+
+**JSON output includes:**
 ```json
 {
-  "companyName": "Your Company Name",
-  "adminUser": "admin@yourcompany.com",
-  "totalUsers": 5,
-  "totalTeams": 3,
-  "subscriptionPlan": "Community",
-  "vaultContent": "{}",
-  "vaultVersion": 1
+  "companyName": "Your Company",
+  "subscriptionPlan": "COMMUNITY",
+  "maxTeams": 3,
+  "maxRegions": 2, 
+  "maxMachines": 10,
+  "maxStorage": 50,
+  "currentTeams": 2,
+  "currentRegions": 1,
+  "currentMachines": 5,
+  "currentStorage": 20
 }
 ```
 
-## User Management
+## Company Vault Management
 
-### List Company Users
+### View Company Vault
 
-View all users in your company:
-
-```bash
-# List all company users
-rediacc company users list
-
-# JSON format
-rediacc company users list --output json
-```
-
-**Example output:**
-```json
-[
-  {
-    "userEmail": "admin@company.com",
-    "activated": true,
-    "permissionsName": "Administrators", 
-    "teamCount": 2,
-    "joinDate": "2024-01-15"
-  },
-  {
-    "userEmail": "user@company.com",
-    "activated": true,
-    "permissionsName": "Users",
-    "teamCount": 1,
-    "joinDate": "2024-01-20"
-  }
-]
-```
-
-### User Limits
-
-View user limits for your subscription:
+Access company-wide configuration data:
 
 ```bash
-# Check user limits
-rediacc company limits users
+# View company vault
+rediacc-cli list company-vault
+
+# JSON output
+rediacc-cli list company-vault --output json
 ```
 
-**Example output:**
-```
-User Limits:
-  Current Users: 5
-  Maximum Users: 10
-  Subscription: Professional
-  Upgrade Available: Yes
-```
+### Update Company Vault
 
-## Vault Operations
-
-Company vaults store encrypted configuration and sensitive data.
-
-### View Vault
+Store company-wide configuration:
 
 ```bash
-# View company vault contents
-rediacc company vault get
+# Set company vault data interactively
+rediacc-cli vault set company ""
 
-# JSON format
-rediacc company vault get --output json
+# Set from file
+rediacc-cli vault set company "" company-config.json
+
+# Set from stdin
+echo '{"billing_email": "billing@company.com"}' | rediacc-cli vault set company "" -
 ```
 
-### Update Vault
+:::info Company Name Parameter
+The company name parameter is ignored for vault updates - you can only update your own company's vault. Pass an empty string "" or any value.
+:::
+
+## Data Management
+
+### Company Data Graph
+
+View relationships between all company resources:
 
 ```bash
-# Update vault data (interactive editor)
-rediacc company vault update
+# Get company data graph
+rediacc-cli list data-graph
 
-# Update from file
-rediacc company vault update --file vault-config.json
+# JSON format for visualization
+rediacc-cli list data-graph --output json
 ```
 
-**Example vault structure:**
-```json
-{
-  "settings": {
-    "backup_retention": "30d",
-    "default_region": "us-east-1"
-  },
-  "integrations": {
-    "slack_webhook": "https://hooks.slack.com/...",
-    "email_notifications": true
-  }
-}
+**Data graph includes:**
+- Teams and their resources
+- Regions and bridges
+- Machines and associations
+- User memberships
+- Resource dependencies
+
+### Lookup Data
+
+Get context-specific lookup data:
+
+```bash
+# Get all lookup data
+rediacc-cli list lookup-data
+
+# Get data for specific context
+rediacc-cli list lookup-data --context machine_create
+rediacc-cli list lookup-data --context queue_create
+```
+
+**Available contexts:**
+- `machine_create` - Data for creating machines
+- `queue_create` - Data for creating queue items
+- `team_create` - Data for team creation
+- `user_create` - Data for user creation
+
+## User's Company Information
+
+Users can check their company association:
+
+```bash
+# Get current user's company
+rediacc-cli list user-company
+
+# JSON output
+rediacc-cli list user-company --output json
+```
+
+**Output:**
+```
+Company Name      
+---------------  
+Your Company     
 ```
 
 ## Subscription Management
 
-### View Subscription
+### Subscription Plans
+
+**Community Plan:**
+- 3 teams maximum
+- 2 regions maximum
+- 10 machines maximum
+- 50GB storage
+- Basic support
+
+**Advanced Plan:**
+- 10 teams maximum
+- 5 regions maximum
+- 50 machines maximum
+- 500GB storage
+- Standard support
+
+**Premium Plan:**
+- 50 teams maximum
+- 20 regions maximum
+- 500 machines maximum
+- 5TB storage
+- Priority support
+- Queue priorities 1-5
+
+**Elite Plan:**
+- Unlimited teams
+- Unlimited regions
+- Unlimited machines
+- Unlimited storage
+- 24/7 dedicated support
+- All features enabled
+
+### Check Resource Usage
+
+Monitor resource consumption against limits:
 
 ```bash
-# View current subscription details
-rediacc company subscription
+#!/bin/bash
+# Script to check resource usage
 
-# JSON output
-rediacc company subscription --output json
+# Get current usage
+DASHBOARD=$(rediacc-cli list resource-limits --output json | jq '.data[0]')
+
+# Extract limits
+MAX_TEAMS=$(echo $DASHBOARD | jq -r '.maxTeams')
+MAX_MACHINES=$(echo $DASHBOARD | jq -r '.maxMachines')
+MAX_STORAGE=$(echo $DASHBOARD | jq -r '.maxStorage')
+
+# Get current counts
+TEAMS=$(rediacc-cli list teams --output json | jq '.data | length')
+REGIONS=$(rediacc-cli list regions --output json | jq '.data | length')
+
+echo "Resource Usage Report"
+echo "===================="
+echo "Teams: $TEAMS / $MAX_TEAMS"
+echo "Regions: $REGIONS / $(echo $DASHBOARD | jq -r '.maxRegions')"
+echo "Machines: Used / $MAX_MACHINES"
+echo "Storage: Used / ${MAX_STORAGE}GB"
 ```
 
-**Example output:**
-```json
-{
-  "planName": "Professional",
-  "status": "Active",
-  "startDate": "2024-01-01",
-  "endDate": "2025-01-01",
-  "limits": {
-    "users": 50,
-    "teams": 10,
-    "storage": "1TB",
-    "machines": 100
-  },
-  "features": [
-    "Advanced Security",
-    "Priority Support",
-    "API Access"
-  ]
-}
-```
-
-### Upgrade Subscription
-
-```bash
-# View available plans
-rediacc company subscription plans
-
-# Upgrade to new plan
-rediacc company subscription upgrade --plan enterprise
-```
-
-## Administrative Tasks
-
-### Company Settings
-
-```bash
-# View company settings
-rediacc company settings
-
-# Update company name
-rediacc company settings set name "New Company Name"
-
-# Update default settings
-rediacc company settings set default_region "us-west-2"
-```
-
-### Audit Logs
-
-```bash
-# View company audit logs
-rediacc company audit
-
-# Filter by date
-rediacc company audit --since "2024-01-01"
-
-# Filter by user
-rediacc company audit --user admin@company.com
-```
-
-## Multi-Company Scenarios
-
-### Switch Companies
-
-If you have access to multiple companies:
-
-```bash
-# List accessible companies
-rediacc company list
-
-# Switch to different company
-rediacc company switch "Other Company Name"
-
-# View current company context
-rediacc company current
-```
-
-## Configuration Examples
+## Company Setup Workflows
 
 ### Complete Company Setup
 
 ```bash
+#!/bin/bash
+# Complete company setup script
+
+COMPANY_NAME="Tech Startup"
+ADMIN_EMAIL="admin@techstartup.com"
+ADMIN_PASS="SecureAdminPass123!"
+
 # 1. Create company
-rediacc company create \
-  --name "Acme Corporation" \
-  --admin-email admin@acme.com \
-  --admin-password securepass123
+echo "Creating company..."
+rediacc-cli create company "$COMPANY_NAME" \
+  --email "$ADMIN_EMAIL" \
+  --password "$ADMIN_PASS" \
+  --plan ADVANCED
 
 # 2. Login as admin
-rediacc auth login \
-  --email admin@acme.com \
-  --password securepass123
+echo "Logging in..."
+rediacc-cli login --email "$ADMIN_EMAIL" --password "$ADMIN_PASS"
 
-# 3. Configure company settings
-rediacc company settings set default_region "us-east-1"
-rediacc company settings set backup_retention "90d"
+# 3. Set company vault
+echo "Configuring company..."
+rediacc-cli vault set company "" << EOF
+{
+  "billing_contact": "billing@techstartup.com",
+  "technical_contact": "tech@techstartup.com",
+  "timezone": "America/New_York",
+  "industry": "Technology",
+  "compliance": ["SOC2", "ISO27001"]
+}
+EOF
 
-# 4. Create teams
-rediacc teams create "Development"
-rediacc teams create "Operations"
+# 4. Create initial teams
+echo "Creating teams..."
+rediacc-cli create team "Engineering"
+rediacc-cli create team "Operations"
+rediacc-cli create team "Security"
 
-# 5. Add users
-rediacc auth user create \
-  --email dev1@acme.com \
-  --password userpass123
+# 5. Create initial users
+echo "Creating users..."
+for user in john@techstartup.com jane@techstartup.com; do
+  rediacc-cli create user $user --password "TempPass123"
+  rediacc-cli user activate $user
+done
 
-rediacc auth user create \
-  --email ops1@acme.com \
-  --password userpass123
-
-# 6. Add users to teams
-rediacc teams members add "Development" "dev1@acme.com"
-rediacc teams members add "Operations" "ops1@acme.com"
+echo "Company setup complete!"
 ```
 
-### Backup Company Configuration
+### Multi-Environment Setup
 
 ```bash
-# Export company configuration
-rediacc company info --output json > company-config.json
-rediacc company vault get --output json > company-vault.json
-rediacc company users list --output json > company-users.json
-rediacc teams list --output json > company-teams.json
+#!/bin/bash
+# Set up multiple environments
 
-# Create backup archive
-tar -czf company-backup-$(date +%Y%m%d).tar.gz \
-  company-config.json \
-  company-vault.json \
-  company-users.json \
-  company-teams.json
-```
+# Create regions for different environments
+ENVIRONMENTS=("Development" "Staging" "Production")
 
-## Error Handling
+for env in "${ENVIRONMENTS[@]}"; do
+  # Create region
+  rediacc-cli create region "$env" \
+    --vault "{\"environment\": \"$env\", \"criticality\": \"high\"}"
+  
+  # Create bridges
+  rediacc-cli create bridge "$env" "${env,,}-bridge-1" \
+    --vault "{\"location\": \"us-east-1\"}"
+done
 
-### Common Errors
-
-**Company Already Exists:**
-```
-Error: failed to create company: API error: Company with name 'Your Company' already exists
-```
-
-**Permission Denied:**
-```
-Error: failed to access company info: API error: Insufficient permissions
-```
-
-**Subscription Limits:**
-```
-Error: failed to create user: API error: Resource limit exceeded for users. Please upgrade your subscription
-```
-
-### Troubleshooting
-
-```bash
-# Check authentication
-rediacc auth status
-
-# Verify company access
-rediacc company info
-
-# Check subscription limits
-rediacc company limits
-
-# Debug mode
-rediacc --debug company info
+# Set up environment-specific teams
+for env in "${ENVIRONMENTS[@]}"; do
+  rediacc-cli create team "$env Team" \
+    --vault "{\"environment\": \"$env\", \"access_level\": \"restricted\"}"
+done
 ```
 
 ## Best Practices
 
-### Security
-- Use strong admin passwords
-- Regularly audit user access
-- Monitor subscription usage
-- Backup vault data regularly
+### Initial Setup
 
-### Organization
-- Use descriptive company names
-- Document company settings
-- Maintain user documentation
-- Regular cleanup of inactive users
+1. **Strong Admin Password**: Use complex passwords for admin accounts
+2. **Activation Codes**: Use custom activation codes for production
+3. **Plan Selection**: Choose appropriate plan for expected usage
+4. **Vault Configuration**: Store important company metadata
 
-### Automation
-- Script company setup processes
-- Automate user provisioning
-- Monitor subscription limits
-- Regular configuration backups
+### Ongoing Management
 
-## Integration Examples
+1. **Regular Audits**: Review user access quarterly
+2. **Monitor Limits**: Track resource usage vs. limits
+3. **Vault Backups**: Export company vault regularly
+4. **User Lifecycle**: Deactivate unused accounts
 
-### CI/CD Pipeline Setup
+### Security Considerations
+
+1. **Admin Access**: Limit admin account usage
+2. **Activation Control**: Manage activation codes carefully
+3. **Vault Encryption**: Sensitive data is auto-encrypted
+4. **Access Logs**: Monitor company access patterns
+
+## Troubleshooting
+
+### Common Issues
+
+**Company Already Exists:**
+```
+Error: API Error: Company with this name already exists
+```
+Solution: Choose a different company name or contact support.
+
+**Invalid Activation Code:**
+```
+Error: API Error: Invalid activation code
+```
+Solution: Use the correct activation code or default (111111 for testing).
+
+**Subscription Limit Reached:**
+```
+Error: API Error: Maximum teams/machines/storage reached for subscription
+```
+Solution: Upgrade your subscription plan or remove unused resources.
+
+### Debug Commands
 
 ```bash
-#!/bin/bash
-# Company setup script for CI/CD
+# Check if logged in and company
+cat ~/.rediacc/config.json
 
-# Set server and authenticate
-rediacc config set server.url "$REDIACC_SERVER"
-rediacc auth login --email "$ADMIN_EMAIL" --password "$ADMIN_PASSWORD"
+# Verify company exists
+rediacc-cli list user-company
 
-# Verify company setup
-if ! rediacc company info >/dev/null 2>&1; then
-  echo "Creating company..."
-  rediacc company create \
-    --name "$COMPANY_NAME" \
-    --admin-email "$ADMIN_EMAIL" \
-    --admin-password "$ADMIN_PASSWORD"
-fi
+# Check current limits
+rediacc-cli list resource-limits --output json
 
-# Configure settings
-rediacc company settings set default_region "$DEFAULT_REGION"
-rediacc company vault update --file "$VAULT_CONFIG_FILE"
-
-echo "Company setup complete"
+# View subscription details
+rediacc-cli list subscription --output json
 ```
 
-### Monitoring Script
+## Migration and Backup
+
+### Export Company Configuration
 
 ```bash
 #!/bin/bash
-# Monitor company resource usage
+# Export company configuration
 
-# Get current usage
-USERS=$(rediacc company users list --output json | jq length)
-TEAMS=$(rediacc teams list --output json | jq length)
+DATE=$(date +%Y%m%d)
+BACKUP_DIR="company-backup-$DATE"
+mkdir -p $BACKUP_DIR
 
-# Get limits
-LIMITS=$(rediacc company subscription --output json)
-MAX_USERS=$(echo "$LIMITS" | jq -r '.limits.users')
-MAX_TEAMS=$(echo "$LIMITS" | jq -r '.limits.teams')
+# Export company vault
+rediacc-cli list company-vault --output json > $BACKUP_DIR/company-vault.json
 
-# Check thresholds
-if [ "$USERS" -gt $((MAX_USERS * 80 / 100)) ]; then
-  echo "WARNING: User limit 80% reached ($USERS/$MAX_USERS)"
+# Export subscription info
+rediacc-cli list subscription --output json > $BACKUP_DIR/subscription.json
+
+# Export teams
+rediacc-cli list teams --output json > $BACKUP_DIR/teams.json
+
+# Export users
+rediacc-cli list users --output json > $BACKUP_DIR/users.json
+
+# Export regions and bridges
+rediacc-cli list regions --output json > $BACKUP_DIR/regions.json
+
+# Create backup archive
+tar -czf company-backup-$DATE.tar.gz $BACKUP_DIR/
+rm -rf $BACKUP_DIR
+
+echo "Company backup created: company-backup-$DATE.tar.gz"
+```
+
+### Company Health Check
+
+```bash
+#!/bin/bash
+# Company health check script
+
+echo "=== Company Health Check ==="
+echo
+
+# Check authentication
+if ! rediacc-cli list user-company >/dev/null 2>&1; then
+  echo "❌ Not authenticated"
+  exit 1
 fi
 
-if [ "$TEAMS" -gt $((MAX_TEAMS * 80 / 100)) ]; then
-  echo "WARNING: Team limit 80% reached ($TEAMS/$MAX_TEAMS)"
-fi
+# Get company info
+COMPANY=$(rediacc-cli list user-company --output json | jq -r '.data[0].companyName')
+echo "✅ Company: $COMPANY"
+
+# Check subscription
+PLAN=$(rediacc-cli list subscription --output json | jq -r '.data[0].subscriptionPlan')
+echo "✅ Subscription: $PLAN"
+
+# Check resource usage
+LIMITS=$(rediacc-cli list resource-limits --output json | jq '.data[0]')
+echo "✅ Resource Limits:"
+echo "   Teams: $(rediacc-cli list teams --output json | jq '.data | length') / $(echo $LIMITS | jq -r '.maxTeams')"
+echo "   Regions: $(rediacc-cli list regions --output json | jq '.data | length') / $(echo $LIMITS | jq -r '.maxRegions')"
+
+# Check active users
+USERS=$(rediacc-cli list users --output json | jq '.data | length')
+ACTIVE=$(rediacc-cli list users --output json | jq '.data | map(select(.activated == true)) | length')
+echo "✅ Users: $ACTIVE active / $USERS total"
+
+echo
+echo "Health check complete!"
 ```

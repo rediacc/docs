@@ -1,516 +1,396 @@
 # Permissions Management
 
-Permissions in Rediacc control access to resources and operations through a role-based system. This guide covers permission groups, user assignments, and access control management.
+Permissions in Rediacc control access to resources and operations through a role-based system. The CLI provides commands for managing permission groups, assigning permissions, and controlling user access.
 
 ## Overview
 
-Permission system includes:
+Permission management includes:
 - **Permission Groups**: Named collections of permissions
+- **Permission Assignment**: Adding/removing permissions from groups
 - **User Assignment**: Assigning users to permission groups
-- **Resource Access**: Controlling access to teams, machines, and operations
-- **Administrative Control**: Managing the permission system itself
+- **Access Control**: Managing who can access what resources
 
-## Permission Groups
+## Permission Group Management
 
 ### List Permission Groups
 
 ```bash
-# List all permission groups
-rediacc permissions groups list
+# List all permission groups in your company
+rediacc-cli permission list-groups
 
 # JSON output
-rediacc permissions groups list --output json
+rediacc-cli permission list-groups --output json
 ```
 
 **Example output:**
-```json
-[
-  {
-    "groupName": "Administrators",
-    "description": "Full system access",
-    "userCount": 3,
-    "permissions": [
-      "user.create",
-      "user.delete", 
-      "team.create",
-      "team.delete",
-      "machine.manage",
-      "system.admin"
-    ]
-  },
-  {
-    "groupName": "Team Leads",
-    "description": "Team management permissions",
-    "userCount": 8,
-    "permissions": [
-      "team.manage",
-      "user.invite",
-      "machine.view",
-      "job.manage"
-    ]
-  }
-]
+```
+Permission Group      
+--------------------  
+Administrators        
+Developers            
+Team Leads            
 ```
 
 ### Create Permission Group
 
 ```bash
-# Create new permission group
-rediacc permissions groups create "Developers" \
-  --description "Development team permissions"
+# Create a new permission group
+rediacc-cli permission create-group "DevOps Engineers"
 
-# Create with initial permissions
-rediacc permissions groups create "Backup Operators" \
-  --description "Backup operation permissions" \
-  --permissions "job.create,job.manage,repo.access"
+# Create another group
+rediacc-cli permission create-group "QA Team"
 ```
 
-### Permission Group Information
-
-```bash
-# Get group details
-rediacc permissions groups info "Developers"
-
-# List group members
-rediacc permissions groups members "Developers"
-
-# View group permissions
-rediacc permissions groups permissions "Developers"
+**Response:**
+```
+Successfully created permission group: DevOps Engineers
 ```
 
-### Update Permission Group
+### Get Permission Group Details
 
 ```bash
-# Update group description
-rediacc permissions groups update "Developers" \
-  --description "Full-stack development team"
+# View details of a specific permission group
+rediacc-cli permission list-group "Administrators"
 
-# Rename permission group
-rediacc permissions groups rename "Old Name" "New Name"
+# JSON output for parsing
+rediacc-cli permission list-group "Administrators" --output json
+```
+
+**Example output:**
+```
+Permission Name              
+---------------------------  
+system.admin                 
+user.manage                  
+team.manage                  
+machine.manage               
 ```
 
 ### Delete Permission Group
 
 ```bash
-# Delete permission group
-rediacc permissions groups delete "Unused Group"
+# Delete a permission group (with confirmation)
+rediacc-cli permission delete-group "Unused Group"
 
-# Force delete (removes user assignments)
-rediacc permissions groups delete "Old Group" --force
+# Force delete without confirmation
+rediacc-cli permission delete-group "Old Group" --force
 ```
 
 ## Permission Management
 
-### Add Permissions to Group
+### Add Permission to Group
 
 ```bash
-# Add single permission
-rediacc permissions add "Developers" "machine.create"
+# Add a permission to a group
+rediacc-cli permission add "DevOps Engineers" "machine.manage"
 
-# Add multiple permissions
-rediacc permissions add "Developers" \
-  "machine.create,machine.delete,repo.create"
-
-# Add all permissions from category
-rediacc permissions add "Administrators" "system.*"
+# Add another permission
+rediacc-cli permission add "DevOps Engineers" "system.monitor"
 ```
 
-### Remove Permissions from Group
-
-```bash
-# Remove single permission
-rediacc permissions remove "Developers" "machine.delete"
-
-# Remove multiple permissions
-rediacc permissions remove "Developers" \
-  "machine.delete,repo.delete"
-
-# Remove all permissions from category
-rediacc permissions remove "Limited Users" "admin.*"
+**Response:**
+```
+Successfully added permission: machine.manage to group DevOps Engineers
 ```
 
-### List Available Permissions
+### Remove Permission from Group
 
 ```bash
-# List all available permissions
-rediacc permissions list
+# Remove a permission from a group (with confirmation)
+rediacc-cli permission remove "DevOps Engineers" "system.admin"
 
-# Filter by category
-rediacc permissions list --category "machine"
-rediacc permissions list --category "team"
-
-# Search permissions
-rediacc permissions list --search "backup"
+# Force removal without confirmation
+rediacc-cli permission remove "DevOps Engineers" "old.permission" --force
 ```
 
-**Permission Categories:**
-- `user.*` - User management
-- `team.*` - Team operations
-- `machine.*` - Machine management
-- `job.*` - Job operations
-- `repo.*` - Repository access
-- `system.*` - System administration
+## User Permission Assignment
 
-## User Assignment
-
-### Assign User to Group
+### Assign User to Permission Group
 
 ```bash
-# Assign user to permission group
-rediacc permissions assign "user@company.com" "Developers"
+# Assign a user to a permission group
+rediacc-cli permission assign user@company.com "DevOps Engineers"
 
-# Assign user to multiple groups
-rediacc permissions assign "admin@company.com" \
-  "Administrators,Team Leads"
-
-# Assign with expiration
-rediacc permissions assign "contractor@company.com" "Developers" \
-  --expires "2024-12-31"
+# Assign to administrators
+rediacc-cli permission assign admin@company.com "Administrators"
 ```
 
-### Remove User from Group
-
-```bash
-# Remove user from group
-rediacc permissions unassign "user@company.com" "Developers"
-
-# Remove user from all groups
-rediacc permissions unassign "user@company.com" --all
-
-# Remove user from multiple groups
-rediacc permissions unassign "user@company.com" \
-  "Developers,Team Leads"
+**Response:**
+```
+Successfully assigned permission group DevOps Engineers to user user@company.com
 ```
 
 ### View User Permissions
 
+Users can check their assigned permission groups by listing users:
+
 ```bash
-# View user's permission groups
-rediacc permissions user "user@company.com"
+# List all users (shows permission groups)
+rediacc-cli list users
 
-# View effective permissions
-rediacc permissions user "user@company.com" --effective
-
-# Check specific permission
-rediacc permissions check "user@company.com" "machine.create"
+# Get specific user info (JSON format shows permissions)
+rediacc-cli list users --output json | grep -A 10 "user@company.com"
 ```
 
-## Permission Hierarchy
+## Default Permission Groups
 
-### Default Permission Groups
+### Common Groups
 
 **Administrators**
 - Full system access
-- User and team management
-- System configuration
-- All resource operations
+- Can manage all resources
+- Can create/delete users and teams
+- System configuration access
+
+**Developers**
+- Team participation
+- Machine access
+- Repository management
+- Job execution
 
 **Team Leads**
-- Team member management
-- Team resource access
-- Job scheduling and monitoring
-- Limited user invitation
+- Team management
+- Member assignment
+- Resource allocation
+- Reporting access
 
 **Users**
-- Basic team participation
-- Job execution and monitoring
+- Basic access
+- Team participation
 - Resource viewing
-- Personal settings management
+- Personal settings
 
-**Guests**
-- Read-only access
-- Limited team visibility
-- No modification permissions
+## Permission Workflow Examples
 
-### Custom Permission Groups
-
-```bash
-# Create specialized groups
-rediacc permissions groups create "Backup Administrators" \
-  --permissions "job.*,repo.*,storage.*"
-
-rediacc permissions groups create "Security Auditors" \
-  --permissions "audit.view,log.view,user.view,team.view"
-
-rediacc permissions groups create "Machine Operators" \
-  --permissions "machine.view,machine.connect,job.execute"
-
-rediacc permissions groups create "Read Only Users" \
-  --permissions "*.view"
-```
-
-## Access Control Examples
-
-### Team-Based Access
-
-```bash
-# Create team-specific permission groups
-rediacc permissions groups create "Development Team" \
-  --permissions "team.Development.manage,machine.dev-*.access"
-
-rediacc permissions groups create "Operations Team" \
-  --permissions "team.Operations.manage,machine.prod-*.access,job.*"
-
-# Assign users to team groups
-rediacc permissions assign "dev1@company.com" "Development Team"
-rediacc permissions assign "ops1@company.com" "Operations Team"
-```
-
-### Role-Based Access
-
-```bash
-# Create role-based groups
-rediacc permissions groups create "Senior Developers" \
-  --permissions "machine.create,repo.create,job.manage,team.*.view"
-
-rediacc permissions groups create "Junior Developers" \
-  --permissions "machine.view,repo.view,job.view,team.*.view"
-
-rediacc permissions groups create "DevOps Engineers" \
-  --permissions "machine.*,job.*,repo.*,system.monitor"
-```
-
-### Resource-Specific Access
-
-```bash
-# Database administrators
-rediacc permissions groups create "Database Admins" \
-  --permissions "machine.db-*.manage,job.backup.*,repo.database.*"
-
-# Web administrators  
-rediacc permissions groups create "Web Admins" \
-  --permissions "machine.web-*.manage,job.web.*,repo.web.*"
-
-# Storage administrators
-rediacc permissions groups create "Storage Admins" \
-  --permissions "storage.*,repo.*,job.backup.*"
-```
-
-## Auditing and Compliance
-
-### Permission Auditing
-
-```bash
-# Audit user permissions
-rediacc permissions audit users
-
-# Audit permission group usage
-rediacc permissions audit groups
-
-# Check for excessive permissions
-rediacc permissions audit --excessive
-
-# Generate compliance report
-rediacc permissions audit --compliance --format pdf
-```
-
-### Permission History
-
-```bash
-# View permission changes
-rediacc permissions history
-
-# User permission history
-rediacc permissions history --user "user@company.com"
-
-# Permission group history
-rediacc permissions history --group "Administrators"
-
-# Recent changes
-rediacc permissions history --since "7d"
-```
-
-### Access Logs
-
-```bash
-# View access attempts
-rediacc permissions logs access
-
-# Failed access attempts
-rediacc permissions logs access --failed
-
-# User access patterns
-rediacc permissions logs access --user "user@company.com"
-
-# Resource access logs
-rediacc permissions logs access --resource "machine.prod-web-1"
-```
-
-## Security Best Practices
-
-### Principle of Least Privilege
-
-```bash
-# Start with minimal permissions
-rediacc permissions groups create "New Users" \
-  --permissions "team.*.view,user.profile.manage"
-
-# Grant additional permissions as needed
-rediacc permissions add "New Users" "machine.view"
-
-# Regular permission reviews
-rediacc permissions audit --unused --period "90d"
-```
-
-### Separation of Duties
-
-```bash
-# Separate administrative roles
-rediacc permissions groups create "User Admins" \
-  --permissions "user.*,team.manage"
-
-rediacc permissions groups create "System Admins" \
-  --permissions "machine.*,system.*"
-
-rediacc permissions groups create "Security Admins" \
-  --permissions "audit.*,permissions.*,security.*"
-```
-
-### Time-Limited Access
-
-```bash
-# Temporary elevated access
-rediacc permissions assign "contractor@company.com" "Administrators" \
-  --expires "2024-06-30" \
-  --reason "Project deployment"
-
-# Emergency access
-rediacc permissions assign "oncall@company.com" "Emergency Response" \
-  --expires "24h" \
-  --auto-remove true
-```
-
-## Automation and Integration
-
-### Automated Permission Management
+### Setting Up a New Team
 
 ```bash
 #!/bin/bash
-# Automated user onboarding
+# Script to set up a new development team with proper permissions
 
-USER_EMAIL="$1"
-TEAM="$2"
-ROLE="$3"
+# 1. Create the permission group
+rediacc-cli permission create-group "Mobile Dev Team"
 
-# Create user if doesn't exist
-if ! rediacc auth user info "$USER_EMAIL" >/dev/null 2>&1; then
-  rediacc auth user create --email "$USER_EMAIL" --password "temp123"
-fi
+# 2. Add necessary permissions
+rediacc-cli permission add "Mobile Dev Team" "team.mobile.manage"
+rediacc-cli permission add "Mobile Dev Team" "machine.mobile.access"
+rediacc-cli permission add "Mobile Dev Team" "repository.create"
+rediacc-cli permission add "Mobile Dev Team" "job.execute"
 
-# Assign based on role
-case "$ROLE" in
-  "developer")
-    rediacc permissions assign "$USER_EMAIL" "Developers"
-    rediacc teams members add "$TEAM" "$USER_EMAIL"
-    ;;
-  "lead")
-    rediacc permissions assign "$USER_EMAIL" "Team Leads"
-    rediacc teams members add "$TEAM" "$USER_EMAIL" --role "lead"
-    ;;
-  "admin")
-    rediacc permissions assign "$USER_EMAIL" "Administrators"
-    ;;
-esac
+# 3. Create team
+rediacc-cli create team "Mobile Development"
 
-echo "User $USER_EMAIL onboarded with role $ROLE"
-```
-
-### Permission Synchronization
-
-```bash
-#!/bin/bash
-# Sync permissions with external system
-
-# Export current permissions
-rediacc permissions groups list --output json > current-permissions.json
-
-# Compare with external source
-EXTERNAL_PERMS="external-permissions.json"
-
-# Update permissions based on differences
-jq -r '.[] | .groupName' "$EXTERNAL_PERMS" | while read group; do
-  if ! grep -q "$group" current-permissions.json; then
-    echo "Creating new group: $group"
-    DESCRIPTION=$(jq -r ".[] | select(.groupName==\"$group\") | .description" "$EXTERNAL_PERMS")
-    rediacc permissions groups create "$group" --description "$DESCRIPTION"
-  fi
+# 4. Create users and assign permissions
+for email in dev1@company.com dev2@company.com dev3@company.com; do
+  rediacc-cli create user $email --password "temp123"
+  rediacc-cli user activate $email
+  rediacc-cli permission assign $email "Mobile Dev Team"
+  rediacc-cli team-member add "Mobile Development" $email
 done
+
+echo "Mobile development team setup complete!"
+```
+
+### Managing Administrative Access
+
+```bash
+#!/bin/bash
+# Manage admin permissions carefully
+
+# Create a limited admin group
+rediacc-cli permission create-group "Limited Admins"
+
+# Add specific admin permissions (not full system access)
+rediacc-cli permission add "Limited Admins" "user.create"
+rediacc-cli permission add "Limited Admins" "user.activate"
+rediacc-cli permission add "Limited Admins" "team.create"
+rediacc-cli permission add "Limited Admins" "machine.view"
+
+# Assign to trusted users
+rediacc-cli permission assign teamlead@company.com "Limited Admins"
+```
+
+### Permission Audit Script
+
+```bash
+#!/bin/bash
+# Audit permission groups and assignments
+
+echo "=== Permission Groups ==="
+rediacc-cli permission list-groups
+
+echo -e "\n=== Permission Details ==="
+for group in $(rediacc-cli permission list-groups --output json | jq -r '.data[].permissionGroupName'); do
+  echo -e "\nGroup: $group"
+  echo "Permissions:"
+  rediacc-cli permission list-group "$group" --output json | jq -r '.data[].permissionName' | sed 's/^/  - /'
+done
+
+echo -e "\n=== User Assignments ==="
+rediacc-cli list users --output json | jq -r '.data[] | "\(.userEmail): \(.permissionsName)"'
+```
+
+## Best Practices
+
+### Security Guidelines
+
+1. **Principle of Least Privilege**
+   - Grant only necessary permissions
+   - Start with minimal access
+   - Add permissions as needed
+   - Regular permission reviews
+
+2. **Separation of Duties**
+   - Separate admin roles
+   - Different groups for different tasks
+   - Avoid permission overlap
+   - Clear responsibility boundaries
+
+3. **Regular Audits**
+   - Review permission groups monthly
+   - Check for unused permissions
+   - Verify user assignments
+   - Remove inactive users
+
+### Naming Conventions
+
+```bash
+# Use descriptive group names
+rediacc-cli permission create-group "Production Database Admins"
+rediacc-cli permission create-group "Staging Environment Users"
+rediacc-cli permission create-group "Backup Operators"
+
+# Use hierarchical permission names
+"system.admin"           # Full system access
+"system.monitor"         # Read-only system monitoring
+"team.create"           # Can create teams
+"team.manage"           # Can manage existing teams
+"team.*.view"           # Can view all teams
+"machine.prod.manage"   # Can manage production machines
+"machine.dev.access"    # Can access development machines
+```
+
+### Permission Categories
+
+Common permission patterns:
+- `*.view` - Read-only access
+- `*.create` - Can create new resources
+- `*.manage` - Can modify existing resources
+- `*.delete` - Can remove resources
+- `*.admin` - Full administrative access
+
+## Integration with Other Features
+
+### Team-Based Permissions
+
+```bash
+# Create team-specific permission group
+rediacc-cli permission create-group "Backend Team Permissions"
+
+# Add team-related permissions
+rediacc-cli permission add "Backend Team Permissions" "team.backend.manage"
+rediacc-cli permission add "Backend Team Permissions" "machine.backend-*.access"
+
+# Assign to team members
+rediacc-cli team-member add "Backend" developer@company.com
+rediacc-cli permission assign developer@company.com "Backend Team Permissions"
+```
+
+### Machine Access Control
+
+```bash
+# Create machine operator group
+rediacc-cli permission create-group "Production Operators"
+
+# Add machine-specific permissions
+rediacc-cli permission add "Production Operators" "machine.prod-*.view"
+rediacc-cli permission add "Production Operators" "machine.prod-*.connect"
+rediacc-cli permission add "Production Operators" "job.prod.execute"
+
+# Assign to operators
+rediacc-cli permission assign operator@company.com "Production Operators"
 ```
 
 ## Troubleshooting
 
-### Common Permission Issues
+### Common Issues
 
-**Access Denied:**
-```bash
-# Check user permissions
-rediacc permissions user "user@company.com" --effective
-
-# Check specific permission
-rediacc permissions check "user@company.com" "machine.create"
-
-# View permission group assignments
-rediacc permissions user "user@company.com"
+**Permission Denied:**
 ```
-
-**Permission Not Found:**
-```bash
-# List available permissions
-rediacc permissions list --search "machine"
-
-# Check permission category
-rediacc permissions list --category "machine"
+Error: API Error: User does not have permission to perform this action
 ```
+Solution: Check user's permission group assignments and ensure the required permission is included.
 
-**Group Assignment Issues:**
-```bash
-# Verify group exists
-rediacc permissions groups list | grep "GroupName"
-
-# Check group permissions
-rediacc permissions groups permissions "GroupName"
-
-# Verify user assignment
-rediacc permissions groups members "GroupName"
+**Group Not Found:**
 ```
+Error: API Error: Permission group not found
+```
+Solution: Verify the group name is correct using `rediacc-cli permission list-groups`.
 
-### Debug Permission Issues
+**User Not Found:**
+```
+Error: API Error: User with email user@company.com not found
+```
+Solution: Ensure the user exists and is activated before assigning permissions.
+
+### Debug Commands
 
 ```bash
-# Enable permission debugging
-rediacc --debug permissions check "user@company.com" "machine.create"
+# Check if user exists and their permissions
+rediacc-cli list users --output json | jq '.data[] | select(.userEmail == "user@company.com")'
 
-# Test permission scenarios
-rediacc permissions test --user "user@company.com" --action "machine.create"
+# List all permission groups
+rediacc-cli permission list-groups --output json
 
-# Validate permission configuration
-rediacc permissions validate
+# Check specific group permissions
+rediacc-cli permission list-group "GroupName" --output json
 ```
 
 ## Migration and Backup
 
-### Export Permissions
+### Export Permission Configuration
 
 ```bash
-# Export all permission groups
-rediacc permissions export > permissions-backup.json
+#!/bin/bash
+# Export permission configuration for backup
 
-# Export specific group
-rediacc permissions groups export "Administrators" > admin-perms.json
+# Export all permission groups
+echo "=== Permission Groups ===" > permissions-backup.txt
+rediacc-cli permission list-groups --output json >> permissions-backup.txt
+
+# Export group details
+for group in $(rediacc-cli permission list-groups --output json | jq -r '.data[].permissionGroupName'); do
+  echo -e "\n=== Group: $group ===" >> permissions-backup.txt
+  rediacc-cli permission list-group "$group" --output json >> permissions-backup.txt
+done
 
 # Export user assignments
-rediacc permissions assignments export > user-assignments.json
+echo -e "\n=== User Assignments ===" >> permissions-backup.txt
+rediacc-cli list users --output json | jq '.data[] | {email: .userEmail, permissions: .permissionsName}' >> permissions-backup.txt
+
+echo "Permission configuration exported to permissions-backup.txt"
 ```
 
-### Import Permissions
+### Restore Permissions
 
 ```bash
-# Import permission groups
-rediacc permissions import permissions-backup.json
+#!/bin/bash
+# Script to restore permission groups from backup
 
-# Import with merge
-rediacc permissions import --merge partial-permissions.json
+# Read group definitions from backup and recreate
+# This is a simplified example - real restoration would parse the backup file
 
-# Import user assignments
-rediacc permissions assignments import user-assignments.json
+# Recreate groups
+rediacc-cli permission create-group "Administrators"
+rediacc-cli permission create-group "Developers"
+rediacc-cli permission create-group "Team Leads"
+
+# Add permissions back
+rediacc-cli permission add "Administrators" "system.admin"
+rediacc-cli permission add "Developers" "machine.dev.access"
+rediacc-cli permission add "Team Leads" "team.manage"
+
+# Reassign users
+rediacc-cli permission assign admin@company.com "Administrators"
+rediacc-cli permission assign dev@company.com "Developers"
 ```
