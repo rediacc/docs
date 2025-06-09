@@ -224,7 +224,7 @@ Rediacc-RequestToken: {request-credential}
 
 ## Get Team Queue Items
 
-Retrieves a list of all queue items for a team, optionally filtered by machine.
+Retrieves a list of queue items with advanced filtering options. Supports filtering by multiple teams, machines, bridges, status, priority, date ranges, and more.
 
 ### Endpoint
 
@@ -243,8 +243,21 @@ Rediacc-RequestToken: {request-credential}
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "machineName": "Web Server 1"  // Optional - if omitted, returns queue items for all machines in the team
+  "teamName": "Engineering Team,DevOps Team",  // Optional - comma-separated team names
+  "machineName": "Web Server 1",               // Optional - filter by specific machine
+  "bridgeName": "London Bridge",               // Optional - filter by bridge
+  "status": "PENDING,ASSIGNED",                // Optional - comma-separated status values
+  "priority": 2,                               // Optional - specific priority (1-5, Premium/Elite only)
+  "minPriority": 1,                            // Optional - minimum priority (Premium/Elite only)
+  "maxPriority": 3,                            // Optional - maximum priority (Premium/Elite only)
+  "dateFrom": "2025-01-01T00:00:00",          // Optional - filter by date range start
+  "dateTo": "2025-12-31T23:59:59",            // Optional - filter by date range end
+  "taskId": "7f5040b0-a0c7-4a08-9176-bdc386bd9bd4",  // Optional - search for specific task
+  "includeCompleted": true,                    // Optional - include completed items (default: true)
+  "includeCancelled": true,                    // Optional - include cancelled items (default: true)
+  "onlyStale": false,                          // Optional - show only stale items (default: false)
+  "staleThresholdMinutes": 10,                // Optional - custom stale threshold (default: 10)
+  "maxRecords": 1000                           // Optional - limit records (default: 1000, max: 10000)
 }
 ```
 
@@ -259,22 +272,40 @@ Rediacc-RequestToken: {request-credential}
       "resultSetIndex": 0,
       "data": [
         {
-          "time": "2025-05-03T15:30:45.123Z",
+          "taskId": "7f5040b0-a0c7-4a08-9176-bdc386bd9bd4",
+          "createdTime": "2025-05-03T15:30:45.123Z",
+          "ageInMinutes": 125,
           "vaultVersion": 1,
           "vaultContent": "{\"jobType\":\"deployment\",\"package\":\"app-v1.2.3\",\"settings\":{...}}",
-          "responseContent": "{\"status\":\"success\",\"details\":\"Deployment completed with warnings\",\"logs\":{...}}",
+          "vaultVersionResponse": 1,
+          "vaultContentResponse": "{\"status\":\"success\",\"details\":\"Deployment completed\",\"logs\":{...}}",
           "machineName": "Web Server 1",
           "bridgeName": "London Bridge",
-          "teamName": "Engineering Team"
-        },
+          "teamName": "Engineering Team",
+          "regionName": "US East",
+          "status": "COMPLETED",
+          "assignedTime": "2025-05-03T15:31:00.000Z",
+          "lastHeartbeat": "2025-05-03T15:35:30.000Z",
+          "minutesSinceHeartbeat": null,
+          "priority": 2,                    // Only visible for Premium/Elite subscriptions
+          "priorityLabel": "High",          // Only visible for Premium/Elite subscriptions
+          "healthStatus": "COMPLETED",      // PENDING, ACTIVE, COMPLETED, CANCELLED, STALE, UNKNOWN
+          "canBeCancelled": 0,              // 1 if item can be cancelled, 0 otherwise
+          "hasResponse": 1                  // 1 if response exists, 0 otherwise
+        }
+      ]
+    },
+    {
+      "resultSetIndex": 1,
+      "data": [
         {
-          "time": "2025-05-03T16:45:12.456Z",
-          "vaultVersion": 1,
-          "vaultContent": "{\"jobType\":\"backup\",\"target\":\"database\",\"settings\":{...}}",
-          "responseContent": null,
-          "machineName": "Web Server 1",
-          "bridgeName": "London Bridge",
-          "teamName": "Engineering Team"
+          "totalCount": 150,
+          "pendingCount": 25,
+          "assignedCount": 10,
+          "processingCount": 5,
+          "completedCount": 100,
+          "cancelledCount": 5,
+          "staleCount": 5           // Items with no heartbeat for > staleThresholdMinutes
         }
       ]
     }
@@ -283,13 +314,42 @@ Rediacc-RequestToken: {request-credential}
 }
 ```
 
+### Available Status Values
+
+- `PENDING` - Queue item created but not yet assigned
+- `ASSIGNED` - Assigned to a processing agent
+- `PROCESSING` - Currently being processed
+- `COMPLETED` - Successfully completed
+- `CANCELLED` - Cancelled before completion
+
+### Health Status Values
+
+- `PENDING` - Waiting to be processed
+- `ACTIVE` - Currently assigned or processing
+- `COMPLETED` - Successfully completed
+- `CANCELLED` - Cancelled
+- `STALE` - No heartbeat received for longer than threshold
+- `UNKNOWN` - Unknown status
+
+### Priority Levels (Premium/Elite Only)
+
+- `1` - Highest
+- `2` - High
+- `3` - Normal (default)
+- `4` - Low
+- `5` - Lowest
+
 ### Business Rules
 
-- The requesting user must be a member of the specified team.
-- If a machine name is provided, only queue items for that machine are returned.
-- The response includes both the request vault content and the response vault content (if it exists).
-- Queue items are sorted by time in descending order (newest first).
-- The vault content is decrypted using the company passphrase derived from the authenticated user's password.
+- The requesting user must be a member of all specified teams.
+- If a machine name is provided, it must exist in one of the accessible teams.
+- If a bridge name is provided, it must exist in the user's company.
+- Priority filtering and display is only available for Premium and Elite subscriptions.
+- For Community and Advanced subscriptions, priority fields return null.
+- Queue items are sorted by priority (if available) then by creation time descending.
+- The vault content is decrypted using the company passphrase.
+- Maximum of 10,000 records can be returned in a single request.
+- Stale items are those in ASSIGNED or PROCESSING status with no heartbeat for longer than the threshold.
 
 ## Get Next Queue Items
 

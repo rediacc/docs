@@ -265,6 +265,71 @@ rediacc-cli queue complete TASK-ID-123 \
   --vault-file final-results.json
 ```
 
+## Viewing Queue Items
+
+### List Queue Items
+
+List queue items with advanced filtering options:
+
+```bash
+# List all queue items for a team
+rediacc-cli queue list "Development"
+
+# List items for multiple teams
+rediacc-cli queue list "Development,Production"
+
+# Filter by machine
+rediacc-cli queue list "Development" --machine "web-server-1"
+
+# Filter by bridge
+rediacc-cli queue list "Development" --bridge "bridge-1"
+
+# Filter by status
+rediacc-cli queue list "Development" --status "PENDING,ASSIGNED"
+
+# Filter by priority (Premium/Elite only)
+rediacc-cli queue list "Production" --priority 1
+rediacc-cli queue list "Production" --min-priority 1 --max-priority 3
+
+# Filter by date range
+rediacc-cli queue list "Development" \
+  --date-from "2025-01-01T00:00:00" \
+  --date-to "2025-01-31T23:59:59"
+
+# Search for specific task
+rediacc-cli queue list "Development" --task-id "7f5040b0-a0c7-4a08-9176-bdc386bd9bd4"
+
+# Exclude completed/cancelled items
+rediacc-cli queue list "Development" --no-completed --no-cancelled
+
+# Show only stale items
+rediacc-cli queue list "Development" --only-stale --stale-threshold 30
+
+# Limit number of records
+rediacc-cli queue list "Development" --max-records 50
+
+# JSON output with full details
+rediacc-cli queue list "Development" --output json
+```
+
+### Queue Status Values
+
+- `PENDING` - Queue item created but not yet assigned
+- `ASSIGNED` - Assigned to a processing agent
+- `PROCESSING` - Currently being processed
+- `COMPLETED` - Successfully completed
+- `CANCELLED` - Cancelled before completion
+
+### Queue Health Status
+
+The system automatically calculates health status:
+- `PENDING` - Waiting to be processed
+- `ACTIVE` - Currently assigned or processing
+- `COMPLETED` - Successfully completed
+- `CANCELLED` - Cancelled
+- `STALE` - No heartbeat for longer than threshold (default: 10 minutes)
+- `UNKNOWN` - Unknown status
+
 ## Managing Queue Items
 
 ### Delete Queue Item
@@ -405,6 +470,50 @@ while true; do
       --vault "{\"status\": \"success\", \"processed_at\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}"
   done
 done
+```
+
+### Advanced Queue Monitoring
+
+```bash
+#!/bin/bash
+# Advanced monitoring with filtering
+
+# Check for stale high-priority items
+echo "=== Checking for stale high-priority items ==="
+rediacc-cli queue list "Production" \
+  --only-stale \
+  --min-priority 1 \
+  --max-priority 2 \
+  --output json | jq -r '.tables[0].data[] | "\(.taskId) - \(.machineName) - Stale for \(.minutesSinceHeartbeat) minutes"'
+
+# Get queue statistics for multiple teams
+echo -e "\n=== Queue Statistics ==="
+rediacc-cli queue list "Development,Production,QA" \
+  --output json | jq -r '.tables[1].data[0] | 
+  "Total: \(.totalCount)
+  Pending: \(.pendingCount)
+  Active: \(.assignedCount + .processingCount)
+  Completed: \(.completedCount)
+  Cancelled: \(.cancelledCount)
+  Stale: \(.staleCount)"'
+
+# Monitor specific bridges
+echo -e "\n=== Bridge Status ==="
+for bridge in "prod-bridge" "dev-bridge" "qa-bridge"; do
+  COUNT=$(rediacc-cli queue list "Development,Production,QA" \
+    --bridge "$bridge" \
+    --status "PENDING,ASSIGNED,PROCESSING" \
+    --output json | jq -r '.tables[0].data | length')
+  echo "$bridge: $COUNT active items"
+done
+
+# Check today's completed high-priority tasks
+echo -e "\n=== Today's Completed High-Priority Tasks ==="
+rediacc-cli queue list "Production" \
+  --status "COMPLETED" \
+  --max-priority 2 \
+  --date-from "$(date -u +%Y-%m-%d)T00:00:00" \
+  --output json | jq -r '.tables[0].data[] | "\(.taskId) - \(.priorityLabel) - \(.machineName)"'
 ```
 
 ## Best Practices
