@@ -59,7 +59,7 @@ rediacc-cli queue list-functions
 rediacc-cli queue list-functions --output json
 ```
 
-### System Functions
+### Machine Functions
 
 #### os_setup
 Setup operating system with required tools and configurations.
