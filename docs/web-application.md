@@ -393,7 +393,7 @@ Based on the database design and foreign key relationships, here's the recommend
 
 #### Register Company
 1. User enters company name "Acme Technologies", admin email "admin@acme.com", and password
-2. System creates the company record with a default "Default Team", "Default Region", and "Cloud Bridge"
+2. System creates the company record with a default "Default Team", "Default Region", and "Global Bridges"
 3. User receives an activation email and activates the account
 4. User is prompted to set up 2FA (optional but recommended)
 
