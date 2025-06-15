@@ -412,3 +412,253 @@ Rediacc-RequestToken: {request-credential}
 - Queue items are sorted by time in ascending order (oldest first).
 - If no pending queue items are found, a message is returned instead of an empty result set.
 - The vault content is decrypted using the company passphrase derived from the authenticated user's password.
+
+## Cancel Queue Item
+
+Cancels a pending or assigned queue item, preventing it from being processed.
+
+### Endpoint
+
+```
+POST /api/StoredProcedure/CancelQueueItem
+```
+
+### Headers
+
+```
+Content-Type: application/json
+Rediacc-RequestToken: {request-credential}
+```
+
+### Request Body
+
+```json
+{
+  "teamName": "Engineering Team",
+  "queueId": 42,
+  "reason": "Deployment postponed"
+}
+```
+
+### Response
+
+```json
+{
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 0,
+      "data": [
+        {
+          "queueId": 42,
+          "status": "CANCELLED",
+          "cancelledTime": "2025-05-03T17:00:00.000Z",
+          "cancelledBy": "user@example.com"
+        }
+      ]
+    }
+  ],
+  "outputs": {}
+}
+```
+
+### Business Rules
+
+- The requesting user must be a member of the specified team.
+- The queue item must exist and be associated with a machine in the specified team.
+- Only items in PENDING or ASSIGNED status can be cancelled.
+- Items that are already COMPLETED, CANCELLED, or PROCESSING cannot be cancelled.
+- The cancellation reason is stored for audit purposes.
+
+## Retry Failed Queue Item
+
+Creates a new queue item based on a previously failed or cancelled item.
+
+### Endpoint
+
+```
+POST /api/StoredProcedure/RetryFailedQueueItem
+```
+
+### Headers
+
+```
+Content-Type: application/json
+Rediacc-RequestToken: {request-credential}
+```
+
+### Request Body
+
+```json
+{
+  "teamName": "Engineering Team",
+  "originalQueueId": 42,
+  "modifiedVault": null  // Optional - provide new vault content or null to use original
+}
+```
+
+### Response
+
+```json
+{
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 0,
+      "data": [
+        {
+          "newQueueId": 43,
+          "time": "2025-05-03T17:15:00.000Z",
+          "machineName": "Web Server 1",
+          "originalQueueId": 42
+        }
+      ]
+    }
+  ],
+  "outputs": {}
+}
+```
+
+### Business Rules
+
+- The requesting user must be a member of the specified team.
+- The original queue item must exist and be in a failed or cancelled state.
+- If modifiedVault is provided, it must be valid JSON.
+- If modifiedVault is null, the original vault content is used.
+- The new queue item inherits the machine assignment from the original.
+- Priority is preserved if applicable (Premium/Elite subscriptions).
+
+## Get Queue Item Trace
+
+Retrieves detailed tracing information for a specific queue item, including all state transitions and heartbeats.
+
+### Endpoint
+
+```
+POST /api/StoredProcedure/GetQueueItemTrace
+```
+
+### Headers
+
+```
+Content-Type: application/json
+Rediacc-RequestToken: {request-credential}
+```
+
+### Request Body
+
+```json
+{
+  "teamName": "Engineering Team",
+  "queueId": 42
+}
+```
+
+### Response
+
+```json
+{
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 0,
+      "data": [
+        {
+          "timestamp": "2025-05-03T15:30:45.123Z",
+          "event": "CREATED",
+          "details": "Queue item created",
+          "actor": "user@example.com"
+        },
+        {
+          "timestamp": "2025-05-03T15:31:00.000Z",
+          "event": "ASSIGNED",
+          "details": "Assigned to machine: Web Server 1",
+          "actor": "system"
+        },
+        {
+          "timestamp": "2025-05-03T15:31:30.000Z",
+          "event": "HEARTBEAT",
+          "details": "Processing started",
+          "actor": "Web Server 1"
+        },
+        {
+          "timestamp": "2025-05-03T15:35:30.000Z",
+          "event": "COMPLETED",
+          "details": "Processing completed successfully",
+          "actor": "Web Server 1"
+        }
+      ]
+    }
+  ],
+  "outputs": {}
+}
+```
+
+### Business Rules
+
+- The requesting user must be a member of the specified team.
+- The queue item must exist and be associated with a machine in the specified team.
+- Returns all events in chronological order.
+- Includes creation, assignment, heartbeats, status changes, and completion/cancellation.
+
+## Update Queue Item to Completed
+
+Marks a queue item as completed with a final response. This is typically used by processing agents to indicate successful job completion.
+
+### Endpoint
+
+```
+POST /api/StoredProcedure/UpdateQueueItemToCompleted
+```
+
+### Headers
+
+```
+Content-Type: application/json
+Rediacc-RequestToken: {request-credential}
+```
+
+### Request Body
+
+```json
+{
+  "teamName": "Engineering Team",
+  "queueId": 42,
+  "responseVault": "{\"status\":\"success\",\"result\":\"All tasks completed\",\"metrics\":{...}}",
+  "completionStatus": "SUCCESS"  // SUCCESS, FAILED, PARTIAL
+}
+```
+
+### Response
+
+```json
+{
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 0,
+      "data": [
+        {
+          "queueId": 42,
+          "status": "COMPLETED",
+          "completedTime": "2025-05-03T15:35:30.000Z",
+          "processingDurationMinutes": 5
+        }
+      ]
+    }
+  ],
+  "outputs": {}
+}
+```
+
+### Business Rules
+
+- The requesting user must be a member of the specified team.
+- The queue item must exist and be in ASSIGNED or PROCESSING status.
+- The response vault content must be valid JSON.
+- The completion status helps track success rates and partial failures.
+- Processing duration is automatically calculated from assignment time.

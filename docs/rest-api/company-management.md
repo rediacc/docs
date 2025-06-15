@@ -213,3 +213,191 @@ Rediacc-RequestToken: {request-credential}
 
 - For security, users can only view information about their own company.
 - The statistics include counts of teams, regions, and users associated with the company.
+
+## Get Company Vaults
+
+Retrieves multiple secure data vaults associated with the company.
+
+### Endpoint
+
+```
+POST /api/StoredProcedure/GetCompanyVaults
+```
+
+### Headers
+
+```
+Content-Type: application/json
+Rediacc-RequestToken: {request-credential}
+```
+
+### Request Body
+
+```json
+{
+  "vaultNames": ["settings", "billing", "integrations"]
+}
+```
+
+### Response
+
+```json
+{
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 0,
+      "data": [
+        {
+          "vaultName": "settings",
+          "vaultVersion": 3,
+          "vaultContent": "{\"theme\":\"dark\",\"timezone\":\"UTC\"}"
+        },
+        {
+          "vaultName": "billing",
+          "vaultVersion": 1,
+          "vaultContent": "{\"plan\":\"premium\",\"billingCycle\":\"monthly\"}"
+        },
+        {
+          "vaultName": "integrations",
+          "vaultVersion": 2,
+          "vaultContent": "{\"slack\":{\"enabled\":true},\"teams\":{\"enabled\":false}}"
+        }
+      ]
+    }
+  ],
+  "outputs": {}
+}
+```
+
+### Business Rules
+
+- Users can only access vaults for their own company.
+- Multiple vault names can be requested in a single call.
+- Each vault is independently versioned.
+- Vault content is encrypted and decrypted using the company passphrase.
+
+## Update Company Vaults
+
+Updates multiple secure data vaults for the company in a single operation.
+
+### Endpoint
+
+```
+POST /api/StoredProcedure/UpdateCompanyVaults
+```
+
+### Headers
+
+```
+Content-Type: application/json
+Rediacc-RequestToken: {request-credential}
+```
+
+### Request Body
+
+```json
+{
+  "vaults": [
+    {
+      "vaultName": "settings",
+      "vaultContent": "{\"theme\":\"light\",\"timezone\":\"EST\"}",
+      "vaultVersion": 3
+    },
+    {
+      "vaultName": "billing",
+      "vaultContent": "{\"plan\":\"enterprise\",\"billingCycle\":\"annual\"}",
+      "vaultVersion": 1
+    }
+  ]
+}
+```
+
+### Response
+
+```json
+{
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 0,
+      "data": [
+        {
+          "vaultName": "settings",
+          "vaultVersion": 4,
+          "result": "Updated successfully"
+        },
+        {
+          "vaultName": "billing",
+          "vaultVersion": 2,
+          "result": "Updated successfully"
+        }
+      ]
+    }
+  ],
+  "outputs": {}
+}
+```
+
+### Business Rules
+
+- All vault contents must be valid JSON.
+- Each vault version must match the current version to prevent conflicts.
+- All updates are performed atomically - either all succeed or all fail.
+- After successful update, each vault version is incremented.
+
+## Update Company Block User Requests
+
+Enables or disables the ability for new users to request access to join the company.
+
+### Endpoint
+
+```
+POST /api/StoredProcedure/UpdateCompanyBlockUserRequests
+```
+
+### Headers
+
+```
+Content-Type: application/json
+Rediacc-RequestToken: {request-credential}
+```
+
+### Request Body
+
+```json
+{
+  "blockUserRequests": true
+}
+```
+
+### Response
+
+```json
+{
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 0,
+      "data": [
+        {
+          "companyName": "Acme Corporation",
+          "blockUserRequests": true,
+          "updatedTime": "2025-05-03T18:00:00.000Z"
+        }
+      ]
+    }
+  ],
+  "outputs": {}
+}
+```
+
+### Business Rules
+
+- Only users with administrator permissions can update this setting.
+- When enabled (true), new users cannot request to join the company.
+- When disabled (false), new users can request access which must be approved by an administrator.
+- This setting does not affect existing users or pending requests.

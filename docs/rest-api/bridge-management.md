@@ -217,3 +217,122 @@ Rediacc-RequestToken: {request-credential}
 - The bridge must exist in the specified region.
 - All machines associated with the bridge must be removed before the bridge can be deleted.
 - The bridge's vault data is securely deleted when the bridge is removed.
+
+## Reset Bridge Authorization
+
+Resets the authorization credentials for a bridge, requiring re-authentication.
+
+### Endpoint
+
+```
+POST /api/StoredProcedure/ResetBridgeAuthorization
+```
+
+### Headers
+
+```
+Content-Type: application/json
+Rediacc-RequestToken: {request-credential}
+```
+
+### Request Body
+
+```json
+{
+  "regionName": "EMEA",
+  "bridgeName": "Frankfurt Main Bridge"
+}
+```
+
+### Response
+
+```json
+{
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 0,
+      "data": [
+        {
+          "bridgeName": "Frankfurt Main Bridge",
+          "authorizationReset": true,
+          "resetTimestamp": "2024-01-15T10:30:00Z"
+        }
+      ]
+    }
+  ],
+  "outputs": {}
+}
+```
+
+### Business Rules
+
+- The specified region must exist in the user's company.
+- The bridge must exist in the specified region.
+- This action invalidates all existing authentication tokens for the bridge.
+- Machines connected to this bridge will need to re-authenticate.
+
+## Get Region Bridges
+
+Retrieves all bridges within a specified region.
+
+### Endpoint
+
+```
+POST /api/StoredProcedure/GetRegionBridges
+```
+
+### Headers
+
+```
+Content-Type: application/json
+Rediacc-RequestToken: {request-credential}
+```
+
+### Request Body
+
+```json
+{
+  "regionName": "EMEA"
+}
+```
+
+### Response
+
+```json
+{
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 0,
+      "data": [
+        {
+          "bridgeId": 5,
+          "bridgeName": "Frankfurt Main Bridge",
+          "machineCount": 12,
+          "isActive": true,
+          "createdDate": "2024-01-10T08:00:00Z",
+          "lastModifiedDate": "2024-01-15T10:30:00Z"
+        },
+        {
+          "bridgeId": 6,
+          "bridgeName": "Berlin Bridge",
+          "machineCount": 8,
+          "isActive": true,
+          "createdDate": "2024-01-12T09:00:00Z",
+          "lastModifiedDate": "2024-01-14T14:20:00Z"
+        }
+      ]
+    }
+  ],
+  "outputs": {}
+}
+```
+
+### Business Rules
+
+- The specified region must exist in the user's company.
+- Returns all bridges within the region with their associated machine counts.
+- Bridges are returned in alphabetical order by name.
