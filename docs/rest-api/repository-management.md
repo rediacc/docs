@@ -20,16 +20,16 @@ POST /api/StoredProcedure/CreateRepository
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "repoName": "Backend API",
-  "repoVault": "{\"description\":\"Main backend API repository\",\"settings\":{...}}"
+  "teamName": "string",
+  "repoName": "string",
+  "repoVault": "string"
 }
 ```
 
@@ -41,10 +41,10 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "name": "Backend API"
+          "name": "string"
         }
       ]
     }
@@ -74,16 +74,16 @@ POST /api/StoredProcedure/UpdateRepositoryName
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "currentRepoName": "Backend API",
-  "newRepoName": "Core API"
+  "teamName": "string",
+  "currentRepoName": "string",
+  "newRepoName": "string"
 }
 ```
 
@@ -95,11 +95,11 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "repoName": "Core API",
-          "teamName": "Engineering Team"
+          "repoName": "string",
+          "teamName": "string"
         }
       ]
     }
@@ -129,17 +129,17 @@ POST /api/StoredProcedure/UpdateRepositoryVault
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "repoName": "Core API",
-  "repoVault": "{\"description\":\"Core API with unified interfaces\",\"settings\":{...}}",
-  "vaultVersion": 1
+  "teamName": "string",
+  "repoName": "string",
+  "repoVault": "string",
+  "vaultVersion": "number"
 }
 ```
 
@@ -151,12 +151,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "repoName": "Core API",
-          "vaultVersion": 2,
-          "result": "Vault updated successfully"
+          "repoName": "string",
+          "vaultVersion": "number",
+          "result": "string"
         }
       ]
     }
@@ -187,15 +187,15 @@ POST /api/StoredProcedure/DeleteRepository
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "repoName": "Core API"
+  "teamName": "string",
+  "repoName": "string"
 }
 ```
 
@@ -205,7 +205,17 @@ Rediacc-RequestToken: {request-credential}
 {
   "failure": 0,
   "errors": [],
-  "tables": [],
+  "tables": [
+    {
+      "resultSetIndex": 1,
+      "data": [
+        {
+          "repoName": "string",
+          "result": "string"
+        }
+      ]
+    }
+  ],
   "outputs": {}
 }
 ```

@@ -28,8 +28,8 @@ Rediacc-UserHash: {user-password-hash}
 
 ```json
 {
-  "name": "Session Name",  // A name to identify this authentication session
-  "twoFactorCode": "123456"  // Optional: TOTP code if 2FA is enabled for the user
+  "name": string,  // A name to identify this authentication session
+  "twoFactorCode": string  // Optional: TOTP code if 2FA is enabled for the user
 }
 ```
 
@@ -37,19 +37,19 @@ Rediacc-UserHash: {user-password-hash}
 
 ```json
 {
-  "failure": 0,
-  "errors": [],
+  "failure": number,
+  "errors": array,
   "tables": [
     {
       "resultSetIndex": 0,
       "data": [
         {
-          "nextRequestCredential": "7f5040b0-a0c7-4a08-9176-bdc386bd9bd4"
+          "nextRequestCredential": string
         }
       ]
     }
   ],
-  "outputs": {}
+  "outputs": object
 }
 ```
 
@@ -121,20 +121,20 @@ Rediacc-RequestToken: {request-credential}
 
 ```json
 {
-  "failure": 0,
-  "errors": [],
+  "failure": number,
+  "errors": array,
   "tables": [
     {
       "resultSetIndex": 0,
       "data": [
         {
-          "userEmail": "user@example.com",
-          "result": "Session successfully logged out"
+          "userEmail": string,
+          "result": string
         }
       ]
     }
   ],
-  "outputs": {}
+  "outputs": object
 }
 ```
 
@@ -170,22 +170,22 @@ Rediacc-RequestToken: {request-credential}
 
 ```json
 {
-  "failure": 0,
-  "errors": [],
+  "failure": number,
+  "errors": array,
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "requestName": "Session Name",
-          "requestTime": "2025-05-03T10:15:30.123Z",
-          "userEmail": "user@example.com",
-          "permissionsName": "Administrators"
+          "requestName": string,
+          "requestTime": datetime,
+          "userEmail": string,
+          "permissionsName": string
         }
       ]
     }
   ],
-  "outputs": {}
+  "outputs": object
 }
 ```
 

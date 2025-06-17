@@ -20,17 +20,17 @@ POST /api/StoredProcedure/CreateMachine
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "bridgeName": "Frankfurt Main Bridge",
-  "machineName": "Dev Server 1",
-  "machineVault": "{\"ipAddress\":\"192.168.1.100\",\"specs\":{\"cpu\":8,\"ram\":\"32GB\"}}"
+  "teamName": "string",
+  "bridgeName": "string",
+  "machineName": "string",
+  "machineVault": "string"
 }
 ```
 
@@ -42,10 +42,10 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "name": "Dev Server 1"
+          "name": "string"
         }
       ]
     }
@@ -76,16 +76,16 @@ POST /api/StoredProcedure/UpdateMachineName
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "currentMachineName": "Dev Server 1",
-  "newMachineName": "Production Server 1"
+  "teamName": "string",
+  "currentMachineName": "string",
+  "newMachineName": "string"
 }
 ```
 
@@ -97,12 +97,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "machineName": "Production Server 1",
-          "bridgeName": "Frankfurt Main Bridge",
-          "teamName": "Engineering Team"
+          "machineName": "string",
+          "bridgeName": "string",
+          "teamName": "string"
         }
       ]
     }
@@ -132,16 +132,16 @@ POST /api/StoredProcedure/UpdateMachineAssignedBridge
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "machineName": "Production Server 1",
-  "newBridgeName": "London Bridge"
+  "teamName": "string",
+  "machineName": "string",
+  "newBridgeName": "string"
 }
 ```
 
@@ -153,13 +153,13 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "machineName": "Production Server 1",
-          "teamName": "Engineering Team",
-          "bridgeName": "London Bridge",
-          "regionName": "EMEA"
+          "machineName": "string",
+          "teamName": "string",
+          "bridgeName": "string",
+          "regionName": "string"
         }
       ]
     }
@@ -189,17 +189,17 @@ POST /api/StoredProcedure/UpdateMachineVault
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "machineName": "Production Server 1",
-  "machineVault": "{\"ipAddress\":\"10.0.1.10\",\"specs\":{\"cpu\":16,\"ram\":\"64GB\"}}",
-  "vaultVersion": 1
+  "teamName": "string",
+  "machineName": "string",
+  "machineVault": "string",
+  "vaultVersion": "number"
 }
 ```
 
@@ -211,12 +211,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "machineName": "Production Server 1",
-          "vaultVersion": 2,
-          "result": "Vault updated successfully"
+          "machineName": "string",
+          "vaultVersion": "number",
+          "result": "string"
         }
       ]
     }
@@ -247,15 +247,15 @@ POST /api/StoredProcedure/DeleteMachine
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "machineName": "Production Server 1"
+  "teamName": "string",
+  "machineName": "string"
 }
 ```
 
@@ -265,7 +265,17 @@ Rediacc-RequestToken: {request-credential}
 {
   "failure": 0,
   "errors": [],
-  "tables": [],
+  "tables": [
+    {
+      "resultSetIndex": 1,
+      "data": [
+        {
+          "machineName": "string",
+          "result": "string"
+        }
+      ]
+    }
+  ],
   "outputs": {}
 }
 ```

@@ -20,14 +20,14 @@ POST /api/StoredProcedure/CreatePermissionGroup
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "permissionGroupName": "Developers"
+  "permissionGroupName": "string"
 }
 ```
 
@@ -39,11 +39,11 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "permissionGroupName": "Developers",
-          "result": "Permission group created successfully"
+          "permissionGroupName": "string",
+          "result": "string"
         }
       ]
     }
@@ -72,15 +72,15 @@ POST /api/StoredProcedure/CreatePermissionInGroup
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "permissionGroupName": "Developers",
-  "permissionName": "CreateMachine"
+  "permissionGroupName": "string",
+  "permissionName": "string"
 }
 ```
 
@@ -92,12 +92,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "permissionName": "CreateMachine",
-          "permissionGroupName": "Developers",
-          "result": "Permission added successfully to group"
+          "permissionName": "string",
+          "permissionGroupName": "string",
+          "result": "string"
         }
       ]
     }
@@ -126,15 +126,15 @@ POST /api/StoredProcedure/DeletePermissionFromGroup
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "permissionGroupName": "Developers",
-  "permissionName": "CreateMachine"
+  "permissionGroupName": "string",
+  "permissionName": "string"
 }
 ```
 
@@ -146,14 +146,14 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "permissionsId": 3,
-          "permissionGroupName": "Developers",
-          "companyId": 1,
-          "removedPermissionName": "CreateMachine",
-          "result": "Permission removed successfully from group"
+          "permissionsId": "number",
+          "permissionGroupName": "string",
+          "companyId": "number",
+          "removedPermissionName": "string",
+          "result": "string"
         }
       ]
     }
@@ -181,15 +181,15 @@ POST /api/StoredProcedure/UpdateUserAssignedPermissions
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "userEmail": "user@example.com",
-  "permissionGroupName": "Developers"
+  "userEmail": "string",
+  "permissionGroupName": "string"
 }
 ```
 
@@ -201,12 +201,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "userEmail": "user@example.com",
-          "permissionGroupName": "Developers",
-          "result": "Permissions updated successfully"
+          "userEmail": "string",
+          "permissionGroupName": "string",
+          "result": "string"
         }
       ]
     }
@@ -234,14 +234,14 @@ POST /api/StoredProcedure/DeletePermissionGroup
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "permissionGroupName": "Developers"
+  "permissionGroupName": "string"
 }
 ```
 
@@ -253,11 +253,11 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "removedPermissionGroupName": "Developers",
-          "result": "Permission group removed successfully"
+          "removedPermissionGroupName": "string",
+          "result": "string"
         }
       ]
     }
@@ -286,7 +286,7 @@ POST /api/StoredProcedure/GetCompanyPermissionGroups
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
@@ -303,22 +303,22 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "permissionGroupName": "Administrators",
-          "userCount": 2,
-          "permissions": "CreatePermissionInGroup, UpdateQueueItemResponse, CreateTeamMembership, ..."
+          "permissionGroupName": "string",
+          "userCount": "number",
+          "permissions": "string"
         },
         {
-          "permissionGroupName": "Developers",
-          "userCount": 5,
-          "permissions": "CreateMachine, CreateQueueItem, GetTeamMachines, GetTeamQueueItems"
+          "permissionGroupName": "string",
+          "userCount": "number",
+          "permissions": "string"
         },
         {
-          "permissionGroupName": "Viewers",
-          "userCount": 8,
-          "permissions": "GetTeamMachines, GetTeamQueueItems, GetTeamMembers"
+          "permissionGroupName": "string",
+          "userCount": "number",
+          "permissions": "string"
         }
       ]
     }
@@ -347,14 +347,14 @@ POST /api/StoredProcedure/GetPermissionGroupDetails
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "permissionGroupName": "Developers"
+  "permissionGroupName": "string"
 }
 ```
 
@@ -366,23 +366,23 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "permissionGroupName": "Developers",
-          "permissionName": "CreateMachine"
+          "permissionGroupName": "string",
+          "permissionName": "string"
         },
         {
-          "permissionGroupName": "Developers",
-          "permissionName": "CreateQueueItem"
+          "permissionGroupName": "string",
+          "permissionName": "string"
         },
         {
-          "permissionGroupName": "Developers",
-          "permissionName": "GetTeamMachines"
+          "permissionGroupName": "string",
+          "permissionName": "string"
         },
         {
-          "permissionGroupName": "Developers",
-          "permissionName": "GetTeamQueueItems"
+          "permissionGroupName": "string",
+          "permissionName": "string"
         }
       ]
     }

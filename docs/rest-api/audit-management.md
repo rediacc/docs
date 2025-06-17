@@ -12,45 +12,53 @@ Retrieve audit logs for the company with filtering options.
 ### Headers
 ```
 Content-Type: application/json
-Rediacc-RequestToken: <your-auth-token>
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 ```json
 {
-  "CompanyGuid": "<company-guid>",
-  "PageNumber": 1,
-  "PageSize": 50,
-  "StartDate": "2024-01-01T00:00:00Z",
-  "EndDate": "2024-12-31T23:59:59Z",
-  "EntityType": "User",
-  "EntityGuid": "<entity-guid>",
-  "ActionType": "Create"
+  "CompanyGuid": "string",
+  "PageNumber": "number",
+  "PageSize": "number",
+  "StartDate": "datetime",
+  "EndDate": "datetime",
+  "EntityType": "string",
+  "EntityGuid": "string",
+  "ActionType": "string"
 }
 ```
 
 ### Response
 ```json
 {
-  "Success": true,
-  "AuditLogs": [
+  "failure": 0,
+  "errors": [],
+  "tables": [
     {
-      "AuditGuid": "<audit-guid>",
-      "Timestamp": "2024-01-15T10:30:00Z",
-      "UserGuid": "<user-guid>",
-      "UserEmail": "user@example.com",
-      "EntityType": "User",
-      "EntityGuid": "<entity-guid>",
-      "EntityName": "John Doe",
-      "ActionType": "Create",
-      "ActionDetails": "User account created",
-      "IpAddress": "192.168.1.1",
-      "UserAgent": "Mozilla/5.0..."
+      "resultSetIndex": 1,
+      "data": [
+        {
+          "AuditGuid": "string",
+          "Timestamp": "datetime",
+          "UserGuid": "string",
+          "UserEmail": "string",
+          "EntityType": "string",
+          "EntityGuid": "string",
+          "EntityName": "string",
+          "ActionType": "string",
+          "ActionDetails": "string",
+          "IpAddress": "string",
+          "UserAgent": "string"
+        }
+      ]
     }
   ],
-  "TotalCount": 150,
-  "PageNumber": 1,
-  "PageSize": 50
+  "outputs": {
+    "TotalCount": "number",
+    "PageNumber": "number",
+    "PageSize": "number"
+  }
 }
 ```
 
@@ -70,43 +78,54 @@ Retrieve company dashboard data in JSON format for analytics and reporting.
 ### Headers
 ```
 Content-Type: application/json
-Rediacc-RequestToken: <your-auth-token>
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 ```json
 {
-  "CompanyGuid": "<company-guid>",
-  "DateRange": "Last30Days"
+  "CompanyGuid": "string",
+  "DateRange": "string"
 }
 ```
 
 ### Response
 ```json
 {
-  "Success": true,
-  "DashboardData": {
-    "Summary": {
-      "TotalUsers": 45,
-      "ActiveUsers": 38,
-      "TotalTeams": 8,
-      "TotalMachines": 120,
-      "TotalQueueItems": 5430,
-      "FailedQueueItems": 23
-    },
-    "ActivityMetrics": {
-      "DailyActiveUsers": [...],
-      "QueueProcessingRate": [...],
-      "ErrorRate": [...]
-    },
-    "ResourceUtilization": {
-      "StorageUsed": 450.5,
-      "StorageLimit": 1000,
-      "BandwidthUsed": 890.2,
-      "BandwidthLimit": 2000
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 1,
+      "data": [
+        {
+          "DashboardData": {
+            "Summary": {
+              "TotalUsers": "number",
+              "ActiveUsers": "number",
+              "TotalTeams": "number",
+              "TotalMachines": "number",
+              "TotalQueueItems": "number",
+              "FailedQueueItems": "number"
+            },
+            "ActivityMetrics": {
+              "DailyActiveUsers": "array",
+              "QueueProcessingRate": "array",
+              "ErrorRate": "array"
+            },
+            "ResourceUtilization": {
+              "StorageUsed": "number",
+              "StorageLimit": "number",
+              "BandwidthUsed": "number",
+              "BandwidthLimit": "number"
+            }
+          },
+          "GeneratedAt": "datetime"
+        }
+      ]
     }
-  },
-  "GeneratedAt": "2024-01-15T10:30:00Z"
+  ],
+  "outputs": {}
 }
 ```
 
@@ -126,52 +145,57 @@ Retrieve company data in graph format for visualization purposes.
 ### Headers
 ```
 Content-Type: application/json
-Rediacc-RequestToken: <your-auth-token>
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 ```json
 {
-  "CompanyGuid": "<company-guid>",
-  "GraphType": "ResourceHierarchy",
-  "IncludeMetrics": true
+  "CompanyGuid": "string",
+  "GraphType": "string",
+  "IncludeMetrics": "boolean"
 }
 ```
 
 ### Response
 ```json
 {
-  "Success": true,
-  "GraphData": {
-    "Nodes": [
-      {
-        "Id": "<node-id>",
-        "Type": "Company",
-        "Name": "Example Corp",
-        "Properties": {...}
-      },
-      {
-        "Id": "<node-id>",
-        "Type": "Team",
-        "Name": "Development Team",
-        "Properties": {...}
-      }
-    ],
-    "Edges": [
-      {
-        "Source": "<source-node-id>",
-        "Target": "<target-node-id>",
-        "Type": "Contains",
-        "Properties": {...}
-      }
-    ],
-    "Metadata": {
-      "TotalNodes": 156,
-      "TotalEdges": 245,
-      "GraphType": "ResourceHierarchy"
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 1,
+      "data": [
+        {
+          "GraphData": {
+            "Nodes": [
+              {
+                "Id": "string",
+                "Type": "string",
+                "Name": "string",
+                "Properties": "object"
+              }
+            ],
+            "Edges": [
+              {
+                "Source": "string",
+                "Target": "string",
+                "Type": "string",
+                "Properties": "object"
+              }
+            ],
+            "Metadata": {
+              "TotalNodes": "number",
+              "TotalEdges": "number",
+              "GraphType": "string"
+            }
+          },
+          "GeneratedAt": "datetime"
+        }
+      ]
     }
-  },
-  "GeneratedAt": "2024-01-15T10:30:00Z"
+  ],
+  "outputs": {}
 }
 ```
 
@@ -191,52 +215,57 @@ Retrieve detailed audit trace for a specific entity showing all related activiti
 ### Headers
 ```
 Content-Type: application/json
-Rediacc-RequestToken: <your-auth-token>
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 ```json
 {
-  "EntityType": "QueueItem",
-  "EntityGuid": "<entity-guid>",
-  "IncludeRelated": true,
-  "MaxDepth": 3
+  "EntityType": "string",
+  "EntityGuid": "string",
+  "IncludeRelated": "boolean",
+  "MaxDepth": "number"
 }
 ```
 
 ### Response
 ```json
 {
-  "Success": true,
-  "AuditTrace": {
-    "Entity": {
-      "Type": "QueueItem",
-      "Guid": "<entity-guid>",
-      "Name": "Process Order #12345"
-    },
-    "Timeline": [
-      {
-        "Timestamp": "2024-01-15T09:00:00Z",
-        "Action": "Created",
-        "Actor": "user@example.com",
-        "Details": "Queue item created with priority: High"
-      },
-      {
-        "Timestamp": "2024-01-15T09:05:00Z",
-        "Action": "Processing",
-        "Actor": "machine-01",
-        "Details": "Started processing"
-      }
-    ],
-    "RelatedEntities": [
-      {
-        "Type": "Machine",
-        "Guid": "<machine-guid>",
-        "Name": "machine-01",
-        "Relationship": "Processor"
-      }
-    ]
-  }
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 1,
+      "data": [
+        {
+          "AuditTrace": {
+            "Entity": {
+              "Type": "string",
+              "Guid": "string",
+              "Name": "string"
+            },
+            "Timeline": [
+              {
+                "Timestamp": "datetime",
+                "Action": "string",
+                "Actor": "string",
+                "Details": "string"
+              }
+            ],
+            "RelatedEntities": [
+              {
+                "Type": "string",
+                "Guid": "string",
+                "Name": "string",
+                "Relationship": "string"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -256,58 +285,56 @@ Retrieve complete change history for a specific entity.
 ### Headers
 ```
 Content-Type: application/json
-Rediacc-RequestToken: <your-auth-token>
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 ```json
 {
-  "EntityType": "Team",
-  "EntityGuid": "<entity-guid>",
-  "IncludeVaultChanges": false
+  "EntityType": "string",
+  "EntityGuid": "string",
+  "IncludeVaultChanges": "boolean"
 }
 ```
 
 ### Response
 ```json
 {
-  "Success": true,
-  "EntityHistory": {
-    "Entity": {
-      "Type": "Team",
-      "Guid": "<team-guid>",
-      "CurrentName": "Development Team"
-    },
-    "Changes": [
-      {
-        "ChangeGuid": "<change-guid>",
-        "Timestamp": "2024-01-10T14:30:00Z",
-        "ChangeType": "Create",
-        "ChangedBy": "admin@example.com",
-        "FieldChanges": [
-          {
-            "Field": "Name",
-            "OldValue": null,
-            "NewValue": "Dev Team"
+  "failure": 0,
+  "errors": [],
+  "tables": [
+    {
+      "resultSetIndex": 1,
+      "data": [
+        {
+          "EntityHistory": {
+            "Entity": {
+              "Type": "string",
+              "Guid": "string",
+              "CurrentName": "string"
+            },
+            "Changes": [
+              {
+                "ChangeGuid": "string",
+                "Timestamp": "datetime",
+                "ChangeType": "string",
+                "ChangedBy": "string",
+                "FieldChanges": [
+                  {
+                    "Field": "string",
+                    "OldValue": "string",
+                    "NewValue": "string"
+                  }
+                ]
+              }
+            ],
+            "TotalChanges": "number"
           }
-        ]
-      },
-      {
-        "ChangeGuid": "<change-guid>",
-        "Timestamp": "2024-01-12T10:15:00Z",
-        "ChangeType": "Update",
-        "ChangedBy": "manager@example.com",
-        "FieldChanges": [
-          {
-            "Field": "Name",
-            "OldValue": "Dev Team",
-            "NewValue": "Development Team"
-          }
-        ]
-      }
-    ],
-    "TotalChanges": 2
-  }
+        }
+      ]
+    }
+  ],
+  "outputs": {}
 }
 ```
 

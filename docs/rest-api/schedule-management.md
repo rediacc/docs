@@ -20,16 +20,16 @@ POST /api/StoredProcedure/CreateSchedule
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "scheduleName": "Daily Backup",
-  "scheduleVault": "{\"cronExpression\":\"0 0 * * *\",\"action\":\"backup\",\"settings\":{...}}"
+  "teamName": "string",
+  "scheduleName": "string",
+  "scheduleVault": "string"
 }
 ```
 
@@ -41,10 +41,10 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "name": "Daily Backup"
+          "name": "string"
         }
       ]
     }
@@ -74,16 +74,16 @@ POST /api/StoredProcedure/UpdateScheduleName
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "currentScheduleName": "Daily Backup",
-  "newScheduleName": "Nightly Backup"
+  "teamName": "string",
+  "currentScheduleName": "string",
+  "newScheduleName": "string"
 }
 ```
 
@@ -95,11 +95,11 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "scheduleName": "Nightly Backup",
-          "teamName": "Engineering Team"
+          "scheduleName": "string",
+          "teamName": "string"
         }
       ]
     }
@@ -129,17 +129,17 @@ POST /api/StoredProcedure/UpdateScheduleVault
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "scheduleName": "Nightly Backup",
-  "scheduleVault": "{\"cronExpression\":\"0 0 * * *\",\"action\":\"full-backup\",\"settings\":{...}}",
-  "vaultVersion": 1
+  "teamName": "string",
+  "scheduleName": "string",
+  "scheduleVault": "string",
+  "vaultVersion": "number"
 }
 ```
 
@@ -151,12 +151,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "scheduleName": "Nightly Backup",
-          "vaultVersion": 2,
-          "result": "Vault updated successfully"
+          "scheduleName": "string",
+          "vaultVersion": "number",
+          "result": "string"
         }
       ]
     }
@@ -187,15 +187,15 @@ POST /api/StoredProcedure/DeleteSchedule
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "scheduleName": "Nightly Backup"
+  "teamName": "string",
+  "scheduleName": "string"
 }
 ```
 
@@ -205,7 +205,17 @@ Rediacc-RequestToken: {request-credential}
 {
   "failure": 0,
   "errors": [],
-  "tables": [],
+  "tables": [
+    {
+      "resultSetIndex": 1,
+      "data": [
+        {
+          "scheduleName": "string",
+          "result": "string"
+        }
+      ]
+    }
+  ],
   "outputs": {}
 }
 ```

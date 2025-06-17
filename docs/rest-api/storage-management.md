@@ -20,16 +20,16 @@ POST /api/StoredProcedure/CreateStorage
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "storageName": "Production Database",
-  "storageVault": "{\"type\":\"postgres\",\"connection\":{\"host\":\"db.example.com\"},\"settings\":{...}}"
+  "teamName": "string",
+  "storageName": "string",
+  "storageVault": "string"
 }
 ```
 
@@ -41,10 +41,10 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "name": "Production Database"
+          "name": "string"
         }
       ]
     }
@@ -74,16 +74,16 @@ POST /api/StoredProcedure/UpdateStorageName
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "currentStorageName": "Production Database",
-  "newStorageName": "Main Database"
+  "teamName": "string",
+  "currentStorageName": "string",
+  "newStorageName": "string"
 }
 ```
 
@@ -95,11 +95,11 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "storageName": "Main Database",
-          "teamName": "Engineering Team"
+          "storageName": "string",
+          "teamName": "string"
         }
       ]
     }
@@ -129,17 +129,17 @@ POST /api/StoredProcedure/UpdateStorageVault
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "storageName": "Main Database",
-  "storageVault": "{\"type\":\"postgres\",\"version\":\"15\",\"connection\":{\"host\":\"db.example.com\"},\"settings\":{...}}",
-  "vaultVersion": 1
+  "teamName": "string",
+  "storageName": "string",
+  "storageVault": "string",
+  "vaultVersion": "number"
 }
 ```
 
@@ -151,12 +151,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "storageName": "Main Database",
-          "vaultVersion": 2,
-          "result": "Vault updated successfully"
+          "storageName": "string",
+          "vaultVersion": "number",
+          "result": "string"
         }
       ]
     }
@@ -187,15 +187,15 @@ POST /api/StoredProcedure/DeleteStorage
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "storageName": "Main Database"
+  "teamName": "string",
+  "storageName": "string"
 }
 ```
 
@@ -205,7 +205,17 @@ Rediacc-RequestToken: {request-credential}
 {
   "failure": 0,
   "errors": [],
-  "tables": [],
+  "tables": [
+    {
+      "resultSetIndex": 1,
+      "data": [
+        {
+          "storageName": "string",
+          "result": "string"
+        }
+      ]
+    }
+  ],
   "outputs": {}
 }
 ```

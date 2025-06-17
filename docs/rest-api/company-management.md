@@ -20,15 +20,15 @@ POST /api/StoredProcedure/CreateNewCompany
 
 ```
 Content-Type: application/json
-Rediacc-UserEmail: {user-email}
-Rediacc-UserHash: {user-password-hash}
+Rediacc-UserEmail: string
+Rediacc-UserHash: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "companyName": "Acme Corporation"
+  "companyName": "string"
 }
 ```
 
@@ -38,7 +38,18 @@ Rediacc-UserHash: {user-password-hash}
 {
   "failure": 0,
   "errors": [],
-  "tables": [],
+  "tables": [
+    {
+      "resultSetIndex": 0,
+      "data": [
+        {
+          "companyId": "number",
+          "companyName": "string",
+          "createdTime": "datetime"
+        }
+      ]
+    }
+  ],
   "outputs": {}
 }
 ```
@@ -70,7 +81,7 @@ POST /api/StoredProcedure/GetCompanyVault
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
@@ -87,12 +98,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "companyName": "Acme Corporation",
-          "vaultVersion": 1,
-          "vaultContent": "{\"description\":\"Company data...\",\"settings\":{...}}"
+          "companyName": "string",
+          "vaultVersion": "number",
+          "vaultContent": "string"
         }
       ]
     }
@@ -120,15 +131,15 @@ POST /api/StoredProcedure/UpdateCompanyVault
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "companyVault": "{\"description\":\"Updated company data...\",\"settings\":{...}}",
-  "vaultVersion": 1
+  "companyVault": "string",
+  "vaultVersion": "number"
 }
 ```
 
@@ -140,12 +151,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "companyName": "Acme Corporation",
-          "vaultVersion": 2,
-          "result": "Vault updated successfully"
+          "companyName": "string",
+          "vaultVersion": "number",
+          "result": "string"
         }
       ]
     }
@@ -175,7 +186,7 @@ POST /api/StoredProcedure/GetUserCompany
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
@@ -192,15 +203,15 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "companyName": "Acme Corporation",
-          "vaultVersion": 2,
-          "vaultContent": "{\"description\":\"Company data...\",\"settings\":{...}}",
-          "teamCount": 3,
-          "regionCount": 2,
-          "userCount": 15
+          "companyName": "string",
+          "vaultVersion": "number",
+          "vaultContent": "string",
+          "teamCount": "number",
+          "regionCount": "number",
+          "userCount": "number"
         }
       ]
     }
@@ -228,14 +239,14 @@ POST /api/StoredProcedure/GetCompanyVaults
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "vaultNames": ["settings", "billing", "integrations"]
+  "vaultNames": "array"
 }
 ```
 
@@ -247,22 +258,22 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "vaultName": "settings",
-          "vaultVersion": 3,
-          "vaultContent": "{\"theme\":\"dark\",\"timezone\":\"UTC\"}"
+          "vaultName": "string",
+          "vaultVersion": "number",
+          "vaultContent": "string"
         },
         {
-          "vaultName": "billing",
-          "vaultVersion": 1,
-          "vaultContent": "{\"plan\":\"premium\",\"billingCycle\":\"monthly\"}"
+          "vaultName": "string",
+          "vaultVersion": "number",
+          "vaultContent": "string"
         },
         {
-          "vaultName": "integrations",
-          "vaultVersion": 2,
-          "vaultContent": "{\"slack\":{\"enabled\":true},\"teams\":{\"enabled\":false}}"
+          "vaultName": "string",
+          "vaultVersion": "number",
+          "vaultContent": "string"
         }
       ]
     }
@@ -292,7 +303,7 @@ POST /api/StoredProcedure/UpdateCompanyVaults
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
@@ -301,14 +312,9 @@ Rediacc-RequestToken: {request-credential}
 {
   "vaults": [
     {
-      "vaultName": "settings",
-      "vaultContent": "{\"theme\":\"light\",\"timezone\":\"EST\"}",
-      "vaultVersion": 3
-    },
-    {
-      "vaultName": "billing",
-      "vaultContent": "{\"plan\":\"enterprise\",\"billingCycle\":\"annual\"}",
-      "vaultVersion": 1
+      "vaultName": "string",
+      "vaultContent": "string",
+      "vaultVersion": "number"
     }
   ]
 }
@@ -322,17 +328,17 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "vaultName": "settings",
-          "vaultVersion": 4,
-          "result": "Updated successfully"
+          "vaultName": "string",
+          "vaultVersion": "number",
+          "result": "string"
         },
         {
-          "vaultName": "billing",
-          "vaultVersion": 2,
-          "result": "Updated successfully"
+          "vaultName": "string",
+          "vaultVersion": "number",
+          "result": "string"
         }
       ]
     }
@@ -362,14 +368,14 @@ POST /api/StoredProcedure/UpdateCompanyBlockUserRequests
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "blockUserRequests": true
+  "blockUserRequests": "boolean"
 }
 ```
 
@@ -381,12 +387,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "companyName": "Acme Corporation",
-          "blockUserRequests": true,
-          "updatedTime": "2025-05-03T18:00:00.000Z"
+          "companyName": "string",
+          "blockUserRequests": "boolean",
+          "updatedTime": "datetime"
         }
       ]
     }

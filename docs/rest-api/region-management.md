@@ -20,15 +20,15 @@ POST /api/StoredProcedure/CreateRegion
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "regionName": "EMEA",
-  "regionVault": "{\"location\":\"Europe\",\"settings\":{...}}"
+  "regionName": "string",
+  "regionVault": "string"
 }
 ```
 
@@ -40,11 +40,11 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "regionId": 3,
-          "name": "EMEA"
+          "regionId": "number",
+          "name": "string"
         }
       ]
     }
@@ -73,15 +73,15 @@ POST /api/StoredProcedure/UpdateRegionName
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "currentRegionName": "EMEA",
-  "newRegionName": "Europe Middle East Africa"
+  "currentRegionName": "string",
+  "newRegionName": "string"
 }
 ```
 
@@ -93,11 +93,11 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "regionName": "Europe Middle East Africa",
-          "result": "Region name updated successfully"
+          "regionName": "string",
+          "result": "string"
         }
       ]
     }
@@ -127,16 +127,16 @@ POST /api/StoredProcedure/UpdateRegionVault
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "regionName": "Europe Middle East Africa",
-  "regionVault": "{\"location\":\"Europe\",\"timezone\":\"CET\",\"settings\":{...}}",
-  "vaultVersion": 1
+  "regionName": "string",
+  "regionVault": "string",
+  "vaultVersion": "number"
 }
 ```
 
@@ -148,12 +148,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "regionName": "Europe Middle East Africa",
-          "vaultVersion": 2,
-          "result": "Vault updated successfully"
+          "regionName": "string",
+          "vaultVersion": "number",
+          "result": "string"
         }
       ]
     }
@@ -183,14 +183,14 @@ POST /api/StoredProcedure/DeleteRegion
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "regionName": "Europe Middle East Africa"
+  "regionName": "string"
 }
 ```
 
@@ -225,7 +225,7 @@ POST /api/StoredProcedure/GetCompanyRegions
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
@@ -242,31 +242,31 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "regionId": 1,
-          "regionName": "US East",
-          "bridgeCount": 5,
-          "machineCount": 45,
-          "createdDate": "2024-01-01T08:00:00Z",
-          "lastModifiedDate": "2024-01-10T14:30:00Z"
+          "regionId": "number",
+          "regionName": "string",
+          "bridgeCount": "number",
+          "machineCount": "number",
+          "createdDate": "datetime",
+          "lastModifiedDate": "datetime"
         },
         {
-          "regionId": 2,
-          "regionName": "US West",
-          "bridgeCount": 3,
-          "machineCount": 28,
-          "createdDate": "2024-01-01T08:00:00Z",
-          "lastModifiedDate": "2024-01-08T11:20:00Z"
+          "regionId": "number",
+          "regionName": "string",
+          "bridgeCount": "number",
+          "machineCount": "number",
+          "createdDate": "datetime",
+          "lastModifiedDate": "datetime"
         },
         {
-          "regionId": 3,
-          "regionName": "Europe Middle East Africa",
-          "bridgeCount": 8,
-          "machineCount": 72,
-          "createdDate": "2024-01-05T09:00:00Z",
-          "lastModifiedDate": "2024-01-15T16:45:00Z"
+          "regionId": "number",
+          "regionName": "string",
+          "bridgeCount": "number",
+          "machineCount": "number",
+          "createdDate": "datetime",
+          "lastModifiedDate": "datetime"
         }
       ]
     }

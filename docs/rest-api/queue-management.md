@@ -20,16 +20,16 @@ POST /api/StoredProcedure/CreateQueueItem
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "machineName": "Web Server 1",
-  "queueVault": "{\"jobType\":\"deployment\",\"package\":\"app-v1.2.3\",\"settings\":{...}}"
+  "teamName": "string",
+  "machineName": "string",
+  "queueVault": "string"
 }
 ```
 
@@ -41,11 +41,11 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "time": "2025-05-03T15:30:45.123Z",
-          "machineName": "Web Server 1"
+          "time": "datetime",
+          "machineName": "string"
         }
       ]
     }
@@ -76,16 +76,16 @@ POST /api/StoredProcedure/UpdateQueueItemResponse
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "queueId": 42,
-  "responseVault": "{\"status\":\"success\",\"details\":\"Deployment completed\",\"logs\":{...}}"
+  "teamName": "string",
+  "queueId": "number",
+  "responseVault": "string"
 }
 ```
 
@@ -97,12 +97,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "time": "2025-05-03T15:30:45.123Z",
-          "machineName": "Web Server 1",
-          "result": "Response added successfully"
+          "time": "datetime",
+          "machineName": "string",
+          "result": "string"
         }
       ]
     }
@@ -133,17 +133,17 @@ POST /api/StoredProcedure/UpdateQueueItemResponse
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "queueId": 42,
-  "responseVault": "{\"status\":\"success\",\"details\":\"Deployment completed with warnings\",\"logs\":{...}}",
-  "vaultVersion": 1
+  "teamName": "string",
+  "queueId": "number",
+  "responseVault": "string",
+  "vaultVersion": "number"
 }
 ```
 
@@ -155,13 +155,13 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "time": "2025-05-03T15:30:45.123Z",
-          "machineName": "Web Server 1",
-          "responseVaultVersion": 2,
-          "result": "Response updated successfully"
+          "time": "datetime",
+          "machineName": "string",
+          "responseVaultVersion": "number",
+          "result": "string"
         }
       ]
     }
@@ -193,15 +193,15 @@ POST /api/StoredProcedure/DeleteQueueItem
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "queueId": 42
+  "teamName": "string",
+  "queueId": "number"
 }
 ```
 
@@ -211,7 +211,17 @@ Rediacc-RequestToken: {request-credential}
 {
   "failure": 0,
   "errors": [],
-  "tables": [],
+  "tables": [
+    {
+      "resultSetIndex": 1,
+      "data": [
+        {
+          "queueId": "number",
+          "result": "string"
+        }
+      ]
+    }
+  ],
   "outputs": {}
 }
 ```
@@ -236,28 +246,28 @@ POST /api/StoredProcedure/GetTeamQueueItems
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team,DevOps Team",  // Optional - comma-separated team names
-  "machineName": "Web Server 1",               // Optional - filter by specific machine
-  "bridgeName": "London Bridge",               // Optional - filter by bridge
-  "status": "PENDING,ASSIGNED",                // Optional - comma-separated status values
-  "priority": 2,                               // Optional - specific priority (1-5, Premium/Elite only)
-  "minPriority": 1,                            // Optional - minimum priority (Premium/Elite only)
-  "maxPriority": 3,                            // Optional - maximum priority (Premium/Elite only)
-  "dateFrom": "2025-01-01T00:00:00",          // Optional - filter by date range start
-  "dateTo": "2025-12-31T23:59:59",            // Optional - filter by date range end
-  "taskId": "7f5040b0-a0c7-4a08-9176-bdc386bd9bd4",  // Optional - search for specific task
-  "includeCompleted": true,                    // Optional - include completed items (default: true)
-  "includeCancelled": true,                    // Optional - include cancelled items (default: true)
-  "onlyStale": false,                          // Optional - show only stale items (default: false)
-  "staleThresholdMinutes": 10,                // Optional - custom stale threshold (default: 10)
-  "maxRecords": 1000                           // Optional - limit records (default: 1000, max: 10000)
+  "teamName": "string",  // Optional - comma-separated team names
+  "machineName": "string",               // Optional - filter by specific machine
+  "bridgeName": "string",               // Optional - filter by bridge
+  "status": "string",                // Optional - comma-separated status values
+  "priority": "number",                               // Optional - specific priority (1-5, Premium/Elite only)
+  "minPriority": "number",                            // Optional - minimum priority (Premium/Elite only)
+  "maxPriority": "number",                            // Optional - maximum priority (Premium/Elite only)
+  "dateFrom": "datetime",          // Optional - filter by date range start
+  "dateTo": "datetime",            // Optional - filter by date range end
+  "taskId": "string",  // Optional - search for specific task
+  "includeCompleted": "boolean",                    // Optional - include completed items (default: true)
+  "includeCancelled": "boolean",                    // Optional - include cancelled items (default: true)
+  "onlyStale": "boolean",                          // Optional - show only stale items (default: false)
+  "staleThresholdMinutes": "number",                // Optional - custom stale threshold (default: 10)
+  "maxRecords": "number"                           // Optional - limit records (default: 1000, max: 10000)
 }
 ```
 
@@ -269,43 +279,43 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "taskId": "7f5040b0-a0c7-4a08-9176-bdc386bd9bd4",
-          "createdTime": "2025-05-03T15:30:45.123Z",
-          "ageInMinutes": 125,
-          "vaultVersion": 1,
-          "vaultContent": "{\"jobType\":\"deployment\",\"package\":\"app-v1.2.3\",\"settings\":{...}}",
-          "vaultVersionResponse": 1,
-          "vaultContentResponse": "{\"status\":\"success\",\"details\":\"Deployment completed\",\"logs\":{...}}",
-          "machineName": "Web Server 1",
-          "bridgeName": "London Bridge",
-          "teamName": "Engineering Team",
-          "regionName": "US East",
-          "status": "COMPLETED",
-          "assignedTime": "2025-05-03T15:31:00.000Z",
-          "lastHeartbeat": "2025-05-03T15:35:30.000Z",
-          "minutesSinceHeartbeat": null,
-          "priority": 2,                    // Only visible for Premium/Elite subscriptions
-          "priorityLabel": "High",          // Only visible for Premium/Elite subscriptions
-          "healthStatus": "COMPLETED",      // PENDING, ACTIVE, COMPLETED, CANCELLED, STALE, UNKNOWN
-          "canBeCancelled": 0,              // 1 if item can be cancelled, 0 otherwise
-          "hasResponse": 1                  // 1 if response exists, 0 otherwise
+          "taskId": "string",
+          "createdTime": "datetime",
+          "ageInMinutes": "number",
+          "vaultVersion": "number",
+          "vaultContent": "string",
+          "vaultVersionResponse": "number",
+          "vaultContentResponse": "string",
+          "machineName": "string",
+          "bridgeName": "string",
+          "teamName": "string",
+          "regionName": "string",
+          "status": "string",
+          "assignedTime": "datetime",
+          "lastHeartbeat": "datetime",
+          "minutesSinceHeartbeat": "number",
+          "priority": "number",                    // Only visible for Premium/Elite subscriptions
+          "priorityLabel": "string",          // Only visible for Premium/Elite subscriptions
+          "healthStatus": "string",      // PENDING, ACTIVE, COMPLETED, CANCELLED, STALE, UNKNOWN
+          "canBeCancelled": "number",              // 1 if item can be cancelled, 0 otherwise
+          "hasResponse": "number"                  // 1 if response exists, 0 otherwise
         }
       ]
     },
     {
-      "resultSetIndex": 1,
+      "resultSetIndex": 2,
       "data": [
         {
-          "totalCount": 150,
-          "pendingCount": 25,
-          "assignedCount": 10,
-          "processingCount": 5,
-          "completedCount": 100,
-          "cancelledCount": 5,
-          "staleCount": 5           // Items with no heartbeat for > staleThresholdMinutes
+          "totalCount": "number",
+          "pendingCount": "number",
+          "assignedCount": "number",
+          "processingCount": "number",
+          "completedCount": "number",
+          "cancelledCount": "number",
+          "staleCount": "number"           // Items with no heartbeat for > staleThresholdMinutes
         }
       ]
     }
@@ -365,16 +375,16 @@ POST /api/StoredProcedure/GetQueueItemsNext
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "machineName": "Web Server 1",  // Either machineName or bridgeName must be provided, but not both
-  "bridgeName": null,
-  "itemCount": 1                  // Maximum number of items to retrieve
+  "machineName": "string",  // Either machineName or bridgeName must be provided, but not both
+  "bridgeName": "string",
+  "itemCount": "number"                  // Maximum number of items to retrieve
 }
 ```
 
@@ -386,15 +396,15 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "time": "2025-05-03T16:45:12.456Z",
-          "vaultVersion": 1,
-          "vaultContent": "{\"jobType\":\"backup\",\"target\":\"database\",\"settings\":{...}}",
-          "machineName": "Web Server 1",
-          "bridgeName": "London Bridge",
-          "teamName": "Engineering Team"
+          "time": "datetime",
+          "vaultVersion": "number",
+          "vaultContent": "string",
+          "machineName": "string",
+          "bridgeName": "string",
+          "teamName": "string"
         }
       ]
     }
@@ -427,16 +437,16 @@ POST /api/StoredProcedure/CancelQueueItem
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "queueId": 42,
-  "reason": "Deployment postponed"
+  "teamName": "string",
+  "queueId": "number",
+  "reason": "string"
 }
 ```
 
@@ -448,13 +458,13 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "queueId": 42,
-          "status": "CANCELLED",
-          "cancelledTime": "2025-05-03T17:00:00.000Z",
-          "cancelledBy": "user@example.com"
+          "queueId": "number",
+          "status": "string",
+          "cancelledTime": "datetime",
+          "cancelledBy": "string"
         }
       ]
     }
@@ -485,16 +495,16 @@ POST /api/StoredProcedure/RetryFailedQueueItem
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "originalQueueId": 42,
-  "modifiedVault": null  // Optional - provide new vault content or null to use original
+  "teamName": "string",
+  "originalQueueId": "number",
+  "modifiedVault": "string"  // Optional - provide new vault content or null to use original
 }
 ```
 
@@ -506,13 +516,13 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "newQueueId": 43,
-          "time": "2025-05-03T17:15:00.000Z",
-          "machineName": "Web Server 1",
-          "originalQueueId": 42
+          "newQueueId": "number",
+          "time": "datetime",
+          "machineName": "string",
+          "originalQueueId": "number"
         }
       ]
     }
@@ -544,15 +554,15 @@ POST /api/StoredProcedure/GetQueueItemTrace
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "queueId": 42
+  "teamName": "string",
+  "queueId": "number"
 }
 ```
 
@@ -564,31 +574,31 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "timestamp": "2025-05-03T15:30:45.123Z",
-          "event": "CREATED",
-          "details": "Queue item created",
-          "actor": "user@example.com"
+          "timestamp": "datetime",
+          "event": "string",
+          "details": "string",
+          "actor": "string"
         },
         {
-          "timestamp": "2025-05-03T15:31:00.000Z",
-          "event": "ASSIGNED",
-          "details": "Assigned to machine: Web Server 1",
-          "actor": "system"
+          "timestamp": "datetime",
+          "event": "string",
+          "details": "string",
+          "actor": "string"
         },
         {
-          "timestamp": "2025-05-03T15:31:30.000Z",
-          "event": "HEARTBEAT",
-          "details": "Processing started",
-          "actor": "Web Server 1"
+          "timestamp": "datetime",
+          "event": "string",
+          "details": "string",
+          "actor": "string"
         },
         {
-          "timestamp": "2025-05-03T15:35:30.000Z",
-          "event": "COMPLETED",
-          "details": "Processing completed successfully",
-          "actor": "Web Server 1"
+          "timestamp": "datetime",
+          "event": "string",
+          "details": "string",
+          "actor": "string"
         }
       ]
     }
@@ -618,17 +628,17 @@ POST /api/StoredProcedure/UpdateQueueItemToCompleted
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "queueId": 42,
-  "responseVault": "{\"status\":\"success\",\"result\":\"All tasks completed\",\"metrics\":{...}}",
-  "completionStatus": "SUCCESS"  // SUCCESS, FAILED, PARTIAL
+  "teamName": "string",
+  "queueId": "number",
+  "responseVault": "string",
+  "completionStatus": "string"  // SUCCESS, FAILED, PARTIAL
 }
 ```
 
@@ -640,13 +650,13 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "queueId": 42,
-          "status": "COMPLETED",
-          "completedTime": "2025-05-03T15:35:30.000Z",
-          "processingDurationMinutes": 5
+          "queueId": "number",
+          "status": "string",
+          "completedTime": "datetime",
+          "processingDurationMinutes": "number"
         }
       ]
     }

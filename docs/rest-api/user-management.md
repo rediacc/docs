@@ -26,7 +26,7 @@ Content-Type: application/json
 
 ```json
 {
-  "userEmail": "user@example.com"
+  "userEmail": string
 }
 ```
 
@@ -34,10 +34,21 @@ Content-Type: application/json
 
 ```json
 {
-  "failure": 0,
-  "errors": [],
-  "tables": [],
-  "outputs": {}
+  "failure": number,
+  "errors": array,
+  "tables": [
+    {
+      "resultSetIndex": 1,
+      "data": [
+        {
+          "userEmail": string,
+          "activated": boolean,
+          "result": string
+        }
+      ]
+    }
+  ],
+  "outputs": object
 }
 ```
 
@@ -68,8 +79,8 @@ Rediacc-RequestToken: {request-credential}
 
 ```json
 {
-  "newUserEmail": "newuser@example.com",
-  "newUserHash": "base64EncodedSHA256Hash"
+  "newUserEmail": string,
+  "newUserHash": string
 }
 ```
 
@@ -77,21 +88,21 @@ Rediacc-RequestToken: {request-credential}
 
 ```json
 {
-  "failure": 0,
-  "errors": [],
+  "failure": number,
+  "errors": array,
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "userEmail": "newuser@example.com",
-          "companyPassphrase": "encrypted-passphrase-data",
-          "result": "User created successfully"
+          "userEmail": string,
+          "companyPassphrase": string,
+          "result": string
         }
       ]
     }
   ],
-  "outputs": {}
+  "outputs": object
 }
 ```
 
@@ -126,7 +137,7 @@ For enabling 2FA:
 ```json
 {
   "action": "enable",
-  "verificationCode": "123456"  // Optional for initial setup verification
+  "verificationCode": string  // Optional for initial setup verification
 }
 ```
 
@@ -134,7 +145,7 @@ For disabling 2FA:
 ```json
 {
   "action": "disable",
-  "verificationCode": "123456"  // Required to confirm identity
+  "verificationCode": string  // Required to confirm identity
 }
 ```
 
@@ -143,59 +154,59 @@ For disabling 2FA:
 When enabling 2FA (first call without verification code):
 ```json
 {
-  "failure": 0,
-  "errors": [],
+  "failure": number,
+  "errors": array,
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "secretKey": "BASE32ENCODEDKEY",
-          "qrCodeUri": "otpauth://totp/Rediacc:user@example.com?secret=BASE32ENCODEDKEY&issuer=Rediacc",
-          "result": "2FA setup initiated - verification required"
+          "secretKey": string,
+          "qrCodeUri": string,
+          "result": string
         }
       ]
     }
   ],
-  "outputs": {}
+  "outputs": object
 }
 ```
 
 When completing 2FA setup (with verification code):
 ```json
 {
-  "failure": 0,
-  "errors": [],
+  "failure": number,
+  "errors": array,
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "result": "2FA successfully enabled"
+          "result": string
         }
       ]
     }
   ],
-  "outputs": {}
+  "outputs": object
 }
 ```
 
 When disabling 2FA:
 ```json
 {
-  "failure": 0,
-  "errors": [],
+  "failure": number,
+  "errors": array,
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "result": "2FA successfully disabled"
+          "result": string
         }
       ]
     }
   ],
-  "outputs": {}
+  "outputs": object
 }
 ```
 
@@ -228,8 +239,8 @@ Rediacc-RequestToken: {request-credential}
 
 ```json
 {
-  "currentUserEmail": "user@example.com",
-  "newUserEmail": "updated@example.com"
+  "currentUserEmail": string,
+  "newUserEmail": string
 }
 ```
 
@@ -237,20 +248,20 @@ Rediacc-RequestToken: {request-credential}
 
 ```json
 {
-  "failure": 0,
-  "errors": [],
+  "failure": number,
+  "errors": array,
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "userEmail": "updated@example.com",
-          "result": "User email updated successfully"
+          "userEmail": string,
+          "result": string
         }
       ]
     }
   ],
-  "outputs": {}
+  "outputs": object
 }
 ```
 
@@ -281,7 +292,7 @@ Rediacc-RequestToken: {request-credential}
 
 ```json
 {
-  "userNewPass": "base64EncodedSHA256Hash"
+  "userNewPass": string
 }
 ```
 
@@ -289,14 +300,14 @@ Rediacc-RequestToken: {request-credential}
 
 ```json
 {
-  "failure": 0,
-  "errors": [],
+  "failure": number,
+  "errors": array,
   "tables": [
     {
       "resultSetIndex": 0,
       "data": [
         {
-          "nextRequestCredential": "a4f10918-1459-4764-948d-7bb423cee032"
+          "nextRequestCredential": string
         }
       ]
     },
@@ -304,13 +315,13 @@ Rediacc-RequestToken: {request-credential}
       "resultSetIndex": 1,
       "data": [
         {
-          "userEmail": "user@example.com",
-          "result": "Password updated successfully"
+          "userEmail": string,
+          "result": string
         }
       ]
     }
   ],
-  "outputs": {}
+  "outputs": object
 }
 ```
 
@@ -341,7 +352,7 @@ Rediacc-RequestToken: {request-credential}
 
 ```json
 {
-  "userEmail": "user@example.com"
+  "userEmail": string
 }
 ```
 
@@ -349,20 +360,20 @@ Rediacc-RequestToken: {request-credential}
 
 ```json
 {
-  "failure": 0,
-  "errors": [],
+  "failure": number,
+  "errors": array,
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "userEmail": "user@example.com",
-          "result": "User deactivated successfully"
+          "userEmail": string,
+          "result": string
         }
       ]
     }
   ],
-  "outputs": {}
+  "outputs": object
 }
 ```
 
@@ -400,36 +411,26 @@ Rediacc-RequestToken: {request-credential}
 
 ```json
 {
-  "failure": 0,
-  "errors": [],
+  "failure": number,
+  "errors": array,
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "userEmail": "user1@example.com",
-          "activated": true,
-          "vaultVersion": 1,
-          "vaultContent": "{\"profile\":{...}}",
-          "permissionsName": "Administrators",
-          "companyName": "Acme Corporation",
-          "teamCount": 2,
-          "twoFactorEnabled": true
-        },
-        {
-          "userEmail": "user2@example.com",
-          "activated": true,
-          "vaultVersion": 1,
-          "vaultContent": "{\"profile\":{...}}",
-          "permissionsName": "Users",
-          "companyName": "Acme Corporation",
-          "teamCount": 1,
-          "twoFactorEnabled": false
+          "userEmail": string,
+          "activated": boolean,
+          "vaultVersion": number,
+          "vaultContent": string,
+          "permissionsName": string,
+          "companyName": string,
+          "teamCount": number,
+          "twoFactorEnabled": boolean
         }
       ]
     }
   ],
-  "outputs": {}
+  "outputs": object
 }
 ```
 

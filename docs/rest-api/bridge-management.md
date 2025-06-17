@@ -20,16 +20,16 @@ POST /api/StoredProcedure/CreateBridge
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "regionName": "EMEA",
-  "bridgeName": "Frankfurt Bridge",
-  "bridgeVault": "{\"endpoint\":\"frankfurt.example.com\",\"settings\":{...}}"
+  "regionName": "string",
+  "bridgeName": "string",
+  "bridgeVault": "string"
 }
 ```
 
@@ -41,11 +41,11 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "bridgeId": 5,
-          "name": "Frankfurt Bridge"
+          "bridgeId": "number",
+          "name": "string"
         }
       ]
     }
@@ -75,16 +75,16 @@ POST /api/StoredProcedure/UpdateBridgeName
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "regionName": "EMEA",
-  "currentBridgeName": "Frankfurt Bridge",
-  "newBridgeName": "Frankfurt Main Bridge"
+  "regionName": "string",
+  "currentBridgeName": "string",
+  "newBridgeName": "string"
 }
 ```
 
@@ -96,11 +96,11 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "bridgeName": "Frankfurt Main Bridge",
-          "regionName": "EMEA"
+          "bridgeName": "string",
+          "regionName": "string"
         }
       ]
     }
@@ -130,17 +130,17 @@ POST /api/StoredProcedure/UpdateBridgeVault
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "regionName": "EMEA",
-  "bridgeName": "Frankfurt Main Bridge",
-  "bridgeVault": "{\"endpoint\":\"frankfurt-main.example.com\",\"settings\":{...}}",
-  "vaultVersion": 1
+  "regionName": "string",
+  "bridgeName": "string",
+  "bridgeVault": "string",
+  "vaultVersion": "number"
 }
 ```
 
@@ -152,12 +152,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "bridgeName": "Frankfurt Main Bridge",
-          "vaultVersion": 2,
-          "result": "Vault updated successfully"
+          "bridgeName": "string",
+          "vaultVersion": "number",
+          "result": "string"
         }
       ]
     }
@@ -188,15 +188,15 @@ POST /api/StoredProcedure/DeleteBridge
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "regionName": "EMEA",
-  "bridgeName": "Frankfurt Main Bridge"
+  "regionName": "string",
+  "bridgeName": "string"
 }
 ```
 
@@ -232,15 +232,15 @@ POST /api/StoredProcedure/ResetBridgeAuthorization
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "regionName": "EMEA",
-  "bridgeName": "Frankfurt Main Bridge"
+  "regionName": "string",
+  "bridgeName": "string"
 }
 ```
 
@@ -252,12 +252,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "bridgeName": "Frankfurt Main Bridge",
-          "authorizationReset": true,
-          "resetTimestamp": "2024-01-15T10:30:00Z"
+          "bridgeName": "string",
+          "authorizationReset": "boolean",
+          "resetTimestamp": "datetime"
         }
       ]
     }
@@ -287,14 +287,14 @@ POST /api/StoredProcedure/GetRegionBridges
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "regionName": "EMEA"
+  "regionName": "string"
 }
 ```
 
@@ -306,23 +306,23 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "bridgeId": 5,
-          "bridgeName": "Frankfurt Main Bridge",
-          "machineCount": 12,
-          "isActive": true,
-          "createdDate": "2024-01-10T08:00:00Z",
-          "lastModifiedDate": "2024-01-15T10:30:00Z"
+          "bridgeId": "number",
+          "bridgeName": "string",
+          "machineCount": "number",
+          "isActive": "boolean",
+          "createdDate": "datetime",
+          "lastModifiedDate": "datetime"
         },
         {
-          "bridgeId": 6,
-          "bridgeName": "Berlin Bridge",
-          "machineCount": 8,
-          "isActive": true,
-          "createdDate": "2024-01-12T09:00:00Z",
-          "lastModifiedDate": "2024-01-14T14:20:00Z"
+          "bridgeId": "number",
+          "bridgeName": "string",
+          "machineCount": "number",
+          "isActive": "boolean",
+          "createdDate": "datetime",
+          "lastModifiedDate": "datetime"
         }
       ]
     }

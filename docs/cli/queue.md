@@ -100,7 +100,7 @@ rediacc-cli queue add "Dev" "server-1" "bridge-1" repo_new \
 ```
 
 Parameters:
-- `repo` (required): Repository name (no numbers)
+- `repo` (required): Repository name
 - `size` (required): Repository size (e.g., 10G)
 
 #### repo_mount
@@ -162,14 +162,17 @@ Push repository to remote storage.
 ```bash
 rediacc-cli queue add "Dev" "server-1" "bridge-1" repo_push \
   --repo "myapp" \
+  --dest "myapp-backup-2024" \
   --to "backup-server" \
-  --option "no-suffix"
+  --state "offline"
 ```
 
 Parameters:
 - `repo` (required): Repository name(s)
+- `dest` (required): Destination filename
 - `to` (optional): Destination machine/storage
-- `option` (optional): Options (e.g., no-suffix, override)
+- `state` (optional): Required repository state (online/offline)
+- `option` (optional): Options (e.g., override)
 
 #### repo_pull
 Pull repository from remote storage.

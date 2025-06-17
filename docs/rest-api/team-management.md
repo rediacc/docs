@@ -20,15 +20,15 @@ POST /api/StoredProcedure/CreateTeam
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Development Team",
-  "teamVault": "{\"description\":\"Team focused on product development\",\"settings\":{...}}"
+  "teamName": "string",
+  "teamVault": "string"
 }
 ```
 
@@ -40,10 +40,10 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "name": "Development Team"
+          "name": "string"
         }
       ]
     }
@@ -73,15 +73,15 @@ POST /api/StoredProcedure/UpdateTeamName
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "currentTeamName": "Development Team",
-  "newTeamName": "Engineering Team"
+  "currentTeamName": "string",
+  "newTeamName": "string"
 }
 ```
 
@@ -93,12 +93,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "teamName": "Engineering Team",
-          "companyName": "Acme Corporation",
-          "memberCount": 5
+          "teamName": "string",
+          "companyName": "string",
+          "memberCount": "number"
         }
       ]
     }
@@ -127,16 +127,16 @@ POST /api/StoredProcedure/UpdateTeamVault
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "teamVault": "{\"description\":\"Team focused on engineering excellence\",\"settings\":{...}}",
-  "vaultVersion": 1
+  "teamName": "string",
+  "teamVault": "string",
+  "vaultVersion": "number"
 }
 ```
 
@@ -148,12 +148,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "teamName": "Engineering Team",
-          "vaultVersion": 2,
-          "result": "Vault updated successfully"
+          "teamName": "string",
+          "vaultVersion": "number",
+          "result": "string"
         }
       ]
     }
@@ -183,14 +183,14 @@ POST /api/StoredProcedure/DeleteTeam
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team"
+  "teamName": "string"
 }
 ```
 
@@ -226,15 +226,15 @@ POST /api/StoredProcedure/CreateTeamMembership
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "teamName": "Engineering Team",
-  "newUserEmail": "user@example.com"
+  "teamName": "string",
+  "newUserEmail": "string"
 }
 ```
 
@@ -246,12 +246,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "addedUserEmail": "user@example.com",
-          "teamName": "Engineering Team",
-          "result": "User successfully added to team"
+          "addedUserEmail": "string",
+          "teamName": "string",
+          "result": "string"
         }
       ]
     }
@@ -281,15 +281,15 @@ POST /api/StoredProcedure/DeleteUserFromTeam
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
 
 ```json
 {
-  "team": "Engineering Team",
-  "removeUserEmail": "user@example.com"
+  "team": "string",
+  "removeUserEmail": "string"
 }
 ```
 
@@ -301,12 +301,12 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "userEmail": "user@example.com",
-          "teamName": "Engineering Team",
-          "result": "User successfully removed from team"
+          "userEmail": "string",
+          "teamName": "string",
+          "result": "string"
         }
       ]
     }
@@ -335,7 +335,7 @@ POST /api/StoredProcedure/GetCompanyTeams
 
 ```
 Content-Type: application/json
-Rediacc-RequestToken: {request-credential}
+Rediacc-RequestToken: string
 ```
 
 ### Request Body
@@ -352,31 +352,31 @@ Rediacc-RequestToken: {request-credential}
   "errors": [],
   "tables": [
     {
-      "resultSetIndex": 0,
+      "resultSetIndex": 1,
       "data": [
         {
-          "teamName": "Engineering Team",
-          "vaultVersion": 2,
-          "vaultContent": "{\"description\":\"Team focused on engineering excellence\",\"settings\":{...}}",
-          "companyName": "Acme Corporation",
-          "isMember": 1,
-          "memberCount": 5,
-          "machineCount": 3,
-          "repoCount": 2,
-          "scheduleCount": 1,
-          "storageCount": 2
+          "teamName": "string",
+          "vaultVersion": "number",
+          "vaultContent": "string",
+          "companyName": "string",
+          "isMember": "number",
+          "memberCount": "number",
+          "machineCount": "number",
+          "repoCount": "number",
+          "scheduleCount": "number",
+          "storageCount": "number"
         },
         {
-          "teamName": "Marketing Team",
-          "vaultVersion": 1,
-          "vaultContent": "{\"description\":\"Team focused on marketing campaigns\",\"settings\":{...}}",
-          "companyName": "Acme Corporation",
-          "isMember": 0,
-          "memberCount": 3,
-          "machineCount": 1,
-          "repoCount": 1,
-          "scheduleCount": 0,
-          "storageCount": 1
+          "teamName": "string",
+          "vaultVersion": "number",
+          "vaultContent": "string",
+          "companyName": "string",
+          "isMember": "number",
+          "memberCount": "number",
+          "machineCount": "number",
+          "repoCount": "number",
+          "scheduleCount": "number",
+          "storageCount": "number"
         }
       ]
     }
