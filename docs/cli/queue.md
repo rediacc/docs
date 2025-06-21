@@ -187,25 +187,6 @@ Parameters:
 - `from` (required): Source machine/storage
 - `repo` (required): Repository name(s)
 
-### Plugin Management
-
-#### repo_plugin
-Activate repository plugins.
-
-```bash
-rediacc-cli queue add "Dev" "server-1" "bridge-1" repo_plugin \
-  --repo "myapp" \
-  --plugin "monitoring,logging"
-```
-
-#### repo_plugout
-Deactivate repository plugins.
-
-```bash
-rediacc-cli queue add "Dev" "server-1" "bridge-1" repo_plugout \
-  --repo "myapp" \
-  --plugin "old-plugin"
-```
 
 ### Advanced Operations
 
