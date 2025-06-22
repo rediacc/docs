@@ -200,15 +200,6 @@ rediacc-cli queue add "Dev" "server-1" "bridge-1" repo_ownership \
   --to "user2"
 ```
 
-#### map_socket
-Map socket from remote machine.
-
-```bash
-rediacc-cli queue add "Dev" "server-1" "bridge-1" map_socket \
-  --machine "remote-server" \
-  --repo "myapp" \
-  --plugin "websocket"
-```
 
 ## Processing Queue Items
 
