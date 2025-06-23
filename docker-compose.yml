@@ -9,4 +9,4 @@ services:
       - "8080:80"
     volumes:
       - ../middleware/logs:/middleware-logs:ro
-    restart: unless-stopped 
+    restart: unless-stopped
