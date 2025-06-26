@@ -153,23 +153,42 @@ if [ ! -d "node_modules" ]; then
   npm ci
 fi
 
-# Check command line argument
-if [ "$1" == "dev" ]; then
-  dev
-elif [ "$1" == "build" ]; then
-  build
-elif [ "$1" == "serve" ]; then
-  serve
-elif [ "$1" == "clean" ]; then
-  clean
-elif [ "$1" == "docker_prod" ]; then
-  docker_prod
-elif [ "$1" == "docker_dev" ]; then
-  docker_dev
-elif [ "$1" == "docker_stop" ]; then
-  docker_stop
-elif [ "$1" == "release" ]; then
-  release
-else
-  show_help
-fi 
+# Main function to handle commands
+main() {
+    case "$1" in
+        dev)
+            dev
+            ;;
+        build)
+            build
+            ;;
+        serve)
+            serve
+            ;;
+        clean)
+            clean
+            ;;
+        docker_prod)
+            docker_prod
+            ;;
+        docker_dev)
+            docker_dev
+            ;;
+        docker_stop)
+            docker_stop
+            ;;
+        release)
+            release
+            ;;
+        help|--help|-h)
+            show_help
+            ;;
+        *)
+            show_help
+            exit 1
+            ;;
+    esac
+}
+
+# Execute main function if run directly
+[[ "${BASH_SOURCE[0]}" == "${0}" ]] && main "$@" 
