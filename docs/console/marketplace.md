@@ -6,7 +6,8 @@ sidebar_position: 3
 
 The Template Marketplace provides a curated collection of pre-configured application templates that can be quickly deployed to your repositories. These templates save time by providing production-ready configurations for popular software stacks.
 
-![Template Marketplace](./assets/marketplace-updated.png)
+![Template Marketplace](./assets/screenshots/console-marketplace-overview.png)
+
 
 ## Overview
 

@@ -6,7 +6,8 @@ sidebar_position: 8
 
 The Audit Logs page provides comprehensive tracking of all activities and changes within your Rediacc organization, ensuring compliance, security monitoring, and operational transparency.
 
-![Audit Logs](./assets/audit-logs-updated.png)
+![Audit Logs](./assets/screenshots/console-audit-overview.png)
+
 
 ## Overview
 

@@ -15,7 +15,34 @@ Schedules in Rediacc provide powerful automation capabilities:
 - Health checks and monitoring
 - Custom script execution
 
-![Schedule Management](../assets/resources-schedules.png)
+## Interface Overview
+
+### Empty State
+
+When no schedules are configured for a team, the interface displays:
+- Empty state illustration
+- Message: "No schedules found in this team"
+- Action button to create schedules
+
+### Header Controls
+
+- ➕ **Add Schedule**: Create new automated task
+- 🔄 **Refresh**: Update the schedule list
+
+### Schedule Table Structure
+
+Once schedules are configured, the table displays:
+
+| Column | Description |
+|--------|-------------|
+| **Schedule Name** | Unique identifier with 📅 icon |
+| **Cron Expression** | Schedule timing pattern |
+| **Next Run** | Next execution time |
+| **Last Run** | Previous execution with status |
+| **Machine** | Target machine for execution |
+| **Status** | Active/Paused indicator |
+| **Actions** | Edit, Pause/Resume, History, Delete |
+
 
 ## Understanding Cron Expressions
 

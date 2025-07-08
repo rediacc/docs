@@ -4,43 +4,73 @@ sidebar_position: 5
 
 # Security Hardening Guide
 
-This comprehensive guide covers security best practices and hardening procedures for your Rediacc infrastructure to protect against threats and ensure compliance.
+This comprehensive guide provides detailed security best practices and hardening procedures specifically for the Rediacc Console and its infrastructure components. Follow these recommendations to protect against threats, ensure compliance, and maintain a robust security posture.
 
 ## Prerequisites
 
 - Administrative access to Rediacc Console
-- Understanding of [Authentication](../authentication.md) system
+- Understanding of the [Authentication System](../authentication.md)
+- Access to System settings and Danger Zone
 - SSH access to infrastructure machines
-- Basic security knowledge
+- Basic understanding of security concepts
 
 ## Overview
 
-Security hardening involves:
-- **Access Control**: Limiting and monitoring access
-- **Encryption**: Protecting data at rest and in transit
-- **Network Security**: Firewall and connection policies
-- **Audit & Compliance**: Tracking and reporting
-- **Incident Response**: Detection and mitigation
+Security in Rediacc follows a defense-in-depth approach across multiple layers:
 
-## Step 1: Access Control Hardening
+1. **Console Security**: Protecting the web interface and user access
+2. **API Security**: Securing middleware and API endpoints
+3. **Infrastructure Security**: Hardening machines, bridges, and networks
+4. **Data Security**: Encryption at rest and in transit
+5. **Operational Security**: Procedures, monitoring, and incident response
 
-### 1.1 User Account Security
+## Step 1: Console Security Hardening
 
-#### Enforce Strong Passwords
+### 1.1 Authentication Configuration
 
-Navigate to **System** → **Settings** and configure:
+#### Configure Strong Password Policy
 
-```yaml
-Password Policy:
-  Minimum Length: 14
-  Require Uppercase: true
-  Require Lowercase: true
-  Require Numbers: true
-  Require Special Characters: true
-  Password History: 10
-  Maximum Age: 90 days
-  Lockout Threshold: 5 attempts
-  Lockout Duration: 30 minutes
+1. Navigate to **System** → **Company Settings**
+2. Click **Configure Vault**
+3. Add password policy configuration:
+
+```json
+{
+  "PASSWORD_POLICY": {
+    "minLength": 14,
+    "requireUppercase": true,
+    "requireLowercase": true,
+    "requireNumbers": true,
+    "requireSpecialChars": true,
+    "preventCommonPasswords": true,
+    "passwordHistory": 10,
+    "maxAge": 90,
+    "lockoutAttempts": 5,
+    "lockoutDuration": 30,
+    "sessionTimeout": 480,
+    "requireChangeOnFirstLogin": true
+  }
+}
+```
+
+#### Console-Specific Security Settings
+
+Configure these critical Console security parameters:
+
+```json
+{
+  "CONSOLE_SECURITY": {
+    "enforceHTTPS": true,
+    "enableHSTS": true,
+    "hstsMaxAge": 31536000,
+    "requireEncryptionPassword": true,
+    "tokenRotationInterval": 3600,
+    "maxConcurrentSessions": 3,
+    "ipWhitelist": ["10.0.0.0/8", "192.168.0.0/16"],
+    "enableCSRFProtection": true,
+    "contentSecurityPolicy": "default-src 'self'"
+  }
+}
 ```
 
 #### Implement Multi-Factor Authentication
@@ -338,60 +368,170 @@ server {
 }
 ```
 
-### 3.3 Vault Encryption Hardening
+### 3.3 Console Vault Security
 
-```javascript
-// enhanced-vault-encryption.js
-const crypto = require('crypto');
+The Rediacc Console uses a unique client-side encryption approach for maximum security.
 
-class EnhancedVaultEncryption {
-  constructor() {
-    this.algorithm = 'aes-256-gcm';
-    this.saltLength = 32;
-    this.tagLength = 16;
-    this.iterations = 100000;
-  }
+#### Understanding Console Vault Architecture
 
-  deriveKey(password, salt) {
-    return crypto.pbkdf2Sync(password, salt, this.iterations, 32, 'sha256');
-  }
+```
+User Browser → Encryption Password → Client-Side Encryption → Encrypted Data → API
+                                          ↓
+                                   Never sent to server
+```
 
-  encrypt(data, masterPassword) {
-    const salt = crypto.randomBytes(this.saltLength);
-    const key = this.deriveKey(masterPassword, salt);
-    const iv = crypto.randomBytes(16);
-    
-    const cipher = crypto.createCipheriv(this.algorithm, key, iv);
-    
-    let encrypted = cipher.update(JSON.stringify(data), 'utf8', 'base64');
-    encrypted += cipher.final('base64');
-    
-    const tag = cipher.getAuthTag();
-    
-    return {
-      encrypted,
-      salt: salt.toString('base64'),
-      iv: iv.toString('base64'),
-      tag: tag.toString('base64')
-    };
-  }
+#### Vault Security Best Practices
 
-  decrypt(encryptedData, masterPassword) {
-    const salt = Buffer.from(encryptedData.salt, 'base64');
-    const key = this.deriveKey(masterPassword, salt);
-    const iv = Buffer.from(encryptedData.iv, 'base64');
-    const tag = Buffer.from(encryptedData.tag, 'base64');
-    
-    const decipher = crypto.createDecipheriv(this.algorithm, key, iv);
-    decipher.setAuthTag(tag);
-    
-    let decrypted = decipher.update(encryptedData.encrypted, 'base64', 'utf8');
-    decrypted += decipher.final('utf8');
-    
-    return JSON.parse(decrypted);
+**1. Master Encryption Password**
+
+The encryption password is critical - it's used to encrypt all vault data in the browser before sending to the server.
+
+```json
+{
+  "ENCRYPTION_PASSWORD_POLICY": {
+    "minLength": 20,
+    "requireComplexity": true,
+    "prohibitedWords": ["company", "rediacc", "password"],
+    "expirationDays": 180,
+    "uniquePerOrganization": true,
+    "backupRequired": true
   }
 }
 ```
+
+**2. Vault Access Patterns**
+
+Monitor and control vault access through the Console:
+
+```yaml
+Vault Types and Security Levels:
+  Company Vault:
+    - Access: Administrators only
+    - Contains: Organization-wide settings
+    - Audit: Every access logged
+    
+  Team Vault:
+    - Access: Team members only
+    - Contains: SSH keys, API tokens
+    - Isolation: No cross-team access
+    
+  Machine Vault:
+    - Access: Via team membership
+    - Contains: Connection details
+    - Encryption: Additional layer
+    
+  Personal Vault:
+    - Access: Individual user only
+    - Contains: User preferences
+    - Privacy: Not accessible by admins
+```
+
+**3. Secure Vault Storage Patterns**
+
+What to store in each vault type:
+
+```json
+// Team Vault - Shared Credentials
+{
+  "SSH_PRIVATE_KEY": "-----BEGIN OPENSSH PRIVATE KEY-----...",
+  "SSH_PUBLIC_KEY": "ssh-ed25519 AAAAC3...",
+  "GITHUB_TOKEN": "ghp_xxxxxxxxxxxx",
+  "DOCKER_REGISTRY": {
+    "url": "registry.company.com",
+    "username": "deploy-bot",
+    "password": "encrypted-password"
+  },
+  "AWS_CREDENTIALS": {
+    "accessKeyId": "AKIA...",
+    "secretAccessKey": "encrypted",
+    "region": "us-east-1"
+  }
+}
+
+// Machine Vault - Connection Details
+{
+  "ip": "10.0.1.50",
+  "port": 22,
+  "user": "rediacc",
+  "datastore": "/opt/rediacc/data",
+  "dockerSocket": "/var/run/docker.sock",
+  "environment": {
+    "NODE_ENV": "production",
+    "LOG_LEVEL": "info"
+  }
+}
+
+// Company Vault - Global Settings
+{
+  "SMTP_CONFIG": {
+    "host": "smtp.company.com",
+    "port": 587,
+    "secure": true,
+    "auth": {
+      "user": "notifications@company.com",
+      "pass": "encrypted"
+    }
+  },
+  "BACKUP_ENCRYPTION_KEY": "base64-encoded-key",
+  "LICENSE_KEY": "REDIACC-XXXX-XXXX-XXXX"
+}
+```
+
+#### Vault Security Operations
+
+**1. Regular Vault Rotation**
+
+Navigate to **System** → **Danger Zone** → **Encryption Settings**:
+
+```bash
+# Before rotation:
+1. Export all vaults for backup
+2. Notify all users of upcoming rotation
+3. Schedule during maintenance window
+
+# During rotation:
+1. Enter current encryption password
+2. Enter new encryption password (20+ chars)
+3. Confirm new password
+4. System re-encrypts all vaults
+5. All users are logged out
+
+# After rotation:
+1. Distribute new password securely
+2. Verify users can log in
+3. Update password manager
+4. Destroy old password records
+```
+
+**2. Vault Access Auditing**
+
+Monitor vault access through Console:
+
+```sql
+-- Vault access audit query
+SELECT 
+  timestamp,
+  user_email,
+  vault_type,
+  vault_name,
+  operation,
+  ip_address,
+  user_agent
+FROM audit_logs
+WHERE event_type = 'VAULT_ACCESS'
+  AND timestamp > DATEADD(day, -7, GETDATE())
+ORDER BY timestamp DESC;
+```
+
+**3. Emergency Vault Export**
+
+In case of security incident:
+
+1. Navigate to **System** → **Danger Zone**
+2. Click **Export All Vaults**
+3. Enter encryption password
+4. Save encrypted export securely
+5. Use for forensics or recovery
 
 ## Step 4: Audit and Compliance
 
@@ -589,41 +729,218 @@ for dockerfile in $(find . -name Dockerfile); do
 done
 ```
 
-## Step 6: Incident Response
+## Step 6: Console-Specific Incident Response
 
-### 6.1 Incident Response Plan
+### 6.1 Console Security Incidents
+
+The Console provides specific tools for incident response through the interface.
+
+#### Using the Danger Zone for Incidents
+
+**Immediate Response Actions**:
+
+1. **Suspected Account Compromise**:
+   - Navigate to **System** → **Users**
+   - Click **Deactivate** on compromised account
+   - Review user's recent activity in **Audit** logs
+   - Reset all tokens and sessions
+
+2. **System-Wide Threat**:
+   - Navigate to **System** → **Danger Zone**
+   - Click **Block User Requests**
+   - This immediately:
+     - Blocks all non-admin users
+     - Terminates active sessions
+     - Prevents new logins
+     - Preserves admin access for investigation
+
+3. **Data Breach Suspected**:
+   - **Danger Zone** → **Export All Vaults**
+   - Create forensic backup
+   - **Danger Zone** → **Encryption Settings**
+   - Force password rotation
+   - All users must re-authenticate
+
+#### Console Incident Detection
+
+**Key Indicators in Console**:
 
 ```yaml
-Incident Response Phases:
-  1. Preparation:
-    - Team contacts defined
-    - Tools ready
-    - Procedures documented
+Authentication Anomalies:
+  - Check: Audit → Filter by Authentication
+  - Look for:
+    - Multiple failed logins
+    - Unusual login times
+    - New IP addresses
+    - Rapid token validation
+
+Permission Escalations:
+  - Check: Audit → Filter by System events
+  - Look for:
+    - User group changes
+    - New admin accounts
+    - Permission modifications
+    - Team membership changes
+
+Resource Anomalies:
+  - Check: Queue → Failed tasks
+  - Look for:
+    - Unusual commands
+    - Unauthorized access attempts
+    - Suspicious repository clones
+    - Data exfiltration patterns
+```
+
+### 6.2 Console Incident Response Procedures
+
+#### Phase 1: Detection & Assessment (0-15 minutes)
+
+Using the Console interface:
+
+```bash
+1. Navigate to Audit section
+2. Set filter to last 24 hours
+3. Look for patterns:
+   - Failed authentication spikes
+   - Unusual user activity
+   - System configuration changes
+   - Vault access anomalies
+
+4. Check Queue for:
+   - Suspicious task patterns
+   - Unusual machine targets
+   - Unexpected commands
+   - Failed task clusters
+
+5. Review Resources for:
+   - New machines added
+   - Repository changes
+   - Storage modifications
+   - Team alterations
+```
+
+#### Phase 2: Containment (15-60 minutes)
+
+**User-Level Containment**:
+```bash
+1. System → Users → Identify affected accounts
+2. Deactivate compromised users
+3. System → Teams → Remove from sensitive teams
+4. Force password reset for affected users
+```
+
+**System-Level Containment**:
+```bash
+1. System → Danger Zone → Block User Requests
+2. Resources → Machines → Disable affected machines
+3. Queue → Cancel all suspicious tasks
+4. Architecture → Verify infrastructure integrity
+```
+
+#### Phase 3: Investigation (1-4 hours)
+
+**Audit Log Analysis**:
+```bash
+1. Audit → Export → Last 7 days → CSV format
+2. Filter by:
+   - Affected users
+   - Suspicious IPs
+   - Time windows
+   - Failed operations
+
+3. Create timeline:
+   - First suspicious activity
+   - Escalation points
+   - Data access attempts
+   - Lateral movement
+```
+
+**Queue Analysis**:
+```bash
+1. Queue → Filter by affected period
+2. Export queue history
+3. Analyze:
+   - Command patterns
+   - Target machines
+   - Vault access
+   - Data transfers
+```
+
+#### Phase 4: Eradication (4-24 hours)
+
+**Through Console Interface**:
+```bash
+1. Revoke all sessions:
+   - System → Users → Force re-authentication
+   
+2. Rotate credentials:
+   - System → Teams → Update all team vaults
+   - Resources → Repositories → Update tokens
+   - Resources → Storage → Rotate access keys
+
+3. Update access:
+   - Resources → Machines → Regenerate SSH keys
+   - System → Bridges → Reset authentication
+   
+4. Patch vulnerabilities:
+   - Apply security updates
+   - Update Console version
+   - Patch identified weaknesses
+```
+
+#### Phase 5: Recovery (24-48 hours)
+
+**Gradual Service Restoration**:
+```bash
+1. System → Danger Zone → Unblock User Requests
+2. Enable users in phases:
+   - Administrators first
+   - Critical operators
+   - Standard users
+   - External users
+
+3. Monitor closely:
+   - Dashboard for anomalies
+   - Queue for suspicious tasks
+   - Audit for irregular patterns
+```
+
+### 6.3 Console Security Monitoring Dashboard
+
+Create a security-focused view using Console data:
+
+**Key Metrics to Monitor**:
+
+```yaml
+Real-Time Indicators:
+  Failed Logins:
+    - Location: Audit logs
+    - Threshold: >5 per user per hour
+    - Action: Automatic account lock
     
-  2. Detection:
-    - Automated alerts
-    - Manual reporting
-    - Threat hunting
+  Queue Anomalies:
+    - Location: Queue dashboard
+    - Threshold: >10 failures per hour
+    - Action: Alert security team
     
-  3. Containment:
-    - Isolate affected systems
-    - Preserve evidence
-    - Prevent spread
+  Permission Changes:
+    - Location: Audit logs
+    - Threshold: Any admin changes
+    - Action: Immediate notification
     
-  4. Eradication:
-    - Remove threat
-    - Patch vulnerabilities
-    - Update defenses
-    
-  5. Recovery:
-    - Restore services
-    - Monitor for reinfection
-    - Validate operations
-    
-  6. Lessons Learned:
-    - Document incident
-    - Update procedures
-    - Train team
+  Vault Access:
+    - Location: Audit logs
+    - Threshold: Unusual patterns
+    - Action: Review required
+
+Daily Review Checklist:
+  □ Check failed authentication attempts
+  □ Review new user accounts
+  □ Verify permission changes
+  □ Analyze queue failure patterns
+  □ Check machine connectivity
+  □ Review vault access logs
+  □ Verify backup completion
 ```
 
 ### 6.2 Automated Response
@@ -747,53 +1064,178 @@ const securityMetrics = {
 };
 ```
 
-## Best Practices Summary
+## Console Security Best Practices Summary
 
-### Daily Security Tasks
-1. Review security alerts
-2. Check failed login attempts
-3. Monitor system resources
-4. Verify backup completion
+### Daily Console Security Tasks
 
-### Weekly Security Tasks
-1. Review user permissions
-2. Update security patches
-3. Scan for vulnerabilities
-4. Test incident response
+Using the Console interface:
 
-### Monthly Security Tasks
-1. Rotate credentials
-2. Review audit logs
-3. Update security policies
-4. Conduct security training
+1. **Dashboard Review** (5 minutes):
+   - Check Account Health widget for warnings
+   - Review Queue Overview for anomalies
+   - Scan Recent Activity for security events
 
-### Quarterly Security Tasks
-1. Penetration testing
-2. Disaster recovery drill
-3. Compliance audit
-4. Security assessment
+2. **Audit Quick Check** (10 minutes):
+   - Navigate to **Audit** section
+   - Filter: Last 24 hours, Authentication events
+   - Look for failed login patterns
+   - Check for permission changes
 
-## Security Checklist
+3. **Queue Monitoring** (5 minutes):
+   - Navigate to **Queue** section
+   - Check failed task count
+   - Review any suspicious commands
+   - Verify expected task patterns
 
-- [ ] Strong password policy enabled
-- [ ] MFA required for administrators
-- [ ] SSH keys rotated quarterly
-- [ ] Firewalls configured on all machines
-- [ ] Network segmentation implemented
-- [ ] Data encrypted at rest
-- [ ] TLS 1.2+ enforced
-- [ ] Audit logging enabled
-- [ ] SIEM integration active
-- [ ] Container scanning automated
-- [ ] Incident response plan tested
-- [ ] Security training completed
-- [ ] Compliance requirements met
-- [ ] Vulnerability scans scheduled
-- [ ] Backup encryption verified
+### Weekly Console Security Tasks
+
+1. **User Access Review** (30 minutes):
+   - **System** → **Users** → Review all accounts
+   - Check last active dates
+   - Verify permission groups
+   - Deactivate unused accounts
+
+2. **Team Audit** (20 minutes):
+   - **System** → **Teams** → Review memberships
+   - Verify vault access is appropriate
+   - Check for orphaned resources
+   - Update team descriptions
+
+3. **Infrastructure Review** (30 minutes):
+   - **Architecture** view → Check for anomalies
+   - **Resources** → Verify all machines
+   - Check bridge assignments
+   - Review repository access
+
+### Monthly Console Security Tasks
+
+1. **Comprehensive Audit Export** (1 hour):
+   - **Audit** → Set date range to last month
+   - Export in CSV format
+   - Analyze patterns and anomalies
+   - Create security report
+
+2. **Credential Rotation** (2 hours):
+   - **System** → **Teams** → Update SSH keys
+   - **Resources** → **Repositories** → Rotate tokens
+   - **Resources** → **Storage** → Update access keys
+   - Document changes in audit notes
+
+3. **Permission Review** (1 hour):
+   - **System** → **Permissions** → Review all groups
+   - Verify principle of least privilege
+   - Update group memberships
+   - Document justifications
+
+### Quarterly Console Security Tasks
+
+1. **Disaster Recovery Test** (4 hours):
+   - **Danger Zone** → Test emergency procedures
+   - Practice vault export and recovery
+   - Test user blocking mechanisms
+   - Document response times
+
+2. **Security Assessment** (8 hours):
+   - Full architecture review
+   - Queue pattern analysis
+   - Vault access audit
+   - Compliance verification
+
+## Console Security Checklist
+
+### Authentication & Access
+- [ ] Client-side encryption password enforced
+- [ ] Password policy configured in company vault
+- [ ] Token rotation enabled (hourly)
+- [ ] Session timeout configured (8 hours max)
+- [ ] IP whitelisting enabled for sensitive operations
+- [ ] Expert mode restricted to authorized users
+
+### Vault Security
+- [ ] Encryption password meets complexity requirements (20+ chars)
+- [ ] Vault rotation scheduled quarterly
+- [ ] Team vault isolation verified
+- [ ] Vault access audited weekly
+- [ ] Emergency export procedure tested
+- [ ] Backup encryption keys stored securely
+
+### Console Interface
+- [ ] HTTPS enforced with HSTS
+- [ ] Content Security Policy configured
+- [ ] CSRF protection enabled
+- [ ] Secure headers implemented
+- [ ] Console version up to date
+- [ ] Browser security warnings addressed
+
+### Monitoring & Audit
+- [ ] Audit retention set to compliance requirements
+- [ ] Failed login monitoring active
+- [ ] Permission change alerts configured
+- [ ] Queue anomaly detection enabled
+- [ ] Daily security review scheduled
+- [ ] Monthly audit exports automated
+
+### Incident Response
+- [ ] Danger Zone procedures documented
+- [ ] User blocking tested monthly
+- [ ] Vault export process verified
+- [ ] Incident contact list updated
+- [ ] Response playbooks current
+- [ ] Recovery procedures validated
+
+## Quick Security Actions
+
+### If You Suspect a Breach
+
+1. **Immediate** (< 5 minutes):
+   - **System** → **Danger Zone** → **Block User Requests**
+   - Take screenshot of dashboard
+   - Note the time and initial observations
+
+2. **Containment** (< 15 minutes):
+   - **Audit** → Export last 24 hours
+   - **System** → **Users** → Deactivate suspicious accounts
+   - **Queue** → Cancel any suspicious tasks
+
+3. **Investigation** (< 1 hour):
+   - Review audit exports
+   - Check Architecture view for changes
+   - Document timeline of events
+
+### Security Contact Information
+
+Maintain these contacts in Console:
+
+```yaml
+Security Contacts:
+  Internal:
+    - Security Team: security@company.com
+    - Admin On-Call: +1-XXX-XXX-XXXX
+    - Management: ciso@company.com
+    
+  External:
+    - Rediacc Support: support@rediacc.com
+    - Incident Response: ir-team@security-firm.com
+    - Legal Counsel: legal@lawfirm.com
+```
+
+## Conclusion
+
+Security in the Rediacc Console requires constant vigilance and regular maintenance. By following these Console-specific security practices, you create multiple layers of defense while maintaining operational efficiency.
+
+Remember:
+- **Use Console tools**: Leverage built-in security features
+- **Monitor actively**: Daily dashboard and audit reviews
+- **Rotate regularly**: Credentials, keys, and passwords
+- **Test procedures**: Practice incident response
+- **Document everything**: Maintain audit trails
+- **Stay updated**: Keep Console and components current
+
+The Console provides powerful security tools - use them proactively to protect your infrastructure.
 
 ## Next Steps
 
-- [Performance Tuning](./performance-tuning.md)
-- [Disaster Recovery](./disaster-recovery.md)
-- [Backup Strategies](./backup-strategies.md)
-- [Monitoring Setup](./monitoring-setup.md)
+- [Advanced Deployments](./advanced-deployments.md) - Secure deployment patterns
+- [Monitoring Setup](./monitoring-setup.md) - Security monitoring configuration
+- [Backup Strategies](./backup-strategies.md) - Secure backup procedures
+- [Known Issues](../known-issues.md) - Security-related issues and fixes

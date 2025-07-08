@@ -4,192 +4,417 @@ sidebar_position: 3
 
 # Dashboard Guide
 
-The Rediacc Dashboard provides a comprehensive overview of your system's health, resource usage, and recent activities. This guide explains each component and how to effectively use the dashboard for monitoring and management.
+The Rediacc Dashboard is your central command center, providing real-time insights into system health, resource utilization, queue operations, and organizational activity. This comprehensive guide explains each dashboard component and how to leverage them for effective infrastructure management.
 
-![Dashboard Overview](./assets/dashboard-updated.png)
+![Dashboard Overview](./assets/screenshots/console-dashboard-comprehensive.png)
+
+## Dashboard Layout
+
+The dashboard is organized into distinct sections for optimal information visibility:
+
+1. **Top Row**: Account Health and Queue Overview
+2. **Middle Section**: Resource Usage Grid
+3. **Bottom Row**: Recent Activity, Queue Details, and Subscription Information
 
 ## Dashboard Components
 
-### 1. Account Health
+### 1. Account Health Widget
 
-The Account Health widget provides an at-a-glance view of your system status:
+Located in the top-left corner, this critical status indicator provides instant system health assessment:
 
-- **Overall Status**: Shows "Good", "Warning", or "Critical"
-- **Resource Limits**: 
-  - Resources at limit (requiring immediate attention)
-  - Resources near limit (approaching thresholds)
-- **Plan Status**: Indicates if your current plan is sufficient
+#### Overall Status
+- **Good** (Green): All systems operating normally
+- **Warning** (Yellow): Some resources approaching limits
+- **Critical** (Red): Immediate attention required
 
-**Status Indicators:**
-- ✅ Green: Healthy, within limits
-- 🕐 Yellow: Approaching limits, monitor closely
-- ❌ Red: At or exceeding limits, action required
+#### Resource Monitoring
+The widget displays two key metrics:
+- **Resources at Limit**: Count of resources that have reached maximum capacity
+- **Resources Near Limit**: Count of resources above 80% utilization
 
-### 2. Queue Overview
+#### Plan Assessment
+- **"Current Plan Sufficient"**: Your subscription meets current needs
+- **"Plan Upgrade Recommended"**: Consider upgrading for additional capacity
 
-Real-time statistics of your task queue system:
+**Visual Indicators:**
+- ✅ Check Circle: Healthy state
+- 🕐 Clock Circle: Warning state
+- ❌ Exclamation Circle: Critical state
 
-- **Pending**: Tasks waiting to be processed
-- **Processing**: Currently executing tasks
-- **Completed**: Successfully finished tasks
-- **Failed**: Tasks that encountered errors
+### 2. Queue Overview Widget
 
-Click "Manage" to navigate to the detailed queue management interface.
+Positioned in the top-right corner with a direct "Manage" link to queue operations:
 
-### 3. Resource Usage
+#### Queue States
+The widget displays four primary queue metrics with icon indicators:
 
-Visual progress bars showing consumption against plan limits:
+- **Pending** (🕐 Clock Icon): Tasks awaiting bridge assignment
+- **Processing** (🔄 Sync Icon): Tasks currently being executed
+- **Completed** (✅ Check Icon): Successfully finished tasks
+- **Failed** (❌ Exclamation Icon): Tasks that encountered errors
 
-#### Infrastructure Resources
-- **Bridges**: Queue processors (2/50)
-- **Machines**: Remote servers (2/200)
-- **Regions**: Geographic locations (1/10)
-- **Repos**: Code repositories (1/100)
+#### Quick Actions
+- **Manage Button**: Direct navigation to the Queue Management page
+- **Real-time Updates**: Counts refresh automatically as queue state changes
 
-#### Configuration Resources
-- **Schedules**: Automated tasks (0/15)
-- **Storages**: Storage configurations (0/100)
-- **Teams**: Organizational units (1/25)
-- **Users**: System users (3/25)
+### 3. Resource Usage Grid
 
-Each progress bar shows:
-- Current usage / Maximum allowed
-- Visual indicator of consumption percentage
-- Color coding based on usage levels
+The central dashboard section displays a comprehensive grid of resource utilization with visual progress indicators:
 
-### 4. Recent Activity
+#### Infrastructure Resources (Left Column)
+- **🔌 Bridges**: Queue processing nodes (API icon)
+  - Global and regional bridge allocations
+  - Current: 2 / Maximum: 50
+  
+- **💻 Machines**: Remote server instances (Desktop icon)
+  - SSH-accessible compute resources
+  - Current: 2 / Maximum: 200
+  
+- **🌍 Regions**: Geographic or logical zones (Environment icon)
+  - Organizational boundaries for resources
+  - Current: 1 / Maximum: 10
+  
+- **📦 Repos**: Repository configurations (Inbox icon)
+  - Git, Docker, and custom repository types
+  - Current: 1 / Maximum: 100
 
-Live feed of system audit events showing:
-- **Event Type**: Icon and description
-- **Category**: Authentication, Team, Request, etc.
-- **Timestamp**: Relative time (e.g., "2 hours ago")
-- **Details**: Specific information about the event
-- **User**: Who performed the action
+#### Configuration Resources (Right Column)
+- **📅 Schedules**: Automated task definitions (Calendar icon)
+  - Cron-based and recurring operations
+  - Current: 0 / Maximum: 15
+  
+- **☁️ Storages**: Backup and storage endpoints (Cloud icon)
+  - S3, Azure, GCS, SFTP configurations
+  - Current: 0 / Maximum: 100
+  
+- **👥 Teams**: Organizational units (Team icon)
+  - Logical groupings with shared resources
+  - Current: 1 / Maximum: 25
+  
+- **👤 Users**: System accounts (User icon)
+  - Individual user accounts and service accounts
+  - Current: 3 / Maximum: 25
 
-Common event types:
-- 🔐 **TOKEN VALIDATED**: Successful authentication
-- ✅ **AUTHENTICATION REQUEST CREATED**: New session started
-- 📝 **TEAM VAULT UPDATED**: Configuration changes
-- 🚪 **USER LOGOUT**: Session ended
+#### Progress Bar Indicators
+Each resource displays:
+- **Numerical Count**: "Current / Maximum"
+- **Visual Bar**: Proportional fill based on usage
+- **Color Coding**:
+  - Green (0-60%): Healthy utilization
+  - Yellow (60-80%): Monitor closely
+  - Orange (80-90%): Approaching limit
+  - Red (90-100%): Critical, action required
 
-### 5. Queue Details
+### 4. Recent Activity Feed
 
-#### Today's Activity
-Summary of queue operations for the current day:
-- Created: New tasks added
-- Completed: Successfully processed
-- Cancelled: Manually stopped
-- Failed: Encountered errors
+Located in the bottom-left section, this live audit stream provides transparency into system operations:
 
-#### Machine Queue Status
-Table showing queue distribution by machine:
-- Machine name
-- Associated team
-- Pending and active task counts
+#### Feed Components
+Each activity entry displays:
+- **Status Icon**: Visual indicator of event type
+- **Event Name**: Action performed (e.g., "TOKEN VALIDATED")
+- **Category Tag**: Event classification (Authentication, Team, Request)
+- **Timestamp**: Relative time display ("2 hours ago")
+- **Details Line**: Specific context (e.g., "Authentication #4 • By admin@rediacc.io")
+- **Description**: Detailed event information
 
-#### Priority Breakdown
-Visual representation of tasks by priority:
-- Highest Priority (P1)
-- High Priority (P2)
-- Normal Priority (P3)
-- Low Priority (P4)
+#### Common Event Types
 
-### 6. Subscription & Plans
+**Authentication Events:**
+- ℹ️ **TOKEN VALIDATED**: API token verification
+  - Shows user email and token status
+  - Indicates if using old vs new token
+  
+- ✅ **AUTHENTICATION REQUEST CREATED**: New session initiated
+  - Displays session name and permissions
+  - Shows expiration timeframe
 
-Comprehensive view of your licensing:
+**Configuration Events:**
+- 📝 **VAULT UPDATED**: Configuration changes
+  - Team, Machine, or Company vault modifications
+  - Shows what was changed
 
-#### Current Subscription
-- **Plan Name**: Elite, Professional, etc.
-- **Description**: Plan capabilities
-- **Active Licenses**: Number in use
-- **Days Remaining**: Until renewal
-- **Monthly Cost**: Subscription price
+**User Events:**
+- 👤 **USER CREATED/DEACTIVATED**: Account lifecycle
+- 🚪 **USER LOGOUT**: Session termination
+- 🔑 **PASSWORD CHANGED**: Security updates
 
-#### License Details
-- Progress bar showing license utilization
-- Breakdown by license type
-- Expiration information
+#### Navigation
+- **"View All" Link**: Navigate to complete Audit page
+- **Scrollable List**: Shows latest 10 events
+- **Real-time Updates**: New events appear automatically
 
-#### Available Plans
-- Options for upgrading or changing plans
-- Feature comparisons
-- Pricing information
+### 5. Queue Details Panel
+
+The center-bottom section provides deep insights into queue operations:
+
+#### Today's Activity Summary
+Real-time counters for the current day's queue operations:
+- **Created**: New tasks submitted today
+- **Completed**: Successfully processed tasks
+- **Cancelled**: Manually terminated tasks
+- **Failed**: Tasks encountering errors
+
+#### Machine Queue Status Table
+Dynamic table showing task distribution across machines:
+
+| Column | Description |
+|--------|-------------|
+| **Machine** | Server name identifier |
+| **Team** | Owning team assignment |
+| **Status** | "X pending • Y active" format |
+
+Example: "rediacc12 | Private Team | 1 pending • 0 active"
+
+#### Priority Breakdown Chart
+Visual distribution of queue items by priority level:
+- **Highest Priority** (Red): Critical, processed first
+- **High Priority** (Orange): Important, elevated processing
+- **Normal Priority** (Blue): Standard processing order
+- **Low Priority** (Green): Background tasks
+
+The chart shows both the priority label and count (e.g., "Low Priority ¹")
+
+### 6. Subscription & Plans Widget
+
+Located in the bottom-right corner with a notification badge for important updates:
+
+#### Current Subscription Display
+Shows your active subscription details:
+- **Plan Tier**: Elite, Professional, Essential
+- **Description**: Brief plan capabilities summary
+- **Billing Details**:
+  - Monthly cost in USD
+  - Billing cycle (monthly/annual)
+  - Active licenses count
+  - Days remaining in current period
+
+Example Display:
+```
+CURRENT SUBSCRIPTION
+Elite
+Enterprise tier with unlimited access
+Active Licenses: 1
+Days Remaining: 3,652
+
+Monthly Cost
+$6999.00
+Billed monthly • USD
+```
+
+#### All Active Licenses
+Visual representation of license utilization:
+- **Total Count**: "1 Total" header
+- **License Breakdown**: 
+  - Plan name with quantity (e.g., "Elite ×1")
+  - Days remaining for each license
+  - Progress bar showing time utilization
+
+#### Available Plans Section
+Quick comparison of upgrade/downgrade options:
+- **Plan Name** with current indicator
+- **User Limits**: "Up to X users"
+- **Feature Summary**: Key capabilities
+- **Pricing**: Monthly cost display
+
+## Dashboard Notifications
+
+The dashboard includes several notification mechanisms:
+
+### Visual Alerts
+- **Header Notification Bell**: Shows count of unread system notifications
+- **Warning Banner**: Displays important system messages (e.g., "Your company has not enabled vault encryption yet")
+- **Widget Badges**: Numerical indicators on sections requiring attention
+
+### Status Indicators
+- **Superscript Numbers**: Count badges on widgets (e.g., "¹" on Subscription & Plans)
+- **Color-Coded Elements**: Visual priority through color usage
+- **Icon States**: Different icons for various states (check, warning, error)
 
 ## Using the Dashboard Effectively
 
-### Daily Monitoring Routine
+### Recommended Monitoring Workflow
 
-1. **Check Account Health** first for any critical issues
-2. **Review Queue Overview** for processing bottlenecks
-3. **Scan Resource Usage** for approaching limits
-4. **Examine Recent Activity** for unusual patterns
+1. **Initial Health Check** (5 seconds)
+   - Glance at Account Health widget
+   - Note any red/yellow indicators
+   - Check notification bell count
+
+2. **Queue Assessment** (10 seconds)
+   - Review pending vs processing ratio
+   - Check failed task count
+   - Note priority distribution
+
+3. **Resource Scan** (15 seconds)
+   - Identify resources above 80%
+   - Plan capacity increases if needed
+   - Note any at-limit resources
+
+4. **Activity Review** (20 seconds)
+   - Scan for authentication anomalies
+   - Check for repeated failures
+   - Note configuration changes
 
 ### Performance Indicators
 
-**Healthy System:**
-- All resources under 80% utilization
-- Queue processing smoothly (few pending)
-- No failed tasks in recent activity
-- Regular authentication patterns
+#### Healthy System Characteristics
+- ✅ Account Health shows "Good" status
+- ✅ Resource utilization below 80%
+- ✅ Minimal queue backlog (low pending count)
+- ✅ Failed tasks under 5% of total
+- ✅ Regular, expected authentication patterns
+- ✅ No critical notifications
 
-**System Under Stress:**
-- Resources approaching limits (>80%)
-- Queue backing up (high pending count)
-- Increased failed task rate
-- Unusual authentication patterns
+#### Warning Signs
+- ⚠️ Multiple resources approaching limits
+- ⚠️ Queue pending count growing
+- ⚠️ Increased authentication failures
+- ⚠️ Unusual activity patterns
+- ⚠️ Plan insufficiency warnings
 
-### Quick Actions
+#### Critical Issues
+- 🚨 Resources at maximum capacity
+- 🚨 Queue processing stopped
+- 🚨 High failure rates (>10%)
+- 🚨 Security-related alerts
+- 🚨 System-wide errors
 
-From the dashboard, you can:
-- Click resource names to manage them
-- Use "View All" links for detailed views
-- Click on activity items for full audit details
-- Access queue management directly
+### Quick Navigation
 
-## Dashboard Customization
+The dashboard serves as a launching point for detailed management:
 
-### Display Options
+| From Dashboard Element | Navigate To | Action |
+|------------------------|-------------|---------|
+| Queue Overview "Manage" | Queue Management | Detailed queue operations |
+| Resource names | Resources page | Manage specific resource type |
+| Recent Activity "View All" | Audit page | Complete audit history |
+| Machine in Queue Status | Machine details | Individual machine management |
+| Subscription widget | Billing page | Plan management |
 
-While the current dashboard has a fixed layout, you can:
-- Toggle Expert Mode for additional details
-- Switch between light/dark themes
-- Adjust language preferences
-- Control notification settings
+## Dashboard Features
 
-### Data Refresh
+### Expert Mode
+When enabled via the sidebar toggle:
+- Displays additional technical details
+- Shows internal IDs and references  
+- Provides advanced filtering options
+- Reveals system-level metrics
 
-The dashboard updates automatically:
-- Queue statistics: Real-time
-- Resource usage: Every 30 seconds
-- Recent activity: As events occur
-- Subscription data: On page load
+### Theme Support
+- **Light Mode**: Default bright interface
+- **Dark Mode**: Reduced eye strain option
+- **Automatic**: Follows system preferences
+- Toggle via sun/moon icon in header
+
+### Language Support
+- Multiple language options available
+- Select from dropdown in header
+- Affects dates, numbers, and UI text
+- Persists across sessions
+
+### Data Refresh Rates
+
+| Component | Refresh Interval | Method |
+|-----------|------------------|---------|
+| Queue Statistics | Real-time | WebSocket |
+| Resource Usage | 30 seconds | Polling |
+| Recent Activity | Real-time | Event stream |
+| Machine Status | 1 minute | API polling |
+| Subscription | Page load | On demand |
 
 ## Troubleshooting Dashboard Issues
 
-### Common Problems
+### Common Problems and Solutions
 
-**Dashboard not loading:**
-- Check network connectivity
-- Verify authentication status
-- Clear browser cache
-- Try refreshing the page
+#### Dashboard Not Loading
+1. **Authentication Issues**
+   - Verify login credentials
+   - Check session expiration
+   - Clear cookies and re-login
 
-**Incorrect data displayed:**
-- Ensure proper permissions
-- Check for system notifications
-- Verify data refresh timing
-- Contact support if persistent
+2. **Network Problems**
+   - Test API connectivity
+   - Check firewall settings
+   - Verify proxy configuration
 
-**Performance issues:**
-- Reduce browser tabs
-- Check network speed
-- Clear browser cache
-- Disable browser extensions
+3. **Browser Issues**
+   - Clear browser cache (Ctrl+Shift+Delete)
+   - Try incognito/private mode
+   - Update to latest browser version
+   - Disable conflicting extensions
 
-### Getting Help
+#### Data Display Problems
 
-For dashboard-specific issues:
-1. Check the notification bell for alerts
-2. Review audit logs for errors
-3. Consult system documentation
-4. Contact your administrator
+**Stale or Missing Data:**
+- Check last refresh timestamp
+- Manually refresh page (F5)
+- Verify API endpoints responding
+- Check browser console for errors
+
+**Incorrect Counts:**
+- Ensure proper team selection
+- Verify user permissions
+- Check filter settings
+- Compare with audit logs
+
+**Widget Loading Errors:**
+- Check specific API calls in Network tab
+- Verify vault decryption working
+- Ensure master password correct
+- Review error messages
+
+#### Performance Optimization
+
+**Slow Dashboard Loading:**
+1. Close unnecessary browser tabs
+2. Disable resource-heavy extensions
+3. Check network latency to API
+4. Consider using Edge/Chrome for best performance
+
+**High Memory Usage:**
+- Limit dashboard refresh frequency
+- Reduce activity feed history
+- Close other Rediacc Console tabs
+- Restart browser periodically
+
+### Getting Support
+
+When issues persist:
+
+1. **Collect Information**
+   - Screenshot of the issue
+   - Browser console errors (F12)
+   - Network tab HAR file
+   - Time of occurrence
+
+2. **Check Resources**
+   - System status page
+   - Known issues list
+   - Admin notifications
+   - Audit log entries
+
+3. **Escalation Path**
+   - Contact system administrator
+   - Submit support ticket
+   - Include collected information
+   - Specify impact level
+
+## Best Practices
+
+### Daily Usage
+- Start each day with dashboard review
+- Set up browser bookmark for quick access
+- Use multiple monitors for persistent display
+- Configure browser notifications
+
+### Team Coordination
+- Share dashboard screenshots in team channels
+- Establish resource usage thresholds
+- Create escalation procedures
+- Document standard responses
+
+### Capacity Planning
+- Monitor resource trends weekly
+- Plan upgrades before hitting limits
+- Review queue patterns monthly
+- Analyze failure rates regularly

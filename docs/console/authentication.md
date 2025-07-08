@@ -10,11 +10,25 @@ The Rediacc Console implements a robust authentication system with multiple secu
 
 ### Standard Login
 
+The Rediacc Console login page provides a clean, secure interface for authentication:
+
+![Console Login Page](./assets/screenshots/console-login-updated.png)
+
 The standard login process requires three components:
 
-1. **Email Address**: Your registered email address
+1. **Email Address**: Your registered email address (e.g., admin@rediacc.io)
 2. **Password**: Your account password  
-3. **Client-Side Encryption Password**: For vault encryption (if enabled by your organization)
+3. **Client-Side Encryption Password**: For vault encryption (optional based on company settings)
+
+### Login Steps
+
+1. Navigate to the console URL (e.g., `http://localhost:7322/console/`)
+2. Enter your email address in the first field
+3. Enter your password in the second field
+4. If vault encryption is enabled:
+   - Enter your client-side encryption password in the third field
+   - This password encrypts sensitive data locally before transmission
+5. Click the "Sign In" button to authenticate
 
 ### Security Features
 
@@ -50,8 +64,19 @@ The following data is encrypted:
 - Database connection strings
 - Custom vault data
 
+### Interface Features
+
+- **Password Visibility Toggle**: Click the eye icon to show/hide password text
+- **Language Selection**: Choose your preferred language from the dropdown (🇬🇧 English by default)
+- **Theme Toggle**: Switch between light and dark modes using the sun/moon icon
+- **Registration Link**: New users can click "Register" to create an account
+
+:::info
+The Client-Side Encryption Password field includes an info icon that provides additional context about its purpose. This field is optional and depends on your organization's security settings.
+:::
+
 :::warning
-If you see the message "Your company has not enabled vault encryption yet", the client-side encryption password field will not be used. Contact your administrator to enable this security feature.
+If your company has not enabled vault encryption, the client-side encryption password field will be present but not used during authentication. Contact your administrator to enable this additional security layer.
 :::
 
 ## User Roles & Permissions

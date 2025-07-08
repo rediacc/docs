@@ -26,6 +26,8 @@ The Rediacc Console is accessible via web browser at your configured domain. For
 http://localhost:7322/console/
 ```
 
+![Console Login Page](./assets/screenshots/console-login-page.png)
+
 ### Login Requirements
 
 To access the console, you'll need:
@@ -34,7 +36,6 @@ To access the console, you'll need:
 2. **Password**: Your account password
 3. **Client-Side Encryption Password**: Used for vault encryption (optional based on company settings)
 
-![Login Page](./assets/login-page-updated.png)
 
 ### First-Time Login
 

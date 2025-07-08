@@ -6,7 +6,7 @@ sidebar_position: 4
 
 The Resources section is the central hub for managing all infrastructure components in your Rediacc system. It provides comprehensive tools for organizing, monitoring, and configuring your distributed infrastructure.
 
-![Resources Overview](../assets/resources-machines.png)
+![Resources Overview](../assets/screenshots/console-resources-machines-overview.png)
 
 ## Overview
 

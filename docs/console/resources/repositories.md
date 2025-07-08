@@ -4,13 +4,34 @@ sidebar_position: 2
 
 # Repository Management
 
-The Repository Management interface allows you to configure and manage various types of repositories that can be deployed and maintained through the Rediacc system. This includes Git repositories, Docker registries, and other version control systems.
+The Repository Management interface allows you to configure and manage repository credentials that are used to access code repositories, Docker registries, and other version control systems within the Rediacc platform.
 
 ## Overview
 
-Repositories in Rediacc serve as the source for your applications and services. They contain the code, configuration files, and deployment scripts that the system uses to manage your infrastructure.
+Repository credentials in Rediacc are stored securely in the team vault and are used to:
+- Access private Git repositories for code deployment
+- Pull Docker images from private registries
+- Authenticate with version control systems
+- Enable automated deployments and updates
 
-![Repository Management](../assets/resources-repositories.png)
+## Interface Overview
+
+### Repository Credentials Table
+
+The interface displays a simple table with the following columns:
+
+| Column | Description |
+|--------|-------------|
+| **Repository Name** | Unique identifier with 📦 icon |
+| **Team** | The team that owns these credentials |
+| **Vault Version** | Configuration version (e.g., v1) |
+| **Actions** | Edit, Trace, Delete buttons |
+
+### Header Controls
+
+- ➕ **Create Repo (Credentials)**: Add new repository credentials
+- 🔄 **Refresh**: Update the repository list
+
 
 ## Repository Types
 
@@ -28,14 +49,14 @@ Rediacc supports multiple repository types:
 - **GitLab Container Registry**: Integrated with GitLab repositories
 - **Private Registries**: Self-hosted Docker registries
 
-## Creating a Repository
+## Creating Repository Credentials
 
-To add a new repository:
+To add new repository credentials:
 
-1. Navigate to **Resources** in the main menu
-2. Select the **Repo (Credentials)** tab
+1. Navigate to **Resources** → **Repo (Credentials)**
+2. Select your team from the dropdown
 3. Click **Create Repo (Credentials)**
-4. Fill in the repository details:
+4. Configure the credential details:
 
 ### Basic Information
 - **Repository Name**: A unique identifier for your repository
@@ -79,35 +100,46 @@ Enable webhooks for automatic deployments:
 - **Secret**: Shared secret for webhook validation
 - **Events**: Select which events trigger actions
 
-## Managing Repositories
+## Managing Repository Credentials
 
-### Editing Repository Details
+### Repository Actions
 
-1. Click the **Edit** button next to the repository
-2. Update the necessary fields
-3. Click **Save** to apply changes
+Each repository credential entry provides three action buttons:
+
+#### ✏️ Edit
+Modify credential configuration:
+- Update repository URL
+- Change authentication method
+- Rotate access tokens or keys
+- Update vault encryption
+
+#### 📊 Trace
+View credential usage history:
+- Authentication attempts
+- Access logs from machines
+- Error diagnostics
+- Usage patterns
+
+#### 🗑️ Delete
+Remove repository credentials:
+- Requires confirmation
+- Archives credential history
+- Does not affect the actual repository
 
 :::caution
-Changing repository URLs or authentication credentials may affect running deployments. Ensure all dependent services are updated accordingly.
+Changing or deleting repository credentials may affect:
+- Running deployments using these credentials
+- Scheduled tasks that pull from repositories
+- Machines configured to use these repositories
 :::
 
-### Viewing Repository History
+### Example Repository Entry
 
-The **Trace** button provides access to:
-- Authentication attempts
-- Clone/pull operations
-- Deployment history
-- Error logs
-
-### Deleting a Repository
-
-1. Click the **Delete** button
-2. Confirm the deletion
-3. Note: This removes the repository configuration but does not affect the actual repository
-
-:::warning
-Deleting a repository configuration will prevent any services using it from updating. Ensure no active deployments depend on the repository before deletion.
-:::
+From the interface:
+- **Name**: 📦 A2
+- **Team**: Private Team
+- **Vault Version**: v1
+- **Actions**: Edit | Trace | Delete
 
 ## Repository Best Practices
 
@@ -134,13 +166,27 @@ Deleting a repository configuration will prevent any services using it from upda
 2. **Git LFS**: Use Git Large File Storage for binary assets
 3. **Shallow Clones**: Enable shallow cloning for faster operations
 
-## Integration with Marketplace
+## Integration with Other Components
 
-Repositories can be used as templates in the Marketplace:
+### Machine Deployment
+Repository credentials are used when:
+- Deploying code to machines
+- Pulling Docker images
+- Cloning repositories for builds
+- Updating application versions
 
-1. Create a repository with a `rediacc.yaml` configuration
-2. Define deployment parameters and requirements
-3. Submit for Marketplace inclusion (admin approval required)
+### Queue System
+Tasks in the queue can reference repository credentials to:
+- Clone specific branches
+- Pull tagged releases
+- Access private repositories
+- Deploy containerized applications
+
+### Storage Integration
+Repository artifacts can be:
+- Backed up to configured storage
+- Cached for faster deployments
+- Archived for compliance
 
 ## Troubleshooting
 

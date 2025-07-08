@@ -15,7 +15,21 @@ Storage configurations in Rediacc provide secure, scalable solutions for:
 - Artifact storage
 - Log aggregation
 
-![Storage Management](../assets/resources-storage-updated.png)
+## Interface Overview
+
+### Empty State
+
+When no storage is configured for a team, the interface displays:
+- Empty state illustration
+- Message: "No storage found in this team"
+- Action buttons to add storage
+
+### Header Controls
+
+- ➕ **Add Storage**: Configure new storage backend
+- 📥 **Import from Rclone**: Import existing Rclone configurations
+- 🔄 **Refresh**: Update the storage list
+
 
 ## Supported Storage Types
 
@@ -70,8 +84,23 @@ Storage configurations in Rediacc provide secure, scalable solutions for:
 To add a new storage configuration:
 
 1. Navigate to **Resources** → **Storage**
-2. Click **Add Storage**
-3. Select storage type and configure:
+2. Select your team from the dropdown
+3. Click **Add Storage**
+4. Select storage type and configure:
+
+### Storage Table Structure
+
+Once storage is configured, the table displays:
+
+| Column | Description |
+|--------|-------------|
+| **Storage Name** | Unique identifier with ☁️ icon |
+| **Type** | Storage backend type (S3, Azure, etc.) |
+| **Team** | The team that owns this storage |
+| **Status** | Connection status indicator |
+| **Last Sync** | Last successful operation |
+| **Vault Version** | Configuration version |
+| **Actions** | Edit, Test, Trace, Delete |
 
 ### S3 Configuration Example
 

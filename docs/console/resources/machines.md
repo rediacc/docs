@@ -14,7 +14,31 @@ Machines in Rediacc are:
 - Execution targets for queued tasks
 - Managed through secure SSH connections
 
-![Machine Management](../assets/resources-machines-updated.png)
+![Machine Management Interface](../assets/screenshots/console-resources-machines-overview.png)
+
+## Interface Overview
+
+### Machine Management Table
+
+The machine management interface displays a comprehensive table with the following columns:
+
+| Column | Description |
+|--------|-------------|
+| **Machine Name** | Unique identifier for the machine |
+| **Team** | The team that owns this machine |
+| **Region** | Geographic or logical region assignment |
+| **Bridge** | The bridge managing this machine |
+| **Queue Items** | Number of active tasks (shown as badge) |
+| **Last Updated** | Last successful connection time |
+| **Vault Version** | Configuration version (e.g., v1, v2) |
+| **Actions** | Edit, Remote, Trace, Delete buttons |
+
+### Header Controls
+
+- **Team Selector**: Dropdown to switch between teams
+- **Add Machine**: Create new machine configuration
+- **Connectivity Test**: Verify SSH connectivity to selected machines
+- **Refresh**: Update the machine list
 
 ## Machine Configuration
 
@@ -22,82 +46,82 @@ Machines in Rediacc are:
 
 To add a machine to your infrastructure:
 
-1. Navigate to **Resources** in the sidebar
-2. Ensure you're on the **Machines** tab
+1. Navigate to **Resources** → **Machines**
+2. Select your team from the dropdown
 3. Click **Add Machine**
-4. Configure the machine details:
+4. The configuration dialog appears with sections:
 
-#### Basic Information
-```yaml
-Machine Name: prod-web-01
-Team: Production
-Region: Default Region
-Bridge: Global Bridges
+![Add Machine Dialog](../assets/screenshots/console-add-machine-dialog.png)
 
-Description: Production web server for main application
-Tags: 
-  - production
-  - web
-  - critical
-```
+#### Basic Configuration
 
-#### Connection Details
-```yaml
-Connection:
-  IP Address: 10.0.1.100
-  SSH Port: 22
-  Username: rediacc
-  
-Datastore Path: /opt/rediacc/datastore
-```
+**Required Fields:**
+- **Region**: Select from available regions
+- **Bridge**: Choose the bridge to manage this machine
+- **Machine Name**: Unique identifier (e.g., `prod-web-01`)
+
+#### Vault Configuration
+
+The vault stores sensitive SSH connection details:
+
+**Required Fields (5):**
+1. **IP Address**: Machine's IP address (IPv4 or IPv6)
+2. **Username**: SSH username for connections
+3. **SSH Password (Temporary)**: Initial password for key setup
+4. **SSH Key Setup**: Toggle if key is already configured
+5. **Datastore Path**: Directory for Rediacc data (e.g., `/opt/rediacc/datastore`)
+
+**Optional Fields (2):**
+1. **SSH Port**: Custom SSH port (default: 22)
+2. **Host Entry**: Custom hostname mapping
+
+#### Advanced Options
+
+- **Automatically run setup after machine creation**: Checked by default
+- **Raw JSON Editor (Expert Mode)**: Direct JSON configuration
+- **Import/Export JSON**: Save or load configurations
 
 :::info
 The datastore path is where Rediacc will store repositories, artifacts, and temporary files on the machine.
 :::
 
-#### Authentication
+#### Authentication Setup
 
-Rediacc uses SSH key authentication for secure machine access:
+Rediacc supports two authentication methods:
 
-1. **Generate SSH Key Pair** (if needed):
-   ```bash
-   ssh-keygen -t ed25519 -C "rediacc-access"
-   ```
+**1. Password-based Initial Setup** (Recommended):
+- Enter temporary SSH password
+- Rediacc automatically generates and configures SSH keys
+- Password is used once and discarded
+- Keys are stored encrypted in the vault
 
-2. **Add Public Key to Machine**:
-   ```bash
-   # On the target machine
-   mkdir -p ~/.ssh
-   echo "ssh-ed25519 AAAAC3..." >> ~/.ssh/authorized_keys
-   chmod 600 ~/.ssh/authorized_keys
-   ```
+**2. Pre-configured SSH Key**:
+- Toggle "SSH key already configured"
+- Ensure your public key is on the machine
+- The corresponding private key will be stored in the team vault
 
-3. **Store Private Key in Vault**:
-   - Enter the private key in the machine configuration
-   - It will be encrypted and stored securely
+**Test Connection**: Click to verify SSH connectivity before saving
 
 ### Machine Groups and Organization
 
 #### Grouping Options
 
-The interface provides multiple ways to organize machines:
+The interface provides radio button grouping options:
 
-- **By Machine**: Default view, alphabetical listing
-- **By Bridge**: Group by assigned bridge
-- **By Team**: Organize by team ownership
-- **By Region**: Geographic or logical grouping
-- **By Repository**: Machines using specific repos
-- **By Status**: Active, inactive, or maintenance
-- **By Grand Repository**: Advanced grouping
+- 🖥️ **Machine**: Default view, individual machine listing
+- ☁️ **Bridge**: Group machines by their assigned bridge
+- 👥 **Team**: Organize by team ownership
+- 🌐 **Region**: Geographic or logical region grouping
+- 📦 **Repository**: Machines with specific repositories
+- 📊 **Status**: Group by operational status
+- 🌳 **Grand Repository**: Advanced hierarchical grouping
 
-#### Filtering and Search
+#### Table Features
 
-Use filters to find specific machines:
-- Name search
-- Team filter
-- Region filter
-- Status filter
-- Tag-based filtering
+- **Sortable Columns**: Click column headers to sort
+- **Expandable Rows**: View additional machine details
+- **Pagination**: Navigate through large machine lists
+- **Page Size**: Adjust items per page (10, 20, 50, 100)
 
 ## Machine Operations
 
@@ -113,26 +137,60 @@ Before using a machine, verify connectivity:
    - Datastore accessibility
    - Docker availability
 
-### Remote Access
+### Machine Actions
 
+Each machine row provides quick action buttons:
+
+#### ✏️ Edit
+Modify machine configuration:
+- Update connection details
+- Change region or bridge assignment
+- Modify vault credentials
+
+#### 🔧 Remote
 Access machines directly from the console:
+- Opens secure web-based terminal
+- Full SSH access with audit logging
+- Session recording for compliance
 
-1. Click **Remote** button on a machine
-2. Opens secure terminal session
-3. Full SSH access with audit logging
+#### 📊 Trace
+View machine activity history:
+- Connection logs
+- Task execution history
+- Configuration changes
+- Error diagnostics
+
+#### 🗑️ Delete
+Remove machine from system:
+- Requires confirmation
+- Checks for active tasks
+- Archives configuration
 
 :::caution
-All remote sessions are logged for security and compliance.
+All remote sessions and actions are logged for security and compliance.
 :::
 
 ### Machine Monitoring
 
-View real-time machine metrics:
+The interface displays real-time machine status:
 
-- **Queue Items**: Active and pending tasks
-- **Resource Usage**: CPU, memory, disk
-- **Last Updated**: Last successful connection
-- **Health Status**: Overall machine health
+#### Queue Items Badge
+Shows active task count with color coding:
+- 🟢 Green (0-5 tasks): Normal load
+- 🟡 Yellow (6-10 tasks): Moderate load
+- 🔴 Red (10+ tasks): High load
+
+#### Last Updated
+Connection status indicators:
+- **Just now**: Active connection
+- **X minutes/hours ago**: Time since last ping
+- **Invalid Date**: Never connected
+
+#### Vault Version
+Configuration version tracking:
+- Increments with each update
+- Helps track configuration changes
+- Enables rollback if needed
 
 ## Advanced Configuration
 

@@ -6,7 +6,7 @@ sidebar_position: 7
 
 The System Settings page is the central hub for managing your Rediacc installation, including user management, infrastructure configuration, and critical system operations.
 
-![System Settings](./assets/system-settings-updated.png)
+![System Settings - Users Management](./assets/screenshots/console-system-overview.png)
 
 ## Overview
 
@@ -22,68 +22,82 @@ System Settings provides administrators with comprehensive control over:
 
 ### 1. Company Settings
 
-Configure organization-wide settings that affect all users and operations:
+**Icon**: 🏦 Bank
 
-- **Vault Configuration**: Manage company-wide vault settings
-- **Global Parameters**: Set system-wide defaults
-- **Integration Settings**: Configure external service connections
-- **Compliance Options**: Enable regulatory compliance features
+**Description**: Configure your company vault settings to manage organization-wide configurations.
 
 **Key Actions:**
-- Configure Vault: Access and modify company vault data
+- ⚙️ **Configure Vault**: Access and modify company vault data including:
+  - Global configurations
+  - Default settings
+  - Integration parameters
+  - Compliance options
 
 ### 2. Personal Settings
 
-Individual user preferences and security settings:
+**Icon**: 👤 User
 
-- **Personal Vault**: User-specific configurations
-- **Password Management**: Change your account password
-- **Preferences**: UI and notification settings
-- **API Tokens**: Personal access tokens
+**Description**: Configure your personal vault settings to customize your experience.
 
 **Key Actions:**
-- Configure Vault: Manage personal vault data
-- Change Password: Update account credentials
+- ⚙️ **Configure Vault**: Manage personal preferences and settings
+- 🔑 **Change Password**: Update your account password
 
 ## Users, Teams & Permissions
 
 ### Users Tab
 
-Comprehensive user management interface displaying:
+**Header**: "Users - Manage users and their permissions"
 
-**User Information:**
-- Email address with user icon
-- Status (Active/Inactive)
-- Permission group assignment
-- Last active timestamp
+**Table Columns:**
+| Column | Description |
+|--------|-------------|
+| **Email** | User email with 👤 icon |
+| **Status** | ✅ Active or ❌ Inactive |
+| **Permission Group** | 🔒 Group assignment (e.g., Administrators, Bridges) |
+| **Last Active** | Last login time or "Never" |
+| **Actions** | Management buttons |
 
 **User Actions:**
-- **Create User**: Add new users to the system
-- **Permissions**: Manage individual user permissions
-- **Trace**: View user activity history
-- **Deactivate**: Disable user access
+- ➕ **Create User**: Add new users to the system
+- 🔒 **Permissions**: Manage individual user permissions
+- 📊 **Trace**: View user activity history
+- **Deactivate**: Disable user access (red button)
 
-**Permission Groups:**
-- **Administrators**: Full system access
-- **Bridges**: Automated bridge user accounts
-- **Operators**: Limited administrative access
-- **Viewers**: Read-only access
+**Permission Groups Observed:**
+- 🔒 **Administrators**: Full system access (e.g., admin@rediacc.io)
+- 🔒 **Bridges**: Automated bridge user accounts (e.g., bridge.ppxxpDrp@1.local)
+
+**Table Features:**
+- Pagination controls
+- Page size selector (10, 20, 50, 100)
+- Shows total record count
 
 ### Teams Tab
 
-Organize users into functional teams:
+**Header**: "Teams - Manage teams and their members"
 
-**Team Management:**
-- Create new teams
-- Assign team members
-- Set team permissions
-- Configure team vaults
+**Table Columns:**
+| Column | Description |
+|--------|-------------|
+| **Team Name** | Team identifier with 👥 icon |
+| **Members** | User count with 👤 icon |
+| **Machines** | Machine count with 🖥️ icon |
+| **Repositories** | Repository count with 🗜️ icon |
+| **Storage** | Storage count with ☁️ icon |
+| **Schedules** | Schedule count with 📅 icon |
+| **Vault Version** | Configuration version (e.g., v14) |
+| **Actions** | Management buttons |
 
-**Team Features:**
-- Isolated resource ownership
-- Team-specific credentials
-- Collaborative workflows
-- Access boundaries
+**Team Actions:**
+- ➕ **Create Team**: Add new team
+- ✏️ **Edit**: Modify team configuration
+- 👤 **Members**: Manage team membership
+- 📊 **Trace**: View team activity
+- 🗑️ **Delete**: Remove team
+
+**Example Team:**
+- **Private Team**: 1 member, 2 machines, 1 repository, 0 storage, 0 schedules
 
 ### Permissions Tab
 
@@ -121,57 +135,77 @@ Monitor active user sessions:
 
 ### Regions Management
 
-Geographic and logical infrastructure zones:
+**Header**: "Regions - Select a region to view its bridges"
 
-**Region Configuration:**
-- **Region Name**: Descriptive identifier
-- **Bridges**: Number of bridges in region
-- **Vault Version**: Configuration version tracking
+**Table Columns:**
+| Column | Description |
+|--------|-------------|
+| **Selection** | Radio button for region selection |
+| **Region Name** | Region identifier with 🌍 icon |
+| **Bridges** | Bridge count with 🌉 icon |
+| **Vault Version** | Configuration version |
+| **Actions** | Management buttons |
 
 **Region Actions:**
-- **Create Region**: Add new geographic zones
-- **Edit**: Modify region settings
-- **Trace**: View region activity
-- **Delete**: Remove regions (with confirmation)
+- ➕ **Create Region**: Add new geographic/logical zone
+- ✏️ **Edit**: Modify region settings
+- 📊 **Trace**: View region activity logs
+- 🗑️ **Delete**: Remove region (requires confirmation)
+
+**Example Region:**
+- **Default Region**: 2 bridges, v1
 
 ### Bridges Management
 
-Queue processors within selected region:
+**Header**: "Bridges in [Selected Region]"
 
-**Bridge Information:**
-- **Bridge Name**: Unique identifier
-- **Access Status**: Connection health
-- **Machines**: Connected machine count
-- **Type**: Global or Regular
-- **Management**: Cloud-Managed or Self-Managed
+**Table Columns:**
+| Column | Description |
+|--------|-------------|
+| **Bridge Name** | Bridge identifier with 🌉 icon and ✅ Access status |
+| **Machines** | Connected machines with 🖥️ icon |
+| **Type** | ☁️ Global or 🌉 Regular |
+| **Management** | 🖥️ Cloud-Managed or Self-Managed |
+| **Vault Version** | Configuration version |
+| **Actions** | Management buttons |
 
 **Bridge Types:**
-- **Global Bridges**: Shared across teams
-- **Regular Bridges**: Team-specific processors
+- **☁️ Global**: Shared across all teams
+- **🌉 Regular**: Team-specific processors
+
+**Management Types:**
+- **🖥️ Cloud-Managed**: Managed by Rediacc
+- **🖥️ Self-Managed**: User-managed infrastructure
 
 **Bridge Actions:**
-- **Create Bridge**: Add new queue processor
-- **Edit**: Modify bridge configuration
-- **Token**: View/reset API token
-- **Reset Auth**: Force re-authentication
-- **Trace**: View bridge logs
-- **Delete**: Remove bridge
+- ➕ **Create Bridge**: Add new queue processor
+- ✏️ **Edit**: Modify bridge configuration
+- 🔑 **Token**: View/reset API authentication token
+- 🔄 **Reset Auth**: Force re-authentication
+- 📊 **Trace**: View bridge activity logs
+- 🗑️ **Delete**: Remove bridge
 
-## Danger Zone
+**Example Bridges:**
+- **Global Bridges**: 1 machine, Global type, Cloud-Managed
+- **My Bridge**: 1 machine, Regular type, Self-Managed
 
-![Danger Zone](./assets/system-danger-zone-updated.png)
+## ⚠️ Danger Zone
 
-Critical operations that affect system-wide functionality:
+Critical operations that affect system-wide functionality. This section is highlighted with a warning icon and contains high-impact system operations.
 
 ### 1. Block User Requests
 
-Emergency access control:
+**Description**: Block all non-admin users from making requests to the system. This will immediately terminate all active user sessions except administrators. Users will need to be manually unblocked to regain access.
 
-**Purpose:**
-- Immediately block all non-admin users
-- Terminate active user sessions
-- Prevent new logins
-- Maintain admin access only
+**Actions Available:**
+- 🔒 **Block User Requests**: Activate emergency lockdown
+- 🔓 **Unblock User Requests**: Restore normal access
+
+**Impact:**
+- Immediately blocks all non-admin users
+- Terminates active user sessions
+- Prevents new logins
+- Maintains admin access only
 
 **Use Cases:**
 - Security incidents
@@ -179,51 +213,56 @@ Emergency access control:
 - Emergency lockdown
 - Compliance requirements
 
-**Recovery:**
-- Use "Unblock User Requests" to restore access
-- Users must re-authenticate
-- Sessions are not restored
-
 ### 2. Export All Vaults
 
-Complete system backup:
+**Description**: Download all company vault configurations including teams, regions, bridges, machines, repositories, storage, and schedules. This export contains sensitive credential information and should be handled securely.
+
+**Action:**
+- 📥 **Export All Vaults**: Download complete system configuration
 
 **Includes:**
-- All team vaults
+- All team vaults and credentials
 - Region configurations
-- Bridge settings
-- Machine credentials
-- Repository access
+- Bridge settings and tokens
+- Machine SSH credentials
+- Repository access keys
 - Storage configurations
 - Schedule definitions
 
-**Security Warning:**
-- Contains sensitive credentials
-- Should be encrypted
-- Store securely
-- Limit access
+**⚠️ Security Warning:**
+- Contains unencrypted sensitive credentials
+- Should be immediately encrypted after download
+- Store in secure location only
+- Limit access to authorized personnel
 
 ### 3. Encryption Password Settings
 
-Master encryption configuration:
+**Description**: Configure the client-side encryption password that protects all sensitive vault data in your organization. This password is shared among all users and is never accessible to Rediacc for enhanced security.
 
-**Features:**
-- Set organization-wide encryption password
-- Re-encrypt all vaults
-- Force user re-authentication
-- Cannot be recovered if lost
+**Action:**
+- 🔑 **Encryption Settings**: Configure master encryption password
 
-**Process:**
-1. Enter new encryption password
-2. System re-encrypts all vaults
-3. All users logged out (except current)
-4. Users must re-login with new password
+**Process Effects:**
+- Re-encrypt all vaults with the new password
+- Sign out all users (except you)
+- Require all users to sign in again after completion
 
-**Critical Notes:**
-- Store password securely
-- Cannot be recovered
-- Affects all users immediately
-- Plan communication strategy
+**⚠️ Critical Warning:**
+**Store the new password in a secure location - it cannot be recovered if lost.**
+
+**Implementation Steps:**
+1. Click Encryption Settings
+2. Enter new master password
+3. Confirm password change
+4. System re-encrypts all vaults
+5. All other users are logged out
+6. Share new password securely with users
+
+**Important Considerations:**
+- Plan communication strategy before changing
+- Ensure all users are notified
+- Have secure password distribution method
+- Consider timing to minimize disruption
 
 ## Best Practices
 
