@@ -1,12 +1,12 @@
 ---
-sidebar_position: 5
+sidebar_position: 10
 ---
 
 # Queue Management
 
 The Queue Management interface is your mission control for distributed task execution, providing real-time visibility and control over all operations flowing through your Rediacc infrastructure. From here, you can monitor task progress, diagnose issues, and manage the entire lifecycle of queued operations.
 
-![Queue Management](./assets/screenshots/console-queue-overview.png)
+![Queue Management](./assets/screenshots/console-queue-management-full.png)
 
 ## Overview
 
@@ -40,6 +40,7 @@ Powerful filtering options to find exactly what you need:
   - CANCELLING - Termination in progress
   - CANCELLED - Successfully stopped
   - STALE - No recent updates
+  - STALE_PENDING - Pending task with no updates (warning state)
 
 #### Date Range Selector
 - **Start Date**: Calendar picker with time
@@ -51,8 +52,10 @@ Powerful filtering options to find exactly what you need:
 #### Task ID Search
 - **Input**: Text field with search icon
 - **Placeholder**: "Filter by Task ID (GUID format)"
-- **Format**: Full or partial GUID (e.g., "f0103610" or complete UUID)
+- **Format**: Full or partial GUID (e.g., "f0103610" or complete UUID like "f0103610-8fef-4488-8cc8-60fc98bdf303")
 - **Behavior**: Real-time filtering as you type
+- **Case-insensitive**: Matches upper or lowercase
+- **Note**: Task IDs are standard GUIDs/UUIDs in the format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 
 ### Middle Section: Options and Actions
 
@@ -84,6 +87,7 @@ A horizontal bar displaying real-time task counts with visual indicators:
 | **Cancelling** | ▶️ | Stop signal sent | Yellow |
 | **Cancelled** | ⭕ | Successfully stopped | Gray |
 | **Stale** | ⚠️ | No updates >15 minutes | Yellow |
+| **Stale_Pending** | ⚠️ | Pending with no bridge pickup | Yellow/Orange |
 
 Each counter updates in real-time as tasks change state.
 
@@ -96,6 +100,7 @@ The interface provides tabbed navigation for different task states:
 
 Displays all non-terminal tasks including:
 - **PENDING**: Waiting in queue for bridge assignment
+- **STALE_PENDING**: Pending items with no bridge activity for extended period (shown with warning icon)
 - **ASSIGNED**: Claimed by a bridge but not yet started
 - **PROCESSING**: Currently executing on target machine
 - **CANCELLING**: Termination signal sent, awaiting confirmation

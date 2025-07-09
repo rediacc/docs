@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 5
 ---
 
 # Features Overview
@@ -77,18 +77,22 @@ Comprehensive infrastructure resource management across multiple categories:
 - OAuth tokens
 
 #### Storage Configuration
-**Supported Backends:**
-- Amazon S3
-- Azure Blob Storage
-- Google Cloud Storage
-- SFTP servers
-- Local file systems
+**Supported Backends (51 providers):**
+- **Cloud Storage**: Amazon S3, Azure Blob, Google Cloud Storage
+- **File Hosting**: Dropbox, Google Drive, OneDrive, Box
+- **Object Storage**: Backblaze B2, Wasabi, MinIO, OpenStack Swift
+- **Traditional**: FTP, SFTP, WebDAV
+- **Specialized**: Nextcloud, ownCloud, Seafile, pCloud
+- **CDN**: Cloudflare R2, Bunny.net
+- **Archive**: Amazon Glacier, Azure Archive
 
 **Features:**
 - Encryption at rest
-- Access control
-- Retention policies
+- Access control with IAM integration
+- Retention policies and lifecycle rules
 - Cross-region replication
+- Bandwidth throttling
+- Connection pooling
 
 #### Schedule Management
 **Capabilities:**
@@ -172,11 +176,15 @@ Comprehensive system configuration and administration:
 - Access control
 
 **Bridges:**
-- Global vs Regional scope
-- Cloud-managed vs Self-managed
-- Token management
-- Authentication reset
-- Machine assignments
+- **Scope Types**: 
+  - Global bridges: Can process tasks from any region
+  - Regional bridges: Limited to specific geographic regions
+- **Management Types**:
+  - Cloud-managed: Automatically provisioned and scaled
+  - Self-managed: Deployed on your infrastructure
+- Token management and authentication
+- Machine assignment and load balancing
+- Performance monitoring and health checks
 
 ### 5. Security Features
 
@@ -188,17 +196,21 @@ Comprehensive system configuration and administration:
 - Machine Vault: Connection details
 
 **Encryption:**
-- Client-side encryption
-- Master password protection
+- Client-side encryption with AES-256-GCM
+- Master password protection (never transmitted)
 - Zero-knowledge architecture
-- Vault versioning
+- Vault versioning (v1, v2 with migration support)
+- Automatic field detection and encryption
+- Secure key derivation with PBKDF2
 
 #### Authentication
 - Multi-factor authentication support
-- Token rotation
-- Session management
-- IP whitelisting
-- Audit logging
+- Automatic token rotation (new token per request)
+- Session management with expiration
+- IP whitelisting and geographic validation
+- Comprehensive audit logging
+- Request queuing to prevent race conditions
+- Failed attempt tracking and lockout
 
 #### Danger Zone Controls
 - **Block User Requests**: Emergency access control
@@ -249,12 +261,18 @@ Toggle advanced features for experienced users:
 - Detailed technical information
 - Advanced filtering capabilities
 - Direct API access
+- Extended machine grouping options (Grand Repository)
+- Advanced vault management features
+- Detailed system diagnostics
+- Raw API response viewing
 
 ### Multi-Language Support
-- Interface localization
-- Date/time formatting
-- Number formatting
-- Currency display
+Comprehensive internationalization with 9 supported languages:
+- **Languages**: English, Spanish, French, German, Italian, Portuguese, Russian, Chinese, Japanese
+- **Complete UI Translation**: All interface elements fully translated
+- **Regional Formatting**: Numbers, dates, and currency per locale
+- **Dynamic Language Switching**: Change language without reload
+- **Automatic Detection**: Based on browser/system settings
 
 ### Theme Support
 - Light mode (default)
@@ -267,6 +285,16 @@ Toggle advanced features for experienced users:
 - Live queue updates
 - Activity streaming
 - Resource monitoring
+
+### Desktop Application Features
+The Tauri-based desktop application provides enhanced capabilities:
+- **Native File Access**: Direct file system operations
+- **Python CLI Integration**: Execute CLI commands natively
+- **SSH Terminal**: Built-in terminal access to machines
+- **File Synchronization**: Rsync-based file transfers
+- **System Integration**: OS-specific optimizations
+- **Offline Capabilities**: Work without internet connection
+- **Cross-Platform**: Windows, macOS, and Linux support
 
 ## Integration Features
 

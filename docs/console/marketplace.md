@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 40
 ---
 
 # Template Marketplace
@@ -123,7 +123,7 @@ Each template card displays:
 
 ### Preview Template
 
-1. Click **Preview** on any template
+1. Click **Preview** on any template card
 2. Review includes:
    - Full description
    - System requirements
@@ -136,39 +136,55 @@ Each template card displays:
 
 ### Deploy Template
 
-1. Click **Deploy** on chosen template
-2. Select target repository
-3. Configure deployment:
-   - Repository name
-   - Environment settings
-   - Resource allocation
-   - Network configuration
-4. Review and confirm
-5. Monitor deployment progress
+1. Click **Deploy** on your chosen template
+2. The "Create Repo (Credentials)" dialog opens
+3. Configure deployment settings:
+   - **Team**: Select target team from dropdown
+   - **Repository Name**: Enter unique name for the repository
+   - **Machine**: Select target machine (must have Docker environment)
+   - **Size**: Specify storage allocation (e.g., 10G, 100G, 1T)
+   - **Access Password**: Set repository access password
+4. Template details are pre-selected and shown
+5. Advanced options available:
+   - Import/Export JSON configuration
+   - Raw JSON editor (Expert Mode)
+6. Click **Create** to deploy
+
+### Deployment Dialog Details
+
+The deployment dialog provides:
+- **Automatic template selection**: Shows selected template name
+- **Required fields validation**: Ensures all necessary fields are filled
+- **Team-based filtering**: Only shows machines for selected team
+- **Size validation**: Accepts standard size formats (G, T)
+- **Password generation**: Auto-generate secure passwords option
+- **Configuration backup**: Export JSON before deployment
 
 ### Deployment Process
 
 When deploying a template:
 
 1. **Validation**
-   - Check repository availability
-   - Verify resource limits
-   - Validate configuration
+   - Verify team permissions
+   - Check machine availability
+   - Validate repository name uniqueness
+   - Confirm resource limits
 
-2. **File Creation**
-   - Copy template files
-   - Apply custom settings
-   - Generate secrets
+2. **Repository Creation**
+   - Create repository on selected machine
+   - Apply vault configuration
+   - Set access credentials
 
-3. **Container Setup**
-   - Pull Docker images
-   - Create networks
-   - Configure volumes
+3. **Template Installation**
+   - Copy template files to repository
+   - Apply environment settings
+   - Configure Docker containers
 
-4. **Service Start**
+4. **Service Initialization**
+   - Pull required Docker images
+   - Create networks and volumes
    - Start containers
-   - Health checks
-   - Connection tests
+   - Run health checks
 
 ## Template Categories Details
 

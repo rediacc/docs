@@ -1,5 +1,5 @@
 ---
-sidebar_position: 10
+sidebar_position: 99
 ---
 
 # Console Documentation Summary
@@ -23,6 +23,9 @@ This page provides a comprehensive overview of all Rediacc Console documentation
 - **[Architecture Visualization](./architecture.md)** - Interactive system topology and relationships
 - **[System Settings](./system.md)** - User management, infrastructure configuration, and critical operations
 - **[Audit Logs](./audit.md)** - Activity tracking, compliance reporting, and security monitoring
+- **[Bridge Types](./bridge-types.md)** - Understanding Global vs Regular bridges and management models
+- **[User Sessions](./user-sessions.md)** - Monitoring and managing active user sessions
+- **[Vault Versioning](./vault-versioning.md)** - Configuration version control and rollback capabilities
 
 ### Reference
 - **[Known Issues](./known-issues.md)** - Common problems and their solutions

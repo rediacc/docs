@@ -1,12 +1,12 @@
 ---
-sidebar_position: 7
+sidebar_position: 30
 ---
 
 # System Settings
 
 The System Settings page is the central hub for managing your Rediacc installation, including user management, infrastructure configuration, and critical system operations.
 
-![System Settings - Users Management](./assets/screenshots/console-system-overview.png)
+![System Settings - Users Management](./assets/screenshots/console-system-settings-full.png)
 
 ## Overview
 
@@ -101,35 +101,96 @@ System Settings provides administrators with comprehensive control over:
 
 ### Permissions Tab
 
-Fine-grained permission control:
+The Permissions tab provides comprehensive management of permission groups and their assignments across the system.
 
-**Permission Types:**
-- Resource permissions
-- Action permissions
-- API access rights
-- Feature toggles
+**Header**: "Permission Groups - Manage permission groups and their assignments"
 
-**Management Options:**
-- Create custom permission groups
-- Assign permissions to users/teams
-- Audit permission usage
-- Bulk permission updates
+**Table Columns:**
+| Column | Description |
+|--------|-------------|
+| **Group Name** | Permission group identifier with 🔒 icon |
+| **Users** | Number of users in group with 👤 icon |
+| **Permissions** | Number of assigned permissions with 🔑 icon |
+| **Actions** | Management buttons |
+
+**Permission Groups:**
+
+1. **🔒 Administrators**
+   - Users: 1 (admin users)
+   - Permissions: 0 (full system access implied)
+   - Description: Complete system control
+
+2. **🔒 Bridges**
+   - Users: 2 (automated bridge accounts)
+   - Permissions: 5
+   - Description: Queue processing and machine access
+
+3. **🔒 Users**
+   - Users: 0
+   - Permissions: 45 (displayed as "4 5" in badges)
+   - Description: Standard user permissions
+
+**Group Actions:**
+- ➕ **Create Group**: Add new permission group
+- 🔑 **Permissions**: View/edit assigned permissions
+- 👤 **Assign User**: Add users to the group
+- 📊 **Trace**: View group activity history
+- 🗑️ **Delete**: Remove permission group
+
+**Key Features:**
+- Predefined system groups (Administrators, Bridges, Users)
+- Custom group creation capability
+- Granular permission assignment
+- User-group association management
+- Activity tracking for compliance
 
 ### User Sessions Tab
 
-Monitor active user sessions:
+The User Sessions tab provides comprehensive monitoring and management of all user sessions across the system. For detailed documentation, see [User Sessions Guide](./user-sessions.md).
 
-**Session Information:**
-- Active sessions list
-- Session duration
-- IP addresses
-- Session tokens
+**Header**: "User Sessions - Monitor and manage active user sessions"
 
-**Session Actions:**
-- Terminate sessions
-- Force re-authentication
-- View session history
-- Export session data
+**Session Statistics Cards:**
+Top row displays four key metrics in card format:
+
+1. **Total Sessions**: All sessions (active and inactive)
+2. **Active Sessions**: Currently connected users (green color #3f8600)
+3. **Unique Users**: Distinct users with sessions
+4. **Average Duration**: Mean session length in minutes
+
+**Session Management Interface:**
+- **Title**: "User Sessions" with 🔄 Refresh button
+- **Search**: Filter by email, IP address, or session name
+- **Table**: Comprehensive session listing
+
+**Table Columns:**
+| Column | Description |
+|--------|-------------|
+| **User** | Email with blue "Current Session" tag for your session |
+| **Session Name** | Session identifier |
+| **IP Address** | Source connection IP |
+| **User Agent** | Browser/OS information (truncated) |
+| **Status** | ✅ Active (green) or ❌ Inactive (red) |
+| **Created At** | Login timestamp (YYYY-MM-DD HH:mm:ss) |
+| **Last Activity** | Relative time (e.g., "5 minutes ago") |
+| **Duration** | Session length in minutes |
+| **Actions** | Terminate button (red, with confirmation) |
+
+**Key Features:**
+- Real-time session tracking via token rotation
+- Case-insensitive search across multiple fields
+- Sortable by creation date (newest first by default)
+- Pagination with adjustable page size (10/20/50/100)
+- Horizontal scroll for full table visibility (1500px)
+- Confirmation dialog for session termination
+- Special warning when terminating own session
+- Loading states for refresh operations
+
+**Security Considerations:**
+- Only administrators can access this tab
+- All termination actions are audit logged
+- Sessions use rotating tokens for security
+- IP tracking for security analysis
 
 ## Regions & Infrastructure
 

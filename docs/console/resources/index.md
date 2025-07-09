@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 20
 ---
 
 # Resource Management
@@ -100,6 +100,33 @@ The resource view supports multiple grouping options:
 5. **Repository**: Group by associated repositories
 6. **Status**: Group by operational status
 7. **Grand Repository**: Hierarchical repository view
+
+### Grand Repository Grouping
+
+The Grand Repository view provides a hierarchical organization of machines based on their repository relationships:
+
+**Features:**
+- Shows parent-child repository relationships
+- Displays machines grouped by repository hierarchy
+- Useful for microservices architectures
+- Helps visualize deployment dependencies
+
+**Use Cases:**
+- Managing multi-repository applications
+- Viewing service dependencies
+- Coordinating deployments across related services
+- Understanding infrastructure topology
+
+**Example Hierarchy:**
+```
+└── main-app (grand repository)
+    ├── frontend-service
+    │   └── web-server-01, web-server-02
+    ├── backend-service
+    │   └── api-server-01, api-server-02
+    └── database-service
+        └── db-server-01, db-server-02
+```
 
 ### Sorting
 

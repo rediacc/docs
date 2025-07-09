@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 70
 ---
 
 # API Reference
@@ -24,12 +24,32 @@ http://localhost:7322/api/StoredProcedure/
 
 ### Token-Based Authentication
 
-Rediacc uses a rotating token system where each API response includes a new token for the next request:
+Rediacc uses an advanced rotating token system where each API response includes a new token for the next request. This prevents token replay attacks and enhances security.
 
 ```http
 Headers:
 Rediacc-RequestToken: <your-current-token>
 Content-Type: application/json
+```
+
+### Request Queuing
+
+The API client implements request queuing to prevent race conditions during token rotation:
+
+```typescript
+// Implementation example
+class ApiClient {
+  private requestQueue: Promise<any> = Promise.resolve();
+  
+  async request(endpoint: string, data: any) {
+    // Queue requests to ensure sequential token updates
+    return this.requestQueue = this.requestQueue.then(async () => {
+      const response = await makeRequest(endpoint, data);
+      await updateStoredToken(response.nextRequestCredential);
+      return response;
+    });
+  }
+}
 ```
 
 ### Initial Authentication
@@ -76,6 +96,57 @@ Each API response includes a `nextRequestCredential` that MUST be used for the s
 :::warning
 Always update your token after each request. Failing to use the new token will result in authentication errors.
 :::
+
+## Encryption Middleware
+
+### Automatic Vault Encryption
+
+The API automatically encrypts any field containing "vault" in its name using client-side encryption:
+
+```typescript
+// Encryption middleware implementation
+const encryptionMiddleware = {
+  request: (config: AxiosRequestConfig) => {
+    if (config.data && masterPassword) {
+      config.data = encryptVaultFields(config.data, masterPassword);
+    }
+    return config;
+  },
+  
+  response: (response: AxiosResponse) => {
+    if (response.data && masterPassword) {
+      response.data = decryptVaultFields(response.data, masterPassword);
+    }
+    return response;
+  }
+};
+```
+
+### Vault Field Format
+
+**Before encryption (client-side):**
+```json
+{
+  "machineVault": {
+    "ip": "192.168.1.100",
+    "user": "deploy",
+    "privateKey": "-----BEGIN RSA PRIVATE KEY-----..."
+  }
+}
+```
+
+**After encryption (transmitted):**
+```json
+{
+  "machineVault": "encrypted:eyJpdiI6IjEyMzQ1Njc4OTAiLCJkYXRhIjoiYWJjZGVmLi4uIn0="
+}
+```
+
+### Encryption Standards
+- **Algorithm**: AES-256-GCM
+- **Key Derivation**: PBKDF2 with SHA-256
+- **IV**: Unique per encryption operation
+- **Format**: `encrypted:<base64-encoded-data>`
 
 ## Core Endpoints
 
@@ -1086,6 +1157,110 @@ if __name__ == '__main__':
     print(f"- Completed: {queue_status.get('completed', 0)}")
     print(f"- Failed: {queue_status.get('failed', 0)}")
 ```
+
+## Advanced API Features
+
+### Request/Response Flattening
+
+The API uses a flattened response format for easier parsing:
+
+```typescript
+// Raw database response
+[
+  { UserId: 1, Email: "user1@example.com", TeamId: 1, TeamName: "Default" },
+  { UserId: 1, Email: "user1@example.com", TeamId: 2, TeamName: "Production" }
+]
+
+// Flattened API response
+{
+  "users": [
+    {
+      "userId": 1,
+      "email": "user1@example.com",
+      "teams": ["Default", "Production"]
+    }
+  ]
+}
+```
+
+### Error Handling Patterns
+
+The API provides detailed error information:
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "INVALID_MACHINE",
+    "message": "Machine 'prod-01' not found in team 'Production'",
+    "field": "machineName",
+    "details": {
+      "availableMachines": ["prod-web-01", "prod-db-01"]
+    }
+  },
+  "nextRequestCredential": "..."
+}
+```
+
+### Batch Operations
+
+Many endpoints support batch operations for efficiency:
+
+```json
+// Create multiple queue items
+{
+  "items": [
+    {
+      "teamName": "Production",
+      "machineName": "prod-web-01",
+      "queueVault": { "function": "deploy" }
+    },
+    {
+      "teamName": "Production", 
+      "machineName": "prod-web-02",
+      "queueVault": { "function": "deploy" }
+    }
+  ]
+}
+```
+
+### Webhook Integration
+
+Configure webhooks for real-time events:
+
+```json
+{
+  "webhookUrl": "https://your-app.com/webhooks/rediacc",
+  "events": ["queue.completed", "queue.failed", "machine.offline"],
+  "secret": "your-webhook-secret"
+}
+```
+
+### Rate Limiting
+
+The API implements rate limiting to ensure fair usage:
+- **Authenticated requests**: 1000 per minute
+- **Queue polling (bridges)**: 60 per minute
+- **Bulk operations**: 10 per minute
+
+Headers indicate rate limit status:
+```http
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 998
+X-RateLimit-Reset: 1704067200
+```
+
+### API Versioning
+
+The API supports versioning through headers:
+```http
+Accept: application/vnd.rediacc.v2+json
+```
+
+Current versions:
+- **v1**: Legacy format (deprecated)
+- **v2**: Current stable version
+- **v3**: Beta features (opt-in)
 
 ## Additional Resources
 

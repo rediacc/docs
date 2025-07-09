@@ -14,7 +14,7 @@ Machines in Rediacc are:
 - Execution targets for queued tasks
 - Managed through secure SSH connections
 
-![Machine Management Interface](../assets/screenshots/console-resources-machines-overview.png)
+![Machine Management Interface](../assets/screenshots/console-resources-machines-full.png)
 
 ## Interface Overview
 
@@ -77,9 +77,9 @@ The vault stores sensitive SSH connection details:
 
 #### Advanced Options
 
-- **Automatically run setup after machine creation**: Checked by default
-- **Raw JSON Editor (Expert Mode)**: Direct JSON configuration
-- **Import/Export JSON**: Save or load configurations
+- **Automatically run setup after machine creation**: Checked by default - automatically configures SSH keys and validates connectivity
+- **Raw JSON Editor (Expert Mode)**: Direct JSON configuration for advanced users
+- **Import/Export JSON**: Save or load configurations for backup or templating
 
 :::info
 The datastore path is where Rediacc will store repositories, artifacts, and temporary files on the machine.
@@ -106,15 +106,56 @@ Rediacc supports two authentication methods:
 
 #### Grouping Options
 
-The interface provides radio button grouping options:
+The interface provides seven radio button grouping options for organizing your machine view. These are displayed horizontally below the team selector and allow you to restructure the table based on different organizational criteria:
 
-- 🖥️ **Machine**: Default view, individual machine listing
-- ☁️ **Bridge**: Group machines by their assigned bridge
-- 👥 **Team**: Organize by team ownership
-- 🌐 **Region**: Geographic or logical region grouping
-- 📦 **Repository**: Machines with specific repositories
-- 📊 **Status**: Group by operational status
-- 🌳 **Grand Repository**: Advanced hierarchical grouping
+##### 🖥️ Machine (Default)
+- **Description**: Individual machine listing without grouping
+- **Use Case**: Direct machine management and overview
+- **Display**: Flat table showing all machines individually
+- **Best For**: Quick access to specific machines
+
+##### ☁️ Bridge
+- **Description**: Groups machines by their assigned bridge processor
+- **Use Case**: Understanding bridge workload distribution
+- **Display**: Machines nested under bridge headers
+- **Visual**: Shows bridge icon (🔌) with machine count
+- **Best For**: Load balancing and bridge capacity planning
+
+##### 👥 Team
+- **Description**: Organizes machines by team ownership
+- **Use Case**: Multi-team environments with isolated resources
+- **Display**: Team headers with member machines below
+- **Best For**: Team resource auditing and access control
+
+##### 🌐 Region
+- **Description**: Geographic or logical region grouping
+- **Use Case**: Regional infrastructure management
+- **Display**: Region headers (📍) with assigned machines
+- **Best For**: Geographic distribution and compliance
+
+##### 📦 Repository
+- **Description**: Groups machines by deployed repositories
+- **Use Case**: Application-centric infrastructure view
+- **Display**: Repository names with associated machines
+- **Best For**: Deployment tracking and application management
+
+##### 📊 Status
+- **Description**: Groups by machine operational status
+- **Use Case**: Quickly identify healthy vs problematic machines
+- **Display**: Status categories (Active, Inactive, Error)
+- **Visual**: Color-coded status indicators
+- **Best For**: Operational monitoring and troubleshooting
+
+##### 🌳 Grand Repository (Expert Mode)
+- **Description**: Advanced hierarchical repository grouping
+- **Use Case**: Complex repository relationships and dependencies
+- **Display**: Tree structure showing repository hierarchies
+- **Availability**: Only visible when Expert Mode is enabled
+- **Best For**: Advanced deployment scenarios with nested repositories
+
+:::tip Expert Mode
+The Grand Repository grouping option only appears when Expert Mode is enabled in the user menu. This provides advanced visualization for complex repository structures.
+:::
 
 #### Table Features
 

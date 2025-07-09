@@ -1,22 +1,37 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Dashboard Guide
 
 The Rediacc Dashboard is your central command center, providing real-time insights into system health, resource utilization, queue operations, and organizational activity. This comprehensive guide explains each dashboard component and how to leverage them for effective infrastructure management.
 
-![Dashboard Overview](./assets/screenshots/console-dashboard-comprehensive.png)
+![Dashboard Overview](./assets/screenshots/console-dashboard-full.png)
 
 ## Dashboard Layout
 
 The dashboard is organized into distinct sections for optimal information visibility:
 
-1. **Top Row**: Account Health and Queue Overview
-2. **Middle Section**: Resource Usage Grid
-3. **Bottom Row**: Recent Activity, Queue Details, and Subscription Information
+1. **Header**: Navigation bar with notification bell and user controls
+2. **Top Row**: Account Health and Queue Overview
+3. **Middle Section**: Resource Usage Grid
+4. **Bottom Row**: Recent Activity, Queue Details, and Subscription Information
 
 ## Dashboard Components
+
+### Header Navigation
+
+The dashboard header provides quick access to key features:
+
+- **Notification Bell** (🔔): 
+  - Shows red badge with unread notification count
+  - Click to open dropdown with recent notifications
+  - Supports success, error, warning, and info notifications
+  - See [Notifications Guide](./notifications.md) for details
+
+- **Language Selector**: Switch between 9 supported languages
+- **Theme Toggle**: Switch between light/dark/auto themes  
+- **User Menu**: Access profile settings and logout
 
 ### 1. Account Health Widget
 
@@ -52,6 +67,19 @@ The widget displays four primary queue metrics with icon indicators:
 - **Processing** (🔄 Sync Icon): Tasks currently being executed
 - **Completed** (✅ Check Icon): Successfully finished tasks
 - **Failed** (❌ Exclamation Icon): Tasks that encountered errors
+
+#### Queue Alerts
+The widget displays real-time alerts when issues are detected:
+
+- **Stale Items Warning** (⚠️ Warning Icon):
+  - Shows when tasks haven't been updated within expected timeframe
+  - Displays count: "X stale items"
+  - Yellow alert banner
+
+- **Old Pending Items** (🕐 Field Time Icon):
+  - Shows when pending items are aging
+  - Displays age: "Oldest: Xh"
+  - Blue info banner
 
 #### Quick Actions
 - **Manage Button**: Direct navigation to the Queue Management page
@@ -155,25 +183,40 @@ Real-time counters for the current day's queue operations:
 - **Cancelled**: Manually terminated tasks
 - **Failed**: Tasks encountering errors
 
+#### Team Queue Status
+Shows aggregated queue metrics by team:
+- **Team Name**: Bold text displaying team identifier
+- **Status Tags**: Color-coded badges showing:
+  - 🟡 Warning tag with stale items count (if any)
+  - 🔵 Blue tag with pending items count
+  - ⚫ Processing tag with active items count
+
+Example: "Default Team | ⚠️ 2 stale | 5 pending | 1 active"
+
 #### Machine Queue Status Table
-Dynamic table showing task distribution across machines:
+Comprehensive table showing task distribution across machines:
 
 | Column | Description |
 |--------|-------------|
 | **Machine** | Server name identifier |
 | **Team** | Owning team assignment |
-| **Status** | "X pending • Y active" format |
+| **Status** | Color-coded tags showing queue state |
 
-Example: "rediacc12 | Private Team | 1 pending • 0 active"
+Status tags include:
+- **Stale** (Warning color): Tasks not updated recently
+- **Pending** (Blue): Waiting for processing
+- **Active** (Processing color): Currently executing
 
-#### Priority Breakdown Chart
+Example row: "server-01 | Production | ⚠️ 1 stale 🔵 3 pending ⚫ 2 active"
+
+#### Priority Breakdown (Elite/Premium Users)
 Visual distribution of queue items by priority level:
-- **Highest Priority** (Red): Critical, processed first
-- **High Priority** (Orange): Important, elevated processing
-- **Normal Priority** (Blue): Standard processing order
-- **Low Priority** (Green): Background tasks
+- **Highest Priority** (Red badge): Priority 1, processed first
+- **High Priority** (Orange badge): Priority 2, elevated processing
+- **Normal Priority** (Blue badge): Priority 3, standard processing
+- **Low Priority** (Gray badge): Priority 4-5, background tasks
 
-The chart shows both the priority label and count (e.g., "Low Priority ¹")
+Note: This section only appears for users with advanced analytics features enabled.
 
 ### 6. Subscription & Plans Widget
 
@@ -223,6 +266,15 @@ The dashboard includes several notification mechanisms:
 
 ### Visual Alerts
 - **Header Notification Bell**: Shows count of unread system notifications
+  - Red badge displays unread count
+  - Click to open notification dropdown
+  - Real-time updates via Redux state
+- **Subscription Expiring Soon**: Yellow warning banner when subscription expires within 30 days
+  - Shows exact days remaining
+  - Reminds about auto-renewal status
+- **Resource Limits Reached**: Red error banner when resources hit maximum capacity
+  - Lists number of resource types at limit
+  - Suggests plan upgrade
 - **Warning Banner**: Displays important system messages (e.g., "Your company has not enabled vault encryption yet")
 - **Widget Badges**: Numerical indicators on sections requiring attention
 
@@ -230,6 +282,9 @@ The dashboard includes several notification mechanisms:
 - **Superscript Numbers**: Count badges on widgets (e.g., "¹" on Subscription & Plans)
 - **Color-Coded Elements**: Visual priority through color usage
 - **Icon States**: Different icons for various states (check, warning, error)
+- **Queue Alerts**: Embedded alerts in Queue Overview widget
+  - Stale items warning (yellow) with count
+  - Old pending items info (blue) with age in hours
 
 ## Using the Dashboard Effectively
 
@@ -397,6 +452,26 @@ When issues persist:
    - Contact system administrator
    - Submit support ticket
    - Include collected information
+
+### Vault Encryption Warning
+
+If you see a warning banner stating "Your company has not enabled vault encryption yet. The master password you entered will not be used.":
+
+**What it means:**
+- Your organization hasn't activated client-side encryption
+- Sensitive data is encrypted server-side only
+- The master password field during login is ignored
+
+**Resolution:**
+1. Contact your system administrator
+2. Request vault encryption activation
+3. Once enabled, the warning will disappear
+4. Your master password will then be required for decrypting vault data
+
+**Security Impact:**
+- Data is still encrypted at rest
+- Server administrators could potentially access vault contents
+- Client-side encryption adds an extra security layer
    - Specify impact level
 
 ## Best Practices

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 50
 ---
 
 # Audit Logs
@@ -24,14 +24,15 @@ The audit system captures every significant action performed in your Rediacc ins
 
 #### Date Range
 Select the time period for audit log retrieval:
-- **Start Date**: Beginning of search period
-- **End Date**: End of search period
-- Default: Last 7 days
-- Maximum: Based on retention policy
+- **Start Date**: Beginning of search period (includes time)
+- **End Date**: End of search period (includes time)
+- **Default**: Last 7 days
+- **Format**: YYYY-MM-DD HH:MM:SS
+- **Calendar picker**: Available for easy date selection
 
 #### Entity Type Filter
 Filter logs by specific entity types:
-- All entities (default)
+- **All entities** (default)
 - Authentication
 - Request
 - Team
@@ -42,18 +43,25 @@ Filter logs by specific entity types:
 - Repository
 - Storage
 - Schedule
+- Company
+- Permission
+
+The dropdown provides type-ahead search for quick selection.
 
 #### Search Box
 Free-text search across all log fields:
-- User names
-- Entity names
+- User names/emails
+- Entity names and IDs
 - Action descriptions
 - Detail messages
 - IP addresses
+- Request IDs
+
+Search is case-insensitive and searches across all visible columns.
 
 #### Action Buttons
-- **Refresh**: Update log display with latest entries
-- **Export**: Download logs in various formats
+- **🔄 Refresh**: Update log display with latest entries
+- **📥 Export**: Download logs (dropdown menu with format options)
 
 ### Log Table
 
@@ -63,31 +71,37 @@ The audit log table displays:
 
 1. **Timestamp**
    - Exact date and time of action
-   - Sortable (click header)
+   - Sortable (click header to sort ascending/descending)
    - Format: YYYY-MM-DD HH:MM:SS
+   - Shows in local timezone
 
 2. **Action**
-   - Icon indicating action type
-   - Action description
-   - Filterable via filter button
+   - Icon indicating action type (success ✅, info ℹ️, warning ⚠️, error ❌)
+   - Action description in UPPERCASE
+   - Filterable via filter button 🔽
+   - Common actions: TOKEN VALIDATED, AUTHENTICATION REQUEST CREATED, etc.
 
 3. **Entity Type**
    - Type of object affected
-   - Filterable via filter button
+   - Filterable via filter button 🔽
+   - Color-coded badges for different types
 
 4. **Entity Name**
    - Specific entity identifier
-   - Links to entity details (where applicable)
+   - Format varies by type (e.g., "Authentication #4", "Web Session")
+   - May include entity ID or descriptive name
 
 5. **User**
    - Who performed the action
-   - Email or system identifier
-   - Filterable via filter button
+   - Email address for users
+   - System identifier for automated actions
+   - Filterable via filter button 🔽
 
 6. **Details**
-   - Additional context
-   - Technical details
-   - Error messages (if applicable)
+   - Additional context and parameters
+   - Technical details in readable format
+   - May include: IP addresses, old/new values, error messages
+   - Truncated if too long (hover for full text)
 
 ## Action Types
 
@@ -303,16 +317,17 @@ Set up alerts for:
 ## Pagination
 
 The audit log interface includes:
-- 20 logs per page (default)
-- Page navigation controls
-- Jump to specific page
-- Total record count
+- **Default page size**: 23 logs per page
+- **Page navigation controls**: Bottom of the table
+- **Current page indicator**: Highlighted page number
+- **Total record count**: "Showing X-Y of Z logs"
 
 Navigation options:
-- Previous/Next buttons
-- Page number links
-- Quick jump (5 pages)
-- First/Last page
+- **Previous/Next buttons**: Navigate one page at a time
+- **Page number links**: Direct jump to specific pages (1-5 shown)
+- **Quick jump**: "..." button jumps 5 pages forward
+- **Last page shortcut**: Shows last page number for quick access
+- **Keyboard navigation**: Use arrow keys when focused on pagination
 
 ## Performance Tips
 
