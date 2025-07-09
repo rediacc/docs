@@ -34,7 +34,7 @@ To access the console, you'll need:
 
 1. **Email**: Your registered email address
 2. **Password**: Your account password
-3. **Client-Side Encryption Password**: Used for vault encryption (optional based on company settings)
+3. **Client-Side Encryption Password**: Used for vault encryption (required for secure data access)
 
 
 ### First-Time Login
@@ -49,27 +49,34 @@ When logging in for the first time:
 
 ## Navigation
 
-The console uses a sidebar navigation system with two main sections:
+The console uses a collapsible sidebar navigation system with two main sections:
 
 ### Primary Navigation
-- **Resources**: Infrastructure and resource management
+- **Resources**: Infrastructure and resource management (Machines, Repositories, Storage, Schedules)
 - **Marketplace**: Deploy pre-configured application templates
-- **Queue**: Monitor and manage task queues
-- **Audit**: View system audit logs
+- **Queue**: Monitor and manage task queues with advanced filtering
+- **Audit**: View detailed system audit logs and activity history
 
 ### System Navigation
-- **Architecture**: System architecture configuration
-- **System**: System-wide settings and configuration
+- **Architecture**: System architecture configuration for regions and bridges
+- **System**: System-wide settings including users, teams, permissions, and user sessions
+
+### Additional UI Features
+- **Expert Mode Toggle**: Located in the sidebar, enables advanced features and detailed technical information
+- **User Profile Section**: Displays your email and company name
+- **Header Controls**: Language selector, theme toggle (light/dark), and notifications bell
 
 ## Dashboard Overview
 
 Upon login, you'll see the main dashboard which provides:
 
-- **Account Health**: Overall system status and resource limits
-- **Queue Overview**: Real-time queue statistics
-- **Resource Usage**: Visual representation of resource consumption
-- **Recent Activity**: Latest audit log entries
-- **Subscription & Plans**: Current subscription details and available plans
+- **Account Health**: Overall system status indicator showing resource limit warnings
+- **Queue Overview**: Real-time statistics for Pending, Processing, Completed, and Failed tasks
+- **Resource Usage**: Visual progress bars showing consumption vs. limits for:
+  - Bridges, Machines, Regions, Repositories, Schedules, Storage, Teams, and Users
+- **Recent Activity**: Latest audit log entries with severity indicators
+- **Queue Details**: Machine-specific queue status and priority breakdown
+- **Subscription & Plans**: Current subscription tier, active licenses, and billing information
 
 ## Key Features
 

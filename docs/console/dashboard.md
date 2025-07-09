@@ -68,19 +68,6 @@ The widget displays four primary queue metrics with icon indicators:
 - **Completed** (✅ Check Icon): Successfully finished tasks
 - **Failed** (❌ Exclamation Icon): Tasks that encountered errors
 
-#### Queue Alerts
-The widget displays real-time alerts when issues are detected:
-
-- **Stale Items Warning** (⚠️ Warning Icon):
-  - Shows when tasks haven't been updated within expected timeframe
-  - Displays count: "X stale items"
-  - Yellow alert banner
-
-- **Old Pending Items** (🕐 Field Time Icon):
-  - Shows when pending items are aging
-  - Displays age: "Oldest: Xh"
-  - Blue info banner
-
 #### Quick Actions
 - **Manage Button**: Direct navigation to the Queue Management page
 - **Real-time Updates**: Counts refresh automatically as queue state changes
@@ -151,11 +138,12 @@ Each activity entry displays:
 **Authentication Events:**
 - ℹ️ **TOKEN VALIDATED**: API token verification
   - Shows user email and token status
-  - Indicates if using old vs new token
+  - Indicates if using old vs new token (IsOldToken: 1)
   
 - ✅ **AUTHENTICATION REQUEST CREATED**: New session initiated
-  - Displays session name and permissions
-  - Shows expiration timeframe
+  - Displays request name (e.g., "Web Session")
+  - Shows permissions group (e.g., "Administrators")
+  - Indicates expiration timeframe (e.g., "24 hours")
 
 **Configuration Events:**
 - 📝 **VAULT UPDATED**: Configuration changes
@@ -183,40 +171,29 @@ Real-time counters for the current day's queue operations:
 - **Cancelled**: Manually terminated tasks
 - **Failed**: Tasks encountering errors
 
-#### Team Queue Status
-Shows aggregated queue metrics by team:
-- **Team Name**: Bold text displaying team identifier
-- **Status Tags**: Color-coded badges showing:
-  - 🟡 Warning tag with stale items count (if any)
-  - 🔵 Blue tag with pending items count
-  - ⚫ Processing tag with active items count
-
-Example: "Default Team | ⚠️ 2 stale | 5 pending | 1 active"
-
 #### Machine Queue Status Table
-Comprehensive table showing task distribution across machines:
+Displays current queue status for each machine:
 
 | Column | Description |
 |--------|-------------|
-| **Machine** | Server name identifier |
+| **Machine** | Server name identifier with icon |
 | **Team** | Owning team assignment |
-| **Status** | Color-coded tags showing queue state |
+| **Status** | Shows pending and active task counts |
 
-Status tags include:
-- **Stale** (Warning color): Tasks not updated recently
-- **Pending** (Blue): Waiting for processing
-- **Active** (Processing color): Currently executing
+Status format: "X pending Y active" where:
+- X = number of tasks waiting for processing
+- Y = number of tasks currently being executed
 
-Example row: "server-01 | Production | ⚠️ 1 stale 🔵 3 pending ⚫ 2 active"
+Example row: "rediacc12 | Private Team | 1 pending 0 active"
 
-#### Priority Breakdown (Elite/Premium Users)
-Visual distribution of queue items by priority level:
-- **Highest Priority** (Red badge): Priority 1, processed first
-- **High Priority** (Orange badge): Priority 2, elevated processing
-- **Normal Priority** (Blue badge): Priority 3, standard processing
-- **Low Priority** (Gray badge): Priority 4-5, background tasks
+#### Priority Breakdown
+Visual representation of queue items organized by priority level with colored bars:
+- **Highest Priority**: Priority 1 tasks (most urgent) - Red bar
+- **High Priority**: Priority 2 tasks - Orange bar
+- **Normal Priority**: Priority 3 tasks (default) - Blue bar
+- **Low Priority**: Priority 4-5 tasks - Gray bar
 
-Note: This section only appears for users with advanced analytics features enabled.
+The number of items at each priority level is shown as a superscript badge next to the priority label.
 
 ### 6. Subscription & Plans Widget
 
@@ -265,26 +242,19 @@ Quick comparison of upgrade/downgrade options:
 The dashboard includes several notification mechanisms:
 
 ### Visual Alerts
-- **Header Notification Bell**: Shows count of unread system notifications
-  - Red badge displays unread count
+- **Header Notification Bell**: Shows system notifications
   - Click to open notification dropdown
-  - Real-time updates via Redux state
-- **Subscription Expiring Soon**: Yellow warning banner when subscription expires within 30 days
-  - Shows exact days remaining
-  - Reminds about auto-renewal status
-- **Resource Limits Reached**: Red error banner when resources hit maximum capacity
-  - Lists number of resource types at limit
-  - Suggests plan upgrade
-- **Warning Banner**: Displays important system messages (e.g., "Your company has not enabled vault encryption yet")
+  - Real-time updates for important system events
 - **Widget Badges**: Numerical indicators on sections requiring attention
 
 ### Status Indicators
-- **Superscript Numbers**: Count badges on widgets (e.g., "¹" on Subscription & Plans)
+- **Superscript Numbers**: Count badges on widgets (e.g., "¹" on Subscription & Plans showing active items)
 - **Color-Coded Elements**: Visual priority through color usage
 - **Icon States**: Different icons for various states (check, warning, error)
-- **Queue Alerts**: Embedded alerts in Queue Overview widget
-  - Stale items warning (yellow) with count
-  - Old pending items info (blue) with age in hours
+- **Progress Bars**: Visual representation of resource utilization with color coding:
+  - Green: Healthy utilization
+  - Yellow: Approaching limits
+  - Red: Critical capacity
 
 ## Using the Dashboard Effectively
 

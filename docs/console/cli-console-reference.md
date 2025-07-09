@@ -495,7 +495,7 @@ done
 
 ## Next Steps
 
-- Review [CLI documentation](/cli/) for complete command reference
-- Set up [CLI installation](/cli/installation) on your workstation
+- Review [CLI documentation](../cli/introduction) for complete command reference
+- Set up [CLI installation](../cli/installation) on your workstation
 - Create automation scripts for repetitive tasks
 - Consider [API integration](./api-integration.md) for custom applications

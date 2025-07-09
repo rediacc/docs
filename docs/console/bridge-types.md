@@ -8,15 +8,21 @@ Understanding the different bridge types and management models is crucial for op
 
 ## Bridge Types
 
+Bridges are displayed with distinct icons in the Console to help identify their type at a glance.
+
 ### Global Bridges
 
 Global bridges are designed to handle tasks across multiple regions and provide centralized processing capabilities.
+
+**Visual Indicator:** 🌐 Cloud-server icon
+**Display Format:** "Global Bridges" in bridge selection dropdowns
 
 **Characteristics:**
 - Can process tasks from any region
 - Ideal for centralized deployments
 - Provides load balancing across regions
 - Suitable for organizations with multi-region infrastructure
+- Often used as default fallback option
 
 **Use Cases:**
 - Cross-region backup operations
@@ -28,11 +34,15 @@ Global bridges are designed to handle tasks across multiple regions and provide 
 
 Regular bridges are region-specific and designed for localized task processing.
 
+**Visual Indicator:** 🔌 API icon
+**Display Format:** Custom bridge name (e.g., "My Bridge")
+
 **Characteristics:**
 - Process tasks only within their assigned region
 - Lower latency for regional operations
 - Better for compliance with data residency requirements
 - Simplified network configuration
+- Can be assigned to specific machines
 
 **Use Cases:**
 - Region-specific backups
@@ -45,6 +55,9 @@ Regular bridges are region-specific and designed for localized task processing.
 ### Cloud-Managed Bridges
 
 Cloud-managed bridges are hosted and maintained by Rediacc infrastructure.
+
+**Visual Indicator:** 💻 Desktop icon with "Cloud-Managed" label
+**System Display:** Shows in the Management column of the bridges table
 
 **Benefits:**
 - No infrastructure management required
@@ -66,6 +79,9 @@ Cloud-managed bridges are hosted and maintained by Rediacc infrastructure.
 ### Self-Managed Bridges
 
 Self-managed bridges run on your own infrastructure, giving you complete control.
+
+**Visual Indicator:** 💻 Desktop icon with "Self-Managed" label
+**System Display:** Shows in the Management column of the bridges table
 
 **Benefits:**
 - Full control over infrastructure

@@ -18,7 +18,22 @@ const sidebars = {
   // Custom organized sidebar
   tutorialSidebar: [
     'intro',
-    'web-application',
+    {
+      type: 'category',
+      label: 'Console',
+      collapsed: false,
+      items: [
+        'console/introduction',
+        'console/quick-start',
+        'console/authentication',
+        'console/dashboard',
+        'console/resources/index',
+        'console/queue',
+        'console/system',
+        'console/api-integration',
+        'console/troubleshooting-guide',
+      ],
+    },
     {
       type: 'category',
       label: 'Backup Solutions',

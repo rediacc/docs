@@ -792,6 +792,3 @@ tar -tf backup.tar.gz | \
 ## Next Steps
 
 - [Security Hardening](./security-hardening.md)
-- [Performance Tuning](./performance-tuning.md)
-- [Disaster Recovery Planning](./disaster-recovery.md)
-- [Compliance and Auditing](./compliance-auditing.md)

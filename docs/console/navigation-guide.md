@@ -12,7 +12,7 @@ This guide helps you understand how the Console documentation is organized and f
 The Console documentation follows a logical progression from basic concepts to advanced topics:
 
 ### 📍 Starting Point
-- **[Overview](./index)** - Start here for an introduction to the documentation
+- **[Overview](.)** - Start here for an introduction to the documentation
 - **[Introduction](./introduction)** - Core concepts and architecture
 - **[Quick Start](./quick-start)** - Get up and running quickly
 - **[Authentication](./authentication)** - Login and security
@@ -52,7 +52,7 @@ Learning resources and troubleshooting:
 ### By User Type
 
 #### New Users
-1. Start with [Overview](./index)
+1. Start with [Overview](.)
 2. Read [Introduction](./introduction)
 3. Follow [Quick Start](./quick-start)
 4. Try [Getting Started Tutorial](./tutorials/getting-started)
@@ -70,7 +70,7 @@ Learning resources and troubleshooting:
 #### Developers
 - [API Reference](./api-reference) - Integration endpoints
 - [Architecture](./architecture) - System design
-- [CLI Documentation](../cli/) - Command-line tools
+- [CLI Documentation](../cli/introduction) - Command-line tools
 
 ### By Task
 

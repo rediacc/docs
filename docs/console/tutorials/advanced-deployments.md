@@ -593,4 +593,3 @@ Document every deployment:
 - [Set Up Monitoring](./monitoring-setup.md)
 - [Configure Automated Backups](./backup-strategies.md)
 - [Implement Security Hardening](./security-hardening.md)
-- [Optimize Performance](./performance-tuning.md)

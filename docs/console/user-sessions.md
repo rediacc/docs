@@ -4,24 +4,27 @@ sidebar_position: 14
 
 # User Sessions
 
-The User Sessions feature in the Rediacc Console provides administrators with comprehensive visibility and control over active user sessions across the platform. This feature is accessible through the System page's User Sessions tab.
+The User Sessions feature in the Rediacc Console provides administrators with comprehensive visibility and control over active user sessions across the platform. This powerful administrative tool helps maintain security, troubleshoot access issues, and ensure proper resource utilization.
 
 ## Overview
 
 The User Sessions management system allows administrators to:
-- Monitor all user sessions with real-time statistics
-- View detailed session information including IP addresses and user agents
-- Track session duration and activity patterns
-- Terminate individual sessions for security purposes
-- Search and filter sessions efficiently
+- Monitor all active console and API sessions in real-time
+- View detailed session information including authentication methods
+- Track session duration and last activity timestamps
+- Identify concurrent logins and service accounts
+- Terminate sessions for security or maintenance purposes
+- Analyze usage patterns and access trends
 
 ## Accessing User Sessions
 
 To access the User Sessions feature:
 
-1. Navigate to **System** in the sidebar (gear icon)
-2. Click on the **User Sessions** tab
-3. View the comprehensive session dashboard
+1. Navigate to **System** in the sidebar (⚙️ setting icon)
+2. Click on the **User Sessions** tab (🖥️ desktop icon)
+3. View the comprehensive session monitoring interface
+
+**Required Permissions**: Administrator role or User Management permissions
 
 ## Session Dashboard
 

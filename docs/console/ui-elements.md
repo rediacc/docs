@@ -211,7 +211,7 @@ Used for related content sections:
 - Simplified tables
 - Touch-optimized controls
 
-### Mobile View (<768px)
+### Mobile View (Less than 768px)
 - Hamburger menu navigation
 - Single column layouts
 - Card-based views

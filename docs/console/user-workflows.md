@@ -25,7 +25,7 @@ After login, familiarize yourself with the dashboard:
 - **Resource Usage**: Center grid displaying resource utilization
 - **Recent Activity**: Bottom-left feed of system events
 
-![Dashboard Overview](./assets/screenshots/console-dashboard-main.png)
+![Dashboard Overview](./assets/screenshots/console-dashboard-overview.png)
 
 ## Infrastructure Management Workflow
 
@@ -36,7 +36,7 @@ After login, familiarize yourself with the dashboard:
 2. Select your team from the dropdown (e.g., "Private Team")
 3. The Machines tab is selected by default
 
-![Resources Page](./assets/screenshots/console-resources-machines-page.png)
+![Resources Page](./assets/screenshots/console-resources-machines.png)
 
 #### Step 2: Add Machine Configuration
 1. Click **Add Machine** button
@@ -45,7 +45,7 @@ After login, familiarize yourself with the dashboard:
    - **Bridge**: Choose the bridge for task processing
    - **Machine Name**: Enter a unique identifier
 
-![Add Machine Dialog](./assets/screenshots/console-add-machine-dialog-full.png)
+![Add Machine Dialog](./assets/screenshots/console-add-machine-dialog.png)
 
 #### Step 3: Configure SSH Access
 In the Vault Configuration section:
@@ -90,7 +90,7 @@ From the Resources page:
 1. Click **Queue** in the sidebar
 2. View the statistics bar showing task distribution
 
-![Queue Management](./assets/screenshots/console-queue-management-page.png)
+![Queue Management](./assets/screenshots/console-queue-management.png)
 
 #### Step 2: Filter Queue Items
 Use the filter controls:
@@ -146,7 +146,7 @@ Each row shows:
    - Permission Group
    - Last Active time
 
-![System Settings](./assets/screenshots/console-system-settings-page.png)
+![System Settings](./assets/screenshots/console-system-settings.png)
 
 #### Step 2: Create New User
 1. Click **Create User** button

@@ -137,10 +137,10 @@ This page provides a comprehensive overview of all Rediacc Console documentation
 
 ## Next Steps for Users
 
-1. **New Users**: Start with [Getting Started Tutorial](./tutorials/getting-started.md)
-2. **Administrators**: Review [System Management](./system.md) and [Monitoring Setup](./tutorials/monitoring-setup.md)
-3. **DevOps Teams**: Explore [Advanced Deployments](./tutorials/advanced-deployments.md)
-4. **Support Teams**: Reference [Common Errors](./errors/common-errors.md)
+1. **New Users**: Start with [Getting Started Tutorial](../tutorials/getting-started.md)
+2. **Administrators**: Review [System Management](../system.md) and [Monitoring Setup](../tutorials/monitoring-setup.md)
+3. **DevOps Teams**: Explore [Advanced Deployments](../tutorials/advanced-deployments.md)
+4. **Support Teams**: Reference [Common Errors](../errors/common-errors.md)
 
 ## Documentation Maintenance
 

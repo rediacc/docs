@@ -138,19 +138,13 @@ Based on your role and experience level:
 
 Ready to get started? Here are your next steps:
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-  <div style="border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
-    <h3>🎯 Quick Start</h3>
-    <p>New to Rediacc? Begin with our Quick Start Guide to set up your first resources.</p>
-    <a href="./quick-start">Get Started →</a>
-  </div>
-  
-  <div style="border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
-    <h3>📖 Learn More</h3>
-    <p>Understand the platform architecture and core concepts.</p>
-    <a href="./introduction">Read Introduction →</a>
-  </div>
-</div>
+### 🎯 Quick Start
+New to Rediacc? Begin with our Quick Start Guide to set up your first resources.
+[Get Started →](./quick-start)
+
+### 📖 Learn More
+Understand the platform architecture and core concepts.
+[Read Introduction →](./introduction)
 
 ---
 

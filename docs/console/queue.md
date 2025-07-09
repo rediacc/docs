@@ -52,10 +52,12 @@ Powerful filtering options to find exactly what you need:
 #### Task ID Search
 - **Input**: Text field with search icon
 - **Placeholder**: "Filter by Task ID (GUID format)"
-- **Format**: Full or partial GUID (e.g., "f0103610" or complete UUID like "f0103610-8fef-4488-8cc8-60fc98bdf303")
+- **Format**: Full or partial GUID matching
+  - Partial: "f0103610"
+  - Complete: "f0103610-8fef-4488-8cc8-60fc98bdf303"
 - **Behavior**: Real-time filtering as you type
 - **Case-insensitive**: Matches upper or lowercase
-- **Note**: Task IDs are standard GUIDs/UUIDs in the format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+- **Copy Feature**: Each task ID in the table has a copy button for easy sharing
 
 ### Middle Section: Options and Actions
 
@@ -76,18 +78,17 @@ Three toggle options for fine-tuning your view:
 
 A horizontal bar displaying real-time task counts with visual indicators:
 
-| Status | Icon | Description | Color |
-|--------|------|-------------|--------|
-| **Total** | ⚡ | All tasks matching filters | Dark |
-| **Pending** | 🕐 | Awaiting bridge pickup | Orange |
-| **Assigned** | - | Bridge claimed, pre-execution | Blue |
-| **Processing** | ▶️ | Currently running | Blue |
-| **Completed** | ✅ | Successfully finished | Green |
-| **Failed** | ❌ | Encountered errors | Red |
-| **Cancelling** | ▶️ | Stop signal sent | Yellow |
-| **Cancelled** | ⭕ | Successfully stopped | Gray |
-| **Stale** | ⚠️ | No updates >15 minutes | Yellow |
-| **Stale_Pending** | ⚠️ | Pending with no bridge pickup | Yellow/Orange |
+| Status | Icon | Description | Color | Count Example |
+|--------|------|-------------|--------|---------------|
+| **Total** | ⚡ | All tasks matching filters | Dark | 3 |
+| **Pending** | 🕐 | Awaiting bridge pickup | Orange | 1 |
+| **Assigned** | - | Bridge claimed, pre-execution | Blue | 0 |
+| **Processing** | ▶️ | Currently running | Blue | 0 |
+| **Completed** | ✅ | Successfully finished | Green | 2 |
+| **Failed** | ❌ | Encountered errors | Red | 0 |
+| **Cancelling** | ▶️ | Stop signal sent | Yellow | 0 |
+| **Cancelled** | ⭕ | Successfully stopped | Gray | 0 |
+| **Stale** | ⚠️ | No updates (configurable threshold) | Yellow | 0 |
 
 Each counter updates in real-time as tasks change state.
 
@@ -105,7 +106,7 @@ Displays all non-terminal tasks including:
 - **PROCESSING**: Currently executing on target machine
 - **CANCELLING**: Termination signal sent, awaiting confirmation
 
-**Info Banner**: "This section displays all active tasks including pending items waiting for assignment, tasks being processed by machines, and tasks in the process of being cancelled."
+**Info Banner**: Blue information banner that can be dismissed with an X button: "This section displays all active tasks including pending items waiting for assignment, tasks being processed by machines, and tasks in the process of being cancelled."
 
 ### Completed Tab  
 **Badge**: Shows count of completed tasks (e.g., "Completed ²")
@@ -143,23 +144,25 @@ The main queue table displays comprehensive task information:
 | Column | Description | Example |
 |--------|-------------|---------|
 | **Task ID** | Unique GUID with copy button | `f0103610-8fef-4488...` 📋 |
-| **Status** | Icon + state label | 🕐 PENDING |
-| **Priority** | Task urgency level | Low, Normal, High, Highest |
-| **Age** | Time since creation | 5h 14m |
+| **Status** | Icon + state label | ⚠️ STALE_PENDING |
+| **Priority** | Task urgency level (sortable) | Low, Normal, High, Highest |
+| **Age** | Time since creation (sortable) | 14h 10m |
 | **Team** | Owning organization | Private Team |
 | **Machine** | Target server with icon | 💻 rediacc12 |
 | **Region** | Geographic zone with icon | 🌍 Default Region |
 | **Bridge** | Processing node with icon | 🔌 My Bridge |
-| **Response** | Has output data | Yes/No |
-| **Retries** | Attempt counter | 0/2 |
+| **Response** | Has output data | No |
+| **Retries** | Attempt counter (sortable) | 0/2 |
 | **Created By** | Task originator | admin@rediacc.io |
-| **Created** | Full timestamp | 2025-07-08 12:58:39 |
+| **Age** | Human-readable duration | 14h 10m |
+| **Created** | Full timestamp (sortable) | 2025-07-08 12:58:39 |
 | **Actions** | Available operations | 📜 Trace ⭕ Cancel |
 
 ### Visual Indicators
 
 **Status Icons**:
 - 🕐 Clock = Pending
+- ⚠️ Warning = Stale/Stale_Pending
 - 🔄 Sync = Processing  
 - ✅ Check = Completed
 - ❌ Cross = Failed
@@ -296,9 +299,9 @@ Click column headers to sort by:
 
 #### Healthy Queue Metrics
 - ✅ **Completion Rate**: >95% success
-- ✅ **Queue Depth**: <100 pending items
+- ✅ **Queue Depth**: Less than 100 pending items
 - ✅ **Processing Time**: Consistent with SLAs
-- ✅ **Retry Rate**: <5% of tasks
+- ✅ **Retry Rate**: Less than 5% of tasks
 - ✅ **Stale Items**: Zero
 - ✅ **Bridge Utilization**: 40-80%
 

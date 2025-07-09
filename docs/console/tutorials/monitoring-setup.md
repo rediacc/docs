@@ -666,5 +666,3 @@ Retention Policy:
 
 - [Backup Strategies](./backup-strategies.md)
 - [Security Hardening](./security-hardening.md)
-- [Performance Tuning](./performance-tuning.md)
-- [Disaster Recovery Planning](./disaster-recovery.md)
