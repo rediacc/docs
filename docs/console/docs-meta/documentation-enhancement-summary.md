@@ -15,8 +15,8 @@ This document summarizes the documentation enhancements made to the Rediacc Cons
 
 ## Documentation Created
 
-### 1. Desktop Integration Documentation (`desktop-integration.md`)
-- **Purpose**: Document the Tauri-based desktop application features
+### 1. CLI Integration Documentation (`cli-integration.md`)
+- **Purpose**: Document the command-line interface integration
 - **Key Topics**:
   - Native file system access
   - Python CLI integration
@@ -54,7 +54,7 @@ This document summarizes the documentation enhancements made to the Rediacc Cons
   - Bridge types (Global vs Regional, Cloud-managed vs Self-managed)
   - Vault encryption specifics
   - Authentication security features
-  - Desktop application features
+  - CLI integration features
   - Storage provider list (40+ providers)
 
 ### 2. API Reference (`api-reference.md`)
@@ -78,7 +78,7 @@ This document summarizes the documentation enhancements made to the Rediacc Cons
 ## Key Features Documented
 
 ### Previously Undocumented Features:
-1. **Desktop Integration**: Tauri framework capabilities
+1. **CLI Integration**: Command-line tool capabilities
 2. **Token Rotation**: Automatic per-request token updates
 3. **Client-Side Encryption**: AES-256-GCM implementation
 4. **Multi-Language Support**: 9 languages with full UI translation

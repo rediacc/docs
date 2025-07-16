@@ -286,12 +286,12 @@ Comprehensive internationalization with 9 supported languages:
 - Activity streaming
 - Resource monitoring
 
-### Desktop Application Features
-The Tauri-based desktop application provides enhanced capabilities:
-- **Native File Access**: Direct file system operations
-- **Python CLI Integration**: Execute CLI commands natively
-- **SSH Terminal**: Built-in terminal access to machines
-- **File Synchronization**: Rsync-based file transfers
+### CLI Integration
+The Rediacc Console works seamlessly with CLI tools for enhanced capabilities:
+- **Local Operations**: Use rediacc-cli for API operations
+- **File Synchronization**: Rsync-based transfers via rediacc-cli-sync
+- **SSH Terminal**: Terminal access via rediacc-cli-term
+- **Cross-Platform**: Works on Linux, macOS, and Windows
 - **System Integration**: OS-specific optimizations
 - **Offline Capabilities**: Work without internet connection
 - **Cross-Platform**: Windows, macOS, and Linux support

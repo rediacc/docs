@@ -19,7 +19,7 @@ This plan outlines the documentation enhancements for the Rediacc Console based 
 4. **Marketplace Templates** - Individual template details and deployment process
 5. **Advanced Features** - Expert mode capabilities, grouping options
 6. **Vault Encryption** - Detailed explanation of client-side encryption
-7. **Desktop Application** - Tauri-based desktop app features
+7. **CLI Tools** - Command-line interface documentation
 8. **Internationalization** - Language switching and supported languages
 9. **Real-time Updates** - WebSocket functionality for live data
 
@@ -41,12 +41,12 @@ This plan outlines the documentation enhancements for the Rediacc Console based 
 - Session details (IP, user agent, duration)
 - Security implications
 
-#### desktop-integration.md
-- Tauri desktop application features
-- Native file system access
-- Python CLI integration
+#### cli-integration.md
+- CLI tools overview
+- rediacc-cli usage
+- rediacc-cli-sync for file transfers
+- rediacc-cli-term for SSH access
 - Cross-platform support
-- Installation and setup
 
 #### rclone-import.md
 - RClone import wizard functionality
@@ -76,7 +76,7 @@ This plan outlines the documentation enhancements for the Rediacc Console based 
 
 #### features-overview.md
 - Add notification system
-- Include desktop app capabilities
+- Include CLI integration capabilities
 - Document all 51 storage providers
 - Add internationalization details
 
@@ -93,7 +93,7 @@ This plan outlines the documentation enhancements for the Rediacc Console based 
 - User Sessions tab with active sessions
 - Architecture visualization in different modes
 - Marketplace with category organization
-- Desktop app specific features
+- CLI tool integration examples
 - Language selector dropdown
 - Expert mode exclusive features
 
@@ -119,7 +119,7 @@ This plan outlines the documentation enhancements for the Rediacc Console based 
 
 2. **Medium Priority** (Complete second)
    - Architecture page documentation
-   - Desktop integration guide
+   - CLI integration guide
    - Vault versioning details
 
 3. **Low Priority** (Complete last)

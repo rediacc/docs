@@ -96,10 +96,10 @@ During testing, I discovered several features that are implemented but not fully
    - Allows importing storage configurations from rclone
    - Not documented in current files
 
-6. **Desktop-specific Features**
-   - DesktopSettings component
-   - LocalCommandModal for desktop app integration
-   - Enhanced capabilities when running in Tauri desktop app
+6. **CLI Integration Features**
+   - LocalCommandModal for CLI integration
+   - Enhanced capabilities when using CLI tools
+   - Integration with rediacc-cli suite
 
 ### 📝 Documentation Improvements Needed
 

@@ -16,7 +16,7 @@ This report documents a comprehensive validation of the Rediacc Console document
 1. **Documentation is largely accurate** with only minor discrepancies found
 2. **Storage provider count was outdated** - Updated from "40+" to "51" providers
 3. **Language support claim is accurate** - Confirmed 9 languages
-4. **Desktop app exists and is fully functional** - Tauri-based application confirmed
+4. **CLI tools provide local integration** - Command-line tools available for system integration
 5. **UI matches documentation** - Screenshots validate current interface
 
 ## Validation Process
@@ -43,7 +43,7 @@ Successfully tested the following Console areas:
 Cross-referenced documentation claims with actual implementation:
 - Storage provider configurations in `/console/src/data/storageProviders.json`
 - Internationalization setup in `/console/src/i18n/`
-- Desktop application in `/console/src-tauri/`
+- CLI tools in `/cli/` directory
 
 ## Detailed Findings
 
@@ -59,9 +59,9 @@ Cross-referenced documentation claims with actual implementation:
    - All translation files present in `/console/src/i18n/locales/`
    - Language selector implementation matches documentation
 
-3. **Desktop Application**
-   - Tauri-based desktop app fully implemented
-   - Features include: native file access, Python CLI integration, system tray
+3. **CLI Integration**
+   - Command-line tools provide local system integration
+   - Tools include: rediacc-cli, rediacc-cli-sync, rediacc-cli-term
    - Cross-platform support for Windows, macOS, and Linux
 
 4. **UI Navigation**
