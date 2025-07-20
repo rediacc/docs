@@ -20,6 +20,18 @@ const sidebars = {
     'intro',
     {
       type: 'category',
+      label: 'Product',
+      collapsed: false,
+      items: [
+        'product/overview',
+        'product/features',
+        'product/pricing/plans',
+        'product/pricing/comparison',
+        'product/partnerships',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Console',
       collapsed: false,
       items: [
@@ -115,6 +127,25 @@ const sidebars = {
         'cli/permissions',
         'cli/configuration',
         'cli/tutorial',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Company',
+      collapsed: false,
+      items: [
+        'company/about',
+        'company/team',
+        'company/founders',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Legal',
+      collapsed: false,
+      items: [
+        'legal/privacy',
+        'legal/terms',
       ],
     },
   ],

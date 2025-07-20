@@ -1,0 +1,9 @@
+{
+  "label": "Legal",
+  "position": 11,
+  "link": {
+    "type": "generated-index",
+    "title": "Legal Information",
+    "description": "Privacy policy, terms of service, and other legal documentation."
+  }
+}

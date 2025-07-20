@@ -1,0 +1,9 @@
+{
+  "label": "Company",
+  "position": 10,
+  "link": {
+    "type": "generated-index",
+    "title": "About Rediacc",
+    "description": "Learn about our company, team, and mission to revolutionize data management."
+  }
+}

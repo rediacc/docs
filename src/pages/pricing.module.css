@@ -1,0 +1,281 @@
+.pricingPage {
+  min-height: 100vh;
+}
+
+.heroSection {
+  padding: 4rem 0 3rem;
+  background: linear-gradient(to bottom, var(--ifm-color-primary-dark), var(--ifm-background-color));
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.pricingSection {
+  padding: 4rem 0;
+}
+
+.billingToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.billingToggle span {
+  color: var(--ifm-color-emphasis-600);
+  transition: color 0.2s;
+}
+
+.billingToggle span.active {
+  color: var(--ifm-heading-color);
+  font-weight: 600;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--ifm-color-emphasis-300);
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--ifm-color-primary);
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+.discount {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+}
+
+.pricingCard {
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pricingCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.pricingCard.popular {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.popularBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.planName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.price {
+  margin-bottom: 1rem;
+}
+
+.priceAmount {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--ifm-color-primary);
+}
+
+.originalPrice {
+  text-decoration: line-through;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 1.25rem;
+  margin-left: 0.5rem;
+}
+
+.pricePeriod {
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.yearlyPrice {
+  font-size: 0.875rem;
+  color: var(--ifm-color-success);
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.planDescription {
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 2rem;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  text-align: left;
+}
+
+.features li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--ifm-font-color-base);
+}
+
+.features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--ifm-color-success);
+  font-weight: bold;
+}
+
+.ctaButton {
+  margin-top: auto;
+}
+
+.customSection {
+  text-align: center;
+  padding: 3rem;
+  background: var(--ifm-background-surface-color);
+  border-radius: 12px;
+  margin-top: 4rem;
+}
+
+.customSection h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.customSection p {
+  font-size: 1.125rem;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 2rem;
+}
+
+.comparisonSection {
+  padding: 3rem 0;
+  background: var(--ifm-background-color);
+}
+
+.comparisonContainer {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.speedPricingSection {
+  padding: 3rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.faqSection {
+  padding: 3rem 0;
+  background: var(--ifm-background-color);
+}
+
+@media (max-width: 1200px) {
+  .pricingGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .pricingGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .billingToggle {
+    font-size: 1rem;
+  }
+  
+  .discount {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.25rem;
+  }
+  
+  .comparisonContainer {
+    padding: 0 1rem;
+  }
+}
