@@ -158,5 +158,5 @@ The database security model includes:
    - Encryption keys are not stored in the database.
 
 4. **Foreign Key Constraints**:
-   - Relationships between tables are enforced at the database level.
+   - Relationships between resultSets are enforced at the database level.
    - This ensures data integrity and prevents orphaned records.

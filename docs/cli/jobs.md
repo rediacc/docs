@@ -297,7 +297,7 @@ rediacc jobs create sync \
   --name "db-replication" \
   --source-db "prod-db" \
   --target-db "staging-db" \
-  --tables "users,orders,products"
+  --resultSets "users,orders,products"
 ```
 
 ### Maintenance Jobs

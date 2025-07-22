@@ -208,7 +208,7 @@ Used for related content sections:
 ### Tablet View (768-1200px)
 - Collapsible sidebar
 - Stacked layouts
-- Simplified tables
+- Simplified resultSets
 - Touch-optimized controls
 
 ### Mobile View (Less than 768px)
@@ -249,7 +249,7 @@ Used for related content sections:
 ### UI Optimization
 1. Collapse sidebar for more space
 2. Use filters to reduce data
-3. Sort tables by relevant columns
+3. Sort resultSets by relevant columns
 4. Export large datasets for analysis
 5. Use pagination appropriately
 

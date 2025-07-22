@@ -48,7 +48,7 @@ Solutions:
 3. Check with administrator for account status
 4. Verify network connectivity
 
-**Issue: "Invalid Date" in resource tables**
+**Issue: "Invalid Date" in resource resultSets**
 
 Cause:
 - Timestamp parsing error

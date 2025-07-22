@@ -324,7 +324,7 @@ docker exec mysql-container \
     mysqldump --all-databases \
     --single-transaction \
     --quick \
-    --lock-tables=false \
+    --lock-resultSets=false \
     --triggers \
     --routines \
     --events \

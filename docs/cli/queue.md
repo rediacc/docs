@@ -459,12 +459,12 @@ rediacc-cli queue list "Production" \
   --only-stale \
   --min-priority 1 \
   --max-priority 2 \
-  --output json | jq -r '.tables[0].data[] | "\(.taskId) - \(.machineName) - Stale for \(.minutesSinceHeartbeat) minutes"'
+  --output json | jq -r '.resultSets[0].data[] | "\(.taskId) - \(.machineName) - Stale for \(.minutesSinceHeartbeat) minutes"'
 
 # Get queue statistics for multiple teams
 echo -e "\n=== Queue Statistics ==="
 rediacc-cli queue list "Development,Production,QA" \
-  --output json | jq -r '.tables[1].data[0] | 
+  --output json | jq -r '.resultSets[1].data[0] | 
   "Total: \(.totalCount)
   Pending: \(.pendingCount)
   Active: \(.assignedCount + .processingCount)
@@ -478,7 +478,7 @@ for bridge in "prod-bridge" "dev-bridge" "qa-bridge"; do
   COUNT=$(rediacc-cli queue list "Development,Production,QA" \
     --bridge "$bridge" \
     --status "PENDING,ASSIGNED,PROCESSING" \
-    --output json | jq -r '.tables[0].data | length')
+    --output json | jq -r '.resultSets[0].data | length')
   echo "$bridge: $COUNT active items"
 done
 
@@ -488,7 +488,7 @@ rediacc-cli queue list "Production" \
   --status "COMPLETED" \
   --max-priority 2 \
   --date-from "$(date -u +%Y-%m-%d)T00:00:00" \
-  --output json | jq -r '.tables[0].data[] | "\(.taskId) - \(.priorityLabel) - \(.machineName)"'
+  --output json | jq -r '.resultSets[0].data[] | "\(.taskId) - \(.priorityLabel) - \(.machineName)"'
 ```
 
 ## Best Practices

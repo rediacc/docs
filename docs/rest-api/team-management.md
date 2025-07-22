@@ -38,7 +38,7 @@ Rediacc-RequestToken: string
 {
   "failure": 0,
   "errors": [],
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [
@@ -91,7 +91,7 @@ Rediacc-RequestToken: string
 {
   "failure": 0,
   "errors": [],
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [
@@ -146,7 +146,7 @@ Rediacc-RequestToken: string
 {
   "failure": 0,
   "errors": [],
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [
@@ -200,7 +200,7 @@ Rediacc-RequestToken: string
 {
   "failure": 0,
   "errors": [],
-  "tables": [],
+  "resultSets": [],
   "outputs": {}
 }
 ```
@@ -244,7 +244,7 @@ Rediacc-RequestToken: string
 {
   "failure": 0,
   "errors": [],
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [
@@ -299,7 +299,7 @@ Rediacc-RequestToken: string
 {
   "failure": 0,
   "errors": [],
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [
@@ -350,7 +350,7 @@ Rediacc-RequestToken: string
 {
   "failure": 0,
   "errors": [],
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [

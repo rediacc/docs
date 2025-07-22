@@ -15,7 +15,7 @@ This document outlines the comprehensive plan for migrating content from the `/o
 
 2. **Pricing Information**
    - Pricing tiers and plans
-   - Comparison tables
+   - Comparison resultSets
    - Service descriptions
 
 3. **Legal Pages**
@@ -204,7 +204,7 @@ cp offers/react-app/src/assets/* docs/static/img/
 
 ### 4. Interactive Elements
 - Terminal emulation → Code examples in docs
-- Pricing toggle → Static comparison tables
+- Pricing toggle → Static comparison resultSets
 - Testimonial slider → Static testimonials section
 
 ## Post-Migration Checklist

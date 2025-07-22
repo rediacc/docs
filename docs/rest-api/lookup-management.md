@@ -37,7 +37,7 @@ Rediacc-RequestToken: string
 {
   "failure": 0,
   "errors": [],
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [
@@ -211,7 +211,7 @@ If an invalid lookup type is provided, the response will include an error:
       "errorMessage": "The specified lookup type is not valid"
     }
   ],
-  "tables": [],
+  "resultSets": [],
   "outputs": {}
 }
 ```

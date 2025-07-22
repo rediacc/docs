@@ -84,7 +84,7 @@ I have validated all four resource management documentation files against the li
 1. **Machine Management** documentation is exceptionally detailed and accurate
 2. **Storage** and **Schedules** documentation properly describe empty states
 3. All sections have consistent structure and formatting
-4. Good use of tables, code examples, and practical guidance
+4. Good use of resultSets, code examples, and practical guidance
 
 ### Areas for Improvement
 1. **Repository Management** needs complete rewrite to match actual UI

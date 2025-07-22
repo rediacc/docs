@@ -49,7 +49,7 @@ All API responses follow a standard JSON format:
 {
   "failure": 0,               // 0 indicates success, non-zero indicates error
   "errors": [],               // Array of error messages if failure is non-zero
-  "tables": [                 // Array of result sets returned by the procedure
+  "resultSets": [                 // Array of result sets returned by the procedure
     {
       "resultSetIndex": 0,
       "data": [

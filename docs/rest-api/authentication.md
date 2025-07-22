@@ -39,7 +39,7 @@ Rediacc-UserHash: {user-password-hash}
 {
   "failure": number,
   "errors": array,
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 0,
       "data": [
@@ -123,7 +123,7 @@ Rediacc-RequestToken: {request-credential}
 {
   "failure": number,
   "errors": array,
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 0,
       "data": [
@@ -172,7 +172,7 @@ Rediacc-RequestToken: {request-credential}
 {
   "failure": number,
   "errors": array,
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [

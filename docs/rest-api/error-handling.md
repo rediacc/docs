@@ -16,7 +16,7 @@ When an error occurs, the API returns a response with a non-zero failure code an
   "errors": [
     "Error message describing what went wrong"
   ],
-  "tables": [],
+  "resultSets": [],
   "outputs": {}
 }
 ```
@@ -43,7 +43,7 @@ Authentication errors occur when there is a problem with the request token or us
   "errors": [
     "Invalid request credential or verification data."
   ],
-  "tables": [],
+  "resultSets": [],
   "outputs": {}
 }
 ```
@@ -66,7 +66,7 @@ Resource not found errors occur when the requested resource does not exist:
   "errors": [
     "Team \"Engineering Team\" not found in your company."
   ],
-  "tables": [],
+  "resultSets": [],
   "outputs": {}
 }
 ```
@@ -91,7 +91,7 @@ Resource already exists errors occur when trying to create a resource with a nam
   "errors": [
     "Machine with name \"Web Server 1\" already exists in team \"Engineering Team\"."
   ],
-  "tables": [],
+  "resultSets": [],
   "outputs": {}
 }
 ```
@@ -115,7 +115,7 @@ Invalid input errors occur when the request body contains invalid data:
   "errors": [
     "Machine vault data must be valid JSON."
   ],
-  "tables": [],
+  "resultSets": [],
   "outputs": {}
 }
 ```
@@ -138,7 +138,7 @@ Validation errors occur when the input data fails to meet specific validation ru
   "errors": [
     "User hash must be exactly 32 bytes."
   ],
-  "tables": [],
+  "resultSets": [],
   "outputs": {}
 }
 ```
@@ -160,7 +160,7 @@ Business rule violation errors occur when the request violates a business rule o
   "errors": [
     "Cannot remove team \"Engineering Team\" because it has associated machines. Remove machines first."
   ],
-  "tables": [],
+  "resultSets": [],
   "outputs": {}
 }
 ```
@@ -184,7 +184,7 @@ System errors occur when there is an internal problem with the middleware server
   "errors": [
     "Internal server error. Please try again later."
   ],
-  "tables": [],
+  "resultSets": [],
   "outputs": {}
 }
 ```

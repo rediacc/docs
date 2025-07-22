@@ -36,7 +36,7 @@ Content-Type: application/json
 {
   "failure": number,
   "errors": array,
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [
@@ -90,7 +90,7 @@ Rediacc-RequestToken: {request-credential}
 {
   "failure": number,
   "errors": array,
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [
@@ -156,7 +156,7 @@ When enabling 2FA (first call without verification code):
 {
   "failure": number,
   "errors": array,
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [
@@ -177,7 +177,7 @@ When completing 2FA setup (with verification code):
 {
   "failure": number,
   "errors": array,
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [
@@ -196,7 +196,7 @@ When disabling 2FA:
 {
   "failure": number,
   "errors": array,
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [
@@ -250,7 +250,7 @@ Rediacc-RequestToken: {request-credential}
 {
   "failure": number,
   "errors": array,
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [
@@ -302,7 +302,7 @@ Rediacc-RequestToken: {request-credential}
 {
   "failure": number,
   "errors": array,
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 0,
       "data": [
@@ -362,7 +362,7 @@ Rediacc-RequestToken: {request-credential}
 {
   "failure": number,
   "errors": array,
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [
@@ -413,7 +413,7 @@ Rediacc-RequestToken: {request-credential}
 {
   "failure": number,
   "errors": array,
-  "tables": [
+  "resultSets": [
     {
       "resultSetIndex": 1,
       "data": [

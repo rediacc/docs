@@ -146,7 +146,7 @@ sidebar_position: 20
 
 ### Consistency Elements
 - **Visual Indicators**: Using emoji icons consistently across docs
-- **Table Formats**: Standardized column/description tables
+- **Table Formats**: Standardized column/description resultSets
 - **Code Examples**: Practical bash/curl examples
 - **Navigation Aids**: Clear section headers and subsections
 - **Best Practices**: Included in each major section

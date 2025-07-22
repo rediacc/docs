@@ -43,7 +43,7 @@ Based on live testing, these sections need minor updates:
 ### 3. New Features to Document (Priority: Low)
 Features observed but not fully documented:
 - Export dropdown in Queue Management
-- Page size selector in tables
+- Page size selector in resultSets
 - Invalid Date handling in machine listings
 - Superscript badges for counts (e.g., queue items)
 

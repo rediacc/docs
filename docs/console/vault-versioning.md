@@ -21,7 +21,7 @@ Vault versions follow a simple incremental pattern:
 - **v1**: Initial configuration
 - **v2, v3, ...**: Subsequent updates
 - Version numbers increment automatically
-- Displayed in tables and lists throughout the Console
+- Displayed in resultSets and lists throughout the Console
 - Example: "v1" shown in machine, bridge, and region listings
 
 ## How Versioning Works
