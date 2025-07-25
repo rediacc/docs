@@ -29,7 +29,7 @@ const config = {
   organizationName: 'rediacc', // Usually your GitHub org/user name.
   projectName: 'rediacc', // Usually your repo name.
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -76,46 +76,22 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      // Hide navbar completely through CSS
       navbar: {
-        hideOnScroll: false,
+        style: 'primary',
+        hideOnScroll: true,
         logo: {
           alt: 'Rediacc Logo',
           src: 'img/logo_black.png',
           srcDark: 'img/logo_white.png',
-          href: '/',
         },
         items: [
           {
-            to: '/',
-            label: 'Home',
-            position: 'left',
-          },
-          {
-            href: '/#features',
-            label: 'Features',
-            position: 'left',
-          },
-          {
-            to: '/pricing',
-            label: 'Pricing',
-            position: 'left',
-          },
-          {
-            to: '/about',
-            label: 'About',
-            position: 'left',
-          },
-          {
-            to: '/docs/intro',
-            label: 'Docs',
-            position: 'left',
-          },
-          {
-            href: '/console/login',
-            label: 'Login',
+            href: '/',
+            label: 'Back to Home',
             position: 'right',
-            className: 'navbar-login-link',
-            target: '_blank',
+            target: '_self',
+            className: 'navbar-back-home',
           },
         ],
       },
@@ -131,75 +107,9 @@ const config = {
         respectPrefersColorScheme: true,
       },
       footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Product',
-            items: [
-              {
-                label: 'Features',
-                href: '/#features',
-              },
-              {
-                label: 'Pricing',
-                to: '/pricing',
-              },
-              {
-                label: 'Documentation',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Company',
-            items: [
-              {
-                label: 'About',
-                to: '/about',
-              },
-              {
-                label: 'Team',
-                to: '/about',
-              },
-              {
-                label: 'Contact',
-                href: 'mailto:info@rediacc.com',
-              },
-            ],
-          },
-          {
-            title: 'Resources',
-            items: [
-              {
-                label: 'Console',
-                href: '/console/login',
-                target: '_blank',
-              },
-              {
-                label: 'API Reference',
-                to: '/docs/rest-api/introduction',
-              },
-              {
-                label: 'CLI Guide',
-                to: '/docs/cli/introduction',
-              },
-            ],
-          },
-          {
-            title: 'Legal',
-            items: [
-              {
-                label: 'Privacy Policy',
-                to: '/docs/legal/privacy',
-              },
-              {
-                label: 'Terms of Service',
-                to: '/docs/legal/terms',
-              },
-            ],
-          },
-        ],
-        copyright: `© ${new Date().getFullYear()} Rediacc. All rights reserved.`,
+        style: 'light',
+        links: [],
+        copyright: ' ',
       },
       prism: {
         theme: prismThemes.github,

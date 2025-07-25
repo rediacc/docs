@@ -10,8 +10,96 @@
   --docs-max-width: 1400px;
 }
 
-/* Standard navbar styling */
+/* Adjustments for simplified docs */
+/* Hide the navbar but keep theme toggle visible */
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: auto;
+  width: auto;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  z-index: 1000;
+}
 
+/* Hide all navbar content except theme toggle */
+.navbar__inner {
+  padding: 0;
+}
+
+.navbar__items {
+  display: none;
+}
+
+.navbar__brand {
+  display: none;
+}
+
+.navbar__toggle {
+  display: none;
+}
+
+/* Show only the theme toggle and Back to Home */
+.navbar__items--right {
+  display: flex !important;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+
+/* Style the Back to Home link */
+.navbar__link {
+  display: inline-flex !important;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--ifm-background-surface-color);
+  border: 2px solid var(--ifm-toc-border-color);
+  border-radius: 9999px;
+  color: var(--ifm-font-color-base);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Light theme - Back to Home styling */
+:root .navbar__link {
+  background-color: #ffffff;
+  border-color: #e5e7eb;
+  color: #111827;
+}
+
+/* Dark theme - Back to Home styling */
+[data-theme='dark'] .navbar__link {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+/* Hover state for Back to Home */
+.navbar__link:hover {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+
+/* Hide navbar sidebar */
+.navbar-sidebar {
+  display: none !important;
+}
+
+/* Hide footer */
+.footer {
+  display: none !important;
+}
 
 /* Custom styles for documentation pages */
 .main-wrapper {
