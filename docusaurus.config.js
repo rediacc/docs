@@ -22,6 +22,7 @@ const config = {
   // Custom configuration for integration with React app
   customFields: {
     isIntegratedWithReactApp: true,
+    appVersion: process.env.TAG || process.env.APP_VERSION || 'dev',
   },
 
   // GitHub pages deployment config.
@@ -109,7 +110,7 @@ const config = {
       footer: {
         style: 'light',
         links: [],
-        copyright: ' ',
+        copyright: `© ${new Date().getFullYear()} Rediacc${process.env.TAG && process.env.TAG !== 'dev' ? ` - v${process.env.TAG}` : ''}`,
       },
       prism: {
         theme: prismThemes.github,

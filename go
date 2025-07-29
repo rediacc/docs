@@ -14,7 +14,7 @@ function dev() {
 # Function to build the production site
 function build() {
   echo "Building production site..."
-  npm run build
+  TAG=${TAG:-dev} npm run build
 }
 
 # Function to serve the built site
