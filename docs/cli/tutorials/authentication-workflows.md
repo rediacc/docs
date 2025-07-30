@@ -84,23 +84,23 @@ rediacc-cli login --email ci-service@acme.com \
 rediacc-cli team-member add Production ci-service@acme.com
 ```
 
-### Implementing 2FA
+### Implementing TFA
 
 Enhance security with two-factor authentication:
 
 ```bash
-# 1. User enables 2FA
-rediacc-cli user update-2fa true --password CurrentPass123
+# 1. User enables TFA
+rediacc-cli user update-tfa true --password CurrentPass123
 
 # 2. Scan QR code with authenticator app
 
-# 3. Future logins require 2FA code
+# 3. Future logins require TFA code
 rediacc-cli login --email user@acme.com \
   --password CurrentPass123 \
   --tfa-code 123456
 
-# 4. To disable 2FA (requires current code)
-rediacc-cli user update-2fa false \
+# 4. To disable TFA (requires current code)
+rediacc-cli user update-tfa false \
   --password CurrentPass123 \
   --current-code 654321
 ```

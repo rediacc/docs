@@ -391,7 +391,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateCompanyVaults" \
 - Cannot update if company has Global Bridge with cloud management
 - All vaults must belong to entities within your company
 - Cannot update vault if newer version exists
-- 2FA vaults cannot be updated through this operation
+- TFA vaults cannot be updated through this operation
 - Either all updates succeed or none are applied
 - Updates are logged with count of vaults modified
 

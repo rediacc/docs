@@ -30,11 +30,11 @@ The two-factor authentication system in Rediacc implements the Time-based One-Ti
 
 - **Database Storage**:
   - TOTP secrets are stored in the user's vault, encrypted with the user's password-derived key
-  - 2FA activation status is tracked in the User record
+  - TFA activation status is tracked in the User record
   - Failed verification attempts are logged and trigger lockouts after 5 consecutive failures
 
 - **Recovery Mechanisms**:
-  - Each user is provided with 10 recovery codes when enabling 2FA
+  - Each user is provided with 10 recovery codes when enabling TFA
   - Recovery codes are one-time use and stored hashed in the database
   - Hardware security key support is available as a backup authentication method
 

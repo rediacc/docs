@@ -1137,7 +1137,7 @@ List all users in your company
 
 #### Details
 
-Shows all user accounts including their email, status (active/inactive), permission groups, 2FA status, and last login information. Useful for user management and audit purposes.
+Shows all user accounts including their email, status (active/inactive), permission groups, TFA status, and last login information. Useful for user management and audit purposes.
 
 #### Examples
 

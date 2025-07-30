@@ -12,15 +12,15 @@ Commands for managing company and team organizational structure.
 For managing company-wide settings and operations. See [full company command reference](./company-commands.md) for detailed parameters.
 
 ### Available Company Commands:
-- `company enable-2fa` - Enable two-factor authentication for the company
+- `company enable-tfa` - Enable two-factor authentication for the company
 - `company enable-feature` - Enable specific features for the company
 - `company enable-maintenance` - Put company in maintenance mode
 
 ### Company Management Examples:
 
 ```bash
-# Enable 2FA for entire company
-rediacc-cli company enable-2fa
+# Enable TFA for entire company
+rediacc-cli company enable-tfa
 
 # Enable a specific feature
 rediacc-cli company enable-feature advanced-permissions
@@ -90,7 +90,7 @@ Company
 rediacc-cli create company --name "Tech Corp" --email admin@techcorp.com
 
 # 2. Enable security features
-rediacc-cli company enable-2fa
+rediacc-cli company enable-tfa
 rediacc-cli company enable-feature audit-logging
 
 # 3. Create teams
@@ -120,7 +120,7 @@ Available features that can be enabled:
 
 - `advanced-permissions` - Custom permission groups (required for paid plans)
 - `audit-logging` - Enhanced audit trail capabilities
-- `2fa-enforcement` - Mandatory 2FA for all users
+- `tfa-enforcement` - Mandatory TFA for all users
 - `ip-restriction` - IP-based access control
 - `sso-integration` - Single Sign-On support
 

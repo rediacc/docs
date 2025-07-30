@@ -27,6 +27,7 @@ Elevates an authentication request with special privileges. Used for administrat
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `2_f_a_code` | string | Yes | - |  |  |
+| `t_f_a_code` | string | Yes | - |  |  |
 
 ##### Auto-Generated CLI Examples
 
@@ -43,6 +44,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/PrivilegeAuthenticatio
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
+    "tFACode": "example-tFACode"
 }'
 ```
 
@@ -116,7 +118,7 @@ Request hashes are provided during login attempts. Status includes pending, auth
 - Shows current user email, company, and assigned teams
 - Displays token creation time and expiration status
 - Lists all permission groups assigned to the user
-- Shows whether 2FA is enabled for the account
+- Shows whether TFA is enabled for the account
 - Indicates if account is activated or pending activation
 - Returns error if no valid token is present
 - Token details include the token ID (not the full token value)

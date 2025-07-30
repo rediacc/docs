@@ -6,6 +6,7 @@ Misc operations.
 
 - [is-registered](#is-registered)
 - [update-image-machine-assignment](#update-image-machine-assignment)
+- [update-user2-f-a](#update-user2-f-a)
 
 
 ## is-registered
@@ -78,6 +79,52 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateImageMachineAssi
     "poolName": "example-poolName",
     "teamName": "example-team",
     "newMachineName": "example-newMachineName"
+}'
+```
+
+
+## update-user2-f-a
+
+#### API Information
+
+**Endpoint:** `POST /api/StoredProcedure/UpdateUserTFA`
+
+**Authentication:** Required (token-based with Rediacc-RequestToken header)
+
+#### Parameters
+
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `enable` | string | Yes | - |  |  |
+| `user_hash` | string | Yes | - |  |  |
+| `current_code` | string | Yes | - |  |  |
+| `generate_only` | boolean | Yes | - |  |  |
+| `verification_code` | string | Yes | - |  |  |
+| `secret` | string | Yes | - |  |  |
+| `confirm_enable` | boolean | Yes | - |  |  |
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli misc update-user2-f-a
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateUserTFA" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "enable": "example-enable",
+    "userHash": "example-userHash",
+    "currentCode": "example-currentCode",
+    "generateOnly": true,
+    "verificationCode": "example-verificationCode",
+    "secret": "example-secret",
+    "confirmEnable": true
 }'
 ```
 

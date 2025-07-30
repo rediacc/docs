@@ -67,9 +67,9 @@ Rediacc supports TOTP (Time-based One-Time Password) for additional security.
 - 6-digit codes valid for 30 seconds
 - ±30 second time skew tolerance
 
-#### Authentication with 2FA
+#### Authentication with TFA
 
-When 2FA is enabled, include the TOTP code in your authentication request:
+When TFA is enabled, include the TOTP code in your authentication request:
 
 ```json
 {

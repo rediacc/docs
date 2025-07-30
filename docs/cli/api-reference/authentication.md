@@ -50,7 +50,7 @@ Direct login with credentials
 ```bash
 rediacc-cli login --email admin@company.com --tfa-code 123456 --permissions admin
 ```
-Admin login with 2FA
+Admin login with TFA
 
 ##### Auto-Generated CLI Examples
 
@@ -80,7 +80,7 @@ Credentials can be provided as arguments or through interactive prompts. Token i
 - Email and password are required (via args or prompts)
 - Account must be activated before first login
 - Failed login attempts are tracked and may lock account
-- 2FA code required if two-factor authentication is enabled
+- TFA code required if two-factor authentication is enabled
 - Token expires after specified hours (max varies by plan)
 - Session name helps identify tokens in audit logs
 - Permission requests may require additional authorization

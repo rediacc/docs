@@ -11,7 +11,7 @@ The Rediacc web application is designed to provide a comprehensive management in
 ### Key Features and Pages
 
 #### Authentication & Registration
-- Login page for existing users with enhanced 2FA support
+- Login page for existing users with enhanced TFA support
 - Registration form for new companies
 - Session management with automatic logout for inactive sessions
 
@@ -80,7 +80,7 @@ The application has a hierarchical navigation menu reflecting the entity relatio
 
 - Email address
 - Password
-- TOTP code input (shown when 2FA is enabled)
+- TOTP code input (shown when TFA is enabled)
 - Login button
 - "Remember this device" option
 - Password reset link
@@ -184,7 +184,7 @@ Overview showing:
   - User email
   - Role within team
   - Activation status
-  - 2FA status
+  - TFA status
   - Last login date
 - Add/Remove participant buttons
 - Manage permissions button
@@ -299,13 +299,13 @@ Overview showing:
 - Table listing all users with:
   - Email
   - Account status
-  - 2FA status
+  - TFA status
   - Last active session
   - Account creation date
   - Last login date
 - Add/Activate/Deactivate user buttons
 - Reset password option
-- Enable/Disable 2FA option
+- Enable/Disable TFA option
 - Assign permission group
 
 #### Permission Groups Page
@@ -327,7 +327,7 @@ The application includes comprehensive security features to protect your data:
 
 ### Enhanced Authentication
 
-- **Two-Factor Authentication (2FA)**: Additional security layer for user accounts
+- **Two-Factor Authentication (TFA)**: Additional security layer for user accounts
 - **Session Management**: Control over active sessions and automatic timeouts
 - **Password Security**: Strong password requirements and secure handling
 
@@ -365,7 +365,7 @@ Based on the database design and foreign key relationships, here's the recommend
 ### Company Registration
 1. Create the first admin account
 2. System creates a default team, region, and bridge automatically
-3. Set up 2FA for the admin account (recommended)
+3. Set up TFA for the admin account (recommended)
 
 ### Team Setup
 1. Create additional teams as needed
@@ -395,11 +395,11 @@ Based on the database design and foreign key relationships, here's the recommend
 1. User enters company name "Acme Technologies", admin email "admin@acme.com", and password
 2. System creates the company record with a default "Default Team", "Default Region", and "Global Bridges"
 3. User receives an activation email and activates the account
-4. User is prompted to set up 2FA (optional but recommended)
+4. User is prompted to set up TFA (optional but recommended)
 
 #### Login to System
 1. User logs in with credentials
-2. If 2FA is enabled, user enters the 6-digit code from their authenticator app
+2. If TFA is enabled, user enters the 6-digit code from their authenticator app
 3. System presents the dashboard showing the default configuration
 
 ### Infrastructure Setup
@@ -478,7 +478,7 @@ Based on the database design and foreign key relationships, here's the recommend
 ## Recent UI Enhancements
 
 ### Authentication Improvements
-- Enhanced login screens with 2FA support
+- Enhanced login screens with TFA support
 - Intuitive security management interfaces
 - Account management with security controls
 - Login status indicators for better awareness

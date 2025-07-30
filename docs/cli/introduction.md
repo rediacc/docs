@@ -10,7 +10,7 @@ The Rediacc CLI is a powerful command-line interface that provides comprehensive
 
 The CLI communicates with Rediacc's middleware API to provide secure, authenticated access to:
 
-- **Authentication & User Management** - Login, user creation, session management, and 2FA support
+- **Authentication & User Management** - Login, user creation, session management, and TFA support
 - **Company Administration** - Company setup, settings, and subscription management  
 - **Team Management** - Team creation, member management, and collaboration tools
 - **Infrastructure Operations** - Region, bridge, and machine management
@@ -31,7 +31,7 @@ The CLI acts as a client to the Rediacc middleware, which handles business logic
 
 ### 🔐 **Secure Authentication**
 - Session-based login with automatic token refresh
-- Two-factor authentication (2FA) support
+- Two-factor authentication (TFA) support
 - Role-based permissions and access control
 - Secure password hashing (SHA-256)
 
