@@ -36,12 +36,35 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'CLI & API',
+      label: 'Developer Tools',
       collapsed: true,
       items: [
-        'cli/introduction',
-        'cli/installation',
-        'cli/quick-start',
+        // Getting Started
+        {
+          type: 'category',
+          label: 'Getting Started',
+          collapsed: true,
+          items: [
+            'cli/introduction',
+            'cli/installation',
+            'cli/quick-start',
+            'cli/getting-started-tutorial',
+          ],
+        },
+        // Configuration
+        'cli/configuration',
+        // Core Concepts
+        {
+          type: 'category',
+          label: 'Core Concepts',
+          collapsed: true,
+          items: [
+            'cli/concepts/rest-api-concepts',
+            'cli/concepts/rest-api-best-practices',
+            'cli/concepts/rest-api-error-handling',
+          ],
+        },
+        // Tutorials
         {
           type: 'category',
           label: 'Tutorials',
@@ -54,8 +77,7 @@ const sidebars = {
             'cli/tutorials/permission-management',
           ],
         },
-        'cli/configuration',
-        'cli/tutorial',
+        // API Reference
         {
           type: 'category',
           label: 'API Reference',
@@ -64,7 +86,7 @@ const sidebars = {
             'cli/api-reference/index',
             {
               type: 'category',
-              label: 'Authentication & Users',
+              label: 'Authentication & Access',
               collapsed: true,
               items: [
                 'cli/api-reference/authentication',
@@ -75,19 +97,19 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: 'Resource Operations',
+              label: 'Resource Management',
               collapsed: true,
               items: [
                 { type: 'doc', id: 'cli/api-reference/create-commands', label: 'Create' },
                 { type: 'doc', id: 'cli/api-reference/list-commands', label: 'List' },
+                { type: 'doc', id: 'cli/api-reference/inspect-commands', label: 'Inspect' },
                 { type: 'doc', id: 'cli/api-reference/update-commands', label: 'Update' },
                 { type: 'doc', id: 'cli/api-reference/rm-commands', label: 'Remove' },
-                { type: 'doc', id: 'cli/api-reference/inspect-commands', label: 'Inspect' },
               ],
             },
             {
               type: 'category',
-              label: 'Team & Company',
+              label: 'Organization',
               collapsed: true,
               items: [
                 { type: 'doc', id: 'cli/api-reference/company-commands', label: 'Company' },
@@ -105,7 +127,7 @@ const sidebars = {
             },
             {
               type: 'category',
-              label: 'System Operations',
+              label: 'System Management',
               collapsed: true,
               items: [
                 { type: 'doc', id: 'cli/api-reference/queue-commands', label: 'Queue' },
@@ -152,35 +174,6 @@ const sidebars = {
       items: [
         'administration/risk-free-upgrades',
         'administration/blackout',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'REST API',
-      collapsed: true,
-      items: [
-        'rest-api/introduction',
-        'rest-api/authentication',
-        'rest-api/security-model',
-        'rest-api/best-practices',
-        'rest-api/error-handling',
-        {
-          type: 'category',
-          label: 'API Resources',
-          items: [
-            'rest-api/user-management',
-            'rest-api/team-management',
-            'rest-api/company-management',
-            'rest-api/permissions-management',
-            'rest-api/repository-management',
-            'rest-api/machine-management',
-            'rest-api/region-management',
-            'rest-api/bridge-management',
-            'rest-api/storage-management',
-            'rest-api/schedule-management',
-            'rest-api/queue-management',
-          ],
-        },
       ],
     },
   ],
