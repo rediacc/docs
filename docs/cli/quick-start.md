@@ -134,7 +134,7 @@ rediacc-cli list --help
 ### Authentication Issues
 - Token expired: Run `rediacc-cli login` again
 - Wrong password: Check CAPS LOCK and special characters
-- Connection failed: Verify `REDIACC_API_URL` environment variable
+- Connection failed: Verify `SYSTEM_API_URL` environment variable
 
 ### Permission Errors
 - Ensure you're a member of the target team

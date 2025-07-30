@@ -243,11 +243,11 @@ rediacc-cli user activate user@acme.com
 ### Multi-Environment Authentication
 ```bash
 # Production environment
-export REDIACC_API_URL=https://api.rediacc.com
+export SYSTEM_API_URL=https://api.rediacc.com
 rediacc-cli login --email prod-user@acme.com
 
 # Development environment
-export REDIACC_API_URL=https://dev-api.rediacc.com
+export SYSTEM_API_URL=https://dev-api.rediacc.com
 rediacc-cli login --email dev-user@acme.com
 ```
 
