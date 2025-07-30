@@ -39,24 +39,12 @@ const sidebars = {
       label: 'Developer Tools',
       collapsed: true,
       items: [
-        // Getting Started - Direct access
+        // Getting Started
         'cli/introduction',
         'cli/installation',
         'cli/quick-start',
-        'cli/getting-started-tutorial',
         'cli/configuration',
-        
-        // Core Concepts
-        {
-          type: 'category',
-          label: 'Core Concepts',
-          collapsed: true,
-          items: [
-            'cli/concepts/rest-api-concepts',
-            'cli/concepts/rest-api-best-practices',
-            'cli/concepts/rest-api-error-handling',
-          ],
-        },
+        'cli/rest-api-guide',
         
         // Tutorials
         {
@@ -64,6 +52,7 @@ const sidebars = {
           label: 'Tutorials',
           collapsed: true,
           items: [
+            'cli/tutorials/getting-started-tutorial',
             'cli/tutorials/authentication-workflows',
             'cli/tutorials/team-management-workflow',
             'cli/tutorials/infrastructure-setup',
@@ -72,7 +61,7 @@ const sidebars = {
           ],
         },
         
-        // API Reference - Flattened
+        // API Reference
         'cli/api-reference/index',
         'cli/api-reference/authentication',
         { type: 'doc', id: 'cli/api-reference/resource-commands', label: 'Resource Commands' },
@@ -85,38 +74,24 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Backup Solutions',
+      label: 'Solutions',
       collapsed: true,
       items: [
-        'backup/zero-cost',
-        'backup/time-travel',
-        'backup/cross-backup',
+        'solutions/zero-cost',
+        'solutions/time-travel',
+        'solutions/cross-backup',
+        'solutions/dynamic-resource-scaling',
+        'solutions/legacy-database-scaling',
+        'solutions/real-time-defense',
       ],
     },
     {
       type: 'category',
-      label: 'Scaling Solutions',
+      label: 'Operations',
       collapsed: true,
       items: [
-        'scaling/dynamic-resource-scaling',
-        'scaling/legacy-database-scaling',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Security Solutions',
-      collapsed: true,
-      items: [
-        'security/real-time-defense',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Administration',
-      collapsed: true,
-      items: [
-        'administration/risk-free-upgrades',
-        'administration/blackout',
+        'operations/risk-free-upgrades',
+        'operations/blackout',
       ],
     },
   ],

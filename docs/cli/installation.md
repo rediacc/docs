@@ -227,4 +227,4 @@ go build -o bin/rediacc main.go
 
 - [Quick Start Guide](./quick-start.md) - Learn about login and basic commands
 - [Configuration Reference](./configuration.md) - Complete configuration options
-- [Getting Started Tutorial](./getting-started-tutorial.md) - Step-by-step walkthrough
+- [Getting Started Tutorial](./tutorials/getting-started-tutorial.md) - Step-by-step walkthrough
