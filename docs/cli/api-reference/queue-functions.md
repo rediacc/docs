@@ -4,7 +4,38 @@ Queue functions are executed on machines via the bridge system. They handle repo
 
 ## Table of Contents
 
+- [hello](#hello)
+- [list_system](#list_system)
+- [os_setup](#os_setup)
+- [repo_down](#repo_down)
+- [repo_mount](#repo_mount)
+- [repo_new](#repo_new)
+- [repo_ownership](#repo_ownership)
+- [repo_pull](#repo_pull)
+- [repo_push](#repo_push)
+- [repo_resize](#repo_resize)
+- [repo_rm](#repo_rm)
+- [repo_unmount](#repo_unmount)
+- [repo_up](#repo_up)
+- [uninstall](#uninstall)
 
+
+## hello
+
+Simple test function that prints hello from hostname
+
+### Parameters
+
+No parameters required.
+
+## list_system
+
+List repositories
+
+### Parameters
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
 
 ## os_setup
 
@@ -15,25 +46,9 @@ Setup operating system with required tools and configurations
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 
-## hello
+## repo_down
 
-Simple test function that prints hello from hostname
-
-### Parameters
-
-No parameters required.
-
-## uninstall
-
-Cleanup and uninstall system components
-
-### Parameters
-
-No parameters required.
-
-## repo_new
-
-Create a new repository
+Stop repository services
 
 ### Parameters
 
@@ -49,27 +64,36 @@ Mount repository filesystems
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 
-## repo_unmount
+## repo_new
 
-Unmount repository filesystems
-
-### Parameters
-
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-
-## repo_up
-
-Start repository services using Rediaccfile
+Create a new repository
 
 ### Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 
-## repo_down
+## repo_ownership
 
-Stop repository services
+Change repository ownership
+
+### Parameters
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+
+## repo_pull
+
+Pull repository from remote storage
+
+### Parameters
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+
+## repo_push
+
+Push repository to remote storage
 
 ### Parameters
 
@@ -94,38 +118,28 @@ Delete repository
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 
-## repo_ownership
+## repo_unmount
 
-Change repository ownership
-
-### Parameters
-
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-
-## list_system
-
-List repositories
+Unmount repository filesystems
 
 ### Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 
-## repo_push
+## repo_up
 
-Push repository to remote storage
-
-### Parameters
-
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-
-## repo_pull
-
-Pull repository from remote storage
+Start repository services using Rediaccfile
 
 ### Parameters
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
+
+## uninstall
+
+Cleanup and uninstall system components
+
+### Parameters
+
+No parameters required.

@@ -1,6 +1,6 @@
 # Authentication
 
-Commands for managing authentication and sessions.
+Manage authentication and sessions.
 
 ## Table of Contents
 
@@ -15,6 +15,7 @@ Authenticate with the Rediacc API
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreateAuthenticationRequest`
+
 **Authentication:** Required (credential-based with Rediacc-UserEmail and Rediacc-UserHash headers)
 
 #### Details
@@ -76,6 +77,7 @@ Log out and invalidate current session
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/DeleteUserRequest`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

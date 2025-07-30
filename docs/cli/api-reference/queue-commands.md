@@ -1,28 +1,26 @@
-# Queue Commands
+# Queue
 
-Commands for queue operations.
+Queue operations.
 
 ## Table of Contents
 
-- [queue cancel](#queue-cancel)
-- [queue complete](#queue-complete)
-- [queue get-next](#queue-get-next)
-- [queue list](#queue-list)
-- [queue retry](#queue-retry)
-- [queue trace](#queue-trace)
-- [queue update-response](#queue-update-response)
+- [cancel](#cancel)
+- [complete](#complete)
+- [get-next](#get-next)
+- [list](#list)
+- [retry](#retry)
+- [trace](#trace)
+- [update-response](#update-response)
 
 
-## queue cancel
-
-
-### cancel
+## cancel
 
 Cancel a pending or processing queue item
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CancelQueueItem`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -66,16 +64,14 @@ Cancellation is immediate for PENDING items. PROCESSING items may continue brief
 - Associated resources may need manual cleanup
 
 
-## queue complete
-
-
-### complete
+## complete
 
 Mark a queue item as completed
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateQueueItemToCompleted`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -120,16 +116,14 @@ Typically used by bridges. Item must be in PROCESSING state. Result vault is enc
 - Bridge that processed task is recorded
 
 
-## queue get-next
-
-
-### get-next
+## get-next
 
 Get next queue items for processing
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetQueueItemsNext`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -172,16 +166,14 @@ Designed for bridges. Items are assigned to caller's identity. Returns empty arr
 - Load balances across available bridges
 
 
-## queue list
-
-
-### list
+## list
 
 List queue items with various filters
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetTeamQueueItems`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -243,16 +235,14 @@ Default includes all statuses. Stale detection helps find stuck items. Use date 
 - High-priority items (1-2) are highlighted in output
 
 
-## queue retry
-
-
-### retry
+## retry
 
 Retry a failed queue item
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/RetryFailedQueueItem`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -295,16 +285,14 @@ Only FAILED items can be retried. Creates a new item with same priority and conf
 - May fail again if underlying issue not resolved
 
 
-## queue trace
-
-
-### trace
+## trace
 
 Get execution trace for a queue item
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetQueueItemTrace`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -347,16 +335,14 @@ Shows complete task lifecycle. Useful for debugging failed tasks or monitoring e
 - Access is logged in audit trail
 
 
-## queue update-response
-
-
-### update-response
+## update-response
 
 Update progress/status of a processing queue item
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateQueueItemResponse`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

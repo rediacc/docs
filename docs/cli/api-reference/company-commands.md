@@ -1,27 +1,25 @@
-# Company Commands
+# Company
 
-Commands for company operations.
+Company operations.
 
 ## Table of Contents
 
-- [company block-user-requests](#company-block-user-requests)
-- [company export-data](#company-export-data)
-- [company get-vaults](#company-get-vaults)
-- [company import-data](#company-import-data)
-- [company update-vault](#company-update-vault)
-- [company update-vaults](#company-update-vaults)
+- [block-user-requests](#block-user-requests)
+- [export-data](#export-data)
+- [get-vaults](#get-vaults)
+- [import-data](#import-data)
+- [update-vault](#update-vault)
+- [update-vaults](#update-vaults)
 
 
-## company block-user-requests
-
-
-### block-user-requests
+## block-user-requests
 
 Block or unblock new user registration requests
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateCompanyBlockUserRequests`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -64,16 +62,14 @@ Requires company admin permissions. Existing users are not affected. Useful duri
 - Change is logged in audit trail
 
 
-## company export-data
-
-
-### export-data
+## export-data
 
 Export all company data to JSON format
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/ExportCompanyData`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -108,16 +104,14 @@ Requires admin permissions. Export includes all entity configurations and relati
 - Operation is logged in audit trail
 
 
-## company get-vaults
-
-
-### get-vaults
+## get-vaults
 
 Retrieve all company vault data
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetCompanyVaults`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -154,16 +148,14 @@ Requires company admin permissions. Vault data is returned encrypted unless mast
 - Read-only operation with no side effects
 
 
-## company import-data
-
-
-### import-data
+## import-data
 
 Import company data from JSON
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/ImportCompanyData`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -206,16 +198,14 @@ Requires admin permissions. Skip mode preserves existing data. Override mode upd
 - Vault data must be compatible with current passphrase
 
 
-## company update-vault
-
-
-### update-vault
+## update-vault
 
 Update company-wide vault configuration
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateCompanyVault`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -260,16 +250,14 @@ Requires company admin permissions. Vault data is encrypted with master password
 - Cannot be undone - backup before updating
 
 
-## company update-vaults
-
-
-### update-vaults
+## update-vaults
 
 Bulk update multiple company vaults
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateCompanyVaults`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

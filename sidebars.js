@@ -21,7 +21,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Console',
-      collapsed: false,
+      collapsed: true,
       items: [
         'console/introduction',
         'console/quick-start',
@@ -36,8 +36,92 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'CLI & API',
+      collapsed: true,
+      items: [
+        'cli/introduction',
+        'cli/installation',
+        'cli/quick-start',
+        {
+          type: 'category',
+          label: 'Tutorials',
+          collapsed: true,
+          items: [
+            'cli/tutorials/authentication-workflows',
+            'cli/tutorials/team-management-workflow',
+            'cli/tutorials/infrastructure-setup',
+            'cli/tutorials/job-orchestration',
+            'cli/tutorials/permission-management',
+          ],
+        },
+        'cli/configuration',
+        'cli/tutorial',
+        {
+          type: 'category',
+          label: 'API Reference',
+          collapsed: true,
+          items: [
+            'cli/api-reference/index',
+            {
+              type: 'category',
+              label: 'Authentication & Users',
+              collapsed: true,
+              items: [
+                'cli/api-reference/authentication',
+                { type: 'doc', id: 'cli/api-reference/auth-commands', label: 'Auth' },
+                { type: 'doc', id: 'cli/api-reference/user-commands', label: 'User' },
+                { type: 'doc', id: 'cli/api-reference/permission-commands', label: 'Permission' },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Resource Operations',
+              collapsed: true,
+              items: [
+                { type: 'doc', id: 'cli/api-reference/create-commands', label: 'Create' },
+                { type: 'doc', id: 'cli/api-reference/list-commands', label: 'List' },
+                { type: 'doc', id: 'cli/api-reference/update-commands', label: 'Update' },
+                { type: 'doc', id: 'cli/api-reference/rm-commands', label: 'Remove' },
+                { type: 'doc', id: 'cli/api-reference/inspect-commands', label: 'Inspect' },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Team & Company',
+              collapsed: true,
+              items: [
+                { type: 'doc', id: 'cli/api-reference/company-commands', label: 'Company' },
+                { type: 'doc', id: 'cli/api-reference/team-member-commands', label: 'Team Member' },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Infrastructure',
+              collapsed: true,
+              items: [
+                { type: 'doc', id: 'cli/api-reference/bridge-commands', label: 'Bridge' },
+                { type: 'doc', id: 'cli/api-reference/distributed-storage-commands', label: 'Distributed Storage' },
+              ],
+            },
+            {
+              type: 'category',
+              label: 'System Operations',
+              collapsed: true,
+              items: [
+                { type: 'doc', id: 'cli/api-reference/queue-commands', label: 'Queue' },
+                { type: 'doc', id: 'cli/api-reference/vault-commands', label: 'Vault' },
+                { type: 'doc', id: 'cli/api-reference/audit-commands', label: 'Audit' },
+              ],
+            },
+            'cli/api-reference/queue-functions',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
       label: 'Backup Solutions',
-      collapsed: false,
+      collapsed: true,
       items: [
         'backup/zero-cost',
         'backup/time-travel',
@@ -47,7 +131,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Scaling Solutions',
-      collapsed: false,
+      collapsed: true,
       items: [
         'scaling/dynamic-resource-scaling',
         'scaling/legacy-database-scaling',
@@ -56,7 +140,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Security Solutions',
-      collapsed: false,
+      collapsed: true,
       items: [
         'security/real-time-defense',
       ],
@@ -64,7 +148,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Administration',
-      collapsed: false,
+      collapsed: true,
       items: [
         'administration/risk-free-upgrades',
         'administration/blackout',
@@ -73,7 +157,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'REST API',
-      collapsed: false,
+      collapsed: true,
       items: [
         'rest-api/introduction',
         'rest-api/authentication',
@@ -95,55 +179,6 @@ const sidebars = {
             'rest-api/storage-management',
             'rest-api/schedule-management',
             'rest-api/queue-management',
-          ],
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'CLI & API',
-      collapsed: false,
-      items: [
-        'cli/introduction',
-        'cli/installation',
-        'cli/quick-start',
-        {
-          type: 'category',
-          label: 'Tutorials',
-          collapsed: false,
-          items: [
-            'cli/tutorials/authentication-workflows',
-            'cli/tutorials/team-management-workflow',
-            'cli/tutorials/infrastructure-setup',
-            'cli/tutorials/job-orchestration',
-            'cli/tutorials/permission-management',
-          ],
-        },
-        'cli/configuration',
-        'cli/tutorial',
-        {
-          type: 'category',
-          label: 'API Reference',
-          collapsed: true,
-          items: [
-            'cli/api-reference/index',
-            'cli/api-reference/queue-functions',
-            'cli/api-reference/authentication',
-            'cli/api-reference/create-commands',
-            'cli/api-reference/list-commands',
-            'cli/api-reference/update-commands',
-            'cli/api-reference/rm-commands',
-            'cli/api-reference/inspect-commands',
-            'cli/api-reference/user-commands',
-            'cli/api-reference/team-member-commands',
-            'cli/api-reference/permission-commands',
-            'cli/api-reference/company-commands',
-            'cli/api-reference/audit-commands',
-            'cli/api-reference/auth-commands',
-            'cli/api-reference/bridge-commands',
-            'cli/api-reference/queue-commands',
-            'cli/api-reference/vault-commands',
-            'cli/api-reference/distributed-storage-commands',
           ],
         },
       ],

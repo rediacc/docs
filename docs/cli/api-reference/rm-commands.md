@@ -1,29 +1,27 @@
-# Rm Commands
+# Rm
 
-Commands for removing resources from the system.
+Remove resources from the system.
 
 ## Table of Contents
 
-- [rm bridge](#rm-bridge)
-- [rm machine](#rm-machine)
-- [rm queue-item](#rm-queue-item)
-- [rm region](#rm-region)
-- [rm repository](#rm-repository)
-- [rm schedule](#rm-schedule)
-- [rm storage](#rm-storage)
-- [rm team](#rm-team)
+- [bridge](#bridge)
+- [machine](#machine)
+- [queue-item](#queue-item)
+- [region](#region)
+- [repository](#repository)
+- [schedule](#schedule)
+- [storage](#storage)
+- [team](#team)
 
 
-## rm bridge
-
-
-### bridge
+## bridge
 
 Delete a bridge from a region
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/DeleteBridge`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -68,16 +66,14 @@ Cannot delete if machines are assigned. Reassign machines first using 'update ma
 - Bridge deletion is tracked in audit logs for compliance
 
 
-## rm machine
-
-
-### machine
+## machine
 
 Delete a machine from a team
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/DeleteMachine`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -122,16 +118,14 @@ Check for pending queue items before deletion. The actual server is not affected
 - Actual server is not affected, only Rediacc configuration removed
 
 
-## rm queue-item
-
-
-### queue-item
+## queue-item
 
 Delete a queue item from the system
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/DeleteQueueItem`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -142,7 +136,7 @@ Removes a pending queue item to prevent execution. Only PENDING or CANCELLED ite
 
 | Parameter | Description | Required | Example |
 |-----------|-------------|----------|---------|
-| `taskid` | true | - |  |
+| `taskid` |  | true | - |
 
 #### Examples
 
@@ -174,16 +168,14 @@ Cannot delete running or completed items. Use 'queue cancel' for running tasks. 
 - Queue item deletion is tracked in audit logs
 
 
-## rm region
-
-
-### region
+## region
 
 Delete a region and all its bridges
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/DeleteRegion`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -227,16 +219,14 @@ WARNING: Cascades to all bridges in the region. Cannot delete if bridges have as
 - Region deletion is tracked in audit logs for compliance
 
 
-## rm repository
-
-
-### repository
+## repository
 
 Delete a repository from the system
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/DeleteRepository`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -247,8 +237,8 @@ Permanently removes a repository and all its data. The repository's Docker conta
 
 | Parameter | Description | Required | Example |
 |-----------|-------------|----------|---------|
-| `name` | true | - |  |
-| `team` | true | - |  |
+| `name` |  | true | - |
+| `team` |  | true | - |
 
 #### Examples
 
@@ -280,16 +270,14 @@ Ensure all data is backed up before deletion. Running containers will be stopped
 - Repository deletion is tracked in audit logs
 
 
-## rm schedule
-
-
-### schedule
+## schedule
 
 Delete a schedule from the system
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/DeleteSchedule`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -300,8 +288,8 @@ Permanently removes a scheduled task. Any pending executions will be cancelled, 
 
 | Parameter | Description | Required | Example |
 |-----------|-------------|----------|---------|
-| `name` | true | - |  |
-| `team` | true | - |  |
+| `name` |  | true | - |
+| `team` |  | true | - |
 
 #### Examples
 
@@ -333,16 +321,14 @@ Disable schedule before deletion. Running tasks will complete. History is retain
 - Schedule deletion is tracked in audit logs
 
 
-## rm storage
-
-
-### storage
+## storage
 
 Delete a storage configuration from the system
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/DeleteStorage`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -353,8 +339,8 @@ Removes a storage configuration including credentials and settings. Does not del
 
 | Parameter | Description | Required | Example |
 |-----------|-------------|----------|---------|
-| `name` | true | - |  |
-| `team` | true | - |  |
+| `name` |  | true | - |
+| `team` |  | true | - |
 
 #### Examples
 
@@ -386,16 +372,14 @@ Only removes Rediacc configuration. Data in external storage systems remains unt
 - Storage deletion is tracked in audit logs
 
 
-## rm team
-
-
-### team
+## team
 
 Delete a team and all its resources
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/DeleteTeam`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

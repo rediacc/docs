@@ -1,22 +1,20 @@
-# Audit Commands
+# Audit
 
-Commands for audit operations.
+Audit operations.
 
 ## Table of Contents
 
-- [audit trace](#audit-trace)
+- [trace](#trace)
 
 
-## audit trace
-
-
-### trace
+## trace
 
 Get detailed audit trail for entity
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetEntityAuditTrace`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

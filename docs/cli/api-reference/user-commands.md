@@ -1,26 +1,24 @@
-# User Commands
+# User
 
-Commands for user operations.
+User operations.
 
 ## Table of Contents
 
-- [user activate](#user-activate)
-- [user deactivate](#user-deactivate)
-- [user update-2fa](#user-update-2fa)
-- [user update-email](#user-update-email)
-- [user update-password](#user-update-password)
+- [activate](#activate)
+- [deactivate](#deactivate)
+- [update-2fa](#update-2fa)
+- [update-email](#update-email)
+- [update-password](#update-password)
 
 
-## user activate
-
-
-### activate
+## activate
 
 Activate a user account
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/ActivateUserAccount`
+
 **Authentication:** Required (credential-based with Rediacc-UserEmail and Rediacc-UserHash headers)
 
 #### Details
@@ -64,16 +62,14 @@ No authentication required for activation. Activation codes are set during user 
 - Activation is logged in audit trail
 
 
-## user deactivate
-
-
-### deactivate
+## deactivate
 
 Deactivate a user account
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateUserToDeactivated`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -117,16 +113,14 @@ Deactivated users cannot log in but their data is preserved. Use for employees w
 - Pending tasks assigned to user continue
 
 
-## user update-2fa
-
-
-### update-2fa
+## update-2fa
 
 Configure two-factor authentication
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateUser2FA`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -171,16 +165,14 @@ Use authenticator apps like Google Authenticator or Authy. Save backup codes whe
 - Time window for code acceptance is typically ±30 seconds
 
 
-## user update-email
-
-
-### update-email
+## update-email
 
 Change a user's email address
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateUserEmail`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -224,16 +216,14 @@ New email must be unique. User must log in with new email after change. Consider
 - Email change is logged in audit trail
 
 
-## user update-password
-
-
-### update-password
+## update-password
 
 Change your password
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateUserPassword`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

@@ -525,6 +525,6 @@ rediacc-cli create bridge region new-bridge --vault '{"batch_size": 10}'
 ## Related Guides
 - [Team Management Workflow](./team-management-workflow.md)
 - [Job Orchestration](./job-orchestration.md)
-- [API Reference: Region Commands](../api-reference/create-commands.md#create-region)
-- [API Reference: Bridge Commands](../api-reference/create-commands.md#create-bridge)
-- [API Reference: Machine Commands](../api-reference/create-commands.md#create-machine)
+- [API Reference: Region Commands](../api-reference/create-commands.md#region)
+- [API Reference: Bridge Commands](../api-reference/create-commands.md#bridge)
+- [API Reference: Machine Commands](../api-reference/create-commands.md#machine)

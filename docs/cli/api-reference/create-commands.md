@@ -1,31 +1,29 @@
-# Create Commands
+# Create
 
-Commands for creating new resources in the system.
+Create new resources in the system.
 
 ## Table of Contents
 
-- [create bridge](#create-bridge)
-- [create company](#create-company)
-- [create machine](#create-machine)
-- [create queue-item](#create-queue-item)
-- [create region](#create-region)
-- [create repository](#create-repository)
-- [create schedule](#create-schedule)
-- [create storage](#create-storage)
-- [create team](#create-team)
-- [create user](#create-user)
+- [bridge](#bridge)
+- [company](#company)
+- [machine](#machine)
+- [queue-item](#queue-item)
+- [region](#region)
+- [repository](#repository)
+- [schedule](#schedule)
+- [storage](#storage)
+- [team](#team)
+- [user](#user)
 
 
-## create bridge
-
-
-### bridge
+## bridge
 
 Create a new bridge for task processing
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreateBridge`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -71,16 +69,14 @@ After creation, start the bridge with './bridge --bridge-mode token=&lt;token&gt
 - Bridge credentials are stored securely in the vault
 
 
-## create company
-
-
-### company
+## company
 
 Create a new company account with admin user
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreateNewCompany`
+
 **Authentication:** Required (credential-based with Rediacc-UserEmail and Rediacc-UserHash headers)
 
 #### Details
@@ -127,16 +123,14 @@ The admin user is automatically activated and becomes the company owner. Activat
 - Email validation checks for proper format with @ symbol and domain
 
 
-## create machine
-
-
-### machine
+## machine
 
 Create a new machine in a team
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreateMachine`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -182,16 +176,14 @@ You must be a member of the team. The bridge must exist and be accessible. Machi
 - Bridge must be accessible and properly configured
 
 
-## create queue-item
-
-
-### queue-item
+## queue-item
 
 Create a queue item for task execution
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreateQueueItem`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -238,16 +230,14 @@ Priority 1-2 requires Premium/Elite subscription. Community/Advanced limited to 
 - Bridge must be in the same company as the machine
 
 
-## create region
-
-
-### region
+## region
 
 Create a new region for organizing bridges
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreateRegion`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -292,16 +282,14 @@ Regions cannot be deleted if they contain bridges. Region names must be unique a
 - Admin permissions may be required depending on company settings
 
 
-## create repository
-
-
-### repository
+## repository
 
 Create a new repository for code and data storage
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreateRepository`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -356,16 +344,14 @@ Repository names must be unique within a team. After creation, deploy code using
 - GUID is auto-generated if not provided
 
 
-## create schedule
-
-
-### schedule
+## schedule
 
 Create a scheduled task
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreateSchedule`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -411,16 +397,14 @@ Schedules require Premium or Elite subscription. Cron expressions follow standar
 - Cron expressions must follow standard format
 
 
-## create storage
-
-
-### storage
+## storage
 
 Create a new storage resource
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreateStorage`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -466,16 +450,14 @@ Storage credentials are encrypted in the vault. Supported types include S3, Azur
 - Storage types must be supported (S3, Azure, GCS, SFTP, SMB)
 
 
-## create team
-
-
-### team
+## team
 
 Create a new team in your company
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreateTeam`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -520,16 +502,14 @@ Team creation counts against your subscription limits. The creator automatically
 - Bridge users cannot be added to teams
 
 
-## create user
-
-
-### user
+## user
 
 Create a new user in your company
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreateNewUser`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

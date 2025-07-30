@@ -1,23 +1,21 @@
-# Team-Member Commands
+# Team-Member
 
-Commands for team-member operations.
+Team-Member operations.
 
 ## Table of Contents
 
-- [team-member add](#team-member-add)
-- [team-member remove](#team-member-remove)
+- [add](#add)
+- [remove](#remove)
 
 
-## team-member add
-
-
-### add
+## add
 
 Add user to team
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreateTeamMembership`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -61,16 +59,14 @@ User must exist and be activated. You must be a team member to add others. Chang
 - Triggers notification email to the added user
 
 
-## team-member remove
-
-
-### remove
+## remove
 
 Remove user from team
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/DeleteUserFromTeam`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

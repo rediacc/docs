@@ -1,22 +1,20 @@
-# Bridge Commands
+# Bridge
 
-Commands for bridge operations.
+Bridge operations.
 
 ## Table of Contents
 
-- [bridge reset-auth](#bridge-reset-auth)
+- [reset-auth](#reset-auth)
 
 
-## bridge reset-auth
-
-
-### reset-auth
+## reset-auth
 
 Generate new bridge credentials
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/ResetBridgeAuthorization`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

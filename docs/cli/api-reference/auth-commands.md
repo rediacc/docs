@@ -1,23 +1,21 @@
-# Auth Commands
+# Auth
 
-Commands for auth operations.
+Auth operations.
 
 ## Table of Contents
 
-- [auth privilege](#auth-privilege)
-- [auth status](#auth-status)
+- [privilege](#privilege)
+- [status](#status)
 
 
-## auth privilege
-
-
-### privilege
+## privilege
 
 Grant special privileges to auth request
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/PrivilegeAuthenticationRequest`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -61,16 +59,14 @@ Requires existing admin permissions. Use with caution. Privileges are temporary 
 - Revoked immediately if suspicious activity is detected
 
 
-## auth status
-
-
-### status
+## status
 
 Check authentication request status
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetRequestAuthenticationStatus`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

@@ -466,5 +466,5 @@ echo "Cleanup analysis complete. Review findings before taking action."
 - [Authentication Workflows](./authentication-workflows.md)
 - [Infrastructure Setup](./infrastructure-setup.md)
 - [Permission Management](./permission-management.md)
-- [API Reference: Team Commands](../api-reference/create-commands.md#create-team)
+- [API Reference: Team Commands](../api-reference/create-commands.md#team)
 - [API Reference: Team Member Commands](../api-reference/team-member-commands.md)

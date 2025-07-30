@@ -1,23 +1,21 @@
-# Inspect Commands
+# Inspect
 
-Commands for inspect operations.
+Inspect operations.
 
 ## Table of Contents
 
-- [inspect machine](#inspect-machine)
-- [inspect repository](#inspect-repository)
+- [machine](#machine)
+- [repository](#repository)
 
 
-## inspect machine
-
-
-### machine
+## machine
 
 Get detailed information about a machine
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetTeamMachines`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -61,16 +59,14 @@ Shows decrypted vault if master password is set. Includes IP address, SSH creden
 - Access is logged in audit trail
 
 
-## inspect repository
-
-
-### repository
+## repository
 
 Get detailed info about a repository
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetTeamRepositories`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

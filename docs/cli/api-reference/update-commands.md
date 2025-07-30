@@ -1,33 +1,31 @@
-# Update Commands
+# Update
 
-Commands for updating existing resources.
+Update existing resources.
 
 ## Table of Contents
 
-- [update bridge](#update-bridge)
-- [update machine](#update-machine)
-- [update machine-bridge](#update-machine-bridge)
-- [update machine-status](#update-machine-status)
-- [update region](#update-region)
-- [update repository](#update-repository)
-- [update repository-vault](#update-repository-vault)
-- [update schedule](#update-schedule)
-- [update schedule-vault](#update-schedule-vault)
-- [update storage](#update-storage)
-- [update storage-vault](#update-storage-vault)
-- [update team](#update-team)
+- [bridge](#bridge)
+- [machine](#machine)
+- [machine-bridge](#machine-bridge)
+- [machine-status](#machine-status)
+- [region](#region)
+- [repository](#repository)
+- [repository-vault](#repository-vault)
+- [schedule](#schedule)
+- [schedule-vault](#schedule-vault)
+- [storage](#storage)
+- [storage-vault](#storage-vault)
+- [team](#team)
 
 
-## update bridge
-
-
-### bridge
+## bridge
 
 Rename a bridge
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateBridgeName`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -72,16 +70,14 @@ Bridge names must be unique within a region. Update machine assignments if neede
 - Name change is tracked in audit logs
 
 
-## update machine
-
-
-### machine
+## machine
 
 Rename a machine
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateMachineName`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -121,16 +117,14 @@ Machine names are globally unique. Update schedules and scripts that reference t
 - Name change is tracked in audit logs
 
 
-## update machine-bridge
-
-
-### machine-bridge
+## machine-bridge
 
 Reassign a machine to a different bridge
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateMachineAssignedBridge`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -175,16 +169,14 @@ New queue items will be processed by the new bridge. Existing items in PENDING s
 - Assignment change is tracked in audit logs
 
 
-## update machine-status
-
-
-### machine-status
+## machine-status
 
 Update the status of a machine
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateMachineStatus`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -230,16 +222,14 @@ Status is free-form text. Use consistent conventions for automation. Requires te
 - Bridges can update status of any machine in teams where they own at least one machine
 
 
-## update region
-
-
-### region
+## region
 
 Rename a region
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateRegionName`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -283,16 +273,14 @@ Region names must be unique within the company. Bridges and their associations a
 - Name change is tracked in audit logs
 
 
-## update repository
-
-
-### repository
+## repository
 
 Rename a repository
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateRepositoryName`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -337,16 +325,14 @@ Repository names must be unique within a team. Running containers are not affect
 - Name change is tracked in audit logs
 
 
-## update repository-vault
-
-
-### repository-vault
+## repository-vault
 
 Update repository configuration vault
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateRepositoryVault`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -393,16 +379,14 @@ Vault data is encrypted. Changes may require repository restart. Use 'inspect re
 - Vault update is tracked in audit logs
 
 
-## update schedule
-
-
-### schedule
+## schedule
 
 Rename a scheduled task
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateScheduleName`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -447,16 +431,14 @@ Schedule names must be unique within a team. The schedule continues running with
 - Name change is tracked in audit logs
 
 
-## update schedule-vault
-
-
-### schedule-vault
+## schedule-vault
 
 Update schedule configuration
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateScheduleVault`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -503,16 +485,14 @@ Requires Premium or Elite subscription. Changes take effect at next scheduled ru
 - Vault update is tracked in audit logs
 
 
-## update storage
-
-
-### storage
+## storage
 
 Rename a storage resource
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateStorageName`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -557,16 +537,14 @@ Storage names must be unique within a team. Update backup scripts and schedules 
 - Name change is tracked in audit logs
 
 
-## update storage-vault
-
-
-### storage-vault
+## storage-vault
 
 Update storage credentials and configuration
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateStorageVault`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -613,16 +591,14 @@ Credentials are encrypted. Test access after updating. Supports S3, Azure Blob, 
 - Vault update is tracked in audit logs
 
 
-## update team
-
-
-### team
+## team
 
 Rename a team
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateTeamName`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

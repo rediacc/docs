@@ -1,28 +1,26 @@
-# Permission Commands
+# Permission
 
-Commands for permission operations.
+Permission operations.
 
 ## Table of Contents
 
-- [permission add](#permission-add)
-- [permission assign](#permission-assign)
-- [permission create-group](#permission-create-group)
-- [permission delete-group](#permission-delete-group)
-- [permission list-group](#permission-list-group)
-- [permission list-groups](#permission-list-groups)
-- [permission remove](#permission-remove)
+- [add](#add)
+- [assign](#assign)
+- [create-group](#create-group)
+- [delete-group](#delete-group)
+- [list-group](#list-group)
+- [list-groups](#list-groups)
+- [remove](#remove)
 
 
-## permission add
-
-
-### add
+## add
 
 Add permission to a group
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreatePermissionInGroup`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -66,16 +64,14 @@ Permission names correspond to API endpoints. Use 'list lookup-data' to see avai
 - Company boundaries are strictly enforced
 
 
-## permission assign
-
-
-### assign
+## assign
 
 Assign permission group to user
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateUserAssignedPermissions`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -119,16 +115,14 @@ Replaces user's current permission group. Changes take effect on next login. Req
 - Users can only belong to one permission group
 
 
-## permission create-group
-
-
-### create-group
+## create-group
 
 Create a new permission group
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreatePermissionGroup`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -171,16 +165,14 @@ Requires admin permissions. Group names must be unique within the company. Add p
 - Group creation is logged in audit trail
 
 
-## permission delete-group
-
-
-### delete-group
+## delete-group
 
 Delete a permission group
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/DeletePermissionGroup`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -224,16 +216,14 @@ Cannot delete system groups. Check user assignments before deletion. This is irr
 - Deletion is logged in audit trail
 
 
-## permission list-group
-
-
-### list-group
+## list-group
 
 Show permissions in a specific group
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetPermissionGroupDetails`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -276,16 +266,14 @@ Permission names correspond to API endpoints. Compare groups to understand acces
 - Returns error if group doesn't exist
 
 
-## permission list-groups
-
-
-### list-groups
+## list-groups
 
 List all permission groups
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetCompanyPermissionGroups`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -322,16 +310,14 @@ System groups like 'Admins' and 'Bridges' cannot be modified. Shows user count f
 - Failed attempts are logged for security
 
 
-## permission remove
-
-
-### remove
+## remove
 
 Remove permission from a group
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/DeletePermissionFromGroup`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

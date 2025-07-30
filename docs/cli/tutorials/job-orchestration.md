@@ -521,5 +521,5 @@ Priority 5: Low priority maintenance
 - [Infrastructure Setup](./infrastructure-setup.md)
 - [Team Management Workflow](./team-management-workflow.md)
 - [API Reference: Queue Commands](../api-reference/queue-commands.md)
-- [API Reference: Schedule Commands](../api-reference/create-commands.md#create-schedule)
+- [API Reference: Schedule Commands](../api-reference/create-commands.md#schedule)
 - [API Reference: Queue Functions](../api-reference/queue-functions.md)

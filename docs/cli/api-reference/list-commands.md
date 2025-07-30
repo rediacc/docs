@@ -1,39 +1,37 @@
-# List Commands
+# List
 
-Commands for listing and viewing resources.
+List and view resources.
 
 ## Table of Contents
 
-- [list audit-logs](#list-audit-logs)
-- [list bridges](#list-bridges)
-- [list company-vault](#list-company-vault)
-- [list data-graph](#list-data-graph)
-- [list entity-history](#list-entity-history)
-- [list lookup-data](#list-lookup-data)
-- [list regions](#list-regions)
-- [list resource-limits](#list-resource-limits)
-- [list sessions](#list-sessions)
-- [list subscription](#list-subscription)
-- [list team-machines](#list-team-machines)
-- [list team-members](#list-team-members)
-- [list team-repositories](#list-team-repositories)
-- [list team-schedules](#list-team-schedules)
-- [list team-storages](#list-team-storages)
-- [list teams](#list-teams)
-- [list user-company](#list-user-company)
-- [list users](#list-users)
+- [audit-logs](#audit-logs)
+- [bridges](#bridges)
+- [company-vault](#company-vault)
+- [data-graph](#data-graph)
+- [entity-history](#entity-history)
+- [lookup-data](#lookup-data)
+- [regions](#regions)
+- [resource-limits](#resource-limits)
+- [sessions](#sessions)
+- [subscription](#subscription)
+- [team-machines](#team-machines)
+- [team-members](#team-members)
+- [team-repositories](#team-repositories)
+- [team-schedules](#team-schedules)
+- [team-storages](#team-storages)
+- [teams](#teams)
+- [user-company](#user-company)
+- [users](#users)
 
 
-## list audit-logs
-
-
-### audit-logs
+## audit-logs
 
 View audit trail of system changes
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetAuditLogs`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -79,16 +77,14 @@ Audit logs are retained based on subscription tier. Includes create, update, del
 - Users can always view their own user account logs
 
 
-## list bridges
-
-
-### bridges
+## bridges
 
 List bridges in a specific region
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetRegionBridges`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -126,16 +122,14 @@ Bridges must be running in bridge mode to process queue items.
 - Special 'Global Bridges' entry may be shown for cloud-managed bridges
 
 
-## list company-vault
-
-
-### company-vault
+## company-vault
 
 View company-wide vault configuration
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetCompanyVault`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -167,16 +161,14 @@ Requires company admin permissions. Vault data is automatically decrypted if you
 - Bridge users allowed access for automated operations
 
 
-## list data-graph
-
-
-### data-graph
+## data-graph
 
 Display company infrastructure as a hierarchical graph
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetCompanyDataGraphJson`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -213,16 +205,14 @@ Useful for understanding infrastructure topology and dependencies. JSON output c
 - Both nodes and relationships filtered based on access rights
 
 
-## list entity-history
-
-
-### entity-history
+## entity-history
 
 View change history for a specific entity
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetEntityHistory`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -267,16 +257,14 @@ Get the credential from 'inspect' commands. History includes creates, updates, d
 - Access denial protects entity existence information
 
 
-## list lookup-data
-
-
-### lookup-data
+## lookup-data
 
 Get dropdown/selection data for UI components
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetLookupData`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -319,16 +307,14 @@ Returns different data based on user permissions. Admins see all resources, regu
 - All data returned as JSON with value/label pairs
 
 
-## list regions
-
-
-### regions
+## regions
 
 List all regions in your company
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetCompanyRegions`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -360,16 +346,14 @@ Regions define geographic or logical boundaries for infrastructure deployment.
 - Empty result set is returned if no regions exist
 
 
-## list resource-limits
-
-
-### resource-limits
+## resource-limits
 
 Display company resource limits and current usage
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetCompanyDashboardJson`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -406,16 +390,14 @@ Useful for capacity planning and monitoring when approaching subscription limits
 - Upgrade recommended if 3+ resources at 80% capacity
 
 
-## list sessions
-
-
-### sessions
+## sessions
 
 List active sessions and authentication requests
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetUserRequests`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -452,16 +434,14 @@ Sessions expire based on tokenExpirationHours setting. Bridge tokens may have ex
 - Zero trust security model with full authentication on every request
 
 
-## list subscription
-
-
-### subscription
+## subscription
 
 Show subscription details and billing information
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetCompanyDashboardJson`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -498,16 +478,14 @@ Plans: COMMUNITY (free), ADVANCED, PREMIUM, ELITE. Higher tiers offer more resou
 - Queue priority features only visible to Premium/Elite subscribers
 
 
-## list team-machines
-
-
-### team-machines
+## team-machines
 
 List machines in a specific team
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetTeamMachines`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -550,16 +528,14 @@ You must be a member of the team to see its machines. Shows queue count for each
 - Real-time queue count helps understand workload
 
 
-## list team-members
-
-
-### team-members
+## team-members
 
 List members of a specific team
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetTeamMembers`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -597,16 +573,14 @@ You must be a member of the team to view its membership. Shows email addresses a
 - No administrative override for non-member access
 
 
-## list team-repositories
-
-
-### team-repositories
+## team-repositories
 
 List all repositories owned by a team
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetTeamRepositories`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -649,16 +623,14 @@ You must be a member of the team. Shows repository names, credentials, and vault
 - Three-level access control: authentication, company, team
 
 
-## list team-schedules
-
-
-### team-schedules
+## team-schedules
 
 List scheduled tasks for a team
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetTeamSchedules`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -701,16 +673,14 @@ Requires Premium or Elite subscription. Shows cron expressions, target machines,
 - Company encryption passphrase used for vault decryption
 
 
-## list team-storages
-
-
-### team-storages
+## team-storages
 
 List storage resources for a team
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetTeamStorages`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -753,16 +723,14 @@ You must be a member of the team. Storage credentials are encrypted in vaults. U
 - Failed authentication results in 403 error
 
 
-## list teams
-
-
-### teams
+## teams
 
 List all teams in your company
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetCompanyTeams`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -799,16 +767,14 @@ Requires authentication. Vault content is only visible for teams you belong to.
 - Company name is included for context
 
 
-## list user-company
-
-
-### user-company
+## user-company
 
 Display which company the current user belongs to
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetUserCompany`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -840,16 +806,14 @@ Requires authentication. Shows company name and ID.
 - Failed validation returns no company information
 
 
-## list users
-
-
-### users
+## users
 
 List all users in your company
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetCompanyUsers`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

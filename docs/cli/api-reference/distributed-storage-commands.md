@@ -1,29 +1,27 @@
-# Distributed-Storage Commands
+# Distributed-Storage
 
-Commands for distributed-storage operations.
+Distributed-Storage operations.
 
 ## Table of Contents
 
-- [distributed-storage add-machines](#distributed-storage-add-machines)
-- [distributed-storage create-cluster](#distributed-storage-create-cluster)
-- [distributed-storage delete-cluster](#distributed-storage-delete-cluster)
-- [distributed-storage get-cluster](#distributed-storage-get-cluster)
-- [distributed-storage list-clusters](#distributed-storage-list-clusters)
-- [distributed-storage remove-machines](#distributed-storage-remove-machines)
-- [distributed-storage update-status](#distributed-storage-update-status)
-- [distributed-storage update-vault](#distributed-storage-update-vault)
+- [add-machines](#add-machines)
+- [create-cluster](#create-cluster)
+- [delete-cluster](#delete-cluster)
+- [get-cluster](#get-cluster)
+- [list-clusters](#list-clusters)
+- [remove-machines](#remove-machines)
+- [update-status](#update-status)
+- [update-vault](#update-vault)
 
 
-## distributed-storage add-machines
-
-
-### add-machines
+## add-machines
 
 Add machines to a storage cluster
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/AddMachinesToDistributedStorage`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -68,16 +66,14 @@ Machines must be in the same team. Triggers data rebalancing. Monitor cluster he
 - Addition is logged in audit trail
 
 
-## distributed-storage create-cluster
-
-
-### create-cluster
+## create-cluster
 
 Create a distributed storage cluster
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/CreateDistributedStorageCluster`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -123,16 +119,14 @@ Requires Elite subscription. Add machines after creation. Cluster names must be 
 - Cluster creation is logged in audit trail
 
 
-## distributed-storage delete-cluster
-
-
-### delete-cluster
+## delete-cluster
 
 Delete a distributed storage cluster
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/DeleteDistributedStorageCluster`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -177,16 +171,14 @@ Remove all machines from cluster first. Data on machines is preserved. This acti
 - Deletion is logged in audit trail for compliance
 
 
-## distributed-storage get-cluster
-
-
-### get-cluster
+## get-cluster
 
 Get details of a specific storage cluster
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetDistributedStorageCluster`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -230,16 +222,14 @@ Shows machine membership, replication status, and storage utilization. Requires 
 - Operation fails if cluster doesn't exist
 
 
-## distributed-storage list-clusters
-
-
-### list-clusters
+## list-clusters
 
 List all storage clusters for a team
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/ListDistributedStorageClusters`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -282,16 +272,14 @@ Elite subscription feature. Shows cluster health, machine count, and storage cap
 - Read-only operation that doesn't modify data
 
 
-## distributed-storage remove-machines
-
-
-### remove-machines
+## remove-machines
 
 Remove machines from a storage cluster
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/RemoveMachinesFromDistributedStorage`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -337,16 +325,14 @@ Ensure sufficient capacity remains. Data migration may take time. Monitor cluste
 - Removal is logged in audit trail
 
 
-## distributed-storage update-status
-
-
-### update-status
+## update-status
 
 Update cluster operational status
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateDistributedStorageClusterStatus`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details
@@ -391,16 +377,14 @@ OFFLINE prevents new writes. MAINTENANCE allows reads but not writes. Monitor cl
 - Change is logged in audit trail with old and new status
 
 
-## distributed-storage update-vault
-
-
-### update-vault
+## update-vault
 
 Update cluster configuration vault
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/UpdateDistributedStorageClusterVault`
+
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Details

@@ -1,19 +1,16 @@
-# Vault Commands
+# Vault
 
-Commands for vault operations.
+Vault operations.
 
 ## Table of Contents
 
-- [vault clear-password](#vault-clear-password)
-- [vault set](#vault-set)
-- [vault set-password](#vault-set-password)
-- [vault status](#vault-status)
+- [clear-password](#clear-password)
+- [set](#set)
+- [set-password](#set-password)
+- [status](#status)
 
 
-## vault clear-password
-
-
-### clear-password
+## clear-password
 
 Clear the stored master password
 
@@ -46,10 +43,7 @@ Use this for security when done with vault operations. Does not affect encrypted
 - Does not modify any encrypted data stored on the server
 
 
-## vault set
-
-
-### set
+## set
 
 Update vault data for any resource type
 
@@ -103,10 +97,7 @@ Vault data is encrypted with master password. Always backup current vault before
 - Vault updates are tracked in audit logs for security
 
 
-## vault set-password
-
-
-### set-password
+## set-password
 
 Set the master password for vault encryption
 
@@ -139,10 +130,7 @@ Password is stored in local configuration. Use a strong password. Required for v
 - Used for both encryption and decryption of vault fields
 
 
-## vault status
-
-
-### status
+## status
 
 Show vault encryption status
 

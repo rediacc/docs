@@ -8,29 +8,29 @@ The API reference is organized into the following sections:
 
 ### Core Operations
 
-- **[Queue Functions](queue-functions.md)** - 
+- **[Queue Functions](queue-functions.md)** - Queue functions are executed on machines via the bridge system. They handle repository management, system setup, and data operations.
 
 ### Resource Management
 
-- **[Update Commands](update-commands.md)** - 
-- **[Rm Commands](rm-commands.md)** - 
-- **[List Commands](list-commands.md)** - 
-- **[Create Commands](create-commands.md)** - 
+- **[Create](create-commands.md)** - Create new resources in the system.
+- **[List](list-commands.md)** - List and view resources.
+- **[Rm](rm-commands.md)** - Remove resources from the system.
+- **[Update](update-commands.md)** - Update existing resources.
 
 ### Operations
 
-- **[Distributed-Storage Commands](distributed-storage-commands.md)** - 
-- **[Vault Commands](vault-commands.md)** - 
-- **[Auth Commands](auth-commands.md)** - 
-- **[Inspect Commands](inspect-commands.md)** - 
-- **[Team-Member Commands](team-member-commands.md)** - 
-- **[Company Commands](company-commands.md)** - 
-- **[Authentication](authentication.md)** - 
-- **[User Commands](user-commands.md)** - 
-- **[Permission Commands](permission-commands.md)** - 
-- **[Audit Commands](audit-commands.md)** - 
-- **[Queue Commands](queue-commands.md)** - 
-- **[Bridge Commands](bridge-commands.md)** - 
+- **[Audit](audit-commands.md)** - Audit operations.
+- **[Auth](auth-commands.md)** - Auth operations.
+- **[Authentication](authentication.md)** - Manage authentication and sessions.
+- **[Bridge](bridge-commands.md)** - Bridge operations.
+- **[Company](company-commands.md)** - Company operations.
+- **[Distributed-Storage](distributed-storage-commands.md)** - Distributed-Storage operations.
+- **[Inspect](inspect-commands.md)** - Inspect operations.
+- **[Permission](permission-commands.md)** - Permission operations.
+- **[Queue](queue-commands.md)** - Queue operations.
+- **[Team-Member](team-member-commands.md)** - Team-Member operations.
+- **[User](user-commands.md)** - User operations.
+- **[Vault](vault-commands.md)** - Vault operations.
 
 ## Command Structure
 
