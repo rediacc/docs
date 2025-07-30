@@ -87,7 +87,7 @@ Learning resources and troubleshooting:
 #### Troubleshooting
 1. [Common Errors](./errors/common-errors)
 2. [Known Issues](./known-issues)
-3. [Dashboard Indicators](./dashboard#troubleshooting)
+3. [Dashboard Indicators](./dashboard#troubleshooting-dashboard-issues)
 
 ## Quick Links
 
@@ -105,7 +105,7 @@ Learning resources and troubleshooting:
 ### Troubleshooting Resources
 - [Common Errors](./errors/common-errors) - Solutions to frequent issues
 - [Known Issues](./known-issues) - Current limitations
-- [System Requirements](./introduction#prerequisites) - Compatibility info
+- [System Requirements](./introduction#login-requirements) - Compatibility info
 
 ## Documentation Conventions
 

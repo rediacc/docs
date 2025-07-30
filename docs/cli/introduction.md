@@ -135,7 +135,7 @@ export SYSTEM_MIDDLEWARE_PORT="8080"
 ## Next Steps
 
 - [Installation Guide](./installation.md) - How to install and set up the CLI
-- [Authentication](./authentication.md) - Login and user management
-- [Company Management](./company.md) - Company administration
-- [Teams](./teams.md) - Team collaboration features
+- [Quick Start](./quick-start.md) - Authentication and basic commands
+- [Tutorials](./tutorials/authentication-workflows.md) - Workflow-focused guides
+- [API Reference](./api-reference/index.md) - Complete command documentation
 - [Configuration Reference](./configuration.md) - Complete configuration options

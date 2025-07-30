@@ -379,10 +379,10 @@ Congratulations! You now have a basic Rediacc environment set up. Here are some 
 
 ### Learn More Features
 
-1. **[Teams Management](./teams.md)** - Deep dive into team collaboration
-2. **[Jobs Management](./jobs.md)** - Advanced backup and automation
-3. **[Infrastructure](./infrastructure.md)** - Scale your infrastructure
-4. **[Permissions](./permissions.md)** - Fine-tune access control
+1. **[Team Management](./tutorials/team-management-workflow.md)** - Deep dive into team collaboration
+2. **[Job Orchestration](./tutorials/job-orchestration.md)** - Advanced backup and automation
+3. **[Infrastructure Setup](./tutorials/infrastructure-setup.md)** - Scale your infrastructure
+4. **[Permission Management](./tutorials/permission-management.md)** - Fine-tune access control
 
 ### Production Readiness
 

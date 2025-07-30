@@ -95,7 +95,7 @@ Found an issue or have a suggestion for these tutorials?
 
 - [Console Introduction](../introduction.md) - Platform overview
 - [Authentication Guide](../authentication.md) - Security details
-- [API Documentation](../system.md#api-endpoints) - Programmatic access
-- [CLI Tools](../system.md#cli-integration) - Command-line usage
+- [API Documentation](../system.md#api-access) - Programmatic access
+- [CLI Tools](../../cli/introduction.md) - Command-line usage
 
 Happy learning! These tutorials will help you become proficient with the Rediacc Console and implement enterprise-grade infrastructure management.

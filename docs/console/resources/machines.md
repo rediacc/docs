@@ -540,7 +540,7 @@ POST /api/StoredProcedure/DeleteMachine
 
 ## Related Documentation
 
-- [Bridge Management](../system.md#bridges) - Configure bridges for machine access
+- [Bridge Management](../system.md#bridges-management) - Configure bridges for machine access
 - [Repository Management](./repositories.md) - Deploy code to machines
 - [Storage Management](./storage.md) - Configure backup storage
 - [Schedule Management](./schedules.md) - Automate machine tasks

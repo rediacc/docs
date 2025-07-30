@@ -225,6 +225,6 @@ go build -o bin/rediacc main.go
 
 ## Next Steps
 
-- [Authentication Guide](./authentication.md) - Learn about login and user management
+- [Quick Start Guide](./quick-start.md) - Learn about login and basic commands
 - [Configuration Reference](./configuration.md) - Complete configuration options
 - [Getting Started Tutorial](./tutorial.md) - Step-by-step walkthrough

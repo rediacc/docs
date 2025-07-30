@@ -1,0 +1,10 @@
+{
+  "label": "API Reference",
+  "position": 100,
+  "link": {
+    "type": "generated-index",
+    "title": "CLI API Reference",
+    "description": "Complete reference for all Rediacc CLI commands and queue functions.",
+    "slug": "/cli/api-reference"
+  }
+}

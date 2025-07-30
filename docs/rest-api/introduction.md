@@ -65,8 +65,8 @@ All API responses follow a standard JSON format:
 
 To begin using the Rediacc Middleware API, you must first:
 
-1. [Create a company](/docs/rest-api/company-management#create-company)
-2. [Activate your user account](/docs/rest-api/user-management#enable-user)
+1. [Create a company](/docs/rest-api/company-management#create-new-company)
+2. [Activate your user account](/docs/rest-api/user-management#enable-user-account)
 3. [Start an authentication session](/docs/rest-api/authentication#create-authentication-request)
 
 Once these steps are completed, you can use the request token returned by the authentication process to make subsequent API calls.

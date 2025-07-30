@@ -267,7 +267,7 @@ For system-wide changes:
 
 ## Related Documentation
 
-- [Vault Management](./advanced-security.md#vault-system) - Understanding vault encryption
+- [Vault Management](./advanced-security.md#vault-encryption-protocol) - Understanding vault encryption
 - [Audit Logs](./audit.md) - Tracking version changes
 - [System Settings](./system.md) - Managing vault configurations
 - [API Reference](./api-reference.md) - Programmatic version access
