@@ -4,66 +4,25 @@ Distributed-Storage operations.
 
 ## Table of Contents
 
-- [add-machines](#add-machines)
 - [create-cluster](#create-cluster)
+- [create-distributed-storage-pool](#create-distributed-storage-pool)
+- [create-distributed-storage-rbd-clone](#create-distributed-storage-rbd-clone)
+- [create-distributed-storage-rbd-image](#create-distributed-storage-rbd-image)
+- [create-distributed-storage-rbd-snapshot](#create-distributed-storage-rbd-snapshot)
 - [delete-cluster](#delete-cluster)
-- [get-cluster](#get-cluster)
-- [list-clusters](#list-clusters)
-- [remove-machines](#remove-machines)
-- [update-status](#update-status)
+- [delete-distributed-storage-pool](#delete-distributed-storage-pool)
+- [delete-distributed-storage-rbd-clone](#delete-distributed-storage-rbd-clone)
+- [delete-distributed-storage-rbd-image](#delete-distributed-storage-rbd-image)
+- [delete-distributed-storage-rbd-snapshot](#delete-distributed-storage-rbd-snapshot)
+- [list-distributed-storage-cluster-machines](#list-distributed-storage-cluster-machines)
+- [list-distributed-storage-clusters](#list-distributed-storage-clusters)
+- [list-distributed-storage-pools](#list-distributed-storage-pools)
+- [list-distributed-storage-rbd-clones](#list-distributed-storage-rbd-clones)
+- [list-distributed-storage-rbd-images](#list-distributed-storage-rbd-images)
+- [list-distributed-storage-rbd-snapshots](#list-distributed-storage-rbd-snapshots)
+- [update-distributed-storage-pool-vault](#update-distributed-storage-pool-vault)
+- [update-machine-distributed-storage](#update-machine-distributed-storage)
 - [update-vault](#update-vault)
-
-
-## add-machines
-
-Add machines to a storage cluster
-
-#### API Information
-
-**Endpoint:** `POST /api/StoredProcedure/AddMachinesToDistributedStorage`
-
-**Authentication:** Required (token-based with Rediacc-RequestToken header)
-
-#### Details
-
-Adds one or more machines as storage nodes to a distributed storage cluster. Machines must have sufficient storage capacity.
-
-#### Parameters
-
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the cluster | true | storage-team |
-| `cluster` | Cluster name | true | main-cluster |
-| `machines` | Comma-separated list of machine names | true | storage-01,storage-02,storage-03 |
-
-#### Examples
-
-```bash
-rediacc-cli distributed-storage add-machines storage-team main-cluster storage-01,storage-02
-```
-Add two machines to cluster
-
-```bash
-rediacc-cli distributed-storage add-machines data backup-cluster storage-03
-```
-Add single machine to cluster
-
-#### Notes
-
-Machines must be in the same team. Triggers data rebalancing. Monitor cluster health after adding.
-
-#### Business Rules
-
-- User must be authenticated with valid credentials
-- User must be a member of the specified team
-- Cluster must exist in the team
-- Machines must exist in the same team as cluster
-- First machine added becomes the primary node
-- Subsequent machines become secondary nodes
-- Machines already in cluster are silently skipped
-- Machine gets marked as distributed storage node
-- Multiple machines can be added in one operation
-- Addition is logged in audit trail
 
 
 ## create-cluster
@@ -82,28 +41,30 @@ Creates a cluster configuration for distributed storage across multiple machines
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that will own the cluster | true | storage-team |
-| `name` | Unique name for the cluster | true | main-cluster |
-| `vault` | JSON configuration for the cluster | false | `{"replication_factor": 3, "storage_class": "ssd"}` |
-| `vault-file` | File containing JSON vault data | false | cluster-config.json |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `vault` | string | No | - | JSON configuration for the cluster | `{"replication_factor": 3, "storage_class": "ssd"}` |
+| `vault-file` | string | No | - | File containing JSON vault data | cluster-config.json |
+| `cluster` | string | Yes | - |  |  |
 
-#### Examples
-
-```bash
-rediacc-cli distributed-storage create-cluster storage-team main-cluster
-```
-Create a basic storage cluster
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli distributed-storage create-cluster data replicated-storage --vault '{"replication_factor":3}'
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage create-cluster
 ```
-Create cluster with 3x replication
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Requires Elite subscription. Add machines after creation. Cluster names must be unique within a team.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStorageCluster" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "clusterName": "example-clusterName"
+}'
+```
 
 #### Business Rules
 
@@ -117,6 +78,166 @@ Requires Elite subscription. Add machines after creation. Cluster names must be 
 - No subscription plan restrictions for creating clusters
 - Vault data is encrypted using company master password
 - Cluster creation is logged in audit trail
+
+
+## create-distributed-storage-pool
+
+#### API Information
+
+**Endpoint:** `POST /api/StoredProcedure/CreateDistributedStoragePool`
+
+**Authentication:** Required (token-based with Rediacc-RequestToken header)
+
+#### Parameters
+
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `cluster` | string | Yes | - |  |  |
+| `team` | string | Yes | - |  |  |
+| `pool` | string | Yes | - |  |  |
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage create-distributed-storage-pool example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStoragePool" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "clusterName": "example-clusterName",
+    "teamName": "example-team",
+    "poolName": "example-poolName"
+}'
+```
+
+
+## create-distributed-storage-rbd-clone
+
+#### API Information
+
+**Endpoint:** `POST /api/StoredProcedure/CreateDistributedStorageRbdClone`
+
+**Authentication:** Required (token-based with Rediacc-RequestToken header)
+
+#### Parameters
+
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `snapshot` | string | Yes | - |  |  |
+| `image` | string | Yes | - |  |  |
+| `pool` | string | Yes | - |  |  |
+| `team` | string | Yes | - |  |  |
+| `clone` | string | Yes | - |  |  |
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage create-distributed-storage-rbd-clone example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStorageRbdClone" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "snapshotName": "example-snapshotName",
+    "imageName": "example-imageName",
+    "poolName": "example-poolName",
+    "teamName": "example-team",
+    "cloneName": "example-cloneName"
+}'
+```
+
+
+## create-distributed-storage-rbd-image
+
+#### API Information
+
+**Endpoint:** `POST /api/StoredProcedure/CreateDistributedStorageRbdImage`
+
+**Authentication:** Required (token-based with Rediacc-RequestToken header)
+
+#### Parameters
+
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `pool` | string | Yes | - |  |  |
+| `team` | string | Yes | - |  |  |
+| `image` | string | Yes | - |  |  |
+| `machine` | string | Yes | - |  |  |
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage create-distributed-storage-rbd-image example-team my-machine-01
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStorageRbdImage" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "poolName": "example-poolName",
+    "teamName": "example-team",
+    "imageName": "example-imageName",
+    "machineName": "my-machine-01"
+}'
+```
+
+
+## create-distributed-storage-rbd-snapshot
+
+#### API Information
+
+**Endpoint:** `POST /api/StoredProcedure/CreateDistributedStorageRbdSnapshot`
+
+**Authentication:** Required (token-based with Rediacc-RequestToken header)
+
+#### Parameters
+
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `image` | string | Yes | - |  |  |
+| `pool` | string | Yes | - |  |  |
+| `team` | string | Yes | - |  |  |
+| `snapshot` | string | Yes | - |  |  |
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage create-distributed-storage-rbd-snapshot example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStorageRbdSnapshot" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "imageName": "example-imageName",
+    "poolName": "example-poolName",
+    "teamName": "example-team",
+    "snapshotName": "example-snapshotName"
+}'
+```
 
 
 ## delete-cluster
@@ -135,27 +256,29 @@ Permanently removes a distributed storage cluster configuration. Does not delete
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the cluster | true | storage-team |
-| `name` | Cluster name to delete | true | old-cluster |
-| `force` | Skip confirmation prompt | false | --force |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `force` | string | No | - | Skip confirmation prompt | --force |
+| `cluster` | string | Yes | - |  |  |
 
-#### Examples
-
-```bash
-rediacc-cli distributed-storage delete-cluster storage-team old-cluster
-```
-Delete cluster with confirmation
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli distributed-storage delete-cluster data temp-cluster --force
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage delete-cluster
 ```
-Force delete without confirmation
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Remove all machines from cluster first. Data on machines is preserved. This action cannot be undone.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStorageCluster" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "clusterName": "example-clusterName"
+}'
+```
 
 #### Business Rules
 
@@ -171,210 +294,446 @@ Remove all machines from cluster first. Data on machines is preserved. This acti
 - Deletion is logged in audit trail for compliance
 
 
-## get-cluster
-
-Get details of a specific storage cluster
+## delete-distributed-storage-pool
 
 #### API Information
 
-**Endpoint:** `POST /api/StoredProcedure/GetDistributedStorageCluster`
+**Endpoint:** `POST /api/StoredProcedure/DeleteDistributedStoragePool`
 
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
-#### Details
-
-Shows detailed information about a distributed storage cluster including configuration, member machines, and health status.
-
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the cluster | true | storage-team |
-| `name` | Cluster name | true | main-cluster |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `pool` | string | Yes | - |  |  |
+| `team` | string | Yes | - |  |  |
 
-#### Examples
-
-```bash
-rediacc-cli distributed-storage get-cluster storage-team main-cluster
-```
-View cluster details
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli distributed-storage get-cluster data replicated-storage --output json
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage delete-distributed-storage-pool example-team
 ```
-Get cluster info in JSON format
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Shows machine membership, replication status, and storage utilization. Requires team membership.
-
-#### Business Rules
-
-- User must be authenticated with valid credentials
-- User must be a member of the specified team
-- Team must exist in your company
-- Cluster must exist within the team
-- Returns cluster configuration and all node information
-- Shows which machine is the primary node
-- Includes encrypted vault data for the cluster
-- Read-only operation that doesn't modify data
-- No special permissions required beyond team membership
-- Operation fails if cluster doesn't exist
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStoragePool" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "poolName": "example-poolName",
+    "teamName": "example-team"
+}'
+```
 
 
-## list-clusters
-
-List all storage clusters for a team
+## delete-distributed-storage-rbd-clone
 
 #### API Information
 
-**Endpoint:** `POST /api/StoredProcedure/ListDistributedStorageClusters`
+**Endpoint:** `POST /api/StoredProcedure/DeleteDistributedStorageRbdClone`
 
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
-#### Details
-
-Shows all distributed storage clusters owned by a team including their status and machine counts.
-
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team name to list clusters from | true | storage-team |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `clone` | string | Yes | - |  |  |
+| `snapshot` | string | Yes | - |  |  |
+| `image` | string | Yes | - |  |  |
+| `pool` | string | Yes | - |  |  |
+| `team` | string | Yes | - |  |  |
 
-#### Examples
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli distributed-storage list-clusters storage-team
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage delete-distributed-storage-rbd-clone example-team
 ```
-List all clusters in storage-team
+
+##### Auto-Generated cURL Examples
 
 ```bash
-rediacc-cli distributed-storage list-clusters data --output json | jq '.[] | select(.status == "HEALTHY")'
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStorageRbdClone" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "cloneName": "example-cloneName",
+    "snapshotName": "example-snapshotName",
+    "imageName": "example-imageName",
+    "poolName": "example-poolName",
+    "teamName": "example-team"
+}'
 ```
-Find healthy clusters
-
-#### Notes
-
-Elite subscription feature. Shows cluster health, machine count, and storage capacity.
-
-#### Business Rules
-
-- User must be authenticated with valid credentials
-- Can optionally filter by specific team name
-- Without team filter shows clusters from all your teams
-- User must be member of teams to see their clusters
-- Shows cluster status, configuration, and node count
-- Results sorted by creation date (newest first)
-- No pagination limits on results
-- Team membership required for visibility
-- Cannot see clusters from teams you're not in
-- Read-only operation that doesn't modify data
 
 
-## remove-machines
-
-Remove machines from a storage cluster
+## delete-distributed-storage-rbd-image
 
 #### API Information
 
-**Endpoint:** `POST /api/StoredProcedure/RemoveMachinesFromDistributedStorage`
+**Endpoint:** `POST /api/StoredProcedure/DeleteDistributedStorageRbdImage`
 
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
-#### Details
-
-Removes machines from a distributed storage cluster. Data is migrated to remaining nodes before removal.
-
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the cluster | true | storage-team |
-| `cluster` | Cluster name | true | main-cluster |
-| `machines` | Comma-separated list of machine names | true | storage-01,storage-02 |
-| `force` | Skip confirmation prompt | false | --force |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `image` | string | Yes | - |  |  |
+| `pool` | string | Yes | - |  |  |
+| `team` | string | Yes | - |  |  |
 
-#### Examples
-
-```bash
-rediacc-cli distributed-storage remove-machines storage-team main-cluster storage-01
-```
-Remove machine with confirmation
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli distributed-storage remove-machines data backup old-node-01,old-node-02 --force
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage delete-distributed-storage-rbd-image example-team
 ```
-Remove multiple machines without confirmation
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Ensure sufficient capacity remains. Data migration may take time. Monitor cluster during rebalancing.
-
-#### Business Rules
-
-- User must be authenticated with valid credentials
-- User must be a member of the team owning the cluster
-- Only machines belonging to the team can be removed
-- Can remove any machine including primary nodes
-- Non-existent machines are silently skipped
-- Machine's storage node flag updated if not in other clusters
-- Multiple machines can be removed in one operation
-- Removal is immediate with no prerequisite checks
-- Cluster modified timestamp is updated
-- Removal is logged in audit trail
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStorageRbdImage" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "imageName": "example-imageName",
+    "poolName": "example-poolName",
+    "teamName": "example-team"
+}'
+```
 
 
-## update-status
-
-Update cluster operational status
+## delete-distributed-storage-rbd-snapshot
 
 #### API Information
 
-**Endpoint:** `POST /api/StoredProcedure/UpdateDistributedStorageClusterStatus`
+**Endpoint:** `POST /api/StoredProcedure/DeleteDistributedStorageRbdSnapshot`
 
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
 
-#### Details
+#### Parameters
 
-Changes the operational status of a distributed storage cluster. Used for maintenance or to control cluster availability.
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `snapshot` | string | Yes | - |  |  |
+| `image` | string | Yes | - |  |  |
+| `pool` | string | Yes | - |  |  |
+| `team` | string | Yes | - |  |  |
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage delete-distributed-storage-rbd-snapshot example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStorageRbdSnapshot" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "snapshotName": "example-snapshotName",
+    "imageName": "example-imageName",
+    "poolName": "example-poolName",
+    "teamName": "example-team"
+}'
+```
+
+
+## list-distributed-storage-cluster-machines
+
+#### API Information
+
+**Endpoint:** `POST /api/StoredProcedure/GetDistributedStorageClusterMachines`
+
+**Authentication:** Required (token-based with Rediacc-RequestToken header)
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the cluster | true | storage-team |
-| `cluster` | Cluster name | true | main-cluster |
-| `status` | New status (ONLINE, OFFLINE, MAINTENANCE) | true | MAINTENANCE |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `cluster` | string | Yes | - |  |  |
 
-#### Examples
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli distributed-storage update-status storage-team main-cluster MAINTENANCE
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage list-distributed-storage-cluster-machines
 ```
-Put cluster in maintenance mode
+
+##### Auto-Generated cURL Examples
 
 ```bash
-rediacc-cli distributed-storage update-status data backup-cluster ONLINE
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageClusterMachines" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "clusterName": "example-clusterName"
+}'
 ```
-Bring cluster back online
 
-#### Notes
 
-OFFLINE prevents new writes. MAINTENANCE allows reads but not writes. Monitor cluster health after status changes.
+## list-distributed-storage-clusters
 
-#### Business Rules
+#### API Information
 
-- User must be authenticated with valid credentials
-- User must be a member of the team owning the cluster
-- Cluster must exist in the specified team
-- Status must be one of: PENDING, INITIALIZING, ACTIVE, DEGRADED, FAILED, MAINTENANCE
-- Any status can transition to any other valid status
-- Status change takes effect immediately
-- Previous status is recorded for tracking
-- Cluster modified timestamp is updated
-- Status change is atomic (all or nothing)
-- Change is logged in audit trail with old and new status
+**Endpoint:** `POST /api/StoredProcedure/GetDistributedStorageClusters`
+
+**Authentication:** Required (token-based with Rediacc-RequestToken header)
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage list-distributed-storage-clusters
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageClusters" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
+
+
+## list-distributed-storage-pools
+
+#### API Information
+
+**Endpoint:** `POST /api/StoredProcedure/GetDistributedStoragePools`
+
+**Authentication:** Required (token-based with Rediacc-RequestToken header)
+
+#### Parameters
+
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - |  |  |
+| `cluster` | string | Yes | - |  |  |
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage list-distributed-storage-pools example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStoragePools" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "clusterName": "example-clusterName"
+}'
+```
+
+
+## list-distributed-storage-rbd-clones
+
+#### API Information
+
+**Endpoint:** `POST /api/StoredProcedure/GetDistributedStorageRbdClones`
+
+**Authentication:** Required (token-based with Rediacc-RequestToken header)
+
+#### Parameters
+
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `snapshot` | string | Yes | - |  |  |
+| `image` | string | Yes | - |  |  |
+| `pool` | string | Yes | - |  |  |
+| `team` | string | Yes | - |  |  |
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage list-distributed-storage-rbd-clones example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageRbdClones" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "snapshotName": "example-snapshotName",
+    "imageName": "example-imageName",
+    "poolName": "example-poolName",
+    "teamName": "example-team"
+}'
+```
+
+
+## list-distributed-storage-rbd-images
+
+#### API Information
+
+**Endpoint:** `POST /api/StoredProcedure/GetDistributedStorageRbdImages`
+
+**Authentication:** Required (token-based with Rediacc-RequestToken header)
+
+#### Parameters
+
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `pool` | string | Yes | - |  |  |
+| `team` | string | Yes | - |  |  |
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage list-distributed-storage-rbd-images example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageRbdImages" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "poolName": "example-poolName",
+    "teamName": "example-team"
+}'
+```
+
+
+## list-distributed-storage-rbd-snapshots
+
+#### API Information
+
+**Endpoint:** `POST /api/StoredProcedure/GetDistributedStorageRbdSnapshots`
+
+**Authentication:** Required (token-based with Rediacc-RequestToken header)
+
+#### Parameters
+
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `image` | string | Yes | - |  |  |
+| `pool` | string | Yes | - |  |  |
+| `team` | string | Yes | - |  |  |
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage list-distributed-storage-rbd-snapshots example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageRbdSnapshots" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "imageName": "example-imageName",
+    "poolName": "example-poolName",
+    "teamName": "example-team"
+}'
+```
+
+
+## update-distributed-storage-pool-vault
+
+#### API Information
+
+**Endpoint:** `POST /api/StoredProcedure/UpdateDistributedStoragePoolVault`
+
+**Authentication:** Required (token-based with Rediacc-RequestToken header)
+
+#### Parameters
+
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `pool` | string | Yes | - |  |  |
+| `team` | string | Yes | - |  |  |
+| `vault_version` | string | No | - |  |  |
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage update-distributed-storage-pool-vault example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateDistributedStoragePoolVault" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "poolName": "example-poolName",
+    "teamName": "example-team"
+}'
+```
+
+
+## update-machine-distributed-storage
+
+#### API Information
+
+**Endpoint:** `POST /api/StoredProcedure/UpdateMachineDistributedStorage`
+
+**Authentication:** Required (token-based with Rediacc-RequestToken header)
+
+#### Parameters
+
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - |  |  |
+| `machine` | string | Yes | - |  |  |
+| `cluster` | string | Yes | - |  |  |
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage update-machine-distributed-storage example-team my-machine-01
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineDistributedStorage" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "machineName": "my-machine-01",
+    "clusterName": "example-clusterName"
+}'
+```
 
 
 ## update-vault
@@ -393,29 +752,32 @@ Updates the encrypted configuration for a distributed storage cluster including 
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the cluster | true | storage-team |
-| `cluster` | Cluster name | true | main-cluster |
-| `vault` | JSON configuration data | false | `{"replication_factor": 3, "consistency_level": "strong"}` |
-| `vault-file` | File containing JSON vault data | false | cluster-config.json |
-| `vault-version` | Vault schema version (default: 1) | false | 2 |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `cluster` | string | Yes | - | Cluster name | main-cluster |
+| `vault` | string | No | - | JSON configuration data | `{"replication_factor": 3, "consistency_level": "strong"}` |
+| `vault-file` | string | No | - | File containing JSON vault data | cluster-config.json |
+| `vault-version` | string | No | - | Vault schema version (default: 1) | 2 |
+| `vault_version` | string | No | - |  |  |
 
-#### Examples
-
-```bash
-rediacc-cli distributed-storage update-vault storage main-cluster --vault '{"replication_factor":5}'
-```
-Increase replication factor
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli distributed-storage update-vault data backup --vault-file new-cluster-config.json
+# Basic usage (required parameters only)
+rediacc-cli distributed-storage update-vault
 ```
-Update cluster config from file
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Changes may require cluster restart. Some settings trigger data rebalancing. Elite subscription required.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateDistributedStorageClusterVault" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "clusterName": "example-clusterName"
+}'
+```
 
 #### Business Rules
 

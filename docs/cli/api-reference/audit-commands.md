@@ -23,27 +23,30 @@ Retrieves comprehensive audit information for a specific entity including all ch
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `entity_type` | Type of entity (Team, Machine, User, Region, Bridge) | true | Machine |
-| `credential` | Entity credential (GUID) | true | 550e8400-e29b-41d4-a716-446655440000 |
-| `max-records` | Maximum records to retrieve | false | 1000 |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `entity_type` | string | Yes | - |  |  |
+| `entity_identifier` | string | Yes | - |  |  |
 
-#### Examples
-
-```bash
-rediacc-cli audit trace Machine 550e8400-e29b-41d4-a716-446655440000
-```
-Get full audit trail for machine
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli audit trace User 123e4567-e89b-12d3-a456-426614174000 --max-records 50
+# Basic usage (required parameters only)
+rediacc-cli audit trace
 ```
-Get last 50 audit entries for user
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-More detailed than entity-history. Includes access logs, failed attempts, and related entity changes.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetEntityAuditTrace" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "entityType": "example-entityType",
+    "entityIdentifier": "example-entityIdentifier"
+}'
+```
 
 #### Business Rules
 

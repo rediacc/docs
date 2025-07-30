@@ -24,10 +24,10 @@ Grants a user membership in a team, giving them access to all team resources inc
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team name | true | dev-team |
-| `email` | User email address | true | developer@company.com |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team name | dev-team |
+| `new_user_email` | string | Yes | - |  |  |
 
 #### Examples
 
@@ -40,6 +40,26 @@ Add John to development team
 rediacc-cli team-member add production admin@company.com
 ```
 Add admin to production team
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli team-member add example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateTeamMembership" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "newUserEmail": "example-newUserEmail"
+}'
+```
 
 #### Notes
 
@@ -75,11 +95,10 @@ Revokes a user's team membership, removing their access to all team resources. T
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team name | true | dev-team |
-| `email` | User email to remove | true | former-member@company.com |
-| `force` | Skip confirmation prompt | false | --force |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team name | dev-team |
+| `remove_user_email` | string | Yes | - |  |  |
 
 #### Examples
 
@@ -92,6 +111,26 @@ Remove contractor with confirmation
 rediacc-cli team-member remove production ex-employee@company.com --force
 ```
 Force remove without confirmation
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli team-member remove example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteUserFromTeam" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "removeUserEmail": "example-removeUserEmail"
+}'
+```
 
 #### Notes
 

@@ -5,6 +5,7 @@ Bridge operations.
 ## Table of Contents
 
 - [reset-auth](#reset-auth)
+- [update-bridge-vault](#update-bridge-vault)
 
 
 ## reset-auth
@@ -23,26 +24,31 @@ Resets the authentication credentials for a bridge. The running bridge process w
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `name` | Bridge name to reset | true | main-bridge |
-| `force` | Skip confirmation prompt | false | --force |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `name` | string | Yes | - | Bridge name to reset | main-bridge |
+| `force` | string | No | - | Skip confirmation prompt | --force |
+| `cloud_managed` | string | No | - |  |  |
+| `bridge` | string | Yes | - |  |  |
 
-#### Examples
-
-```bash
-rediacc-cli bridge reset-auth main-bridge
-```
-Reset bridge auth with confirmation
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli bridge reset-auth compromised-bridge --force
+# Basic usage (required parameters only)
+rediacc-cli bridge reset-auth bridge-01 example-name
 ```
-Force reset without confirmation
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Use when credentials are compromised. Requires bridge restart. Get new token with 'login --target bridge-name'.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/ResetBridgeAuthorization" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "bridgeName": "bridge-01"
+}'
+```
 
 #### Business Rules
 
@@ -56,4 +62,41 @@ Use when credentials are compromised. Requires bridge restart. Get new token wit
 - Any running tasks on the bridge will need to be retried
 - Token reset is tracked in audit logs for security
 - New token must be securely transmitted to bridge operator
+
+
+## update-bridge-vault
+
+#### API Information
+
+**Endpoint:** `POST /api/StoredProcedure/UpdateBridgeVault`
+
+**Authentication:** Required (token-based with Rediacc-RequestToken header)
+
+#### Parameters
+
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `region` | string | Yes | - |  |  |
+| `bridge` | string | Yes | - |  |  |
+| `vault_version` | string | No | - |  |  |
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli bridge update-bridge-vault bridge-01 us-east
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateBridgeVault" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "regionName": "us-east",
+    "bridgeName": "bridge-01"
+}'
+```
 

@@ -53,14 +53,14 @@ Updates the encrypted vault configuration for teams, machines, regions, bridges,
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `resource_type` | Type of resource to update | true | machine |
-| `name` | Resource name (not needed for 'company') | false | web-server-01 |
-| `file` | File containing JSON vault data (use '-' for stdin) | false | vault-config.json |
-| `team` | Team name (required for machine, repository, storage, schedule) | false | dev-team |
-| `region` | Region name (required for bridge) | false | us-east |
-| `vault-version` | Vault schema version | false | 2 |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `resource_type` | string | Yes | - | Type of resource to update | machine |
+| `name` | string | No | - | Resource name (not needed for 'company') | web-server-01 |
+| `file` | string | No | - | File containing JSON vault data (use '-' for stdin) | vault-config.json |
+| `team` | string | No | - | Team name (required for machine, repository, storage, schedule) | dev-team |
+| `region` | string | No | - | Region name (required for bridge) | us-east |
+| `vault-version` | string | No | - | Vault schema version | 2 |
 
 #### Examples
 

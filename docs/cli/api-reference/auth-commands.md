@@ -24,26 +24,27 @@ Elevates an authentication request with special privileges. Used for administrat
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `request_hash` | Authentication request hash | true | a1b2c3d4e5f6... |
-| `privilege` | Privilege level to grant | true | admin |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `2_f_a_code` | string | Yes | - |  |  |
 
-#### Examples
-
-```bash
-rediacc-cli auth privilege a1b2c3d4e5f6789 admin
-```
-Grant admin privilege to request
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli auth privilege xyz123 elevated
+# Basic usage (required parameters only)
+rediacc-cli auth privilege
 ```
-Grant elevated access
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Requires existing admin permissions. Use with caution. Privileges are temporary for the session.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/PrivilegeAuthenticationRequest" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
 
 #### Business Rules
 
@@ -75,9 +76,9 @@ Queries the status of a pending authentication request by its hash. Used to veri
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `request_hash` | Authentication request hash | true | a1b2c3d4e5f6... |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `request_hash` | string | Yes | - | Authentication request hash | a1b2c3d4e5f6... |
 
 #### Examples
 
@@ -85,6 +86,25 @@ Queries the status of a pending authentication request by its hash. Used to veri
 rediacc-cli auth status a1b2c3d4e5f6789
 ```
 Check status of auth request
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli auth status
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetRequestAuthenticationStatus" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "requestHash": "example-requestHash"
+}'
+```
 
 #### Notes
 

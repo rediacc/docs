@@ -29,10 +29,10 @@ Grants a specific API endpoint permission to a permission group. Users in the gr
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `group` | Permission group to modify | true | developers |
-| `name` | Permission name (API endpoint) | true | CreateMachine |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `group` | string | Yes | - | Permission group to modify | developers |
+| `name` | string | Yes | - | Permission name (API endpoint) | CreateMachine |
 
 #### Examples
 
@@ -45,6 +45,26 @@ Allow developers to create machines
 rediacc-cli permission add read-only GetTeamMachines
 ```
 Allow read-only users to list machines
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli permission add example-name
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreatePermissionInGroup" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "permissionGroupName": "example-permissionGroupName",
+    "permissionName": "example-permissionName"
+}'
+```
 
 #### Notes
 
@@ -80,10 +100,10 @@ Changes a user's permission group, granting them all permissions associated with
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `email` | User email address | true | developer@company.com |
-| `group` | Permission group to assign | true | developers |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `group` | string | Yes | - | Permission group to assign | developers |
+| `user_email` | string | Yes | - |  |  |
 
 #### Examples
 
@@ -96,6 +116,26 @@ Give John developer permissions
 rediacc-cli permission assign contractor@external.com read-only
 ```
 Limit contractor to read-only access
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli permission assign
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateUserAssignedPermissions" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "userEmail": "example-userEmail",
+    "permissionGroupName": "example-permissionGroupName"
+}'
+```
 
 #### Notes
 
@@ -131,9 +171,9 @@ Creates a permission group that can be assigned to users. Permission groups cont
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `name` | Unique name for the permission group | true | developers |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `name` | string | Yes | - | Unique name for the permission group | developers |
 
 #### Examples
 
@@ -146,6 +186,25 @@ Create a developers permission group
 rediacc-cli permission create-group read-only
 ```
 Create a read-only access group
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli permission create-group example-name
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreatePermissionGroup" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "permissionGroupName": "example-permissionGroupName"
+}'
+```
 
 #### Notes
 
@@ -181,10 +240,10 @@ Permanently removes a permission group. Users assigned to this group will lose t
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `name` | Permission group name to delete | true | old-group |
-| `force` | Skip confirmation prompt | false | --force |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `name` | string | Yes | - | Permission group name to delete | old-group |
+| `force` | string | No | - | Skip confirmation prompt | --force |
 
 #### Examples
 
@@ -197,6 +256,25 @@ Delete group with confirmation
 rediacc-cli permission delete-group test-group --force
 ```
 Delete without confirmation
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli permission delete-group example-name
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeletePermissionGroup" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "permissionGroupName": "example-permissionGroupName"
+}'
+```
 
 #### Notes
 
@@ -232,9 +310,9 @@ Lists all API endpoint permissions granted to a permission group. Shows which op
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `name` | Permission group name | true | developers |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `name` | string | Yes | - | Permission group name | developers |
 
 #### Examples
 
@@ -247,6 +325,25 @@ Show all permissions for developers
 rediacc-cli permission list-group Admins --output json
 ```
 List admin permissions in JSON
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli permission list-group example-name
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetPermissionGroupDetails" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "permissionGroupName": "example-permissionGroupName"
+}'
+```
 
 #### Notes
 
@@ -292,6 +389,24 @@ rediacc-cli permission list-groups --output json
 ```
 Get groups in JSON format
 
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli permission list-groups
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCompanyPermissionGroups" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
+
 #### Notes
 
 System groups like 'Admins' and 'Bridges' cannot be modified. Shows user count for each group.
@@ -326,11 +441,11 @@ Revokes a specific API endpoint permission from a permission group. Users in the
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `group` | Permission group to modify | true | developers |
-| `name` | Permission name to remove | true | DeleteMachine |
-| `force` | Skip confirmation prompt | false | --force |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `group` | string | Yes | - | Permission group to modify | developers |
+| `name` | string | Yes | - | Permission name to remove | DeleteMachine |
+| `force` | string | No | - | Skip confirmation prompt | --force |
 
 #### Examples
 
@@ -343,6 +458,26 @@ Revoke machine deletion from developers
 rediacc-cli permission remove contractors CreateBridge --force
 ```
 Remove permission without confirmation
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli permission remove example-name
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeletePermissionFromGroup" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "permissionGroupName": "example-permissionGroupName",
+    "permissionName": "example-permissionName"
+}'
+```
 
 #### Notes
 

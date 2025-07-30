@@ -30,11 +30,10 @@ Removes a bridge configuration. Ensure no machines are assigned to this bridge a
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `region` | Region containing the bridge | true | us-east |
-| `name` | Bridge name to delete | true | old-bridge |
-| `force` | Skip confirmation prompt | false | --force |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `region` | string | Yes | - | Region containing the bridge | us-east |
+| `bridge` | string | Yes | - |  |  |
 
 #### Examples
 
@@ -47,6 +46,26 @@ Delete bridge with confirmation
 rediacc-cli rm bridge europe decommissioned-bridge --force
 ```
 Force delete without confirmation
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli rm bridge bridge-01 us-east
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteBridge" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "regionName": "us-east",
+    "bridgeName": "bridge-01"
+}'
+```
 
 #### Notes
 
@@ -82,11 +101,10 @@ Permanently removes a machine configuration. Does not affect the actual server, 
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the machine | true | dev-team |
-| `name` | Machine name to delete | true | old-server |
-| `force` | Skip confirmation prompt | false | --force |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team that owns the machine | dev-team |
+| `machine` | string | Yes | - |  |  |
 
 #### Examples
 
@@ -99,6 +117,26 @@ Delete machine with confirmation
 rediacc-cli rm machine staging temp-machine --force
 ```
 Delete without confirmation
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli rm machine example-team my-machine-01
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteMachine" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "machineName": "my-machine-01"
+}'
+```
 
 #### Notes
 
@@ -134,9 +172,10 @@ Removes a pending queue item to prevent execution. Only PENDING or CANCELLED ite
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `taskid` |  | true | - |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `taskid` | string | Yes | - |  | - |
+| `task_id` | string | Yes | - |  |  |
 
 #### Examples
 
@@ -149,6 +188,25 @@ Delete queue item with confirmation
 rediacc-cli rm queue-item 550e8400 --force
 ```
 Force delete using partial task ID
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli rm queue-item
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteQueueItem" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "taskId": "example-taskId"
+}'
+```
 
 #### Notes
 
@@ -184,10 +242,10 @@ Removes a region and cascades deletion to all bridges within it. Ensure no machi
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `name` | Region name to delete | true | old-region |
-| `force` | Skip confirmation prompt | false | --force |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `name` | string | Yes | - | Region name to delete | old-region |
+| `force` | string | No | - | Skip confirmation prompt | --force |
 
 #### Examples
 
@@ -200,6 +258,25 @@ Delete region with confirmation
 rediacc-cli rm region deprecated-region --force
 ```
 Force delete without confirmation
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli rm region example-name
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteRegion" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "regionName": "us-east"
+}'
+```
 
 #### Notes
 
@@ -235,10 +312,10 @@ Permanently removes a repository and all its data. The repository's Docker conta
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `name` |  | true | - |
-| `team` |  | true | - |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - |  | - |
+| `repository` | string | Yes | - |  |  |
 
 #### Examples
 
@@ -251,6 +328,26 @@ Delete repository with confirmation
 rediacc-cli rm repository temp-test --team qa --force
 ```
 Force delete without confirmation
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli rm repository example-team my-repo
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteRepository" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "repoName": "my-repo"
+}'
+```
 
 #### Notes
 
@@ -286,10 +383,10 @@ Permanently removes a scheduled task. Any pending executions will be cancelled, 
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `name` |  | true | - |
-| `team` |  | true | - |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - |  | - |
+| `schedule` | string | Yes | - |  |  |
 
 #### Examples
 
@@ -302,6 +399,26 @@ Delete schedule with confirmation
 rediacc-cli rm schedule old-sync --team dev --force
 ```
 Force delete without confirmation
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli rm schedule example-team daily-backup
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteSchedule" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "scheduleName": "daily-backup"
+}'
+```
 
 #### Notes
 
@@ -337,10 +454,10 @@ Removes a storage configuration including credentials and settings. Does not del
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `name` |  | true | - |
-| `team` |  | true | - |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - |  | - |
+| `storage` | string | Yes | - |  |  |
 
 #### Examples
 
@@ -353,6 +470,26 @@ Delete storage config with confirmation
 rediacc-cli rm storage temp-s3 --team dev --force
 ```
 Force delete without confirmation
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli rm storage example-team backup-storage
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteStorage" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "storageName": "backup-storage"
+}'
+```
 
 #### Notes
 
@@ -388,10 +525,10 @@ Permanently removes a team and all associated resources including machines, repo
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `name` | Name of the team to delete | true | old-team |
-| `force` | Skip confirmation prompt | false | --force |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `name` | string | Yes | - | Name of the team to delete | old-team |
+| `force` | string | No | - | Skip confirmation prompt | --force |
 
 #### Examples
 
@@ -404,6 +541,25 @@ Delete team with confirmation
 rediacc-cli rm team old-team --force
 ```
 Delete team without confirmation
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli rm team example-name
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteTeam" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team"
+}'
+```
 
 #### Notes
 

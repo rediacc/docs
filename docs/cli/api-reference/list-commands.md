@@ -40,12 +40,12 @@ Shows detailed audit logs of all system modifications including who made changes
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `start-date` | Start date for audit logs (ISO 8601 format) | false | 2024-01-01T00:00:00Z |
-| `end-date` | End date for audit logs (ISO 8601 format) | false | 2024-01-31T23:59:59Z |
-| `entity-filter` | Filter by entity type | false | Machine |
-| `max-records` | Maximum records to retrieve (default: 1000) | false | 500 |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `start_date` | string | Yes | - |  |  |
+| `end_date` | string | Yes | - |  |  |
+| `entity_filter` | string | Yes | - |  |  |
+| `max_records` | integer | Yes | - |  |  |
 
 #### Examples
 
@@ -58,6 +58,28 @@ Get audit logs from specific date
 rediacc-cli list audit-logs --entity-filter Team --max-records 100
 ```
 Get last 100 team-related changes
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list audit-logs
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetAuditLogs" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "startDate": "example-startDate",
+    "endDate": "example-endDate",
+    "entityFilter": "example-entityFilter",
+    "maxRecords": 100
+}'
+```
 
 #### Notes
 
@@ -93,9 +115,9 @@ Bridges are autonomous queue processors that execute tasks on machines. They pol
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `region` | Name of the region to list bridges from | true | us-east |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `region` | string | Yes | - | Name of the region to list bridges from | us-east |
 
 #### Examples
 
@@ -103,6 +125,25 @@ Bridges are autonomous queue processors that execute tasks on machines. They pol
 rediacc-cli list bridges us-east
 ```
 List all bridges in the us-east region
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list bridges us-east
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetRegionBridges" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "regionName": "us-east"
+}'
+```
 
 #### Notes
 
@@ -142,6 +183,24 @@ Displays the encrypted vault data stored at the company level. This typically co
 rediacc-cli list company-vault
 ```
 View company vault contents
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list company-vault
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCompanyVault" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
 
 #### Notes
 
@@ -187,6 +246,24 @@ rediacc-cli list data-graph --output json | jq '.graph'
 ```
 Extract graph data for visualization
 
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list data-graph
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCompanyDataGraphJson" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
+
 #### Notes
 
 Useful for understanding infrastructure topology and dependencies. JSON output can be used with graph visualization tools.
@@ -221,11 +298,11 @@ Shows the modification history for a specific entity (team, machine, user, etc.)
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `entity_type` | Type of entity (Team, Machine, User, Region, Bridge, Repository, Storage, Schedule) | true | Machine |
-| `credential` | Entity's unique credential (GUID) | true | 550e8400-e29b-41d4-a716-446655440000 |
-| `max-records` | Maximum records to retrieve (default: 500) | false | 100 |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `credential` | string | Yes | - | Entity's unique credential (GUID) | 550e8400-e29b-41d4-a716-446655440000 |
+| `entity` | string | Yes | - |  |  |
+| `max_records` | integer | Yes | - |  |  |
 
 #### Examples
 
@@ -238,6 +315,27 @@ View history for a specific machine
 rediacc-cli list entity-history Team 123e4567-e89b-12d3-a456-426614174000 --max-records 50
 ```
 View last 50 changes to a team
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list entity-history
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetEntityHistory" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "entity": "example-entity",
+    "credential": "example-credential",
+    "maxRecords": 100
+}'
+```
 
 #### Notes
 
@@ -273,9 +371,9 @@ Provides lookup data used for dropdowns and selection lists in UI components. Re
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `context` | Optional context filter (e.g., 'machine_create', 'queue_create') | false | machine_create |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `context` | string | No | - | Optional context filter (e.g., 'machine_create', 'queue_create') | machine_create |
 
 #### Examples
 
@@ -288,6 +386,24 @@ Get all available lookup data
 rediacc-cli list lookup-data --context queue_create
 ```
 Get lookup data specific to queue creation
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list lookup-data
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetLookupData" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
 
 #### Notes
 
@@ -327,6 +443,24 @@ Shows geographic regions where you can deploy bridges and infrastructure. Each r
 rediacc-cli list regions
 ```
 Display all regions with their vault configurations
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list regions
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCompanyRegions" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
 
 #### Notes
 
@@ -372,6 +506,24 @@ rediacc-cli list resource-limits --output json | jq '.resourceLimits'
 ```
 Extract resource limits data for monitoring
 
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list resource-limits
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCompanyDashboardJson" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
+
 #### Notes
 
 Useful for capacity planning and monitoring when approaching subscription limits. Returns 402 Payment Required when limits are exceeded.
@@ -415,6 +567,24 @@ View all active sessions
 rediacc-cli list sessions --output json | jq '.[] | select(.sessionName | contains("CLI"))'
 ```
 Filter CLI sessions
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list sessions
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetUserRequests" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
 
 #### Notes
 
@@ -460,6 +630,24 @@ rediacc-cli list subscription --output json | jq '.subscriptions'
 ```
 Extract subscription data for monitoring
 
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list subscription
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCompanyDashboardJson" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
+
 #### Notes
 
 Plans: COMMUNITY (free), ADVANCED, PREMIUM, ELITE. Higher tiers offer more resources, priority levels, and features like schedules and distributed storage.
@@ -494,9 +682,9 @@ Shows all machines assigned to a team including their status, assigned bridge, v
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team name to list machines from (comma-separated for multiple teams) | true | production-team |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team name to list machines from (comma-separated for multiple teams) | production-team |
 
 #### Examples
 
@@ -509,6 +697,25 @@ List all machines in production team
 rediacc-cli list team-machines team1,team2
 ```
 List machines from multiple teams
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list team-machines example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetTeamMachines" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team"
+}'
+```
 
 #### Notes
 
@@ -544,9 +751,9 @@ Shows all users who have access to a team's resources. Team members can manage a
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team name to list members from | true | production-team |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team name to list members from | production-team |
 
 #### Examples
 
@@ -554,6 +761,25 @@ Shows all users who have access to a team's resources. Team members can manage a
 rediacc-cli list team-members production-team
 ```
 List all members of production team
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list team-members example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetTeamMembers" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team"
+}'
+```
 
 #### Notes
 
@@ -589,9 +815,9 @@ Shows all code repositories associated with a team. Repositories are isolated en
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team name to list repositories from | true | dev-team |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team name to list repositories from | dev-team |
 
 #### Examples
 
@@ -604,6 +830,25 @@ List all repositories in dev-team
 rediacc-cli list team-repositories prod --output json | jq '.[].repoName'
 ```
 Extract repository names from production team
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list team-repositories example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetTeamRepositories" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team"
+}'
+```
 
 #### Notes
 
@@ -639,9 +884,9 @@ Shows all scheduled tasks (cron jobs) configured for a team. Schedules automatic
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team name to list schedules from | true | ops-team |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team name to list schedules from | ops-team |
 
 #### Examples
 
@@ -654,6 +899,25 @@ List all schedules in ops-team
 rediacc-cli list team-schedules backup-team --output json
 ```
 Get schedule details in JSON format
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list team-schedules example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetTeamSchedules" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team"
+}'
+```
 
 #### Notes
 
@@ -689,9 +953,9 @@ Shows all external storage configurations for a team. Storage resources represen
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team name to list storages from | true | data-team |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team name to list storages from | data-team |
 
 #### Examples
 
@@ -704,6 +968,25 @@ List all storage resources in data-team
 rediacc-cli list team-storages backup --output json | jq '.[] | select(.storageName | contains("s3"))'
 ```
 Find all S3 storage resources
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list team-storages example-team
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetTeamStorages" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team"
+}'
+```
 
 #### Notes
 
@@ -749,6 +1032,24 @@ rediacc-cli list teams --output json
 ```
 List all teams in JSON format for scripting
 
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list teams
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCompanyTeams" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
+
 #### Notes
 
 Requires authentication. Vault content is only visible for teams you belong to.
@@ -787,6 +1088,24 @@ Shows the company information for the currently authenticated user. Useful for v
 rediacc-cli list user-company
 ```
 Display current user's company
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list user-company
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetUserCompany" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
 
 #### Notes
 
@@ -831,6 +1150,24 @@ Display all company users in table format
 rediacc-cli list users --output json | jq '.[] | select(.isActive == false)'
 ```
 Find all inactive users
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli list users
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCompanyUsers" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
 
 #### Notes
 

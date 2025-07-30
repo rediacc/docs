@@ -24,10 +24,10 @@ Shows comprehensive information about a specific machine including its configura
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the machine | true | production |
-| `name` | Machine name | true | web-server-01 |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team that owns the machine | production |
+| `name` | string | Yes | - | Machine name | web-server-01 |
 
 #### Examples
 
@@ -40,6 +40,25 @@ Inspect production web server
 rediacc-cli inspect machine dev database --output json
 ```
 Get machine details in JSON format
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli inspect machine example-team example-name
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetTeamMachines" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team"
+}'
+```
 
 #### Notes
 
@@ -75,10 +94,10 @@ Shows comprehensive information about a specific repository including vault conf
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the repository | true | dev-team |
-| `name` | Repository name | true | web-app |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team that owns the repository | dev-team |
+| `name` | string | Yes | - | Repository name | web-app |
 
 #### Examples
 
@@ -91,6 +110,25 @@ Inspect web-app repository
 rediacc-cli inspect repository prod api --output json
 ```
 Get repository details in JSON
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli inspect repository example-team example-name
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetTeamRepositories" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team"
+}'
+```
 
 #### Notes
 

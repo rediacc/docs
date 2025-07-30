@@ -27,10 +27,10 @@ Activates a newly created user account using an activation code. Users must be a
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `email` | Email address of user to activate | true | newuser@company.com |
-| `code` | Activation code (default: 111111) | false | 123456 |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `email` | string | Yes | - | Email address of user to activate | newuser@company.com |
+| `code` | string | No | - | Activation code (default: 111111) | 123456 |
 
 #### Examples
 
@@ -43,6 +43,25 @@ Activate with default code
 rediacc-cli user activate admin@company.com --code 654321
 ```
 Activate with custom code
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli user activate
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using credential authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/ActivateUserAccount" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-UserEmail: user@example.com" \
+  -H "Rediacc-UserHash: YOUR_PASSWORD_HASH" \
+  -d '{
+}'
+```
 
 #### Notes
 
@@ -78,10 +97,10 @@ Deactivates a user account, preventing login while preserving all data and histo
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `email` | Email address of user to deactivate | true | user@company.com |
-| `force` | Skip confirmation prompt | false | --force |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `email` | string | Yes | - | Email address of user to deactivate | user@company.com |
+| `force` | string | No | - | Skip confirmation prompt | --force |
 
 #### Examples
 
@@ -94,6 +113,25 @@ Deactivate with confirmation
 rediacc-cli user deactivate contractor@company.com --force
 ```
 Deactivate without confirmation
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli user deactivate
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateUserToDeactivated" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "userEmail": "example-userEmail"
+}'
+```
 
 #### Notes
 
@@ -129,27 +167,40 @@ Enables or disables two-factor authentication for your account. When enabling, y
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `enable` | Enable (1/true) or disable (0/false) 2FA | true | true |
-| `password` | Current password for verification | true | CurrentP@ssw0rd |
-| `current-code` | Current 2FA code (required when disabling) | false | 123456 |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `enable` | string | Yes | - | Enable (1/true) or disable (0/false) 2FA | true |
+| `generate_only` | string | Yes | - |  |  |
+| `verification_code` | string | Yes | - |  |  |
+| `secret` | string | Yes | - |  |  |
+| `confirm_enable` | string | Yes | - |  |  |
+| `user_hash` | string | Yes | - |  |  |
+| `current_code` | string | Yes | - |  |  |
 
-#### Examples
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli user update-2fa true --password 'MyP@ssw0rd'
+# Basic usage (required parameters only)
+rediacc-cli user update-2fa
 ```
-Enable 2FA
+
+##### Auto-Generated cURL Examples
 
 ```bash
-rediacc-cli user update-2fa false --password 'MyP@ssw0rd' --current-code 123456
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateUser2FA" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "enable": "example-enable",
+    "userHash": "example-userHash",
+    "currentCode": "example-currentCode",
+    "generateOnly": "example-generateOnly",
+    "verificationCode": "example-verificationCode",
+    "secret": "example-secret",
+    "confirmEnable": "example-confirmEnable"
+}'
 ```
-Disable 2FA
-
-#### Notes
-
-Use authenticator apps like Google Authenticator or Authy. Save backup codes when enabling. 2FA adds security but is required for some operations.
 
 #### Business Rules
 
@@ -181,10 +232,10 @@ Updates a user's email address across the system. The new email becomes the logi
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `current_email` | Current email address | true | old@company.com |
-| `new_email` | New email address | true | new@company.com |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `current_email` | string | Yes | - | Current email address | old@company.com |
+| `new_email` | string | Yes | - | New email address | new@company.com |
 
 #### Examples
 
@@ -197,6 +248,26 @@ Change user's email
 rediacc-cli user update-email jane.doe@company.com jane.smith@company.com
 ```
 Update email after name change
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli user update-email
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateUserEmail" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "currentUserEmail": "example-currentUserEmail",
+    "newUserEmail": "example-newUserEmail"
+}'
+```
 
 #### Notes
 
@@ -232,9 +303,9 @@ Updates the password for the currently authenticated user. The new password is h
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `new-password` | New password (will be prompted if not provided) | true | SecureP@ssw0rd! |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `new-password` | string | Yes | - | New password (will be prompted if not provided) | SecureP@ssw0rd! |
 
 #### Examples
 
@@ -247,6 +318,24 @@ Change password with secure prompt
 rediacc-cli user update-password --new-password 'MyN3wP@ssw0rd!'
 ```
 Change password directly (less secure)
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli user update-password
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateUserPassword" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
 
 #### Notes
 

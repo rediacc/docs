@@ -28,9 +28,9 @@ Controls whether new users can request accounts in your company. When blocked, o
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `block` | Block user requests (true/false) | true | true |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `block` | string | Yes | - | Block user requests (true/false) | true |
 
 #### Examples
 
@@ -43,6 +43,25 @@ Block new user registrations
 rediacc-cli company block-user-requests false
 ```
 Allow new user registrations
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli company block-user-requests
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateCompanyBlockUserRequests" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "blockUserRequests": "example-blockUserRequests"
+}'
+```
 
 #### Notes
 
@@ -88,6 +107,24 @@ rediacc-cli company export-data | jq '.teams'
 ```
 View exported teams data
 
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli company export-data
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/ExportCompanyData" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
+
 #### Notes
 
 Requires admin permissions. Export includes all entity configurations and relationships. Vault data remains encrypted.
@@ -130,6 +167,24 @@ rediacc-cli company get-vaults --output json > backup.json
 ```
 Backup vaults to file
 
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli company get-vaults
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCompanyVaults" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
+
 #### Notes
 
 Requires company admin permissions. Vault data is returned encrypted unless master password is set.
@@ -164,10 +219,10 @@ Imports company configuration from a previously exported JSON file. Supports ski
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `vault-file` | File containing exported company data | true | company-backup.json |
-| `import-mode` | Import mode: skip or override | false | override |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `vault-file` | string | Yes | - | File containing exported company data | company-backup.json |
+| `import-mode` | string | No | skip | Import mode: skip or override | override |
 
 #### Examples
 
@@ -180,6 +235,24 @@ Import with skip mode (default)
 rediacc-cli company import-data --vault-file backup.json --import-mode override
 ```
 Import with override mode
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli company import-data
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/ImportCompanyData" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
 
 #### Notes
 
@@ -214,11 +287,11 @@ Updates the encrypted vault containing company-wide settings, credentials, and c
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `vault` | JSON vault data to store | false | `{"UNIVERSAL_USER_NAME": "system", "API_KEY": "abc123"}` |
-| `vault-file` | File containing JSON vault data | false | company-vault.json |
-| `vault-version` | Vault schema version | false | 2 |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `vault` | string | No | - | JSON vault data to store | `{"UNIVERSAL_USER_NAME": "system", "API_KEY": "abc123"}` |
+| `vault-file` | string | No | - | File containing JSON vault data | company-vault.json |
+| `vault-version` | string | No | - | Vault schema version | 2 |
 
 #### Examples
 
@@ -231,6 +304,24 @@ Update from configuration file
 rediacc-cli company update-vault --vault '{"UNIVERSAL_USER_NAME":"rediacc"}'
 ```
 Update specific vault field
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli company update-vault
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateCompanyVault" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+}'
+```
 
 #### Notes
 
@@ -266,26 +357,30 @@ Updates multiple vault configurations at once. Useful for restoring from backup 
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `vault` | JSON object containing multiple vaults | false | `{"primary": {...}, "secondary": {...}}` |
-| `vault-file` | File containing JSON vaults data | false | all-vaults.json |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `vault` | string | No | - | JSON object containing multiple vaults | `{"primary": {...}, "secondary": {...}}` |
+| `vault-file` | string | No | - | File containing JSON vaults data | all-vaults.json |
+| `updates` | string | Yes | - |  |  |
 
-#### Examples
-
-```bash
-rediacc-cli company update-vaults --vault-file vaults-backup.json
-```
-Restore vaults from backup
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli company update-vaults --vault '{"settings":{...},"credentials":{...}}'
+# Basic usage (required parameters only)
+rediacc-cli company update-vaults
 ```
-Update multiple vaults at once
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Requires admin permissions. Use with caution as it replaces all vault data. Always backup first.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateCompanyVaults" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "updates": "example-updates"
+}'
+```
 
 #### Business Rules
 

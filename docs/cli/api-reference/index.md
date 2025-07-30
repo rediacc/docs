@@ -23,11 +23,16 @@ The API reference is organized into the following sections:
 - **[Auth](auth-commands.md)** - Auth operations.
 - **[Authentication](authentication.md)** - Manage authentication and sessions.
 - **[Bridge](bridge-commands.md)** - Bridge operations.
+- **[Clone](clone-commands.md)** - Clone operations.
 - **[Company](company-commands.md)** - Company operations.
 - **[Distributed-Storage](distributed-storage-commands.md)** - Distributed-Storage operations.
 - **[Inspect](inspect-commands.md)** - Inspect operations.
+- **[Machine](machine-commands.md)** - Machine operations.
+- **[Misc](misc-commands.md)** - Misc operations.
 - **[Permission](permission-commands.md)** - Permission operations.
 - **[Queue](queue-commands.md)** - Queue operations.
+- **[Region](region-commands.md)** - Region operations.
+- **[Team](team-commands.md)** - Team operations.
 - **[Team-Member](team-member-commands.md)** - Team-Member operations.
 - **[User](user-commands.md)** - User operations.
 - **[Vault](vault-commands.md)** - Vault operations.

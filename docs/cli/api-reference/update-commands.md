@@ -34,27 +34,32 @@ Changes the name of an existing bridge within a region. Machine assignments rema
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `region` | Region containing the bridge | true | us-east |
-| `name` | Current bridge name | true | old-bridge |
-| `new_name` | New bridge name (unique within region) | true | new-bridge |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `region` | string | Yes | - | Region containing the bridge | us-east |
+| `current_bridge_name` | string | Yes | - |  |  |
+| `new_name` | string | Yes | - | New bridge name (unique within region) | new-bridge |
 
-#### Examples
-
-```bash
-rediacc-cli update bridge us-east bridge-01 main-bridge
-```
-Rename bridge for clarity
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli update bridge europe test-bridge prod-bridge
+# Basic usage (required parameters only)
+rediacc-cli update bridge us-east
 ```
-Rename test bridge to production
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Bridge names must be unique within a region. Update machine assignments if needed using 'update machine-bridge'.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateBridgeName" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "regionName": "us-east",
+    "currentBridgeName": "example-currentBridgeName",
+    "newBridgeName": "example-newBridgeName"
+}'
+```
 
 #### Business Rules
 
@@ -86,22 +91,32 @@ Changes the name of an existing machine. The new name must be unique across the 
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the machine | true | production-team |
-| `name` | Current machine name | true | old-server |
-| `new_name` | New machine name (company-wide unique) | true | new-server |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team that owns the machine | production-team |
+| `current_machine_name` | string | Yes | - |  |  |
+| `new_name` | string | Yes | - | New machine name (company-wide unique) | new-server |
 
-#### Examples
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli update machine prod web-01 web-server-01
+# Basic usage (required parameters only)
+rediacc-cli update machine example-team
 ```
-Rename machine for clarity
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Machine names are globally unique. Update schedules and scripts that reference the old name.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineName" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "currentMachineName": "example-currentMachineName",
+    "newMachineName": "example-newMachineName"
+}'
+```
 
 #### Business Rules
 
@@ -133,11 +148,11 @@ Changes which bridge processes queue items for a machine. Useful for load balanc
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the machine | true | production-team |
-| `name` | Machine to reassign | true | web-server-01 |
-| `new_bridge` | Target bridge name (must exist) | true | us-west-bridge-01 |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team that owns the machine | production-team |
+| `machine` | string | Yes | - |  |  |
+| `new_name` | string | Yes | - |  |  |
 
 #### Examples
 
@@ -150,6 +165,27 @@ Move machine to different bridge
 rediacc-cli update machine-bridge dev test-server local-bridge
 ```
 Reassign test server to local bridge
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli update machine-bridge example-team my-machine-01
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineAssignedBridge" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "machineName": "my-machine-01",
+    "newBridgeName": "example-newBridgeName"
+}'
+```
 
 #### Notes
 
@@ -185,27 +221,32 @@ Sets a custom status message for a machine, useful for maintenance windows, debu
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the machine | true | production-team |
-| `name` | Machine name to update | true | web-server-01 |
-| `status` | New status message | true | Under maintenance until 5pm |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team that owns the machine | production-team |
+| `status` | string | Yes | - |  |  |
+| `machine` | string | Yes | - |  |  |
 
-#### Examples
-
-```bash
-rediacc-cli update machine-status prod web-01 'Online'
-```
-Set machine as online
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli update machine-status prod db-01 'Maintenance mode - do not use'
+# Basic usage (required parameters only)
+rediacc-cli update machine-status example-team my-machine-01
 ```
-Mark machine for maintenance
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Status is free-form text. Use consistent conventions for automation. Requires team membership.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineStatus" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "machineName": "my-machine-01",
+    "machineStatus": "example-machineStatus"
+}'
+```
 
 #### Business Rules
 
@@ -238,26 +279,30 @@ Changes the name of an existing region. All bridges within the region remain ass
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `name` | Current region name | true | old-region |
-| `new_name` | New region name (must be unique) | true | new-region |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `new_name` | string | Yes | - | New region name (must be unique) | new-region |
+| `current_region_name` | string | Yes | - |  |  |
 
-#### Examples
-
-```bash
-rediacc-cli update region us-east us-east-1
-```
-Rename region for clarity
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli update region test production
+# Basic usage (required parameters only)
+rediacc-cli update region
 ```
-Promote test region to production
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Region names must be unique within the company. Bridges and their associations are preserved.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateRegionName" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "currentRegionName": "example-currentRegionName",
+    "newRegionName": "example-newRegionName"
+}'
+```
 
 #### Business Rules
 
@@ -289,27 +334,32 @@ Changes the name of an existing repository within a team. Repository data and co
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the repository | true | dev-team |
-| `name` | Current repository name | true | old-app |
-| `new_name` | New repository name (unique within team) | true | new-app |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team that owns the repository | dev-team |
+| `current_repo_name` | string | Yes | - |  |  |
+| `new_name` | string | Yes | - | New repository name (unique within team) | new-app |
 
-#### Examples
-
-```bash
-rediacc-cli update repository dev webapp web-application
-```
-Rename repository for clarity
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli update repository prod api-v1 api-v2
+# Basic usage (required parameters only)
+rediacc-cli update repository example-team
 ```
-Version update in repository name
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Repository names must be unique within a team. Running containers are not affected. Update sync scripts and schedules.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateRepositoryName" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "currentRepoName": "example-currentRepoName",
+    "newRepoName": "example-newRepoName"
+}'
+```
 
 #### Business Rules
 
@@ -341,13 +391,12 @@ Updates the encrypted configuration data for a repository. Used to modify reposi
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the repository | true | dev-team |
-| `name` | Repository name | true | web-app |
-| `vault` | JSON configuration data | false | `{"size": "20G", "env": {"NODE_ENV": "production"}}` |
-| `vault-file` | File containing JSON vault data | false | repo-config.json |
-| `vault-version` | Vault schema version (default: 1) | false | 2 |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team that owns the repository | dev-team |
+| `vault` | string | No | - | JSON configuration data | `{"size": "20G", "env": {"NODE_ENV": "production"}}` |
+| `repository` | string | Yes | - |  |  |
+| `vault_version` | string | No | - |  |  |
 
 #### Examples
 
@@ -360,6 +409,26 @@ Update repository size
 rediacc-cli update repository-vault prod api --vault-file new-config.json
 ```
 Update repository config from file
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli update repository-vault example-team my-repo
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateRepositoryVault" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "repoName": "my-repo"
+}'
+```
 
 #### Notes
 
@@ -395,27 +464,32 @@ Changes the name of an existing schedule. The cron expression and task configura
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the schedule | true | ops-team |
-| `name` | Current schedule name | true | old-backup |
-| `new_name` | New schedule name (unique within team) | true | daily-backup |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team that owns the schedule | ops-team |
+| `current_schedule_name` | string | Yes | - |  |  |
+| `new_name` | string | Yes | - | New schedule name (unique within team) | daily-backup |
 
-#### Examples
-
-```bash
-rediacc-cli update schedule ops backup-task daily-backup
-```
-Rename schedule for clarity
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli update schedule prod sync-v1 sync-v2
+# Basic usage (required parameters only)
+rediacc-cli update schedule example-team
 ```
-Version update in schedule name
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Schedule names must be unique within a team. The schedule continues running with the new name.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateScheduleName" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "currentScheduleName": "example-currentScheduleName",
+    "newScheduleName": "example-newScheduleName"
+}'
+```
 
 #### Business Rules
 
@@ -447,13 +521,12 @@ Updates the encrypted vault containing schedule settings including cron expressi
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the schedule | true | ops-team |
-| `name` | Schedule name | true | daily-backup |
-| `vault` | JSON with schedule configuration | false | `{"cron": "0 2 * * *", "function": "repo_push", "machine": "backup-01", "params": {...}}` |
-| `vault-file` | File containing JSON vault data | false | schedule-config.json |
-| `vault-version` | Vault schema version (default: 1) | false | 2 |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team that owns the schedule | ops-team |
+| `vault` | string | No | - | JSON with schedule configuration | `{"cron": "0 2 * * *", "function": "repo_push", "machine": "backup-01", "params": {...}}` |
+| `schedule` | string | Yes | - |  |  |
+| `vault_version` | string | No | - |  |  |
 
 #### Examples
 
@@ -466,6 +539,26 @@ Change schedule time to 3 AM
 rediacc-cli update schedule-vault prod sync --vault-file new-schedule.json
 ```
 Update complete schedule config
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli update schedule-vault example-team daily-backup
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateScheduleVault" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "scheduleName": "daily-backup"
+}'
+```
 
 #### Notes
 
@@ -501,27 +594,32 @@ Changes the name of an existing storage configuration. The actual storage backen
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the storage | true | backup-team |
-| `name` | Current storage name | true | old-backup |
-| `new_name` | New storage name (unique within team) | true | new-backup |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team that owns the storage | backup-team |
+| `current_storage_name` | string | Yes | - |  |  |
+| `new_name` | string | Yes | - | New storage name (unique within team) | new-backup |
 
-#### Examples
-
-```bash
-rediacc-cli update storage backup s3-temp s3-archive
-```
-Rename storage for clarity
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli update storage data azure-test azure-prod
+# Basic usage (required parameters only)
+rediacc-cli update storage example-team
 ```
-Promote test storage to production
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Storage names must be unique within a team. Update backup scripts and schedules that reference the old name.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateStorageName" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "currentStorageName": "example-currentStorageName",
+    "newStorageName": "example-newStorageName"
+}'
+```
 
 #### Business Rules
 
@@ -553,13 +651,12 @@ Updates the encrypted vault containing storage credentials and settings. Used to
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `team` | Team that owns the storage | true | backup-team |
-| `name` | Storage name | true | s3-backup |
-| `vault` | JSON with storage credentials and config | false | `{"type": "s3", "bucket": "backups", "access_key": "...", "secret_key": "..."}` |
-| `vault-file` | File containing JSON vault data | false | storage-creds.json |
-| `vault-version` | Vault schema version (default: 1) | false | 2 |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `team` | string | Yes | - | Team that owns the storage | backup-team |
+| `vault` | string | No | - | JSON with storage credentials and config | `{"type": "s3", "bucket": "backups", "access_key": "...", "secret_key": "..."}` |
+| `storage` | string | Yes | - |  |  |
+| `vault_version` | string | No | - |  |  |
 
 #### Examples
 
@@ -572,6 +669,26 @@ Update S3 credentials from file
 rediacc-cli update storage-vault data azure-storage --vault '{"container":"new-container"}'
 ```
 Change Azure container
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli update storage-vault example-team backup-storage
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateStorageVault" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "teamName": "example-team",
+    "storageName": "backup-storage"
+}'
+```
 
 #### Notes
 
@@ -607,21 +724,30 @@ Changes the name of an existing team. All resources remain associated with the t
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `name` | Current team name | true | old-team-name |
-| `new_name` | New team name (must be unique) | true | new-team-name |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `new_name` | string | Yes | - | New team name (must be unique) | new-team-name |
+| `current_team_name` | string | Yes | - |  |  |
 
-#### Examples
+##### Auto-Generated CLI Examples
 
 ```bash
-rediacc-cli update team dev-team development-team
+# Basic usage (required parameters only)
+rediacc-cli update team
 ```
-Rename dev-team to development-team
 
-#### Notes
+##### Auto-Generated cURL Examples
 
-Team renaming doesn't affect resources or memberships. Update any automation scripts that reference the old name.
+```bash
+# Using token authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateTeamName" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
+  -d '{
+    "currentTeamName": "example-currentTeamName",
+    "newTeamName": "example-newTeamName"
+}'
+```
 
 #### Business Rules
 

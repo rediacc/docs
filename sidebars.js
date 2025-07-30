@@ -62,14 +62,90 @@ const sidebars = {
         },
         
         // API Reference
-        'cli/api-reference/index',
-        'cli/api-reference/authentication',
-        { type: 'doc', id: 'cli/api-reference/resource-commands', label: 'Resource Commands' },
-        { type: 'doc', id: 'cli/api-reference/user-permission-commands', label: 'User & Permission Commands' },
-        { type: 'doc', id: 'cli/api-reference/organization-commands', label: 'Organization Commands' },
-        { type: 'doc', id: 'cli/api-reference/infrastructure-commands', label: 'Infrastructure Commands' },
-        { type: 'doc', id: 'cli/api-reference/system-commands', label: 'System Commands' },
-        'cli/api-reference/queue-functions',
+        {
+          type: 'category',
+          label: 'API Reference',
+          collapsed: true,
+          items: [
+            'cli/api-reference/index',
+            {
+              type: 'category',
+              label: 'Authentication',
+              collapsed: true,
+              items: [
+                'cli/api-reference/authentication',
+                'cli/api-reference/auth-commands',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Resource Management',
+              collapsed: true,
+              items: [
+                'cli/api-reference/resource-commands',
+                'cli/api-reference/create-commands',
+                'cli/api-reference/list-commands',
+                'cli/api-reference/inspect-commands',
+                'cli/api-reference/update-commands',
+                'cli/api-reference/rm-commands',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'User & Access Control',
+              collapsed: true,
+              items: [
+                'cli/api-reference/user-permission-commands',
+                'cli/api-reference/user-commands',
+                'cli/api-reference/permission-commands',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Organization',
+              collapsed: true,
+              items: [
+                'cli/api-reference/organization-commands',
+                'cli/api-reference/company-commands',
+                'cli/api-reference/team-commands',
+                'cli/api-reference/team-member-commands',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Infrastructure',
+              collapsed: true,
+              items: [
+                'cli/api-reference/infrastructure-commands',
+                'cli/api-reference/bridge-commands',
+                'cli/api-reference/machine-commands',
+                'cli/api-reference/region-commands',
+                'cli/api-reference/distributed-storage-commands',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'System Operations',
+              collapsed: true,
+              items: [
+                'cli/api-reference/system-commands',
+                'cli/api-reference/queue-commands',
+                'cli/api-reference/queue-functions',
+                'cli/api-reference/vault-commands',
+                'cli/api-reference/audit-commands',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Other Commands',
+              collapsed: true,
+              items: [
+                'cli/api-reference/clone-commands',
+                'cli/api-reference/misc-commands',
+              ],
+            },
+          ],
+        },
       ],
     },
     {

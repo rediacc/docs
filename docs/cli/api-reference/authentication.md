@@ -24,16 +24,16 @@ Creates an authentication session and receives an API token for subsequent reque
 
 #### Parameters
 
-| Parameter | Description | Required | Example |
-|-----------|-------------|----------|---------|
-| `email` | User email address | false | user@company.com |
-| `password` | User password | false | SecureP@ssw0rd |
-| `master-password` | Master password for vault encryption | false | VaultM@sterKey |
-| `session-name` | Name for this session | false | Development Workstation |
-| `tfa-code` | Two-factor authentication code | false | 123456 |
-| `permissions` | Requested permission group | false | admin |
-| `expiration` | Token expiration in hours (default: 24) | false | 48 |
-| `target` | Target resource for specialized tokens | false | bridge-01 |
+| Parameter | Type | Required | Default | Description | Example |
+|-----------|------|----------|---------|-------------|---------|
+| `email` | string | No | - | User email address | user@company.com |
+| `password` | string | No | - | User password | SecureP@ssw0rd |
+| `master-password` | string | No | - | Master password for vault encryption | VaultM@sterKey |
+| `session-name` | string | No | - | Name for this session | Development Workstation |
+| `tfa-code` | string | No | - | Two-factor authentication code | 123456 |
+| `permissions` | string | No | - | Requested permission group | admin |
+| `expiration` | string | No | - | Token expiration in hours (default: 24) | 48 |
+| `target` | string | No | - | Target resource for specialized tokens | bridge-01 |
 
 #### Examples
 
@@ -51,6 +51,25 @@ Direct login with credentials
 rediacc-cli login --email admin@company.com --tfa-code 123456 --permissions admin
 ```
 Admin login with 2FA
+
+##### Auto-Generated CLI Examples
+
+```bash
+# Basic usage (required parameters only)
+rediacc-cli login
+```
+
+##### Auto-Generated cURL Examples
+
+```bash
+# Using credential authentication
+curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateAuthenticationRequest" \
+  -H "Content-Type: application/json" \
+  -H "Rediacc-UserEmail: user@example.com" \
+  -H "Rediacc-UserHash: YOUR_PASSWORD_HASH" \
+  -d '{
+}'
+```
 
 #### Notes
 
