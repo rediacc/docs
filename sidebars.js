@@ -39,20 +39,13 @@ const sidebars = {
       label: 'Developer Tools',
       collapsed: true,
       items: [
-        // Getting Started
-        {
-          type: 'category',
-          label: 'Getting Started',
-          collapsed: true,
-          items: [
-            'cli/introduction',
-            'cli/installation',
-            'cli/quick-start',
-            'cli/getting-started-tutorial',
-          ],
-        },
-        // Configuration
+        // Getting Started - Direct access
+        'cli/introduction',
+        'cli/installation',
+        'cli/quick-start',
+        'cli/getting-started-tutorial',
         'cli/configuration',
+        
         // Core Concepts
         {
           type: 'category',
@@ -64,6 +57,7 @@ const sidebars = {
             'cli/concepts/rest-api-error-handling',
           ],
         },
+        
         // Tutorials
         {
           type: 'category',
@@ -77,67 +71,16 @@ const sidebars = {
             'cli/tutorials/permission-management',
           ],
         },
-        // API Reference
-        {
-          type: 'category',
-          label: 'API Reference',
-          collapsed: true,
-          items: [
-            'cli/api-reference/index',
-            {
-              type: 'category',
-              label: 'Authentication & Access',
-              collapsed: true,
-              items: [
-                'cli/api-reference/authentication',
-                { type: 'doc', id: 'cli/api-reference/auth-commands', label: 'Auth' },
-                { type: 'doc', id: 'cli/api-reference/user-commands', label: 'User' },
-                { type: 'doc', id: 'cli/api-reference/permission-commands', label: 'Permission' },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Resource Management',
-              collapsed: true,
-              items: [
-                { type: 'doc', id: 'cli/api-reference/create-commands', label: 'Create' },
-                { type: 'doc', id: 'cli/api-reference/list-commands', label: 'List' },
-                { type: 'doc', id: 'cli/api-reference/inspect-commands', label: 'Inspect' },
-                { type: 'doc', id: 'cli/api-reference/update-commands', label: 'Update' },
-                { type: 'doc', id: 'cli/api-reference/rm-commands', label: 'Remove' },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Organization',
-              collapsed: true,
-              items: [
-                { type: 'doc', id: 'cli/api-reference/company-commands', label: 'Company' },
-                { type: 'doc', id: 'cli/api-reference/team-member-commands', label: 'Team Member' },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Infrastructure',
-              collapsed: true,
-              items: [
-                { type: 'doc', id: 'cli/api-reference/bridge-commands', label: 'Bridge' },
-                { type: 'doc', id: 'cli/api-reference/distributed-storage-commands', label: 'Distributed Storage' },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'System Management',
-              collapsed: true,
-              items: [
-                { type: 'doc', id: 'cli/api-reference/queue-commands', label: 'Queue' },
-                { type: 'doc', id: 'cli/api-reference/vault-commands', label: 'Vault' },
-                { type: 'doc', id: 'cli/api-reference/audit-commands', label: 'Audit' },
-              ],
-            },
-            'cli/api-reference/queue-functions',
-          ],
-        },
+        
+        // API Reference - Flattened
+        'cli/api-reference/index',
+        'cli/api-reference/authentication',
+        { type: 'doc', id: 'cli/api-reference/resource-commands', label: 'Resource Commands' },
+        { type: 'doc', id: 'cli/api-reference/user-permission-commands', label: 'User & Permission Commands' },
+        { type: 'doc', id: 'cli/api-reference/organization-commands', label: 'Organization Commands' },
+        { type: 'doc', id: 'cli/api-reference/infrastructure-commands', label: 'Infrastructure Commands' },
+        { type: 'doc', id: 'cli/api-reference/system-commands', label: 'System Commands' },
+        'cli/api-reference/queue-functions',
       ],
     },
     {
