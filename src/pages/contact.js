@@ -31,7 +31,6 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Form submitted:', formData);
     alert('Thank you for contacting us! We\'ll get back to you within 24 hours.');
   };
 

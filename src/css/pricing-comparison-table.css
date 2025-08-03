@@ -39,6 +39,11 @@
 
 .pricing-tier-price {
   margin-bottom: 1rem;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .pricing-original-price {
@@ -163,6 +168,21 @@
 .pricing-comparison-header-cell .button {
   margin-top: 1rem;
   width: 100%;
+  min-width: 120px;
+  font-size: 0.95rem;
+  padding: 0.625rem 1.25rem;
+  font-weight: 600;
+}
+
+.pricing-tier-button {
+  display: inline-block;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pricing-tier-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Dark theme adjustments */

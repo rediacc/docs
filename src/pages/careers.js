@@ -1,9 +1,126 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import { Icon } from '../components/Icon';
 
 export default function Careers() {
+  const [positions, setPositions] = useState([]);
+  const [selectedDepartment, setSelectedDepartment] = useState('all');
+  const [selectedLevel, setSelectedLevel] = useState('all');
+  const [expandedPosition, setExpandedPosition] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/data/positions.json')
+      .then(res => res.json())
+      .then(data => {
+        setPositions(data.positions);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to load positions:', err);
+        setLoading(false);
+      });
+  }, []);
+
+  const filteredPositions = positions.filter(position => {
+    if (!position.active) return false;
+    if (selectedDepartment !== 'all' && position.department !== selectedDepartment) return false;
+    if (selectedLevel !== 'all' && position.level !== selectedLevel) return false;
+    return true;
+  });
+
+  const departments = [...new Set(positions.map(p => p.department))];
+  const levels = [...new Set(positions.map(p => p.level))];
+
+  const getPriorityColor = (priority) => {
+    switch(priority) {
+      case 'high': return '#ff4757';
+      case 'medium': return '#ffa502';
+      case 'low': return '#2ed573';
+      default: return '#747d8c';
+    }
+  };
+
+  const benefits = {
+    compensation: {
+      icon: 'dollar-sign',
+      title: 'Competitive Compensation',
+      items: [
+        'Market-leading salaries',
+        'Equity participation',
+        'Performance bonuses',
+        'Relocation assistance'
+      ]
+    },
+    health: {
+      icon: 'heart',
+      title: 'Health & Wellness',
+      items: [
+        'Comprehensive health insurance',
+        'Mental health support',
+        'Wellness programs',
+        'Gym membership'
+      ]
+    },
+    growth: {
+      icon: 'trending-up',
+      title: 'Career Growth',
+      items: [
+        'Learning budget ($5000/year)',
+        'Conference attendance',
+        'Mentorship programs',
+        'Internal mobility'
+      ]
+    },
+    flexibility: {
+      icon: 'globe',
+      title: 'Work Flexibility',
+      items: [
+        'Fully remote work',
+        'Flexible hours',
+        'Unlimited PTO',
+        'Sabbatical options'
+      ]
+    },
+    culture: {
+      icon: 'users',
+      title: 'Amazing Culture',
+      items: [
+        'Diverse & inclusive team',
+        'Open source Fridays',
+        'Team gatherings',
+        'Hackathon participation'
+      ]
+    },
+    technology: {
+      icon: 'cpu',
+      title: 'Cutting-edge Tech',
+      items: [
+        'Latest tools & hardware',
+        'Modern tech stack',
+        'Innovation time',
+        'Technical excellence'
+      ]
+    }
+  };
+
+  const techStack = {
+    frontend: ['React', 'TypeScript', 'Redux Toolkit', 'Vite', 'Ant Design'],
+    backend: ['.NET 9', 'C#', 'SQL Server', 'Docker', 'ASP.NET Core'],
+    systems: ['C++17', 'libssh', 'CMake', 'Ceph', 'Linux'],
+    infrastructure: ['Kubernetes', 'Terraform', 'Prometheus', 'Grafana', 'GitOps'],
+    tools: ['Python', 'Bash', 'PowerShell', 'Git', 'CI/CD']
+  };
+
+  const hiringProcess = [
+    { step: 'Apply', time: '5 min', description: 'Submit your application' },
+    { step: 'Screen', time: '45 min', description: 'Technical discussion' },
+    { step: 'Assessment', time: '2-4 hrs', description: 'Technical challenge' },
+    { step: 'Team Interview', time: '3-4 hrs', description: 'Meet the team' },
+    { step: 'Offer', time: '1-2 days', description: 'Receive offer' }
+  ];
+
   return (
     <Layout
       title="Careers - Join the Rediacc Team"
@@ -11,88 +128,380 @@ export default function Careers() {
       
       <article>
         {/* Hero Section */}
-        <section className="hero-section" style={{padding: '4rem 1rem'}}>
+        <section className="hero-section" style={{
+          padding: '4rem 1rem',
+          background: 'linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%)',
+          color: 'white'
+        }}>
           <div className="container">
-            <h1 className="hero-title animate-fade-in-up">
+            <h1 className="hero-title animate-fade-in-up" style={{color: 'white'}}>
               Build the Future of Infrastructure
             </h1>
-            <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-              Join our team and help thousands of companies manage their infrastructure better
+            <p className="hero-subtitle animate-fade-in-up animate-delay-100" style={{
+              fontSize: '1.3rem',
+              opacity: 0.95,
+              maxWidth: '700px',
+              margin: '0 auto'
+            }}>
+              Join our team of exceptional engineers building the next generation of infrastructure management tools
             </p>
+            <div style={{marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
+              <Link className="button button--secondary button--lg" to="#open-positions" style={{color: 'var(--ifm-color-primary)'}}>
+                View Open Positions
+              </Link>
+              <Link className="button button--outline button--lg" to="#culture" style={{color: 'white', borderColor: 'white'}}>
+                Learn About Our Culture
+              </Link>
+            </div>
           </div>
         </section>
 
-        {/* Why Join Section */}
-        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
+        {/* Tech Stack Section */}
+        <section style={{padding: '3rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
-            <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
+            <h2 style={{fontSize: '2rem', marginBottom: '2rem', textAlign: 'center'}}>
+              Our Technology Stack
+            </h2>
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', maxWidth: '1000px', margin: '0 auto'}}>
+              {Object.entries(techStack).map(([category, techs]) => (
+                <div key={category} style={{
+                  padding: '1.5rem',
+                  background: 'var(--ifm-background-surface-color)',
+                  borderRadius: '8px',
+                  border: '1px solid var(--ifm-toc-border-color)'
+                }}>
+                  <h3 style={{fontSize: '1.1rem', marginBottom: '1rem', textTransform: 'capitalize'}}>
+                    {category}
+                  </h3>
+                  <div style={{display: 'flex', flexWrap: 'wrap', gap: '0.5rem'}}>
+                    {techs.map(tech => (
+                      <span key={tech} style={{
+                        padding: '0.25rem 0.75rem',
+                        background: 'var(--ifm-color-primary-lightest)',
+                        borderRadius: '20px',
+                        fontSize: '0.85rem',
+                        color: 'var(--ifm-color-primary-dark)'
+                      }}>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section */}
+        <section id="culture" style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
+          <div className="container">
+            <h2 style={{fontSize: '2.5rem', marginBottom: '1rem', textAlign: 'center'}}>
               Why Join Rediacc?
             </h2>
+            <p style={{textAlign: 'center', fontSize: '1.2rem', marginBottom: '3rem', color: 'var(--ifm-font-color-secondary)'}}>
+              We offer more than just a job - we offer a career with purpose
+            </p>
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
-              <div className="feature-card">
-                <h3><Icon name="deploy" size={20} style={{marginRight: '8px'}} />Impactful Work</h3>
-                <p>Work on technology that powers critical infrastructure for thousands of companies worldwide.</p>
-              </div>
-              <div className="feature-card">
-                <h3><Icon name="trending-up" size={20} style={{marginRight: '8px'}} />Growth Opportunities</h3>
-                <p>Learn from the best in the industry and grow your career with mentorship and training.</p>
-              </div>
-              <div className="feature-card">
-                <h3><Icon name="award" size={20} style={{marginRight: '8px'}} />Competitive Benefits</h3>
-                <p>Excellent compensation, equity, healthcare, and unlimited PTO.</p>
-              </div>
-              <div className="feature-card">
-                <h3><Icon name="globe" size={20} style={{marginRight: '8px'}} />Remote First</h3>
-                <p>Work from anywhere in the world with flexible hours that suit your lifestyle.</p>
-              </div>
-              <div className="feature-card">
-                <h3><Icon name="users" size={20} style={{marginRight: '8px'}} />Amazing Team</h3>
-                <p>Collaborate with talented engineers, designers, and product experts.</p>
-              </div>
-              <div className="feature-card">
-                <h3><Icon name="lightbulb" size={20} style={{marginRight: '8px'}} />Innovation Culture</h3>
-                <p>We encourage experimentation, learning, and pushing boundaries.</p>
-              </div>
+              {Object.entries(benefits).map(([key, benefit]) => (
+                <div key={key} className="feature-card" style={{
+                  padding: '2rem',
+                  background: 'var(--ifm-background-color)',
+                  borderRadius: '12px',
+                  border: '1px solid var(--ifm-toc-border-color)',
+                  transition: 'transform 0.3s, box-shadow 0.3s',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-5px)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}>
+                  <h3 style={{display: 'flex', alignItems: 'center', marginBottom: '1rem'}}>
+                    <Icon name={benefit.icon} size={24} style={{marginRight: '10px', color: 'var(--ifm-color-primary)'}} />
+                    {benefit.title}
+                  </h3>
+                  <ul style={{margin: 0, paddingLeft: '1.5rem'}}>
+                    {benefit.items.map((item, idx) => (
+                      <li key={idx} style={{marginBottom: '0.5rem', color: 'var(--ifm-font-color-secondary)'}}>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Hiring Process */}
+        <section style={{padding: '3rem 1rem', background: 'var(--ifm-background-color)'}}>
+          <div className="container">
+            <h2 style={{fontSize: '2rem', marginBottom: '2rem', textAlign: 'center'}}>
+              Our Hiring Process
+            </h2>
+            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '900px', margin: '0 auto', flexWrap: 'wrap'}}>
+              {hiringProcess.map((stage, idx) => (
+                <div key={idx} style={{
+                  flex: '1',
+                  textAlign: 'center',
+                  padding: '1rem',
+                  minWidth: '150px',
+                  position: 'relative'
+                }}>
+                  <div style={{
+                    width: '60px',
+                    height: '60px',
+                    borderRadius: '50%',
+                    background: 'var(--ifm-color-primary)',
+                    color: 'white',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '0 auto 1rem',
+                    fontSize: '1.5rem',
+                    fontWeight: 'bold'
+                  }}>
+                    {idx + 1}
+                  </div>
+                  <h4 style={{marginBottom: '0.5rem'}}>{stage.step}</h4>
+                  <p style={{fontSize: '0.9rem', color: 'var(--ifm-font-color-secondary)', marginBottom: '0.25rem'}}>
+                    {stage.time}
+                  </p>
+                  <p style={{fontSize: '0.85rem', color: 'var(--ifm-font-color-secondary)'}}>
+                    {stage.description}
+                  </p>
+                  {idx < hiringProcess.length - 1 && (
+                    <div className="hiring-connector" style={{
+                      position: 'absolute',
+                      top: '30px',
+                      left: '60%',
+                      width: '100%',
+                      height: '2px',
+                      background: 'var(--ifm-color-primary)',
+                      opacity: 0.3
+                    }} />
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Open Positions */}
-        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
+        <section id="open-positions" style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
               Open Positions
             </h2>
             
-            <div style={{maxWidth: '800px', margin: '0 auto'}}>
-              <div style={{marginBottom: '2rem', padding: '2rem', background: 'var(--ifm-background-color)', borderRadius: '8px', border: '2px solid var(--ifm-color-primary)'}}>
-                <h3>Senior Backend Engineer</h3>
-                <p style={{color: 'var(--ifm-font-color-secondary)', marginBottom: '1rem'}}>Remote • Full-time</p>
-                <p>Build scalable infrastructure automation systems using Go, Python, and C++.</p>
-                <Link className="button button--primary" to="/contact">Apply Now</Link>
-              </div>
+            {/* Filters */}
+            <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', marginBottom: '3rem', flexWrap: 'wrap'}}>
+              <select 
+                value={selectedDepartment}
+                onChange={(e) => setSelectedDepartment(e.target.value)}
+                style={{
+                  padding: '0.5rem 1rem',
+                  borderRadius: '6px',
+                  border: '1px solid var(--ifm-toc-border-color)',
+                  background: 'var(--ifm-background-color)',
+                  cursor: 'pointer'
+                }}>
+                <option value="all">All Departments</option>
+                {departments.map(dept => (
+                  <option key={dept} value={dept}>{dept}</option>
+                ))}
+              </select>
+              
+              <select 
+                value={selectedLevel}
+                onChange={(e) => setSelectedLevel(e.target.value)}
+                style={{
+                  padding: '0.5rem 1rem',
+                  borderRadius: '6px',
+                  border: '1px solid var(--ifm-toc-border-color)',
+                  background: 'var(--ifm-background-color)',
+                  cursor: 'pointer'
+                }}>
+                <option value="all">All Levels</option>
+                {levels.map(level => (
+                  <option key={level} value={level}>{level}</option>
+                ))}
+              </select>
+            </div>
+            
+            {/* Position Cards */}
+            <div style={{maxWidth: '900px', margin: '0 auto'}}>
+              {loading ? (
+                <p style={{textAlign: 'center'}}>Loading positions...</p>
+              ) : filteredPositions.length === 0 ? (
+                <p style={{textAlign: 'center', fontSize: '1.2rem', color: 'var(--ifm-font-color-secondary)'}}>
+                  No positions match your criteria. Please check back later or adjust your filters.
+                </p>
+              ) : (
+                filteredPositions.map(position => (
+                  <div key={position.id} style={{
+                    marginBottom: '2rem',
+                    padding: '2rem',
+                    background: 'var(--ifm-background-color)',
+                    borderRadius: '12px',
+                    border: '2px solid var(--ifm-toc-border-color)',
+                    transition: 'border-color 0.3s',
+                    cursor: 'pointer'
+                  }}
+                  onClick={() => setExpandedPosition(expandedPosition === position.id ? null : position.id)}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--ifm-color-primary)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--ifm-toc-border-color)';
+                  }}>
+                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem'}}>
+                      <div>
+                        <h3 style={{marginBottom: '0.5rem', display: 'flex', alignItems: 'center'}}>
+                          {position.title}
+                          {position.priority === 'high' && (
+                            <span style={{
+                              marginLeft: '10px',
+                              padding: '2px 8px',
+                              background: getPriorityColor(position.priority),
+                              color: 'white',
+                              borderRadius: '4px',
+                              fontSize: '0.75rem',
+                              fontWeight: 'normal'
+                            }}>
+                              High Priority
+                            </span>
+                          )}
+                        </h3>
+                        <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap'}}>
+                          <span style={{color: 'var(--ifm-font-color-secondary)', fontSize: '0.95rem'}}>
+                            <Icon name="briefcase" size={14} style={{marginRight: '4px'}} />
+                            {position.department}
+                          </span>
+                          <span style={{color: 'var(--ifm-font-color-secondary)', fontSize: '0.95rem'}}>
+                            <Icon name="map-pin" size={14} style={{marginRight: '4px'}} />
+                            {position.location}
+                          </span>
+                          <span style={{color: 'var(--ifm-font-color-secondary)', fontSize: '0.95rem'}}>
+                            <Icon name="clock" size={14} style={{marginRight: '4px'}} />
+                            {position.type}
+                          </span>
+                          <span style={{color: 'var(--ifm-font-color-secondary)', fontSize: '0.95rem'}}>
+                            <Icon name="award" size={14} style={{marginRight: '4px'}} />
+                            {position.level}
+                          </span>
+                        </div>
+                      </div>
+                      <Icon 
+                        name={expandedPosition === position.id ? "chevron-up" : "chevron-down"} 
+                        size={20} 
+                        style={{color: 'var(--ifm-font-color-secondary)'}} 
+                      />
+                    </div>
+                    
+                    <p style={{marginBottom: '1rem'}}>{position.summary}</p>
+                    
+                    {/* Technology Tags */}
+                    <div style={{display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem'}}>
+                      {position.technologies.slice(0, 5).map(tech => (
+                        <span key={tech} style={{
+                          padding: '0.25rem 0.75rem',
+                          background: 'var(--ifm-color-primary-lightest)',
+                          borderRadius: '20px',
+                          fontSize: '0.85rem',
+                          color: 'var(--ifm-color-primary-dark)'
+                        }}>
+                          {tech}
+                        </span>
+                      ))}
+                      {position.technologies.length > 5 && (
+                        <span style={{
+                          padding: '0.25rem 0.75rem',
+                          background: 'var(--ifm-background-surface-color)',
+                          borderRadius: '20px',
+                          fontSize: '0.85rem',
+                          color: 'var(--ifm-font-color-secondary)'
+                        }}>
+                          +{position.technologies.length - 5} more
+                        </span>
+                      )}
+                    </div>
+                    
+                    {/* Expanded Content */}
+                    {expandedPosition === position.id && (
+                      <div style={{marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid var(--ifm-toc-border-color)'}}>
+                        <h4 style={{marginBottom: '1rem'}}>Responsibilities</h4>
+                        <ul style={{marginBottom: '2rem'}}>
+                          {position.responsibilities.map((resp, idx) => (
+                            <li key={idx} style={{marginBottom: '0.5rem'}}>{resp}</li>
+                          ))}
+                        </ul>
+                        
+                        <h4 style={{marginBottom: '1rem'}}>Requirements</h4>
+                        <h5 style={{fontSize: '1rem', marginBottom: '0.5rem', color: 'var(--ifm-font-color-secondary)'}}>
+                          Technical Skills
+                        </h5>
+                        <ul style={{marginBottom: '1.5rem'}}>
+                          {position.requirements.technical.map((req, idx) => (
+                            <li key={idx} style={{marginBottom: '0.5rem'}}>{req}</li>
+                          ))}
+                        </ul>
+                        
+                        {position.requirements.preferred && (
+                          <>
+                            <h5 style={{fontSize: '1rem', marginBottom: '0.5rem', color: 'var(--ifm-font-color-secondary)'}}>
+                              Nice to Have
+                            </h5>
+                            <ul style={{marginBottom: '2rem'}}>
+                              {position.requirements.preferred.map((req, idx) => (
+                                <li key={idx} style={{marginBottom: '0.5rem'}}>{req}</li>
+                              ))}
+                            </ul>
+                          </>
+                        )}
+                        
+                        <div style={{display: 'flex', gap: '1rem', justifyContent: 'center'}}>
+                          <Link className="button button--primary button--lg" to="/contact">
+                            Apply Now
+                          </Link>
+                          <Link className="button button--outline button--lg" to={`/contact?position=${position.id}`}>
+                            Ask Questions
+                          </Link>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        </section>
 
-              <div style={{marginBottom: '2rem', padding: '2rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
-                <h3>Frontend Engineer</h3>
-                <p style={{color: 'var(--ifm-font-color-secondary)', marginBottom: '1rem'}}>Remote • Full-time</p>
-                <p>Create beautiful, intuitive interfaces using React, TypeScript, and modern web technologies.</p>
-                <Link className="button button--primary" to="/contact">Apply Now</Link>
-              </div>
-
-              <div style={{marginBottom: '2rem', padding: '2rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
-                <h3>DevOps Engineer</h3>
-                <p style={{color: 'var(--ifm-font-color-secondary)', marginBottom: '1rem'}}>Remote • Full-time</p>
-                <p>Design and maintain our cloud infrastructure using Kubernetes, Terraform, and AWS.</p>
-                <Link className="button button--primary" to="/contact">Apply Now</Link>
-              </div>
-
-              <div style={{marginBottom: '2rem', padding: '2rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
-                <h3>Technical Writer</h3>
-                <p style={{color: 'var(--ifm-font-color-secondary)', marginBottom: '1rem'}}>Remote • Full-time</p>
-                <p>Create clear, comprehensive documentation and tutorials for our platform.</p>
-                <Link className="button button--primary" to="/contact">Apply Now</Link>
-              </div>
+        {/* Values Section */}
+        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
+          <div className="container">
+            <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
+              Our Values
+            </h2>
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', maxWidth: '1000px', margin: '0 auto'}}>
+              {[
+                { icon: 'lightbulb', title: 'Innovation', description: 'Push boundaries and embrace new technologies' },
+                { icon: 'users', title: 'Collaboration', description: 'Work together to achieve extraordinary results' },
+                { icon: 'shield', title: 'Quality', description: 'Build reliable, secure, and scalable solutions' },
+                { icon: 'book-open', title: 'Learning', description: 'Continuous growth and knowledge sharing' },
+                { icon: 'heart', title: 'Balance', description: 'Sustainable pace and healthy work-life balance' },
+                { icon: 'globe', title: 'Diversity', description: 'Embrace different perspectives and backgrounds' }
+              ].map((value, idx) => (
+                <div key={idx} style={{textAlign: 'center'}}>
+                  <Icon name={value.icon} size={48} style={{color: 'var(--ifm-color-primary)', marginBottom: '1rem'}} />
+                  <h3 style={{marginBottom: '0.5rem'}}>{value.title}</h3>
+                  <p style={{color: 'var(--ifm-font-color-secondary)'}}>{value.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -100,22 +509,31 @@ export default function Careers() {
         {/* CTA Section */}
         <section style={{
           padding: '4rem 1rem',
-          background: 'var(--ifm-background-surface-color)',
-          borderTop: '1px solid var(--ifm-toc-border-color)',
+          background: 'linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%)',
           textAlign: 'center',
+          color: 'white'
         }}>
           <div className="container">
-            <h2 style={{fontSize: '2.5rem', marginBottom: '1.5rem', color: 'var(--ifm-heading-color)'}}>
-              Don't See Your Role?
+            <h2 style={{fontSize: '2.5rem', marginBottom: '1.5rem', color: 'white'}}>
+              Ready to Join Us?
             </h2>
-            <p style={{fontSize: '1.2rem', marginBottom: '2rem', color: 'var(--ifm-font-color-secondary)'}}>
-              We're always looking for exceptional talent. Send us your resume!
+            <p style={{fontSize: '1.2rem', marginBottom: '2rem', opacity: 0.95, maxWidth: '600px', margin: '0 auto 2rem'}}>
+              Don't see the perfect role? We're always looking for exceptional talent. Send us your resume and let's talk!
             </p>
-            <Link
-              className="button button--primary button--lg"
-              to="/contact">
-              Get in Touch
-            </Link>
+            <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
+              <Link
+                className="button button--secondary button--lg"
+                to="/contact"
+                style={{color: 'var(--ifm-color-primary)'}}>
+                Apply Now
+              </Link>
+              <Link
+                className="button button--outline button--lg"
+                to="mailto:careers@rediacc.com"
+                style={{color: 'white', borderColor: 'white'}}>
+                Email Us
+              </Link>
+            </div>
           </div>
         </section>
       </article>

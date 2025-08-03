@@ -198,15 +198,24 @@ function AISafetySection() {
 
 function SearchSection() {
   const handleSearchClick = () => {
-    // Navigate to documentation and trigger search
-    window.location.href = '/intro';
-    setTimeout(() => {
-      // Try to focus the search input after navigation
-      const searchButton = document.querySelector('.DocSearch-Button');
-      if (searchButton) {
-        searchButton.click();
+    // Directly trigger the search modal on the current page
+    const searchButton = document.querySelector('.DocSearch-Button');
+    if (searchButton) {
+      searchButton.click();
+    } else {
+      // Fallback: try to find and click the search input in the navbar
+      const navbarSearch = document.querySelector('.navbar__search button');
+      if (navbarSearch) {
+        navbarSearch.click();
+      } else {
+        // Final fallback: try to focus the search input directly
+        const searchInput = document.querySelector('[type="search"]');
+        if (searchInput) {
+          searchInput.focus();
+          searchInput.click();
+        }
       }
-    }, 500);
+    }
   };
 
   return (

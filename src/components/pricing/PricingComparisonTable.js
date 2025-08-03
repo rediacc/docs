@@ -93,7 +93,7 @@ const PricingComparisonTable = ({ plans, features, billingType, activeDiscount, 
               {/* CTA Button */}
               <a 
                 href={tier.ctaLink} 
-                className={`button button--${tier.ctaVariant} button--sm`}
+                className={`button button--${tier.ctaVariant} button--md pricing-tier-button`}
               >
                 {tier.ctaText}
               </a>

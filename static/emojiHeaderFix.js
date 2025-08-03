@@ -48,5 +48,4 @@ document.addEventListener('DOMContentLoaded', function() {
     subtree: true
   });
 
-  console.log('Emoji header fix script loaded and applied');
 });

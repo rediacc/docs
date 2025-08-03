@@ -613,35 +613,53 @@ html:not([data-theme='dark']) .navbar__link:hover {
   background-color: rgba(125, 155, 73, 0.1);
 }
 
-/* Login button special styling */
+/* Login button - styled like Start Free Trial button */
 .navbar-login-link {
-  background: var(--ifm-color-primary) !important;
-  color: white !important;
-  padding: 0.4rem 1.2rem !important;
-  border-radius: 9999px !important;
-  font-weight: 500 !important;
-  transition: all 0.3s ease !important;
-  border: none !important;
+  background-color: var(--ifm-color-primary) !important;
+  border-color: var(--ifm-color-primary) !important;
+  color: var(--ifm-font-color-base-inverse) !important;
+  padding: 0.5rem 1.5rem !important;
+  border-radius: var(--ifm-button-border-radius) !important;
+  font-weight: var(--ifm-button-font-weight) !important;
+  font-size: 1rem !important;
+  transition: var(--ifm-button-transition-duration) ease !important;
+  border: var(--ifm-button-border-width) solid !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  line-height: 1.5 !important;
 }
 
 .navbar-login-link:hover {
-  background: var(--ifm-color-primary-dark) !important;
-  color: white !important;
+  background-color: var(--ifm-color-primary-dark) !important;
+  border-color: var(--ifm-color-primary-dark) !important;
+  color: var(--ifm-font-color-base-inverse) !important;
+  text-decoration: none !important;
   transform: translateY(-1px) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
 }
 
+.navbar-login-link:active {
+  background-color: var(--ifm-color-primary-darker) !important;
+  border-color: var(--ifm-color-primary-darker) !important;
+}
+
 /* Dark theme login button */
 [data-theme='dark'] .navbar-login-link {
-  background: var(--ifm-color-primary) !important;
-  color: white !important;
-  border: 1px solid var(--ifm-color-primary-darker) !important;
+  background-color: var(--ifm-color-primary) !important;
+  border-color: var(--ifm-color-primary) !important;
+  color: var(--ifm-font-color-base-inverse) !important;
 }
 
 [data-theme='dark'] .navbar-login-link:hover {
-  background: var(--ifm-color-primary-dark) !important;
-  color: white !important;
+  background-color: var(--ifm-color-primary-light) !important;
+  border-color: var(--ifm-color-primary-light) !important;
+  color: var(--ifm-font-color-base-inverse) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme='dark'] .navbar-login-link:active {
+  background-color: var(--ifm-color-primary-dark) !important;
+  border-color: var(--ifm-color-primary-dark) !important;
 }
 
 /* Fix logo text color */

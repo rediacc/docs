@@ -1,0 +1,499 @@
+{
+  "positions": [
+    {
+      "id": "senior-frontend-engineer",
+      "title": "Senior Frontend Engineer",
+      "department": "Engineering",
+      "location": "Remote",
+      "type": "Full-time",
+      "level": "Senior",
+      "priority": "high",
+      "active": true,
+      "summary": "Build and optimize our React-based console application with advanced state management and real-time features.",
+      "responsibilities": [
+        "Develop and maintain our React/TypeScript web console with Vite",
+        "Implement complex state management using Redux Toolkit and React Query",
+        "Build real-time queue monitoring and distributed storage interfaces",
+        "Optimize performance with virtual scrolling and code splitting",
+        "Implement client-side encryption and security features",
+        "Create data visualizations with D3.js and Ant Design Charts",
+        "Maintain internationalization for 9+ languages",
+        "Collaborate with backend team on API design and integration"
+      ],
+      "requirements": {
+        "technical": [
+          "5+ years with React 18+ and TypeScript",
+          "Expert knowledge of Redux Toolkit and React Query",
+          "Experience with Ant Design or similar UI frameworks",
+          "Strong understanding of web security and encryption",
+          "Performance optimization and virtual scrolling techniques",
+          "Build tools expertise (Vite, webpack)",
+          "Testing with Playwright or similar E2E frameworks"
+        ],
+        "preferred": [
+          "Enterprise application development",
+          "Real-time system interfaces",
+          "Multi-language/i18n experience",
+          "Data visualization with D3.js",
+          "WebSocket and real-time updates"
+        ]
+      },
+      "technologies": [
+        "React 18", "TypeScript 5", "Redux Toolkit", "React Query",
+        "Vite", "Ant Design", "D3.js", "i18next", "Playwright"
+      ]
+    },
+    {
+      "id": "senior-backend-engineer",
+      "title": "Senior Backend Engineer (.NET)",
+      "department": "Engineering",
+      "location": "Remote",
+      "type": "Full-time",
+      "level": "Senior",
+      "priority": "high",
+      "active": true,
+      "summary": "Design and maintain our .NET Core API server with SQL Server stored procedures and enterprise security.",
+      "responsibilities": [
+        "Develop and optimize ASP.NET Core 9 Web APIs",
+        "Design and implement complex SQL Server stored procedures",
+        "Maintain token-based authentication with rotation system",
+        "Implement licensing and hardware fingerprinting systems",
+        "Build Docker containers with multi-stage builds",
+        "Integrate email services and notification systems",
+        "Ensure security through parameter validation and SQL injection prevention",
+        "Optimize database performance and transaction management"
+      ],
+      "requirements": {
+        "technical": [
+          "5+ years with C# and .NET Core/5+",
+          "Expert SQL Server and T-SQL stored procedures",
+          "Docker containerization and orchestration",
+          "RESTful API design and security",
+          "Async/await patterns and performance optimization",
+          "Database design and optimization",
+          "Security best practices and encryption"
+        ],
+        "preferred": [
+          "Licensing systems implementation",
+          "Code obfuscation techniques",
+          "SMTP integration experience",
+          "Health monitoring and observability",
+          "Linux container environments"
+        ]
+      },
+      "technologies": [
+        ".NET 9", "C#", "SQL Server 2022", "Docker", "ASP.NET Core",
+        "Entity Framework", "T-SQL", "Linux", "SMTP"
+      ]
+    },
+    {
+      "id": "senior-systems-engineer",
+      "title": "Senior Systems Engineer (C++)",
+      "department": "Engineering",
+      "location": "Remote",
+      "type": "Full-time",
+      "level": "Senior",
+      "priority": "high",
+      "active": true,
+      "summary": "Build high-performance C++ systems for SSH automation, queue processing, and distributed storage management.",
+      "responsibilities": [
+        "Develop C++17 applications for queue processing and automation",
+        "Implement SSH client functionality using libssh",
+        "Build and maintain Ceph distributed storage integrations",
+        "Create advanced bash scripts for system automation",
+        "Design concurrent queue processing systems",
+        "Implement encryption and security features",
+        "Optimize network programming and connection pooling",
+        "Maintain cross-platform builds with CMake"
+      ],
+      "requirements": {
+        "technical": [
+          "5+ years with modern C++ (C++17/20)",
+          "Network programming and SSH protocols",
+          "Multi-threading and concurrent programming",
+          "CMake and build system expertise",
+          "Linux system programming",
+          "Bash scripting and automation",
+          "Memory management and performance optimization"
+        ],
+        "preferred": [
+          "libssh or similar SSH libraries",
+          "Ceph distributed storage",
+          "Docker container management",
+          "HTTP/REST API integration",
+          "Cross-platform development"
+        ]
+      },
+      "technologies": [
+        "C++17", "libssh", "CMake", "Ceph", "Docker",
+        "Bash", "Linux", "nlohmann/json", "libcurl"
+      ]
+    },
+    {
+      "id": "senior-devops-engineer",
+      "title": "Senior DevOps Engineer",
+      "department": "Infrastructure",
+      "location": "Remote",
+      "type": "Full-time",
+      "level": "Senior",
+      "priority": "high",
+      "active": true,
+      "summary": "Design and maintain cloud infrastructure with Kubernetes, Terraform, and distributed storage systems.",
+      "responsibilities": [
+        "Deploy and manage Kubernetes clusters (K3s, K8s)",
+        "Implement Infrastructure as Code with Terraform",
+        "Design and maintain Ceph distributed storage clusters",
+        "Build CI/CD pipelines and GitOps workflows",
+        "Configure monitoring with Prometheus and Grafana",
+        "Manage multi-cloud deployments (Linode, Vultr, AWS)",
+        "Implement security and compliance practices",
+        "Automate infrastructure provisioning with bash and Python"
+      ],
+      "requirements": {
+        "technical": [
+          "5+ years DevOps/SRE experience",
+          "Kubernetes administration and troubleshooting",
+          "Terraform and Infrastructure as Code",
+          "Linux system administration",
+          "Container technologies (Docker, containerd)",
+          "Distributed storage systems",
+          "Network configuration and security"
+        ],
+        "preferred": [
+          "Ceph storage administration",
+          "KVM/QEMU virtualization",
+          "Multi-cloud experience",
+          "Service mesh (Istio, Linkerd)",
+          "GitOps tools (ArgoCD, Flux)"
+        ]
+      },
+      "technologies": [
+        "Kubernetes", "Terraform", "Docker", "Ceph", "Linux",
+        "Prometheus", "Grafana", "Bash", "Python", "GitOps"
+      ]
+    },
+    {
+      "id": "python-developer",
+      "title": "Python Developer (CLI/Tools)",
+      "department": "Engineering",
+      "location": "Remote",
+      "type": "Full-time",
+      "level": "Mid-Senior",
+      "priority": "medium",
+      "active": true,
+      "summary": "Develop cross-platform CLI tools and automation scripts with Python for our infrastructure management platform.",
+      "responsibilities": [
+        "Build and maintain Python CLI applications",
+        "Implement cross-platform support (Windows, Linux, macOS)",
+        "Develop API clients with authentication and encryption",
+        "Create file synchronization tools with rsync integration",
+        "Build GUI applications with Tkinter",
+        "Write comprehensive test suites and documentation",
+        "Integrate SSH and terminal management features",
+        "Maintain PowerShell and bash wrapper scripts"
+      ],
+      "requirements": {
+        "technical": [
+          "3+ years Python development",
+          "CLI application development with argparse",
+          "Cross-platform development experience",
+          "API integration and HTTP clients",
+          "System programming and subprocess management",
+          "Error handling and logging",
+          "Test automation frameworks"
+        ],
+        "preferred": [
+          "Tkinter GUI development",
+          "SSH and rsync integration",
+          "Cryptography and security",
+          "Docker containerization",
+          "PowerShell scripting"
+        ]
+      },
+      "technologies": [
+        "Python 3", "argparse", "Tkinter", "SSH", "rsync",
+        "JSON", "YAML", "Docker", "Cross-platform"
+      ]
+    },
+    {
+      "id": "site-reliability-engineer",
+      "title": "Site Reliability Engineer",
+      "department": "Infrastructure",
+      "location": "Remote",
+      "type": "Full-time",
+      "level": "Senior",
+      "priority": "medium",
+      "active": true,
+      "summary": "Ensure reliability, performance, and scalability of our distributed infrastructure platform.",
+      "responsibilities": [
+        "Monitor and maintain production infrastructure",
+        "Implement SLIs, SLOs, and error budgets",
+        "Design disaster recovery and backup strategies",
+        "Optimize system performance and resource utilization",
+        "Build monitoring dashboards and alerting systems",
+        "Conduct incident response and root cause analysis",
+        "Automate operational tasks and runbooks",
+        "Implement chaos engineering practices"
+      ],
+      "requirements": {
+        "technical": [
+          "5+ years SRE or DevOps experience",
+          "Production Kubernetes experience",
+          "Monitoring and observability tools",
+          "Incident management and on-call experience",
+          "Performance analysis and optimization",
+          "Scripting and automation",
+          "Database administration"
+        ],
+        "preferred": [
+          "Distributed systems experience",
+          "Chaos engineering tools",
+          "Load testing and capacity planning",
+          "Multi-region deployments",
+          "Cost optimization strategies"
+        ]
+      },
+      "technologies": [
+        "Kubernetes", "Prometheus", "Grafana", "Loki", "Linux",
+        "Python", "Bash", "Docker", "Terraform"
+      ]
+    },
+    {
+      "id": "security-engineer",
+      "title": "Security Engineer",
+      "department": "Security",
+      "location": "Remote",
+      "type": "Full-time",
+      "level": "Senior",
+      "priority": "medium",
+      "active": true,
+      "summary": "Design and implement security measures across our infrastructure management platform.",
+      "responsibilities": [
+        "Implement security best practices across all components",
+        "Design encryption and key management systems",
+        "Conduct security audits and penetration testing",
+        "Implement authentication and authorization systems",
+        "Review code for security vulnerabilities",
+        "Design secure API endpoints and data validation",
+        "Implement compliance and audit logging",
+        "Respond to security incidents"
+      ],
+      "requirements": {
+        "technical": [
+          "5+ years security engineering experience",
+          "Cryptography and encryption protocols",
+          "Application and infrastructure security",
+          "Security testing and vulnerability assessment",
+          "Authentication systems (OAuth, JWT, SAML)",
+          "Container and Kubernetes security",
+          "Network security and firewalls"
+        ],
+        "preferred": [
+          "Security certifications (CISSP, CEH)",
+          "Compliance frameworks (SOC2, ISO27001)",
+          "Zero-trust architecture",
+          "Hardware security modules",
+          "Code obfuscation techniques"
+        ]
+      },
+      "technologies": [
+        "Encryption", "OAuth/JWT", "Kubernetes Security", "WAF",
+        "SIEM", "Vulnerability Scanners", "Network Security"
+      ]
+    },
+    {
+      "id": "technical-writer",
+      "title": "Technical Writer",
+      "department": "Documentation",
+      "location": "Remote",
+      "type": "Full-time",
+      "level": "Mid-Senior",
+      "priority": "low",
+      "active": true,
+      "summary": "Create comprehensive documentation for our infrastructure platform and developer tools.",
+      "responsibilities": [
+        "Write API documentation and integration guides",
+        "Create user guides and tutorials",
+        "Document system architecture and design decisions",
+        "Maintain CLI command reference documentation",
+        "Write deployment and operation guides",
+        "Create video tutorials and demos",
+        "Review and edit technical content",
+        "Collaborate with engineering teams"
+      ],
+      "requirements": {
+        "technical": [
+          "3+ years technical writing experience",
+          "Understanding of cloud and DevOps concepts",
+          "Markdown and documentation tools",
+          "API documentation experience",
+          "Basic programming knowledge",
+          "Version control with Git"
+        ],
+        "preferred": [
+          "Infrastructure/DevOps documentation",
+          "Video creation and editing",
+          "Docusaurus or similar platforms",
+          "Developer documentation experience",
+          "Open source contribution"
+        ]
+      },
+      "technologies": [
+        "Markdown", "Docusaurus", "Git", "API Documentation",
+        "Video Tools", "Diagrams", "Technical Writing"
+      ]
+    },
+    {
+      "id": "qa-automation-engineer",
+      "title": "QA Automation Engineer",
+      "department": "Quality",
+      "location": "Remote",
+      "type": "Full-time",
+      "level": "Mid-Senior",
+      "priority": "low",
+      "active": false,
+      "summary": "Design and implement comprehensive testing strategies for our platform.",
+      "responsibilities": [
+        "Develop E2E test automation with Playwright",
+        "Create API testing frameworks",
+        "Implement performance and load testing",
+        "Design test strategies for distributed systems",
+        "Build CI/CD test pipelines",
+        "Conduct security testing",
+        "Write test documentation and reports",
+        "Collaborate with development teams"
+      ],
+      "requirements": {
+        "technical": [
+          "3+ years test automation experience",
+          "Playwright or Selenium expertise",
+          "API testing tools and frameworks",
+          "Performance testing tools",
+          "Python or JavaScript for test automation",
+          "CI/CD pipeline integration"
+        ],
+        "preferred": [
+          "Distributed systems testing",
+          "Security testing experience",
+          "Load testing at scale",
+          "Chaos testing",
+          "Container testing"
+        ]
+      },
+      "technologies": [
+        "Playwright", "Python", "API Testing", "Performance Testing",
+        "CI/CD", "Docker", "Kubernetes Testing"
+      ]
+    }
+  ],
+  "departments": {
+    "Engineering": {
+      "name": "Engineering",
+      "description": "Core product development across frontend, backend, and systems"
+    },
+    "Infrastructure": {
+      "name": "Infrastructure",
+      "description": "Cloud infrastructure, DevOps, and site reliability"
+    },
+    "Security": {
+      "name": "Security",
+      "description": "Platform security, compliance, and risk management"
+    },
+    "Documentation": {
+      "name": "Documentation",
+      "description": "Technical documentation and developer education"
+    },
+    "Quality": {
+      "name": "Quality",
+      "description": "Quality assurance and test automation"
+    }
+  },
+  "benefits": {
+    "compensation": [
+      "Competitive salary based on experience and location",
+      "Equity participation",
+      "Annual performance bonuses"
+    ],
+    "health": [
+      "Comprehensive health insurance",
+      "Dental and vision coverage",
+      "Mental health support",
+      "Wellness stipend"
+    ],
+    "timeOff": [
+      "Unlimited PTO",
+      "Flexible working hours",
+      "Sabbatical opportunities",
+      "Parental leave"
+    ],
+    "growth": [
+      "Learning and development budget",
+      "Conference attendance",
+      "Certification support",
+      "Mentorship programs"
+    ],
+    "remote": [
+      "Fully remote positions",
+      "Home office stipend",
+      "Co-working space allowance",
+      "Annual team gatherings"
+    ]
+  },
+  "culture": {
+    "values": [
+      "Innovation and technical excellence",
+      "Open source contribution",
+      "Work-life balance",
+      "Continuous learning",
+      "Diversity and inclusion"
+    ],
+    "perks": [
+      "Latest hardware and tools",
+      "Open source Fridays",
+      "Hackathon participation",
+      "Internal knowledge sharing sessions"
+    ]
+  },
+  "hiringProcess": [
+    {
+      "step": 1,
+      "name": "Application Review",
+      "duration": "2-3 days",
+      "description": "Initial review of resume and portfolio"
+    },
+    {
+      "step": 2,
+      "name": "Technical Screen",
+      "duration": "45 minutes",
+      "description": "Phone/video call with engineering team"
+    },
+    {
+      "step": 3,
+      "name": "Technical Assessment",
+      "duration": "2-4 hours",
+      "description": "Take-home project or live coding session"
+    },
+    {
+      "step": 4,
+      "name": "Team Interview",
+      "duration": "3-4 hours",
+      "description": "Multiple rounds with team members"
+    },
+    {
+      "step": 5,
+      "name": "Final Interview",
+      "duration": "30 minutes",
+      "description": "Culture fit and final questions"
+    },
+    {
+      "step": 6,
+      "name": "Offer",
+      "duration": "1-2 days",
+      "description": "Offer preparation and negotiation"
+    }
+  ],
+  "metadata": {
+    "lastUpdated": "2025-01-08",
+    "version": "1.0.0"
+  }
+}
