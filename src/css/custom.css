@@ -224,6 +224,12 @@ table thead tr {
   color: var(--ifm-font-color-base);
 }
 
+/* Hide the keyboard hint (Ctrl K) that appears as boxes in the search field */
+.searchHintContainer_Pkmr,
+.searchHint_iIMx {
+  display: none !important;
+}
+
 /* Footer adjustments */
 .footer {
   background-color: var(--ifm-background-surface-color);
