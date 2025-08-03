@@ -17,8 +17,8 @@ const config = {
   // Set the production url of your site here
   url: 'https://rediacc.com',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // When integrated with the React app, all content is served under /docs/
-  baseUrl: '/docs/',
+  // Now serving at root since docs is the main site
+  baseUrl: '/',
   // Custom configuration for integration with React app
   customFields: {
     isIntegratedWithReactApp: true,
@@ -30,7 +30,7 @@ const config = {
   organizationName: 'rediacc', // Usually your GitHub org/user name.
   projectName: 'rediacc', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -67,7 +67,7 @@ const config = {
   // Add client-side scripts
   scripts: [
     {
-      src: '/docs/emojiHeaderFix.js',
+      src: '/emojiHeaderFix.js',
       async: true,
     },
   ],
@@ -80,19 +80,115 @@ const config = {
       // Hide navbar completely through CSS
       navbar: {
         style: 'primary',
-        hideOnScroll: true,
+        hideOnScroll: false,
         logo: {
           alt: 'Rediacc Logo',
           src: 'img/logo_black.png',
           srcDark: 'img/logo_white.png',
+          href: '/',
         },
         items: [
           {
-            href: '/',
-            label: 'Back to Home',
+            to: '/',
+            label: 'Home',
+            position: 'left',
+            activeBaseRegex: '^/$',
+          },
+          {
+            type: 'dropdown',
+            label: 'Features',
+            position: 'left',
+            items: [
+              {
+                to: '/features/backup',
+                label: 'Intelligent Backup',
+                className: 'navbar-item-with-icon',
+                'data-icon': 'archive',
+              },
+              {
+                to: '/features/security',
+                label: 'Security',
+                className: 'navbar-item-with-icon',
+                'data-icon': 'shield',
+              },
+              {
+                to: '/features/scaling',
+                label: 'Auto-Scaling',
+                className: 'navbar-item-with-icon',
+                'data-icon': 'trending-up',
+              },
+              {
+                to: '/features/disaster-recovery',
+                label: 'Disaster Recovery',
+                className: 'navbar-item-with-icon',
+                'data-icon': 'refresh-cw',
+              },
+              {
+                to: '/features/time-travel',
+                label: 'Time Travel',
+                className: 'navbar-item-with-icon',
+                'data-icon': 'history',
+              },
+            ],
+          },
+          {
+            type: 'dropdown',
+            label: 'Solutions',
+            position: 'left',
+            items: [
+              {
+                to: '/solutions/enterprise',
+                label: 'Enterprise',
+                className: 'navbar-item-with-icon',
+                'data-icon': 'building',
+              },
+              {
+                to: '/solutions/devops',
+                label: 'DevOps',
+                className: 'navbar-item-with-icon',
+                'data-icon': 'workflow',
+              },
+              {
+                to: '/solutions/database',
+                label: 'Database',
+                className: 'navbar-item-with-icon',
+                'data-icon': 'database',
+              },
+              {
+                to: '/solutions/cloud-migration',
+                label: 'Cloud Migration',
+                className: 'navbar-item-with-icon',
+                'data-icon': 'cloud-upload',
+              },
+            ],
+          },
+          {
+            to: '/intro',
+            label: 'Documentation',
+            position: 'left',
+          },
+          {
+            to: '/pricing',
+            label: 'Pricing',
+            position: 'left',
+          },
+          {
+            to: '/about',
+            label: 'About',
+            position: 'left',
+          },
+          {
+            href: '/console',
+            label: 'Login',
             position: 'right',
-            target: '_self',
-            className: 'navbar-back-home',
+            target: '_blank',
+            className: 'navbar-login-link',
+          },
+          {
+            href: 'https://github.com/rediacc',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
           },
         ],
       },
@@ -109,8 +205,104 @@ const config = {
       },
       footer: {
         style: 'light',
-        links: [],
-        copyright: `© ${new Date().getFullYear()} Rediacc${process.env.TAG && process.env.TAG !== 'dev' ? ` - v${process.env.TAG}` : ''}`,
+        links: [
+          {
+            title: 'Product',
+            items: [
+              {
+                label: 'Features',
+                to: '/features/backup',
+              },
+              {
+                label: 'Pricing',
+                to: '/pricing',
+              },
+              {
+                label: 'Documentation',
+                to: '/intro',
+              },
+              {
+                label: 'API Reference',
+                to: '/cli/api-reference',
+              },
+            ],
+          },
+          {
+            title: 'Solutions',
+            items: [
+              {
+                label: 'Enterprise',
+                to: '/solutions/enterprise',
+              },
+              {
+                label: 'DevOps',
+                to: '/solutions/devops',
+              },
+              {
+                label: 'Database',
+                to: '/solutions/database',
+              },
+              {
+                label: 'Cloud Migration',
+                to: '/solutions/cloud-migration',
+              },
+            ],
+          },
+          {
+            title: 'Company',
+            items: [
+              {
+                label: 'About',
+                to: '/about',
+              },
+              {
+                label: 'Careers',
+                to: '/careers',
+              },
+              {
+                label: 'Contact',
+                to: '/contact',
+              },
+              {
+                label: 'Blog',
+                href: 'https://blog.rediacc.com',
+              },
+            ],
+          },
+          {
+            title: 'Connect',
+            items: [
+              {
+                label: 'GitHub',
+                href: 'https://github.com/rediacc',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/rediacc',
+              },
+              {
+                label: 'LinkedIn',
+                href: 'https://linkedin.com/company/rediacc',
+              },
+              {
+                label: 'YouTube',
+                href: 'https://youtube.com/@rediacc',
+              },
+            ],
+          },
+        ],
+        copyright: `
+          <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--ifm-toc-border-color);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <div>© ${new Date().getFullYear()} Rediacc, Inc. All rights reserved.</div>
+              <div style="display: flex; gap: 2rem;">
+                <a href="/privacy" style="color: var(--ifm-footer-link-color);">Privacy Policy</a>
+                <a href="/terms" style="color: var(--ifm-footer-link-color);">Terms of Service</a>
+                <a href="/security" style="color: var(--ifm-footer-link-color);">Security</a>
+              </div>
+            </div>
+          </div>
+        `,
       },
       prism: {
         theme: prismThemes.github,

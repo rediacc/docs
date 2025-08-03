@@ -4,9 +4,10 @@
  * work well for content-centric websites.
  */
 
+/* SEO-Optimized Performance-First Styles */
 /* Common brand colors that stay consistent across themes */
 :root {
-  /* Brand colors */
+  /* Brand colors - Olive Green Theme */
   --ifm-color-primary: #556b2f;
   --ifm-color-primary-dark: #4c6029;
   --ifm-color-primary-darker: #435524;
@@ -43,42 +44,42 @@
   --docs-max-width: 1400px;
 }
 
-/* Light theme (default) - matching offers app */
+/* Light theme (default) - Clean Black & White */
 :root {
-  /* Background colors */
-  --ifm-background-color: #f9fafb;
-  --ifm-background-surface-color: #f3f4f6;
-  --ifm-navbar-background-color: #f9fafb;
-  --ifm-sidebar-background-color: #f3f4f6;
+  /* Background colors - Pure White */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #fafafa;
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-sidebar-background-color: #ffffff;
   --ifm-toc-border-color: #e5e7eb;
-  --ifm-color-emphasis-300: #e5e7eb;
+  --ifm-color-emphasis-300: #f3f4f6;
   
-  /* Text colors */
-  --ifm-font-color-base: #111827;
-  --ifm-font-color-secondary: #1f2937;
-  --ifm-heading-color: #111827;
-  --ifm-menu-color: #1f2937;
-  --ifm-navbar-link-color: #1f2937;
+  /* Text colors - Pure Black */
+  --ifm-font-color-base: #000000;
+  --ifm-font-color-secondary: #4a4a4a;
+  --ifm-heading-color: #000000;
+  --ifm-menu-color: #000000;
+  --ifm-navbar-link-color: #000000;
   
-  /* Borders and dividers */
-  --ifm-hr-border-color: #e5e7eb;
-  --ifm-table-border-color: #e5e7eb;
+  /* Borders and dividers - Minimal Gray */
+  --ifm-hr-border-color: #f0f0f0;
+  --ifm-table-border-color: #f0f0f0;
   
   /* Code blocks for light theme */
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.05);
+  --docusaurus-highlighted-code-line-bg: rgba(85, 107, 47, 0.05);
   
-  /* Custom shadow and opacity colors */
-  --color-shadow: rgba(0, 0, 0, 0.05);
-  --color-border: rgba(229, 231, 235, 0.8);
-  --color-card-bg: rgba(243, 244, 246, 0.7);
+  /* Custom shadow and opacity colors - Ultra Minimal */
+  --color-shadow: rgba(0, 0, 0, 0.02);
+  --color-border: rgba(0, 0, 0, 0.05);
+  --color-card-bg: #ffffff;
   
-  /* Scrollbar styling for light theme */
-  --ifm-scrollbar-track-background-color: #f3f4f6;
-  --ifm-scrollbar-thumb-background-color: #9ca3af;
-  --ifm-scrollbar-thumb-hover-background-color: #6b7280;
+  /* Scrollbar styling for light theme - Minimal */
+  --ifm-scrollbar-track-background-color: #fafafa;
+  --ifm-scrollbar-thumb-background-color: #d0d0d0;
+  --ifm-scrollbar-thumb-hover-background-color: #556b2f;
 }
 
-/* Dark theme - matching offers app */
+/* Dark theme - Matching offers site */
 [data-theme='dark'] {
   /* Theme colors - lighter olive for dark mode */
   --ifm-color-primary: #7d9b49;
@@ -92,37 +93,37 @@
   /* Secondary color for dark mode */
   --ifm-color-secondary: #9a9a00;
   
-  /* Background colors matching offers app */
+  /* Background colors - Dark navy/charcoal like offers site */
   --ifm-background-color: #111827;
   --ifm-background-surface-color: #1f2937;
-  --ifm-navbar-background-color: #111827;
-  --ifm-sidebar-background-color: #1f2937;
+  --ifm-navbar-background-color: #1f2937;
+  --ifm-sidebar-background-color: #111827;
   --ifm-toc-border-color: #374151;
   --ifm-color-emphasis-300: #374151;
   
-  /* Text colors */
-  --ifm-font-color-base: #ffffff;
-  --ifm-font-color-secondary: #d1d5db;
+  /* Text colors - Light gray/white */
+  --ifm-font-color-base: #f3f4f6;
+  --ifm-font-color-secondary: #9ca3af;
   --ifm-heading-color: #ffffff;
-  --ifm-menu-color: #d1d5db;
-  --ifm-navbar-link-color: #d1d5db;
+  --ifm-menu-color: #f3f4f6;
+  --ifm-navbar-link-color: #f3f4f6;
   
   /* Borders and dividers */
   --ifm-hr-border-color: #374151;
   --ifm-table-border-color: #374151;
   
   /* Code blocks for dark theme */
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --docusaurus-highlighted-code-line-bg: rgba(125, 155, 73, 0.1);
   
   /* Custom shadow and opacity colors */
-  --color-shadow: rgba(0, 0, 0, 0.1);
-  --color-border: rgba(31, 41, 55, 0.8);
-  --color-card-bg: rgba(31, 41, 55, 0.5);
+  --color-shadow: rgba(0, 0, 0, 0.25);
+  --color-border: rgba(55, 65, 81, 0.5);
+  --color-card-bg: #1f2937;
   
   /* Scrollbar styling for dark theme */
-  --ifm-scrollbar-track-background-color: #1a202c;
-  --ifm-scrollbar-thumb-background-color: #556b2f;
-  --ifm-scrollbar-thumb-hover-background-color: #808000;
+  --ifm-scrollbar-track-background-color: #1f2937;
+  --ifm-scrollbar-thumb-background-color: #374151;
+  --ifm-scrollbar-thumb-hover-background-color: #556b2f;
 }
 
 /* Reset any potential gradient text effects applied to emoji characters */
@@ -165,7 +166,9 @@ body {
 
 /* Fix for dark mode navbar */
 [data-theme='dark'] .navbar {
-  background-color: var(--ifm-navbar-background-color);
+  background-color: #1f2937 !important;
+  background: #1f2937 !important;
+  border-bottom-color: rgba(55, 65, 81, 0.5);
 }
 
 /* Fix for dark mode sidebar */
@@ -178,10 +181,21 @@ body {
   color: var(--ifm-navbar-link-color);
 }
 
+/* GitHub link styling */
+.navbar__item .header-github-link {
+  color: var(--ifm-navbar-link-color);
+  transition: all 0.2s ease;
+}
+
+.navbar__item .header-github-link:hover {
+  color: var(--ifm-color-primary);
+}
+
 /* Cards and content boxes */
 .card {
   background-color: var(--ifm-background-surface-color);
   border: 1px solid var(--color-border);
+  box-shadow: none;
 }
 
 /* Admonitions theme support */
@@ -221,8 +235,146 @@ table thead tr {
   color: var(--ifm-color-primary);
 }
 
+/* Minimal dropdown styling */
+.dropdown__menu {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  padding: 0.5rem;
+  min-width: 200px;
+}
+
+.dropdown__link {
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropdown__link:hover {
+  background: var(--ifm-menu-color-background-hover);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+/* Navbar dropdown arrow */
+.navbar__link:after {
+  border-color: currentColor transparent;
+}
+
+/* Active dropdown */
+.dropdown--hoverable:hover .dropdown__menu,
+.dropdown--show .dropdown__menu {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth dropdown animation */
+.dropdown__menu {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
 .menu__link:hover {
   color: var(--ifm-color-primary);
+}
+
+/* Hero section styling with neutral background */
+.hero-section {
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  position: relative;
+  overflow: hidden;
+  margin-top: 60px; /* Add space for fixed navbar */
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+/* Add subtle pattern overlay to hero sections */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 35px,
+      rgba(255, 255, 255, 0.02) 35px,
+      rgba(255, 255, 255, 0.02) 70px
+    );
+  pointer-events: none;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--ifm-heading-color);
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  opacity: 0.95;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* Feature cards with minimal shadows */
+.feature-card {
+  background: var(--ifm-background-surface-color);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+  box-shadow: none;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 12px rgba(85, 107, 47, 0.1);
+}
+
+/* Quick links styling */
+.quick-link {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.quick-link:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+  text-decoration: none;
+  transform: translateX(4px);
 }
 
 /* Dropdown menus */
@@ -253,20 +405,20 @@ table thead tr {
   padding: 0.5rem;
   background-color: var(--ifm-background-surface-color);
   border: 1px solid var(--color-border);
-  border-radius: 0.375rem;
+  border-radius: 50%;
   color: var(--ifm-font-color-base);
   cursor: pointer;
   transition: all 0.2s ease;
   width: 2.5rem;
   height: 2.5rem;
-  box-shadow: var(--color-shadow);
+  box-shadow: none;
 }
 
 .custom-theme-toggle:hover {
-  background-color: var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-color-primary);
+  color: white;
+  transform: rotate(180deg);
   border-color: var(--ifm-color-primary);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .custom-theme-toggle:focus {
@@ -289,5 +441,269 @@ table thead tr {
   .custom-theme-toggle {
     top: 0.5rem;
     right: 0.5rem;
+  }
+}
+
+/* ============================================
+   Performance-First Animations
+   ============================================ */
+
+/* Only use transform and opacity for best performance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Utility animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.3s ease-out forwards;
+}
+
+/* Stagger animation delays for lists */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+
+/* ============================================
+   Performance Optimizations
+   ============================================ */
+
+/* Use CSS containment for better performance */
+.feature-card,
+.solution-card,
+.testimonial-card {
+  contain: layout style paint;
+}
+
+/* Optimize hover states */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================
+   Homepage Specific Styles
+   ============================================ */
+
+.hero-section {
+  padding: 6rem 1rem;
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Feature Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: var(--ifm-card-background-color);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.feature-card:hover {
+  text-decoration: none;
+  color: inherit;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.feature-description {
+  color: var(--ifm-font-color-secondary);
+  line-height: 1.6;
+}
+
+/* Search Bar Styling */
+.search-section {
+  padding: 3rem 1rem;
+  background: var(--ifm-background-surface-color);
+  text-align: center;
+}
+
+.search-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  border: 2px solid var(--ifm-color-primary);
+  border-radius: 50px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 0 3px rgba(85, 107, 47, 0.1);
+}
+
+/* Quick Links */
+.quick-links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2rem 1rem;
+}
+
+.quick-link {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.quick-link:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+  text-decoration: none;
+}
+
+/* Login Link Styling */
+.navbar-login-link {
+  background: var(--ifm-color-primary);
+  color: white !important;
+  padding: 0.5rem 1.2rem !important;
+  border-radius: 4px;
+  margin-left: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar-login-link:hover {
+  background: var(--ifm-color-primary-dark);
+  color: white !important;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .navbar-login-link {
+  background: var(--ifm-color-primary-light);
+  color: var(--ifm-font-color-base-inverse) !important;
+}
+
+[data-theme='dark'] .navbar-login-link:hover {
+  background: var(--ifm-color-primary-lighter);
+  color: var(--ifm-font-color-base-inverse) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navbar-login-link {
+    padding: 0.4rem 1rem !important;
+    margin-left: 0.5rem;
   }
 }

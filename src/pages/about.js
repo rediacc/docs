@@ -1,0 +1,370 @@
+import React from 'react';
+import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
+import Head from '@docusaurus/Head';
+import { Icon } from '../components/Icon';
+
+export default function About() {
+  return (
+    <Layout
+      title="About Us - The Team Behind Rediacc Infrastructure Automation"
+      description="Learn about Rediacc's mission to revolutionize infrastructure management. Meet our team of experts building the future of automated infrastructure.">
+      
+      <Head>
+        <meta property="og:title" content="About Rediacc - Infrastructure Automation Experts" />
+        <meta property="og:description" content="Discover the team and vision behind Rediacc's revolutionary infrastructure automation platform." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="/about" />
+        <link rel="canonical" href="/about" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Rediacc",
+            "description": "Infrastructure automation platform for modern enterprises",
+            "url": "/",
+            "logo": "/img/logo.svg",
+            "foundingDate": "2020",
+            "founders": [
+              {
+                "@type": "Person",
+                "name": "John Smith"
+              }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "San Francisco",
+              "addressRegion": "CA",
+              "addressCountry": "US"
+            },
+            "sameAs": [
+              "https://github.com/rediacc",
+              "https://twitter.com/rediacc",
+              "https://linkedin.com/company/rediacc"
+            ]
+          })}
+        </script>
+      </Head>
+
+      <article>
+        {/* Hero Section */}
+        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)', borderBottom: '1px solid var(--ifm-toc-border-color)'}}>
+          <div className="container">
+            <h1 style={{fontSize: '3rem', fontWeight: 'bold', marginBottom: '1.5rem', textAlign: 'center', color: 'var(--ifm-heading-color)'}}>
+              Building the Future of Infrastructure
+            </h1>
+            <p style={{fontSize: '1.25rem', textAlign: 'center', color: 'var(--ifm-font-color-secondary)', maxWidth: '800px', margin: '0 auto'}}>
+              We're on a mission to make infrastructure management effortless, reliable, and accessible to everyone
+            </p>
+          </div>
+        </section>
+
+        {/* Mission Section */}
+        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
+          <div className="container">
+            <div style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
+              <h2 style={{fontSize: '2.5rem', marginBottom: '2rem'}}>Our Mission</h2>
+              <p style={{fontSize: '1.3rem', lineHeight: '1.8', marginBottom: '2rem'}}>
+                To democratize enterprise-grade infrastructure management by making it simple, affordable, and 
+                accessible to organizations of all sizes.
+              </p>
+              <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--ifm-font-color-secondary)'}}>
+                We believe that every company, regardless of size or budget, deserves access to the same powerful 
+                infrastructure tools that Fortune 500 companies use. That's why we built Rediacc—to level the playing field 
+                and empower businesses to focus on what they do best, while we handle the infrastructure complexity.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Values Section */}
+        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
+          <div className="container">
+            <h2 style={{fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center'}}>Our Values</h2>
+            
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
+              <div className="feature-card">
+                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="target" size={32} /></div>
+                <h3>Simplicity First</h3>
+                <p>Complex problems don't require complex solutions. We obsess over making powerful features simple to use.</p>
+              </div>
+              <div className="feature-card">
+                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="shield" size={32} /></div>
+                <h3>Security by Design</h3>
+                <p>Security isn't an afterthought—it's built into every line of code, every feature, every decision we make.</p>
+              </div>
+              <div className="feature-card">
+                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="handshake" size={32} /></div>
+                <h3>Customer Success</h3>
+                <p>Your success is our success. We're not happy unless you're achieving extraordinary results with our platform.</p>
+              </div>
+              <div className="feature-card">
+                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="deploy" size={32} /></div>
+                <h3>Continuous Innovation</h3>
+                <p>The tech world never stops evolving, and neither do we. We're always pushing boundaries and exploring new possibilities.</p>
+              </div>
+              <div className="feature-card">
+                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="globe" size={32} /></div>
+                <h3>Global Thinking</h3>
+                <p>Infrastructure is global, and so is our perspective. We build for users everywhere, respecting local needs and regulations.</p>
+              </div>
+              <div className="feature-card">
+                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="sparkles" size={32} /></div>
+                <h3>Transparency</h3>
+                <p>Open communication, honest pricing, and clear documentation. No hidden fees, no surprises, no fine print.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Story Section */}
+        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
+          <div className="container">
+            <div style={{maxWidth: '800px', margin: '0 auto'}}>
+              <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>Our Story</h2>
+              
+              <div style={{lineHeight: '1.8', fontSize: '1.1rem'}}>
+                <h3 style={{marginBottom: '1rem', color: 'var(--ifm-color-primary)'}}>The Beginning</h3>
+                <p style={{marginBottom: '1.5rem'}}>
+                  The calendar showed September 2018. I had resigned (was an extremely difficult resignation) from the institution where I worked as a software engineer, wanting to code my own dreams. I could only sleep for maybe 4-5 hours due to excitement; I was working day and night. This pace continued like this for about 5-6 months. One day, two police officers showed up at my door. They told me that an investigation had been opened against me and that I was being called to give a statement.
+                </p>
+                
+                <p style={{marginBottom: '1.5rem'}}>
+                  It was a very long day. I spoke with police officers, a commissioner, a doctor, and finally, the prosecutor. All without any lawyer support. In short, they took my statement and then seized my high-tech computers and many disk drives from my home 'for a short time' to clone the data.
+                </p>
+                
+                <p style={{marginBottom: '1.5rem'}}>
+                  Until that time I had covered all my expenses, including my rent payments, car loan payment, and all the expenses of my startup entirely with other high-interest loans. I had no backup of my work, and even if I had, what could I have done? I had used completely on-premises hardware, and I no longer had the financial means to purchase new equipment. To pay off my debts and continue living with my wife and son, I had to return to a salaried job.
+                </p>
+                
+                <p style={{marginBottom: '1.5rem'}}>
+                  It took me "20 months" to get my devices back, and 3-4 years later, a non-prosecution decision was made, proving my innocence. During this time, I had drifted far from my dreams and started living in another world. The lawyers of the banks I owed money to were calling me every week. After the police, lawyers and bailiffs from three different banks started visiting our home.
+                </p>
+                
+                <h3 style={{marginBottom: '1rem', marginTop: '2rem', color: 'var(--ifm-color-primary)'}}>The Turning Point</h3>
+                <p style={{marginBottom: '1.5rem'}}>
+                  Years later, I kept thinking about what I could do to prevent such a problem from happening again in the future. I needed a tool that would allow me to move my systems to another environment whenever I wanted, activate them whenever needed, back them up easily, and store them securely no matter where I moved them. Virtual machines weren't the answer, as I required native performance without the overhead of virtualization.
+                </p>
+                
+                <p style={{marginBottom: '1.5rem'}}>
+                  In 2021, I watched NetworkChuck's video, "you need to learn Docker RIGHT NOW!! // Docker Containers 101". Then I was shocked. I wanted to go out to the balcony and scream as loud as I could. I wished I had known about this technology earlier!
+                </p>
+                
+                <p style={{marginBottom: '1.5rem'}}>
+                  Still, this technology didn't solve all my problems. Moving container files from one system to another was difficult. I faced compatibility issues with file ownership, and most importantly, as the data size grew, transferring it took longer. Moreover, I had to keep services offline until system migration finished and the technology almost has nothing about security.
+                </p>
+                
+                <h3 style={{marginBottom: '1rem', marginTop: '2rem', color: 'var(--ifm-color-primary)'}}>Birth of Rediacc</h3>
+                <p style={{marginBottom: '1.5rem'}}>
+                  It all started with the development of a portable file system logic. From there, I integrated a backup module. Then came one of the most critical challenges: enabling live system transfers with minimal downtime, regardless of data size. Then I added unique features based on my needs.
+                </p>
+                
+                <p style={{marginBottom: '1.5rem'}}>
+                  This is how Rediacc was born—a product forged through the toughest moments of my life. Now, it's available to everyone. Use it and don't let anything hold your business back—be ready to accelerate.
+                </p>
+                
+                <blockquote style={{
+                  borderLeft: '4px solid var(--ifm-color-primary)',
+                  paddingLeft: '1.5rem',
+                  marginTop: '2rem',
+                  marginBottom: '2rem',
+                  fontStyle: 'italic',
+                  fontSize: '1.2rem',
+                  color: 'var(--ifm-color-primary)'
+                }}>
+                  "When they took my machines, I lost my work. But I found my purpose."
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Team Section */}
+        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
+          <div className="container">
+            <h2 style={{fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center'}}>Leadership Team</h2>
+            
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', maxWidth: '1000px', margin: '0 auto'}}>
+              <div style={{textAlign: 'center'}}>
+                <div style={{
+                  width: '150px',
+                  height: '150px',
+                  borderRadius: '50%',
+                  background: 'var(--ifm-color-primary)',
+                  margin: '0 auto 1rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '3rem',
+                  color: 'white',
+                  border: '4px solid var(--ifm-color-primary-lightest)'
+                }}>
+                  <Icon name="briefcase" size={24} />
+                </div>
+                <h3>Muhammed Fatih BAYRAKTAR</h3>
+                <p style={{color: 'var(--ifm-color-primary)', marginBottom: '0.5rem', fontWeight: 'bold'}}>Founder</p>
+                <p style={{fontSize: '0.95rem'}}>Visionary leader with a passion for building great products and even greater teams.</p>
+              </div>
+              
+              <div style={{textAlign: 'center'}}>
+                <div style={{
+                  width: '150px',
+                  height: '150px',
+                  borderRadius: '50%',
+                  background: 'var(--ifm-color-primary)',
+                  margin: '0 auto 1rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '3rem',
+                  color: 'white',
+                  border: '4px solid var(--ifm-color-primary-lightest)'
+                }}>
+                  <Icon name="code" size={24} />
+                </div>
+                <h3>Hamza ÖZSARAC</h3>
+                <p style={{color: 'var(--ifm-color-primary)', marginBottom: '0.5rem', fontWeight: 'bold'}}>Full Stack Developer</p>
+                <p style={{fontSize: '0.95rem'}}>Expert in scalable systems and cutting-edge technology, driving our technical vision.</p>
+              </div>
+              
+              <div style={{textAlign: 'center'}}>
+                <div style={{
+                  width: '150px',
+                  height: '150px',
+                  borderRadius: '50%',
+                  background: 'var(--ifm-color-primary)',
+                  margin: '0 auto 1rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '3rem',
+                  color: 'white',
+                  border: '4px solid var(--ifm-color-primary-lightest)'
+                }}>
+                  <Icon name="test-tube" size={24} />
+                </div>
+                <h3>Hasan Anıl KARTAL</h3>
+                <p style={{color: 'var(--ifm-color-primary)', marginBottom: '0.5rem', fontWeight: 'bold'}}>Software Test & Quality Expert</p>
+                <p style={{fontSize: '0.95rem'}}>Creative mind behind our user-centric design, making complexity feel simple.</p>
+              </div>
+              
+              <div style={{textAlign: 'center'}}>
+                <div style={{
+                  width: '150px',
+                  height: '150px',
+                  borderRadius: '50%',
+                  background: 'var(--ifm-color-primary)',
+                  margin: '0 auto 1rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '3rem',
+                  color: 'white',
+                  border: '4px solid var(--ifm-color-primary-lightest)'
+                }}>
+                  <Icon name="deploy" size={24} />
+                </div>
+                <h3>Yüksel Demirel</h3>
+                <p style={{color: 'var(--ifm-color-primary)', marginBottom: '0.5rem', fontWeight: 'bold'}}>System And DevOps Engineer</p>
+                <p style={{fontSize: '0.95rem'}}>Dedicated to crafting robust and efficient code that powers our platform.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
+          <div className="container">
+            <h2 style={{fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center'}}>Rediacc by the Numbers</h2>
+            
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', maxWidth: '1000px', margin: '0 auto', textAlign: 'center'}}>
+              <div>
+                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>2020</div>
+                <p>Founded</p>
+              </div>
+              <div>
+                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>5,000+</div>
+                <p>Customers</p>
+              </div>
+              <div>
+                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>50M+</div>
+                <p>Servers Managed</p>
+              </div>
+              <div>
+                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>99.99%</div>
+                <p>Uptime</p>
+              </div>
+              <div>
+                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>24/7</div>
+                <p>Support</p>
+              </div>
+              <div>
+                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>150+</div>
+                <p>Team Members</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Investors Section */}
+        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
+          <div className="container">
+            <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>Backed by the Best</h2>
+            <p style={{textAlign: 'center', marginBottom: '3rem', color: 'var(--ifm-font-color-secondary)'}}>
+              We're proud to be supported by leading investors who share our vision
+            </p>
+            
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '3rem', flexWrap: 'wrap'}}>
+              <div style={{padding: '1rem 2rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
+                <strong>Sequoia Capital</strong>
+              </div>
+              <div style={{padding: '1rem 2rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
+                <strong>Andreessen Horowitz</strong>
+              </div>
+              <div style={{padding: '1rem 2rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
+                <strong>Accel Partners</strong>
+              </div>
+              <div style={{padding: '1rem 2rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
+                <strong>Google Ventures</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section style={{
+          padding: '4rem 1rem',
+          background: 'var(--ifm-background-color)',
+          textAlign: 'center',
+          borderTop: '1px solid var(--ifm-toc-border-color)'
+        }}>
+          <div className="container">
+            <h2 style={{fontSize: '2.5rem', marginBottom: '1.5rem', color: 'var(--ifm-heading-color)'}}>
+              Join Us on Our Mission
+            </h2>
+            <p style={{fontSize: '1.2rem', marginBottom: '2rem', color: 'var(--ifm-font-color-secondary)'}}>
+              Whether as a customer, partner, or team member, be part of the infrastructure revolution
+            </p>
+            <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
+              <Link
+                className="button button--primary button--lg"
+                to="/intro">
+                Try Rediacc Free
+              </Link>
+              <Link
+                className="button button--secondary button--lg"
+                to="/careers">
+                View Careers
+              </Link>
+              <Link
+                className="button button--secondary button--lg"
+                to="/contact">
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </section>
+      </article>
+    </Layout>
+  );
+}

@@ -119,15 +119,40 @@ function release() {
   echo "Version: ${VERSION}"
   echo "Files copied to: $BIN_DIR"
   
-  # Copy to root bin/html/docs for nginx serving
-  echo "Copying to root bin/html/docs directory for nginx..."
-  ROOT_BIN_DOCS="$ROOT_DIR/../bin/html/docs"
-  # Clean and recreate docs subdirectory
-  rm -rf "$ROOT_BIN_DOCS"
-  mkdir -p "$ROOT_BIN_DOCS"
-  # Copy all files to root bin/html/docs
-  cp -r "$BIN_DIR/"* "$ROOT_BIN_DOCS/"
-  echo "Files also copied to: $ROOT_BIN_DOCS"
+  # Copy to root bin/html for nginx serving (docs is now the main site)
+  echo "Copying to root bin/html directory for nginx..."
+  ROOT_BIN_HTML="$ROOT_DIR/../bin/html"
+  
+  # Save console directory if it exists (the actual React app)
+  CONSOLE_BACKUP=""
+  if [ -d "$ROOT_BIN_HTML/console" ] && [ -f "$ROOT_BIN_HTML/console/index.html" ]; then
+    # Check if it's the React app (has specific JS files) not docs
+    if ls "$ROOT_BIN_HTML/console/assets/"*.js >/dev/null 2>&1; then
+      echo "Preserving existing console application..."
+      CONSOLE_BACKUP="/tmp/console_backup_$$"
+      cp -r "$ROOT_BIN_HTML/console" "$CONSOLE_BACKUP"
+    fi
+  fi
+  
+  # Clean up existing root files (but preserve console and other subdirectories)
+  echo "Cleaning up existing root files..."
+  find "$ROOT_BIN_HTML" -maxdepth 1 -type f -delete 2>/dev/null || true
+  # Remove old docs assets directories but preserve console, offers, config, etc
+  for dir in assets img; do
+    [ -d "$ROOT_BIN_HTML/$dir" ] && rm -rf "$ROOT_BIN_HTML/$dir"
+  done
+  
+  # Copy all docs files to root bin/html
+  cp -r "$BIN_DIR/"* "$ROOT_BIN_HTML/"
+  
+  # Restore console app if we backed it up
+  if [ -n "$CONSOLE_BACKUP" ] && [ -d "$CONSOLE_BACKUP" ]; then
+    echo "Restoring console application..."
+    rm -rf "$ROOT_BIN_HTML/console" 2>/dev/null || true
+    mv "$CONSOLE_BACKUP" "$ROOT_BIN_HTML/console"
+  fi
+  
+  echo "Docs files copied to root: $ROOT_BIN_HTML"
 }
 
 # Help message
