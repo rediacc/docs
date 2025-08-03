@@ -160,7 +160,6 @@ const sidebars = {
         'solutions/cross-backup',
         'solutions/dynamic-resource-scaling',
         'solutions/legacy-database-scaling',
-        'solutions/real-time-defense',
       ],
     },
     {

@@ -5,15 +5,15 @@ import Head from '@docusaurus/Head';
 import Citations from '../../components/Citations';
 import { Icon } from '../../components/Icon';
 
-export default function BackupFeature() {
+export default function ZeroCostBackupFeature() {
   return (
     <Layout
-      title="Enterprise Backup Solutions - Save 90% on Storage | Rediacc"
-      description="Reduce backup storage costs by 90% with Rediacc's intelligent differential backup technology. Enterprise-grade solution with instant recovery and point-in-time restoration.">
+      title="Zero-Cost Backup Solutions - Save Up to 90% on Storage | Rediacc"
+      description="Reduce backup storage costs by up to 90% with Rediacc's intelligent differential backup technology. Enterprise-grade solution with instant recovery and point-in-time restoration.">
       
       <Head>
-        <meta property="og:title" content="Enterprise Backup Solutions - Save 90% on Storage" />
-        <meta property="og:description" content="Revolutionary backup technology that reduces storage costs by 90% while improving recovery times. Enterprise-grade reliability with instant point-in-time recovery." />
+        <meta property="og:title" content="Zero-Cost Backup Solutions - Save Up to 90% on Storage" />
+        <meta property="og:description" content="Revolutionary backup technology that can reduce storage costs by up to 90% while improving recovery times. Enterprise-grade reliability with instant point-in-time recovery." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/features/backup" />
         <link rel="canonical" href="/features/backup" />
@@ -21,8 +21,8 @@ export default function BackupFeature() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
-            "name": "Rediacc Intelligent Backup Solution",
-            "description": "Enterprise backup solution with 90% storage cost reduction",
+            "name": "Rediacc Zero-Cost Backup Solution",
+            "description": "Enterprise backup solution with up to 90% storage cost reduction",
             "brand": {
               "@type": "Brand",
               "name": "Rediacc"
@@ -47,10 +47,10 @@ export default function BackupFeature() {
         <section className="hero-section" style={{padding: '4rem 1rem'}}>
           <div className="container">
             <h1 className="hero-title animate-fade-in-up">
-              Enterprise Backup Solutions That Save 90% on Storage Costs
+              Zero-Cost Backup: Reduce Storage Costs by Up to 90%
             </h1>
             <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-              Revolutionary differential backup technology that transforms how enterprises manage data protection
+              Revolutionary differential backup technology that typically reduces backup time from weeks to minutes
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
               <Link className="button button--primary button--lg" to="/solutions/zero-cost">
@@ -77,8 +77,8 @@ export default function BackupFeature() {
               <div style={{margin: '2rem 0', padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
                 <h3>Common Challenges:</h3>
                 <ul>
-                  <li><strong>Explosive Storage Costs:</strong> Full daily backups of 10TB databases consuming 300TB monthly</li>
-                  <li><strong>Slow Recovery Times:</strong> Hours to restore from traditional incremental backups</li>
+                  <li><strong>Explosive Storage Costs:</strong> Full daily backups can consume 10-30x the original data size monthly</li>
+                  <li><strong>Slow Recovery Times:</strong> Traditional incremental backups often take hours to restore</li>
                   <li><strong>Complex Management:</strong> Different backup strategies for different database systems</li>
                   <li><strong>Compliance Pressure:</strong> Regulatory requirements for long-term data retention</li>
                 </ul>
@@ -91,7 +91,7 @@ export default function BackupFeature() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              How Rediacc's Intelligent Backup Works
+              How Rediacc's Zero-Cost Backup Works
             </h2>
             
             <div style={{maxWidth: '1000px', margin: '0 auto'}}>
@@ -119,19 +119,19 @@ export default function BackupFeature() {
               </div>
 
               <div style={{padding: '2rem', background: 'var(--ifm-color-primary)', color: 'white', borderRadius: '8px', textAlign: 'center'}}>
-                <h3 style={{fontSize: '1.8rem', marginBottom: '1rem'}}>Real-World Example</h3>
+                <h3 style={{fontSize: '1.8rem', marginBottom: '1rem'}}>Typical Results</h3>
                 <p style={{fontSize: '1.2rem', marginBottom: '1rem'}}>
-                  A 10TB database with 100GB daily changes:
+                  For large databases with daily changes:
                 </p>
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginTop: '2rem'}}>
                   <div>
                     <strong style={{fontSize: '1.1rem'}}>Traditional Backup</strong>
-                    <div style={{fontSize: '2rem', fontWeight: 'bold', margin: '0.5rem 0'}}>300TB/month</div>
+                    <div style={{fontSize: '2rem', fontWeight: 'bold', margin: '0.5rem 0'}}>10-30x data size</div>
                     <small>Full daily backups</small>
                   </div>
                   <div>
                     <strong style={{fontSize: '1.1rem'}}>Rediacc Backup</strong>
-                    <div style={{fontSize: '2rem', fontWeight: 'bold', margin: '0.5rem 0'}}>3TB/month</div>
+                    <div style={{fontSize: '2rem', fontWeight: 'bold', margin: '0.5rem 0'}}>Up to 90% less</div>
                     <small>Only changed data stored</small>
                   </div>
                 </div>
@@ -148,19 +148,19 @@ export default function BackupFeature() {
             </h2>
             
             <div style={{marginBottom: '2rem', textAlign: 'center', fontSize: '1.1rem', color: 'var(--ifm-font-color-secondary)'}}>
-              Block-level backup reduces backup times by up to 90%<sup>[1]</sup>, while deduplication achieves 10:1 average storage reduction<sup>[2]</sup>
+              Block-level backup can reduce backup times by up to 90%<sup>[1]</sup>, while deduplication often achieves 10:1 or better storage reduction<sup>[2]</sup>
             </div>
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
               <div style={{textAlign: 'center'}}>
-                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>90%</div>
+                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>Up to 90%</div>
                 <h3>Storage Cost Reduction<sup>[2]</sup></h3>
-                <p>Dramatically reduce your backup storage expenses while maintaining complete data protection through enterprise deduplication</p>
+                <p>Can dramatically reduce backup storage expenses while maintaining complete data protection through enterprise deduplication</p>
               </div>
               <div style={{textAlign: 'center'}}>
-                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>10x</div>
-                <h3>Faster Backup & Recovery<sup>[1]</sup></h3>
-                <p>Block-level differential backups complete 90% faster than traditional methods, with instant point-in-time recovery</p>
+                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>10x Faster</div>
+                <h3>Backup & Recovery<sup>[1]</sup></h3>
+                <p>Block-level differential backups typically complete in minutes instead of hours, with instant point-in-time recovery</p>
               </div>
               <div style={{textAlign: 'center'}}>
                 <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>∞</div>

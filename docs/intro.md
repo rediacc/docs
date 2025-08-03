@@ -91,7 +91,7 @@ With Rediacc, the worst-case scenario changes from "months of work destroyed in 
 - **Zero-Cost Backups**: Save up to 90% on storage costs with differential backup technology that stores only changed data.
 - **Time Travel**: Restore systems to any point in time with automated snapshots.
 - **Cross Backup**: Securely back up data to remote servers with minimal bandwidth usage.
-- **Security**: End-to-end encryption for all repositories and real-time defense against suspicious activities.
+- **Security**: End-to-end encryption for all repositories and comprehensive protection against suspicious activities.
 - **Seamless Scaling**: Instantly clone environments to handle peak demand and sync back to on-premise systems when needed.
 - **Risk-Free Upgrades**: Test changes on instant clones without affecting production systems.
 
