@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 🏛️ Legacy Database Scaling
+# Legacy Database Scaling
 
 > **Your Legacy Database Is Holding You Back. Break Free Without Breaking It.**
 

@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 🛡️ Real-Time Defense
+# Real-Time Defense System
 
 > **While Others React To Breaches, Your Team Can Prevent Them.**
 >

@@ -64,6 +64,28 @@ const config = {
     ],
   ],
   
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        language: ["en"],
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: true,
+        removeDefaultStopWordFilter: false,
+        removeDefaultStemmer: false,
+        highlightSearchTermsOnTargetPage: true,
+        searchResultLimits: 8,
+        searchResultContextMaxLength: 50,
+        searchBarShortcut: true,
+        searchBarShortcutHint: true,
+        docsRouteBasePath: '/',
+        explicitSearchResultPath: true,
+      },
+    ],
+  ],
+  
   // Add client-side scripts
   scripts: [
     {
@@ -99,6 +121,12 @@ const config = {
             label: 'Features',
             position: 'left',
             items: [
+              {
+                to: '/features/ai-safety',
+                label: 'AI Safety Shield',
+                className: 'navbar-item-with-icon',
+                'data-icon': 'shield',
+              },
               {
                 to: '/features/backup',
                 label: 'Intelligent Backup',
@@ -136,6 +164,12 @@ const config = {
             label: 'Solutions',
             position: 'left',
             items: [
+              {
+                to: '/solutions/ai-safety',
+                label: 'AI Safety',
+                className: 'navbar-item-with-icon',
+                'data-icon': 'shield',
+              },
               {
                 to: '/solutions/enterprise',
                 label: 'Enterprise',
@@ -230,6 +264,10 @@ const config = {
           {
             title: 'Solutions',
             items: [
+              {
+                label: 'AI Safety',
+                to: '/solutions/ai-safety',
+              },
               {
                 label: 'Enterprise',
                 to: '/solutions/enterprise',

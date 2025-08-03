@@ -1,0 +1,121 @@
+{
+  "baseMonthlyPrices": {
+    "community": {
+      "price": "Free",
+      "originalPrice": 799,
+      "period": null
+    },
+    "advanced": {
+      "price": 2399,
+      "period": "per month"
+    },
+    "premium": {
+      "price": 3899,
+      "period": "per month"
+    },
+    "elite": {
+      "price": 6999,
+      "period": "per month"
+    }
+  },
+  "yearlyMultipliers": {
+    "community": {
+      "multiplier": 1.0,
+      "savePercent": "0%"
+    },
+    "advanced": {
+      "multiplier": 0.833,
+      "savePercent": "17%"
+    },
+    "premium": {
+      "multiplier": 0.770,
+      "savePercent": "23%"
+    },
+    "elite": {
+      "multiplier": 0.714,
+      "savePercent": "29%"
+    }
+  },
+  "specialDayDiscounts": {
+    "blackFriday": {
+      "name": "Black Friday",
+      "startDate": "2024-11-29",
+      "endDate": "2024-12-01",
+      "discount": 0.25,
+      "message": "🔥 Black Friday Sale: 25% OFF All Plans!",
+      "bannerColor": "#000000",
+      "backgroundColor": "#FFA500",
+      "stripeCouponCode": "BLACKFRIDAY25"
+    },
+    "cyberMonday": {
+      "name": "Cyber Monday",
+      "startDate": "2024-12-02",
+      "endDate": "2024-12-02",
+      "discount": 0.30,
+      "message": "⚡ Cyber Monday Deal: 30% OFF Today Only!",
+      "bannerColor": "#4A90E2",
+      "backgroundColor": "#FFFFFF",
+      "stripeCouponCode": "CYBERMONDAY30"
+    },
+    "newYear": {
+      "name": "New Year Sale",
+      "startDate": "2024-12-31",
+      "endDate": "2025-01-07",
+      "discount": 0.20,
+      "message": "🎉 New Year Special: 20% OFF All Annual Plans!",
+      "bannerColor": "#FFD700",
+      "backgroundColor": "#000080",
+      "stripeCouponCode": "NEWYEAR20"
+    },
+    "summerSale": {
+      "name": "Summer Sale",
+      "startDate": "2024-06-21",
+      "endDate": "2024-09-21",
+      "discount": 0.15,
+      "message": "☀️ Summer Sale: 15% OFF All Plans!",
+      "bannerColor": "#FF6B6B",
+      "backgroundColor": "#4ECDC4",
+      "stripeCouponCode": "SUMMER15"
+    },
+    "earlyBird": {
+      "name": "Early Bird Special",
+      "startDate": "2025-05-15",
+      "endDate": "2025-05-24",
+      "discount": 0.10,
+      "message": "🌅 Early Bird: 10% OFF for New Customers!",
+      "bannerColor": "#FFA07A",
+      "backgroundColor": "#FF6347",
+      "stripeCouponCode": "EARLYBIRD10"
+    }
+  },
+  "plans": {
+    "community": {
+      "name": "Community",
+      "isPopular": false,
+      "ctaText": "Get Started",
+      "ctaLink": "#demo",
+      "ctaVariant": "secondary"
+    },
+    "advanced": {
+      "name": "Advanced",
+      "isPopular": false,
+      "ctaText": "Start Free Trial",
+      "ctaLink": "#demo",
+      "ctaVariant": "primary"
+    },
+    "premium": {
+      "name": "Premium",
+      "isPopular": false,
+      "ctaText": "Start Free Trial",
+      "ctaLink": "#demo",
+      "ctaVariant": "primary"
+    },
+    "elite": {
+      "name": "Elite",
+      "isPopular": false,
+      "ctaText": "Get Custom Roadmap",
+      "ctaLink": "#demo",
+      "ctaVariant": "secondary"
+    }
+  }
+}

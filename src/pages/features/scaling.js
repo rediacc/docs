@@ -4,6 +4,12 @@ import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
 import Citations from '../../components/Citations';
 import { Icon } from '../../components/Icon';
+import {
+  PredictiveAnalyticsIcon,
+  InstantProvisioningIcon,
+  SmartLoadBalancingIcon,
+  CostOptimizationIcon,
+} from '../../components/FeatureIcons';
 
 export default function ScalingFeature() {
   return (
@@ -93,22 +99,22 @@ export default function ScalingFeature() {
             <div style={{maxWidth: '1000px', margin: '0 auto'}}>
               <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '3rem'}}>
                 <div className="feature-card">
-                  <div style={{fontSize: '2rem', marginBottom: '1rem'}}>📊</div>
+                  <div style={{marginBottom: '1rem'}}><PredictiveAnalyticsIcon /></div>
                   <h3>Predictive Analytics</h3>
                   <p>AI learns your traffic patterns and scales proactively before spikes hit</p>
                 </div>
                 <div className="feature-card">
-                  <div style={{fontSize: '2rem', marginBottom: '1rem'}}>⚡</div>
+                  <div style={{marginBottom: '1rem'}}><InstantProvisioningIcon /></div>
                   <h3>Instant Provisioning</h3>
                   <p>New instances ready in seconds using pre-warmed container pools</p>
                 </div>
                 <div className="feature-card">
-                  <div style={{fontSize: '2rem', marginBottom: '1rem'}}>🎯</div>
+                  <div style={{marginBottom: '1rem'}}><SmartLoadBalancingIcon /></div>
                   <h3>Smart Load Balancing</h3>
                   <p>Intelligent traffic distribution across all available resources</p>
                 </div>
                 <div className="feature-card">
-                  <div style={{fontSize: '2rem', marginBottom: '1rem'}}>💰</div>
+                  <div style={{marginBottom: '1rem'}}><CostOptimizationIcon /></div>
                   <h3>Cost Optimization</h3>
                   <p>Automatically use spot instances and reserved capacity for maximum savings</p>
                 </div>

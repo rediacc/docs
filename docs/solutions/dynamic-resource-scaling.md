@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 📈 Dynamic Resource Scaling
+# Dynamic Resource Scaling
 
 > **Is Your Cloud Architecture Rigid? Build With Limitless Flexibility.**
 

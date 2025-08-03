@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
+import {
+  CollaborateIcon,
+  SupportIcon,
+  PartnershipsIcon,
+  LocationIcon,
+  BuildingIcon,
+  GlobalIcon,
+} from '../components/ContactIcons';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -43,7 +51,7 @@ export default function Contact() {
             "@context": "https://schema.org",
             "@type": "ContactPage",
             "url": "/contact",
-            "contactType": "sales",
+            "contactType": "collaboration",
             "areaServed": "Worldwide",
             "availableLanguage": ["English"],
             "contactOption": ["TollFree", "Email"],
@@ -70,15 +78,15 @@ export default function Contact() {
           <div className="container">
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto 4rem'}}>
               <div className="feature-card" style={{textAlign: 'center'}}>
-                <div style={{fontSize: '2rem', marginBottom: '1rem'}}>💬</div>
-                <h3>Sales Inquiries</h3>
-                <p>Ready to see how Rediacc can transform your infrastructure?</p>
-                <p style={{fontWeight: 'bold', color: 'var(--ifm-color-primary)'}}>sales@rediacc.com</p>
+                <div style={{marginBottom: '1rem'}}><CollaborateIcon /></div>
+                <h3>Let's Collaborate</h3>
+                <p>Ready to explore how Rediacc can transform your infrastructure together?</p>
+                <p style={{fontWeight: 'bold', color: 'var(--ifm-color-primary)'}}>collab@rediacc.com</p>
                 <p>+1-800-REDIACC</p>
               </div>
               
               <div className="feature-card" style={{textAlign: 'center'}}>
-                <div style={{fontSize: '2rem', marginBottom: '1rem'}}>🛠️</div>
+                <div style={{marginBottom: '1rem'}}><SupportIcon /></div>
                 <h3>Technical Support</h3>
                 <p>Need help with your Rediacc deployment?</p>
                 <p style={{fontWeight: 'bold', color: 'var(--ifm-color-primary)'}}>support@rediacc.com</p>
@@ -86,7 +94,7 @@ export default function Contact() {
               </div>
               
               <div className="feature-card" style={{textAlign: 'center'}}>
-                <div style={{fontSize: '2rem', marginBottom: '1rem'}}>🤝</div>
+                <div style={{marginBottom: '1rem'}}><PartnershipsIcon /></div>
                 <h3>Partnerships</h3>
                 <p>Interested in partnering with Rediacc?</p>
                 <p style={{fontWeight: 'bold', color: 'var(--ifm-color-primary)'}}>partners@rediacc.com</p>
@@ -266,7 +274,10 @@ export default function Contact() {
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
               <div className="feature-card">
-                <h3>🇺🇸 San Francisco (HQ)</h3>
+                <h3 style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                  <BuildingIcon />
+                  San Francisco (HQ)
+                </h3>
                 <p>
                   100 Market Street<br />
                   Suite 500<br />
@@ -277,7 +288,10 @@ export default function Contact() {
               </div>
               
               <div className="feature-card">
-                <h3>🇬🇧 London</h3>
+                <h3 style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                  <GlobalIcon />
+                  London
+                </h3>
                 <p>
                   25 Old Broad Street<br />
                   Level 12<br />
@@ -288,7 +302,10 @@ export default function Contact() {
               </div>
               
               <div className="feature-card">
-                <h3>🇸🇬 Singapore</h3>
+                <h3 style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                  <GlobalIcon />
+                  Singapore
+                </h3>
                 <p>
                   1 Raffles Place<br />
                   Tower 2, Level 20<br />
@@ -299,7 +316,10 @@ export default function Contact() {
               </div>
               
               <div className="feature-card">
-                <h3>🇩🇪 Frankfurt</h3>
+                <h3 style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                  <GlobalIcon />
+                  Frankfurt
+                </h3>
                 <p>
                   Neue Mainzer Str. 52<br />
                   60311 Frankfurt am Main<br />
@@ -324,7 +344,7 @@ export default function Contact() {
                   What's the best way to reach you?
                 </summary>
                 <p style={{marginTop: '1rem', lineHeight: '1.6'}}>
-                  For sales inquiries, email sales@rediacc.com or call +1-800-REDIACC. For technical support, 
+                  For collaboration and sales inquiries, email collab@rediacc.com or call +1-800-REDIACC. For technical support, 
                   our support portal at support.rediacc.com is the fastest way to get help. Enterprise customers 
                   have access to dedicated Slack channels and phone support.
                 </p>
@@ -336,7 +356,7 @@ export default function Contact() {
                 </summary>
                 <p style={{marginTop: '1rem', lineHeight: '1.6'}}>
                   We aim to respond to all inquiries within 24 hours. Enterprise customers with SLAs receive 
-                  guaranteed response times as low as 15 minutes for critical issues. Sales inquiries typically 
+                  guaranteed response times as low as 15 minutes for critical issues. Collaboration inquiries typically 
                   receive responses within 2-4 business hours.
                 </p>
               </details>

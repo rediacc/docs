@@ -1,0 +1,65 @@
+{
+  "tier": {
+    "community": {
+      "name": "Community"
+    },
+    "advanced": {
+      "name": "Advanced"
+    },
+    "premium": {
+      "name": "Premium"
+    },
+    "elite": {
+      "name": "Elite"
+    },
+    "feature": {
+      "unlimited_repo_size": "Unlimited Repo Size",
+      "job_timeout": "Maximum Job Runtime",
+      "repos": "Repository Limit",
+      "regions": "Geographic Regions",
+      "teams": "Team Workspaces",
+      "bridges": "Network Bridges",
+      "machines": "Managed Machines",
+      "schedules": "Automation Schedules",
+      "storages": "Storage Destinations",
+      "users": "Team Members",
+      "bridge_type": "Connection Type",
+      "audit_days": "Audit Log Retention",
+      "active_jobs": "Concurrent Jobs",
+      "interface": "Access Methods",
+      "custom_permission_groups": "Custom Permission Groups",
+      "job_priority_change": "Priority Management",
+      "support_type": "Support & Service Level",
+      "api_access": "API Integration",
+      "custom_backup_schedules": "Custom Schedules",
+      "on_premise_installation": "Self-Hosted Deployment",
+      "time_travel_recovery": "Point-in-Time Recovery",
+      "cross_region_replication": "Multi-Region Replication",
+      "queue_pending_items": "Queue Capacity",
+      "advanced_analytics": "Advanced Analytics",
+      "custom_branding": "Custom Branding",
+      "dedicated_account_manager": "Dedicated Account Manager"
+    },
+    "values": {
+      "unlimited": "Unlimited",
+      "cloud": "Global Bridges",
+      "external": "External Bridge",
+      "web": "Web Interface",
+      "cli": "WEB & CLI",
+      "community": "Community Support",
+      "priority_email": "Email Support",
+      "phone_24_7": "Priority Support",
+      "dedicated_account": "Real-Time Support",
+      "priority": "Priority Support",
+      "hourly": "Hourly Snapshots",
+      "continuous": "Continuous Backup",
+      "basic": "Basic API",
+      "full": "Full API Access"
+    },
+    "units": {
+      "hours": "Hours",
+      "days": "Days",
+      "percent": "%"
+    }
+  }
+}

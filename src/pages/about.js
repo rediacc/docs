@@ -190,16 +190,20 @@ export default function About() {
                   width: '150px',
                   height: '150px',
                   borderRadius: '50%',
-                  background: 'var(--ifm-color-primary)',
                   margin: '0 auto 1rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '3rem',
-                  color: 'white',
-                  border: '4px solid var(--ifm-color-primary-lightest)'
+                  overflow: 'hidden',
+                  border: '4px solid var(--ifm-color-primary-lightest)',
+                  background: 'var(--ifm-background-surface-color)'
                 }}>
-                  <Icon name="briefcase" size={24} />
+                  <img 
+                    src="/img/profiles/mfb.jpeg" 
+                    alt="Muhammed Fatih BAYRAKTAR"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
                 </div>
                 <h3>Muhammed Fatih BAYRAKTAR</h3>
                 <p style={{color: 'var(--ifm-color-primary)', marginBottom: '0.5rem', fontWeight: 'bold'}}>Founder</p>
@@ -211,16 +215,20 @@ export default function About() {
                   width: '150px',
                   height: '150px',
                   borderRadius: '50%',
-                  background: 'var(--ifm-color-primary)',
                   margin: '0 auto 1rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '3rem',
-                  color: 'white',
-                  border: '4px solid var(--ifm-color-primary-lightest)'
+                  overflow: 'hidden',
+                  border: '4px solid var(--ifm-color-primary-lightest)',
+                  background: 'var(--ifm-background-surface-color)'
                 }}>
-                  <Icon name="code" size={24} />
+                  <img 
+                    src="/img/profiles/hmz.jpeg" 
+                    alt="Hamza ÖZSARAC"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
                 </div>
                 <h3>Hamza ÖZSARAC</h3>
                 <p style={{color: 'var(--ifm-color-primary)', marginBottom: '0.5rem', fontWeight: 'bold'}}>Full Stack Developer</p>
@@ -232,16 +240,20 @@ export default function About() {
                   width: '150px',
                   height: '150px',
                   borderRadius: '50%',
-                  background: 'var(--ifm-color-primary)',
                   margin: '0 auto 1rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '3rem',
-                  color: 'white',
-                  border: '4px solid var(--ifm-color-primary-lightest)'
+                  overflow: 'hidden',
+                  border: '4px solid var(--ifm-color-primary-lightest)',
+                  background: 'var(--ifm-background-surface-color)'
                 }}>
-                  <Icon name="test-tube" size={24} />
+                  <img 
+                    src="/img/profiles/hak.jpeg" 
+                    alt="Hasan Anıl KARTAL"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
                 </div>
                 <h3>Hasan Anıl KARTAL</h3>
                 <p style={{color: 'var(--ifm-color-primary)', marginBottom: '0.5rem', fontWeight: 'bold'}}>Software Test & Quality Expert</p>
@@ -253,16 +265,20 @@ export default function About() {
                   width: '150px',
                   height: '150px',
                   borderRadius: '50%',
-                  background: 'var(--ifm-color-primary)',
                   margin: '0 auto 1rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '3rem',
-                  color: 'white',
-                  border: '4px solid var(--ifm-color-primary-lightest)'
+                  overflow: 'hidden',
+                  border: '4px solid var(--ifm-color-primary-lightest)',
+                  background: 'var(--ifm-background-surface-color)'
                 }}>
-                  <Icon name="deploy" size={24} />
+                  <img 
+                    src="/img/profiles/yd.jpeg" 
+                    alt="Yüksel Demirel"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
                 </div>
                 <h3>Yüksel Demirel</h3>
                 <p style={{color: 'var(--ifm-color-primary)', marginBottom: '0.5rem', fontWeight: 'bold'}}>System And DevOps Engineer</p>

@@ -1,0 +1,127 @@
+{
+  "professionalServices": {
+    "packages": {
+      "standard": {
+        "name": "Standard",
+        "speed": "3-5 Business Days",
+        "price": 9999,
+        "pricePrefix": "From $",
+        "description": "Standard turnaround time",
+        "highlight": false
+      },
+      "priority": {
+        "name": "Priority",
+        "speed": "24-48 Hours",
+        "price": 19999,
+        "pricePrefix": "From $",
+        "description": "Fast-track your project",
+        "highlight": true
+      },
+      "emergency": {
+        "name": "Emergency",
+        "speed": "Same Day",
+        "price": 29999,
+        "pricePrefix": "From $",
+        "description": "Immediate response",
+        "highlight": false
+      }
+    },
+    "services": {
+      "migration": {
+        "name": "Data Migration",
+        "icon": "🚚",
+        "description": "Complete migration of your repositories and infrastructure to Rediacc",
+        "timelines": {
+          "standard": "5 business days for up to 100GB",
+          "priority": "48 hours for any size",
+          "emergency": "12 hours guaranteed"
+        }
+      },
+      "ransomware": {
+        "name": "Ransomware Recovery",
+        "icon": "🛡️",
+        "description": "Emergency ransomware recovery and system restoration",
+        "timelines": {
+          "standard": "3-5 days assessment",
+          "priority": "24 hours to begin recovery",
+          "emergency": "Immediate response team"
+        }
+      },
+      "compliance": {
+        "name": "Compliance Audit",
+        "icon": "📋",
+        "description": "Full compliance audit and certification assistance",
+        "timelines": {
+          "standard": "2 weeks full audit",
+          "priority": "5 days expedited",
+          "emergency": "24 hours preliminary"
+        }
+      },
+      "scaling": {
+        "name": "Infrastructure Scaling",
+        "icon": "📈",
+        "description": "Scale your infrastructure to handle increased load",
+        "timelines": {
+          "standard": "1 week planning + execution",
+          "priority": "2-3 days rapid scaling",
+          "emergency": "Same day emergency scaling"
+        }
+      },
+      "training": {
+        "name": "Team Training",
+        "icon": "🎓",
+        "description": "Comprehensive training for your team on Rediacc platform",
+        "timelines": {
+          "standard": "Schedule within 2 weeks",
+          "priority": "Schedule within 3 days",
+          "emergency": "Next day training session"
+        }
+      },
+      "optimization": {
+        "name": "Performance Optimization",
+        "icon": "⚡",
+        "description": "Optimize your backup and recovery performance",
+        "timelines": {
+          "standard": "1 week analysis + tuning",
+          "priority": "2 days quick optimization",
+          "emergency": "Immediate performance fix"
+        }
+      },
+      "integration": {
+        "name": "Custom Integration",
+        "icon": "🔧",
+        "description": "Integrate Rediacc with your existing tools and workflows",
+        "timelines": {
+          "standard": "2-3 weeks development",
+          "priority": "1 week fast-track",
+          "emergency": "48 hours critical integration"
+        }
+      }
+    },
+    "eligibility": {
+      "label": "Eligibility:",
+      "description": "Professional services are available for Advanced, Premium, and Elite plan customers only."
+    },
+    "benefits": {
+      "title": "Why Professional Services?",
+      "costFact": "The average cost of a ransomware attack is $4.62 million (IBM Security, 2023)",
+      "downtimeFact": "The average downtime cost is $5,600 per minute for enterprises",
+      "description": "Our professional services ensure you're never alone when facing critical infrastructure challenges.",
+      "features": [
+        "Dedicated team of experts assigned to your project",
+        "Guaranteed response times with SLA",
+        "Switch between service tiers as needed",
+        "24/7 emergency hotline for Emergency tier"
+      ]
+    },
+    "cta": {
+      "title": "Need Professional Assistance?",
+      "subtitle": "Our experts are ready to help you succeed",
+      "button": "Schedule Consultation"
+    },
+    "soldOut": {
+      "note": "Emergency Service",
+      "message": "Currently at capacity. Join the waitlist for priority access."
+    }
+  }
+}

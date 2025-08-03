@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 🔄 Cross Backup
+# Cross Backup Strategy
 
 > **When Disaster Strikes, Will Your Data Survive? With Rediacc, It Always Does.**
 

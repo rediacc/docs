@@ -1,0 +1,42 @@
+{
+  "servicePackageAvailability": {
+    "standard": {
+      "status": "available",
+      "spotsRemaining": null,
+      "message": null
+    },
+    "priority": {
+      "status": "limited",
+      "spotsRemaining": 5,
+      "message": "Only 5 spots remaining!"
+    },
+    "emergency": {
+      "status": "soldOut",
+      "spotsRemaining": 0,
+      "message": "Sold Out"
+    }
+  },
+  "availabilityConfig": {
+    "showSpotsThreshold": 10,
+    "limitedSpotsWarningThreshold": 5,
+    "statusLabels": {
+      "available": {
+        "label": "Available",
+        "color": "#10B981",
+        "showBadge": false
+      },
+      "limited": {
+        "label": "LIMITED SPOTS",
+        "color": "#F59E0B",
+        "showBadge": true,
+        "pulseAnimation": true
+      },
+      "soldOut": {
+        "label": "SOLD OUT",
+        "color": "#EF4444",
+        "showBadge": true,
+        "showWaitlist": false
+      }
+    }
+  }
+}

@@ -319,7 +319,7 @@ export default function BackupFeature() {
               <Link
                 className="button button--secondary button--lg"
                 to="/contact">
-                Contact Sales
+                Get Started
               </Link>
             </div>
           </div>

@@ -228,11 +228,13 @@ export default function EnterpriseSolution() {
               Join Fortune 500 companies already transforming their infrastructure
             </p>
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
-              <Link
+              <a
                 className="button button--primary button--lg"
-                to="/contact">
+                href="https://outlook.office.com/owa/calendar/RediaccConsultationServices@rediacc.com/bookings/?ismsaljsauthenabled"
+                target="_blank"
+                rel="noopener noreferrer">
                 Schedule Demo
-              </Link>
+              </a>
               <Link
                 className="button button--secondary button--lg"
                 to="/pricing">

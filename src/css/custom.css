@@ -673,13 +673,14 @@ table thead tr {
 }
 
 [data-theme='dark'] .navbar-login-link {
-  background: var(--ifm-color-primary-light);
-  color: var(--ifm-font-color-base-inverse) !important;
+  background: var(--ifm-color-primary);
+  color: white !important;
 }
 
 [data-theme='dark'] .navbar-login-link:hover {
-  background: var(--ifm-color-primary-lighter);
-  color: var(--ifm-font-color-base-inverse) !important;
+  background: var(--ifm-color-primary-dark);
+  color: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive Design */

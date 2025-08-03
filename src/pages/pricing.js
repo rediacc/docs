@@ -1,95 +1,405 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
-import { Icon } from '../components/Icon';
+import { useLocation } from '@docusaurus/router';
+import PricingComparisonTable from '../components/pricing/PricingComparisonTable';
+import PricingToggle from '../components/pricing/PricingToggle';
+import InfoTooltip from '../components/pricing/InfoTooltip';
+import SpeedPricingTable from '../components/pricing/SpeedPricingTable';
+import DiscountBanner from '../components/pricing/DiscountBanner';
+import { fetchPricingConfig } from '../services/pricingService';
+import { fetchBaseTiersConfig, fetchTiersConfig } from '../services/tiersService';
+import '../css/pricing.css';
+import '../css/pricing-comparison-table.css';
 
 export default function Pricing() {
-  const [billingPeriod, setBillingPeriod] = useState('monthly');
+  const location = useLocation();
+  const [billingType, setBillingType] = useState('monthly');
+  const [pricingConfig, setPricingConfig] = useState(null);
+  const [tiersData, setTiersData] = useState(null);
+  const [tiersTranslations, setTiersTranslations] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  // Check for preview mode from URL parameters
+  const searchParams = new URLSearchParams(location.search);
+  const previewDiscount = searchParams.get('preview');
 
-  const plans = [
-    {
-      name: 'Community',
-      price: 'Free',
-      originalPrice: billingPeriod === 'monthly' ? '$499' : '$5,988',
-      period: '',
-      description: 'Perfect for personal projects and testing',
-      features: [
-        'Success 1 Active repository',
-        'Success Up to 10 GB repo size',
-        'Success Public Servers',
-        'Success Community support',
-        'Success Hourly snapshots',
-        'Success Basic restore options',
-        'Error No backup automation',
-        'Error Limited to shared infrastructure'
-      ],
-      cta: 'Get Started',
-      ctaLink: '/intro',
-      highlighted: false
-    },
-    {
-      name: 'Advanced',
-      price: billingPeriod === 'monthly' ? '$2,399' : '$23,950',
-      period: billingPeriod === 'monthly' ? '/month' : '/year',
-      description: 'Ideal for growing teams with increased demands',
-      features: [
-        'Success Everything in Community plus:',
-        'Success Unlimited repositories',
-        'Success Up to 100 GB repo size',
-        'Success Public & Dedicated Servers',
-        'Success Priority email support',
-        'Success Ransomware protection',
-        'Success Time Travel recovery',
-        'Success Basic API access'
-      ],
-      cta: 'Start Free Trial',
-      ctaLink: '/intro',
-      highlighted: true,
-      badge: 'Most Popular',
-      savePercent: billingPeriod === 'yearly' ? '17%' : null
-    },
-    {
-      name: 'Premium',
-      price: billingPeriod === 'monthly' ? '$3,899' : '$36,070',
-      period: billingPeriod === 'monthly' ? '/month' : '/year',
-      description: 'Designed for businesses with advanced needs',
-      features: [
-        'Success Everything in Advanced plus:',
-        'Success Up to 1 TB repo size',
-        'Success On-premise Servers',
-        'Success 24/7 phone support',
-        'Success Cross-region replication',
-        'Success Advanced security features',
-        'Success Custom backup schedules',
-        'Success Full API access'
-      ],
-      cta: 'Start Free Trial',
-      ctaLink: '/intro',
-      highlighted: false,
-      savePercent: billingPeriod === 'yearly' ? '23%' : null
-    },
-    {
-      name: 'Elite',
-      price: billingPeriod === 'monthly' ? '$6,999' : '$59,951',
-      period: billingPeriod === 'monthly' ? '/month' : '/year',
-      description: 'For enterprises requiring ultimate flexibility',
-      features: [
-        'Success Everything in Premium plus:',
-        'Success Unlimited storage',
-        'Success Dedicated account manager',
-        'Success Custom SLA guarantees',
-        'Success Priority feature requests',
-        'Success White-glove onboarding',
-        'Success Custom integrations',
-        'Success Executive reporting'
-      ],
-      cta: 'Contact Sales',
-      ctaLink: '/contact',
-      highlighted: false,
-      savePercent: billingPeriod === 'yearly' ? '29%' : null
+  // Dynamic formatting function
+  const formatFeatureValue = (value, feature, formatRules, forDisplay = true) => {
+    if (value === false || value === null || value === undefined) {
+      return forDisplay ? null : '-';
     }
-  ];
+    
+    if (!formatRules) {
+      return forDisplay ? `${value} ${feature.name}` : value;
+    }
+    
+    const featureName = tiersTranslations?.tier?.feature?.[feature.id] || feature.name || feature.id;
+    
+    if (feature.displayType === 'boolean') {
+      if (forDisplay) {
+        return value === true && formatRules.true?.display === 'name' ? featureName : null;
+      }
+      return value;
+    }
+    
+    if (feature.displayType === 'number') {
+      if (forDisplay) {
+        return formatRules.display
+          .replace('{value}', value)
+          .replace('{name}', featureName);
+      }
+      return value;
+    }
+    
+    if (feature.displayType === 'number_with_unit') {
+      const unitKey = feature.unit;
+      const unit = tiersTranslations?.tier?.units?.[unitKey] || feature.unit;
+      
+      if (forDisplay) {
+        if (value === 'unlimited' && formatRules.unlimited) {
+          const unlimitedText = tiersTranslations?.tier?.values?.unlimited || 'Unlimited';
+          return formatRules.unlimited
+            .replace('{unlimited}', unlimitedText)
+            .replace('{name}', featureName);
+        }
+        return formatRules.display
+          .replace('{value}', value)
+          .replace('{unit}', unit)
+          .replace('{name}', featureName);
+      } else {
+        if (value === 'unlimited') {
+          return tiersTranslations?.tier?.values?.unlimited || 'Unlimited';
+        }
+        return `${value} ${unit}`;
+      }
+    }
+    
+    if (feature.displayType === 'value') {
+      const translatedValue = tiersTranslations?.tier?.values?.[value] || value;
+      
+      if (forDisplay) {
+        const shouldIncludeName = formatRules.displayNameFor?.includes(feature.id);
+        
+        if (shouldIncludeName) {
+          return `${translatedValue} ${featureName}`;
+        }
+        return formatRules.display.replace('{translated_value}', translatedValue);
+      }
+      return translatedValue;
+    }
+    
+    return forDisplay ? `${value} ${featureName}` : value;
+  };
+
+  // Fetch pricing and tiers configuration
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const [config, baseData, translationData] = await Promise.all([
+          fetchPricingConfig(),
+          fetchBaseTiersConfig(),
+          fetchTiersConfig('en')
+        ]);
+        setPricingConfig(config);
+        setTiersData(baseData);
+        setTiersTranslations(translationData);
+        setError(null);
+      } catch (error) {
+        console.error('Failed to load data:', error);
+        setError('Unable to load pricing information. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    loadData();
+  }, []);
+  
+  // Check for active discounts or preview mode
+  const activeDiscount = useMemo(() => {
+    if (!pricingConfig) return null;
+    
+    // Preview mode - show specific discount for testing
+    if (previewDiscount && pricingConfig.specialDayDiscounts[previewDiscount]) {
+      const discount = pricingConfig.specialDayDiscounts[previewDiscount];
+      // Convert message from key to actual text if needed
+      const message = discount.message.startsWith('pricing.') 
+        ? discount.message.replace('pricing.', '').replace(/([A-Z])/g, ' $1').trim()
+        : discount.message;
+      return { ...discount, message, isPreview: true };
+    }
+    
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    for (const [key, discount] of Object.entries(pricingConfig.specialDayDiscounts)) {
+      const startDate = new Date(discount.startDate);
+      const endDate = new Date(discount.endDate);
+      endDate.setHours(23, 59, 59, 999);
+
+      if (today >= startDate && today <= endDate) {
+        // Convert message from key to actual text if needed
+        const message = discount.message.startsWith('pricing.') 
+          ? discount.message.replace('pricing.', '').replace(/([A-Z])/g, ' $1').trim()
+          : discount.message;
+        return { ...discount, message };
+      }
+    }
+    return null;
+  }, [pricingConfig, previewDiscount]);
+
+  // Generate features from tiers data
+  const generatePlanFeatures = (planId) => {
+    if (!tiersData || !tiersData.features || !tiersTranslations) {
+      // Fallback features
+      const fallbackFeatures = {
+        community: [
+          '1 Active repository',
+          'Up to 10 GB repo size',
+          'Public Servers',
+          'Community support',
+          'Hourly snapshots',
+          'Basic restore options'
+        ],
+        advanced: [
+          'Everything in Community plus:',
+          'Unlimited repositories',
+          'Up to 100 GB repo size',
+          'Public & Dedicated Servers',
+          'Priority email support',
+          'Ransomware protection',
+          'Time Travel recovery',
+          'Basic API access'
+        ],
+        premium: [
+          'Everything in Advanced plus:',
+          'Up to 1 TB repo size',
+          'On-premise Servers',
+          '24/7 phone support',
+          'Cross-region replication',
+          'Advanced security features',
+          'Custom backup schedules',
+          'Full API access'
+        ],
+        elite: [
+          'Everything in Premium plus:',
+          'Unlimited storage',
+          'Dedicated account manager',
+          'Custom SLA guarantees',
+          'Priority feature requests',
+          'White-glove onboarding',
+          'Custom integrations',
+          'Executive reporting'
+        ]
+      };
+      
+      return {
+        features: fallbackFeatures[planId] || [],
+        negativeFeatures: planId === 'community' ? ['No backup automation'] : []
+      };
+    }
+
+    const features = [];
+    
+    // Add introduction line for non-community plans
+    if (planId !== 'community') {
+      const prevTier = ['community', 'advanced', 'premium', 'elite'];
+      const currentIndex = prevTier.indexOf(planId);
+      if (currentIndex > 0) {
+        const prevTierName = tiersTranslations.tier[prevTier[currentIndex - 1]]?.name || prevTier[currentIndex - 1];
+        features.push(`Everything in ${prevTierName} plus:`);
+      }
+    }
+
+    // Add features from tiers data
+    tiersData.features.forEach(feature => {
+      const value = feature.values[planId];
+      const formatRules = tiersData.formatting?.[feature.displayType];
+      
+      const featureText = formatFeatureValue(value, feature, formatRules, true);
+      
+      if (!featureText) return;
+      
+      features.push({
+        text: featureText,
+        tooltip: feature.tooltip || ''
+      });
+    });
+
+    return {
+      features,
+      negativeFeatures: planId === 'community' ? ['No backup automation'] : []
+    };
+  };
+
+  // Generate plans based on config
+  const generatePlans = (isYearly) => {
+    if (!pricingConfig) return [];
+    
+    const plans = [];
+    
+    for (const [planId, planConfig] of Object.entries(pricingConfig.plans)) {
+      const basePriceInfo = pricingConfig.baseMonthlyPrices[planId];
+      let price = basePriceInfo.price;
+      let displayPrice = price;
+      let savePercent = null;
+      
+      // For yearly pricing, apply multiplier
+      if (isYearly && typeof price === 'number') {
+        const yearlyInfo = pricingConfig.yearlyMultipliers[planId];
+        displayPrice = Math.round(price * yearlyInfo.multiplier);
+        savePercent = yearlyInfo.savePercent;
+      }
+      
+      // Calculate combined discount if both annual and special day discount apply
+      let combinedDiscountPercent = null;
+      let finalSavePercent = isYearly ? savePercent : null;
+      
+      // Apply discount if active
+      let discountedPrice = null;
+      if (activeDiscount && typeof price === 'number') {
+        const discountAmount = displayPrice * activeDiscount.discount;
+        discountedPrice = Math.round(displayPrice - discountAmount);
+        
+        if (isYearly && typeof price === 'number') {
+          const yearlyMultiplier = pricingConfig.yearlyMultipliers[planId].multiplier;
+          const combinedMultiplier = yearlyMultiplier * (1 - activeDiscount.discount);
+          const yearlyPercentage = Math.round((1 - yearlyMultiplier) * 100);
+          const dailyPercentage = Math.round(activeDiscount.discount * 100);
+          combinedDiscountPercent = `${yearlyPercentage}% + ${dailyPercentage}% OFF`;
+          finalSavePercent = null;
+        } else {
+          combinedDiscountPercent = `🔥 ${Math.round(activeDiscount.discount * 100)}% OFF`;
+        }
+      }
+      
+      // Handle special case for Community plan with original price
+      let originalPrice = null;
+      if (planId === 'community' && basePriceInfo.originalPrice) {
+        originalPrice = `$${basePriceInfo.originalPrice}`;
+      } else if (discountedPrice && typeof price === 'number') {
+        originalPrice = `$${displayPrice.toLocaleString()}`;
+      }
+
+      // Get plan name
+      const planName = planConfig.name.startsWith('pricing.') 
+        ? planConfig.name.split('.').pop().charAt(0).toUpperCase() + planConfig.name.split('.').pop().slice(1)
+        : planConfig.name;
+
+      // Get CTA text
+      const ctaText = planConfig.ctaText.startsWith('common.') 
+        ? planConfig.ctaText.replace('common.', '').replace(/([A-Z])/g, ' $1').trim()
+        : planConfig.ctaText;
+
+      const plan = {
+        name: planName,
+        price: typeof price === 'string' ? price : (discountedPrice ? `$${discountedPrice.toLocaleString()}` : `$${displayPrice.toLocaleString()}`),
+        originalPrice: originalPrice,
+        period: basePriceInfo.period ? basePriceInfo.period.replace('per', '').toLowerCase() : null,
+        savePercent: finalSavePercent,
+        discountPercent: combinedDiscountPercent,
+        isPopular: false,
+        features: generatePlanFeatures(planId).features,
+        negativeFeatures: generatePlanFeatures(planId).negativeFeatures,
+        ctaText: ctaText,
+        ctaLink: planConfig.ctaLink,
+        ctaVariant: planConfig.ctaVariant
+      };
+      
+      plans.push(plan);
+    }
+    
+    return plans;
+  };
+
+  const plans = billingType === 'monthly' ? generatePlans(false) : generatePlans(true);
+
+  // Build comparison features for the table
+  const buildComparisonFeatures = () => {
+    if (!tiersData || !tiersData.features || !tiersTranslations) {
+      // Fallback comparison features
+      return [
+        {
+          feature: 'Repositories',
+          description: 'Number of active repositories',
+          category: 'capacity',
+          community: '1 Active',
+          advanced: 'Unlimited',
+          premium: 'Unlimited',
+          elite: 'Unlimited'
+        },
+        {
+          feature: 'Repository Size',
+          description: 'Maximum storage per repository',
+          category: 'capacity',
+          community: '10 GB',
+          advanced: '100 GB',
+          premium: '1 TB',
+          elite: 'Unlimited'
+        },
+        {
+          feature: 'Server Types',
+          description: 'Available infrastructure options',
+          category: 'essentials',
+          community: 'Public Only',
+          advanced: 'Public & Dedicated',
+          premium: 'On-premise',
+          elite: 'All Types'
+        },
+        {
+          feature: 'Support',
+          description: 'Level of support provided',
+          category: 'essentials',
+          community: 'Community',
+          advanced: 'Priority Email',
+          premium: '24/7 Phone',
+          elite: 'Dedicated Manager'
+        }
+      ];
+    }
+
+    return tiersData.features.map(feature => {
+      const featureName = tiersTranslations.tier.feature[feature.id] || feature.id;
+      const formatRules = tiersData.formatting?.[feature.displayType];
+      
+      return {
+        feature: featureName,
+        description: feature.tooltip || '',
+        category: feature.category,
+        community: formatFeatureValue(feature.values.community, feature, formatRules, false),
+        advanced: formatFeatureValue(feature.values.advanced, feature, formatRules, false),
+        premium: formatFeatureValue(feature.values.premium, feature, formatRules, false),
+        elite: formatFeatureValue(feature.values.elite, feature, formatRules, false)
+      };
+    });
+  };
+
+  if (loading) {
+    return (
+      <Layout
+        title="Pricing - Rediacc"
+        description="Choose the perfect plan for your infrastructure needs">
+        <div className="container" style={{padding: '4rem 1rem', textAlign: 'center'}}>
+          <p style={{fontSize: '1.25rem'}}>Loading pricing information...</p>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (error) {
+    return (
+      <Layout
+        title="Pricing - Rediacc"
+        description="Choose the perfect plan for your infrastructure needs">
+        <div className="container" style={{padding: '4rem 1rem', textAlign: 'center'}}>
+          <p style={{fontSize: '1.25rem', color: 'var(--ifm-color-danger)'}}>{error}</p>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout
@@ -102,266 +412,123 @@ export default function Pricing() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/pricing" />
         <link rel="canonical" href="/pricing" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Rediacc",
-            "offers": plans.map(plan => ({
-              "@type": "Offer",
-              "name": plan.name,
-              "price": plan.price.replace('$', ''),
-              "priceCurrency": "USD",
-              "availability": "https://schema.org/InStock"
-            }))
-          })}
-        </script>
       </Head>
 
       <article>
         {/* Hero Section */}
-        <section className="hero-section" style={{padding: '4rem 1rem'}}>
+        <section className="pricing-hero">
           <div className="container">
-            <h1 className="hero-title animate-fade-in-up">
-              Sophisticated Value Architecture
-            </h1>
-            <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-              Choose the plan that's right for your business, whether you're a startup or an enterprise.
+            <h1>Simple, Transparent Pricing</h1>
+            <p>
+              Choose the right plan for your business. No hidden fees, no surprises.
             </p>
-            
-            {/* Billing Toggle */}
-            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginTop: '2rem'}}>
-              <span style={{color: billingPeriod === 'monthly' ? 'white' : 'rgba(255,255,255,0.7)'}}>Monthly</span>
-              <button
-                onClick={() => setBillingPeriod(billingPeriod === 'monthly' ? 'yearly' : 'monthly')}
-                style={{
-                  position: 'relative',
-                  width: '60px',
-                  height: '30px',
-                  borderRadius: '15px',
-                  background: 'rgba(255,255,255,0.2)',
-                  border: 'none',
-                  cursor: 'pointer'
-                }}>
-                <div style={{
-                  position: 'absolute',
-                  top: '3px',
-                  left: billingPeriod === 'monthly' ? '3px' : '33px',
-                  width: '24px',
-                  height: '24px',
-                  borderRadius: '50%',
-                  background: 'white',
-                  transition: 'left 0.3s ease'
-                }}></div>
-              </button>
-              <span style={{color: billingPeriod === 'yearly' ? 'white' : 'rgba(255,255,255,0.7)'}}>
-                Yearly <span style={{color: 'var(--ifm-color-primary-lightest)', fontWeight: 'bold'}}>(Save 20%)</span>
-              </span>
-            </div>
+            {activeDiscount && (
+              <DiscountBanner 
+                discount={activeDiscount} 
+                previewMode={activeDiscount.isPreview}
+              />
+            )}
           </div>
         </section>
 
-        {/* Pricing Cards */}
+        {/* Main Pricing Section */}
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
-            <div className="pricing-grid-container" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', maxWidth: '1400px', margin: '0 auto'}}>
-              {plans.map((plan, idx) => (
-                <div
-                  key={idx}
-                  className="feature-card"
-                  style={{
-                    position: 'relative',
-                    padding: '2rem',
-                    border: plan.highlighted ? '2px solid var(--ifm-color-primary)' : 'none',
-                    transform: plan.highlighted ? 'scale(1.05)' : 'scale(1)'
-                  }}>
-                  {plan.badge && (
-                    <div style={{
-                      position: 'absolute',
-                      top: '-15px',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      background: 'var(--ifm-color-primary)',
-                      color: 'white',
-                      padding: '0.25rem 1rem',
-                      borderRadius: '20px',
-                      fontSize: '0.875rem',
-                      fontWeight: 'bold'
-                    }}>
-                      {plan.badge}
-                    </div>
-                  )}
-                  
-                  <h3 style={{fontSize: '1.75rem', marginBottom: '0.5rem'}}>{plan.name}</h3>
-                  <p style={{color: 'var(--ifm-font-color-secondary)', marginBottom: '1.5rem'}}>{plan.description}</p>
-                  
-                  <div style={{marginBottom: '2rem'}}>
-                    {plan.originalPrice && (
-                      <div style={{marginBottom: '0.5rem'}}>
-                        <span style={{fontSize: '1.5rem', textDecoration: 'line-through', color: 'var(--ifm-font-color-secondary)'}}>
-                          {plan.originalPrice}
-                        </span>
-                      </div>
-                    )}
-                    <span style={{fontSize: '3rem', fontWeight: 'bold', color: 'var(--ifm-color-primary)'}}>
-                      {plan.price}
-                    </span>
-                    <span style={{fontSize: '1.2rem', color: 'var(--ifm-font-color-secondary)'}}>
-                      {plan.period}
-                    </span>
-                    {plan.savePercent && (
-                      <div style={{marginTop: '0.5rem'}}>
-                        <span style={{
-                          background: 'var(--ifm-color-success)',
-                          color: 'white',
-                          padding: '0.25rem 0.75rem',
-                          borderRadius: '20px',
-                          fontSize: '0.875rem',
-                          fontWeight: 'bold'
-                        }}>
-                          Save {plan.savePercent}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                  
-                  <ul style={{listStyle: 'none', padding: 0, marginBottom: '2rem'}}>
-                    {plan.features.map((feature, fidx) => (
-                      <li key={fidx} style={{marginBottom: '0.75rem', fontSize: '1rem', display: 'flex', alignItems: 'center'}}>
-                        {feature.startsWith('Success') ? (
-                          <>
-                            <Icon name="success" size={16} style={{marginRight: '8px', color: 'var(--ifm-color-success)'}} />
-                            {feature.replace('Success ', '')}
-                          </>
-                        ) : feature.startsWith('Error') ? (
-                          <>
-                            <Icon name="error" size={16} style={{marginRight: '8px', color: 'var(--ifm-color-danger)'}} />
-                            {feature.replace('Error ', '')}
-                          </>
-                        ) : (
-                          feature
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <Link
-                    className={`button button--${plan.highlighted ? 'primary' : 'secondary'} button--lg button--block`}
-                    to={plan.ctaLink}>
-                    {plan.cta}
-                  </Link>
+            {/* Billing Toggle */}
+            <PricingToggle 
+              billingType={billingType} 
+              onChange={setBillingType} 
+            />
+            
+            {/* Pricing Comparison Table */}
+            <PricingComparisonTable 
+              plans={plans}
+              features={tiersData && tiersTranslations ? buildComparisonFeatures() : []}
+              featureGroups={tiersData?.featureGroups}
+              billingType={billingType}
+              activeDiscount={activeDiscount}
+            />
+            
+            {billingType === 'yearly' && (
+              <p className="pricing-annual-note">
+                <InfoTooltip 
+                  content="Annual billing is charged upfront for the full year" 
+                  position="bottom-right" 
+                />
+                Annual plans are billed yearly and offer significant savings
+              </p>
+            )}
+            
+            {/* Custom Solutions Section */}
+            <div className="pricing-custom-section">
+              <div className="pricing-custom-content">
+                <div className="pricing-custom-text">
+                  <h3>Need a Custom Solution?</h3>
+                  <p>Contact us for enterprise pricing and custom configurations</p>
                 </div>
-              ))}
+                <Link 
+                  href="/contact" 
+                  className="button button--primary button--lg"
+                >
+                  Get Custom Roadmap
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Feature Comparison */}
-        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
+        {/* Professional Service Packages Section */}
+        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
-            <h2 style={{fontSize: '2.5rem', marginBottom: '1rem', textAlign: 'center'}}>
-              Detailed Feature Comparison
-            </h2>
-            <p style={{textAlign: 'center', marginBottom: '2rem', fontSize: '0.9rem', opacity: 0.7}}>
-              ← Scroll horizontally to see all plans →
-            </p>
-            
-            <div style={{overflowX: 'auto', WebkitOverflowScrolling: 'touch', boxShadow: 'inset -10px 0 10px -10px rgba(0,0,0,0.1)', margin: '0 auto', maxWidth: '1200px'}}>
-              <table style={{width: '100%', minWidth: '600px', margin: '0 auto', borderCollapse: 'collapse'}}>
-                <thead>
-                  <tr style={{borderBottom: '2px solid var(--ifm-color-emphasis-300)'}}>
-                    <th style={{padding: '1rem', textAlign: 'left'}}>Feature</th>
-                    <th style={{padding: '1rem', textAlign: 'center'}}>Community</th>
-                    <th style={{padding: '1rem', textAlign: 'center', background: 'var(--ifm-background-color)'}}>Advanced</th>
-                    <th style={{padding: '1rem', textAlign: 'center'}}>Premium</th>
-                    <th style={{padding: '1rem', textAlign: 'center'}}>Elite</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    ['Repositories', '1 Active', 'Unlimited', 'Unlimited', 'Unlimited'],
-                    ['Repository Size', '10 GB', '100 GB', '1 TB', 'Unlimited'],
-                    ['Server Types', 'Public Only', 'Public & Dedicated', 'On-premise', 'All Types'],
-                    ['Backup Frequency', 'Hourly', '15 min', '5 min', 'Real-time'],
-                    ['Support', 'Community', 'Priority Email', '24/7 Phone', 'Dedicated Manager'],
-                    ['Ransomware Protection', 'No', 'Yes', 'Yes', 'Yes'],
-                    ['Time Travel Recovery', 'No', 'Yes', 'Yes', 'Yes'],
-                    ['API Access', 'No', 'Basic', 'Full', 'Full'],
-                    ['Cross-region Replication', 'No', 'No', 'Yes', 'Yes'],
-                    ['Custom SLA', 'No', 'No', 'No', 'Yes'],
-                    ['Priority Features', 'No', 'No', 'No', 'Yes'],
-                  ].map(([feature, community, advanced, premium, elite], idx) => {
-                    const renderCell = (value) => {
-                      if (value === 'Yes') {
-                        return <Icon name="success" size={16} style={{color: 'var(--ifm-color-success)'}} />;
-                      } else if (value === 'No') {
-                        return <Icon name="error" size={16} style={{color: 'var(--ifm-color-danger)'}} />;
-                      }
-                      return value;
-                    };
-                    
-                    return (
-                      <tr key={idx} style={{borderBottom: '1px solid var(--ifm-color-emphasis-200)'}}>
-                        <td style={{padding: '1rem', fontWeight: '500'}}>{feature}</td>
-                        <td style={{padding: '1rem', textAlign: 'center'}}>{renderCell(community)}</td>
-                        <td style={{padding: '1rem', textAlign: 'center', background: 'var(--ifm-background-color)'}}>{renderCell(advanced)}</td>
-                        <td style={{padding: '1rem', textAlign: 'center'}}>{renderCell(premium)}</td>
-                        <td style={{padding: '1rem', textAlign: 'center'}}>{renderCell(elite)}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
+            <SpeedPricingTable />
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
+        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
               Frequently Asked Questions
             </h2>
             
             <div style={{maxWidth: '800px', margin: '0 auto'}}>
-              <details style={{marginBottom: '1rem', padding: '1rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
+              <details style={{marginBottom: '1rem', padding: '1rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
                 <summary style={{cursor: 'pointer', fontWeight: 'bold', fontSize: '1.2rem'}}>
                   What's included in the Community (Free) plan?
                 </summary>
                 <p style={{marginTop: '1rem', lineHeight: '1.6'}}>
-                  The Community plan is perfect for personal projects and testing. You get 1 active repository with up to 10GB storage, 
-                  hourly snapshots, and basic restore options on our public servers. It's completely free forever - no credit card required.
+                  The Community plan is perfect for personal projects and testing. You get access to core features with 
+                  reasonable limits, community support, and the ability to scale up anytime you need more resources.
                 </p>
               </details>
 
-              <details style={{marginBottom: '1rem', padding: '1rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
+              <details style={{marginBottom: '1rem', padding: '1rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
                 <summary style={{cursor: 'pointer', fontWeight: 'bold', fontSize: '1.2rem'}}>
-                  What's the difference between public, dedicated, and on-premise servers?
+                  How much can I save with annual billing?
                 </summary>
                 <p style={{marginTop: '1rem', lineHeight: '1.6'}}>
-                  Public servers are shared cloud infrastructure - cost-effective for most workloads. Dedicated servers provide 
-                  isolated resources for better performance. On-premise servers let you run Rediacc on your own hardware while 
-                  maintaining all cloud features and management capabilities.
-                </p>
-              </details>
-
-              <details style={{marginBottom: '1rem', padding: '1rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
-                <summary style={{cursor: 'pointer', fontWeight: 'bold', fontSize: '1.2rem'}}>
-                  Can I save money with annual billing?
-                </summary>
-                <p style={{marginTop: '1rem', lineHeight: '1.6'}}>
-                  Yes! Annual billing offers significant savings: 17% off Advanced, 23% off Premium, and 29% off Elite plans. 
+                  Annual billing offers significant savings: 17% off Advanced, 23% off Premium, and 29% off Elite plans. 
                   You pay for 10-8.5 months and get 12 months of service. Annual plans are billed upfront.
                 </p>
               </details>
 
-              <details style={{marginBottom: '1rem', padding: '1rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
+              <details style={{marginBottom: '1rem', padding: '1rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
                 <summary style={{cursor: 'pointer', fontWeight: 'bold', fontSize: '1.2rem'}}>
-                  What happens if I exceed my plan limits?
+                  Can I change my plan later?
                 </summary>
                 <p style={{marginTop: '1rem', lineHeight: '1.6'}}>
-                  We'll notify you when you're approaching your limits. You can either upgrade your plan or purchase additional 
-                  resources as needed. We never cut off service unexpectedly - your business continuity is our priority.
+                  Yes! You can upgrade or downgrade your plan at any time. When upgrading, you'll only pay the prorated 
+                  difference. When downgrading, we'll credit your account for the unused portion.
+                </p>
+              </details>
+
+              <details style={{marginBottom: '1rem', padding: '1rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
+                <summary style={{cursor: 'pointer', fontWeight: 'bold', fontSize: '1.2rem'}}>
+                  Do you offer special discounts?
+                </summary>
+                <p style={{marginTop: '1rem', lineHeight: '1.6'}}>
+                  Yes! We offer special discounts during Black Friday, Cyber Monday, New Year, and other occasions. 
+                  We also provide discounts for non-profits, educational institutions, and startups. Contact our sales team for details.
                 </p>
               </details>
             </div>
@@ -371,7 +538,7 @@ export default function Pricing() {
         {/* CTA Section */}
         <section style={{
           padding: '4rem 1rem',
-          background: 'var(--ifm-background-surface-color)',
+          background: 'var(--ifm-background-color)',
           borderTop: '1px solid var(--ifm-toc-border-color)',
           textAlign: 'center',
         }}>
@@ -391,7 +558,7 @@ export default function Pricing() {
               <Link
                 className="button button--secondary button--lg"
                 to="/contact">
-                Contact Sales
+                Talk to Us
               </Link>
             </div>
           </div>

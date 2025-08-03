@@ -615,7 +615,7 @@ html:not([data-theme='dark']) .navbar__link:hover {
 
 /* Login button special styling */
 .navbar-login-link {
-  background: linear-gradient(to right, var(--ifm-color-primary), var(--ifm-color-primary-dark)) !important;
+  background: var(--ifm-color-primary) !important;
   color: white !important;
   padding: 0.4rem 1.2rem !important;
   border-radius: 9999px !important;
@@ -625,23 +625,23 @@ html:not([data-theme='dark']) .navbar__link:hover {
 }
 
 .navbar-login-link:hover {
-  background: linear-gradient(to right, var(--ifm-color-primary-dark), var(--ifm-color-primary-darker)) !important;
+  background: var(--ifm-color-primary-dark) !important;
   color: white !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 4px 12px rgba(85, 107, 47, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* Dark theme login button */
 [data-theme='dark'] .navbar-login-link {
-  background: linear-gradient(to right, #7d9b49, #556b2f) !important;
+  background: var(--ifm-color-primary) !important;
   color: white !important;
-  border: 1px solid rgba(125, 155, 73, 0.3) !important;
+  border: 1px solid var(--ifm-color-primary-darker) !important;
 }
 
 [data-theme='dark'] .navbar-login-link:hover {
-  background: linear-gradient(to right, #8fad55, #7d9b49) !important;
+  background: var(--ifm-color-primary-dark) !important;
   color: white !important;
-  box-shadow: 0 4px 12px rgba(125, 155, 73, 0.4) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* Fix logo text color */

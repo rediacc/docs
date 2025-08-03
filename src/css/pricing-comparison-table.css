@@ -1,0 +1,208 @@
+/* Pricing Comparison Table Styles */
+
+.pricing-comparison-table {
+  margin-top: 3rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pricing-comparison-container {
+  background: var(--ifm-background-surface-color);
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid var(--ifm-toc-border-color);
+  min-width: 800px;
+}
+
+.pricing-comparison-header {
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  background: linear-gradient(135deg, var(--ifm-background-surface-color) 0%, var(--ifm-background-color) 100%);
+  border-bottom: 2px solid var(--ifm-toc-border-color);
+}
+
+.pricing-comparison-header-cell {
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+/* Removed popular badge and column highlighting */
+
+.pricing-tier-name {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.pricing-tier-price {
+  margin-bottom: 1rem;
+}
+
+.pricing-original-price {
+  text-decoration: line-through;
+  color: var(--ifm-font-color-secondary);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.pricing-current-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.pricing-period {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ifm-font-color-secondary);
+}
+
+.pricing-save-badge {
+  display: inline-block;
+  background: var(--ifm-color-success);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.pricing-discount-badge {
+  display: inline-block;
+  background: linear-gradient(to right, #f59e0b, #dc2626);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  animation: pulse 2s infinite;
+}
+
+/* Feature Groups */
+.pricing-comparison-group-header {
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  background: var(--ifm-background-color);
+  border-top: 1px solid var(--ifm-toc-border-color);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  margin-top: 1px;
+}
+
+.pricing-comparison-group-title {
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--ifm-color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Feature Rows */
+.pricing-comparison-row {
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  transition: background-color 0.2s ease;
+}
+
+.pricing-comparison-row:hover {
+  background: var(--ifm-background-color);
+}
+
+.pricing-comparison-feature-cell {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.pricing-feature-name {
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pricing-comparison-value-cell {
+  padding: 1rem 1.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: var(--ifm-font-color-secondary);
+}
+
+.pricing-comparison-value-cell.highlighted {
+  background: rgba(85, 107, 47, 0.05);
+}
+
+.pricing-cell-value {
+  font-size: 0.95rem;
+}
+
+.pricing-check-icon {
+  color: var(--ifm-color-success);
+}
+
+.pricing-x-icon {
+  color: var(--ifm-color-danger);
+  opacity: 0.5;
+}
+
+/* CTA buttons in comparison table */
+.pricing-comparison-header-cell .button {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* Dark theme adjustments */
+[data-theme='dark'] .pricing-comparison-container {
+  background: #1f2937;
+  border-color: #374151;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='dark'] .pricing-comparison-header {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border-bottom-color: #374151;
+}
+
+[data-theme='dark'] .pricing-comparison-group-header {
+  background: #111827;
+  border-color: #374151;
+}
+
+[data-theme='dark'] .pricing-comparison-row {
+  border-bottom-color: #374151;
+}
+
+[data-theme='dark'] .pricing-comparison-row:hover {
+  background: #111827;
+}
+
+[data-theme='dark'] .pricing-comparison-value-cell.highlighted {
+  background: rgba(125, 155, 73, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pricing-comparison-table {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 0 1rem;
+  }
+  
+  .pricing-comparison-container {
+    border-radius: 0;
+  }
+}

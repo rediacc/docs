@@ -15,7 +15,7 @@ function HomepageHero() {
           Infrastructure Automation Platform
         </h1>
         <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-          Deploy Fearlessly. Sleep Peacefully.
+          Deploy Fearlessly. Sleep Peacefully. AI-Proof Your Production.
         </p>
         <div className="hero-buttons animate-fade-in-up animate-delay-200">
           <Link
@@ -61,6 +61,12 @@ function FeatureCard({icon, iconName, title, description, link}) {
 
 function HomepageFeatures() {
   const features = [
+    {
+      iconName: 'ai-safety',
+      title: 'AI Safety Shield',
+      description: 'Prevent AI disasters with instant cloning. Your AI agents work on perfect copies while production stays untouchable.',
+      link: '/features/ai-safety',
+    },
     {
       iconName: 'backup',
       title: 'Intelligent Backup',
@@ -115,7 +121,94 @@ function HomepageFeatures() {
   );
 }
 
+function AISafetySection() {
+  return (
+    <section style={{padding: '4rem 0', background: 'var(--ifm-background-surface-color)'}}>
+      <div className="container">
+        <div style={{maxWidth: '900px', margin: '0 auto', textAlign: 'center'}}>
+          <h2 style={{fontSize: '2.5rem', marginBottom: '1.5rem'}}>
+            The AI Agent Crisis is Real
+          </h2>
+          <p style={{fontSize: '1.2rem', marginBottom: '2rem', color: 'var(--ifm-font-color-secondary)'}}>
+            In July 2025, an AI agent deleted an entire production database saying 
+            "I destroyed months of your work in seconds." With Rediacc, AI disasters become impossible.
+          </p>
+          <div style={{
+            background: 'var(--ifm-background-color)',
+            borderRadius: '12px',
+            padding: '2rem',
+            marginBottom: '2rem',
+            border: '1px solid var(--ifm-toc-border-color)'
+          }}>
+            <h3 style={{fontSize: '1.8rem', marginBottom: '1.5rem'}}>
+              How Rediacc Stops AI Disasters
+            </h3>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '2rem',
+              textAlign: 'left'
+            }}>
+              <div className="feature-card" style={{padding: '1.5rem'}}>
+                <h4 style={{fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--ifm-color-primary)'}}>
+                  Instant Cloning
+                </h4>
+                <p style={{margin: 0, fontSize: '0.95rem'}}>
+                  AI works on perfect copies created in seconds, never touching production
+                </p>
+              </div>
+              <div className="feature-card" style={{padding: '1.5rem'}}>
+                <h4 style={{fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--ifm-color-primary)'}}>
+                  1-Minute Recovery
+                </h4>
+                <p style={{margin: 0, fontSize: '0.95rem'}}>
+                  Even if AI deletes everything, restore from any point in time instantly
+                </p>
+              </div>
+              <div className="feature-card" style={{padding: '1.5rem'}}>
+                <h4 style={{fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--ifm-color-primary)'}}>
+                  MCP Protocol
+                </h4>
+                <p style={{margin: 0, fontSize: '0.95rem'}}>
+                  Native integration with Claude and other AI systems with hard boundaries
+                </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <Link
+              className="button button--primary button--lg"
+              to="/solutions/ai-safety"
+              style={{
+                marginRight: '1rem'
+              }}>
+              Explore AI Safety Solution
+            </Link>
+            <Link
+              className="button button--secondary button--lg"
+              to="/features/ai-safety">
+              View Features →
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function SearchSection() {
+  const handleSearchClick = () => {
+    // Navigate to documentation and trigger search
+    window.location.href = '/intro';
+    setTimeout(() => {
+      // Try to focus the search input after navigation
+      const searchButton = document.querySelector('.DocSearch-Button');
+      if (searchButton) {
+        searchButton.click();
+      }
+    }, 500);
+  };
+
   return (
     <section className="search-section">
       <div className="container">
@@ -127,15 +220,23 @@ function SearchSection() {
             Find answers quickly in our comprehensive documentation
           </p>
           <div style={{marginBottom: '2rem'}}>
-            {/* Docusaurus search will be injected here */}
-            <div className="navbar__search" style={{display: 'inline-block'}}>
-              <input
-                className="search-input"
-                type="search"
-                placeholder="Search docs... (Press '/' to focus)"
-                aria-label="Search"
-              />
-            </div>
+            <button 
+              onClick={handleSearchClick}
+              className="button button--primary button--lg"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+              </svg>
+              Search Documentation
+            </button>
+            <p style={{marginTop: '0.5rem', fontSize: '0.875rem', color: 'var(--ifm-font-color-secondary)'}}>
+              Press '/' to quickly search from anywhere
+            </p>
           </div>
         </div>
         <div className="quick-links">
@@ -248,7 +349,7 @@ function CTASection() {
           <Link
             className="button button--secondary button--lg"
             to="/contact">
-            Contact Sales
+            Let's Connect
           </Link>
         </div>
       </div>
@@ -286,6 +387,7 @@ export default function Home() {
         </script>
       </Head>
       <HomepageHero />
+      <AISafetySection />
       <HomepageFeatures />
       <VideoShowcase />
       <SearchSection />

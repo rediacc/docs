@@ -45,9 +45,14 @@ export default function DevOpsSolution() {
               <Link className="button button--primary button--lg" to="/intro">
                 Start Automating
               </Link>
-              <Link className="button button--secondary button--lg" to="/contact">
+              <a 
+                className="button button--secondary button--lg" 
+                href="https://outlook.office.com/owa/calendar/RediaccConsultationServices@rediacc.com/bookings/?ismsaljsauthenabled"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Schedule Demo
-              </Link>
+              </a>
             </div>
           </div>
         </section>

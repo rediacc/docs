@@ -30,6 +30,7 @@ const sidebars = {
         'console-guide/resources/index',
         'console-guide/queue',
         'console-guide/system',
+        'console-guide/mcp-integration',
         'console-guide/api-integration',
         'console-guide/troubleshooting-guide',
       ],
@@ -153,6 +154,7 @@ const sidebars = {
       label: 'Solutions',
       collapsed: true,
       items: [
+        'solutions/ai-safety',
         'solutions/zero-cost',
         'solutions/time-travel',
         'solutions/cross-backup',
