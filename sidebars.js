@@ -154,7 +154,7 @@ const sidebars = {
       label: 'Solutions',
       collapsed: true,
       items: [
-        'solutions/ai-safety',
+        'guides/ai-safety-guide',
         'solutions/zero-cost',
         'solutions/time-travel',
         'solutions/cross-backup',

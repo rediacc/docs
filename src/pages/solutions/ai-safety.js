@@ -46,7 +46,7 @@ export default function AISafetySolution() {
               <Link className="button button--primary button--lg" to="/features/ai-safety">
                 Explore AI Safety Features
               </Link>
-              <Link className="button button--secondary button--lg" to="/docs/solutions/ai-safety">
+              <Link className="button button--secondary button--lg" to="/solutions/ai-safety">
                 Technical Documentation
               </Link>
             </div>
@@ -174,7 +174,7 @@ export default function AISafetySolution() {
               <div className="feature-card">
                 <h3>Development with AI</h3>
                 <p>Let GitHub Copilot, Claude, and other AI tools work freely on production clones without risk.</p>
-                <Link to="/docs/solutions/ai-safety">Learn more →</Link>
+                <Link to="/solutions/ai-safety">Learn more →</Link>
               </div>
               
               <div className="feature-card">
@@ -263,10 +263,10 @@ export default function AISafetySolution() {
               Join enterprises that have made AI disasters impossible with Rediacc's proven technology.
             </p>
             <div style={{marginTop: '2rem'}}>
-              <Link className="button button--primary button--lg" to="/intro" style={{
+              <Link className="button button--primary button--lg" to="/console/login?register=true" target="_blank" style={{
                 marginRight: '1rem'
               }}>
-                Start Free Trial
+                Play on Sandbox
               </Link>
               <Link className="button button--secondary button--lg" to="/contact">
                 Request Demo

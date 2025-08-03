@@ -56,8 +56,8 @@ export default function BackupFeature() {
               <Link className="button button--primary button--lg" to="/solutions/zero-cost">
                 View Case Study
               </Link>
-              <Link className="button button--secondary button--lg" to="/intro">
-                Get Started
+              <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
+                Play on Sandbox
               </Link>
             </div>
           </div>
@@ -308,8 +308,9 @@ export default function BackupFeature() {
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link
                 className="button button--primary button--lg"
-                to="/intro">
-                Start Free Trial
+                to="/console/login?register=true"
+                target="_blank">
+                Play on Sandbox
               </Link>
               <Link
                 className="button button--secondary button--lg"
@@ -319,7 +320,7 @@ export default function BackupFeature() {
               <Link
                 className="button button--secondary button--lg"
                 to="/contact">
-                Get Started
+                Contact Sales
               </Link>
             </div>
           </div>

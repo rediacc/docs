@@ -51,8 +51,8 @@ export default function SecurityFeature() {
               <Link className="button button--primary button--lg" to="/console-guide/advanced-security">
                 Security Guide
               </Link>
-              <Link className="button button--secondary button--lg" to="/intro">
-                Get Started
+              <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
+                Play on Sandbox
               </Link>
             </div>
           </div>
@@ -408,8 +408,9 @@ export default function SecurityFeature() {
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/intro">
-                Start Free Trial
+                to="/console/login?register=true"
+                target="_blank">
+                Play on Sandbox
               </Link>
               <Link
                 className="button button--secondary button--lg"

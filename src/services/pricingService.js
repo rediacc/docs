@@ -55,20 +55,20 @@ export const fetchPricingConfig = async () => {
       plans: {
         community: {
           name: "Community",
-          ctaText: "Get Started",
+          ctaText: "Play on Sandbox",
           ctaLink: "/intro",
           ctaVariant: "secondary"
         },
         advanced: {
           name: "Advanced",
-          ctaText: "Start Free Trial",
-          ctaLink: "/intro",
+          ctaText: "Play on Sandbox",
+          ctaLink: "/console/login?register=true",
           ctaVariant: "primary"
         },
         premium: {
           name: "Premium",
-          ctaText: "Start Free Trial",
-          ctaLink: "/intro",
+          ctaText: "Play on Sandbox",
+          ctaLink: "/console/login?register=true",
           ctaVariant: "primary"
         },
         elite: {

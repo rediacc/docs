@@ -81,10 +81,10 @@ Every AI action is logged and reversible with immutable records for compliance.
 
 ## Learn More
 
-- [Technical Implementation Guide](/docs/solutions/ai-safety-technical)
 - [MCP Integration Details](/console-guide/mcp-integration)
-- [Real-World Scenarios](/docs/solutions/ai-safety-scenarios)
-- [Incident Analysis](/docs/solutions/ai-safety-incidents)
+- [Real-Time Defense](/solutions/real-time-defense)
+- [Time Travel Recovery](/solutions/time-travel)
+- [Cross-Platform Backup](/solutions/cross-backup)
 
 ## References
 

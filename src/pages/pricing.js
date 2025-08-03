@@ -544,7 +544,7 @@ export default function Pricing() {
         }}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '1.5rem', color: 'var(--ifm-heading-color)'}}>
-              Ready to Get Started?
+              Ready to Play?
             </h2>
             <p style={{fontSize: '1.2rem', marginBottom: '2rem', color: 'var(--ifm-font-color-secondary)'}}>
               Join thousands of companies automating their infrastructure with Rediacc
@@ -552,8 +552,9 @@ export default function Pricing() {
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link
                 className="button button--primary button--lg"
-                to="/intro">
-                Start Free Trial
+                to="/console/login?register=true"
+                target="_blank">
+                Play on Sandbox
               </Link>
               <Link
                 className="button button--secondary button--lg"

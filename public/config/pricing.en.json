@@ -92,29 +92,29 @@
     "community": {
       "name": "Community",
       "isPopular": false,
-      "ctaText": "Get Started",
-      "ctaLink": "#demo",
+      "ctaText": "Play on Sandbox",
+      "ctaLink": "/console/login?register=true",
       "ctaVariant": "secondary"
     },
     "advanced": {
       "name": "Advanced",
       "isPopular": false,
-      "ctaText": "Start Free Trial",
-      "ctaLink": "#demo",
+      "ctaText": "Play on Sandbox",
+      "ctaLink": "/console/login?register=true",
       "ctaVariant": "primary"
     },
     "premium": {
       "name": "Premium",
       "isPopular": false,
-      "ctaText": "Start Free Trial",
-      "ctaLink": "#demo",
+      "ctaText": "Play on Sandbox",
+      "ctaLink": "/console/login?register=true",
       "ctaVariant": "primary"
     },
     "elite": {
       "name": "Elite",
       "isPopular": false,
       "ctaText": "Get Custom Roadmap",
-      "ctaLink": "#demo",
+      "ctaLink": "/console/login?register=true",
       "ctaVariant": "secondary"
     }
   }

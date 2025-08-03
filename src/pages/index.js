@@ -20,8 +20,9 @@ function HomepageHero() {
         <div className="hero-buttons animate-fade-in-up animate-delay-200">
           <Link
             className="button button--primary button--lg"
-            to="/intro">
-            Get Started →
+            to="/console/login?register=true"
+            target="_blank">
+            Play on Sandbox →
           </Link>
           <Link
             className="button button--secondary button--lg"
@@ -352,8 +353,9 @@ function CTASection() {
         <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
           <Link
             className="button button--primary button--lg"
-            to="/intro">
-            Start Free Trial
+            to="/console/login?register=true"
+            target="_blank">
+            Play on Sandbox
           </Link>
           <Link
             className="button button--secondary button--lg"

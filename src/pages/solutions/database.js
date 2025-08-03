@@ -42,7 +42,7 @@ export default function DatabaseSolution() {
               Automate backups, ensure zero data loss, and sleep soundly knowing your databases are protected
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/intro">
+              <Link className="button button--primary button--lg" to="/console/login?register=true">
                 Protect Your Data
               </Link>
               <Link className="button button--secondary button--lg" to="/contact">
@@ -453,8 +453,9 @@ export default function DatabaseSolution() {
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link
                 className="button button--primary button--lg"
-                to="/intro">
-                Start Free Trial
+                to="/console/login?register=true"
+                target="_blank">
+                Play on Sandbox
               </Link>
               <Link
                 className="button button--secondary button--lg"

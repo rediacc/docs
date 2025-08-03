@@ -288,8 +288,8 @@ export default function About() {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
+        {/* Stats Section - Hidden for now */}
+        {/* <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center'}}>Rediacc by the Numbers</h2>
             
@@ -320,10 +320,10 @@ export default function About() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
-        {/* Investors Section */}
-        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
+        {/* Investors Section - Hidden for now */}
+        {/* <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>Backed by the Best</h2>
             <p style={{textAlign: 'center', marginBottom: '3rem', color: 'var(--ifm-font-color-secondary)'}}>
@@ -345,7 +345,7 @@ export default function About() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* CTA Section */}
         <section style={{
@@ -364,8 +364,9 @@ export default function About() {
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link
                 className="button button--primary button--lg"
-                to="/intro">
-                Try Rediacc Free
+                to="/console/login?register=true"
+                target="_blank">
+                Play on Sandbox
               </Link>
               <Link
                 className="button button--secondary button--lg"

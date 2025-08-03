@@ -50,8 +50,8 @@ export default function TimeTravelFeature() {
               <Link className="button button--primary button--lg" to="/solutions/time-travel">
                 See It In Action
               </Link>
-              <Link className="button button--secondary button--lg" to="/intro">
-                Get Started
+              <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
+                Play on Sandbox
               </Link>
             </div>
           </div>
@@ -439,8 +439,9 @@ export default function TimeTravelFeature() {
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link
                 className="button button--primary button--lg"
-                to="/intro">
-                Start Free Trial
+                to="/console/login?register=true"
+                target="_blank">
+                Play on Sandbox
               </Link>
               <Link
                 className="button button--secondary button--lg"

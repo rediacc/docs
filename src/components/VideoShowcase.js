@@ -46,7 +46,7 @@ const VideoShowcase = () => {
       iconName: 'archive',
       highlight: 'Efficient archival solution',
       gradient: 'linear-gradient(135deg, #556b2f 0%, #10b981 100%)',
-      docsLink: '/docs/solutions/zero-cost',
+      docsLink: '/solutions/zero-cost',
       videoUrl: 'https://www.youtube.com/embed/JMYQmGfTltY?si=465jIzKOqgdkuCOw&title=Intelligent%20Backup',
       useCase: {
         title: 'System Administrators',
