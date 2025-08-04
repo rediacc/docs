@@ -24,7 +24,7 @@ export default function InfrastructureProtectionSolution() {
             <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
               <h3>Business Continuity</h3>
               <p>Maintain operations during regional disasters</p>
-              <Link to="/operations/blackout">Learn more �</Link>
+              <Link to="/docs/operations/blackout">Learn more →</Link>
             </div>
             <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
               <h3>Risk-Free Operations</h3>

@@ -198,12 +198,12 @@ export default function AISafetyFeature() {
               <div className="feature-card">
                 <h3>Production AI Assistants</h3>
                 <p>Deploy AI tools like GitHub Copilot and Claude safely with hard boundaries that prevent production access.</p>
-                <Link to="/console-guide/mcp-integration">MCP Integration →</Link>
+                <Link to="/docs/console-guide/mcp-integration">MCP Integration →</Link>
               </div>
               <div className="feature-card">
                 <h3>Database Migration Testing</h3>
                 <p>AI can test complex migrations on clones, break things, and iterate without touching production data.</p>
-                <Link to="/operations/risk-free-upgrades">Risk-Free Testing →</Link>
+                <Link to="/docs/operations/risk-free-upgrades">Risk-Free Testing →</Link>
               </div>
               <div className="feature-card">
                 <h3>Security Testing</h3>
@@ -213,7 +213,7 @@ export default function AISafetyFeature() {
               <div className="feature-card">
                 <h3>Compliance & Audit</h3>
                 <p>Complete audit trail of all AI operations for regulatory compliance and incident investigation.</p>
-                <Link to="/console-guide/audit">Audit System →</Link>
+                <Link to="/docs/console-guide/audit">Audit System →</Link>
               </div>
               <div className="feature-card">
                 <h3>Disaster Recovery</h3>

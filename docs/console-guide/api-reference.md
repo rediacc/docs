@@ -1264,15 +1264,15 @@ Current versions:
 
 ## Additional Resources
 
-- [CLI Documentation](/cli/introduction) - Command-line interface using the API
-- [Architecture Overview](/console-guide/architecture) - System design and components
-- [Security Model](/console-guide/authentication#security-features) - Authentication and encryption
-- [Queue System](/console-guide/queue) - Detailed queue management guide
+- [CLI Documentation](/docs/cli/introduction) - Command-line interface using the API
+- [Architecture Overview](/docs/console-guide/architecture) - System design and components
+- [Security Model](/docs/console-guide/authentication#security-features) - Authentication and encryption
+- [Queue System](/docs/console-guide/queue) - Detailed queue management guide
 
 ## Support
 
 For API support:
-- Check the [Common Errors](/console-guide/errors/common-errors) guide
-- Review the [Known Issues](/console-guide/known-issues) page
+- Check the [Common Errors](/docs/console-guide/errors/common-errors) guide
+- Review the [Known Issues](/docs/console-guide/known-issues) page
 - Contact support through the console
 - Community forum: https://community.rediacc.com

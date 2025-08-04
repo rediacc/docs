@@ -26,12 +26,12 @@ function HomepageHero() {
           </Link>
           <Link
             className="button button--secondary button--lg"
-            to="/cli/quick-start">
+            to="/docs/cli/quick-start">
             View Documentation
           </Link>
           <Link
             className="button button--outline button--lg"
-            to="/features/backup">
+            to="/features/zero-cost-backup">
             Explore Features
           </Link>
         </div>
@@ -197,80 +197,6 @@ function AISafetySection() {
   );
 }
 
-function SearchSection() {
-  const handleSearchClick = () => {
-    // Directly trigger the search modal on the current page
-    const searchButton = document.querySelector('.DocSearch-Button');
-    if (searchButton) {
-      searchButton.click();
-    } else {
-      // Fallback: try to find and click the search input in the navbar
-      const navbarSearch = document.querySelector('.navbar__search button');
-      if (navbarSearch) {
-        navbarSearch.click();
-      } else {
-        // Final fallback: try to focus the search input directly
-        const searchInput = document.querySelector('[type="search"]');
-        if (searchInput) {
-          searchInput.focus();
-          searchInput.click();
-        }
-      }
-    }
-  };
-
-  return (
-    <section className="search-section">
-      <div className="container">
-        <h2 style={{marginBottom: '2rem', fontSize: '2rem'}}>
-          Search Documentation
-        </h2>
-        <div className="search-container">
-          <p style={{marginBottom: '2rem', color: 'var(--ifm-font-color-secondary)'}}>
-            Find answers quickly in our comprehensive documentation
-          </p>
-          <div style={{marginBottom: '2rem'}}>
-            <button 
-              onClick={handleSearchClick}
-              className="button button--primary button--lg"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem'
-              }}
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
-              </svg>
-              Search Documentation
-            </button>
-            <p style={{marginTop: '0.5rem', fontSize: '0.875rem', color: 'var(--ifm-font-color-secondary)'}}>
-              Press '/' to quickly search from anywhere
-            </p>
-          </div>
-        </div>
-        <div className="quick-links">
-          <Link to="/intro" className="quick-link">
-            Getting Started
-          </Link>
-          <Link to="/cli/api-reference" className="quick-link">
-            API Reference
-          </Link>
-          <Link to="/cli/quick-start" className="quick-link">
-            CLI Guide
-          </Link>
-          <Link to="/console-guide/quick-start" className="quick-link">
-            Console Guide
-          </Link>
-          <Link to="/solutions/zero-cost" className="quick-link">
-            Solutions
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function TestimonialsSection() {
   const testimonials = [
     {
@@ -399,9 +325,8 @@ export default function Home() {
       </Head>
       <HomepageHero />
       <AISafetySection />
-      <HomepageFeatures />
       <VideoShowcase />
-      <SearchSection />
+      <HomepageFeatures />
       <TestimonialsSection />
       <CTASection />
       <Citations citations={[

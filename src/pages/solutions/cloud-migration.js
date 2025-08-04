@@ -42,7 +42,7 @@ export default function CloudMigrationSolution() {
               Zero-downtime cloud migrations with guaranteed cost savings and performance improvements
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/intro">
+              <Link className="button button--primary button--lg" to="/docs/intro">
                 Start Migration
               </Link>
               <Link className="button button--secondary button--lg" to="/contact">
@@ -478,7 +478,7 @@ export default function CloudMigrationSolution() {
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/intro">
+                to="/docs/intro">
                 Migration Guide
               </Link>
               <Link

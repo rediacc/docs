@@ -48,7 +48,7 @@ export default function SecurityFeature() {
               Military-grade encryption, real-time threat detection, and complete compliance coverage
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/console-guide/advanced-security">
+              <Link className="button button--primary button--lg" to="/docs/console-guide/advanced-security">
                 Security Guide
               </Link>
               <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
@@ -403,7 +403,7 @@ export default function SecurityFeature() {
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link
                 className="button button--primary button--lg"
-                to="/console-guide/advanced-security">
+                to="/docs/console-guide/advanced-security">
                 View Security Docs
               </Link>
               <Link
@@ -434,16 +434,16 @@ export default function SecurityFeature() {
           <div className="container">
             <h3 style={{textAlign: 'center', marginBottom: '2rem'}}>Related Resources</h3>
             <div style={{display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap'}}>
-              <Link to="/features/backup" className="quick-link">
+              <Link to="/features/zero-cost-backup" className="quick-link">
                 Backup Security →
               </Link>
               <Link to="/features/disaster-recovery" className="quick-link">
                 Disaster Recovery →
               </Link>
-              <Link to="/console-guide/advanced-security" className="quick-link">
+              <Link to="/docs/console-guide/advanced-security" className="quick-link">
                 Advanced Security Guide →
               </Link>
-              <Link to="/console-guide/advanced-security" className="quick-link">
+              <Link to="/docs/console-guide/advanced-security" className="quick-link">
                 Security Guide →
               </Link>
             </div>

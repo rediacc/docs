@@ -81,10 +81,10 @@ Every AI action is logged and reversible with immutable records for compliance.
 
 ## Learn More
 
-- [MCP Integration Details](/console-guide/mcp-integration)
-- [Real-Time Defense](/solutions/real-time-defense)
-- [Time Travel Recovery](/solutions/time-travel)
-- [Cross-Platform Backup](/solutions/cross-backup)
+- [MCP Integration Details](/docs/console-guide/mcp-integration)
+- [Infrastructure Protection](/solutions/infrastructure-protection)
+- [Time Travel Recovery](/docs/solutions/time-travel)
+- [Cross-Platform Backup](/docs/solutions/cross-backup)
 
 ## References
 

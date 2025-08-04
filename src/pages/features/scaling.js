@@ -54,7 +54,7 @@ export default function ScalingFeature() {
               Intelligent auto-scaling that handles traffic spikes and saves money during quiet periods
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/solutions/dynamic-resource-scaling">
+              <Link className="button button--primary button--lg" to="/docs/solutions/dynamic-resource-scaling">
                 View Case Study
               </Link>
               <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
@@ -341,32 +341,32 @@ export default function ScalingFeature() {
               <div className="feature-card">
                 <h3><Icon name="ecommerce" size={20} style={{marginRight: '0.5rem'}} />E-Commerce</h3>
                 <p>Handle Black Friday traffic spikes effortlessly. In 2024, Black Friday generated $10.8B in sales with 65% traffic surge<sup>[1]</sup>. Scale automatically to meet demand.</p>
-                <Link to="/solutions/zero-cost">Learn more →</Link>
+                <Link to="/docs/solutions/zero-cost">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3><Icon name="saas" size={20} style={{marginRight: '0.5rem'}} />SaaS Applications</h3>
                 <p>Multi-tenant scaling with isolation. 86% of enterprise software is now delivered as SaaS<sup>[2]</sup>. Dynamic resource allocation for each tenant.</p>
-                <Link to="/solutions/dynamic-resource-scaling">Learn more →</Link>
+                <Link to="/docs/solutions/dynamic-resource-scaling">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3><Icon name="media" size={20} style={{marginRight: '0.5rem'}} />Media Streaming</h3>
                 <p>Handle viral content without buffering. Video streaming market reached $129.26B in 2024<sup>[3]</sup>. Scale CDN infrastructure in real-time.</p>
-                <Link to="/solutions/cross-backup">Learn more →</Link>
+                <Link to="/docs/solutions/cross-backup">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3><Icon name="gaming" size={20} style={{marginRight: '0.5rem'}} />Gaming</h3>
                 <p>Launch day success guaranteed. Scale game servers instantly based on player count and geographic distribution.</p>
-                <Link to="/solutions/real-time-defense">Learn more →</Link>
+                <Link to="/solutions/enterprise-scaling">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3><Icon name="analyze" size={20} style={{marginRight: '0.5rem'}} />Data Processing</h3>
                 <p>Scale compute for big data jobs. Process terabytes in minutes, then scale down to zero cost.</p>
-                <Link to="/cli/tutorials/job-orchestration">Learn more →</Link>
+                <Link to="/docs/cli/tutorials/job-orchestration">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3><Icon name="api" size={20} style={{marginRight: '0.5rem'}} />API Services</h3>
                 <p>Handle API traffic bursts gracefully. Auto-scale to handle millions of requests with intelligent rate limiting.</p>
-                <Link to="/operations/risk-free-upgrades">Learn more →</Link>
+                <Link to="/docs/operations/risk-free-upgrades">Learn more →</Link>
               </div>
             </div>
           </div>
@@ -461,7 +461,7 @@ export default function ScalingFeature() {
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/solutions/dynamic-resource-scaling">
+                to="/docs/solutions/dynamic-resource-scaling">
                 View Demo
               </Link>
               <Link
@@ -478,7 +478,7 @@ export default function ScalingFeature() {
           <div className="container">
             <h3 style={{textAlign: 'center', marginBottom: '2rem'}}>Related Resources</h3>
             <div style={{display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap'}}>
-              <Link to="/features/backup" className="quick-link">
+              <Link to="/features/zero-cost-backup" className="quick-link">
                 Backup Solutions →
               </Link>
               <Link to="/features/disaster-recovery" className="quick-link">
@@ -487,7 +487,7 @@ export default function ScalingFeature() {
               <Link to="/solutions/cloud-migration" className="quick-link">
                 Cloud Migration →
               </Link>
-              <Link to="/solutions/dynamic-resource-scaling" className="quick-link">
+              <Link to="/docs/solutions/dynamic-resource-scaling" className="quick-link">
                 Scaling Guide →
               </Link>
             </div>

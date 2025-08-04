@@ -48,7 +48,7 @@ export default function DisasterRecoveryFeature() {
               Zero data loss, instant recovery, and complete business continuity—guaranteed
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/solutions/real-time-defense">
+              <Link className="button button--primary button--lg" to="/solutions/infrastructure-protection">
                 DR Planning Guide
               </Link>
               <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
@@ -427,7 +427,7 @@ export default function DisasterRecoveryFeature() {
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/solutions/real-time-defense">
+                to="/solutions/infrastructure-protection">
                 DR Planning Guide
               </Link>
               <Link
@@ -452,7 +452,7 @@ export default function DisasterRecoveryFeature() {
           <div className="container">
             <h3 style={{textAlign: 'center', marginBottom: '2rem'}}>Related Resources</h3>
             <div style={{display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap'}}>
-              <Link to="/features/backup" className="quick-link">
+              <Link to="/features/zero-cost-backup" className="quick-link">
                 Backup Solutions →
               </Link>
               <Link to="/features/security" className="quick-link">

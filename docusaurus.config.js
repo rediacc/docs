@@ -53,7 +53,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/rediacc/rediacc/tree/main/packages/create-docusaurus/templates/shared/',
-          routeBasePath: '/', // Serve docs at the site root
+          routeBasePath: '/docs', // Serve docs at /docs path
         },
         theme: {
           customCss: [
@@ -204,7 +204,7 @@ const config = {
             ],
           },
           {
-            to: '/intro',
+            to: '/docs/intro',
             label: 'Documentation',
             position: 'left',
           },
@@ -252,7 +252,7 @@ const config = {
             items: [
               {
                 label: 'Features',
-                to: '/features/backup',
+                to: '/features/zero-cost-backup',
               },
               {
                 label: 'Pricing',
@@ -260,11 +260,11 @@ const config = {
               },
               {
                 label: 'Documentation',
-                to: '/intro',
+                to: '/docs/intro',
               },
               {
                 label: 'API Reference',
-                to: '/cli/api-reference',
+                to: '/docs/cli/api-reference',
               },
             ],
           },

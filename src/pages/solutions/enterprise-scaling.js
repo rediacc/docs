@@ -19,17 +19,17 @@ export default function EnterpriseScalingSolution() {
             <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
               <h3>Legacy Database Scaling</h3>
               <p>Scale legacy systems up to 8x without rewrites</p>
-              <Link to="/solutions/legacy-database-scaling">Learn more ’</Link>
+              <Link to="/docs/solutions/legacy-database-scaling">Learn more ï¿½</Link>
             </div>
             <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
               <h3>Dynamic Resource Scaling</h3>
               <p>Hybrid cloud scaling with up to 60% cost reduction</p>
-              <Link to="/features/dynamic-scaling">Learn more ’</Link>
+              <Link to="/features/dynamic-scaling">Learn more ï¿½</Link>
             </div>
             <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
               <h3>Global Distribution</h3>
               <p>Deploy across regions with automatic failover</p>
-              <Link to="/solutions/enterprise">Learn more ’</Link>
+              <Link to="/solutions/enterprise">Learn more ï¿½</Link>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default function EnterpriseScalingSolution() {
           <Link className="button button--primary button--lg" to="/contact">
             Discuss Your Scaling Needs
           </Link>
-          <Link className="button button--secondary button--lg" to="/solutions/legacy-database-scaling" style={{marginLeft: '1rem'}}>
+          <Link className="button button--secondary button--lg" to="/docs/solutions/legacy-database-scaling" style={{marginLeft: '1rem'}}>
             View Case Studies
           </Link>
         </div>

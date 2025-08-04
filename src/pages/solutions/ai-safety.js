@@ -180,7 +180,7 @@ export default function AISafetySolution() {
               <div className="feature-card">
                 <h3>Database Migrations</h3>
                 <p>AI can test complex migrations, break things, and iterate on disposable clones.</p>
-                <Link to="/operations/risk-free-upgrades">Risk-free testing →</Link>
+                <Link to="/docs/operations/risk-free-upgrades">Risk-free testing →</Link>
               </div>
               
               <div className="feature-card">
@@ -192,7 +192,7 @@ export default function AISafetySolution() {
               <div className="feature-card">
                 <h3>Compliance & Audit</h3>
                 <p>Complete audit trail of all AI operations for regulatory requirements.</p>
-                <Link to="/console-guide/audit">Audit system →</Link>
+                <Link to="/docs/console-guide/audit">Audit system →</Link>
               </div>
               
               <div className="feature-card">

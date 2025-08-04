@@ -46,7 +46,7 @@ const VideoShowcase = () => {
       iconName: 'archive',
       highlight: 'Efficient archival solution',
       gradient: 'linear-gradient(135deg, #556b2f 0%, #10b981 100%)',
-      docsLink: '/solutions/zero-cost',
+      docsLink: '/docs/solutions/zero-cost',
       videoUrl: 'https://www.youtube.com/embed/JMYQmGfTltY?si=465jIzKOqgdkuCOw&title=Intelligent%20Backup',
       useCase: {
         title: 'System Administrators',
@@ -97,7 +97,7 @@ const VideoShowcase = () => {
       iconName: 'shield',
       highlight: 'Advanced threat protection',
       gradient: 'linear-gradient(135deg, #ef4444 0%, #f97316 100%)',
-      docsLink: '/docs/solutions/real-time-defense',
+      docsLink: '/features/security',
       videoUrl: 'https://www.youtube.com/embed/JMYQmGfTltY?si=465jIzKOqgdkuCOw&title=Advanced%20Security',
       useCase: {
         title: 'Security Teams',

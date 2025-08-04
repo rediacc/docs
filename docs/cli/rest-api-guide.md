@@ -14,7 +14,7 @@ All API endpoints follow the same pattern:
 POST https://api.rediacc.com/api/StoredProcedure/{ProcedureName}
 ```
 
-For detailed endpoint documentation, see the [API Reference](/cli/api-reference) section where each command documents its corresponding REST endpoint.
+For detailed endpoint documentation, see the [API Reference](/docs/cli/api-reference) section where each command documents its corresponding REST endpoint.
 
 ## Authentication
 
@@ -328,4 +328,4 @@ Long-running tasks use the queue system:
 - **Trace requests**: Use network tracing tools to examine request/response details
 - **Isolate components**: Test components in isolation to identify problems
 
-For implementation examples, see the [CLI tutorials](/cli/tutorials/authentication-workflows) which demonstrate these patterns in practice.
+For implementation examples, see the [CLI tutorials](/docs/cli/tutorials/authentication-workflows) which demonstrate these patterns in practice.

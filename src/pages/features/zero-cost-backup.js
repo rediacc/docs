@@ -15,8 +15,8 @@ export default function ZeroCostBackupFeature() {
         <meta property="og:title" content="Zero-Cost Backup Solutions - Save Up to 90% on Storage" />
         <meta property="og:description" content="Revolutionary backup technology that can reduce storage costs by up to 90% while improving recovery times. Enterprise-grade reliability with instant point-in-time recovery." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="/features/backup" />
-        <link rel="canonical" href="/features/backup" />
+        <meta property="og:url" content="/features/zero-cost-backup" />
+        <link rel="canonical" href="/features/zero-cost-backup" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -53,7 +53,7 @@ export default function ZeroCostBackupFeature() {
               Revolutionary differential backup technology that typically reduces backup time from weeks to minutes
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/solutions/zero-cost">
+              <Link className="button button--primary button--lg" to="/docs/solutions/zero-cost">
                 View Case Study
               </Link>
               <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
@@ -193,12 +193,12 @@ export default function ZeroCostBackupFeature() {
               <div className="feature-card">
                 <h3>Database Backup</h3>
                 <p>Protect MySQL, PostgreSQL, MongoDB, Oracle, and SQL Server databases with intelligent differential backups</p>
-                <Link to="/solutions/zero-cost">Learn more →</Link>
+                <Link to="/docs/solutions/zero-cost">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3>Application Backup</h3>
                 <p>Back up entire application stacks including code, configurations, and data with single-click restore</p>
-                <Link to="/solutions/cross-backup">Learn more →</Link>
+                <Link to="/docs/solutions/cross-backup">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3>Disaster Recovery</h3>
@@ -208,7 +208,7 @@ export default function ZeroCostBackupFeature() {
               <div className="feature-card">
                 <h3>Dev/Test Environments</h3>
                 <p>Clone production data instantly for development and testing without storage overhead</p>
-                <Link to="/solutions/dynamic-resource-scaling">Learn more →</Link>
+                <Link to="/docs/solutions/dynamic-resource-scaling">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3>Compliance Archives</h3>
@@ -314,7 +314,7 @@ export default function ZeroCostBackupFeature() {
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/solutions/zero-cost">
+                to="/docs/solutions/zero-cost">
                 Read Case Study
               </Link>
               <Link
@@ -353,7 +353,7 @@ export default function ZeroCostBackupFeature() {
               <Link to="/solutions/enterprise" className="quick-link">
                 Enterprise Solutions →
               </Link>
-              <Link to="/cli/quick-start" className="quick-link">
+              <Link to="/docs/cli/quick-start" className="quick-link">
                 Quick Start Guide →
               </Link>
             </div>

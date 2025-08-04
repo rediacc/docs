@@ -688,7 +688,7 @@ Dashboard features:
 - [MCP Protocol Specification](https://modelcontextprotocol.org)
 - [Rediacc API Reference](/cli/api-reference)
 - [AI Safety Best Practices](/solutions/ai-safety)
-- [Audit System Guide](/console-guide/audit)
+- [Audit System Guide](/docs/console-guide/audit)
 
 ### Community
 - GitHub: [github.com/rediacc/mcp-server](https://github.com/rediacc/mcp-server)

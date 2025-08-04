@@ -464,7 +464,7 @@ export default function DatabaseSolution() {
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/features/backup">
+                to="/features/zero-cost-backup">
                 Learn About Backups
               </Link>
             </div>

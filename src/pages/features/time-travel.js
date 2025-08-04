@@ -42,7 +42,7 @@ export default function TimeTravelFeature() {
               Instantly restore to any point in time, even weeks or months in the past, with our revolutionary snapshot technology
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/solutions/time-travel">
+              <Link className="button button--primary button--lg" to="/docs/solutions/time-travel">
                 View Case Study
               </Link>
               <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
@@ -190,7 +190,7 @@ export default function TimeTravelFeature() {
                   they were able to restore the data completely within minutes, preventing significant financial 
                   loss and maintaining customer trust.
                 </p>
-                <Link className="button button--primary" to="/solutions/time-travel">
+                <Link className="button button--primary" to="/docs/solutions/time-travel">
                   Read Full Case Study →
                 </Link>
               </div>

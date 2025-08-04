@@ -146,12 +146,12 @@ export default function Careers() {
               Join our team of exceptional engineers building the next generation of infrastructure management tools
             </p>
             <div style={{marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
-              <Link className="button button--secondary button--lg" to="#open-positions" style={{color: 'var(--ifm-color-primary)'}}>
+              <a className="button button--secondary button--lg" href="#open-positions" style={{color: 'var(--ifm-color-primary)'}}>
                 View Open Positions
-              </Link>
-              <Link className="button button--outline button--lg" to="#culture" style={{color: 'white', borderColor: 'white'}}>
+              </a>
+              <a className="button button--outline button--lg" href="#culture" style={{color: 'white', borderColor: 'white'}}>
                 Learn About Our Culture
-              </Link>
+              </a>
             </div>
           </div>
         </section>

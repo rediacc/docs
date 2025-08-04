@@ -42,7 +42,7 @@ export default function CrossBackupFeature() {
               With Rediacc Cross-Backup, it always does. Reduce backup time from weeks to minutes with up to 98% less bandwidth.
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/solutions/cross-backup">
+              <Link className="button button--primary button--lg" to="/docs/solutions/cross-backup">
                 View Case Study
               </Link>
               <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
@@ -243,7 +243,7 @@ export default function CrossBackupFeature() {
                   the remote backup was activated in just 7 minutes, preventing significant data loss and 
                   maintaining business continuity.
                 </p>
-                <Link className="button button--primary" to="/solutions/cross-backup">
+                <Link className="button button--primary" to="/docs/solutions/cross-backup">
                   Read Full Case Study →
                 </Link>
               </div>

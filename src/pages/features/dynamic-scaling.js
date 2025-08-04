@@ -42,7 +42,7 @@ export default function DynamicScalingFeature() {
               Build with limitless flexibility. Scale seamlessly between on-premise and cloud with up to 60% cost reduction.
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/solutions/dynamic-resource-scaling">
+              <Link className="button button--primary button--lg" to="/docs/solutions/dynamic-resource-scaling">
                 View Case Study
               </Link>
               <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
@@ -349,7 +349,7 @@ export default function DynamicScalingFeature() {
                   morning in just 9 minutes, scale to 10x processing power for AI training, then sync everything 
                   back at night. Result: 60% cost reduction and 5x faster model training.
                 </p>
-                <Link className="button button--primary" to="/solutions/dynamic-resource-scaling">
+                <Link className="button button--primary" to="/docs/solutions/dynamic-resource-scaling">
                   Read Full Case Study →
                 </Link>
               </div>

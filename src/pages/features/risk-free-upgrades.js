@@ -42,7 +42,7 @@ export default function RiskFreeUpgradesFeature() {
               Upgrade with confidence. Clone, test, and validate before touching production - all in seconds, not days.
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/operations/risk-free-upgrades">
+              <Link className="button button--primary button--lg" to="/docs/operations/risk-free-upgrades">
                 View Case Study
               </Link>
               <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
@@ -355,7 +355,7 @@ export default function RiskFreeUpgradesFeature() {
                   a perfect upgrade with zero downtime. The company avoided what could have been a 
                   catastrophic failure affecting 5000+ employees.
                 </p>
-                <Link className="button button--primary" to="/operations/risk-free-upgrades">
+                <Link className="button button--primary" to="/docs/operations/risk-free-upgrades">
                   Read Full Case Study →
                 </Link>
               </div>
