@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Head from '@docusaurus/Head';
 import VideoShowcase from '../components/VideoShowcase';
 import Citations from '../components/Citations';
+import CitationLink from '../components/CitationLink';
 import { FeatureIcon } from '../components/Icon';
 
 function HomepageHero() {
@@ -29,11 +30,24 @@ function HomepageHero() {
             to="/docs/cli/quick-start">
             View Documentation
           </Link>
-          <Link
-            className="button button--outline button--lg"
-            to="/features/zero-cost-backup">
-            Explore Features
-          </Link>
+        </div>
+        <div className="hero-quote animate-fade-in-up animate-delay-300" style={{
+          marginTop: '3rem',
+          padding: '1.5rem',
+          borderLeft: '3px solid var(--ifm-color-primary-lighter)',
+          background: 'rgba(85, 107, 47, 0.05)',
+          borderRadius: '8px',
+          maxWidth: '700px',
+          marginLeft: 'auto',
+          marginRight: 'auto'
+        }}>
+          <p style={{fontSize: '1.1rem', fontStyle: 'italic', margin: 0, color: 'var(--ifm-font-color-secondary)'}}>
+            <CitationLink numbers={3}>
+              "The most aggressive buyers in AI are no longer chasing novelty. They are chasing infrastructure. 
+              As AI shifts from lab to production, the real battle is not about building models. 
+              It is about running them at scale, reliably and securely."
+            </CitationLink>
+          </p>
         </div>
       </div>
     </section>
@@ -71,7 +85,7 @@ function HomepageFeatures() {
     {
       iconName: 'backup',
       title: 'Zero-Cost Backup',
-      description: 'Achieve up to 90% storage reduction with our smart differential backup technology<sup>[1]</sup>.',
+      description: 'Achieve up to 90% storage reduction with our smart differential backup technology.',
       link: '/features/zero-cost-backup',
     },
     {
@@ -122,75 +136,51 @@ function HomepageFeatures() {
   );
 }
 
-function AISafetySection() {
+function AISafetyHighlight() {
   return (
-    <section style={{padding: '4rem 0', background: 'var(--ifm-background-surface-color)'}}>
+    <section style={{padding: '3rem 0', background: 'var(--ifm-background-surface-color)'}}>
       <div className="container">
-        <div style={{maxWidth: '900px', margin: '0 auto', textAlign: 'center'}}>
-          <h2 style={{fontSize: '2.5rem', marginBottom: '1.5rem'}}>
-            The AI Agent Crisis is Real
+        <div style={{
+          maxWidth: '900px', 
+          margin: '0 auto', 
+          textAlign: 'center',
+          padding: '2rem',
+          background: 'var(--ifm-background-color)',
+          borderRadius: '12px',
+          border: '2px solid var(--ifm-color-primary-lighter)'
+        }}>
+          <h2 style={{fontSize: '2rem', marginBottom: '1rem', color: 'var(--ifm-color-primary)'}}>
+            🛡️ AI Safety Alert: Production Damage is Real
           </h2>
-          <p style={{fontSize: '1.2rem', marginBottom: '2rem', color: 'var(--ifm-font-color-secondary)'}}>
-            In July 2025, an AI agent deleted an entire production database saying 
-            "I destroyed months of your work in seconds." With Rediacc, AI disasters become impossible.
+          <p style={{fontSize: '1.1rem', marginBottom: '2rem', color: 'var(--ifm-font-color-secondary)'}}>
+            In July 2025, an AI agent deleted an entire production database. 
+            With Rediacc, AI disasters become impossible through instant cloning and 1-minute recovery.
           </p>
           <div style={{
-            background: 'var(--ifm-background-color)',
-            borderRadius: '12px',
-            padding: '2rem',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '1rem',
             marginBottom: '2rem',
-            border: '1px solid var(--ifm-toc-border-color)'
+            textAlign: 'center'
           }}>
-            <h3 style={{fontSize: '1.8rem', marginBottom: '1.5rem'}}>
-              How Rediacc Stops AI Disasters
-            </h3>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-              gap: '2rem',
-              textAlign: 'left'
-            }}>
-              <div className="feature-card" style={{padding: '1.5rem'}}>
-                <h4 style={{fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--ifm-color-primary)'}}>
-                  Instant Cloning
-                </h4>
-                <p style={{margin: 0, fontSize: '0.95rem'}}>
-                  AI works on perfect copies created in seconds, never touching production
-                </p>
-              </div>
-              <div className="feature-card" style={{padding: '1.5rem'}}>
-                <h4 style={{fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--ifm-color-primary)'}}>
-                  1-Minute Recovery
-                </h4>
-                <p style={{margin: 0, fontSize: '0.95rem'}}>
-                  Even if AI deletes everything, restore from any point in time instantly
-                </p>
-              </div>
-              <div className="feature-card" style={{padding: '1.5rem'}}>
-                <h4 style={{fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--ifm-color-primary)'}}>
-                  MCP Protocol
-                </h4>
-                <p style={{margin: 0, fontSize: '0.95rem'}}>
-                  Native integration with Claude and other AI systems with hard boundaries
-                </p>
-              </div>
+            <div style={{padding: '1rem'}}>
+              <div style={{fontSize: '2rem', fontWeight: 'bold', color: 'var(--ifm-color-primary)'}}>0%</div>
+              <div style={{fontSize: '0.9rem'}}>Production Access</div>
+            </div>
+            <div style={{padding: '1rem'}}>
+              <div style={{fontSize: '2rem', fontWeight: 'bold', color: 'var(--ifm-color-primary)'}}>1 min</div>
+              <div style={{fontSize: '0.9rem'}}>Recovery Time</div>
+            </div>
+            <div style={{padding: '1rem'}}>
+              <div style={{fontSize: '2rem', fontWeight: 'bold', color: 'var(--ifm-color-primary)'}}>100%</div>
+              <div style={{fontSize: '0.9rem'}}>AI Isolation</div>
             </div>
           </div>
-          <div>
-            <Link
-              className="button button--primary button--lg"
-              to="/solutions/ai-safety"
-              style={{
-                marginRight: '1rem'
-              }}>
-              Explore AI Safety Solution
-            </Link>
-            <Link
-              className="button button--secondary button--lg"
-              to="/features/ai-safety">
-              View Features →
-            </Link>
-          </div>
+          <Link
+            className="button button--primary button--lg"
+            to="/features/ai-safety">
+            Learn How We Protect You →
+          </Link>
         </div>
       </div>
     </section>
@@ -223,7 +213,7 @@ function TestimonialsSection() {
           Trusted by Engineering Teams Worldwide
         </h2>
         <div style={{textAlign: 'center', marginBottom: '2rem', fontSize: '1.1rem', color: 'var(--ifm-font-color-secondary)'}}>
-          Organizations using Rediacc report 90% backup storage cost reduction<sup>[1]</sup> and 10x faster deployment cycles<sup>[2]</sup>
+          Organizations using Rediacc report <CitationLink numbers={1}>90% backup storage cost reduction</CitationLink> and <CitationLink numbers={2}>10x faster deployment cycles</CitationLink>
         </div>
         <div style={{
           display: 'grid',
@@ -324,9 +314,9 @@ export default function Home() {
         </script>
       </Head>
       <HomepageHero />
-      <AISafetySection />
-      <VideoShowcase />
       <HomepageFeatures />
+      <VideoShowcase />
+      <AISafetyHighlight />
       <TestimonialsSection />
       <CTASection />
       <Citations citations={[
@@ -339,6 +329,11 @@ export default function Home() {
           text: "Elite DevOps performers deploy 973x more frequently than low performers, with recovery times under 1 hour (2021 data). Only 19% of teams achieved elite performer status in 2024.",
           source: "DORA State of DevOps Report 2024",
           url: "https://cloud.google.com/devops/state-of-devops"
+        },
+        {
+          text: "The most aggressive buyers in AI are no longer chasing novelty. They are chasing infrastructure. As AI shifts from lab to production, the real battle is not about building models. It is about running them at scale, reliably and securely.",
+          source: "Crunchbase News - Strategic M&A at Global Scale",
+          url: "https://news.crunchbase.com/ai/strategic-ma-global-scale-sagie/?utm_source=cb_daily&utm_medium=email&utm_campaign=20230703"
         }
       ]} />
     </Layout>

@@ -1,4 +1,26 @@
 {
+  "planAvailability": {
+    "community": {
+      "status": "available",
+      "spotsRemaining": null,
+      "message": null
+    },
+    "advanced": {
+      "status": "limited",
+      "spotsRemaining": 7,
+      "message": "Only 7 spots left!"
+    },
+    "premium": {
+      "status": "available",
+      "spotsRemaining": null,
+      "message": null
+    },
+    "elite": {
+      "status": "soldOut",
+      "spotsRemaining": 0,
+      "message": "Sold Out"
+    }
+  },
   "servicePackageAvailability": {
     "standard": {
       "status": "available",

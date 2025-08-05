@@ -185,105 +185,74 @@ export default function About() {
             <h2 style={{fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center'}}>Leadership Team</h2>
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', maxWidth: '1000px', margin: '0 auto'}}>
-              <div style={{textAlign: 'center'}}>
-                <div style={{
-                  width: '150px',
-                  height: '150px',
-                  borderRadius: '50%',
-                  margin: '0 auto 1rem',
-                  overflow: 'hidden',
-                  border: '4px solid var(--ifm-color-primary-lightest)',
-                  background: 'var(--ifm-background-surface-color)'
-                }}>
-                  <img 
-                    src="/img/profiles/mfb.jpeg" 
-                    alt="Muhammed Fatih BAYRAKTAR"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover'
-                    }}
-                  />
+              {[
+                {
+                  name: 'Muhammed Fatih BAYRAKTAR',
+                  role: 'Founder',
+                  image: '/img/profiles/mfb.jpeg',
+                  description: 'Visionary leader with a passion for building great products and even greater teams.',
+                  linkedin: 'https://www.linkedin.com/in/muhammed-fatih-bayraktar/'
+                },
+                {
+                  name: 'Hamza ÖZSARAC',
+                  role: 'Full Stack Developer',
+                  image: '/img/profiles/hmz.jpeg',
+                  description: 'Expert in scalable systems and cutting-edge technology, driving our technical vision.',
+                  linkedin: 'https://www.linkedin.com/in/hamza-ozsarac/'
+                },
+                {
+                  name: 'Hasan Anıl KARTAL',
+                  role: 'Software Test & Quality Expert',
+                  image: '/img/profiles/hak.jpeg',
+                  description: 'Creative mind behind our user-centric design, making complexity feel simple.',
+                  linkedin: 'https://www.linkedin.com/in/hasananilkartal/'
+                },
+                {
+                  name: 'Yüksel Demirel',
+                  role: 'System And DevOps Engineer',
+                  image: '/img/profiles/yd.jpeg',
+                  description: 'Dedicated to crafting robust and efficient code that powers our platform.',
+                  linkedin: 'https://www.linkedin.com/in/y%C3%BCksel-demirel-92065749/'
+                }
+              ].map((member, index) => (
+                <div key={index} style={{textAlign: 'center'}}>
+                  <div style={{
+                    width: '150px',
+                    height: '150px',
+                    borderRadius: '50%',
+                    margin: '0 auto 1rem',
+                    overflow: 'hidden',
+                    border: '4px solid var(--ifm-color-primary-lightest)',
+                    background: 'var(--ifm-background-surface-color)'
+                  }}>
+                    <img 
+                      src={member.image}
+                      alt={member.name}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover'
+                      }}
+                    />
+                  </div>
+                  <h3>{member.name}</h3>
+                  <p style={{color: 'var(--ifm-color-primary)', marginBottom: '0.5rem', fontWeight: 'bold'}}>{member.role}</p>
+                  <p style={{fontSize: '0.95rem', marginBottom: '1rem'}}>{member.description}</p>
+                  <div style={{display: 'flex', justifyContent: 'center', gap: '0.5rem'}}>
+                    <a 
+                      href={member.linkedin}
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{color: 'var(--ifm-color-primary)', fontSize: '1.25rem'}}
+                      aria-label={`LinkedIn profile of ${member.name}`}
+                    >
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
-                <h3>Muhammed Fatih BAYRAKTAR</h3>
-                <p style={{color: 'var(--ifm-color-primary)', marginBottom: '0.5rem', fontWeight: 'bold'}}>Founder</p>
-                <p style={{fontSize: '0.95rem'}}>Visionary leader with a passion for building great products and even greater teams.</p>
-              </div>
-              
-              <div style={{textAlign: 'center'}}>
-                <div style={{
-                  width: '150px',
-                  height: '150px',
-                  borderRadius: '50%',
-                  margin: '0 auto 1rem',
-                  overflow: 'hidden',
-                  border: '4px solid var(--ifm-color-primary-lightest)',
-                  background: 'var(--ifm-background-surface-color)'
-                }}>
-                  <img 
-                    src="/img/profiles/hmz.jpeg" 
-                    alt="Hamza ÖZSARAC"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover'
-                    }}
-                  />
-                </div>
-                <h3>Hamza ÖZSARAC</h3>
-                <p style={{color: 'var(--ifm-color-primary)', marginBottom: '0.5rem', fontWeight: 'bold'}}>Full Stack Developer</p>
-                <p style={{fontSize: '0.95rem'}}>Expert in scalable systems and cutting-edge technology, driving our technical vision.</p>
-              </div>
-              
-              <div style={{textAlign: 'center'}}>
-                <div style={{
-                  width: '150px',
-                  height: '150px',
-                  borderRadius: '50%',
-                  margin: '0 auto 1rem',
-                  overflow: 'hidden',
-                  border: '4px solid var(--ifm-color-primary-lightest)',
-                  background: 'var(--ifm-background-surface-color)'
-                }}>
-                  <img 
-                    src="/img/profiles/hak.jpeg" 
-                    alt="Hasan Anıl KARTAL"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover'
-                    }}
-                  />
-                </div>
-                <h3>Hasan Anıl KARTAL</h3>
-                <p style={{color: 'var(--ifm-color-primary)', marginBottom: '0.5rem', fontWeight: 'bold'}}>Software Test & Quality Expert</p>
-                <p style={{fontSize: '0.95rem'}}>Creative mind behind our user-centric design, making complexity feel simple.</p>
-              </div>
-              
-              <div style={{textAlign: 'center'}}>
-                <div style={{
-                  width: '150px',
-                  height: '150px',
-                  borderRadius: '50%',
-                  margin: '0 auto 1rem',
-                  overflow: 'hidden',
-                  border: '4px solid var(--ifm-color-primary-lightest)',
-                  background: 'var(--ifm-background-surface-color)'
-                }}>
-                  <img 
-                    src="/img/profiles/yd.jpeg" 
-                    alt="Yüksel Demirel"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover'
-                    }}
-                  />
-                </div>
-                <h3>Yüksel Demirel</h3>
-                <p style={{color: 'var(--ifm-color-primary)', marginBottom: '0.5rem', fontWeight: 'bold'}}>System And DevOps Engineer</p>
-                <p style={{fontSize: '0.95rem'}}>Dedicated to crafting robust and efficient code that powers our platform.</p>
-              </div>
+              ))}
             </div>
           </div>
         </section>

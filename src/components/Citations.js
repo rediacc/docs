@@ -5,7 +5,7 @@ const Citations = ({ citations }) => {
   if (!citations || citations.length === 0) return null;
 
   return (
-    <div style={{
+    <div id="citations" style={{
       marginTop: '4rem',
       padding: '2rem',
       background: 'var(--ifm-background-surface-color)',

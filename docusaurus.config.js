@@ -100,6 +100,15 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      // Announcement bar for beta warning
+      announcementBar: {
+        id: 'beta_warning',
+        content:
+          '🚧 <strong>Beta Preview:</strong> Platform in active development until <strong>Oct 1, 2025</strong>. Data may be reset during updates. For testing only.',
+        backgroundColor: '#fff3cd',
+        textColor: '#856404',
+        isCloseable: false,
+      },
       // Hide navbar completely through CSS
       navbar: {
         style: 'primary',

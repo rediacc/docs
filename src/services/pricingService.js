@@ -2,13 +2,13 @@
 export const fetchPricingConfig = async () => {
   try {
     // Try to fetch localized version first
-    const enResponse = await fetch('/config/pricing.en.json');
+    const enResponse = await fetch('/data/pricing.en.json');
     if (enResponse.ok) {
       return await enResponse.json();
     }
     
     // Fall back to base pricing config
-    const response = await fetch('/config/pricing.json');
+    const response = await fetch('/data/pricing.json');
     if (!response.ok) {
       throw new Error(`Failed to fetch pricing config: ${response.status}`);
     }
@@ -85,7 +85,7 @@ export const fetchPricingConfig = async () => {
 // Fetch localized pricing config
 export const fetchLocalizedPricingConfig = async (language = 'en') => {
   try {
-    const response = await fetch(`/config/pricing.${language}.json`);
+    const response = await fetch(`/data/pricing.${language}.json`);
     if (!response.ok) {
       // Fallback to base pricing config
       return fetchPricingConfig();

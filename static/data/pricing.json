@@ -39,8 +39,8 @@
   "specialDayDiscounts": {
     "blackFriday": {
       "name": "pricing.blackFriday",
-      "startDate": "2024-11-29",
-      "endDate": "2024-12-01",
+      "startDate": "2025-11-28",
+      "endDate": "2025-11-30",
       "discount": 0.25,
       "message": "pricing.blackFridayMessage",
       "bannerColor": "#000000",
@@ -49,8 +49,8 @@
     },
     "cyberMonday": {
       "name": "pricing.cyberMonday",
-      "startDate": "2024-12-02",
-      "endDate": "2024-12-02",
+      "startDate": "2025-12-01",
+      "endDate": "2025-12-01",
       "discount": 0.30,
       "message": "pricing.cyberMondayMessage",
       "bannerColor": "#4A90E2",
@@ -59,8 +59,8 @@
     },
     "newYear": {
       "name": "pricing.newYearSale",
-      "startDate": "2024-12-31",
-      "endDate": "2025-01-07",
+      "startDate": "2025-12-31",
+      "endDate": "2026-01-07",
       "discount": 0.20,
       "message": "pricing.newYearMessage",
       "bannerColor": "#FFD700",
@@ -69,8 +69,8 @@
     },
     "summerSale": {
       "name": "pricing.summerSale",
-      "startDate": "2024-06-21",
-      "endDate": "2024-09-21",
+      "startDate": "2025-06-21",
+      "endDate": "2025-09-21",
       "discount": 0.15,
       "message": "pricing.summerSaleMessage",
       "bannerColor": "#FF6B6B",

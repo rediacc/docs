@@ -1,7 +1,7 @@
 // Tiers configuration service
 export const fetchBaseTiersConfig = async () => {
   try {
-    const response = await fetch('/config/tiers.json');
+    const response = await fetch('/data/tiers.json');
     if (!response.ok) {
       throw new Error(`Failed to fetch tiers config: ${response.status}`);
     }
@@ -16,7 +16,7 @@ export const fetchBaseTiersConfig = async () => {
 // Fetch localized tiers translations
 export const fetchTiersConfig = async (language = 'en') => {
   try {
-    const response = await fetch(`/config/tiers.${language}.json`);
+    const response = await fetch(`/data/tiers.${language}.json`);
     if (!response.ok) {
       throw new Error(`Failed to fetch tiers translations: ${response.status}`);
     }

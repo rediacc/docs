@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
 import Citations from '../../components/Citations';
+import CitationLink from '../../components/CitationLink';
 import { Icon } from '../../components/Icon';
 
 export default function AISafetyFeature() {
@@ -79,8 +80,8 @@ export default function AISafetyFeature() {
                 <ul>
                   <li><strong>Replit (July 2025):</strong> AI deleted entire production database during code freeze<sup>[1-5]</sup></li>
                   <li><strong>Amazon Q (July 2024):</strong> Malicious code injection affected 1 million installations<sup>[6-7]</sup></li>
-                  <li><strong>GitHub Copilot (2024):</strong> 6.4% of repositories leak secrets (40% above baseline)<sup>[8-10]</sup></li>
-                  <li><strong>Stanford Study:</strong> AI assistants produce less secure code in 4 out of 5 tasks<sup>[11-12]</sup></li>
+                  <li><strong>GitHub Copilot (2024):</strong> 6.4% of repositories leak secrets (40% above baseline)<sup>[8]</sup></li>
+                  <li><strong>Stanford Study:</strong> AI assistants produce less secure code in 4 out of 5 tasks<sup>[9-10]</sup></li>
                 </ul>
               </div>
             </div>
@@ -148,13 +149,13 @@ export default function AISafetyFeature() {
             </h2>
             
             <div style={{marginBottom: '2rem', textAlign: 'center', fontSize: '1.1rem', color: 'var(--ifm-font-color-secondary)'}}>
-              Based on real incidents and Stanford research showing AI produces insecure code in 80% of cases<sup>[11]</sup>
+              Based on real incidents and Stanford research showing AI produces insecure code in 80% of cases<sup>[9]</sup>
             </div>
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
               <div style={{textAlign: 'center'}}>
                 <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>1 min</div>
-                <h3>Recovery Time<sup>[16]</sup></h3>
+                <h3>Recovery Time<sup>[14]</sup></h3>
                 <p>Restore from any AI disaster instantly using time travel snapshots vs days with traditional backups</p>
               </div>
               <div style={{textAlign: 'center'}}>
@@ -164,7 +165,7 @@ export default function AISafetyFeature() {
               </div>
               <div style={{textAlign: 'center'}}>
                 <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>1,900%</div>
-                <h3>ROI on Prevention<sup>[17]</sup></h3>
+                <h3>ROI on Prevention<sup>[15]</sup></h3>
                 <p>Preventing one AI disaster pays for Rediacc for 20 years based on average incident costs</p>
               </div>
             </div>
@@ -237,11 +238,11 @@ export default function AISafetyFeature() {
                   <h3 style={{color: '#ef4444'}}>Without Rediacc</h3>
                   <ul style={{lineHeight: '2'}}>
                     <li>6.4% of AI projects leak secrets<sup>[8]</sup></li>
-                    <li>Only 3% write secure code<sup>[11]</sup></li>
+                    <li>Only 3% write secure code<sup>[9]</sup></li>
                     <li>1 million users affected by single hack<sup>[6]</sup></li>
                     <li>Complete data loss possible</li>
                     <li>Days to weeks for recovery</li>
-                    <li>$2-10M average incident cost<sup>[17]</sup></li>
+                    <li>$2-10M average incident cost<sup>[15]</sup></li>
                   </ul>
                 </div>
                 <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
@@ -252,7 +253,7 @@ export default function AISafetyFeature() {
                     <li>1 minute recovery time</li>
                     <li>Zero data loss guarantee</li>
                     <li>Complete audit trail</li>
-                    <li>1,900% ROI on prevention<sup>[17]</sup></li>
+                    <li>1,900% ROI on prevention<sup>[15]</sup></li>
                   </ul>
                 </div>
               </div>
@@ -334,16 +335,6 @@ export default function AISafetyFeature() {
             text: 'GitGuardian. "GitHub Copilot Security and Privacy Concerns: Understanding the Risks" (2024).',
             url: 'https://blog.gitguardian.com/github-copilot-security-and-privacy/',
             source: 'Read full article'
-          },
-          {
-            text: 'Stack Overflow. "GitHub Copilot documentation generation overwriting large portions of file" (2024).',
-            url: 'https://stackoverflow.com/questions/79052775/github-copilot-documentation-generation-overwriting-large-portions-of-file',
-            source: 'View discussion'
-          },
-          {
-            text: 'GitHub Issues. "Deleting content in a Copilot Suggestion will undo entire suggestion" (#3749).',
-            url: 'https://github.com/microsoft/vscode-copilot-release/issues/3749',
-            source: 'View issue'
           },
           {
             text: 'Stanford University. "Do Users Write More Insecure Code with AI Assistants?" arXiv:2211.03622v3 (2024).',
