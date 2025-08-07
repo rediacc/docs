@@ -28,7 +28,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'rediacc', // Usually your GitHub org/user name.
-  projectName: 'rediacc', // Usually your repo name.
+  projectName: 'docs', // Usually your repo name.
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -115,8 +115,8 @@ const config = {
         hideOnScroll: false,
         logo: {
           alt: 'Rediacc Logo',
-          src: 'img/logo_black.png',
-          srcDark: 'img/logo_white.png',
+          src: '/img/logo_black.png',
+          srcDark: '/img/logo_white.png',
           href: '/',
         },
         items: [
@@ -128,9 +128,13 @@ const config = {
           },
           {
             type: 'dropdown',
-            label: 'Features',
+            label: 'Platform',
             position: 'left',
             items: [
+              {
+                type: 'html',
+                value: '<div class="dropdown-section-header">Features</div>',
+              },
               {
                 to: '/features/ai-safety',
                 label: 'AI Safety Shield',
@@ -167,13 +171,14 @@ const config = {
                 className: 'navbar-item-with-icon',
                 'data-icon': 'refresh-cw',
               },
-            ],
-          },
-          {
-            type: 'dropdown',
-            label: 'Solutions',
-            position: 'left',
-            items: [
+              {
+                type: 'html',
+                value: '<hr class="dropdown-separator">',
+              },
+              {
+                type: 'html',
+                value: '<div class="dropdown-section-header">Solutions</div>',
+              },
               {
                 to: '/solutions/backup-recovery',
                 label: 'Backup & Recovery',
@@ -221,24 +226,6 @@ const config = {
             to: '/pricing',
             label: 'Pricing',
             position: 'left',
-          },
-          {
-            to: '/about',
-            label: 'About',
-            position: 'left',
-          },
-          {
-            href: '/console',
-            label: 'Login',
-            position: 'right',
-            target: '_blank',
-            className: 'navbar-login-link',
-          },
-          {
-            href: 'https://github.com/rediacc',
-            position: 'right',
-            className: 'header-github-link',
-            'aria-label': 'GitHub repository',
           },
         ],
       },
