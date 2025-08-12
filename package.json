@@ -16,7 +16,6 @@
   "dependencies": {
     "@docusaurus/core": "^3.8.0",
     "@docusaurus/preset-classic": "^3.8.0",
-    "@easyops-cn/docusaurus-search-local": "^0.52.1",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.536.0",
@@ -36,7 +35,8 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.8.0",
-    "@docusaurus/types": "^3.8.0"
+    "@docusaurus/types": "^3.8.0",
+    "@easyops-cn/docusaurus-search-local": "^0.40.1"
   },
   "browserslist": {
     "production": [
