@@ -26,7 +26,7 @@ Rediacc uses an automatic token rotation mechanism that generates a new authenti
    // Response includes first token
    {
      "token": "initial_token_abc123",
-     "nextRequestCredential": "next_token_xyz789"
+     "nextRequestToken": "next_token_xyz789"
    }
    ```
 
@@ -40,7 +40,7 @@ Rediacc uses an automatic token rotation mechanism that generates a new authenti
    // Every response includes next token
    Response: {
      "data": { ... },
-     "nextRequestCredential": "new_token_def456"
+     "nextRequestToken": "new_token_def456"
    }
    ```
 
@@ -67,8 +67,8 @@ class ApiClient {
       const response = await axios(config);
       
       // Extract and store new token
-      if (response.data.nextRequestCredential) {
-        await updateStoredToken(response.data.nextRequestCredential);
+      if (response.data.nextRequestToken) {
+        await updateStoredToken(response.data.nextRequestToken);
       }
       
       return response;

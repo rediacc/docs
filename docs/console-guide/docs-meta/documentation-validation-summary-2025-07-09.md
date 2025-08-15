@@ -83,7 +83,7 @@ Comprehensive validation of the Rediacc Console documentation was completed thro
 All documented endpoints follow the pattern:
 - Base URL: `/api/StoredProcedure/{procedureName}`
 - Authentication: `Rediacc-RequestToken` header
-- Token rotation: Each response includes `nextRequestCredential`
+- Token rotation: Each response includes `nextRequestToken`
 
 Key validated endpoints:
 - Authentication: `CreateAuthenticationRequest`, `ActivateUserAccount`

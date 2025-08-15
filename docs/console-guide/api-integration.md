@@ -39,7 +39,7 @@ Rediacc-RequestToken: <current-token>
   "data": {
     // Response data
   },
-  "nextRequestCredential": "new-token-for-next-request"
+  "nextRequestToken": "new-token-for-next-request"
 }
 ```
 
@@ -68,7 +68,7 @@ Content-Type: application/json
     "token": "initial-token",
     "expiresAt": "2025-01-09T12:00:00Z"
   },
-  "nextRequestCredential": "next-token"
+  "nextRequestToken": "next-token"
 }
 ```
 
@@ -304,7 +304,7 @@ Exceeded limits return HTTP 429 with retry-after header.
 ### Token Management
 
 1. **Store tokens securely** - Never log or expose tokens
-2. **Handle rotation** - Always use nextRequestCredential
+2. **Handle rotation** - Always use nextRequestToken
 3. **Implement retry logic** - Handle token expiration gracefully
 4. **Session management** - Refresh tokens before expiry
 
@@ -317,7 +317,7 @@ try {
     handleError(response.error);
   }
   // Update token for next request
-  apiClient.setToken(response.nextRequestCredential);
+  apiClient.setToken(response.nextRequestToken);
 } catch (error) {
   if (error.status === 401) {
     // Re-authenticate
@@ -385,8 +385,8 @@ class RediaccAPI:
         result = response.json()
         
         # Update token for next request
-        if 'nextRequestCredential' in result:
-            self.token = result['nextRequestCredential']
+        if 'nextRequestToken' in result:
+            self.token = result['nextRequestToken']
         
         if not result.get('success', False):
             raise Exception(f"API Error: {result.get('error', 'Unknown error')}")
@@ -450,8 +450,8 @@ class RediaccClient {
       );
 
       // Update token for next request
-      if (response.data.nextRequestCredential) {
-        this.token = response.data.nextRequestCredential;
+      if (response.data.nextRequestToken) {
+        this.token = response.data.nextRequestToken;
       }
 
       if (!response.data.success) {

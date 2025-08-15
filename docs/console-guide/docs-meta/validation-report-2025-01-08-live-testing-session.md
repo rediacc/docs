@@ -132,7 +132,7 @@ Based on code review of `StoredProcedureController.cs`, confirmed all documented
 - Audit: GetAuditLogs, GetEntityAuditTrace
 
 ### Security Features Confirmed ✅
-- Token rotation mechanism (`nextRequestCredential`)
+- Token rotation mechanism (`nextRequestToken`)
 - Vault field encryption/decryption
 - Request header authentication (`Rediacc-RequestToken`)
 - Master password-based encryption for sensitive data

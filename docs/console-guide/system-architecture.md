@@ -108,7 +108,7 @@ Each response includes the next token:
 ```json
 {
   "data": { ... },
-  "nextRequestCredential": "new-token-here"
+  "nextRequestToken": "new-token-here"
 }
 ```
 

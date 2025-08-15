@@ -24,7 +24,7 @@ Rediacc-RequestToken: <your-token>
 Tokens rotate on each request. The response includes:
 ```json
 {
-  "nextRequestCredential": "new-token-for-next-request"
+  "nextRequestToken": "new-token-for-next-request"
 }
 ```
 
@@ -483,7 +483,7 @@ All responses follow a flattened JSON structure:
   "data": {
     // Response data
   },
-  "nextRequestCredential": "new-token",
+  "nextRequestToken": "new-token",
   "metadata": {
     "executionTime": 123,
     "rowCount": 10

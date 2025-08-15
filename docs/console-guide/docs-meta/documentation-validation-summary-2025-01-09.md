@@ -126,7 +126,7 @@ Verified 80+ whitelisted stored procedures including:
 ### Token System
 - ✅ Rediacc-RequestToken header
 - ✅ Automatic token rotation
-- ✅ nextRequestCredential in responses
+- ✅ nextRequestToken in responses
 - ✅ Client-side encryption middleware
 
 ## Recommendations

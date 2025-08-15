@@ -45,7 +45,7 @@ class ApiClient {
     // Queue requests to ensure sequential token updates
     return this.requestQueue = this.requestQueue.then(async () => {
       const response = await makeRequest(endpoint, data);
-      await updateStoredToken(response.nextRequestCredential);
+      await updateStoredToken(response.nextRequestToken);
       return response;
     });
   }
@@ -72,7 +72,7 @@ POST /api/StoredProcedure/AuthenticateUser
 {
   "success": true,
   "authenticationId": 123,
-  "nextRequestCredential": "next-token-to-use",
+  "nextRequestToken": "next-token-to-use",
   "user": {
     "email": "user@example.com",
     "permissionGroupName": "Administrators",
@@ -83,13 +83,13 @@ POST /api/StoredProcedure/AuthenticateUser
 
 ### Token Rotation
 
-Each API response includes a `nextRequestCredential` that MUST be used for the subsequent request:
+Each API response includes a `nextRequestToken` that MUST be used for the subsequent request:
 
 ```json
 {
   "success": true,
   "data": {...},
-  "nextRequestCredential": "new-token-for-next-request"
+  "nextRequestToken": "new-token-for-next-request"
 }
 ```
 
@@ -184,7 +184,7 @@ Creates a new task in the queue system.
   "success": true,
   "queueId": 456,
   "taskId": "550e8400-e29b-41d4-a716-446655440000",
-  "nextRequestCredential": "..."
+  "nextRequestToken": "..."
 }
 ```
 
@@ -267,7 +267,7 @@ Retrieves all machines for a team.
       "vaultVersion": "v1"
     }
   ],
-  "nextRequestCredential": "..."
+  "nextRequestToken": "..."
 }
 ```
 
@@ -355,7 +355,7 @@ Retrieves all teams accessible to the user.
       }
     }
   ],
-  "nextRequestCredential": "..."
+  "nextRequestToken": "..."
 }
 ```
 
@@ -498,7 +498,7 @@ Retrieves all users in the system (admin only).
       "lastActive": "2024-01-15T10:30:00Z"
     }
   ],
-  "nextRequestCredential": "..."
+  "nextRequestToken": "..."
 }
 ```
 
@@ -563,7 +563,7 @@ Retrieves bridges for a specific region.
       "hasAccess": true
     }
   ],
-  "nextRequestCredential": "..."
+  "nextRequestToken": "..."
 }
 ```
 
@@ -605,7 +605,7 @@ Retrieves authentication token for bridge to connect to API.
   "token": "bridge-api-token",
   "apiUrl": "https://api.rediacc.com",
   "masterPassword": "encrypted-master-password",
-  "nextRequestCredential": "..."
+  "nextRequestToken": "..."
 }
 ```
 
@@ -630,7 +630,7 @@ Retrieves all regions in the system.
       "vaultVersion": "v1"
     }
   ],
-  "nextRequestCredential": "..."
+  "nextRequestToken": "..."
 }
 ```
 
@@ -691,7 +691,7 @@ Retrieves audit logs with filtering options.
     }
   ],
   "totalCount": 1523,
-  "nextRequestCredential": "..."
+  "nextRequestToken": "..."
 }
 ```
 
@@ -730,7 +730,7 @@ Retrieves overall system health and resource usage.
       "inactive": 0
     }
   },
-  "nextRequestCredential": "..."
+  "nextRequestToken": "..."
 }
 ```
 
@@ -766,7 +766,7 @@ Exports all encrypted vault data for backup (admin only).
   "expiresAt": "2024-01-15T12:00:00Z",
   "size": "125MB",
   "vaultCount": 245,
-  "nextRequestCredential": "..."
+  "nextRequestToken": "..."
 }
 ```
 
@@ -895,8 +895,8 @@ class TokenManager {
   }
   
   updateToken(response) {
-    if (response.nextRequestCredential) {
-      this.currentToken = response.nextRequestCredential;
+    if (response.nextRequestToken) {
+      this.currentToken = response.nextRequestToken;
     }
   }
   
@@ -1064,8 +1064,8 @@ class RediaccClient:
             result = response.json()
             
             # Update token for next request
-            if 'nextRequestCredential' in result:
-                self.token = result['nextRequestCredential']
+            if 'nextRequestToken' in result:
+                self.token = result['nextRequestToken']
             
             return result
             
@@ -1198,7 +1198,7 @@ The API provides detailed error information:
       "availableMachines": ["prod-web-01", "prod-db-01"]
     }
   },
-  "nextRequestCredential": "..."
+  "nextRequestToken": "..."
 }
 ```
 

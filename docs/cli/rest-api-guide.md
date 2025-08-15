@@ -33,11 +33,11 @@ Rediacc uses a secure token-based authentication system with automatic token rot
    ```
 
 2. **Receive Initial Token**
-   The response includes `nextRequestCredential` which must be used for the next API call.
+   The response includes `nextRequestToken` which must be used for the next API call.
 
 #### Token Rotation
 
-**Important**: Every API response includes a new `nextRequestCredential`. You must use this new token for your next request. This provides:
+**Important**: Every API response includes a new `nextRequestToken`. You must use this new token for your next request. This provides:
 - Protection against token replay attacks
 - Automatic session management
 - Enhanced security through constant credential refresh
@@ -101,7 +101,7 @@ All API responses follow a standardized structure:
     }
   ],
   "outputs": {               // Output parameters
-    "nextRequestCredential": "new-token-here"
+    "nextRequestToken": "new-token-here"
   }
 }
 ```
@@ -110,7 +110,7 @@ All API responses follow a standardized structure:
 
 Always extract and store the next token:
 ```javascript
-const nextToken = response.outputs?.nextRequestCredential || response.resultSets?.[0]?.data?.[0]?.nextRequestCredential;
+const nextToken = response.outputs?.nextRequestToken || response.resultSets?.[0]?.data?.[0]?.nextRequestToken;
 ```
 
 ## Error Handling
