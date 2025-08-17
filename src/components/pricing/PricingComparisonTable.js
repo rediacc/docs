@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InfoTooltip from './InfoTooltip';
-import { Check, X } from 'lucide-react';
+import { Check, X, ChevronDown, ChevronUp } from 'lucide-react';
 
 const PricingComparisonTable = ({ plans, features, billingType, activeDiscount, featureGroups }) => {
+  // State to manage collapsed groups
+  const [collapsedGroups, setCollapsedGroups] = useState(new Set(['advanced', 'enterprise', 'support']));
+  
+  // Toggle group collapse state
+  const toggleGroup = (groupId) => {
+    const newCollapsed = new Set(collapsedGroups);
+    if (newCollapsed.has(groupId)) {
+      newCollapsed.delete(groupId);
+    } else {
+      newCollapsed.add(groupId);
+    }
+    setCollapsedGroups(newCollapsed);
+  };
   // Extract tier names from plans
   const tiers = plans.map(plan => ({
     name: plan.name,
@@ -105,10 +118,20 @@ const PricingComparisonTable = ({ plans, features, billingType, activeDiscount, 
         {groupedFeatures ? (
           groupedFeatures.map((group, groupIndex) => (
             <React.Fragment key={group.id}>
-              {/* Group header */}
-              <div className="pricing-comparison-group-header">
+              {/* Group header - clickable for toggle */}
+              <div 
+                className="pricing-comparison-group-header clickable"
+                onClick={() => toggleGroup(group.id)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="pricing-comparison-group-title">
-                  {group.name}
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    {collapsedGroups.has(group.id) ? <ChevronDown size={20} /> : <ChevronUp size={20} />}
+                    {group.name}
+                    <span style={{ opacity: 0.6, fontSize: '0.9em', marginLeft: '8px' }}>
+                      ({group.features.length} features)
+                    </span>
+                  </span>
                 </div>
                 <div></div>
                 <div></div>
@@ -116,8 +139,8 @@ const PricingComparisonTable = ({ plans, features, billingType, activeDiscount, 
                 <div></div>
               </div>
               
-              {/* Group features */}
-              {group.features.map((feature, featureIndex) => (
+              {/* Group features - show only if not collapsed */}
+              {!collapsedGroups.has(group.id) && group.features.map((feature, featureIndex) => (
                 <div key={featureIndex} className="pricing-comparison-row">
                   <div className="pricing-comparison-feature-cell">
                     <span className="pricing-feature-name">

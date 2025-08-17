@@ -21,7 +21,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Console Guide',
-      collapsed: true,
+      collapsed: false,
       items: [
         'console-guide/introduction',
         'console-guide/quick-start',
@@ -38,7 +38,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Developer Tools',
-      collapsed: true,
+      collapsed: false,
       items: [
         // Getting Started
         'cli/introduction',
@@ -152,7 +152,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Solutions',
-      collapsed: true,
+      collapsed: false,
       items: [
         'guides/ai-safety-guide',
         'solutions/zero-cost',
@@ -165,7 +165,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Operations',
-      collapsed: true,
+      collapsed: false,
       items: [
         'operations/risk-free-upgrades',
         'operations/blackout',

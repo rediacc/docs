@@ -166,9 +166,67 @@ div[class*="announcementBar"] div[class*="content"] {
   background: var(--ifm-scrollbar-thumb-hover-background-color);
 }
 
-/* Improved focus states for accessibility */
-a:focus, button:focus, input:focus, select:focus, textarea:focus {
-  outline: 2px solid var(--ifm-color-primary);
+/* Enhanced focus states for accessibility - WCAG 2.1 compliant */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible,
+.navbar__link:focus-visible,
+.dropdown__link:focus-visible,
+.menu__link:focus-visible,
+.tabs__item:focus-visible,
+.pagination-nav__link:focus-visible {
+  outline: 3px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+  transition: outline-offset 0.1s ease;
+}
+
+/* Enhanced focus for buttons and CTAs */
+.button:focus-visible,
+.navbar-cta-link:focus-visible,
+.navbar-signin-link:focus-visible {
+  outline: 3px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(85, 107, 47, 0.15);
+}
+
+/* Focus indicator for cards and interactive elements */
+.feature-card:focus-visible,
+.card:focus-visible,
+.hover-lift:focus-visible {
+  outline: 3px solid var(--ifm-color-primary);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 8px rgba(85, 107, 47, 0.1);
+}
+
+/* High contrast focus for dark mode */
+[data-theme='dark'] a:focus-visible,
+[data-theme='dark'] button:focus-visible,
+[data-theme='dark'] input:focus-visible,
+[data-theme='dark'] select:focus-visible,
+[data-theme='dark'] textarea:focus-visible,
+[data-theme='dark'] [role="button"]:focus-visible,
+[data-theme='dark'] [tabindex]:focus-visible {
+  outline-color: var(--ifm-color-primary-lighter);
+  box-shadow: 0 0 0 4px rgba(155, 188, 97, 0.2);
+}
+
+/* Skip to content link - make it more visible */
+.skip-to-content:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10000;
+  padding: 1rem 1.5rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  outline: 3px solid white;
   outline-offset: 2px;
 }
 
@@ -1063,6 +1121,71 @@ table thead tr {
 
 .navbar-top-bar-cta {
   padding: 0.4rem 1.2rem !important;
+}
+
+/* Mobile Touch Target Optimization - WCAG 2.1 Compliant */
+@media (pointer: coarse) {
+  /* Ensure all interactive elements meet 44px minimum touch target */
+  a, button, input, select, textarea, 
+  .navbar__link, .dropdown__link, .menu__link,
+  .button, .pagination-nav__link,
+  [role="button"], [tabindex] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Navbar links need proper spacing on mobile */
+  .navbar__link {
+    padding: 12px 16px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Buttons need larger touch targets */
+  .button {
+    padding: 12px 20px;
+    min-height: 44px;
+  }
+  
+  .button--sm {
+    padding: 10px 16px;
+    min-height: 44px;
+  }
+  
+  /* Feature cards need larger click areas */
+  .feature-card {
+    padding: 1.5rem;
+    min-height: 150px;
+  }
+  
+  /* Dropdown items need larger touch targets */
+  .dropdown__link {
+    padding: 12px 16px;
+    min-height: 44px;
+  }
+  
+  /* Form inputs need larger touch targets */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  textarea,
+  select {
+    min-height: 44px;
+    padding: 10px 12px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  /* Ensure clickable icons have proper size */
+  .navbar__theme-toggle,
+  .header-github-link {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /* Responsive Design */

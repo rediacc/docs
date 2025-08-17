@@ -75,62 +75,96 @@ function FeatureCard({icon, iconName, title, description, link}) {
 }
 
 function HomepageFeatures() {
-  const features = [
+  const featureCategories = [
     {
-      iconName: 'ai-safety',
-      title: 'AI Safety Shield',
-      description: 'Prevent AI disasters with instant cloning. Your AI agents work on perfect copies while production stays untouchable.',
-      link: '/features/ai-safety',
+      title: 'Protection & Recovery',
+      description: 'Keep your infrastructure safe and recoverable',
+      features: [
+        {
+          iconName: 'ai-safety',
+          title: 'AI Safety Shield',
+          description: 'Prevent AI disasters with instant cloning. Your AI agents work on perfect copies while production stays untouchable.',
+          link: '/features/ai-safety',
+        },
+        {
+          iconName: 'disaster-recovery',
+          title: 'Cross-Backup',
+          description: 'Multi-site protection that reduces backup time from weeks to minutes.',
+          link: '/features/cross-backup',
+        },
+        {
+          iconName: 'time-travel',
+          title: 'Time Travel',
+          description: 'Roll back your entire system to any previous state instantly.',
+          link: '/features/time-travel',
+        },
+      ]
     },
     {
-      iconName: 'backup',
-      title: 'Zero-Cost Backup',
-      description: 'Achieve up to 90% storage reduction with our smart differential backup technology.',
-      link: '/features/zero-cost-backup',
+      title: 'Cost Optimization',
+      description: 'Reduce infrastructure costs without compromising performance',
+      features: [
+        {
+          iconName: 'backup',
+          title: 'Zero-Cost Backup',
+          description: 'Achieve up to 90% storage reduction with our smart differential backup technology.',
+          link: '/features/zero-cost-backup',
+        },
+        {
+          iconName: 'scaling',
+          title: 'Dynamic Scaling',
+          description: 'Seamlessly scale between on-premise and cloud with up to 60% cost reduction.',
+          link: '/features/dynamic-scaling',
+        },
+      ]
     },
     {
-      iconName: 'security',
-      title: 'Advanced Security',
-      description: 'Enterprise-grade security with encryption, MFA, and comprehensive audit trails.',
-      link: '/features/security',
-    },
-    {
-      iconName: 'scaling',
-      title: 'Dynamic Scaling',
-      description: 'Seamlessly scale between on-premise and cloud with up to 60% cost reduction.',
-      link: '/features/dynamic-scaling',
-    },
-    {
-      iconName: 'disaster-recovery',
-      title: 'Cross-Backup',
-      description: 'Multi-site protection that reduces backup time from weeks to minutes.',
-      link: '/features/cross-backup',
-    },
-    {
-      iconName: 'time-travel',
-      title: 'Time Travel',
-      description: 'Roll back your entire system to any previous state instantly.',
-      link: '/features/time-travel',
-    },
-    {
-      iconName: 'multi-cloud',
-      title: 'Multi-Cloud',
-      description: 'Deploy across AWS, Azure, GCP, and on-premise infrastructure.',
-      link: '/solutions/cloud-migration',
-    },
+      title: 'Enterprise Ready',
+      description: 'Built for security and scale',
+      features: [
+        {
+          iconName: 'security',
+          title: 'Advanced Security',
+          description: 'Enterprise-grade security with encryption, MFA, and comprehensive audit trails.',
+          link: '/features/security',
+        },
+        {
+          iconName: 'multi-cloud',
+          title: 'Multi-Cloud',
+          description: 'Deploy across AWS, Azure, GCP, and on-premise infrastructure.',
+          link: '/solutions/cloud-migration',
+        },
+      ]
+    }
   ];
 
   return (
     <section style={{padding: '4rem 0', background: 'var(--ifm-background-color)'}}>
       <div className="container">
-        <h2 style={{textAlign: 'center', marginBottom: '3rem', fontSize: '2.5rem'}}>
+        <h2 style={{textAlign: 'center', marginBottom: '1rem', fontSize: '2.5rem'}}>
           Everything You Need for Modern Infrastructure
         </h2>
-        <div className="features-grid">
-          {features.map((feature, idx) => (
-            <FeatureCard key={idx} {...feature} />
-          ))}
-        </div>
+        <p style={{textAlign: 'center', marginBottom: '3rem', fontSize: '1.2rem', color: 'var(--ifm-font-color-secondary)', maxWidth: '700px', margin: '0 auto 3rem'}}>
+          Comprehensive infrastructure automation organized by your needs
+        </p>
+        
+        {featureCategories.map((category, catIdx) => (
+          <div key={catIdx} style={{marginBottom: '4rem'}}>
+            <div style={{marginBottom: '2rem', textAlign: 'center'}}>
+              <h3 style={{fontSize: '1.8rem', color: 'var(--ifm-color-primary)', marginBottom: '0.5rem'}}>
+                {category.title}
+              </h3>
+              <p style={{color: 'var(--ifm-font-color-secondary)', fontSize: '1.1rem'}}>
+                {category.description}
+              </p>
+            </div>
+            <div className="features-grid" style={{gridTemplateColumns: `repeat(auto-fit, minmax(280px, 1fr))`, maxWidth: category.features.length === 2 ? '800px' : '1200px', margin: '0 auto'}}>
+              {category.features.map((feature, idx) => (
+                <FeatureCard key={idx} {...feature} />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
