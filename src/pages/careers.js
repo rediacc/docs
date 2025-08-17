@@ -45,62 +45,62 @@ export default function Careers() {
   const benefits = {
     compensation: {
       icon: 'dollar-sign',
-      title: 'Competitive Compensation',
+      title: 'Profit Sharing Model',
       items: [
-        'Market-leading salaries',
-        'Equity participation',
-        'Performance bonuses',
-        'Relocation assistance'
+        'Direct profit participation',
+        'Performance-based rewards',
+        'Quarterly settlements',
+        'Transparent distribution system'
       ]
     },
-    health: {
-      icon: 'heart',
-      title: 'Health & Wellness',
+    ownership: {
+      icon: 'award',
+      title: 'Entrepreneurship Path',
       items: [
-        'Comprehensive health insurance',
-        'Mental health support',
-        'Wellness programs',
-        'Gym membership'
+        'Equity opportunity for early experts',
+        'Long-term value creation',
+        'Shared success model',
+        'Business collaboration framework'
       ]
     },
     growth: {
       icon: 'trending-up',
-      title: 'Career Growth',
+      title: 'Professional Development',
       items: [
-        'Learning budget ($5000/year)',
-        'Conference attendance',
-        'Mentorship programs',
-        'Internal mobility'
+        'Expert coefficient system',
+        'Performance evaluations',
+        'Cross-functional contributions',
+        'Knowledge sharing sessions'
       ]
     },
     flexibility: {
       icon: 'globe',
-      title: 'Work Flexibility',
+      title: 'Ultimate Flexibility',
       items: [
-        'Fully remote work',
-        'Flexible hours',
-        'Unlimited PTO',
-        'Sabbatical options'
+        'Results-oriented work',
+        'Choose your own hours',
+        'Work from anywhere',
+        'Asynchronous collaboration'
       ]
     },
     culture: {
       icon: 'users',
-      title: 'Amazing Culture',
+      title: 'Expert Community',
       items: [
-        'Diverse & inclusive team',
-        'Open source Fridays',
-        'Team gatherings',
-        'Hackathon participation'
+        'Autonomous work environment',
+        'Transparent decision making',
+        'Minimal meetings principle',
+        'Innovation encouragement'
       ]
     },
     technology: {
       icon: 'cpu',
-      title: 'Cutting-edge Tech',
+      title: 'Technical Excellence',
       items: [
-        'Latest tools & hardware',
         'Modern tech stack',
-        'Innovation time',
-        'Technical excellence'
+        'Open contribution model',
+        'Best practices focus',
+        'Continuous innovation'
       ]
     }
   };
@@ -114,11 +114,11 @@ export default function Careers() {
   };
 
   const hiringProcess = [
-    { step: 'Apply', time: '5 min', description: 'Submit your application' },
-    { step: 'Screen', time: '45 min', description: 'Technical discussion' },
-    { step: 'Assessment', time: '2-4 hrs', description: 'Technical challenge' },
-    { step: 'Team Interview', time: '3-4 hrs', description: 'Meet the team' },
-    { step: 'Offer', time: '1-2 days', description: 'Receive offer' }
+    { step: 'Apply', time: '5 min', description: 'Submit your expertise' },
+    { step: 'Evaluation', time: '30-45 min', description: 'Technical discussion' },
+    { step: 'Assessment', time: '2-3 hrs', description: 'Skills demonstration' },
+    { step: 'Collaboration Review', time: '1-2 hrs', description: 'Agreement discussion' },
+    { step: 'Contract', time: '1-2 days', description: 'Join as Expert' }
   ];
 
   return (
@@ -135,7 +135,7 @@ export default function Careers() {
         }}>
           <div className="container">
             <h1 className="hero-title animate-fade-in-up" style={{color: 'white'}}>
-              Build the Future of Infrastructure
+              Join Our Expert Collaboration Network
             </h1>
             <p className="hero-subtitle animate-fade-in-up animate-delay-100" style={{
               fontSize: '1.3rem',
@@ -143,14 +143,14 @@ export default function Careers() {
               maxWidth: '700px',
               margin: '0 auto'
             }}>
-              Join our team of exceptional engineers building the next generation of infrastructure management tools
+              Partner with us as an Expert in building next-generation infrastructure management solutions through our unique profit-sharing model
             </p>
             <div style={{marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <a className="button button--secondary button--lg" href="#open-positions" style={{color: 'var(--ifm-color-primary)'}}>
-                View Open Positions
+                View Expert Opportunities
               </a>
               <a className="button button--outline button--lg" href="#culture" style={{color: 'white', borderColor: 'white'}}>
-                Learn About Our Culture
+                Discover Our Model
               </a>
             </div>
           </div>
@@ -196,11 +196,18 @@ export default function Careers() {
         <section id="culture" style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '1rem', textAlign: 'center'}}>
-              Why Join Rediacc?
+              Why Collaborate with Rediacc?
             </h2>
-            <p style={{textAlign: 'center', fontSize: '1.2rem', marginBottom: '3rem', color: 'var(--ifm-font-color-secondary)'}}>
-              We offer more than just a job - we offer a career with purpose
+            <p style={{textAlign: 'center', fontSize: '1.2rem', marginBottom: '2rem', color: 'var(--ifm-font-color-secondary)'}}>
+              We're not like other companies - we share success through a transparent profit-sharing model
             </p>
+            <div style={{textAlign: 'center', marginBottom: '2rem'}}>
+              <Link 
+                className="button button--primary" 
+                to="/blog/expert-collaboration-model">
+                Learn About Our Model
+              </Link>
+            </div>
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
               {Object.entries(benefits).map(([key, benefit]) => (
@@ -241,7 +248,7 @@ export default function Careers() {
         <section style={{padding: '3rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2rem', marginBottom: '2rem', textAlign: 'center'}}>
-              Our Hiring Process
+              Expert Onboarding Process
             </h2>
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '900px', margin: '0 auto', flexWrap: 'wrap'}}>
               {hiringProcess.map((stage, idx) => (
@@ -295,7 +302,7 @@ export default function Careers() {
         <section id="open-positions" style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              Open Positions
+              Expert Opportunities
             </h2>
             
             {/* Filters */}
@@ -466,10 +473,10 @@ export default function Careers() {
                         
                         <div style={{display: 'flex', gap: '1rem', justifyContent: 'center'}}>
                           <Link className="button button--primary button--lg" to="/contact">
-                            Apply Now
+                            Express Interest
                           </Link>
                           <Link className="button button--outline button--lg" to={`/contact?position=${position.id}`}>
-                            Ask Questions
+                            Learn More
                           </Link>
                         </div>
                       </div>
@@ -489,12 +496,12 @@ export default function Careers() {
             </h2>
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', maxWidth: '1000px', margin: '0 auto'}}>
               {[
-                { icon: 'lightbulb', title: 'Innovation', description: 'Push boundaries and embrace new technologies' },
-                { icon: 'users', title: 'Collaboration', description: 'Work together to achieve extraordinary results' },
-                { icon: 'shield', title: 'Quality', description: 'Build reliable, secure, and scalable solutions' },
-                { icon: 'book-open', title: 'Learning', description: 'Continuous growth and knowledge sharing' },
-                { icon: 'heart', title: 'Balance', description: 'Sustainable pace and healthy work-life balance' },
-                { icon: 'globe', title: 'Diversity', description: 'Embrace different perspectives and backgrounds' }
+                { icon: 'target', title: 'Results-Oriented', description: 'Focus on delivered outcomes, not hours worked' },
+                { icon: 'users', title: 'Transparent Collaboration', description: 'Open information flow and distributed decision making' },
+                { icon: 'shield', title: 'Trust & Autonomy', description: 'Self-management with clear expectations' },
+                { icon: 'trending-up', title: 'Shared Success', description: 'Direct participation in company profits' },
+                { icon: 'clock', title: 'Asynchronous First', description: 'Minimal meetings, maximum productivity' },
+                { icon: 'award', title: 'Expert Recognition', description: 'Performance-based rewards and advancement' }
               ].map((value, idx) => (
                 <div key={idx} style={{textAlign: 'center'}}>
                   <Icon name={value.icon} size={48} style={{color: 'var(--ifm-color-primary)', marginBottom: '1rem'}} />
@@ -515,17 +522,17 @@ export default function Careers() {
         }}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '1.5rem', color: 'white'}}>
-              Ready to Join Us?
+              Ready to Become an Expert?
             </h2>
             <p style={{fontSize: '1.2rem', marginBottom: '2rem', opacity: 0.95, maxWidth: '600px', margin: '0 auto 2rem'}}>
-              Don't see the perfect role? We're always looking for exceptional talent. Send us your resume and let's talk!
+              Join our selective expert network. We're looking for exceptional professionals who value autonomy and shared success.
             </p>
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link
                 className="button button--secondary button--lg"
                 to="/contact"
                 style={{color: 'var(--ifm-color-primary)'}}>
-                Apply Now
+                Join as Expert
               </Link>
               <Link
                 className="button button--outline button--lg"

@@ -1,6 +1,6 @@
 ---
-slug: rediacc-infrastructure-for-agentic-ai
-title: "Rediacc: The Infrastructure That Makes AI Agents Safe"
+slug: infrastructure-for-agentic-ai
+title: "The Infrastructure That Makes AI Agents Safe"
 authors: [muhammed]
 tags: [ai-safety, infrastructure, agentic-ai, disaster-recovery, mcp-protocol]
 ---
@@ -138,25 +138,13 @@ While competitors debate whether to use AI, you're already deploying it safely. 
 
 ## Getting Started: Easier Than You Think
 
-Setting up Rediacc takes three steps:
+Setting up Rediacc takes three simple steps:
 
 ### Step 1: Install Our Tools
-```bash
-npm install -g @rediacc/mcp-server
-rediacc-cli setup
-```
+Download and install the Rediacc MCP server and command-line interface with a single command.
 
 ### Step 2: Connect Your AI
-```json
-{
-  "mcpServers": {
-    "rediacc": {
-      "command": "rediacc-mcp-server",
-      "args": ["--sandbox-mode", "--deny-production-access"]
-    }
-  }
-}
-```
+Configure your AI agents to use Rediacc's MCP server with sandbox mode enabled and production access denied.
 
 ### Step 3: Let AI Run Wild
 Your AI agents now work exclusively on clones. They can't touch production even if they try.
@@ -214,7 +202,7 @@ You have three options:
 
 The choice seems obvious, but we understand hesitation. That's why we offer a free Community tier. Try it. Clone your production database. Let an AI agent attack the clone. Watch it fail harmlessly. Then imagine what AI could do for your business without fear.
 
-Visit [rediacc.io](https://rediacc.io) to start your free trial. Set it up in minutes. Sleep better tonight knowing AI can't hurt you anymore.
+Visit our [homepage](/) to start your free trial. Set it up in minutes. Sleep better tonight knowing AI can't hurt you anymore.
 
 Because in the age of AI, the question isn't whether an agent will make a mistake. It's whether you'll survive it.
 
@@ -224,4 +212,4 @@ With Rediacc, you always will.
 
 *Rediacc: Infrastructure for the AI age. Because production should be untouchable.*
 
-**Ready to make AI disasters impossible?** [Start your free trial](https://rediacc.io/signup) or [schedule a demo](https://rediacc.io/demo) with our team.
+**Ready to make AI disasters impossible?** [Start your free trial](/contact) or [schedule a demo](/contact) with our team.
