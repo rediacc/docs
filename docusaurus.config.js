@@ -55,6 +55,21 @@ const config = {
             'https://github.com/rediacc/rediacc/tree/main/packages/create-docusaurus/templates/shared/',
           routeBasePath: '/docs', // Serve docs at /docs path
         },
+        blog: {
+          showReadingTime: true,
+          feedOptions: {
+            type: ['rss', 'atom'],
+            xslt: true,
+          },
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/rediacc/rediacc/tree/main/packages/create-docusaurus/templates/shared/',
+          // Useful options to enforce blogging best practices
+          onInlineTags: 'warn',
+          onInlineAuthors: 'warn',
+          onUntruncatedBlogPosts: 'warn',
+        },
         theme: {
           customCss: [
             './src/css/custom.css',
@@ -72,7 +87,7 @@ const config = {
         hashed: true,
         language: ["en"],
         indexDocs: true,
-        indexBlog: false,
+        indexBlog: true,
         indexPages: true,
         removeDefaultStopWordFilter: false,
         removeDefaultStemmer: false,
@@ -220,6 +235,11 @@ const config = {
           {
             to: '/docs/intro',
             label: 'Documentation',
+            position: 'left',
+          },
+          {
+            to: '/blog',
+            label: 'Blog',
             position: 'left',
           },
           {

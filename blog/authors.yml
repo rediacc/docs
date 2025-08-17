@@ -1,0 +1,34 @@
+rediacc:
+  name: Rediacc Team
+  title: The Rediacc Engineering Team
+  url: https://github.com/rediacc
+  image_url: https://github.com/rediacc.png
+  email: team@rediacc.com
+
+muhammed:
+  name: Muhammed Fatih BAYRAKTAR
+  title: Founder @ Rediacc
+  url: https://www.linkedin.com/in/muhammed-fatih-bayraktar/
+  image_url: /img/profiles/mfb.jpeg
+  email: muhammed@rediacc.com
+
+hamza:
+  name: Hamza ÖZSARAC
+  title: Full Stack Developer @ Rediacc
+  url: https://www.linkedin.com/in/hamza-ozsarac/
+  image_url: /img/profiles/hmz.jpeg
+  email: hamza@rediacc.com
+
+hasan:
+  name: Hasan Anıl KARTAL
+  title: Software Test & Quality Expert @ Rediacc
+  url: https://www.linkedin.com/in/hasananilkartal/
+  image_url: /img/profiles/hak.jpeg
+  email: hasan@rediacc.com
+
+yuksel:
+  name: Yüksel Demirel
+  title: System And DevOps Engineer @ Rediacc
+  url: https://www.linkedin.com/in/yüksel-demirel-92065749/
+  image_url: /img/profiles/yd.jpeg
+  email: yuksel@rediacc.com
