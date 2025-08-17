@@ -146,7 +146,7 @@
         "Build CI/CD pipelines and GitOps workflows",
         "Configure monitoring with Prometheus and Grafana",
         "Manage multi-cloud deployments (Linode, Vultr, AWS)",
-        "Implement security and compliance practices",
+        "Implement security and monitoring practices",
         "Automate infrastructure provisioning with bash and Python"
       ],
       "requirements": {
@@ -275,7 +275,7 @@
         "Implement authentication and authorization systems",
         "Review code for security vulnerabilities",
         "Design secure API endpoints and data validation",
-        "Implement compliance and audit logging",
+        "Implement monitoring and activity logging",
         "Respond to security incidents"
       ],
       "requirements": {
@@ -290,7 +290,7 @@
         ],
         "preferred": [
           "Security certifications (CISSP, CEH)",
-          "Compliance frameworks (SOC2, ISO27001)",
+          "Security frameworks and best practices",
           "Zero-trust architecture",
           "Hardware security modules",
           "Code obfuscation techniques"
@@ -397,7 +397,7 @@
     },
     "Security": {
       "name": "Security",
-      "description": "Platform security, compliance, and risk management"
+      "description": "Platform security, monitoring, and risk management"
     },
     "Documentation": {
       "name": "Documentation",

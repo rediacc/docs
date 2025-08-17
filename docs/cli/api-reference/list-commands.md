@@ -36,7 +36,7 @@ View audit trail of system changes
 
 #### Details
 
-Shows detailed audit logs of all system modifications including who made changes, when, and what was changed. Essential for compliance, security monitoring, and troubleshooting.
+Shows detailed audit logs of all system modifications including who made changes, when, and what was changed. Essential for security monitoring, troubleshooting, and operational oversight.
 
 #### Parameters
 

@@ -43,7 +43,7 @@ rediacc-cli vault verify --team production
 
 ## Audit Commands
 
-For accessing system audit trails. See [full audit command reference](./audit-commands.md) for compliance features.
+For accessing system audit trails. See [full audit command reference](./audit-commands.md) for monitoring features.
 
 ### Available Audit Commands:
 - `audit operations` - View system operation audit logs
@@ -152,7 +152,7 @@ rediacc-cli audit operations --operation UpdateMachine --days 7
 # 3. User activity - Track specific user actions
 rediacc-cli audit operations --user admin@company.com --limit 100
 
-# 4. Compliance export - Monthly audit report
+# 4. Security export - Monthly audit report
 rediacc-cli audit operations \
   --from 2024-01-01 \
   --to 2024-01-31 \
@@ -191,18 +191,18 @@ Priority levels (1-5, where 1 is highest):
    - Store backups separately
    - Version vault changes
 
-## Audit Compliance
+## Audit Retention
 
 ### Retention Policies
 
 - **Default**: 90 days
 - **Security Events**: 1 year
-- **Compliance Mode**: 7 years
+- **Extended Mode**: 7 years
 - **Custom**: Configurable per company
 
 ### Audit Reports
 
-Common compliance reports:
+Common monitoring reports:
 
 ```bash
 # User access report

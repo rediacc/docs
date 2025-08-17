@@ -125,7 +125,7 @@ function HomepageFeatures() {
         {
           iconName: 'security',
           title: 'Advanced Security',
-          description: 'Enterprise-grade security with encryption, MFA, and comprehensive audit trails.',
+          description: 'Enterprise-grade security with encryption, MFA, and detailed activity logging.',
           link: '/features/security',
         },
         {

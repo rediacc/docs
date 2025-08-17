@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Security Hardening Guide
 
-This comprehensive guide provides detailed security best practices and hardening procedures specifically for the Rediacc Console and its infrastructure components. Follow these recommendations to protect against threats, ensure compliance, and maintain a robust security posture.
+This comprehensive guide provides detailed security best practices and hardening procedures specifically for the Rediacc Console and its infrastructure components. Follow these recommendations to protect against threats, implement security controls, and maintain a robust security posture.
 
 ## Prerequisites
 
@@ -533,7 +533,7 @@ In case of security incident:
 4. Save encrypted export securely
 5. Use for forensics or recovery
 
-## Step 4: Audit and Compliance
+## Step 4: Security Monitoring and Assessment
 
 ### 4.1 Comprehensive Audit Logging
 
@@ -561,15 +561,15 @@ Audit Configuration:
     - Error details if failed
 ```
 
-### 4.2 Compliance Monitoring
+### 4.2 Security Monitoring
 
 ```bash
 #!/bin/bash
-# compliance-check.sh
+# security-check.sh
 
-# HIPAA Compliance Check
-check_hipaa_compliance() {
-  echo "=== HIPAA Compliance Check ==="
+# Healthcare Security Check
+check_healthcare_security() {
+  echo "=== Healthcare Security Check ==="
   
   # Check encryption
   check_encryption_status
@@ -584,9 +584,9 @@ check_hipaa_compliance() {
   verify_backup_encryption
 }
 
-# SOC2 Compliance Check
-check_soc2_compliance() {
-  echo "=== SOC2 Compliance Check ==="
+# Enterprise Security Check
+check_enterprise_security() {
+  echo "=== Enterprise Security Check ==="
   
   # Check security policies
   verify_security_policies
@@ -598,9 +598,9 @@ check_soc2_compliance() {
   verify_incident_response
 }
 
-# PCI DSS Compliance Check
-check_pci_compliance() {
-  echo "=== PCI DSS Compliance Check ==="
+# Financial Security Check
+check_financial_security() {
+  echo "=== Financial Security Check ==="
   
   # Check network segmentation
   verify_network_segmentation

@@ -8,26 +8,15 @@ const PricingComparisonTable = ({ plans, features, billingType, activeDiscount, 
   
   // Toggle group collapse state
   const toggleGroup = (groupId) => {
-    const newCollapsed = new Set(collapsedGroups);
-    if (newCollapsed.has(groupId)) {
-      newCollapsed.delete(groupId);
-    } else {
-      newCollapsed.add(groupId);
-    }
-    setCollapsedGroups(newCollapsed);
+    setCollapsedGroups(prev => {
+      const newSet = new Set(prev);
+      newSet.has(groupId) ? newSet.delete(groupId) : newSet.add(groupId);
+      return newSet;
+    });
   };
   // Extract tier names from plans
-  const tiers = plans.map(plan => ({
-    name: plan.name,
-    price: plan.price,
-    originalPrice: plan.originalPrice,
-    period: plan.period,
-    savePercent: plan.savePercent,
-    discountPercent: plan.discountPercent,
-    isPopular: plan.isPopular,
-    ctaText: plan.ctaText,
-    ctaLink: plan.ctaLink,
-    ctaVariant: plan.ctaVariant
+  const tiers = plans.map(({ name, price, originalPrice, period, savePercent, discountPercent, isPopular, ctaText, ctaLink, ctaVariant }) => ({
+    name, price, originalPrice, period, savePercent, discountPercent, isPopular, ctaText, ctaLink, ctaVariant
   }));
 
   // Group features by category if groups are provided
@@ -57,11 +46,8 @@ const PricingComparisonTable = ({ plans, features, billingType, activeDiscount, 
 
   // Render cell value with proper icons
   const renderCellValue = (value) => {
-    if (value === true || value === 'Yes') {
-      return <Check size={20} className="pricing-check-icon" />;
-    } else if (value === false || value === 'No' || value === '-') {
-      return <X size={20} className="pricing-x-icon" />;
-    }
+    if (value === true || value === 'Yes') return <Check size={20} className="pricing-check-icon" />;
+    if (value === false || value === 'No' || value === '-') return <X size={20} className="pricing-x-icon" />;
     return <span className="pricing-cell-value">{value}</span>;
   };
 

@@ -538,7 +538,7 @@ The application is organized into six main sections, each containing related sub
 - Data archiving strategy
 - Data retention policies
 - Data export capabilities
-- GDPR compliance mechanisms
+- Data protection mechanisms
 
 ## Conclusion
 

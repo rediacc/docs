@@ -291,7 +291,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
 - Associated vault data is automatically cleaned up
 - Machine distributed storage flags remain unchanged
 - Operation is permanent and cannot be undone
-- Deletion is logged in audit trail for compliance
+- Deletion is logged in audit trail for monitoring
 
 
 ## delete-distributed-storage-pool

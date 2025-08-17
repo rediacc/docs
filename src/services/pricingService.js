@@ -1,14 +1,8 @@
 // Pricing configuration service
 export const fetchPricingConfig = async () => {
   try {
-    // Try to fetch localized version first
-    const enResponse = await fetch('/data/pricing.en.json');
-    if (enResponse.ok) {
-      return await enResponse.json();
-    }
-    
-    // Fall back to base pricing config
-    const response = await fetch('/data/pricing.json');
+    // Try to fetch localized version first, fall back to base
+    const response = await fetch('/data/pricing.en.json').catch(() => fetch('/data/pricing.json'));
     if (!response.ok) {
       throw new Error(`Failed to fetch pricing config: ${response.status}`);
     }
@@ -16,23 +10,21 @@ export const fetchPricingConfig = async () => {
     const config = await response.json();
     
     // Transform translation keys to actual text for discounts
-    if (config.specialDayDiscounts) {
-      Object.values(config.specialDayDiscounts).forEach(discount => {
-        if (discount.message && discount.message.startsWith('pricing.')) {
-          // Simple transformation for now
-          const key = discount.message.replace('pricing.', '');
-          const messages = {
-            blackFridayMessage: '🔥 BLACK FRIDAY: Save 25% on all plans!',
-            cyberMondayMessage: '💻 CYBER MONDAY: 30% OFF - Today Only!',
-            newYearMessage: '🎊 NEW YEAR SPECIAL: Get 20% off and start fresh!',
-            summerSaleMessage: '☀️ SUMMER SALE: Cool 15% off all plans!',
-            earlyBirdMessage: '🌅 EARLY BIRD: 10% off for quick decision makers!',
-            valentinesDayMessage: '❤️ VALENTINE\'S SPECIAL: Show your data some love - 14% off!'
-          };
-          discount.message = messages[key] || discount.message;
-        }
-      });
-    }
+    const messages = {
+      blackFridayMessage: '🔥 BLACK FRIDAY: Save 25% on all plans!',
+      cyberMondayMessage: '💻 CYBER MONDAY: 30% OFF - Today Only!',
+      newYearMessage: '🎊 NEW YEAR SPECIAL: Get 20% off and start fresh!',
+      summerSaleMessage: '☀️ SUMMER SALE: Cool 15% off all plans!',
+      earlyBirdMessage: '🌅 EARLY BIRD: 10% off for quick decision makers!',
+      valentinesDayMessage: '❤️ VALENTINE\'S SPECIAL: Show your data some love - 14% off!'
+    };
+    
+    config.specialDayDiscounts && Object.values(config.specialDayDiscounts).forEach(discount => {
+      if (discount.message?.startsWith('pricing.')) {
+        const key = discount.message.replace('pricing.', '');
+        discount.message = messages[key] || discount.message;
+      }
+    });
     
     return config;
   } catch (error) {
@@ -86,11 +78,7 @@ export const fetchPricingConfig = async () => {
 export const fetchLocalizedPricingConfig = async (language = 'en') => {
   try {
     const response = await fetch(`/data/pricing.${language}.json`);
-    if (!response.ok) {
-      // Fallback to base pricing config
-      return fetchPricingConfig();
-    }
-    return await response.json();
+    return response.ok ? await response.json() : fetchPricingConfig();
   } catch (error) {
     console.error('Error fetching localized pricing config:', error);
     return fetchPricingConfig();

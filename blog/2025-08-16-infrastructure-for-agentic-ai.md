@@ -76,7 +76,7 @@ This means:
 - AI agents get automatic safety boundaries
 - Every action is logged and reversible
 - Hard limits on data access and transfer
-- Complete audit trails for compliance
+- Complete audit trails for monitoring
 
 You don't need to trust the AI. The infrastructure enforces safety.
 
@@ -111,10 +111,10 @@ After Rediacc: Know exactly where systems will fail and fix it before it matters
 
 ### Compliance Teams: Perfect Audit Trails
 
-A healthcare company needs to track every database access for HIPAA compliance. AI agents generate reports from cloned data, never touching real patient records. Every access is logged, every action reversible.
+A healthcare company needs to track every database access for security monitoring. AI agents generate reports from cloned data, never touching real patient records. Every access is logged, every action reversible.
 
 Before Rediacc: Manual audit processes taking weeks.
-After Rediacc: AI-generated compliance reports in hours with zero patient data risk.
+After Rediacc: AI-generated monitoring reports in hours with zero patient data risk.
 
 ## The Business Case: Why CFOs Love Rediacc
 
@@ -159,8 +159,8 @@ Clones inherit the same security as your production. AI sees only what you permi
 **"How fast is 'instant' cloning really?"**
 A 10GB database clones in under 1 second. A 100TB database clones in under 10 seconds. It's actually instant.
 
-**"What about compliance and regulations?"**
-Every AI action is logged. Every change is tracked. We exceed SOC 2, GDPR, and HIPAA requirements. Your auditors will love the paper trail.
+**"What about security and monitoring?"**
+Every AI action is logged. Every change is tracked. We provide comprehensive monitoring and security controls. Your security team will love the detailed audit trail.
 
 **"Can this handle our scale?"**
 We handle everything from startup SQLite databases to enterprise Oracle clusters. If it runs on Linux, we can protect it.
@@ -177,7 +177,7 @@ Imagine AI agents that:
 - Optimize your database 24/7 without risk
 - Test every code change on production data
 - Hunt security vulnerabilities continuously
-- Handle customer data without compliance worries
+- Handle customer data with comprehensive security controls
 - Learn from unlimited experiments
 
 This isn't the future. Companies using Rediacc do this today.

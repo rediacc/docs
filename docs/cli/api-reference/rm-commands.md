@@ -82,7 +82,7 @@ Cannot delete if machines are assigned. Reassign machines first using 'update ma
 - Only bridges with FAILED, COMPLETED, or CANCELLED queue items can be deleted
 - Deletion will also remove all bridge vault data
 - Operation is permanent and cannot be undone
-- Bridge deletion is tracked in audit logs for compliance
+- Bridge deletion is tracked in audit logs for monitoring
 
 
 ## machine
@@ -293,7 +293,7 @@ WARNING: Cascades to all bridges in the region. Cannot delete if bridges have as
 - All bridges must be deleted or moved before region deletion
 - Region vault data will be permanently removed
 - Operation is permanent and cannot be undone
-- Region deletion is tracked in audit logs for compliance
+- Region deletion is tracked in audit logs for monitoring
 
 
 ## repository

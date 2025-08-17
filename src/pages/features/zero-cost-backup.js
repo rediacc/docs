@@ -174,7 +174,7 @@ export default function ZeroCostBackupFeature() {
               <ul style={{lineHeight: '2', fontSize: '1.1rem'}}>
                 <li><Icon name="success" size={16} style={{marginRight: '8px'}} /><strong>Zero Vendor Lock-in:</strong> Export backups in standard formats anytime</li>
                 <li><Icon name="success" size={16} style={{marginRight: '8px'}} /><strong>Encryption at Rest:</strong> Military-grade AES-256 encryption for all backup data</li>
-                <li><Icon name="success" size={16} style={{marginRight: '8px'}} /><strong>Compliance Ready:</strong> Meet GDPR, HIPAA, SOC2, and other regulatory requirements</li>
+                <li><Icon name="success" size={16} style={{marginRight: '8px'}} /><strong>Security Ready:</strong> Meet enterprise security and data protection requirements</li>
                 <li><Icon name="success" size={16} style={{marginRight: '8px'}} /><strong>Global Deduplication:</strong> Deduplicate across all your systems and databases</li>
                 <li><Icon name="success" size={16} style={{marginRight: '8px'}} /><strong>Automated Testing:</strong> Verify backup integrity automatically</li>
               </ul>
@@ -211,8 +211,8 @@ export default function ZeroCostBackupFeature() {
                 <Link to="/docs/solutions/dynamic-resource-scaling">Learn more →</Link>
               </div>
               <div className="feature-card">
-                <h3>Compliance Archives</h3>
-                <p>Maintain long-term archives for regulatory compliance without breaking the budget</p>
+                <h3>Long-term Archives</h3>
+                <p>Maintain long-term archives for data retention requirements without breaking the budget</p>
                 <Link to="/features/security">Learn more →</Link>
               </div>
               <div className="feature-card">
@@ -279,12 +279,12 @@ export default function ZeroCostBackupFeature() {
 
               <details style={{marginBottom: '1rem', padding: '1rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
                 <summary style={{cursor: 'pointer', fontWeight: 'bold', fontSize: '1.2rem'}}>
-                  What about compliance and regulations?
+                  What about security and data protection?
                 </summary>
                 <p style={{marginTop: '1rem', lineHeight: '1.6'}}>
-                  Rediacc is designed for enterprise compliance. We support GDPR, HIPAA, SOC2, PCI-DSS, and other 
-                  major regulatory frameworks. Features include encryption at rest and in transit, audit logging, 
-                  access controls, data residency options, and automated retention policies.
+                  Rediacc is designed for enterprise security requirements. Features include encryption at rest and in transit, 
+                  comprehensive audit logging, role-based access controls, data residency options, and automated retention policies 
+                  to help meet your organization's data protection needs.
                 </p>
               </details>
             </div>

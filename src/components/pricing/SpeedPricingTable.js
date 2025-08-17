@@ -6,7 +6,7 @@ import {
   LightbulbIcon,
   DataMigrationIcon,
   RansomwareRecoveryIcon,
-  ComplianceAuditIcon,
+  SecurityAssessmentIcon,
   InfrastructureScalingIcon,
   TeamTrainingIcon,
   PerformanceOptimizationIcon,
@@ -23,7 +23,7 @@ const SpeedPricingTable = () => {
     const iconMap = {
       'migration': DataMigrationIcon,
       'ransomware': RansomwareRecoveryIcon,
-      'compliance': ComplianceAuditIcon,
+      'security': SecurityAssessmentIcon,
       'scaling': InfrastructureScalingIcon,
       'training': TeamTrainingIcon,
       'optimization': PerformanceOptimizationIcon,

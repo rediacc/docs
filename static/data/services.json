@@ -47,12 +47,12 @@
           "emergency": "Immediate response team"
         }
       },
-      "compliance": {
-        "name": "Compliance Audit",
+      "security": {
+        "name": "Security Assessment",
         "icon": "📋",
-        "description": "Full compliance audit and certification assistance",
+        "description": "Comprehensive security assessment and hardening assistance",
         "timelines": {
-          "standard": "2 weeks full audit",
+          "standard": "2 weeks full assessment",
           "priority": "5 days expedited",
           "emergency": "24 hours preliminary"
         }

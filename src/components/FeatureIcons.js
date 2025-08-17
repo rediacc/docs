@@ -70,7 +70,7 @@ export const DataMigrationIcon = ({ size = 24, color = "currentColor" }) =>
 export const RansomwareRecoveryIcon = ({ size = 24, color = "currentColor" }) => 
   <Shield size={size} color={color} />;
 
-export const ComplianceAuditIcon = ({ size = 24, color = "currentColor" }) => 
+export const SecurityAssessmentIcon = ({ size = 24, color = "currentColor" }) => 
   <FileText size={size} color={color} />;
 
 export const InfrastructureScalingIcon = ({ size = 24, color = "currentColor" }) => 
@@ -120,7 +120,7 @@ export const getIconByName = (name, props = {}) => {
     'cost-optimization': CostOptimizationIcon,
     'data-migration': DataMigrationIcon,
     'ransomware-recovery': RansomwareRecoveryIcon,
-    'compliance-audit': ComplianceAuditIcon,
+    'security-assessment': SecurityAssessmentIcon,
     'infrastructure-scaling': InfrastructureScalingIcon,
     'team-training': TeamTrainingIcon,
     'performance-optimization': PerformanceOptimizationIcon,

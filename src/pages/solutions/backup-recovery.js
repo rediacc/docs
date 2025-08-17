@@ -293,23 +293,23 @@ export default function BackupRecoverySolution() {
               <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem'}}>
                 <div style={{padding: '2rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
                   <h3 style={{color: 'var(--ifm-color-primary)'}}><Icon name="healthcare" size={20} style={{marginRight: '8px'}} />Healthcare</h3>
-                  <p><strong>Challenge:</strong> HIPAA compliance, patient data protection, 24/7 availability</p>
+                  <p><strong>Challenge:</strong> Strict data protection requirements, patient data security, 24/7 availability</p>
                   <p><strong>Solution:</strong></p>
                   <ul>
-                    <li>HIPAA-compliant encryption at rest and in transit</li>
+                    <li>Advanced encryption at rest and in transit</li>
                     <li>Instant recovery for critical patient systems</li>
                     <li>30-year retention capabilities for medical records</li>
-                    <li>Automated compliance reporting</li>
+                    <li>Automated security reporting</li>
                   </ul>
                 </div>
 
                 <div style={{padding: '2rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
                   <h3 style={{color: 'var(--ifm-color-primary)'}}><Icon name="finance" size={20} style={{marginRight: '8px'}} />Financial Services</h3>
-                  <p><strong>Challenge:</strong> Zero data loss requirement, regulatory compliance, audit trails</p>
+                  <p><strong>Challenge:</strong> Zero data loss requirement, strict security needs, detailed audit trails</p>
                   <p><strong>Solution:</strong></p>
                   <ul>
                     <li>Continuous data protection with zero RPO</li>
-                    <li>Immutable backups for regulatory compliance</li>
+                    <li>Immutable backups for security requirements</li>
                     <li>Complete audit trail of all recovery operations</li>
                     <li>Multi-region replication for disaster recovery</li>
                   </ul>
@@ -431,24 +431,24 @@ export default function BackupRecoverySolution() {
           </div>
         </section>
 
-        {/* Compliance & Certifications */}
+        {/* Security & Standards */}
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              Enterprise-Grade Compliance
+              Enterprise-Grade Security
             </h2>
             
             <div style={{maxWidth: '1200px', margin: '0 auto'}}>
               <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '2rem', textAlign: 'center', marginBottom: '3rem'}}>
                 {[
-                  {name: 'SOC 2 Type II', icon: 'shield'},
-                  {name: 'ISO 27001', icon: 'success'},
-                  {name: 'HIPAA', icon: 'healthcare'},
-                  {name: 'GDPR', icon: 'globe'},
-                  {name: 'PCI-DSS', icon: 'lock'},
-                  {name: 'FedRAMP', icon: 'government'},
-                  {name: 'FERPA', icon: 'academic'},
-                  {name: 'CCPA', icon: 'california'}
+                  {name: 'Enterprise Security', icon: 'shield'},
+                  {name: 'Data Protection', icon: 'success'},
+                  {name: 'Healthcare Ready', icon: 'healthcare'},
+                  {name: 'Global Support', icon: 'globe'},
+                  {name: 'Financial Grade', icon: 'lock'},
+                  {name: 'Government Ready', icon: 'government'},
+                  {name: 'Education Ready', icon: 'academic'},
+                  {name: 'Privacy Controls', icon: 'california'}
                 ].map((cert, idx) => (
                   <div key={idx} style={{padding: '1.5rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
                     <div style={{fontSize: '2rem', marginBottom: '0.5rem', color: 'var(--ifm-color-primary)'}}>

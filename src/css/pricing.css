@@ -7,10 +7,13 @@
   text-align: center;
 }
 
+.pricing-hero h1, .pricing-hero p {
+  color: white;
+}
+
 .pricing-hero h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: white;
 }
 
 .pricing-hero p {
@@ -18,7 +21,6 @@
   max-width: 800px;
   margin: 0 auto;
   opacity: 0.95;
-  color: white;
 }
 
 .pricing-discount-banner {

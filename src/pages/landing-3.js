@@ -1023,7 +1023,7 @@ export default function InfrastructureCommandCenter() {
                   </li>
                   <li>
                     <strong>Complete Audit Trail:</strong> Every AI action logged with who, what, when, where. 
-                    Required for compliance and forensics.
+                    Essential for troubleshooting and analysis.
                   </li>
                 </ul>
 
@@ -1417,7 +1417,7 @@ export default function InfrastructureCommandCenter() {
                 </h3>
                 <p style={{ marginBottom: '1rem' }}>
                   Comprehensive training for your entire team. Live sessions, 
-                  documentation, certification program included.
+                  documentation, and training materials included.
                 </p>
                 <strong style={{ fontSize: '1.2rem' }}>Value: $30,000</strong>
               </div>
@@ -1433,7 +1433,7 @@ export default function InfrastructureCommandCenter() {
                 </h3>
                 <p style={{ marginBottom: '1rem' }}>
                   Complete infrastructure security assessment. Identify vulnerabilities, 
-                  implement fixes, achieve compliance.
+                  implement fixes, improve security posture.
                 </p>
                 <strong style={{ fontSize: '1.2rem' }}>Value: $25,000</strong>
               </div>

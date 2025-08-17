@@ -365,7 +365,7 @@ export default function Landing4() {
                 <div>✅ Risk-Free Upgrades</div>
                 <div>✅ Zero-Cost Storage</div>
                 <div>✅ 24/7 Expert Support</div>
-                <div>✅ Compliance Reports</div>
+                <div>✅ Activity Reports</div>
               </div>
             </div>
           </div>
@@ -774,7 +774,7 @@ export default function Landing4() {
           </Link>
           
           <div style={{marginTop: '30px', fontSize: '0.9rem', opacity: '0.9'}}>
-            <p>🔒 Bank-level security • SOC 2 certified • GDPR compliant</p>
+            <p>🔒 Bank-level security • Enterprise-grade protection</p>
             <p style={{marginTop: '10px'}}>
               Questions? Call our team: 1-800-REDIACC or email sales@rediacc.io
             </p>
@@ -791,12 +791,12 @@ export default function Landing4() {
               <div style={{fontSize: '0.9rem', color: '#6b7280'}}>Bank-Level<br/>Encryption</div>
             </div>
             <div style={{textAlign: 'center'}}>
-              <div style={{fontSize: '2rem', marginBottom: '5px'}}>✅</div>
-              <div style={{fontSize: '0.9rem', color: '#6b7280'}}>SOC 2<br/>Certified</div>
+              <div style={{fontSize: '2rem', marginBottom: '5px'}}>⚡</div>
+              <div style={{fontSize: '0.9rem', color: '#6b7280'}}>Fast<br/>Deployment</div>
             </div>
             <div style={{textAlign: 'center'}}>
-              <div style={{fontSize: '2rem', marginBottom: '5px'}}>🌍</div>
-              <div style={{fontSize: '0.9rem', color: '#6b7280'}}>GDPR<br/>Compliant</div>
+              <div style={{fontSize: '2rem', marginBottom: '5px'}}>🛡️</div>
+              <div style={{fontSize: '0.9rem', color: '#6b7280'}}>Advanced<br/>Security</div>
             </div>
             <div style={{textAlign: 'center'}}>
               <div style={{fontSize: '2rem', marginBottom: '5px'}}>🏆</div>

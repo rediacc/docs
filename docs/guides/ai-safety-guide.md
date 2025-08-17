@@ -50,7 +50,7 @@ Native support for AI systems with enforced boundaries:
 ```
 
 ### 4. Complete Audit Trail
-Every AI action is logged and reversible with immutable records for compliance.
+Every AI action is logged and reversible with immutable records for monitoring.
 
 ## Protection Matrix
 

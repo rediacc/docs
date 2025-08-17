@@ -33,7 +33,7 @@ rediacc-cli create region us-east --vault '{
 
 # Create secondary regions
 rediacc-cli create region eu-west --vault '{
-  "description": "European region for GDPR compliance",
+  "description": "European region for data residency",
   "datacenter": "AWS eu-west-1",
   "contact": "ops-eu@company.com"
 }'

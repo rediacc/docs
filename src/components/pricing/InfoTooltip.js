@@ -12,10 +12,7 @@ const InfoTooltip = ({ content, position = 'top' }) => {
         className="info-tooltip-trigger"
         onMouseEnter={() => setIsVisible(true)}
         onMouseLeave={() => setIsVisible(false)}
-        onClick={(e) => {
-          e.preventDefault();
-          setIsVisible(!isVisible);
-        }}
+        onClick={(e) => { e.preventDefault(); setIsVisible(!isVisible); }}
         aria-label="More information"
       >
         <Info size={16} />

@@ -24,7 +24,7 @@
       "storages": "Storage Destinations",
       "users": "Team Members",
       "bridge_type": "Connection Type",
-      "audit_days": "Audit Log Retention",
+      "audit_days": "Activity Log Retention",
       "active_jobs": "Concurrent Jobs",
       "interface": "Access Methods",
       "custom_permission_groups": "Custom Permission Groups",

@@ -333,19 +333,19 @@ enum Permission {
    - Keep browser updated
    - Use secure networks
 
-## Compliance Features
+## Security Features
 
-### Standards Support
-- SOC 2 Type II ready
-- HIPAA compliance features
-- GDPR data protection
-- PCI DSS guidelines
+### Security Standards
+- Enterprise-grade encryption
+- Multi-layered access controls
+- Advanced threat protection
+- Security monitoring and alerting
 
 ### Data Governance
 - Data retention policies
-- Right to erasure (GDPR)
+- Secure data deletion
 - Data portability
-- Consent management
+- Access management
 
 ## Security Incident Response
 
