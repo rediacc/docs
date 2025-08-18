@@ -16,7 +16,7 @@ function HomepageHero() {
           Infrastructure Automation Platform
         </h1>
         <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-          Deploy Fearlessly. Sleep Peacefully. AI-Proof Your Production.
+          Deploy Fearlessly. Sleep Peacefully. Safeguard Your Production.
         </p>
         <div className="hero-buttons animate-fade-in-up animate-delay-200">
           <Link
@@ -145,7 +145,7 @@ function HomepageFeatures() {
           Everything You Need for Modern Infrastructure
         </h2>
         <p style={{textAlign: 'center', marginBottom: '3rem', fontSize: '1.2rem', color: 'var(--ifm-font-color-secondary)', maxWidth: '700px', margin: '0 auto 3rem'}}>
-          Comprehensive infrastructure automation organized by your needs
+          Enterprise-grade solutions designed for modern DevOps teams
         </p>
         
         {featureCategories.map((category, catIdx) => (
@@ -298,7 +298,7 @@ function CTASection() {
           Ready to Transform Your Infrastructure?
         </h2>
         <p style={{fontSize: '1.2rem', marginBottom: '2rem', color: 'var(--ifm-font-color-secondary)'}}>
-          Join thousands of teams using Rediacc to automate their infrastructure
+          Join engineering teams worldwide who trust Rediacc for infrastructure automation
         </p>
         <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
           <Link

@@ -21,6 +21,9 @@ export default function Contact() {
     message: ''
   });
 
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -28,10 +31,54 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Full name is required';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email address is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters long';
+    }
+    
+    return newErrors;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    alert('Thank you for contacting us! We\'ll get back to you within 24 hours.');
+    
+    const formErrors = validateForm();
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setErrors({});
+    
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      alert('Thank you for contacting us! We\'ll get back to you within 24 hours.');
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        subject: 'general',
+        message: ''
+      });
+    }, 1000);
   };
 
   return (
@@ -75,8 +122,8 @@ export default function Contact() {
         {/* Contact Options */}
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
-            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto 4rem'}}>
-              <div className="feature-card" style={{textAlign: 'center'}}>
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto 4rem'}}>
+              <div className="feature-card" style={{textAlign: 'center', padding: '2rem', minHeight: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
                 <div style={{marginBottom: '1rem'}}><CollaborateIcon /></div>
                 <h3>Let's Collaborate</h3>
                 <p>Ready to explore how Rediacc can transform your infrastructure together?</p>
@@ -84,7 +131,7 @@ export default function Contact() {
                 <p>+1-800-REDIACC</p>
               </div>
               
-              <div className="feature-card" style={{textAlign: 'center'}}>
+              <div className="feature-card" style={{textAlign: 'center', padding: '2rem', minHeight: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
                 <div style={{marginBottom: '1rem'}}><SupportIcon /></div>
                 <h3>Technical Support</h3>
                 <p>Need help with your Rediacc deployment?</p>
@@ -92,7 +139,7 @@ export default function Contact() {
                 <Link to="/console/login?register=true">Documentation →</Link>
               </div>
               
-              <div className="feature-card" style={{textAlign: 'center'}}>
+              <div className="feature-card" style={{textAlign: 'center', padding: '2rem', minHeight: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
                 <div style={{marginBottom: '1rem'}}><PartnershipsIcon /></div>
                 <h3>Partnerships</h3>
                 <p>Interested in partnering with Rediacc?</p>
@@ -108,9 +155,10 @@ export default function Contact() {
               <form onSubmit={handleSubmit} style={{
                 background: 'var(--ifm-background-surface-color)',
                 padding: '2rem',
-                borderRadius: '8px'
+                borderRadius: '8px',
+                border: '1px solid var(--ifm-toc-border-color)'
               }}>
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem'}}>
+                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem'}}>
                   <div>
                     <label htmlFor="name" style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500'}}>
                       Full Name *
@@ -126,9 +174,20 @@ export default function Contact() {
                         width: '100%',
                         padding: '0.75rem',
                         border: '1px solid var(--ifm-color-emphasis-300)',
-                        borderRadius: '4px',
+                        borderRadius: '6px',
                         background: 'var(--ifm-background-color)',
-                        color: 'var(--ifm-font-color-base)'
+                        color: 'var(--ifm-font-color-base)',
+                        fontSize: '16px',
+                        minHeight: '44px',
+                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease'
+                      }}
+                      onFocus={(e) => {
+                        e.target.style.borderColor = 'var(--ifm-color-primary)';
+                        e.target.style.boxShadow = '0 0 0 3px rgba(85, 107, 47, 0.1)';
+                      }}
+                      onBlur={(e) => {
+                        e.target.style.borderColor = 'var(--ifm-color-emphasis-300)';
+                        e.target.style.boxShadow = 'none';
                       }}
                     />
                   </div>
@@ -148,15 +207,26 @@ export default function Contact() {
                         width: '100%',
                         padding: '0.75rem',
                         border: '1px solid var(--ifm-color-emphasis-300)',
-                        borderRadius: '4px',
+                        borderRadius: '6px',
                         background: 'var(--ifm-background-color)',
-                        color: 'var(--ifm-font-color-base)'
+                        color: 'var(--ifm-font-color-base)',
+                        fontSize: '16px',
+                        minHeight: '44px',
+                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease'
+                      }}
+                      onFocus={(e) => {
+                        e.target.style.borderColor = 'var(--ifm-color-primary)';
+                        e.target.style.boxShadow = '0 0 0 3px rgba(85, 107, 47, 0.1)';
+                      }}
+                      onBlur={(e) => {
+                        e.target.style.borderColor = 'var(--ifm-color-emphasis-300)';
+                        e.target.style.boxShadow = 'none';
                       }}
                     />
                   </div>
                 </div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem'}}>
+                <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem'}}>
                   <div>
                     <label htmlFor="company" style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500'}}>
                       Company
@@ -171,9 +241,20 @@ export default function Contact() {
                         width: '100%',
                         padding: '0.75rem',
                         border: '1px solid var(--ifm-color-emphasis-300)',
-                        borderRadius: '4px',
+                        borderRadius: '6px',
                         background: 'var(--ifm-background-color)',
-                        color: 'var(--ifm-font-color-base)'
+                        color: 'var(--ifm-font-color-base)',
+                        fontSize: '16px',
+                        minHeight: '44px',
+                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease'
+                      }}
+                      onFocus={(e) => {
+                        e.target.style.borderColor = 'var(--ifm-color-primary)';
+                        e.target.style.boxShadow = '0 0 0 3px rgba(85, 107, 47, 0.1)';
+                      }}
+                      onBlur={(e) => {
+                        e.target.style.borderColor = 'var(--ifm-color-emphasis-300)';
+                        e.target.style.boxShadow = 'none';
                       }}
                     />
                   </div>
@@ -192,9 +273,20 @@ export default function Contact() {
                         width: '100%',
                         padding: '0.75rem',
                         border: '1px solid var(--ifm-color-emphasis-300)',
-                        borderRadius: '4px',
+                        borderRadius: '6px',
                         background: 'var(--ifm-background-color)',
-                        color: 'var(--ifm-font-color-base)'
+                        color: 'var(--ifm-font-color-base)',
+                        fontSize: '16px',
+                        minHeight: '44px',
+                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease'
+                      }}
+                      onFocus={(e) => {
+                        e.target.style.borderColor = 'var(--ifm-color-primary)';
+                        e.target.style.boxShadow = '0 0 0 3px rgba(85, 107, 47, 0.1)';
+                      }}
+                      onBlur={(e) => {
+                        e.target.style.borderColor = 'var(--ifm-color-emphasis-300)';
+                        e.target.style.boxShadow = 'none';
                       }}
                     />
                   </div>
@@ -251,14 +343,19 @@ export default function Contact() {
                   />
                 </div>
 
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem'}}>
                   <p style={{fontSize: '0.9rem', color: 'var(--ifm-font-color-secondary)'}}>
                     * Required fields
                   </p>
                   <button
                     type="submit"
-                    className="button button--primary button--lg">
-                    Send Message
+                    disabled={isSubmitting}
+                    className="button button--primary button--lg"
+                    style={{
+                      opacity: isSubmitting ? 0.7 : 1,
+                      cursor: isSubmitting ? 'not-allowed' : 'pointer'
+                    }}>
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </div>
               </form>
@@ -271,7 +368,7 @@ export default function Contact() {
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center'}}>Global Offices</h2>
             
-            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
               <div className="feature-card">
                 <h3 style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
                   <BuildingIcon />

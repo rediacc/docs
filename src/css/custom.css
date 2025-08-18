@@ -18,8 +18,12 @@ div[class*="announcementBar"] div[class*="content"] {
   margin: 0 auto !important;
 }
 
-/* Common brand colors that stay consistent across themes */
+/* Design System Foundation - S-Tier SaaS Standards */
 :root {
+  /* =================
+     I. Color Palette
+     ================= */
+  
   /* Brand colors - Olive Green Theme */
   --ifm-color-primary: #556b2f;
   --ifm-color-primary-dark: #4c6029;
@@ -39,21 +43,102 @@ div[class*="announcementBar"] div[class*="content"] {
   --color-brand-dark-hover: #4c6029;
   --color-brand-darker-hover: #6e6e00;
   
+  /* Neutrals - 7-step gray scale */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f4f4f5;
+  --color-neutral-200: #e4e4e7;
+  --color-neutral-300: #d4d4d8;
+  --color-neutral-400: #a1a1aa;
+  --color-neutral-500: #71717a;
+  --color-neutral-600: #52525b;
+  --color-neutral-700: #3f3f46;
+  --color-neutral-800: #27272a;
+  --color-neutral-900: #18181b;
+  
+  /* Semantic colors - WCAG AA compliant */
+  --color-status-error: #dc2626;
+  --color-status-success: #16a34a;
+  --color-status-info: #2563eb;
+  --color-status-warning: #d97706;
+  
   /* Accent colors */
   --color-accent-purple: #8b5cf6;
   --color-accent-indigo: #6366f1;
   
-  /* Status colors */
-  --color-status-error: #ef4444;
-  --color-status-success: #22c55e;
-  --color-status-info: #3b82f6;
-  --color-status-warning: #f59e0b;
+  /* =================
+     II. Typography Scale
+     ================= */
+  
+  /* Font family - Clean sans-serif */
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  
+  /* Modular scale - Based on 16px base */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px - Body Default */
+  --font-size-lg: 1.125rem;   /* 18px - Body Large */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px - H4 */
+  --font-size-3xl: 1.875rem;  /* 30px - H3 */
+  --font-size-4xl: 2.25rem;   /* 36px - H2 */
+  --font-size-5xl: 3rem;      /* 48px - H1 */
+  
+  /* Font weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  
+  /* Line heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+  
+  /* =================
+     III. Spacing Scale - 8px base unit
+     ================= */
+  
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  
+  /* =================
+     IV. Border Radii
+     ================= */
+  
+  --radius-sm: 0.25rem;    /* 4px - Small elements */
+  --radius-base: 0.5rem;   /* 8px - Buttons, inputs */
+  --radius-lg: 0.75rem;    /* 12px - Cards, modals */
+  --radius-xl: 1rem;       /* 16px - Large cards */
+  
+  /* =================
+     V. Shadows
+     ================= */
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-xl: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* =================
+     VI. Legacy Variables (for compatibility)
+     ================= */
   
   /* Code blocks */
   --ifm-code-font-size: 95%;
   
   /* Custom variables for our simplified layout */
-  --docs-padding-top: 2rem;
+  --docs-padding-top: var(--space-8);
   --docs-max-width: 1400px;
 }
 
@@ -178,11 +263,20 @@ textarea:focus-visible,
 .dropdown__link:focus-visible,
 .menu__link:focus-visible,
 .tabs__item:focus-visible,
-.pagination-nav__link:focus-visible {
+.pagination-nav__link:focus-visible,
+.navbar__toggle:focus-visible {
   outline: 3px solid var(--ifm-color-primary);
   outline-offset: 2px;
   border-radius: 4px;
   transition: outline-offset 0.1s ease;
+}
+
+/* Enhanced focus for mobile hamburger menu button */
+.navbar__toggle:focus-visible {
+  outline: 3px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(85, 107, 47, 0.2);
+  background: rgba(85, 107, 47, 0.05);
 }
 
 /* Enhanced focus for buttons and CTAs */
@@ -230,9 +324,9 @@ textarea:focus-visible,
   outline-offset: 2px;
 }
 
-/* Font family to match offers app */
+/* Font family - Using design token */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-family-primary);
 }
 
 /* Fix for dark mode navbar */
@@ -311,10 +405,11 @@ table thead tr {
 
 /* Footer Bar - Above Footer */
 .footer-bar {
-  background-color: var(--ifm-background-color);
+  background: linear-gradient(135deg, var(--ifm-background-surface-color) 0%, var(--ifm-background-color) 100%);
   border-top: 1px solid var(--ifm-toc-border-color);
   border-bottom: 1px solid var(--ifm-toc-border-color);
-  padding: 1.5rem 0;
+  padding: 2rem 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .footer-bar__inner {
@@ -330,24 +425,48 @@ table thead tr {
 .footer-bar__brand {
   display: flex;
   align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.footer-bar__brand:hover {
+  transform: scale(1.05);
 }
 
 .footer-bar__logo {
-  height: 40px;
+  height: 45px;
   width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .footer-bar__tagline {
-  color: var(--ifm-font-color-secondary);
-  font-size: 1.1rem;
+  color: var(--ifm-color-primary);
+  font-size: 1.2rem;
   font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 /* Footer adjustments */
 .footer {
   background-color: var(--ifm-background-surface-color);
   color: var(--ifm-font-color-secondary);
-  border-top: none; /* Remove default border since footer-bar has it */
+  border-top: none;
+  padding: 2rem 0;
+}
+
+.footer__links {
+  margin-bottom: 1.5rem;
+}
+
+.footer__link-item {
+  color: var(--ifm-font-color-secondary);
+  transition: color 0.2s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
 }
 
 /* Mobile responsiveness for footer bar */
@@ -490,12 +609,94 @@ table thead tr {
     border-right: none;
   }
   
+  /* Enhanced mobile navigation toggle */
+  .navbar__toggle {
+    display: block !important;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px;
+    margin-left: auto;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    background: transparent;
+    border: 2px solid transparent;
+  }
+  
+  .navbar__toggle:hover {
+    background: var(--ifm-color-emphasis-200);
+    border-color: var(--ifm-color-primary);
+  }
+  
+  .navbar__toggle:focus-visible {
+    outline: 3px solid var(--ifm-color-primary);
+    outline-offset: 2px;
+    background: rgba(85, 107, 47, 0.1);
+  }
+  
+  /* Ensure mobile menu is properly styled */
+  .navbar-sidebar {
+    background: var(--ifm-navbar-background-color);
+    border-right: 1px solid var(--ifm-toc-border-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-sidebar__backdrop {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+  }
+  
+  .navbar-sidebar__items {
+    padding: 1rem;
+  }
+  
+  .navbar-sidebar__item {
+    margin: 0.5rem 0;
+  }
+  
+  .navbar-sidebar__item .navbar__link {
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-sidebar__item .navbar__link:hover {
+    background: var(--ifm-color-emphasis-200);
+    color: var(--ifm-color-primary);
+  }
+  
+  /* Mobile dropdown improvements */
+  .navbar-sidebar .dropdown__menu {
+    position: static;
+    background: var(--ifm-color-emphasis-100);
+    border: none;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-sidebar .dropdown__link {
+    padding: 0.75rem 1rem;
+    margin: 0.25rem 0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
+  
   /* Stack auth buttons on very small screens */
   @media (max-width: 480px) {
     .navbar-top-bar-signin,
     .navbar-top-bar-cta {
       padding: 0.3rem 0.75rem !important;
       font-size: 0.85rem;
+    }
+    
+    /* Make mobile menu full width on small screens */
+    .navbar-sidebar {
+      width: 100%;
     }
   }
 }
@@ -823,23 +1024,50 @@ table thead tr {
 }
 
 /* ============================================
-   Performance-First Animations
+   Enhanced Micro-interactions & Loading States
    ============================================ */
 
-/* Only use transform and opacity for best performance */
+/* Loading states */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes skeleton {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Utility loading classes */
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.loading-skeleton {
+  background: linear-gradient(90deg, var(--color-neutral-200) 25%, var(--color-neutral-100) 50%, var(--color-neutral-200) 75%);
+  background-size: 200px 100%;
+  animation: skeleton 1.5s infinite;
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Enhanced entrance animations */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(var(--space-4));
   }
   to {
     opacity: 1;
@@ -850,7 +1078,7 @@ table thead tr {
 @keyframes fadeInScale {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.96);
   }
   to {
     opacity: 1;
@@ -858,9 +1086,20 @@ table thead tr {
   }
 }
 
-/* Utility animation classes */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(var(--space-8));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Micro-interaction utility classes */
 .animate-fade-in {
-  animation: fadeIn 0.3s ease-in forwards;
+  animation: fadeIn 0.3s ease-out forwards;
 }
 
 .animate-fade-in-up {
@@ -871,12 +1110,76 @@ table thead tr {
   animation: fadeInScale 0.3s ease-out forwards;
 }
 
-/* Stagger animation delays for lists */
+.animate-slide-in-right {
+  animation: slideInRight 0.4s ease-out forwards;
+}
+
+/* Enhanced hover states with proper easing */
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hover-scale {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Button press animation */
+.button-press {
+  transition: transform 0.1s ease;
+}
+
+.button-press:active {
+  transform: scale(0.98);
+}
+
+/* Stagger animation delays using design tokens */
 .animate-delay-100 { animation-delay: 100ms; }
 .animate-delay-200 { animation-delay: 200ms; }
 .animate-delay-300 { animation-delay: 300ms; }
 .animate-delay-400 { animation-delay: 400ms; }
 .animate-delay-500 { animation-delay: 500ms; }
+
+/* Focus rings with design tokens */
+.focus-ring {
+  transition: box-shadow 0.15s ease;
+}
+
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ifm-color-primary), 0 0 0 5px rgba(85, 107, 47, 0.2);
+}
+
+/* Loading indicator for async actions */
+.loading-indicator {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-indicator::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
 
 /* ============================================
    Performance Optimizations
@@ -905,33 +1208,61 @@ table thead tr {
    ============================================ */
 
 .hero-section {
-  padding: 6rem 1rem;
+  padding: 8rem 1rem 6rem;
   background: var(--ifm-background-surface-color);
   color: var(--ifm-font-color-base);
   text-align: center;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--ifm-toc-border-color);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
 }
 
 .hero-title {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--ifm-heading-color);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
-  margin-bottom: 2rem;
-  opacity: 0.95;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  color: var(--ifm-font-color-secondary);
+  font-weight: 500;
+  line-height: 1.4;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.hero-buttons .button {
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  min-height: 48px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.hero-buttons .button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* Feature Grid */
@@ -939,44 +1270,61 @@ table thead tr {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  padding: 4rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .feature-card {
   background: var(--ifm-card-background-color);
-  border-radius: 8px;
-  padding: 2rem;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   text-decoration: none;
   color: inherit;
   display: block;
+  border: 1px solid var(--ifm-toc-border-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .feature-card:hover {
   text-decoration: none;
   color: inherit;
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+  border-color: var(--ifm-color-primary-lighter);
 }
 
 .feature-icon {
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 .feature-title {
   font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--ifm-color-primary);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+  text-align: center;
 }
 
 .feature-description {
   color: var(--ifm-font-color-secondary);
-  line-height: 1.6;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.feature-card span[style*="color: var(--ifm-color-primary)"] {
+  margin-top: auto;
+  text-align: center;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
 }
 
 /* Search Bar Styling */
@@ -1179,12 +1527,24 @@ table thead tr {
   
   /* Ensure clickable icons have proper size */
   .navbar__theme-toggle,
-  .header-github-link {
+  .header-github-link,
+  .navbar__toggle {
     min-width: 44px;
     min-height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  
+  /* Mobile hamburger menu enhancement */
+  .navbar__toggle {
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+  
+  .navbar__toggle:hover {
+    background: var(--ifm-color-emphasis-200);
   }
 }
 

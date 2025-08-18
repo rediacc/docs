@@ -206,12 +206,26 @@
 .pricing-tier-button {
   display: inline-block;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, scale 0.15s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .pricing-tier-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  scale: 1.02;
+}
+
+.pricing-tier-button:active {
+  transform: translateY(-1px);
+  scale: 0.98;
+  transition: transform 0.1s ease, scale 0.1s ease;
+}
+
+.pricing-tier-button:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
 }
 
 /* Dark theme adjustments */
@@ -244,7 +258,7 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .pricing-comparison-table {
     margin-left: -1rem;
     margin-right: -1rem;
@@ -253,5 +267,96 @@
   
   .pricing-comparison-container {
     border-radius: 0;
+    min-width: 600px; /* Reduce minimum width */
+  }
+  
+  /* Adjust grid for smaller screens */
+  .pricing-comparison-header,
+  .pricing-comparison-row,
+  .pricing-comparison-group-header {
+    grid-template-columns: 1.5fr repeat(4, 1fr);
+  }
+  
+  /* Reduce padding and font sizes */
+  .pricing-comparison-header-cell {
+    padding: 1rem 0.75rem;
+  }
+  
+  .pricing-tier-name {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .pricing-current-price {
+    font-size: 1.5rem;
+  }
+  
+  .pricing-comparison-feature-cell,
+  .pricing-comparison-value-cell {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .pricing-comparison-group-title {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+  
+  /* Improve button touch targets */
+  .pricing-tier-button {
+    min-height: 44px;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing-comparison-container {
+    min-width: 480px; /* Further reduce for very small screens */
+  }
+  
+  .pricing-comparison-header,
+  .pricing-comparison-row,
+  .pricing-comparison-group-header {
+    grid-template-columns: 1.2fr repeat(4, 0.8fr);
+  }
+  
+  .pricing-comparison-header-cell {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .pricing-tier-name {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .pricing-current-price {
+    font-size: 1.25rem;
+  }
+  
+  .pricing-tier-price {
+    min-height: 100px;
+  }
+  
+  .pricing-comparison-feature-cell {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .pricing-feature-name {
+    font-size: 0.9rem;
+  }
+  
+  .pricing-comparison-value-cell {
+    padding: 0.75rem 0.25rem;
+  }
+  
+  /* Ensure text is legible on small screens */
+  .pricing-cell-value {
+    font-size: 0.85rem;
+  }
+  
+  .pricing-check-icon,
+  .pricing-x-icon {
+    width: 16px;
+    height: 16px;
   }
 }
