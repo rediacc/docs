@@ -1,12 +1,1 @@
 services:
-  offers:
-    image: rediacc/offers:latest
-    container_name: offers
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8080:80"
-    volumes:
-      - ../middleware/logs:/middleware-logs:ro
-    restart: unless-stopped
