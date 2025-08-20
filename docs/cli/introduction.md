@@ -77,17 +77,17 @@ The CLI acts as a client to the Rediacc middleware, which handles business logic
 export SYSTEM_API_URL="https://your-server.com"
 
 # Login
-rediacc-cli login --email user@example.com --password yourpassword
+rediacc login --email user@example.com --password yourpassword
 
 # Create your first company (if needed)
-rediacc-cli create company "Your Company" --email admin@company.com --password adminpass
+rediacc create company "Your Company" --email admin@company.com --password adminpass
 
 # List available commands
-rediacc-cli -h
+rediacc -h
 
 # Get help for specific commands
-rediacc-cli create -h
-rediacc-cli list -h
+rediacc create -h
+rediacc list -h
 ```
 
 ## Getting Help
@@ -96,15 +96,15 @@ Every command includes comprehensive help documentation:
 
 ```bash
 # Global help
-rediacc-cli -h
+rediacc -h
 
 # Command help
-rediacc-cli create -h
-rediacc-cli list -h
+rediacc create -h
+rediacc list -h
 
 # Subcommand help
-rediacc-cli create company -h
-rediacc-cli create user -h
+rediacc create company -h
+rediacc create user -h
 ```
 
 ## Configuration
@@ -113,13 +113,13 @@ The CLI stores configuration in `~/.rediacc/config.json`. The configuration is a
 
 ```bash
 # Configuration is stored automatically on login
-rediacc-cli login --email user@example.com
+rediacc login --email user@example.com
 
 # View current authentication status
 cat ~/.rediacc/config.json
 
 # Logout clears the stored credentials
-rediacc-cli logout
+rediacc logout
 ```
 
 ### Environment Variables

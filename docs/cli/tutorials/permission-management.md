@@ -23,33 +23,33 @@ Design permission groups for different roles:
 
 ```bash
 # Developer group with code-related permissions
-rediacc-cli permission create-group "developers"
+rediacc permission create-group "developers"
 
 # Add development-related permissions
-rediacc-cli permission add "developers" "GetTeamRepositories"
-rediacc-cli permission add "developers" "CreateRepository"
-rediacc-cli permission add "developers" "UpdateRepositoryVault"
-rediacc-cli permission add "developers" "GetTeamMachines"
-rediacc-cli permission add "developers" "CreateQueueItem"
+rediacc permission add "developers" "GetTeamRepositories"
+rediacc permission add "developers" "CreateRepository"
+rediacc permission add "developers" "UpdateRepositoryVault"
+rediacc permission add "developers" "GetTeamMachines"
+rediacc permission add "developers" "CreateQueueItem"
 
 # Operations group with infrastructure permissions
-rediacc-cli permission create-group "operations"
+rediacc permission create-group "operations"
 
 # Add ops permissions
-rediacc-cli permission add "operations" "GetCompanyRegions"
-rediacc-cli permission add "operations" "GetRegionBridges"
-rediacc-cli permission add "operations" "CreateMachine"
-rediacc-cli permission add "operations" "UpdateMachineStatus"
-rediacc-cli permission add "operations" "GetQueueItemsNext"
+rediacc permission add "operations" "GetCompanyRegions"
+rediacc permission add "operations" "GetRegionBridges"
+rediacc permission add "operations" "CreateMachine"
+rediacc permission add "operations" "UpdateMachineStatus"
+rediacc permission add "operations" "GetQueueItemsNext"
 
 # Read-only auditor group
-rediacc-cli permission create-group "auditors"
+rediacc permission create-group "auditors"
 
 # Add read-only permissions
-rediacc-cli permission add "auditors" "GetCompanyUsers"
-rediacc-cli permission add "auditors" "GetCompanyTeams"
-rediacc-cli permission add "auditors" "GetAuditLogs"
-rediacc-cli permission add "auditors" "GetEntityHistory"
+rediacc permission add "auditors" "GetCompanyUsers"
+rediacc permission add "auditors" "GetCompanyTeams"
+rediacc permission add "auditors" "GetAuditLogs"
+rediacc permission add "auditors" "GetEntityHistory"
 ```
 
 ### Assigning Users to Groups
@@ -59,16 +59,16 @@ Map users to appropriate permission groups:
 ```bash
 # Assign developers
 for dev in alice@company.com bob@company.com charlie@company.com; do
-  rediacc-cli permission assign "$dev" "developers"
+  rediacc permission assign "$dev" "developers"
 done
 
 # Assign operations team
 for ops in david@company.com eve@company.com; do
-  rediacc-cli permission assign "$ops" "operations"
+  rediacc permission assign "$ops" "operations"
 done
 
 # Assign auditor
-rediacc-cli permission assign auditor@company.com "auditors"
+rediacc permission assign auditor@company.com "auditors"
 ```
 
 ## Role-Based Access Patterns
@@ -82,7 +82,7 @@ Implement permission inheritance:
 # setup-hierarchical-permissions.sh
 
 # Base permissions for all authenticated users
-rediacc-cli permission create-group "authenticated"
+rediacc permission create-group "authenticated"
 BASE_PERMS=(
   "GetUserCompany"
   "GetUserRequests"
@@ -91,13 +91,13 @@ BASE_PERMS=(
 )
 
 for perm in "${BASE_PERMS[@]}"; do
-  rediacc-cli permission add "authenticated" "$perm"
+  rediacc permission add "authenticated" "$perm"
 done
 
 # Team member permissions (includes base)
-rediacc-cli permission create-group "team-members"
+rediacc permission create-group "team-members"
 for perm in "${BASE_PERMS[@]}"; do
-  rediacc-cli permission add "team-members" "$perm"
+  rediacc permission add "team-members" "$perm"
 done
 
 MEMBER_PERMS=(
@@ -108,14 +108,14 @@ MEMBER_PERMS=(
 )
 
 for perm in "${MEMBER_PERMS[@]}"; do
-  rediacc-cli permission add "team-members" "$perm"
+  rediacc permission add "team-members" "$perm"
 done
 
 # Team lead permissions (includes team member)
-rediacc-cli permission create-group "team-leads"
+rediacc permission create-group "team-leads"
 # Copy all team-member permissions
 for perm in "${BASE_PERMS[@]}" "${MEMBER_PERMS[@]}"; do
-  rediacc-cli permission add "team-leads" "$perm"
+  rediacc permission add "team-leads" "$perm"
 done
 
 # Add lead-specific permissions
@@ -128,7 +128,7 @@ LEAD_PERMS=(
 )
 
 for perm in "${LEAD_PERMS[@]}"; do
-  rediacc-cli permission add "team-leads" "$perm"
+  rediacc permission add "team-leads" "$perm"
 done
 ```
 
@@ -141,7 +141,7 @@ Create permissions for different departments:
 # setup-department-permissions.sh
 
 # Engineering Department
-rediacc-cli permission create-group "engineering"
+rediacc permission create-group "engineering"
 
 ENGINEERING_PERMS=(
   # Repository management
@@ -160,11 +160,11 @@ ENGINEERING_PERMS=(
 )
 
 for perm in "${ENGINEERING_PERMS[@]}"; do
-  rediacc-cli permission add "engineering" "$perm"
+  rediacc permission add "engineering" "$perm"
 done
 
 # Finance Department
-rediacc-cli permission create-group "finance"
+rediacc permission create-group "finance"
 
 FINANCE_PERMS=(
   # Read-only access to resources
@@ -181,11 +181,11 @@ FINANCE_PERMS=(
 )
 
 for perm in "${FINANCE_PERMS[@]}"; do
-  rediacc-cli permission add "finance" "$perm"
+  rediacc permission add "finance" "$perm"
 done
 
 # HR Department
-rediacc-cli permission create-group "human-resources"
+rediacc permission create-group "human-resources"
 
 HR_PERMS=(
   # User management
@@ -201,7 +201,7 @@ HR_PERMS=(
 )
 
 for perm in "${HR_PERMS[@]}"; do
-  rediacc-cli permission add "human-resources" "$perm"
+  rediacc permission add "human-resources" "$perm"
 done
 ```
 
@@ -221,31 +221,31 @@ echo
 
 # List all permission groups
 echo "## Permission Groups"
-rediacc-cli permission list-groups
+rediacc permission list-groups
 
 # For each group, show assigned users
 echo -e "\n## Group Assignments"
-GROUPS=$(rediacc-cli permission list-groups --output json | jq -r '.data[].permissionGroupName')
+GROUPS=$(rediacc permission list-groups --output json | jq -r '.data[].permissionGroupName')
 
 for group in $GROUPS; do
   echo -e "\n### $group"
   
   # Get permissions in group
-  PERM_COUNT=$(rediacc-cli permission list-group "$group" --output json | jq '.data | length')
+  PERM_COUNT=$(rediacc permission list-group "$group" --output json | jq '.data | length')
   echo "Permissions: $PERM_COUNT"
   
   # Get users in group (would need to check all users)
   echo "Users:"
-  rediacc-cli list users --output json | jq -r '.data[] | select(.permissionsName == "'$group'") | "  - " + .userEmail'
+  rediacc list users --output json | jq -r '.data[] | select(.permissionsName == "'$group'") | "  - " + .userEmail'
 done
 
 # Find users with admin access
 echo -e "\n## Administrative Access"
-rediacc-cli list users --output json | jq -r '.data[] | select(.permissionsName == "Administrators") | .userEmail'
+rediacc list users --output json | jq -r '.data[] | select(.permissionsName == "Administrators") | .userEmail'
 
 # Check for inactive users with permissions
 echo -e "\n## Inactive Users with Access"
-rediacc-cli list users --output json | jq -r '.data[] | select(.activated == false and .permissionsName != null) | .userEmail + " (" + .permissionsName + ")"'
+rediacc list users --output json | jq -r '.data[] | select(.activated == false and .permissionsName != null) | .userEmail + " (" + .permissionsName + ")"'
 ```
 
 ### Least Privilege Analysis
@@ -259,12 +259,12 @@ Identify over-privileged accounts:
 # Check for users with admin who shouldn't have it
 echo "## Checking Admin Users"
 
-ADMIN_USERS=$(rediacc-cli list users --output json | \
+ADMIN_USERS=$(rediacc list users --output json | \
   jq -r '.data[] | select(.permissionsName == "Administrators") | .userEmail')
 
 for user in $ADMIN_USERS; do
   # Check their recent activity
-  RECENT_ACTIVITY=$(rediacc-cli list audit-logs \
+  RECENT_ACTIVITY=$(rediacc list audit-logs \
     --entity-filter User \
     --start-date $(date -d '30 days ago' --iso-8601) \
     --output json | \
@@ -291,7 +291,7 @@ Configure minimal default permissions:
 # zero-trust-setup.sh
 
 # Create minimal default group
-rediacc-cli permission create-group "minimal-access"
+rediacc permission create-group "minimal-access"
 
 # Only allow basic self-service operations
 MINIMAL_PERMS=(
@@ -301,14 +301,14 @@ MINIMAL_PERMS=(
 )
 
 for perm in "${MINIMAL_PERMS[@]}"; do
-  rediacc-cli permission add "minimal-access" "$perm"
+  rediacc permission add "minimal-access" "$perm"
 done
 
 # Assign all new users to minimal by default
 echo "Set company policy to assign new users to 'minimal-access' group"
 
 # Create request-based elevation groups
-rediacc-cli permission create-group "temporary-elevated"
+rediacc permission create-group "temporary-elevated"
 
 # Add time-limited permissions
 echo "Implement time-based permission expiry in application logic"
@@ -340,20 +340,20 @@ echo "Duration: $DURATION_HOURS hours"
 echo "[$(date)] Emergency access granted to $REQUESTER for: $REASON" >> /var/log/emergency-access.log
 
 # Save current permissions
-CURRENT_GROUP=$(rediacc-cli list users --output json | \
+CURRENT_GROUP=$(rediacc list users --output json | \
   jq -r '.data[] | select(.userEmail == "'$REQUESTER'") | .permissionsName')
 
 echo "Current group: $CURRENT_GROUP"
 
 # Grant temporary admin
-rediacc-cli permission assign "$REQUESTER" "Administrators"
+rediacc permission assign "$REQUESTER" "Administrators"
 
 echo "Elevated permissions granted."
 echo "Reminder: Revoke after $DURATION_HOURS hours"
-echo "Command: rediacc-cli permission assign $REQUESTER '$CURRENT_GROUP'"
+echo "Command: rediacc permission assign $REQUESTER '$CURRENT_GROUP'"
 
 # Schedule automatic revocation (if using cron)
-echo "rediacc-cli permission assign $REQUESTER '$CURRENT_GROUP'" | \
+echo "rediacc permission assign $REQUESTER '$CURRENT_GROUP'" | \
   at now + $DURATION_HOURS hours 2>/dev/null || \
   echo "Manual revocation required"
 ```
@@ -393,7 +393,7 @@ approve_permission() {
   echo "[$(date)] APPROVED: $user -> $new_group | By: $approver" >> "$REQUEST_FILE"
   
   # Apply permission change
-  rediacc-cli permission assign "$user" "$new_group"
+  rediacc permission assign "$user" "$new_group"
   
   echo "Permission change applied"
 }
@@ -477,17 +477,17 @@ Bad: "RepoAccess", "MachineStuff", "UserOps"
 USER="user@company.com"
 
 # Get user's group
-GROUP=$(rediacc-cli list users --output json | \
+GROUP=$(rediacc list users --output json | \
   jq -r '.data[] | select(.userEmail == "'$USER'") | .permissionsName')
 
 echo "User $USER is in group: $GROUP"
 
 # List group permissions
-rediacc-cli permission list-group "$GROUP"
+rediacc permission list-group "$GROUP"
 
 # Check if specific permission exists
 NEEDED_PERM="CreateMachine"
-rediacc-cli permission list-group "$GROUP" --output json | \
+rediacc permission list-group "$GROUP" --output json | \
   jq '.data[] | select(. == "'$NEEDED_PERM'")'
 ```
 
@@ -495,11 +495,11 @@ rediacc-cli permission list-group "$GROUP" --output json | \
 
 ```bash
 # Force permission refresh
-rediacc-cli logout
-rediacc-cli login --email user@company.com
+rediacc logout
+rediacc login --email user@company.com
 
 # Verify new permissions took effect
-rediacc-cli list users --output json | \
+rediacc list users --output json | \
   jq '.data[] | select(.userEmail == "user@company.com")'
 ```
 

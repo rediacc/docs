@@ -45,7 +45,7 @@ export default function CrossBackupFeature() {
               <Link className="button button--primary button--lg" to="/docs/solutions/cross-backup">
                 View Case Study
               </Link>
-              <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
+              <Link className="button button--secondary button--lg" to="/console/login?register=manual" target="_blank">
                 Try It Now
               </Link>
             </div>

@@ -80,15 +80,15 @@ Configure these critical Console security parameters:
 # enable-mfa.sh
 
 # Configure TOTP for all admin users
-for user in $(rediacc-cli list users --group Administrators); do
-  rediacc-cli user enable-mfa \
+for user in $(rediacc list users --group Administrators); do
+  rediacc user enable-mfa \
     --email "$user" \
     --type TOTP \
     --require-on-login true
 done
 
 # Configure backup codes
-rediacc-cli mfa generate-backup-codes \
+rediacc mfa generate-backup-codes \
   --count 10 \
   --store-encrypted true
 ```
@@ -126,17 +126,17 @@ Permission Groups:
 # audit-permissions.sh
 
 # Generate permission report
-rediacc-cli audit permissions \
+rediacc audit permissions \
   --output permissions-audit-$(date +%Y%m%d).csv
 
 # Check for excessive permissions
-rediacc-cli audit analyze \
+rediacc audit analyze \
   --type over-privileged \
   --threshold 90days \
   --action report
 
 # Remove stale permissions
-rediacc-cli audit cleanup \
+rediacc audit cleanup \
   --inactive-days 180 \
   --dry-run false
 ```
@@ -153,25 +153,25 @@ rediacc-cli audit cleanup \
 ssh-keygen -t ed25519 -a 100 -f new_rediacc_key -C "rediacc-$(date +%Y%m%d)"
 
 # Update all machines
-for machine in $(rediacc-cli list machines --format json | jq -r '.[].name'); do
+for machine in $(rediacc list machines --format json | jq -r '.[].name'); do
   echo "Updating SSH key for $machine"
   
   # Add new key
-  rediacc-cli machine add-key \
+  rediacc machine add-key \
     --name "$machine" \
     --key-file new_rediacc_key.pub
   
   # Test new key
-  if rediacc-cli machine test-ssh --name "$machine" --key new_rediacc_key; then
+  if rediacc machine test-ssh --name "$machine" --key new_rediacc_key; then
     # Remove old key
-    rediacc-cli machine remove-key \
+    rediacc machine remove-key \
       --name "$machine" \
       --key-id old-key-id
   fi
 done
 
 # Update team vault
-rediacc-cli vault update \
+rediacc vault update \
   --team Default \
   --key SSH_PRIVATE_KEY \
   --file new_rediacc_key
@@ -217,8 +217,8 @@ configure_machine_firewall() {
 }
 
 # Apply to all machines
-for machine in $(rediacc-cli list machines); do
-  rediacc-cli queue create \
+for machine in $(rediacc list machines); do
+  rediacc queue create \
     --machine "$machine" \
     --script configure-firewall.sh \
     --priority 1
@@ -960,7 +960,7 @@ respond_to_brute_force() {
   echo "$source_ip" >> /etc/rediacc/blocklist.txt
   
   # Disable targeted account
-  rediacc-cli user disable --email "$target_user" --reason "Brute force target"
+  rediacc user disable --email "$target_user" --reason "Brute force target"
   
   # Alert security team
   send_security_alert "Brute Force Attack" \
@@ -974,16 +974,16 @@ respond_to_privilege_escalation() {
   local action=$2
   
   # Revoke all sessions
-  rediacc-cli sessions revoke --user "$user" --all
+  rediacc sessions revoke --user "$user" --all
   
   # Reset to minimal permissions
-  rediacc-cli user set-group --email "$user" --group "Viewers"
+  rediacc user set-group --email "$user" --group "Viewers"
   
   # Require password reset
-  rediacc-cli user require-reset --email "$user"
+  rediacc user require-reset --email "$user"
   
   # Full audit
-  rediacc-cli audit export \
+  rediacc audit export \
     --user "$user" \
     --days 30 \
     --output "escalation-audit-${user}-$(date +%Y%m%d).csv"

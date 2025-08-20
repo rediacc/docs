@@ -57,7 +57,7 @@ export default function AISafetyFeature() {
               <Link className="button button--primary button--lg" to="/solutions/ai-safety">
                 View Technical Documentation
               </Link>
-              <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
+              <Link className="button button--secondary button--lg" to="/console/login?register=quick" target="_blank">
                 Play on Sandbox
               </Link>
             </div>
@@ -281,7 +281,7 @@ export default function AISafetyFeature() {
               Don't wait for an AI disaster to strike. Protect your production systems today with Rediacc's proven AI safety technology.
             </p>
             <div style={{marginTop: '2rem'}}>
-              <Link className="button button--primary button--lg" to="/console/login?register=true" target="_blank">
+              <Link className="button button--primary button--lg" to="/console/login?register=quick" target="_blank">
                 Play on Sandbox
               </Link>
               <Link className="button button--outline button--lg" to="/solutions/ai-safety" style={{marginLeft: '1rem'}}>

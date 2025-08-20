@@ -136,7 +136,7 @@ export default function Contact() {
                 <h3>Technical Support</h3>
                 <p>Need help with your Rediacc deployment?</p>
                 <p style={{fontWeight: 'bold', color: 'var(--ifm-color-primary)'}}>support@rediacc.com</p>
-                <Link to="/console/login?register=true">Documentation →</Link>
+                <Link to="/console/login?register=quick">Documentation →</Link>
               </div>
               
               <div className="feature-card" style={{textAlign: 'center', padding: '2rem', minHeight: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
@@ -498,8 +498,9 @@ export default function Contact() {
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link
                 className="button button--primary button--lg"
-                to="/console/login?register=true"
+                to="/console/login?register=quick"
                 target="_blank">
+
                 Play on Sandbox
               </Link>
               <a

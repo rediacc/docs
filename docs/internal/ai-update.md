@@ -164,16 +164,16 @@ Rediacc's architecture makes such disasters impossible through:
 **Commands to Document**:
 ```bash
 # Clone production for AI testing
-rediacc-cli create clone --source production --for-ai-testing
+rediacc create clone --source production --for-ai-testing
 
 # Configure MCP server
-rediacc-cli configure mcp --server claude --sandbox-only
+rediacc configure mcp --server claude --sandbox-only
 
 # Monitor AI operations
-rediacc-cli monitor ai-agent --real-time
+rediacc monitor ai-agent --real-time
 
 # Instant recovery
-rediacc-cli restore --point-in-time "before-ai-operation"
+rediacc restore --point-in-time "before-ai-operation"
 ```
 
 #### 3.2 Integration Examples

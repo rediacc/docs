@@ -10,8 +10,8 @@ The desktop integration features for Rediacc Console have been removed. The appl
 
 For local system integration and advanced operations, please use the Rediacc CLI tools:
 
-- **rediacc-cli**: Main CLI for API operations
-- **rediacc-cli-sync**: File synchronization with rsync
-- **rediacc-cli-term**: Interactive SSH terminal access
+- **rediacc**: Main CLI for API operations
+- **rediacc-sync**: File synchronization with rsync
+- **rediacc-term**: Interactive SSH terminal access
 
 Please refer to the CLI documentation for detailed usage instructions.

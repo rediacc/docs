@@ -25,27 +25,27 @@ Start by defining your geographic or logical regions:
 
 ```bash
 # Create primary region
-rediacc-cli create region us-east --vault '{
+rediacc create region us-east --vault '{
   "description": "Primary US East Coast region",
   "datacenter": "AWS us-east-1",
   "contact": "ops-us@company.com"
 }'
 
 # Create secondary regions
-rediacc-cli create region eu-west --vault '{
+rediacc create region eu-west --vault '{
   "description": "European region for data residency",
   "datacenter": "AWS eu-west-1",
   "contact": "ops-eu@company.com"
 }'
 
-rediacc-cli create region asia-pac --vault '{
+rediacc create region asia-pac --vault '{
   "description": "Asia Pacific region",
   "datacenter": "AWS ap-southeast-1",
   "contact": "ops-apac@company.com"
 }'
 
 # List all regions
-rediacc-cli list regions
+rediacc list regions
 ```
 
 ### Step 2: Deploy Bridges
@@ -54,7 +54,7 @@ Bridges are the workhorses that process queue items:
 
 ```bash
 # Create production bridge
-rediacc-cli create bridge us-east prod-bridge-01 --vault '{
+rediacc create bridge us-east prod-bridge-01 --vault '{
   "type": "production",
   "batch_size": 5,
   "poll_interval": 30,
@@ -66,14 +66,14 @@ rediacc-cli create bridge us-east prod-bridge-01 --vault '{
 }'
 
 # Create development bridge
-rediacc-cli create bridge us-east dev-bridge-01 --vault '{
+rediacc create bridge us-east dev-bridge-01 --vault '{
   "type": "development",
   "batch_size": 3,
   "poll_interval": 60
 }'
 
 # List bridges in a region
-rediacc-cli list bridges us-east
+rediacc list bridges us-east
 ```
 
 ### Step 3: Configure Bridge Service
@@ -82,7 +82,7 @@ To run a bridge, you need to start the bridge process with appropriate credentia
 
 ```bash
 # Get bridge token
-rediacc-cli login --email bridge-user@company.com \
+rediacc login --email bridge-user@company.com \
   --target prod-bridge-01 \
   --expiration 8760  # 1 year
 
@@ -100,7 +100,7 @@ Machines are the targets where tasks are executed:
 
 ```bash
 # Add web servers
-rediacc-cli create machine "Web Team" prod-bridge-01 web-server-01 --vault '{
+rediacc create machine "Web Team" prod-bridge-01 web-server-01 --vault '{
   "ip": "10.0.1.10",
   "user": "rediacc",
   "ssh_port": 22,
@@ -114,7 +114,7 @@ rediacc-cli create machine "Web Team" prod-bridge-01 web-server-01 --vault '{
 }'
 
 # Add database servers
-rediacc-cli create machine "Database Team" prod-bridge-01 db-server-01 --vault '{
+rediacc create machine "Database Team" prod-bridge-01 db-server-01 --vault '{
   "ip": "10.0.2.10",
   "user": "rediacc",
   "ssh_port": 22,
@@ -128,7 +128,7 @@ rediacc-cli create machine "Database Team" prod-bridge-01 db-server-01 --vault '
 }'
 
 # Add backup servers
-rediacc-cli create machine "Operations" prod-bridge-01 backup-server-01 --vault '{
+rediacc create machine "Operations" prod-bridge-01 backup-server-01 --vault '{
   "ip": "10.0.3.10",
   "user": "rediacc",
   "ssh_port": 22,
@@ -159,7 +159,7 @@ for region in "${REGIONS[@]}"; do
   echo "Setting up region: $region"
   
   # Create region if not exists
-  rediacc-cli create region "$region" --vault '{
+  rediacc create region "$region" --vault '{
     "tier": "production",
     "sla": "99.9%"
   }'
@@ -168,7 +168,7 @@ for region in "${REGIONS[@]}"; do
   for bridge_type in "primary" "backup"; do
     bridge_name="${region}-${bridge_type}-bridge"
     
-    rediacc-cli create bridge "$region" "$bridge_name" --vault '{
+    rediacc create bridge "$region" "$bridge_name" --vault '{
       "type": "'$bridge_type'",
       "auto_failover": true,
       "health_check_interval": 60
@@ -176,7 +176,7 @@ for region in "${REGIONS[@]}"; do
   done
   
   # Add monitoring machine in each region
-  rediacc-cli create machine "$TEAM" "${region}-primary-bridge" \
+  rediacc create machine "$TEAM" "${region}-primary-bridge" \
     "${region}-monitor-01" --vault '{
       "role": "monitoring",
       "services": ["prometheus", "grafana", "alertmanager"]
@@ -193,38 +193,38 @@ Separate infrastructure for different environments:
 # setup-environments.sh
 
 # Production environment
-rediacc-cli create region production --vault '{
+rediacc create region production --vault '{
   "environment": "production",
   "change_control": "required",
   "access": "restricted"
 }'
 
-rediacc-cli create bridge production prod-bridge --vault '{
+rediacc create bridge production prod-bridge --vault '{
   "priority": "high",
   "sla": "99.99%",
   "monitoring": "enabled"
 }'
 
 # Staging environment
-rediacc-cli create region staging --vault '{
+rediacc create region staging --vault '{
   "environment": "staging",
   "refresh_from": "production",
   "refresh_schedule": "weekly"
 }'
 
-rediacc-cli create bridge staging stage-bridge --vault '{
+rediacc create bridge staging stage-bridge --vault '{
   "priority": "medium",
   "auto_refresh": true
 }'
 
 # Development environment
-rediacc-cli create region development --vault '{
+rediacc create region development --vault '{
   "environment": "development",
   "auto_cleanup": true,
   "retention_days": 30
 }'
 
-rediacc-cli create bridge development dev-bridge --vault '{
+rediacc create bridge development dev-bridge --vault '{
   "priority": "low",
   "developer_access": true
 }'
@@ -243,7 +243,7 @@ TEAM="Site Reliability"
 
 # Create redundant bridges
 for i in {1..3}; do
-  rediacc-cli create bridge "$REGION" "ha-bridge-0${i}" --vault '{
+  rediacc create bridge "$REGION" "ha-bridge-0${i}" --vault '{
     "cluster": "ha-primary",
     "role": "active",
     "failover_group": "primary",
@@ -253,7 +253,7 @@ done
 
 # Create load-balanced web tier
 for i in {1..4}; do
-  rediacc-cli create machine "$TEAM" "ha-bridge-01" "web-0${i}" --vault '{
+  rediacc create machine "$TEAM" "ha-bridge-01" "web-0${i}" --vault '{
     "tier": "web",
     "load_balancer": "web-lb.internal",
     "health_check": "/health",
@@ -265,7 +265,7 @@ done
 for i in {1..3}; do
   role=$([ $i -eq 1 ] && echo "primary" || echo "replica")
   
-  rediacc-cli create machine "$TEAM" "ha-bridge-02" "db-0${i}" --vault '{
+  rediacc create machine "$TEAM" "ha-bridge-02" "db-0${i}" --vault '{
     "tier": "database",
     "role": "'$role'",
     "replication": {
@@ -292,7 +292,7 @@ MACHINE="app-server-01"
 
 # 1. Create machine
 echo "Creating machine..."
-rediacc-cli create machine "$TEAM" "$BRIDGE" "$MACHINE" --vault '{
+rediacc create machine "$TEAM" "$BRIDGE" "$MACHINE" --vault '{
   "ip": "10.0.1.50",
   "user": "rediacc",
   "ssh_port": 22,
@@ -303,22 +303,22 @@ rediacc-cli create machine "$TEAM" "$BRIDGE" "$MACHINE" --vault '{
 
 # 2. Test connectivity
 echo "Testing machine connectivity..."
-rediacc-cli create queue-item "$TEAM" "$MACHINE" "$BRIDGE" \
+rediacc create queue-item "$TEAM" "$MACHINE" "$BRIDGE" \
   --vault '{"function": "hello"}' \
   --priority 1
 
 # 3. Initialize machine
 echo "Initializing machine..."
-rediacc-cli create queue-item "$TEAM" "$MACHINE" "$BRIDGE" \
+rediacc create queue-item "$TEAM" "$MACHINE" "$BRIDGE" \
   --vault '{"function": "os_setup"}' \
   --priority 1
 
 # 4. Update machine status
-rediacc-cli update machine-status "$TEAM" "$MACHINE" "production-ready"
+rediacc update machine-status "$TEAM" "$MACHINE" "production-ready"
 
 # 5. Monitor machine
 echo "Machine ready. To check status:"
-echo "rediacc-cli inspect machine $MACHINE"
+echo "rediacc inspect machine $MACHINE"
 ```
 
 ### Machine Maintenance
@@ -339,12 +339,12 @@ fi
 
 # 1. Set maintenance status
 echo "Setting maintenance mode..."
-rediacc-cli update machine-status "$TEAM" "$MACHINE" "maintenance"
+rediacc update machine-status "$TEAM" "$MACHINE" "maintenance"
 
 # 2. Drain active tasks
 echo "Waiting for active tasks to complete..."
 # Check queue items for this machine
-rediacc-cli list queue --machine "$MACHINE" --status PROCESSING
+rediacc list queue --machine "$MACHINE" --status PROCESSING
 
 # 3. Perform maintenance tasks
 echo "Running maintenance tasks..."
@@ -356,8 +356,8 @@ MAINTENANCE_TASKS=(
 )
 
 for task in "${MAINTENANCE_TASKS[@]}"; do
-  rediacc-cli create queue-item "$TEAM" "$MACHINE" \
-    "$(rediacc-cli inspect machine $MACHINE | grep bridgeName | cut -d: -f2)" \
+  rediacc create queue-item "$TEAM" "$MACHINE" \
+    "$(rediacc inspect machine $MACHINE | grep bridgeName | cut -d: -f2)" \
     --vault '{"function": "'$task'"}' \
     --priority 1
   
@@ -367,7 +367,7 @@ done
 
 # 4. Restore to production
 echo "Restoring to production..."
-rediacc-cli update machine-status "$TEAM" "$MACHINE" "online"
+rediacc update machine-status "$TEAM" "$MACHINE" "online"
 
 echo "Maintenance complete for $MACHINE"
 ```
@@ -386,7 +386,7 @@ TEAM="Operations"
 
 # Get machines from source bridge
 echo "Finding machines on $SOURCE_BRIDGE..."
-MACHINES=$(rediacc-cli list team-machines "$TEAM" --output json | \
+MACHINES=$(rediacc list team-machines "$TEAM" --output json | \
   jq -r '.data[] | select(.bridgeName == "'$SOURCE_BRIDGE'") | .machineName')
 
 # Reassign half the machines
@@ -399,13 +399,13 @@ echo "Reassigning $target of $total machines..."
 for machine in $MACHINES; do
   if [ $count -lt $target ]; then
     echo "Moving $machine to $TARGET_BRIDGE"
-    rediacc-cli update machine-bridge "$TEAM" "$machine" "$TARGET_BRIDGE"
+    rediacc update machine-bridge "$TEAM" "$machine" "$TARGET_BRIDGE"
     ((count++))
   fi
 done
 
 echo "Reassignment complete. New distribution:"
-rediacc-cli list team-machines "$TEAM" | grep -E "$SOURCE_BRIDGE|$TARGET_BRIDGE"
+rediacc list team-machines "$TEAM" | grep -E "$SOURCE_BRIDGE|$TARGET_BRIDGE"
 ```
 
 ## Monitoring and Troubleshooting
@@ -424,27 +424,27 @@ echo
 
 # 1. Region status
 echo "## Regions"
-rediacc-cli list regions
+rediacc list regions
 
 # 2. Bridge status by region
 echo -e "\n## Bridges"
-for region in $(rediacc-cli list regions --output json | jq -r '.data[].regionName'); do
+for region in $(rediacc list regions --output json | jq -r '.data[].regionName'); do
   echo -e "\nRegion: $region"
-  rediacc-cli list bridges "$region"
+  rediacc list bridges "$region"
 done
 
 # 3. Machine distribution
 echo -e "\n## Machine Distribution"
-rediacc-cli list team-machines --output json | jq -r '
+rediacc list team-machines --output json | jq -r '
   .data | group_by(.bridgeName) | 
   map({bridge: .[0].bridgeName, count: length}) | 
   .[] | "\(.bridge): \(.count) machines"'
 
 # 4. Queue health
 echo -e "\n## Queue Status"
-rediacc-cli list queue --status PENDING | head -10
+rediacc list queue --status PENDING | head -10
 echo "..."
-echo "Total pending: $(rediacc-cli list queue --status PENDING --output json | jq '.data | length')"
+echo "Total pending: $(rediacc list queue --status PENDING --output json | jq '.data | length')"
 ```
 
 ### Troubleshooting Common Issues
@@ -455,21 +455,21 @@ echo "Total pending: $(rediacc-cli list queue --status PENDING --output json | j
 tail -f /var/log/rediacc/bridge.log
 
 # Verify bridge token
-rediacc-cli login --target bridge-name
+rediacc login --target bridge-name
 
 # Check queue for errors
-rediacc-cli list queue --bridge bridge-name --status FAILED
+rediacc list queue --bridge bridge-name --status FAILED
 ```
 
 **Machine Unreachable**
 ```bash
 # Test with hello function
-rediacc-cli create queue-item team machine bridge \
+rediacc create queue-item team machine bridge \
   --vault '{"function": "hello"}' \
   --priority 1
 
 # Check machine details
-rediacc-cli inspect machine machine-name
+rediacc inspect machine machine-name
 
 # Verify SSH connectivity (from bridge)
 ssh rediacc@machine-ip -p 22 "echo 'Connection successful'"
@@ -478,13 +478,13 @@ ssh rediacc@machine-ip -p 22 "echo 'Connection successful'"
 **Region Performance Issues**
 ```bash
 # Check bridge load
-for bridge in $(rediacc-cli list bridges region --output json | jq -r '.data[].bridgeName'); do
-  active=$(rediacc-cli list queue --bridge $bridge --status PROCESSING --output json | jq '.data | length')
+for bridge in $(rediacc list bridges region --output json | jq -r '.data[].bridgeName'); do
+  active=$(rediacc list queue --bridge $bridge --status PROCESSING --output json | jq '.data | length')
   echo "$bridge: $active active tasks"
 done
 
 # Add more bridges if needed
-rediacc-cli create bridge region new-bridge --vault '{"batch_size": 10}'
+rediacc create bridge region new-bridge --vault '{"batch_size": 10}'
 ```
 
 ## Best Practices

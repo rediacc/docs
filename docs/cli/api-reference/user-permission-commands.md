@@ -21,13 +21,13 @@ For managing user accounts. See [full user command reference](./user-commands.md
 
 ```bash
 # Activate a new user
-rediacc-cli user activate pending@company.com
+rediacc user activate pending@company.com
 
 # Enable a previously disabled account
-rediacc-cli user enable john@company.com --reason "Rejoined team"
+rediacc user enable john@company.com --reason "Rejoined team"
 
 # Reset a user's password
-rediacc-cli user reset-password jane@company.com
+rediacc user reset-password jane@company.com
 ```
 
 ## Auth Commands
@@ -42,10 +42,10 @@ For authentication and privilege management. See [full auth command reference](.
 
 ```bash
 # Check current authentication status
-rediacc-cli auth status
+rediacc auth status
 
 # Grant elevated privileges (admin only)
-rediacc-cli auth privilege a1b2c3d4e5f6789 admin
+rediacc auth privilege a1b2c3d4e5f6789 admin
 ```
 
 ## Permission Commands
@@ -65,21 +65,21 @@ For managing permission groups and access control. See [full permission command 
 
 ```bash
 # 1. Create a custom permission group
-rediacc-cli permission create-group developers
+rediacc permission create-group developers
 
 # 2. Add permissions to the group
-rediacc-cli permission add developers CreateMachine
-rediacc-cli permission add developers CreateRepository
-rediacc-cli permission add developers GetTeamMachines
+rediacc permission add developers CreateMachine
+rediacc permission add developers CreateRepository
+rediacc permission add developers GetTeamMachines
 
 # 3. Assign the group to a user
-rediacc-cli permission assign developer@company.com developers
+rediacc permission assign developer@company.com developers
 
 # 4. View group permissions
-rediacc-cli permission list-group developers
+rediacc permission list-group developers
 
 # 5. List all groups and their members
-rediacc-cli permission list-groups
+rediacc permission list-groups
 ```
 
 ## Access Control Overview
@@ -116,28 +116,28 @@ Rediacc uses a role-based access control system with permission groups:
 
 ```bash
 # 1. Create user account
-rediacc-cli create user --email newdev@company.com --name "New Developer"
+rediacc create user --email newdev@company.com --name "New Developer"
 
 # 2. Add to team
-rediacc-cli team-member add dev-team newdev@company.com
+rediacc team-member add dev-team newdev@company.com
 
 # 3. Assign appropriate permissions
-rediacc-cli permission assign newdev@company.com developers
+rediacc permission assign newdev@company.com developers
 ```
 
 ### Creating a Read-Only Role
 
 ```bash
 # 1. Create the group
-rediacc-cli permission create-group read-only
+rediacc permission create-group read-only
 
 # 2. Add only read permissions
-rediacc-cli permission add read-only GetTeamMachines
-rediacc-cli permission add read-only GetRepositories
-rediacc-cli permission add read-only GetQueueItems
+rediacc permission add read-only GetTeamMachines
+rediacc permission add read-only GetRepositories
+rediacc permission add read-only GetQueueItems
 
 # 3. Assign to contractors or auditors
-rediacc-cli permission assign auditor@external.com read-only
+rediacc permission assign auditor@external.com read-only
 ```
 
 ## Troubleshooting

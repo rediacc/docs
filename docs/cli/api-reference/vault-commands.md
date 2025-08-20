@@ -21,7 +21,7 @@ Removes the master password from local configuration. You'll need to re-enter it
 #### Examples
 
 ```bash
-rediacc-cli vault clear-password
+rediacc vault clear-password
 ```
 Remove stored master password
 
@@ -65,17 +65,17 @@ Updates the encrypted vault configuration for teams, machines, regions, bridges,
 #### Examples
 
 ```bash
-rediacc-cli vault set machine web-01 machine-config.json --team prod
+rediacc vault set machine web-01 machine-config.json --team prod
 ```
 Update machine vault from file
 
 ```bash
-echo '{"SSH_PRIVATE_KEY":"..."}' | rediacc-cli vault set team dev-team -
+echo '{"SSH_PRIVATE_KEY":"..."}' | rediacc vault set team dev-team -
 ```
 Update team vault from stdin
 
 ```bash
-rediacc-cli vault set company company-settings.json
+rediacc vault set company company-settings.json
 ```
 Update company-wide vault
 
@@ -108,7 +108,7 @@ Configures the master password used to encrypt and decrypt all vault data. This 
 #### Examples
 
 ```bash
-rediacc-cli vault set-password
+rediacc vault set-password
 ```
 Set master password with secure prompt
 
@@ -141,7 +141,7 @@ Displays whether a master password is configured and provides information about 
 #### Examples
 
 ```bash
-rediacc-cli vault status
+rediacc vault status
 ```
 Check vault configuration status
 

@@ -51,7 +51,7 @@ Creates a cluster configuration for distributed storage across multiple machines
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage create-cluster
+rediacc distributed-storage create-cluster
 ```
 
 ##### Auto-Generated cURL Examples
@@ -100,7 +100,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStora
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage create-distributed-storage-pool example-team
+rediacc distributed-storage create-distributed-storage-pool example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -140,7 +140,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStora
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage create-distributed-storage-rbd-clone example-team
+rediacc distributed-storage create-distributed-storage-rbd-clone example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -181,7 +181,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStora
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage create-distributed-storage-rbd-image example-team my-machine-01
+rediacc distributed-storage create-distributed-storage-rbd-image example-team my-machine-01
 ```
 
 ##### Auto-Generated cURL Examples
@@ -221,7 +221,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStora
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage create-distributed-storage-rbd-snapshot example-team
+rediacc distributed-storage create-distributed-storage-rbd-snapshot example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -265,7 +265,7 @@ Permanently removes a distributed storage cluster configuration. Does not delete
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage delete-cluster
+rediacc distributed-storage delete-cluster
 ```
 
 ##### Auto-Generated cURL Examples
@@ -313,7 +313,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage delete-distributed-storage-pool example-team
+rediacc distributed-storage delete-distributed-storage-pool example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -352,7 +352,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage delete-distributed-storage-rbd-clone example-team
+rediacc distributed-storage delete-distributed-storage-rbd-clone example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -392,7 +392,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage delete-distributed-storage-rbd-image example-team
+rediacc distributed-storage delete-distributed-storage-rbd-image example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -431,7 +431,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage delete-distributed-storage-rbd-snapshot example-team
+rediacc distributed-storage delete-distributed-storage-rbd-snapshot example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -468,7 +468,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage list-distributed-storage-cluster-machines
+rediacc distributed-storage list-distributed-storage-cluster-machines
 ```
 
 ##### Auto-Generated cURL Examples
@@ -496,7 +496,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageC
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage list-distributed-storage-clusters
+rediacc distributed-storage list-distributed-storage-clusters
 ```
 
 ##### Auto-Generated cURL Examples
@@ -530,7 +530,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageC
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage list-distributed-storage-pools example-team
+rediacc distributed-storage list-distributed-storage-pools example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -568,7 +568,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageP
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage list-distributed-storage-rbd-clones example-team
+rediacc distributed-storage list-distributed-storage-rbd-clones example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -606,7 +606,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageR
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage list-distributed-storage-rbd-images example-team
+rediacc distributed-storage list-distributed-storage-rbd-images example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -643,7 +643,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageR
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage list-distributed-storage-rbd-snapshots example-team
+rediacc distributed-storage list-distributed-storage-rbd-snapshots example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -681,7 +681,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageR
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage update-distributed-storage-pool-vault example-team
+rediacc distributed-storage update-distributed-storage-pool-vault example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -718,7 +718,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateDistributedStora
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage update-machine-distributed-storage example-team my-machine-01
+rediacc distributed-storage update-machine-distributed-storage example-team my-machine-01
 ```
 
 ##### Auto-Generated cURL Examples
@@ -764,7 +764,7 @@ Updates the encrypted configuration for a distributed storage cluster including 
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli distributed-storage update-vault
+rediacc distributed-storage update-vault
 ```
 
 ##### Auto-Generated cURL Examples

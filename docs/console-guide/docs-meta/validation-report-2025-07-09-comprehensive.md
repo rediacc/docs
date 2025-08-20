@@ -61,7 +61,7 @@ Cross-referenced documentation claims with actual implementation:
 
 3. **CLI Integration**
    - Command-line tools provide local system integration
-   - Tools include: rediacc-cli, rediacc-cli-sync, rediacc-cli-term
+   - Tools include: rediacc, rediacc-sync, rediacc-term
    - Cross-platform support for Windows, macOS, and Linux
 
 4. **UI Navigation**

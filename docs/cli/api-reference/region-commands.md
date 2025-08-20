@@ -27,7 +27,7 @@ Region operations.
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli region update-region-vault us-east
+rediacc region update-region-vault us-east
 ```
 
 ##### Auto-Generated cURL Examples

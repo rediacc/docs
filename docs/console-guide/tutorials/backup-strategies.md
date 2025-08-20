@@ -162,7 +162,7 @@ docker-compose start web-app
 
 # 9. Upload to primary storage
 log "Uploading to primary storage..."
-rediacc-cli storage upload \
+rediacc storage upload \
     --storage backup-s3-primary \
     --local "${BACKUP_DIR}" \
     --remote "full-backups/${BACKUP_NAME}/" \
@@ -170,7 +170,7 @@ rediacc-cli storage upload \
 
 # 10. Upload to secondary storage
 log "Uploading to secondary storage..."
-rediacc-cli storage upload \
+rediacc storage upload \
     --storage backup-azure-secondary \
     --local "${BACKUP_DIR}" \
     --remote "full-backups/${BACKUP_NAME}/" \
@@ -178,7 +178,7 @@ rediacc-cli storage upload \
 
 # 11. Cleanup old backups
 log "Cleaning up old backups..."
-rediacc-cli storage list \
+rediacc storage list \
     --storage backup-s3-primary \
     --path "full-backups/" \
     --older-than "${RETENTION_DAYS}d" \
@@ -251,7 +251,7 @@ EOF
 
 # 5. Upload backup
 log "Uploading incremental backup..."
-rediacc-cli storage upload \
+rediacc storage upload \
     --storage backup-s3-primary \
     --local "${BACKUP_DIR}" \
     --remote "incremental-backups/${BACKUP_NAME}/"
@@ -280,7 +280,7 @@ BACKUP_DIR="/backups/postgres"
 docker exec postgres-container psql -U postgres << EOF
 ALTER SYSTEM SET wal_level = replica;
 ALTER SYSTEM SET archive_mode = on;
-ALTER SYSTEM SET archive_command = 'rediacc-cli storage upload --storage wal-archive --stdin --path wal/%f';
+ALTER SYSTEM SET archive_command = 'rediacc storage upload --storage wal-archive --stdin --path wal/%f';
 SELECT pg_reload_conf();
 EOF
 
@@ -296,7 +296,7 @@ inotifywait -m -e close_write "${WAL_DIR}" |
 while read -r directory event filename; do
     if [[ "$filename" =~ ^[0-9A-F]{24}$ ]]; then
         echo "Archiving WAL file: $filename"
-        rediacc-cli storage upload \
+        rediacc storage upload \
             --storage "${ARCHIVE_STORAGE}" \
             --file "${WAL_DIR}/${filename}" \
             --path "wal/${filename}"
@@ -432,7 +432,7 @@ create_zfs_snapshot() {
     
     # Send to backup
     zfs send "${snapshot_name}" | \
-        rediacc-cli storage upload \
+        rediacc storage upload \
         --storage backup-s3-primary \
         --stdin \
         --path "snapshots/${snapshot_name}.zfs"
@@ -485,7 +485,7 @@ check_backup_status() {
     local expected_interval=$2
     
     # Find latest backup
-    LATEST=$(rediacc-cli storage list \
+    LATEST=$(rediacc storage list \
         --storage backup-s3-primary \
         --path "${backup_type}-backups/" \
         --sort-by modified \
@@ -525,7 +525,7 @@ log() {
 
 # 1. Select random backup
 log "Selecting random backup for testing..."
-BACKUP=$(rediacc-cli storage list \
+BACKUP=$(rediacc storage list \
     --storage backup-s3-primary \
     --path "full-backups/" \
     --random 1)
@@ -538,7 +538,7 @@ mkdir -p "${RECOVERY_TEST_DIR}"
 
 # 3. Download backup
 log "Downloading backup..."
-rediacc-cli storage download \
+rediacc storage download \
     --storage backup-s3-primary \
     --remote "${BACKUP}" \
     --local "${RECOVERY_TEST_DIR}/"
@@ -594,7 +594,7 @@ RECOVERY_TIME="2023-10-15 14:30:00"
 RECOVERY_DIR="/recovery"
 
 # 1. Find base backup before recovery time
-BASE_BACKUP=$(rediacc-cli storage list \
+BASE_BACKUP=$(rediacc storage list \
     --storage backup-s3-primary \
     --path "full-backups/" \
     --before "${RECOVERY_TIME}" \
@@ -602,20 +602,20 @@ BASE_BACKUP=$(rediacc-cli storage list \
     --limit 1)
 
 # 2. Restore base backup
-rediacc-cli storage download \
+rediacc storage download \
     --storage backup-s3-primary \
     --remote "${BASE_BACKUP}" \
     --local "${RECOVERY_DIR}/"
 
 # 3. Apply WAL files up to recovery time
-for wal in $(rediacc-cli storage list \
+for wal in $(rediacc storage list \
     --storage wal-archive \
     --path "wal/" \
     --after "${BASE_BACKUP}" \
     --before "${RECOVERY_TIME}"); do
     
     # Download and apply WAL
-    rediacc-cli storage download \
+    rediacc storage download \
         --storage wal-archive \
         --remote "${wal}" \
         --local "${RECOVERY_DIR}/wal/"
@@ -682,12 +682,12 @@ fi
 
 # 2. Stop replication
 log "Stopping replication to prevent split-brain..."
-rediacc-cli replication stop --source "${PRIMARY_SITE}" --target "${DR_SITE}"
+rediacc replication stop --source "${PRIMARY_SITE}" --target "${DR_SITE}"
 
 # 3. Promote DR databases
 log "Promoting DR databases to primary..."
-for db in $(rediacc-cli list databases --site "${DR_SITE}"); do
-    rediacc-cli database promote --name "${db}" --site "${DR_SITE}"
+for db in $(rediacc list databases --site "${DR_SITE}"); do
+    rediacc database promote --name "${db}" --site "${DR_SITE}"
 done
 
 # 4. Update DNS
@@ -696,11 +696,11 @@ log "Updating DNS to point to DR site..."
 
 # 5. Scale up DR resources
 log "Scaling up DR resources..."
-rediacc-cli scale --site "${DR_SITE}" --factor 2.0
+rediacc scale --site "${DR_SITE}" --factor 2.0
 
 # 6. Start applications
 log "Starting applications in DR site..."
-rediacc-cli queue create \
+rediacc queue create \
     --site "${DR_SITE}" \
     --script "start-all-applications.sh" \
     --priority critical
@@ -769,7 +769,7 @@ Backup Alerts:
 PARALLEL_JOBS=4
 find /data -type f | \
     parallel -j ${PARALLEL_JOBS} \
-    'rediacc-cli storage upload --file {} --path backups/{/}'
+    'rediacc storage upload --file {} --path backups/{/}'
 ```
 
 ### Storage Full

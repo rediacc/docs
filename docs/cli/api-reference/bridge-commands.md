@@ -35,7 +35,7 @@ Resets the authentication credentials for a bridge. The running bridge process w
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli bridge reset-auth bridge-01 example-name
+rediacc bridge reset-auth bridge-01 example-name
 ```
 
 ##### Auto-Generated cURL Examples
@@ -84,7 +84,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/ResetBridgeAuthorizati
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli bridge update-bridge-vault bridge-01 us-east
+rediacc bridge update-bridge-vault bridge-01 us-east
 ```
 
 ##### Auto-Generated cURL Examples

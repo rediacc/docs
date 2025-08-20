@@ -26,10 +26,10 @@ Both the Console and CLI interact with the same API endpoints, providing flexibi
 ./rediacc login
 
 # Non-interactive login
-./rediacc-cli login --email admin@rediacc.io --password yourpassword
+./rediacc login --email admin@rediacc.io --password yourpassword
 
 # With master password
-./rediacc-cli login --email admin@rediacc.io --password yourpassword --master-password masterpass
+./rediacc login --email admin@rediacc.io --password yourpassword --master-password masterpass
 ```
 
 ## Resource Management
@@ -42,13 +42,13 @@ Navigate to **Resources** → **Machines** tab
 #### CLI: List Machines
 ```bash
 # List all machines in a team
-./rediacc-cli list machines --team "Private Team"
+./rediacc list machines --team "Private Team"
 
 # JSON output for scripting
-./rediacc-cli list machines --team "Private Team" --output json
+./rediacc list machines --team "Private Team" --output json
 
 # Filter by bridge
-./rediacc-cli list machines --team "Private Team" --bridge "Global Bridges"
+./rediacc list machines --team "Private Team" --bridge "Global Bridges"
 ```
 
 #### Console: Add Machine
@@ -60,7 +60,7 @@ Navigate to **Resources** → **Machines** tab
 #### CLI: Create Machine
 ```bash
 # Create machine with basic config
-./rediacc-cli create machine \
+./rediacc create machine \
   --name "server-01" \
   --team "Private Team" \
   --region "Default Region" \
@@ -70,7 +70,7 @@ Navigate to **Resources** → **Machines** tab
   --datastore "/mnt/datastore"
 
 # With SSH password for initial setup
-./rediacc-cli create machine \
+./rediacc create machine \
   --name "server-02" \
   --team "Private Team" \
   --region "Default Region" \
@@ -81,7 +81,7 @@ Navigate to **Resources** → **Machines** tab
   --ssh-password "temppass123"
 
 # With custom SSH port
-./rediacc-cli create machine \
+./rediacc create machine \
   --name "server-03" \
   --team "Private Team" \
   --region "Default Region" \
@@ -100,12 +100,12 @@ Navigate to **Resources** → **Machines** tab
 #### CLI: Update Machine
 ```bash
 # Update machine vault data
-./rediacc-cli update machine --name "server-01" \
+./rediacc update machine --name "server-01" \
   --ip "192.168.1.200" \
   --datastore "/mnt/new-datastore"
 
 # Get current configuration
-./rediacc-cli inspect machine "server-01"
+./rediacc inspect machine "server-01"
 ```
 
 #### Console: Delete Machine
@@ -113,7 +113,7 @@ Click **Delete** button and confirm
 
 #### CLI: Delete Machine
 ```bash
-./rediacc-cli delete machine --name "server-01" --confirm
+./rediacc delete machine --name "server-01" --confirm
 ```
 
 ### Teams
@@ -124,10 +124,10 @@ Navigate to **System** → **Teams** tab
 #### CLI: List Teams
 ```bash
 # List all accessible teams
-./rediacc-cli list teams
+./rediacc list teams
 
 # With details
-./rediacc-cli list teams --detailed
+./rediacc list teams --detailed
 ```
 
 #### Console: Create Team
@@ -138,11 +138,11 @@ Navigate to **System** → **Teams** tab
 #### CLI: Create Team
 ```bash
 # Create team (admin only)
-./rediacc-cli create team --name "Development" \
+./rediacc create team --name "Development" \
   --description "Development team resources"
 
 # With initial SSH key
-./rediacc-cli create team --name "Production" \
+./rediacc create team --name "Production" \
   --ssh-key-file ~/.ssh/id_rsa
 ```
 
@@ -154,10 +154,10 @@ Navigate to **Resources** → **Storage** tab
 #### CLI: List Storage
 ```bash
 # List storage for a team
-./rediacc-cli list storage --team "Private Team"
+./rediacc list storage --team "Private Team"
 
 # Show supported storage types
-./rediacc-cli list storage-types
+./rediacc list storage-types
 ```
 
 #### Console: Add Storage
@@ -168,7 +168,7 @@ Navigate to **Resources** → **Storage** tab
 #### CLI: Create Storage
 ```bash
 # S3 storage
-./rediacc-cli create storage \
+./rediacc create storage \
   --name "backup-s3" \
   --team "Private Team" \
   --type "s3" \
@@ -178,7 +178,7 @@ Navigate to **Resources** → **Storage** tab
   --secret-key "XXXXXXXXXX"
 
 # Azure storage
-./rediacc-cli create storage \
+./rediacc create storage \
   --name "backup-azure" \
   --team "Private Team" \
   --type "azure" \
@@ -197,16 +197,16 @@ Navigate to **Queue** page to see all items
 #### CLI: Queue Status
 ```bash
 # Show queue summary
-./rediacc-cli queue status --team "Private Team"
+./rediacc queue status --team "Private Team"
 
 # List pending items
-./rediacc-cli queue list --status pending --team "Private Team"
+./rediacc queue list --status pending --team "Private Team"
 
 # List all items for today
-./rediacc-cli queue list --date today --team "Private Team"
+./rediacc queue list --date today --team "Private Team"
 
 # Show specific task
-./rediacc-cli queue show --task-id "550e8400-e29b-41d4-a716-446655440000"
+./rediacc queue show --task-id "550e8400-e29b-41d4-a716-446655440000"
 ```
 
 ### Create Queue Items
@@ -217,7 +217,7 @@ Done indirectly through other operations (e.g., backup, sync)
 #### CLI: Submit Tasks
 ```bash
 # Submit a backup task
-./rediacc-cli queue submit \
+./rediacc queue submit \
   --team "Private Team" \
   --machine "server-01" \
   --function "backup" \
@@ -225,7 +225,7 @@ Done indirectly through other operations (e.g., backup, sync)
   --priority 3
 
 # High priority task
-./rediacc-cli queue submit \
+./rediacc queue submit \
   --team "Private Team" \
   --machine "server-01" \
   --function "deploy" \
@@ -242,10 +242,10 @@ Click **Cancel** button on queue item
 #### CLI: Cancel Task
 ```bash
 # Cancel by task ID
-./rediacc-cli queue cancel --task-id "550e8400-e29b-41d4-a716-446655440000"
+./rediacc queue cancel --task-id "550e8400-e29b-41d4-a716-446655440000"
 
 # Cancel all pending for a machine
-./rediacc-cli queue cancel --machine "server-01" --status pending --confirm
+./rediacc queue cancel --machine "server-01" --status pending --confirm
 ```
 
 ## User Management
@@ -258,13 +258,13 @@ Navigate to **System** → **Users** tab
 #### CLI: List Users
 ```bash
 # List all users (admin only)
-./rediacc-cli list users
+./rediacc list users
 
 # Filter by permission group
-./rediacc-cli list users --permission-group "Administrators"
+./rediacc list users --permission-group "Administrators"
 
 # Show user details
-./rediacc-cli inspect user --email "user@example.com"
+./rediacc inspect user --email "user@example.com"
 ```
 
 ### Create Users
@@ -277,13 +277,13 @@ Navigate to **System** → **Users** tab
 #### CLI: Create User
 ```bash
 # Create user with team assignment
-./rediacc-cli create user \
+./rediacc create user \
   --email "newuser@example.com" \
   --permission-group "Users" \
   --teams "Private Team,Development"
 
 # Create admin user
-./rediacc-cli create user \
+./rediacc create user \
   --email "admin@example.com" \
   --permission-group "Administrators"
 ```
@@ -298,16 +298,16 @@ Navigate to **Audit** with date filters
 #### CLI: Audit Logs
 ```bash
 # Today's audit logs
-./rediacc-cli audit list --date today
+./rediacc audit list --date today
 
 # Filter by entity type
-./rediacc-cli audit list --entity-type "Machine" --days 7
+./rediacc audit list --entity-type "Machine" --days 7
 
 # Filter by user
-./rediacc-cli audit list --user "admin@rediacc.io" --days 30
+./rediacc audit list --user "admin@rediacc.io" --days 30
 
 # Export audit logs
-./rediacc-cli audit export --start-date "2025-01-01" --end-date "2025-01-31" --format csv
+./rediacc audit export --start-date "2025-01-01" --end-date "2025-01-31" --format csv
 ```
 
 ## File Operations
@@ -367,15 +367,15 @@ Click **Remote** button on machine (launches terminal)
 ### CLI Advantages
 ```bash
 # Create multiple machines from JSON
-cat machines.json | ./rediacc-cli create machine --batch
+cat machines.json | ./rediacc create machine --batch
 
 # Update all machines in a team
-./rediacc-cli list machines --team "Private Team" --output json | \
+./rediacc list machines --team "Private Team" --output json | \
   jq '.[] | .name' | \
-  xargs -I {} ./rediacc-cli update machine --name {} --new-bridge "Global Bridges"
+  xargs -I {} ./rediacc update machine --name {} --new-bridge "Global Bridges"
 
 # Delete multiple storage configs
-./rediacc-cli delete storage --names "old-s3,old-azure,old-gcs" --confirm
+./rediacc delete storage --names "old-s3,old-azure,old-gcs" --confirm
 ```
 
 ## Automation Examples
@@ -391,20 +391,20 @@ echo ""
 
 # Check queue status
 echo "Queue Status:"
-./rediacc-cli queue status --all-teams
+./rediacc queue status --all-teams
 
 # Check failed tasks
 echo -e "\nFailed Tasks (Last 24h):"
-./rediacc-cli queue list --status failed --date today
+./rediacc queue list --status failed --date today
 
 # Check machine connectivity
 echo -e "\nOffline Machines:"
-./rediacc-cli list machines --all-teams --output json | \
+./rediacc list machines --all-teams --output json | \
   jq -r '.[] | select(.status == "offline") | .name'
 
 # Check resource usage
 echo -e "\nResource Usage:"
-./rediacc-cli company stats
+./rediacc company stats
 ```
 
 ### Automated Backup Script
@@ -416,13 +416,13 @@ TEAM="Production"
 STORAGE="backup-s3"
 
 # Get all repositories
-repos=$(./rediacc-cli list repositories --team "$TEAM" --output json | jq -r '.[].name')
+repos=$(./rediacc list repositories --team "$TEAM" --output json | jq -r '.[].name')
 
 for repo in $repos; do
   echo "Backing up $repo..."
   
   # Submit backup task
-  ./rediacc-cli queue submit \
+  ./rediacc queue submit \
     --team "$TEAM" \
     --function "backup" \
     --repository "$repo" \
@@ -444,10 +444,10 @@ while true; do
   echo "========================"
   
   # Get queue statistics
-  ./rediacc-cli queue status --all-teams
+  ./rediacc queue status --all-teams
   
   # Check for stale items
-  stale_count=$(./rediacc-cli queue list --stale-only --output json | jq '. | length')
+  stale_count=$(./rediacc queue list --stale-only --output json | jq '. | length')
   if [ "$stale_count" -gt 0 ]; then
     echo -e "\n⚠️  WARNING: $stale_count stale items detected!"
   fi

@@ -54,13 +54,13 @@ export const fetchPricingConfig = async () => {
         advanced: {
           name: "Advanced",
           ctaText: "Play on Sandbox",
-          ctaLink: "/console/login?register=true",
+          ctaLink: "/console/login?register=quick",
           ctaVariant: "primary"
         },
         premium: {
           name: "Premium",
           ctaText: "Play on Sandbox",
-          ctaLink: "/console/login?register=true",
+          ctaLink: "/console/login?register=quick",
           ctaVariant: "primary"
         },
         elite: {

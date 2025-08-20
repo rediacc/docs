@@ -355,7 +355,7 @@ class QueueProcessor {
 
 ```bash
 # Restore from time travel snapshot
-rediacc-cli restore \
+rediacc restore \
   --point-in-time "2025-08-03 09:00:00" \
   --target "production-db" \
   --reason "AI-induced deletion recovery" \

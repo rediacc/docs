@@ -29,7 +29,7 @@ Machine operations.
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli machine list-machine-assignment-status example-team my-machine-01
+rediacc machine list-machine-assignment-status example-team my-machine-01
 ```
 
 ##### Auto-Generated cURL Examples
@@ -66,7 +66,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetMachineAssignmentSt
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli machine update-machine-cluster-assignment example-team my-machine-01
+rediacc machine update-machine-cluster-assignment example-team my-machine-01
 ```
 
 ##### Auto-Generated cURL Examples
@@ -103,7 +103,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineClusterAs
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli machine update-machine-cluster-removal example-team my-machine-01
+rediacc machine update-machine-cluster-removal example-team my-machine-01
 ```
 
 ##### Auto-Generated cURL Examples
@@ -140,7 +140,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineClusterRe
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli machine update-machine-vault example-team my-machine-01
+rediacc machine update-machine-vault example-team my-machine-01
 ```
 
 ##### Auto-Generated cURL Examples

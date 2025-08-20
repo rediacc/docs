@@ -43,9 +43,9 @@ This plan outlines the documentation enhancements for the Rediacc Console based 
 
 #### cli-integration.md
 - CLI tools overview
-- rediacc-cli usage
-- rediacc-cli-sync for file transfers
-- rediacc-cli-term for SSH access
+- rediacc usage
+- rediacc-sync for file transfers
+- rediacc-term for SSH access
 - Cross-platform support
 
 #### rclone-import.md

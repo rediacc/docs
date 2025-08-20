@@ -20,13 +20,13 @@ Bridges are autonomous queue processors that execute tasks on remote machines. S
 
 ```bash
 # Authorize a new bridge
-rediacc-cli bridge authorize prod-bridge-01 --team production
+rediacc bridge authorize prod-bridge-01 --team production
 
 # Disable bridge for maintenance
-rediacc-cli bridge disable prod-bridge-01 --reason "Hardware upgrade"
+rediacc bridge disable prod-bridge-01 --reason "Hardware upgrade"
 
 # Re-enable after maintenance
-rediacc-cli bridge enable prod-bridge-01
+rediacc bridge enable prod-bridge-01
 ```
 
 ## Distributed Storage Commands
@@ -40,7 +40,7 @@ For managing distributed storage resources. See [full distributed storage comman
 
 ```bash
 # Update S3 configuration
-rediacc-cli distributed-storage update-s3 \
+rediacc distributed-storage update-s3 \
   --distributed-storage-name backup-storage \
   --s3-base-path "/backups/2024" \
   --s3-region "us-east-1"
@@ -88,10 +88,10 @@ Backend Providers (S3, Azure, GCS)
 
 ```bash
 # 1. Create the bridge
-rediacc-cli create bridge --name region-us-bridge --team production
+rediacc create bridge --name region-us-bridge --team production
 
 # 2. Authorize for API access
-rediacc-cli bridge authorize region-us-bridge --team production
+rediacc bridge authorize region-us-bridge --team production
 
 # 3. Start bridge process (on bridge server)
 ./bridge --bridge-mode \
@@ -101,27 +101,27 @@ rediacc-cli bridge authorize region-us-bridge --team production
   batch_size=5
 
 # 4. Monitor bridge status
-rediacc-cli list bridges --team production
+rediacc list bridges --team production
 ```
 
 ### Configuring Distributed Storage
 
 ```bash
 # 1. Create storage resource
-rediacc-cli create storage \
+rediacc create storage \
   --name team-backups \
   --team production \
   --type s3
 
 # 2. Configure S3 settings
-rediacc-cli distributed-storage update-s3 \
+rediacc distributed-storage update-s3 \
   --distributed-storage-name team-backups \
   --s3-base-path "/prod-backups" \
   --s3-bucket "company-storage" \
   --s3-region "us-west-2"
 
 # 3. Verify configuration
-rediacc-cli inspect distributed-storage team-backups
+rediacc inspect distributed-storage team-backups
 ```
 
 ## Bridge Operations
@@ -137,17 +137,17 @@ rediacc-cli inspect distributed-storage team-backups
 
 ```bash
 # View all bridges and their status
-rediacc-cli list bridges --team production --output json
+rediacc list bridges --team production --output json
 
 # Disable bridge for maintenance
-rediacc-cli bridge disable prod-bridge-01 \
+rediacc bridge disable prod-bridge-01 \
   --reason "Scheduled maintenance window"
 
 # Re-enable after maintenance
-rediacc-cli bridge enable prod-bridge-01
+rediacc bridge enable prod-bridge-01
 
 # Check bridge processing statistics
-rediacc-cli inspect bridge prod-bridge-01
+rediacc inspect bridge prod-bridge-01
 ```
 
 ## Storage Management
@@ -163,13 +163,13 @@ rediacc-cli inspect bridge prod-bridge-01
 
 ```bash
 # Direct storage access (via CLI)
-rediacc-cli storage upload \
+rediacc storage upload \
   --storage team-backups \
   --local-path ./backup.tar.gz \
   --remote-path /daily/backup-2024-01-15.tar.gz
 
 # Queue-based operations
-rediacc-cli create queue-item \
+rediacc create queue-item \
   --function backup \
   --machine prod-server \
   --params storage=team-backups

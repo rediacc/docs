@@ -20,13 +20,13 @@ For managing company-wide settings and operations. See [full company command ref
 
 ```bash
 # Enable TFA for entire company
-rediacc-cli company enable-tfa
+rediacc company enable-tfa
 
 # Enable a specific feature
-rediacc-cli company enable-feature advanced-permissions
+rediacc company enable-feature advanced-permissions
 
 # Enable maintenance mode
-rediacc-cli company enable-maintenance --reason "System upgrade"
+rediacc company enable-maintenance --reason "System upgrade"
 ```
 
 ## Team Member Commands
@@ -41,10 +41,10 @@ For managing team membership. See [full team member command reference](./team-me
 
 ```bash
 # Add a user to development team
-rediacc-cli team-member add dev-team developer@company.com
+rediacc team-member add dev-team developer@company.com
 
 # Remove a user from team
-rediacc-cli team-member remove dev-team former-employee@company.com --force
+rediacc team-member remove dev-team former-employee@company.com --force
 ```
 
 ## Organizational Structure
@@ -87,31 +87,31 @@ Company
 
 ```bash
 # 1. Create company (during first login)
-rediacc-cli create company --name "Tech Corp" --email admin@techcorp.com
+rediacc create company --name "Tech Corp" --email admin@techcorp.com
 
 # 2. Enable security features
-rediacc-cli company enable-tfa
-rediacc-cli company enable-feature audit-logging
+rediacc company enable-tfa
+rediacc company enable-feature audit-logging
 
 # 3. Create teams
-rediacc-cli create team --name production --description "Production environment"
-rediacc-cli create team --name development --description "Development environment"
+rediacc create team --name production --description "Production environment"
+rediacc create team --name development --description "Development environment"
 ```
 
 ### Managing Team Access
 
 ```bash
 # View current team members
-rediacc-cli list team-members --team production
+rediacc list team-members --team production
 
 # Add multiple users to a team
 for user in alice@company.com bob@company.com carol@company.com; do
-  rediacc-cli team-member add production $user
+  rediacc team-member add production $user
 done
 
 # Bulk remove users from team
-rediacc-cli team-member remove dev-team contractor1@external.com --force
-rediacc-cli team-member remove dev-team contractor2@external.com --force
+rediacc team-member remove dev-team contractor1@external.com --force
+rediacc team-member remove dev-team contractor2@external.com --force
 ```
 
 ### Feature Management

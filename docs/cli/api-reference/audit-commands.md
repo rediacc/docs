@@ -32,7 +32,7 @@ Retrieves comprehensive audit information for a specific entity including all ch
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli audit trace
+rediacc audit trace
 ```
 
 ##### Auto-Generated cURL Examples

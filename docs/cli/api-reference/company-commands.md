@@ -35,12 +35,12 @@ Controls whether new users can request accounts in your company. When blocked, o
 #### Examples
 
 ```bash
-rediacc-cli company block-user-requests true
+rediacc company block-user-requests true
 ```
 Block new user registrations
 
 ```bash
-rediacc-cli company block-user-requests false
+rediacc company block-user-requests false
 ```
 Allow new user registrations
 
@@ -48,7 +48,7 @@ Allow new user registrations
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli company block-user-requests
+rediacc company block-user-requests
 ```
 
 ##### Auto-Generated cURL Examples
@@ -98,12 +98,12 @@ Exports complete company configuration including teams, users, permissions, regi
 #### Examples
 
 ```bash
-rediacc-cli company export-data > company-backup.json
+rediacc company export-data > company-backup.json
 ```
 Export company data to file
 
 ```bash
-rediacc-cli company export-data | jq '.teams'
+rediacc company export-data | jq '.teams'
 ```
 View exported teams data
 
@@ -111,7 +111,7 @@ View exported teams data
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli company export-data
+rediacc company export-data
 ```
 
 ##### Auto-Generated cURL Examples
@@ -158,12 +158,12 @@ Fetches all vault configurations stored at the company level, including encrypte
 #### Examples
 
 ```bash
-rediacc-cli company get-vaults
+rediacc company get-vaults
 ```
 Display all company vaults
 
 ```bash
-rediacc-cli company get-vaults --output json > backup.json
+rediacc company get-vaults --output json > backup.json
 ```
 Backup vaults to file
 
@@ -171,7 +171,7 @@ Backup vaults to file
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli company get-vaults
+rediacc company get-vaults
 ```
 
 ##### Auto-Generated cURL Examples
@@ -227,12 +227,12 @@ Imports company configuration from a previously exported JSON file. Supports ski
 #### Examples
 
 ```bash
-rediacc-cli company import-data --vault-file backup.json
+rediacc company import-data --vault-file backup.json
 ```
 Import with skip mode (default)
 
 ```bash
-rediacc-cli company import-data --vault-file backup.json --import-mode override
+rediacc company import-data --vault-file backup.json --import-mode override
 ```
 Import with override mode
 
@@ -240,7 +240,7 @@ Import with override mode
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli company import-data
+rediacc company import-data
 ```
 
 ##### Auto-Generated cURL Examples
@@ -296,12 +296,12 @@ Updates the encrypted vault containing company-wide settings, credentials, and c
 #### Examples
 
 ```bash
-rediacc-cli company update-vault --vault-file company-config.json
+rediacc company update-vault --vault-file company-config.json
 ```
 Update from configuration file
 
 ```bash
-rediacc-cli company update-vault --vault '{"UNIVERSAL_USER_NAME":"rediacc"}'
+rediacc company update-vault --vault '{"UNIVERSAL_USER_NAME":"rediacc"}'
 ```
 Update specific vault field
 
@@ -309,7 +309,7 @@ Update specific vault field
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli company update-vault
+rediacc company update-vault
 ```
 
 ##### Auto-Generated cURL Examples
@@ -367,7 +367,7 @@ Updates multiple vault configurations at once. Useful for restoring from backup 
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli company update-vaults
+rediacc company update-vaults
 ```
 
 ##### Auto-Generated cURL Examples

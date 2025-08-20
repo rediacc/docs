@@ -142,7 +142,7 @@ cat > /tmp/metrics-${TIMESTAMP}.json << EOF
 EOF
 
 # Upload to storage
-rediacc-cli storage upload \
+rediacc storage upload \
   --storage metrics-storage \
   --file /tmp/metrics-${TIMESTAMP}.json \
   --path metrics/${HOSTNAME}/${TIMESTAMP}.json
@@ -233,7 +233,7 @@ for container in $(docker ps -q); do
   
   if [ -f "$LOG_FILE" ]; then
     # Compress and upload
-    gzip -c "$LOG_FILE" | rediacc-cli storage upload \
+    gzip -c "$LOG_FILE" | rediacc storage upload \
       --storage "$STORAGE" \
       --stdin \
       --path "logs/$(date +%Y/%m/%d)/${container}.log.gz"
@@ -310,7 +310,7 @@ check_disk_alert() {
 }
 
 check_queue_alert() {
-  local pending=$(rediacc-cli queue status --format json | jq '.pending')
+  local pending=$(rediacc queue status --format json | jq '.pending')
   if [ "$pending" -gt 100 ]; then
     send_alert "queue_backlog" "Queue has $pending pending tasks"
   fi

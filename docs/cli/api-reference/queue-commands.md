@@ -37,12 +37,12 @@ Marks a queue item as cancelled, preventing further processing. If already proce
 #### Examples
 
 ```bash
-rediacc-cli queue cancel 550e8400-e29b-41d4-a716-446655440000
+rediacc queue cancel 550e8400-e29b-41d4-a716-446655440000
 ```
 Cancel with confirmation
 
 ```bash
-rediacc-cli queue cancel 550e8400-e29b-41d4-a716-446655440000 --force
+rediacc queue cancel 550e8400-e29b-41d4-a716-446655440000 --force
 ```
 Cancel without confirmation
 
@@ -50,7 +50,7 @@ Cancel without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli queue cancel
+rediacc queue cancel
 ```
 
 ##### Auto-Generated cURL Examples
@@ -109,7 +109,7 @@ Marks a processing queue item as successfully completed with optional result dat
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli queue complete
+rediacc queue complete
 ```
 
 ##### Auto-Generated cURL Examples
@@ -162,12 +162,12 @@ Retrieves and assigns the next available queue items to the caller. Used by brid
 #### Examples
 
 ```bash
-rediacc-cli queue get-next
+rediacc queue get-next
 ```
 Get next 3 items (default)
 
 ```bash
-rediacc-cli queue get-next --count 10
+rediacc queue get-next --count 10
 ```
 Get up to 10 items
 
@@ -175,7 +175,7 @@ Get up to 10 items
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli queue get-next
+rediacc queue get-next
 ```
 
 ##### Auto-Generated cURL Examples
@@ -246,7 +246,7 @@ View queue items across teams with powerful filtering options. Monitor task stat
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli queue list example-team my-machine-01 bridge-01
+rediacc queue list example-team my-machine-01 bridge-01
 ```
 
 ##### Auto-Generated cURL Examples
@@ -309,12 +309,12 @@ Creates a new queue item with the same configuration as a failed item. The origi
 #### Examples
 
 ```bash
-rediacc-cli queue retry 550e8400-e29b-41d4-a716-446655440000
+rediacc queue retry 550e8400-e29b-41d4-a716-446655440000
 ```
 Retry a failed task
 
 ```bash
-rediacc-cli queue list --status FAILED --output json | jq -r '.[].taskId' | xargs -I {} rediacc-cli queue retry {}
+rediacc queue list --status FAILED --output json | jq -r '.[].taskId' | xargs -I {} rediacc queue retry {}
 ```
 Retry all failed tasks
 
@@ -322,7 +322,7 @@ Retry all failed tasks
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli queue retry
+rediacc queue retry
 ```
 
 ##### Auto-Generated cURL Examples
@@ -378,12 +378,12 @@ Retrieves detailed execution history and logs for a specific queue item, includi
 #### Examples
 
 ```bash
-rediacc-cli queue trace 550e8400-e29b-41d4-a716-446655440000
+rediacc queue trace 550e8400-e29b-41d4-a716-446655440000
 ```
 Get full trace for task
 
 ```bash
-rediacc-cli queue trace 550e8400 --output json | jq '.logs'
+rediacc queue trace 550e8400 --output json | jq '.logs'
 ```
 Extract logs from trace
 
@@ -391,7 +391,7 @@ Extract logs from trace
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli queue trace
+rediacc queue trace
 ```
 
 ##### Auto-Generated cURL Examples
@@ -448,12 +448,12 @@ Updates a queue item with intermediate results or progress information while it'
 #### Examples
 
 ```bash
-rediacc-cli queue update-response 550e8400 --vault '{"progress":25}'
+rediacc queue update-response 550e8400 --vault '{"progress":25}'
 ```
 Update task progress to 25%
 
 ```bash
-rediacc-cli queue update-response 550e8400 --vault-file status.json
+rediacc queue update-response 550e8400 --vault-file status.json
 ```
 Update from status file
 
@@ -461,7 +461,7 @@ Update from status file
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli queue update-response
+rediacc queue update-response
 ```
 
 ##### Auto-Generated cURL Examples

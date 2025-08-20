@@ -43,8 +43,8 @@ export default function BackupRecoverySolution() {
               you can't afford traditional backup solutions that fail when you need them most.
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/console/login?register=true" target="_blank">
-                Start Free Trial
+              <Link className="button button--primary button--lg" to="/console/login?register=manual" target="_blank">
+                Register
               </Link>
               <Link className="button button--secondary button--lg" to="/contact">
                 Calculate Your Savings
@@ -554,9 +554,9 @@ export default function BackupRecoverySolution() {
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link
                 className="button button--primary button--lg"
-                to="/console/login?register=true"
+                to="/console/login?register=manual"
                 target="_blank">
-                Start 30-Day Free Trial
+                Register Now
               </Link>
               <Link
                 className="button button--secondary button--lg"

@@ -130,7 +130,7 @@ rediacc auth status
 
 ## Configuration File
 
-The CLI stores configuration in `~/.rediacc-cli.yaml`:
+The CLI stores configuration in `~/.rediacc.yaml`:
 
 ```yaml
 server:
@@ -204,10 +204,10 @@ rediacc --debug auth status
 
 ```bash
 # Check file permissions
-ls -la ~/.rediacc-cli.yaml
+ls -la ~/.rediacc.yaml
 
 # Reset configuration
-rm ~/.rediacc-cli.yaml
+rm ~/.rediacc.yaml
 rediacc config set server.url "https://your-server.com"
 ```
 

@@ -20,10 +20,10 @@ For managing the task queue system. See [full queue command reference](./queue-c
 
 ```bash
 # Cancel a pending task
-rediacc-cli queue cancel task-123e4567-e89b-12d3-a456-426614174000
+rediacc queue cancel task-123e4567-e89b-12d3-a456-426614174000
 
 # Resubmit a failed task
-rediacc-cli queue resubmit task-123e4567-e89b-12d3-a456-426614174000 \
+rediacc queue resubmit task-123e4567-e89b-12d3-a456-426614174000 \
   --priority 1
 ```
 
@@ -38,7 +38,7 @@ For managing encrypted credential storage. See [full vault command reference](./
 
 ```bash
 # Verify vault integrity
-rediacc-cli vault verify --team production
+rediacc vault verify --team production
 ```
 
 ## Audit Commands
@@ -52,13 +52,13 @@ For accessing system audit trails. See [full audit command reference](./audit-co
 
 ```bash
 # View recent operations
-rediacc-cli audit operations --limit 50
+rediacc audit operations --limit 50
 
 # Filter by operation type
-rediacc-cli audit operations --operation CreateMachine --days 7
+rediacc audit operations --operation CreateMachine --days 7
 
 # Export audit logs
-rediacc-cli audit operations --from 2024-01-01 --output json > audit.json
+rediacc audit operations --from 2024-01-01 --output json > audit.json
 ```
 
 ## System Architecture
@@ -115,28 +115,28 @@ Encrypted Vault Data
 
 ```bash
 # 1. View queue status
-rediacc-cli list queue-items --status pending --team production
+rediacc list queue-items --status pending --team production
 
 # 2. Inspect specific task
-rediacc-cli inspect queue-item task-123e4567
+rediacc inspect queue-item task-123e4567
 
 # 3. Cancel stuck task
-rediacc-cli queue cancel task-123e4567 --reason "Stuck for 2 hours"
+rediacc queue cancel task-123e4567 --reason "Stuck for 2 hours"
 
 # 4. Resubmit with higher priority
-rediacc-cli queue resubmit task-123e4567 --priority 1
+rediacc queue resubmit task-123e4567 --priority 1
 ```
 
 ### Vault Verification
 
 ```bash
 # 1. Verify team vault
-rediacc-cli vault verify --team production
+rediacc vault verify --team production
 
 # 2. Check machine vaults
-for machine in $(rediacc-cli list machines --team production -o json | jq -r '.[].name'); do
+for machine in $(rediacc list machines --team production -o json | jq -r '.[].name'); do
   echo "Verifying vault for: $machine"
-  rediacc-cli vault verify --machine $machine
+  rediacc vault verify --machine $machine
 done
 ```
 
@@ -144,16 +144,16 @@ done
 
 ```bash
 # 1. Security audit - Check for failed logins
-rediacc-cli audit operations --operation LoginFailed --days 30
+rediacc audit operations --operation LoginFailed --days 30
 
 # 2. Change tracking - View all machine modifications
-rediacc-cli audit operations --operation UpdateMachine --days 7
+rediacc audit operations --operation UpdateMachine --days 7
 
 # 3. User activity - Track specific user actions
-rediacc-cli audit operations --user admin@company.com --limit 100
+rediacc audit operations --user admin@company.com --limit 100
 
 # 4. Security export - Monthly audit report
-rediacc-cli audit operations \
+rediacc audit operations \
   --from 2024-01-01 \
   --to 2024-01-31 \
   --output json > january-audit.json
@@ -206,16 +206,16 @@ Common monitoring reports:
 
 ```bash
 # User access report
-rediacc-cli audit operations --operation CreateTeamMembership --days 90
+rediacc audit operations --operation CreateTeamMembership --days 90
 
 # Permission changes
-rediacc-cli audit operations --operation UpdateUserPermissions --days 30
+rediacc audit operations --operation UpdateUserPermissions --days 30
 
 # Resource creation
-rediacc-cli audit operations --operation Create* --days 7
+rediacc audit operations --operation Create* --days 7
 
 # Failed operations
-rediacc-cli audit operations --status failed --days 1
+rediacc audit operations --status failed --days 1
 ```
 
 ## Troubleshooting

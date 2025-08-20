@@ -1428,7 +1428,7 @@ table thead tr {
   text-decoration: none;
 }
 
-/* Start Free Trial button - primary CTA */
+/* Register button - primary CTA */
 .navbar-cta-link {
   background: var(--ifm-color-primary);
   color: white !important;

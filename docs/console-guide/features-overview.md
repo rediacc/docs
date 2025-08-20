@@ -288,9 +288,9 @@ Comprehensive internationalization with 9 supported languages:
 
 ### CLI Integration
 The Rediacc Console works seamlessly with CLI tools for enhanced capabilities:
-- **Local Operations**: Use rediacc-cli for API operations
-- **File Synchronization**: Rsync-based transfers via rediacc-cli-sync
-- **SSH Terminal**: Terminal access via rediacc-cli-term
+- **Local Operations**: Use rediacc for API operations
+- **File Synchronization**: Rsync-based transfers via rediacc-sync
+- **SSH Terminal**: Terminal access via rediacc-term
 - **Cross-Platform**: Works on Linux, macOS, and Windows
 - **System Integration**: OS-specific optimizations
 - **Offline Capabilities**: Work without internet connection
@@ -309,16 +309,16 @@ All console features available via REST API:
 Command-line access to all features:
 ```bash
 # Machine management
-rediacc-cli list machines --team Production
-rediacc-cli create machine --name prod-01
+rediacc list machines --team Production
+rediacc create machine --name prod-01
 
 # Queue operations
-rediacc-cli queue list --status pending
-rediacc-cli queue cancel --task-id <guid>
+rediacc queue list --status pending
+rediacc queue cancel --task-id <guid>
 
 # Resource management
-rediacc-cli create repo --name myapp --type git
-rediacc-cli create storage --name backups --type s3
+rediacc create repo --name myapp --type git
+rediacc create storage --name backups --type s3
 ```
 
 ### Automation Support

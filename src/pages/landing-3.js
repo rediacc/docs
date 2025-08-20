@@ -587,8 +587,8 @@ export default function InfrastructureCommandCenter() {
               </ul>
 
               <div style={{ marginTop: '2rem' }}>
-                <Link className="hero-cta" to="/console/login?register=true" target="_blank">
-                  Start Free Trial (No Card Required)
+                <Link className="hero-cta" to="/console/login?register=manual" target="_blank">
+                  Register (No Card Required)
                 </Link>
                 <Link className="hero-cta-secondary" to="/docs/intro">
                   Technical Documentation
@@ -980,10 +980,10 @@ export default function InfrastructureCommandCenter() {
             <div style={{ textAlign: 'center', marginTop: '3rem' }}>
               <Link 
                 className="hero-cta" 
-                to="/console/login?register=true" 
+                to="/console/login?register=manual" 
                 target="_blank"
                 style={{ fontSize: '1.3rem', padding: '1.75rem 3.5rem' }}>
-                Claim Your Free Trial Now
+                Register Now
               </Link>
               <p style={{ marginTop: '1rem', color: '#64748b' }}>
                 No credit card • Deploy in minutes • Cancel anytime
@@ -1354,7 +1354,7 @@ export default function InfrastructureCommandCenter() {
               Limited Time: $250,000 in Implementation Accelerators
             </h2>
             <p style={{ textAlign: 'center', fontSize: '1.2rem', color: '#64748b', marginBottom: '3rem' }}>
-              When you start your Infrastructure Command Center trial today, you also receive:
+              When you register for Infrastructure Command Center today, you also receive:
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
@@ -1485,7 +1485,7 @@ export default function InfrastructureCommandCenter() {
 
             <div className="cta-box">
               <h3 style={{ fontSize: '1.8rem', marginBottom: '2rem' }}>
-                Everything You Get With Your Free Trial:
+                Everything You Get When You Register:
               </h3>
               
               <div className="cta-features">
@@ -1507,8 +1507,8 @@ export default function InfrastructureCommandCenter() {
                 💰 10x ROI Guarantee: Save 10x your investment or get a full refund
               </div>
 
-              <Link className="cta-button-primary" to="/console/login?register=true" target="_blank">
-                Start Your Free Trial Now →
+              <Link className="cta-button-primary" to="/console/login?register=manual" target="_blank">
+                Register Now →
               </Link>
 
               <p style={{ marginTop: '1rem', fontSize: '0.95rem', color: '#cbd5e1' }}>

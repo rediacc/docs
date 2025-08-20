@@ -27,7 +27,7 @@ Misc operations.
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli misc is-registered
+rediacc misc is-registered
 ```
 
 ##### Auto-Generated cURL Examples
@@ -64,7 +64,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/IsRegistered" \
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli misc update-image-machine-assignment example-team
+rediacc misc update-image-machine-assignment example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -107,7 +107,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateImageMachineAssi
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli misc update-user2-f-a
+rediacc misc update-user2-f-a
 ```
 
 ##### Auto-Generated cURL Examples

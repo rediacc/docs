@@ -55,11 +55,11 @@ export default function NavbarWrapper(props) {
               Sign In
             </Link>
             <Link
-              href="/console/login?register=true"
+              href="/console/login?register=manual"
               target="_blank"
               className="navbar-cta-link navbar-top-bar-cta"
             >
-              Start Free Trial →
+              Register →
             </Link>
           </div>
         </div>

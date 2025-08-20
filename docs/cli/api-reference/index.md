@@ -42,7 +42,7 @@ The API reference is organized into the following sections:
 Most commands follow this pattern:
 
 ```bash
-rediacc-cli <command> [subcommand] [arguments] [options]
+rediacc <command> [subcommand] [arguments] [options]
 ```
 
 ### Common Options
@@ -53,7 +53,7 @@ rediacc-cli <command> [subcommand] [arguments] [options]
 
 ## Authentication
 
-All commands (except `login` and `create company`) require authentication. Use `rediacc-cli login` to authenticate before running other commands.
+All commands (except `login` and `create company`) require authentication. Use `rediacc login` to authenticate before running other commands.
 
 ## Error Handling
 

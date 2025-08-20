@@ -22,20 +22,20 @@ When setting up Rediacc for the first time:
 
 ```bash
 # 1. Create company and admin account
-rediacc-cli create company "Acme Corporation" \
+rediacc create company "Acme Corporation" \
   --email admin@acme.com \
   --password AdminPass123! \
   --plan COMMUNITY
 
 # 2. Login as admin
-rediacc-cli login --email admin@acme.com
+rediacc login --email admin@acme.com
 
 # 3. Set master password for vault encryption
-rediacc-cli vault set-password
+rediacc vault set-password
 
 # 4. Create initial team structure
-rediacc-cli create team "Development"
-rediacc-cli create team "Production"
+rediacc create team "Development"
+rediacc create team "Production"
 ```
 
 ### User Onboarding Process
@@ -44,20 +44,20 @@ Standardized process for adding new team members:
 
 ```bash
 # 1. Admin creates user account
-rediacc-cli create user developer@acme.com
+rediacc create user developer@acme.com
 
 # 2. Admin activates the account
-rediacc-cli user activate developer@acme.com
+rediacc user activate developer@acme.com
 
 # 3. Admin assigns to teams
-rediacc-cli team-member add Development developer@acme.com
+rediacc team-member add Development developer@acme.com
 
 # 4. Admin assigns permission group (if needed)
-rediacc-cli permission assign developer@acme.com developers
+rediacc permission assign developer@acme.com developers
 
 # 5. New user logs in and changes password
-rediacc-cli login --email developer@acme.com
-rediacc-cli user update-password
+rediacc login --email developer@acme.com
+rediacc user update-password
 ```
 
 ### Managing Service Accounts
@@ -66,22 +66,22 @@ For automated systems and CI/CD pipelines:
 
 ```bash
 # 1. Create dedicated service account
-rediacc-cli create user ci-service@acme.com \
+rediacc create user ci-service@acme.com \
   --password $(openssl rand -base64 32)
 
 # 2. Activate account
-rediacc-cli user activate ci-service@acme.com
+rediacc user activate ci-service@acme.com
 
 # 3. Create bridge for the service
-rediacc-cli create bridge us-east ci-bridge
+rediacc create bridge us-east ci-bridge
 
 # 4. Get bridge-specific token
-rediacc-cli login --email ci-service@acme.com \
+rediacc login --email ci-service@acme.com \
   --target ci-bridge \
   --expiration 8760  # 1 year
 
 # 5. Add to required teams
-rediacc-cli team-member add Production ci-service@acme.com
+rediacc team-member add Production ci-service@acme.com
 ```
 
 ### Implementing TFA
@@ -90,17 +90,17 @@ Enhance security with two-factor authentication:
 
 ```bash
 # 1. User enables TFA
-rediacc-cli user update-tfa true --password CurrentPass123
+rediacc user update-tfa true --password CurrentPass123
 
 # 2. Scan QR code with authenticator app
 
 # 3. Future logins require TFA code
-rediacc-cli login --email user@acme.com \
+rediacc login --email user@acme.com \
   --password CurrentPass123 \
   --tfa-code 123456
 
 # 4. To disable TFA (requires current code)
-rediacc-cli user update-tfa false \
+rediacc user update-tfa false \
   --password CurrentPass123 \
   --current-code 654321
 ```
@@ -118,18 +118,18 @@ REDIACC_EMAIL="${REDIACC_EMAIL:-service@acme.com}"
 REDIACC_PASSWORD="${REDIACC_PASSWORD}"
 
 # Login at script start
-rediacc-cli login \
+rediacc login \
   --email "$REDIACC_EMAIL" \
   --password "$REDIACC_PASSWORD" \
   --expiration 2
 
 # Set error handling
 set -e
-trap 'rediacc-cli logout' EXIT
+trap 'rediacc logout' EXIT
 
 # Your script operations
-rediacc-cli list teams
-rediacc-cli create repository Production my-app
+rediacc list teams
+rediacc create repository Production my-app
 
 # Logout handled by trap
 ```
@@ -140,26 +140,26 @@ Managing multiple users efficiently:
 
 ```bash
 # Export current users
-rediacc-cli list users --output json > users-backup.json
+rediacc list users --output json > users-backup.json
 
 # Find inactive users
-rediacc-cli list users --output json | \
+rediacc list users --output json | \
   jq '.data[] | select(.activated == false) | .userEmail'
 
 # Bulk user creation from CSV
 cat users.csv | while IFS=, read -r email team role; do
   # Create user
-  rediacc-cli create user "$email"
+  rediacc create user "$email"
   
   # Activate
-  rediacc-cli user activate "$email"
+  rediacc user activate "$email"
   
   # Add to team
-  rediacc-cli team-member add "$team" "$email"
+  rediacc team-member add "$team" "$email"
   
   # Assign role if specified
   if [ -n "$role" ]; then
-    rediacc-cli permission assign "$email" "$role"
+    rediacc permission assign "$email" "$role"
   fi
 done
 ```
@@ -170,17 +170,17 @@ When locked out or credentials compromised:
 
 ```bash
 # 1. Admin deactivates compromised account
-rediacc-cli user deactivate compromised@acme.com --force
+rediacc user deactivate compromised@acme.com --force
 
 # 2. Create new credentials
-rediacc-cli create user temporary@acme.com
-rediacc-cli user activate temporary@acme.com
+rediacc create user temporary@acme.com
+rediacc user activate temporary@acme.com
 
 # 3. Grant necessary permissions
-rediacc-cli permission assign temporary@acme.com Administrators
+rediacc permission assign temporary@acme.com Administrators
 
 # 4. Fix the issue, then clean up
-rediacc-cli user deactivate temporary@acme.com
+rediacc user deactivate temporary@acme.com
 ```
 
 ## Security Best Practices
@@ -201,12 +201,12 @@ rediacc-cli user deactivate temporary@acme.com
 Monitor authentication events:
 ```bash
 # View authentication audit logs
-rediacc-cli list audit-logs \
+rediacc list audit-logs \
   --entity-filter User \
   --start-date $(date -d '7 days ago' --iso-8601)
 
 # Check active sessions
-rediacc-cli list sessions
+rediacc list sessions
 ```
 
 ## Troubleshooting
@@ -216,26 +216,26 @@ rediacc-cli list sessions
 **Token Expired During Long Operations**
 ```bash
 # Use longer expiration for batch operations
-rediacc-cli login --expiration 168  # 7 days
+rediacc login --expiration 168  # 7 days
 ```
 
 **Permission Denied**
 ```bash
 # Check current permissions
-rediacc-cli list users --output json | \
+rediacc list users --output json | \
   jq '.data[] | select(.userEmail == "user@acme.com")'
 
 # Verify team membership
-rediacc-cli list team-members Production
+rediacc list team-members Production
 ```
 
 **Account Locked**
 ```bash
 # Admin checks user status
-rediacc-cli list users | grep user@acme.com
+rediacc list users | grep user@acme.com
 
 # Reactivate if needed
-rediacc-cli user activate user@acme.com
+rediacc user activate user@acme.com
 ```
 
 ## Advanced Scenarios
@@ -244,24 +244,24 @@ rediacc-cli user activate user@acme.com
 ```bash
 # Production environment
 export SYSTEM_API_URL=https://api.rediacc.com
-rediacc-cli login --email prod-user@acme.com
+rediacc login --email prod-user@acme.com
 
 # Development environment
 export SYSTEM_API_URL=https://dev-api.rediacc.com
-rediacc-cli login --email dev-user@acme.com
+rediacc login --email dev-user@acme.com
 ```
 
 ### Delegated Authentication
 For applications that need to act on behalf of users:
 ```bash
 # Create application service account
-rediacc-cli create user app-service@acme.com
+rediacc create user app-service@acme.com
 
 # Grant specific permissions
-rediacc-cli permission create-group app-services
-rediacc-cli permission add app-services GetTeamMachines
-rediacc-cli permission add app-services GetTeamRepositories
-rediacc-cli permission assign app-service@acme.com app-services
+rediacc permission create-group app-services
+rediacc permission add app-services GetTeamMachines
+rediacc permission add app-services GetTeamRepositories
+rediacc permission assign app-service@acme.com app-services
 ```
 
 ## Related Guides

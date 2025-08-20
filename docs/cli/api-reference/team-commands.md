@@ -27,7 +27,7 @@ Team operations.
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli team update-team-vault example-team
+rediacc team update-team-vault example-team
 ```
 
 ##### Auto-Generated cURL Examples

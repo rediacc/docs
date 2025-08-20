@@ -654,7 +654,7 @@ export default function InfrastructureRevolutionRecap() {
 
               <Link 
                 className="cta-button" 
-                to="/console/login?register=true" 
+                to="/console/login?register=manual" 
                 target="_blank"
                 style={{display: 'block', margin: '2rem auto', maxWidth: 'fit-content'}}
               >
@@ -741,7 +741,7 @@ export default function InfrastructureRevolutionRecap() {
             
             <Link 
               className="cta-button" 
-              to="/console/login?register=true" 
+              to="/console/login?register=manual" 
               target="_blank"
               style={{marginBottom: '2rem'}}
             >

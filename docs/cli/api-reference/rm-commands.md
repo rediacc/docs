@@ -38,12 +38,12 @@ Removes a bridge configuration. Ensure no machines are assigned to this bridge a
 #### Examples
 
 ```bash
-rediacc-cli rm bridge us-east old-bridge
+rediacc rm bridge us-east old-bridge
 ```
 Delete bridge with confirmation
 
 ```bash
-rediacc-cli rm bridge europe decommissioned-bridge --force
+rediacc rm bridge europe decommissioned-bridge --force
 ```
 Force delete without confirmation
 
@@ -51,7 +51,7 @@ Force delete without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli rm bridge bridge-01 us-east
+rediacc rm bridge bridge-01 us-east
 ```
 
 ##### Auto-Generated cURL Examples
@@ -109,12 +109,12 @@ Permanently removes a machine configuration. Does not affect the actual server, 
 #### Examples
 
 ```bash
-rediacc-cli rm machine dev-team old-server
+rediacc rm machine dev-team old-server
 ```
 Delete machine with confirmation
 
 ```bash
-rediacc-cli rm machine staging temp-machine --force
+rediacc rm machine staging temp-machine --force
 ```
 Delete without confirmation
 
@@ -122,7 +122,7 @@ Delete without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli rm machine example-team my-machine-01
+rediacc rm machine example-team my-machine-01
 ```
 
 ##### Auto-Generated cURL Examples
@@ -180,12 +180,12 @@ Removes a pending queue item to prevent execution. Only PENDING or CANCELLED ite
 #### Examples
 
 ```bash
-rediacc-cli rm queue-item 550e8400-e29b-41d4-a716-446655440000
+rediacc rm queue-item 550e8400-e29b-41d4-a716-446655440000
 ```
 Delete queue item with confirmation
 
 ```bash
-rediacc-cli rm queue-item 550e8400 --force
+rediacc rm queue-item 550e8400 --force
 ```
 Force delete using partial task ID
 
@@ -193,7 +193,7 @@ Force delete using partial task ID
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli rm queue-item
+rediacc rm queue-item
 ```
 
 ##### Auto-Generated cURL Examples
@@ -250,12 +250,12 @@ Removes a region and cascades deletion to all bridges within it. Ensure no machi
 #### Examples
 
 ```bash
-rediacc-cli rm region test-region
+rediacc rm region test-region
 ```
 Delete region with confirmation
 
 ```bash
-rediacc-cli rm region deprecated-region --force
+rediacc rm region deprecated-region --force
 ```
 Force delete without confirmation
 
@@ -263,7 +263,7 @@ Force delete without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli rm region example-name
+rediacc rm region example-name
 ```
 
 ##### Auto-Generated cURL Examples
@@ -320,12 +320,12 @@ Permanently removes a repository and all its data. The repository's Docker conta
 #### Examples
 
 ```bash
-rediacc-cli rm repository old-app --team dev
+rediacc rm repository old-app --team dev
 ```
 Delete repository with confirmation
 
 ```bash
-rediacc-cli rm repository temp-test --team qa --force
+rediacc rm repository temp-test --team qa --force
 ```
 Force delete without confirmation
 
@@ -333,7 +333,7 @@ Force delete without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli rm repository example-team my-repo
+rediacc rm repository example-team my-repo
 ```
 
 ##### Auto-Generated cURL Examples
@@ -391,12 +391,12 @@ Permanently removes a scheduled task. Any pending executions will be cancelled, 
 #### Examples
 
 ```bash
-rediacc-cli rm schedule nightly-backup --team ops
+rediacc rm schedule nightly-backup --team ops
 ```
 Delete schedule with confirmation
 
 ```bash
-rediacc-cli rm schedule old-sync --team dev --force
+rediacc rm schedule old-sync --team dev --force
 ```
 Force delete without confirmation
 
@@ -404,7 +404,7 @@ Force delete without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli rm schedule example-team daily-backup
+rediacc rm schedule example-team daily-backup
 ```
 
 ##### Auto-Generated cURL Examples
@@ -462,12 +462,12 @@ Removes a storage configuration including credentials and settings. Does not del
 #### Examples
 
 ```bash
-rediacc-cli rm storage old-backup --team ops
+rediacc rm storage old-backup --team ops
 ```
 Delete storage config with confirmation
 
 ```bash
-rediacc-cli rm storage temp-s3 --team dev --force
+rediacc rm storage temp-s3 --team dev --force
 ```
 Force delete without confirmation
 
@@ -475,7 +475,7 @@ Force delete without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli rm storage example-team backup-storage
+rediacc rm storage example-team backup-storage
 ```
 
 ##### Auto-Generated cURL Examples
@@ -533,12 +533,12 @@ Permanently removes a team and all associated resources including machines, repo
 #### Examples
 
 ```bash
-rediacc-cli rm team old-team
+rediacc rm team old-team
 ```
 Delete team with confirmation
 
 ```bash
-rediacc-cli rm team old-team --force
+rediacc rm team old-team --force
 ```
 Delete team without confirmation
 
@@ -546,7 +546,7 @@ Delete team without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli rm team example-name
+rediacc rm team example-name
 ```
 
 ##### Auto-Generated cURL Examples

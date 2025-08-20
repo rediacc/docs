@@ -45,7 +45,7 @@ export default function TimeTravelFeature() {
               <Link className="button button--primary button--lg" to="/docs/solutions/time-travel">
                 View Case Study
               </Link>
-              <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
+              <Link className="button button--secondary button--lg" to="/console/login?register=quick" target="_blank">
                 Try It Now
               </Link>
             </div>
@@ -211,7 +211,7 @@ export default function TimeTravelFeature() {
               <Link className="button button--secondary button--lg" style={{background: 'white', color: 'var(--ifm-color-primary)'}} to="/contact">
                 Request Demo
               </Link>
-              <Link className="button button--outline button--lg" style={{borderColor: 'white', color: 'white'}} to="/console/login?register=true" target="_blank">
+              <Link className="button button--outline button--lg" style={{borderColor: 'white', color: 'white'}} to="/console/login?register=quick" target="_blank">
                 Try Free Sandbox
               </Link>
             </div>

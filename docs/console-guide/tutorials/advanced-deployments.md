@@ -183,8 +183,8 @@ fi
 echo "Deploying to $TARGET environment..."
 
 # Deploy to inactive environment
-for machine in $(rediacc-cli list machines --tag "prod-$TARGET"); do
-    rediacc-cli queue create \
+for machine in $(rediacc list machines --tag "prod-$TARGET"); do
+    rediacc queue create \
         --machine "$machine" \
         --script "deploy/update.sh" \
         --wait
@@ -252,7 +252,7 @@ Tags: [production, stable]
 
 # Deploy to canary
 echo "Deploying to canary..."
-rediacc-cli queue create \
+rediacc queue create \
     --machine prod-canary-01 \
     --script "deploy/update.sh" \
     --priority high
@@ -272,7 +272,7 @@ fi
 # Progressive rollout to stable
 echo "Rolling out to stable pool..."
 for i in {1..5}; do
-    rediacc-cli queue create \
+    rediacc queue create \
         --machine "prod-stable-0$i" \
         --script "deploy/update.sh" \
         --priority normal
@@ -304,7 +304,7 @@ Deployment Config:
 #!/bin/bash
 # rolling-update.sh
 
-MACHINES=$(rediacc-cli list machines --team Production --tag app-server)
+MACHINES=$(rediacc list machines --team Production --tag app-server)
 TOTAL=$(echo "$MACHINES" | wc -l)
 BATCH_SIZE=2
 
@@ -320,13 +320,13 @@ for ((i=0; i<$TOTAL; i+=BATCH_SIZE)); do
     for machine in $BATCH; do
         (
             # Drain connections
-            rediacc-cli queue create \
+            rediacc queue create \
                 --machine "$machine" \
                 --script "scripts/drain-connections.sh" \
                 --wait
             
             # Update application
-            rediacc-cli queue create \
+            rediacc queue create \
                 --machine "$machine" \
                 --script "deploy/update.sh" \
                 --wait
@@ -385,14 +385,14 @@ features:
 # feature-deploy.sh
 
 # Update feature flags first
-rediacc-cli storage upload \
+rediacc storage upload \
     --storage config-store \
     --file feature-flags.yaml \
     --path /configs/features.yaml
 
 # Deploy application
-for machine in $(rediacc-cli list machines --team Production); do
-    rediacc-cli queue create \
+for machine in $(rediacc list machines --team Production); do
+    rediacc queue create \
         --machine "$machine" \
         --script "deploy/update-with-flags.sh" \
         --env "FEATURE_FLAG_URL=s3://config-store/configs/features.yaml"
@@ -439,7 +439,7 @@ if ! ./scripts/check-region-health.sh "$PRIMARY_REGION"; then
     echo "Primary region unhealthy, initiating failover..."
     
     # Promote secondary databases
-    rediacc-cli queue create \
+    rediacc queue create \
         --machine prod-usw2-db-01 \
         --script "scripts/promote-to-primary.sh" \
         --priority critical
@@ -449,7 +449,7 @@ if ! ./scripts/check-region-health.sh "$PRIMARY_REGION"; then
     
     # Scale up secondary region
     for i in {3..5}; do
-        rediacc-cli queue create \
+        rediacc queue create \
             --machine "prod-usw2-0$i" \
             --script "deploy/scale-up.sh"
     done
@@ -477,12 +477,12 @@ while true; do
     echo ""
     
     # Queue status
-    QUEUE_STATUS=$(rediacc-cli queue get --id "$DEPLOYMENT_ID")
+    QUEUE_STATUS=$(rediacc queue get --id "$DEPLOYMENT_ID")
     echo "Status: $QUEUE_STATUS"
     
     # Machine health
     echo -e "\nMachine Health:"
-    for machine in $(rediacc-cli list machines --deployment "$DEPLOYMENT_ID"); do
+    for machine in $(rediacc list machines --deployment "$DEPLOYMENT_ID"); do
         HEALTH=$(./scripts/check-health.sh "$machine")
         echo "  $machine: $HEALTH"
     done
@@ -495,7 +495,7 @@ while true; do
     
     # Logs tail
     echo -e "\nRecent Logs:"
-    rediacc-cli queue logs --id "$DEPLOYMENT_ID" --tail 5
+    rediacc queue logs --id "$DEPLOYMENT_ID" --tail 5
     
     sleep 5
 done

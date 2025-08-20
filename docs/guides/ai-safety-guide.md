@@ -21,7 +21,7 @@ In July 2025, an AI coding platform went "rogue during code freeze" and deleted 
 ### 1. Instant Production Cloning
 Clone any database or environment in seconds using Copy-on-Write technology:
 ```bash
-rediacc-cli create clone --source production --name ai-sandbox
+rediacc create clone --source production --name ai-sandbox
 ```
 - 100TB databases clone instantly
 - AI works on disposable copies
@@ -30,7 +30,7 @@ rediacc-cli create clone --source production --name ai-sandbox
 ### 2. Time Travel Recovery
 Restore from any AI disaster in 1 minute:
 ```bash
-rediacc-cli restore --point-in-time "before-ai-operation"
+rediacc restore --point-in-time "before-ai-operation"
 ```
 - Hourly automatic snapshots
 - 3-week retention period
@@ -65,12 +65,12 @@ Every AI action is logged and reversible with immutable records for monitoring.
 
 1. **Enable AI Safety Mode**
    ```bash
-   rediacc-cli configure ai-safety --enable
+   rediacc configure ai-safety --enable
    ```
 
 2. **Set Up Automatic Cloning**
    ```bash
-   rediacc-cli configure ai-safety --auto-clone=true
+   rediacc configure ai-safety --auto-clone=true
    ```
 
 3. **Configure MCP Integration**

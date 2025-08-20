@@ -32,12 +32,12 @@ Shows comprehensive information about a specific machine including its configura
 #### Examples
 
 ```bash
-rediacc-cli inspect machine prod web-01
+rediacc inspect machine prod web-01
 ```
 Inspect production web server
 
 ```bash
-rediacc-cli inspect machine dev database --output json
+rediacc inspect machine dev database --output json
 ```
 Get machine details in JSON format
 
@@ -45,7 +45,7 @@ Get machine details in JSON format
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli inspect machine example-team example-name
+rediacc inspect machine example-team example-name
 ```
 
 ##### Auto-Generated cURL Examples
@@ -102,12 +102,12 @@ Shows comprehensive information about a specific repository including vault conf
 #### Examples
 
 ```bash
-rediacc-cli inspect repository dev-team web-app
+rediacc inspect repository dev-team web-app
 ```
 Inspect web-app repository
 
 ```bash
-rediacc-cli inspect repository prod api --output json
+rediacc inspect repository prod api --output json
 ```
 Get repository details in JSON
 
@@ -115,7 +115,7 @@ Get repository details in JSON
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli inspect repository example-team example-name
+rediacc inspect repository example-team example-name
 ```
 
 ##### Auto-Generated cURL Examples

@@ -99,7 +99,7 @@ During testing, I discovered several features that are implemented but not fully
 6. **CLI Integration Features**
    - LocalCommandModal for CLI integration
    - Enhanced capabilities when using CLI tools
-   - Integration with rediacc-cli suite
+   - Integration with rediacc suite
 
 ### 📝 Documentation Improvements Needed
 

@@ -32,12 +32,12 @@ Grants a user membership in a team, giving them access to all team resources inc
 #### Examples
 
 ```bash
-rediacc-cli team-member add dev-team john@company.com
+rediacc team-member add dev-team john@company.com
 ```
 Add John to development team
 
 ```bash
-rediacc-cli team-member add production admin@company.com
+rediacc team-member add production admin@company.com
 ```
 Add admin to production team
 
@@ -45,7 +45,7 @@ Add admin to production team
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli team-member add example-team
+rediacc team-member add example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -103,12 +103,12 @@ Revokes a user's team membership, removing their access to all team resources. T
 #### Examples
 
 ```bash
-rediacc-cli team-member remove dev-team contractor@external.com
+rediacc team-member remove dev-team contractor@external.com
 ```
 Remove contractor with confirmation
 
 ```bash
-rediacc-cli team-member remove production ex-employee@company.com --force
+rediacc team-member remove production ex-employee@company.com --force
 ```
 Force remove without confirmation
 
@@ -116,7 +116,7 @@ Force remove without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli team-member remove example-team
+rediacc team-member remove example-team
 ```
 
 ##### Auto-Generated cURL Examples

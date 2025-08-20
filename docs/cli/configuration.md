@@ -5,8 +5,8 @@ The Rediacc CLI uses a YAML configuration file to store settings, authentication
 ## Configuration File
 
 ### Default Location
-- **Linux/macOS**: `~/.rediacc-cli.yaml`
-- **Windows**: `%USERPROFILE%\.rediacc-cli.yaml`
+- **Linux/macOS**: `~/.rediacc.yaml`
+- **Windows**: `%USERPROFILE%\.rediacc.yaml`
 
 ### Custom Location
 ```bash
@@ -117,7 +117,7 @@ advanced:
   debug: false                          # Global debug mode
   profile: false                        # Enable performance profiling
   cache_ttl: "5m"                       # Response cache TTL
-  user_agent: "rediacc-cli/1.0.0"       # Custom User-Agent header
+  user_agent: "rediacc/1.0.0"       # Custom User-Agent header
 ```
 
 ## Server Configuration
@@ -378,7 +378,7 @@ rediacc auth login  # Re-authenticate
 
 ```bash
 # Secure configuration file permissions
-chmod 600 ~/.rediacc-cli.yaml
+chmod 600 ~/.rediacc.yaml
 
 # Don't store passwords in config (use environment variables)
 export REDIACC_AUTH_PASSWORD="mypassword"
@@ -391,10 +391,10 @@ rediacc config set auth.email "service@company.com"
 
 ```bash
 # Encrypt configuration file (requires gpg)
-gpg --symmetric --cipher-algo AES256 ~/.rediacc-cli.yaml
+gpg --symmetric --cipher-algo AES256 ~/.rediacc.yaml
 
 # Decrypt for use
-gpg --decrypt ~/.rediacc-cli.yaml.gpg > ~/.rediacc-cli.yaml
+gpg --decrypt ~/.rediacc.yaml.gpg > ~/.rediacc.yaml
 ```
 
 ## Troubleshooting
@@ -422,10 +422,10 @@ rediacc config reset
 **Permission Denied:**
 ```bash
 # Fix file permissions
-chmod 644 ~/.rediacc-cli.yaml
+chmod 644 ~/.rediacc.yaml
 
 # Check file ownership
-ls -la ~/.rediacc-cli.yaml
+ls -la ~/.rediacc.yaml
 ```
 
 ### Debug Configuration

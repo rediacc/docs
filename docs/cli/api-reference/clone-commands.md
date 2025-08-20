@@ -29,7 +29,7 @@ Clone operations.
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli clone list-available-machines-for-clone example-team
+rediacc clone list-available-machines-for-clone example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -64,7 +64,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetAvailableMachinesFo
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli clone list-clone-machine-assignment-validation example-team
+rediacc clone list-clone-machine-assignment-validation example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -103,7 +103,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCloneMachineAssignm
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli clone list-clone-machines example-team
+rediacc clone list-clone-machines example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -146,7 +146,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCloneMachines" \
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli clone update-clone-machine-assignments example-team
+rediacc clone update-clone-machine-assignments example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -190,7 +190,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateCloneMachineAssi
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli clone update-clone-machine-removals example-team
+rediacc clone update-clone-machine-removals example-team
 ```
 
 ##### Auto-Generated cURL Examples

@@ -41,12 +41,12 @@ Bridges are autonomous queue processors that poll for tasks and execute them on 
 #### Examples
 
 ```bash
-rediacc-cli create bridge us-east bridge-01
+rediacc create bridge us-east bridge-01
 ```
 Create a basic bridge
 
 ```bash
-rediacc-cli create bridge us-east high-priority-bridge --vault '{"batch_size":10}'
+rediacc create bridge us-east high-priority-bridge --vault '{"batch_size":10}'
 ```
 Create bridge with custom batch size
 
@@ -54,7 +54,7 @@ Create bridge with custom batch size
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli create bridge bridge-01 us-east
+rediacc create bridge bridge-01 us-east
 ```
 
 ##### Auto-Generated cURL Examples
@@ -72,7 +72,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateBridge" \
 
 #### Notes
 
-After creation, start the bridge with './bridge --bridge-mode token=&lt;token&gt; api_url=&lt;url&gt; master_password=&lt;pwd&gt;'. Use 'rediacc-cli login --target bridge-name' to get a bridge-specific token.
+After creation, start the bridge with './bridge --bridge-mode token=&lt;token&gt; api_url=&lt;url&gt; master_password=&lt;pwd&gt;'. Use 'rediacc login --target bridge-name' to get a bridge-specific token.
 
 #### Business Rules
 
@@ -115,7 +115,7 @@ Creates a new Rediacc company along with its admin user account. The email and p
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli create company
+rediacc create company
 ```
 
 ##### Auto-Generated cURL Examples
@@ -172,12 +172,12 @@ Machines are remote servers that execute tasks via SSH. They must be associated 
 #### Examples
 
 ```bash
-rediacc-cli create machine production-team us-east-bridge web-01
+rediacc create machine production-team us-east-bridge web-01
 ```
 Create a basic machine
 
 ```bash
-rediacc-cli create machine prod us-bridge db-01 --vault '{"ip":"10.0.0.10"}'
+rediacc create machine prod us-bridge db-01 --vault '{"ip":"10.0.0.10"}'
 ```
 Create machine with IP configuration
 
@@ -185,7 +185,7 @@ Create machine with IP configuration
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli create machine example-team my-machine-01 bridge-01
+rediacc create machine example-team my-machine-01 bridge-01
 ```
 
 ##### Auto-Generated cURL Examples
@@ -247,12 +247,12 @@ Queue items represent tasks to be executed on machines by bridges. The bridge po
 #### Examples
 
 ```bash
-rediacc-cli create queue-item prod web-01 us-bridge --priority 3
+rediacc create queue-item prod web-01 us-bridge --priority 3
 ```
 Create standard priority queue item
 
 ```bash
-rediacc-cli create queue-item prod db-01 bridge-01 --priority 1 --vault-file task.json
+rediacc create queue-item prod db-01 bridge-01 --priority 1 --vault-file task.json
 ```
 Create high priority item with task config
 
@@ -260,7 +260,7 @@ Create high priority item with task config
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli create queue-item example-team my-machine-01 bridge-01
+rediacc create queue-item example-team my-machine-01 bridge-01
 ```
 
 ##### Auto-Generated cURL Examples
@@ -321,12 +321,12 @@ Regions are logical or geographic groupings for bridges. They help organize infr
 #### Examples
 
 ```bash
-rediacc-cli create region us-east
+rediacc create region us-east
 ```
 Create a basic region
 
 ```bash
-rediacc-cli create region europe-west --vault '{"provider":"azure","location":"westeurope"}'
+rediacc create region europe-west --vault '{"provider":"azure","location":"westeurope"}'
 ```
 Create region with provider configuration
 
@@ -334,7 +334,7 @@ Create region with provider configuration
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli create region example-name
+rediacc create region example-name
 ```
 
 ##### Auto-Generated cURL Examples
@@ -395,7 +395,7 @@ Repositories are isolated environments for storing code, data, or applications. 
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli create repository example-team my-repo
+rediacc create repository example-team my-repo
 ```
 
 ##### Auto-Generated cURL Examples
@@ -454,12 +454,12 @@ Schedules automatically create queue items at specified intervals. They support 
 #### Examples
 
 ```bash
-rediacc-cli create schedule ops-team daily-backup
+rediacc create schedule ops-team daily-backup
 ```
 Create a basic schedule
 
 ```bash
-rediacc-cli create schedule prod hourly-sync --vault '{"cron":"0 * * * *","function":"repo_pull","machine":"sync-01"}'
+rediacc create schedule prod hourly-sync --vault '{"cron":"0 * * * *","function":"repo_pull","machine":"sync-01"}'
 ```
 Create hourly sync schedule
 
@@ -467,7 +467,7 @@ Create hourly sync schedule
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli create schedule example-team daily-backup
+rediacc create schedule example-team daily-backup
 ```
 
 ##### Auto-Generated cURL Examples
@@ -526,12 +526,12 @@ Storage resources represent external storage systems like S3 buckets, Azure Blob
 #### Examples
 
 ```bash
-rediacc-cli create storage backup-team s3-archive
+rediacc create storage backup-team s3-archive
 ```
 Create a basic storage resource
 
 ```bash
-rediacc-cli create storage prod azure-backup --vault-file azure-config.json
+rediacc create storage prod azure-backup --vault-file azure-config.json
 ```
 Create Azure storage with credentials from file
 
@@ -539,7 +539,7 @@ Create Azure storage with credentials from file
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli create storage example-team backup-storage
+rediacc create storage example-team backup-storage
 ```
 
 ##### Auto-Generated cURL Examples
@@ -598,12 +598,12 @@ Teams are organizational units that own machines, repositories, and other resour
 #### Examples
 
 ```bash
-rediacc-cli create team production-team
+rediacc create team production-team
 ```
 Create a basic team
 
 ```bash
-rediacc-cli create team dev-team --vault-file team-config.json
+rediacc create team dev-team --vault-file team-config.json
 ```
 Create team with vault configuration from file
 
@@ -611,7 +611,7 @@ Create team with vault configuration from file
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli create team example-name
+rediacc create team example-name
 ```
 
 ##### Auto-Generated cURL Examples
@@ -670,7 +670,7 @@ Creates a new user account that can access the company resources. Users must be 
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli create user
+rediacc create user
 ```
 
 ##### Auto-Generated cURL Examples

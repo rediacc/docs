@@ -50,12 +50,12 @@ Shows detailed audit logs of all system modifications including who made changes
 #### Examples
 
 ```bash
-rediacc-cli list audit-logs --start-date 2024-01-01T00:00:00Z
+rediacc list audit-logs --start-date 2024-01-01T00:00:00Z
 ```
 Get audit logs from specific date
 
 ```bash
-rediacc-cli list audit-logs --entity-filter Team --max-records 100
+rediacc list audit-logs --entity-filter Team --max-records 100
 ```
 Get last 100 team-related changes
 
@@ -63,7 +63,7 @@ Get last 100 team-related changes
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list audit-logs
+rediacc list audit-logs
 ```
 
 ##### Auto-Generated cURL Examples
@@ -122,7 +122,7 @@ Bridges are autonomous queue processors that execute tasks on machines. They pol
 #### Examples
 
 ```bash
-rediacc-cli list bridges us-east
+rediacc list bridges us-east
 ```
 List all bridges in the us-east region
 
@@ -130,7 +130,7 @@ List all bridges in the us-east region
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list bridges us-east
+rediacc list bridges us-east
 ```
 
 ##### Auto-Generated cURL Examples
@@ -180,7 +180,7 @@ Displays the encrypted vault data stored at the company level. This typically co
 #### Examples
 
 ```bash
-rediacc-cli list company-vault
+rediacc list company-vault
 ```
 View company vault contents
 
@@ -188,7 +188,7 @@ View company vault contents
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list company-vault
+rediacc list company-vault
 ```
 
 ##### Auto-Generated cURL Examples
@@ -237,12 +237,12 @@ Shows the complete infrastructure topology including regions, bridges, teams, ma
 #### Examples
 
 ```bash
-rediacc-cli list data-graph
+rediacc list data-graph
 ```
 Display infrastructure graph
 
 ```bash
-rediacc-cli list data-graph --output json | jq '.graph'
+rediacc list data-graph --output json | jq '.graph'
 ```
 Extract graph data for visualization
 
@@ -250,7 +250,7 @@ Extract graph data for visualization
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list data-graph
+rediacc list data-graph
 ```
 
 ##### Auto-Generated cURL Examples
@@ -307,12 +307,12 @@ Shows the modification history for a specific entity (team, machine, user, etc.)
 #### Examples
 
 ```bash
-rediacc-cli list entity-history Machine 550e8400-e29b-41d4-a716-446655440000
+rediacc list entity-history Machine 550e8400-e29b-41d4-a716-446655440000
 ```
 View history for a specific machine
 
 ```bash
-rediacc-cli list entity-history Team 123e4567-e89b-12d3-a456-426614174000 --max-records 50
+rediacc list entity-history Team 123e4567-e89b-12d3-a456-426614174000 --max-records 50
 ```
 View last 50 changes to a team
 
@@ -320,7 +320,7 @@ View last 50 changes to a team
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list entity-history
+rediacc list entity-history
 ```
 
 ##### Auto-Generated cURL Examples
@@ -378,12 +378,12 @@ Provides lookup data used for dropdowns and selection lists in UI components. Re
 #### Examples
 
 ```bash
-rediacc-cli list lookup-data
+rediacc list lookup-data
 ```
 Get all available lookup data
 
 ```bash
-rediacc-cli list lookup-data --context queue_create
+rediacc list lookup-data --context queue_create
 ```
 Get lookup data specific to queue creation
 
@@ -391,7 +391,7 @@ Get lookup data specific to queue creation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list lookup-data
+rediacc list lookup-data
 ```
 
 ##### Auto-Generated cURL Examples
@@ -440,7 +440,7 @@ Shows geographic regions where you can deploy bridges and infrastructure. Each r
 #### Examples
 
 ```bash
-rediacc-cli list regions
+rediacc list regions
 ```
 Display all regions with their vault configurations
 
@@ -448,7 +448,7 @@ Display all regions with their vault configurations
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list regions
+rediacc list regions
 ```
 
 ##### Auto-Generated cURL Examples
@@ -497,12 +497,12 @@ Shows your subscription limits and current usage for all resource types includin
 #### Examples
 
 ```bash
-rediacc-cli list resource-limits
+rediacc list resource-limits
 ```
 View resource usage vs limits in table format
 
 ```bash
-rediacc-cli list resource-limits --output json | jq '.resourceLimits'
+rediacc list resource-limits --output json | jq '.resourceLimits'
 ```
 Extract resource limits data for monitoring
 
@@ -510,7 +510,7 @@ Extract resource limits data for monitoring
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list resource-limits
+rediacc list resource-limits
 ```
 
 ##### Auto-Generated cURL Examples
@@ -559,12 +559,12 @@ Shows all active authentication sessions including session names, creation time,
 #### Examples
 
 ```bash
-rediacc-cli list sessions
+rediacc list sessions
 ```
 View all active sessions
 
 ```bash
-rediacc-cli list sessions --output json | jq '.[] | select(.sessionName | contains("CLI"))'
+rediacc list sessions --output json | jq '.[] | select(.sessionName | contains("CLI"))'
 ```
 Filter CLI sessions
 
@@ -572,7 +572,7 @@ Filter CLI sessions
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list sessions
+rediacc list sessions
 ```
 
 ##### Auto-Generated cURL Examples
@@ -621,12 +621,12 @@ Displays active subscriptions, plan details, expiration dates, and feature limit
 #### Examples
 
 ```bash
-rediacc-cli list subscription
+rediacc list subscription
 ```
 View subscription status and limits
 
 ```bash
-rediacc-cli list subscription --output json | jq '.subscriptions'
+rediacc list subscription --output json | jq '.subscriptions'
 ```
 Extract subscription data for monitoring
 
@@ -634,7 +634,7 @@ Extract subscription data for monitoring
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list subscription
+rediacc list subscription
 ```
 
 ##### Auto-Generated cURL Examples
@@ -689,12 +689,12 @@ Shows all machines assigned to a team including their status, assigned bridge, v
 #### Examples
 
 ```bash
-rediacc-cli list team-machines production-team
+rediacc list team-machines production-team
 ```
 List all machines in production team
 
 ```bash
-rediacc-cli list team-machines team1,team2
+rediacc list team-machines team1,team2
 ```
 List machines from multiple teams
 
@@ -702,7 +702,7 @@ List machines from multiple teams
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list team-machines example-team
+rediacc list team-machines example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -758,7 +758,7 @@ Shows all users who have access to a team's resources. Team members can manage a
 #### Examples
 
 ```bash
-rediacc-cli list team-members production-team
+rediacc list team-members production-team
 ```
 List all members of production team
 
@@ -766,7 +766,7 @@ List all members of production team
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list team-members example-team
+rediacc list team-members example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -822,12 +822,12 @@ Shows all code repositories associated with a team. Repositories are isolated en
 #### Examples
 
 ```bash
-rediacc-cli list team-repositories dev-team
+rediacc list team-repositories dev-team
 ```
 List all repositories in dev-team
 
 ```bash
-rediacc-cli list team-repositories prod --output json | jq '.[].repoName'
+rediacc list team-repositories prod --output json | jq '.[].repoName'
 ```
 Extract repository names from production team
 
@@ -835,7 +835,7 @@ Extract repository names from production team
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list team-repositories example-team
+rediacc list team-repositories example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -891,12 +891,12 @@ Shows all scheduled tasks (cron jobs) configured for a team. Schedules automatic
 #### Examples
 
 ```bash
-rediacc-cli list team-schedules ops-team
+rediacc list team-schedules ops-team
 ```
 List all schedules in ops-team
 
 ```bash
-rediacc-cli list team-schedules backup-team --output json
+rediacc list team-schedules backup-team --output json
 ```
 Get schedule details in JSON format
 
@@ -904,7 +904,7 @@ Get schedule details in JSON format
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list team-schedules example-team
+rediacc list team-schedules example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -960,12 +960,12 @@ Shows all external storage configurations for a team. Storage resources represen
 #### Examples
 
 ```bash
-rediacc-cli list team-storages data-team
+rediacc list team-storages data-team
 ```
 List all storage resources in data-team
 
 ```bash
-rediacc-cli list team-storages backup --output json | jq '.[] | select(.storageName | contains("s3"))'
+rediacc list team-storages backup --output json | jq '.[] | select(.storageName | contains("s3"))'
 ```
 Find all S3 storage resources
 
@@ -973,7 +973,7 @@ Find all S3 storage resources
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list team-storages example-team
+rediacc list team-storages example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -1023,12 +1023,12 @@ Displays teams with membership information, resource counts, and vault access. O
 #### Examples
 
 ```bash
-rediacc-cli list teams
+rediacc list teams
 ```
 List all teams in table format
 
 ```bash
-rediacc-cli list teams --output json
+rediacc list teams --output json
 ```
 List all teams in JSON format for scripting
 
@@ -1036,7 +1036,7 @@ List all teams in JSON format for scripting
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list teams
+rediacc list teams
 ```
 
 ##### Auto-Generated cURL Examples
@@ -1085,7 +1085,7 @@ Shows the company information for the currently authenticated user. Useful for v
 #### Examples
 
 ```bash
-rediacc-cli list user-company
+rediacc list user-company
 ```
 Display current user's company
 
@@ -1093,7 +1093,7 @@ Display current user's company
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list user-company
+rediacc list user-company
 ```
 
 ##### Auto-Generated cURL Examples
@@ -1142,12 +1142,12 @@ Shows all user accounts including their email, status (active/inactive), permiss
 #### Examples
 
 ```bash
-rediacc-cli list users
+rediacc list users
 ```
 Display all company users in table format
 
 ```bash
-rediacc-cli list users --output json | jq '.[] | select(.isActive == false)'
+rediacc list users --output json | jq '.[] | select(.isActive == false)'
 ```
 Find all inactive users
 
@@ -1155,7 +1155,7 @@ Find all inactive users
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli list users
+rediacc list users
 ```
 
 ##### Auto-Generated cURL Examples

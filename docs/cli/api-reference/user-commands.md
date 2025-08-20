@@ -34,12 +34,12 @@ Activates a newly created user account using an activation code. Users must be a
 #### Examples
 
 ```bash
-rediacc-cli user activate newuser@company.com
+rediacc user activate newuser@company.com
 ```
 Activate with default code
 
 ```bash
-rediacc-cli user activate admin@company.com --code 654321
+rediacc user activate admin@company.com --code 654321
 ```
 Activate with custom code
 
@@ -47,7 +47,7 @@ Activate with custom code
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli user activate
+rediacc user activate
 ```
 
 ##### Auto-Generated cURL Examples
@@ -104,12 +104,12 @@ Deactivates a user account, preventing login while preserving all data and histo
 #### Examples
 
 ```bash
-rediacc-cli user deactivate employee@company.com
+rediacc user deactivate employee@company.com
 ```
 Deactivate with confirmation
 
 ```bash
-rediacc-cli user deactivate contractor@company.com --force
+rediacc user deactivate contractor@company.com --force
 ```
 Deactivate without confirmation
 
@@ -117,7 +117,7 @@ Deactivate without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli user deactivate
+rediacc user deactivate
 ```
 
 ##### Auto-Generated cURL Examples
@@ -174,12 +174,12 @@ Updates a user's email address across the system. The new email becomes the logi
 #### Examples
 
 ```bash
-rediacc-cli user update-email old@company.com new@company.com
+rediacc user update-email old@company.com new@company.com
 ```
 Change user's email
 
 ```bash
-rediacc-cli user update-email jane.doe@company.com jane.smith@company.com
+rediacc user update-email jane.doe@company.com jane.smith@company.com
 ```
 Update email after name change
 
@@ -187,7 +187,7 @@ Update email after name change
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli user update-email
+rediacc user update-email
 ```
 
 ##### Auto-Generated cURL Examples
@@ -244,12 +244,12 @@ Updates the password for the currently authenticated user. The new password is h
 #### Examples
 
 ```bash
-rediacc-cli user update-password
+rediacc user update-password
 ```
 Change password with secure prompt
 
 ```bash
-rediacc-cli user update-password --new-password 'MyN3wP@ssw0rd!'
+rediacc user update-password --new-password 'MyN3wP@ssw0rd!'
 ```
 Change password directly (less secure)
 
@@ -257,7 +257,7 @@ Change password directly (less secure)
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli user update-password
+rediacc user update-password
 ```
 
 ##### Auto-Generated cURL Examples

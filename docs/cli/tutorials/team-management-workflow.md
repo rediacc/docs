@@ -9,15 +9,15 @@ Organize by technical function or expertise:
 
 ```bash
 # Development teams by technology
-rediacc-cli create team "Frontend Development"
-rediacc-cli create team "Backend Services"
-rediacc-cli create team "Mobile Development"
-rediacc-cli create team "Data Engineering"
+rediacc create team "Frontend Development"
+rediacc create team "Backend Services"
+rediacc create team "Mobile Development"
+rediacc create team "Data Engineering"
 
 # Operations teams by responsibility
-rediacc-cli create team "Site Reliability"
-rediacc-cli create team "Security Operations"
-rediacc-cli create team "Database Administration"
+rediacc create team "Site Reliability"
+rediacc create team "Security Operations"
+rediacc create team "Database Administration"
 ```
 
 ### Project-Based Teams
@@ -25,7 +25,7 @@ Create cross-functional teams for specific projects:
 
 ```bash
 # Project team with metadata
-rediacc-cli create team "Project Phoenix" --vault '{
+rediacc create team "Project Phoenix" --vault '{
   "project_code": "PHX-2024",
   "start_date": "2024-01-01",
   "end_date": "2024-12-31",
@@ -40,10 +40,10 @@ Separate teams for different deployment environments:
 
 ```bash
 # Environment teams
-rediacc-cli create team "Production Systems"
-rediacc-cli create team "Staging Environment"
-rediacc-cli create team "Development Sandbox"
-rediacc-cli create team "QA Testing"
+rediacc create team "Production Systems"
+rediacc create team "Staging Environment"
+rediacc create team "Development Sandbox"
+rediacc create team "QA Testing"
 ```
 
 ## Team Lifecycle Management
@@ -64,7 +64,7 @@ BRIDGE="data-bridge"
 echo "Setting up team: $TEAM_NAME"
 
 # 1. Create the team with metadata
-rediacc-cli create team "$TEAM_NAME" --vault '{
+rediacc create team "$TEAM_NAME" --vault '{
   "description": "Data platform and analytics team",
   "lead": "'$TEAM_LEAD'",
   "cost_center": "CC-DATA-001",
@@ -76,7 +76,7 @@ rediacc-cli create team "$TEAM_NAME" --vault '{
 echo "Creating infrastructure..."
 
 # Create dedicated bridge if needed
-rediacc-cli create bridge "$REGION" "$BRIDGE" --vault '{
+rediacc create bridge "$REGION" "$BRIDGE" --vault '{
   "type": "dedicated",
   "resources": "high-memory"
 }'
@@ -91,7 +91,7 @@ MACHINES=(
 for machine_spec in "${MACHINES[@]}"; do
   IFS=':' read -r machine_name description <<< "$machine_spec"
   
-  rediacc-cli create machine "$TEAM_NAME" "$BRIDGE" "$machine_name" --vault '{
+  rediacc create machine "$TEAM_NAME" "$BRIDGE" "$machine_name" --vault '{
     "description": "'"$description"'",
     "specs": {
       "cpu": "16 cores",
@@ -113,7 +113,7 @@ REPOS=(
 for repo_spec in "${REPOS[@]}"; do
   IFS=':' read -r repo_name description <<< "$repo_spec"
   
-  rediacc-cli create repository "$TEAM_NAME" "$repo_name" --vault '{
+  rediacc create repository "$TEAM_NAME" "$repo_name" --vault '{
     "description": "'"$description"'",
     "tech_stack": ["python", "sql", "spark"]
   }'
@@ -122,14 +122,14 @@ done
 # 4. Configure storage
 echo "Setting up storage..."
 
-rediacc-cli create storage "$TEAM_NAME" "data-lake" --vault '{
+rediacc create storage "$TEAM_NAME" "data-lake" --vault '{
   "type": "s3",
   "bucket": "company-data-lake",
   "region": "us-east-1",
   "lifecycle_policy": "archive_after_90_days"
 }'
 
-rediacc-cli create storage "$TEAM_NAME" "ml-models" --vault '{
+rediacc create storage "$TEAM_NAME" "ml-models" --vault '{
   "type": "s3",
   "bucket": "company-ml-models",
   "versioning": true
@@ -148,7 +148,7 @@ MEMBERS=(
 for member_spec in "${MEMBERS[@]}"; do
   IFS=':' read -r email role <<< "$member_spec"
   
-  rediacc-cli team-member add "$TEAM_NAME" "$email"
+  rediacc team-member add "$TEAM_NAME" "$email"
   
   # Store role in user's vault (if needed)
   echo "Added $email as $role"
@@ -157,7 +157,7 @@ done
 # 6. Create schedules for automated tasks
 echo "Setting up schedules..."
 
-rediacc-cli create schedule "$TEAM_NAME" "daily-etl" --vault '{
+rediacc create schedule "$TEAM_NAME" "daily-etl" --vault '{
   "cron": "0 2 * * *",
   "description": "Daily ETL pipeline run",
   "machine": "data-etl-01",
@@ -167,7 +167,7 @@ rediacc-cli create schedule "$TEAM_NAME" "daily-etl" --vault '{
   }
 }'
 
-rediacc-cli create schedule "$TEAM_NAME" "weekly-cleanup" --vault '{
+rediacc create schedule "$TEAM_NAME" "weekly-cleanup" --vault '{
   "cron": "0 3 * * 0",
   "description": "Weekly temporary data cleanup",
   "machine": "data-warehouse-01",
@@ -176,7 +176,7 @@ rediacc-cli create schedule "$TEAM_NAME" "weekly-cleanup" --vault '{
 
 echo "Team setup complete!"
 echo "Summary:"
-rediacc-cli list teams --output json | jq '.data[] | select(.teamName == "'$TEAM_NAME'")'
+rediacc list teams --output json | jq '.data[] | select(.teamName == "'$TEAM_NAME'")'
 ```
 
 ### Team Member Onboarding
@@ -198,22 +198,22 @@ fi
 echo "Onboarding $NEW_USER_EMAIL to $TEAM_NAME"
 
 # 1. Check if user exists
-if ! rediacc-cli list users | grep -q "$NEW_USER_EMAIL"; then
+if ! rediacc list users | grep -q "$NEW_USER_EMAIL"; then
   echo "Creating user account..."
-  rediacc-cli create user "$NEW_USER_EMAIL"
-  rediacc-cli user activate "$NEW_USER_EMAIL"
+  rediacc create user "$NEW_USER_EMAIL"
+  rediacc user activate "$NEW_USER_EMAIL"
 else
   echo "User already exists"
 fi
 
 # 2. Add to team
 echo "Adding to team..."
-rediacc-cli team-member add "$TEAM_NAME" "$NEW_USER_EMAIL"
+rediacc team-member add "$TEAM_NAME" "$NEW_USER_EMAIL"
 
 # 3. Grant appropriate permissions
 echo "Setting up permissions..."
 # Example: Add to team-specific permission group
-rediacc-cli permission assign "$NEW_USER_EMAIL" "${TEAM_NAME}-developers"
+rediacc permission assign "$NEW_USER_EMAIL" "${TEAM_NAME}-developers"
 
 # 4. Send welcome information
 echo "Onboarding complete! Send welcome email with:"
@@ -237,21 +237,21 @@ echo "Starting offboarding for $USER_EMAIL"
 
 # 1. List user's team memberships
 echo "Current team memberships:"
-TEAMS=$(rediacc-cli list teams --output json | jq -r '.data[] | select(.isMember == 1) | .teamName')
+TEAMS=$(rediacc list teams --output json | jq -r '.data[] | select(.isMember == 1) | .teamName')
 
 # 2. Remove from all teams
 for team in $TEAMS; do
   echo "Removing from team: $team"
-  rediacc-cli team-member remove "$team" "$USER_EMAIL" --force
+  rediacc team-member remove "$team" "$USER_EMAIL" --force
 done
 
 # 3. Deactivate user account
 echo "Deactivating user account..."
-rediacc-cli user deactivate "$USER_EMAIL" --force
+rediacc user deactivate "$USER_EMAIL" --force
 
 # 4. Audit trail
 echo "Offboarding complete. Check audit logs:"
-rediacc-cli list audit-logs --entity-filter User | grep "$USER_EMAIL"
+rediacc list audit-logs --entity-filter User | grep "$USER_EMAIL"
 ```
 
 ## Team Collaboration Patterns
@@ -271,7 +271,7 @@ QA_TEAM="Quality Assurance"
 
 # 1. Create shared storage for artifacts
 for team in "$FRONTEND_TEAM" "$BACKEND_TEAM" "$QA_TEAM"; do
-  rediacc-cli create storage "$team" "shared-artifacts" --vault '{
+  rediacc create storage "$team" "shared-artifacts" --vault '{
     "type": "nfs",
     "server": "nfs.company.internal",
     "path": "/shared/build-artifacts",
@@ -283,7 +283,7 @@ done
 # 2. Create shared documentation repository
 SHARED_REPO="documentation"
 for team in "$FRONTEND_TEAM" "$BACKEND_TEAM"; do
-  rediacc-cli create repository "$team" "$SHARED_REPO" --vault '{
+  rediacc create repository "$team" "$SHARED_REPO" --vault '{
     "type": "git",
     "url": "git@github.com:company/docs.git",
     "branch": "main",
@@ -293,7 +293,7 @@ done
 
 # 3. Document sharing arrangement in team vaults
 for team in "$FRONTEND_TEAM" "$BACKEND_TEAM" "$QA_TEAM"; do
-  current_vault=$(rediacc-cli list teams --output json | \
+  current_vault=$(rediacc list teams --output json | \
     jq -r '.data[] | select(.teamName == "'$team'") | .vaultContent')
   
   updated_vault=$(echo "$current_vault" | jq '. + {
@@ -304,7 +304,7 @@ for team in "$FRONTEND_TEAM" "$BACKEND_TEAM" "$QA_TEAM"; do
     }
   }')
   
-  rediacc-cli update team "$team" --vault "$updated_vault"
+  rediacc update team "$team" --vault "$updated_vault"
 done
 ```
 
@@ -320,25 +320,25 @@ SERVICE_NAME="ci-service"
 SERVICE_EMAIL="${SERVICE_NAME}@company.com"
 
 # 1. Create service account
-rediacc-cli create user "$SERVICE_EMAIL"
-rediacc-cli user activate "$SERVICE_EMAIL"
+rediacc create user "$SERVICE_EMAIL"
+rediacc user activate "$SERVICE_EMAIL"
 
 # 2. Create custom permission group for CI/CD
-rediacc-cli permission create-group "ci-cd-services"
-rediacc-cli permission add "ci-cd-services" "GetTeamMachines"
-rediacc-cli permission add "ci-cd-services" "GetTeamRepositories"
-rediacc-cli permission add "ci-cd-services" "CreateQueueItem"
-rediacc-cli permission assign "$SERVICE_EMAIL" "ci-cd-services"
+rediacc permission create-group "ci-cd-services"
+rediacc permission add "ci-cd-services" "GetTeamMachines"
+rediacc permission add "ci-cd-services" "GetTeamRepositories"
+rediacc permission add "ci-cd-services" "CreateQueueItem"
+rediacc permission assign "$SERVICE_EMAIL" "ci-cd-services"
 
 # 3. Add to relevant teams
 TEAMS=("Frontend Development" "Backend Services" "QA Testing")
 for team in "${TEAMS[@]}"; do
-  rediacc-cli team-member add "$team" "$SERVICE_EMAIL"
+  rediacc team-member add "$team" "$SERVICE_EMAIL"
 done
 
 # 4. Create bridge token for the service
-rediacc-cli create bridge "us-east" "ci-bridge"
-rediacc-cli login --email "$SERVICE_EMAIL" \
+rediacc create bridge "us-east" "ci-bridge"
+rediacc login --email "$SERVICE_EMAIL" \
   --target "ci-bridge" \
   --expiration 8760  # 1 year
 
@@ -360,11 +360,11 @@ date
 
 # 1. Team overview
 echo -e "\n## Team Overview"
-rediacc-cli list teams | column -t
+rediacc list teams | column -t
 
 # 2. Resource utilization by team
 echo -e "\n## Resource Utilization"
-rediacc-cli list teams --output json | jq -r '
+rediacc list teams --output json | jq -r '
   ["Team", "Members", "Machines", "Repos", "Storage", "Schedules"],
   ["----", "-------", "--------", "-----", "-------", "---------"],
   (.data[] | [
@@ -382,7 +382,7 @@ echo -e "\n## Team Activity (Last 30 days)"
 
 # 4. Large teams that might need subdivision
 echo -e "\n## Large Teams (>10 members)"
-rediacc-cli list teams --output json | \
+rediacc list teams --output json | \
   jq -r '.data[] | select(.memberCount > 10) | 
   "Team: \(.teamName) has \(.memberCount) members"'
 

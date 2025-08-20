@@ -37,12 +37,12 @@ Grants a specific API endpoint permission to a permission group. Users in the gr
 #### Examples
 
 ```bash
-rediacc-cli permission add developers CreateMachine
+rediacc permission add developers CreateMachine
 ```
 Allow developers to create machines
 
 ```bash
-rediacc-cli permission add read-only GetTeamMachines
+rediacc permission add read-only GetTeamMachines
 ```
 Allow read-only users to list machines
 
@@ -50,7 +50,7 @@ Allow read-only users to list machines
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli permission add example-name
+rediacc permission add example-name
 ```
 
 ##### Auto-Generated cURL Examples
@@ -108,12 +108,12 @@ Changes a user's permission group, granting them all permissions associated with
 #### Examples
 
 ```bash
-rediacc-cli permission assign john@company.com developers
+rediacc permission assign john@company.com developers
 ```
 Give John developer permissions
 
 ```bash
-rediacc-cli permission assign contractor@external.com read-only
+rediacc permission assign contractor@external.com read-only
 ```
 Limit contractor to read-only access
 
@@ -121,7 +121,7 @@ Limit contractor to read-only access
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli permission assign
+rediacc permission assign
 ```
 
 ##### Auto-Generated cURL Examples
@@ -178,12 +178,12 @@ Creates a permission group that can be assigned to users. Permission groups cont
 #### Examples
 
 ```bash
-rediacc-cli permission create-group developers
+rediacc permission create-group developers
 ```
 Create a developers permission group
 
 ```bash
-rediacc-cli permission create-group read-only
+rediacc permission create-group read-only
 ```
 Create a read-only access group
 
@@ -191,7 +191,7 @@ Create a read-only access group
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli permission create-group example-name
+rediacc permission create-group example-name
 ```
 
 ##### Auto-Generated cURL Examples
@@ -248,12 +248,12 @@ Permanently removes a permission group. Users assigned to this group will lose t
 #### Examples
 
 ```bash
-rediacc-cli permission delete-group temporary-access
+rediacc permission delete-group temporary-access
 ```
 Delete group with confirmation
 
 ```bash
-rediacc-cli permission delete-group test-group --force
+rediacc permission delete-group test-group --force
 ```
 Delete without confirmation
 
@@ -261,7 +261,7 @@ Delete without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli permission delete-group example-name
+rediacc permission delete-group example-name
 ```
 
 ##### Auto-Generated cURL Examples
@@ -317,12 +317,12 @@ Lists all API endpoint permissions granted to a permission group. Shows which op
 #### Examples
 
 ```bash
-rediacc-cli permission list-group developers
+rediacc permission list-group developers
 ```
 Show all permissions for developers
 
 ```bash
-rediacc-cli permission list-group Admins --output json
+rediacc permission list-group Admins --output json
 ```
 List admin permissions in JSON
 
@@ -330,7 +330,7 @@ List admin permissions in JSON
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli permission list-group example-name
+rediacc permission list-group example-name
 ```
 
 ##### Auto-Generated cURL Examples
@@ -380,12 +380,12 @@ Shows all permission groups in the company including system groups and custom gr
 #### Examples
 
 ```bash
-rediacc-cli permission list-groups
+rediacc permission list-groups
 ```
 Display all permission groups
 
 ```bash
-rediacc-cli permission list-groups --output json
+rediacc permission list-groups --output json
 ```
 Get groups in JSON format
 
@@ -393,7 +393,7 @@ Get groups in JSON format
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli permission list-groups
+rediacc permission list-groups
 ```
 
 ##### Auto-Generated cURL Examples
@@ -450,12 +450,12 @@ Revokes a specific API endpoint permission from a permission group. Users in the
 #### Examples
 
 ```bash
-rediacc-cli permission remove developers DeleteMachine
+rediacc permission remove developers DeleteMachine
 ```
 Revoke machine deletion from developers
 
 ```bash
-rediacc-cli permission remove contractors CreateBridge --force
+rediacc permission remove contractors CreateBridge --force
 ```
 Remove permission without confirmation
 
@@ -463,7 +463,7 @@ Remove permission without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli permission remove example-name
+rediacc permission remove example-name
 ```
 
 ##### Auto-Generated cURL Examples

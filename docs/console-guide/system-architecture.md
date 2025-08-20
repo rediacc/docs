@@ -87,9 +87,9 @@ Console (Web UI) ←→ Middleware (API) ←→ Bridge (Queue Processor) ←→ 
 **Purpose**: Direct system interaction via command line
 
 **Components**:
-- **Main CLI** (`rediacc-cli`): API operations
-- **Sync Tool** (`rediacc-cli-sync`): File synchronization via rsync
-- **Terminal Access** (`rediacc-cli-term`): Interactive SSH sessions
+- **Main CLI** (`rediacc`): API operations
+- **Sync Tool** (`rediacc-sync`): File synchronization via rsync
+- **Terminal Access** (`rediacc-term`): Interactive SSH sessions
 - **Core Module** (`rediacc_cli_core.py`): Shared functionality
 
 ## Communication Protocols
@@ -499,7 +499,7 @@ Enable verbose logging:
 REDIACC_VERBOSE=1 ./bridge --bridge-mode ...
 
 # CLI debug mode
-./rediacc-cli --debug list machines
+./rediacc --debug list machines
 
 # Console debug mode
 localStorage.setItem('debug', 'rediacc:*');

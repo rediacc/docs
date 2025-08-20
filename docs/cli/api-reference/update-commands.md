@@ -44,7 +44,7 @@ Changes the name of an existing bridge within a region. Machine assignments rema
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli update bridge us-east
+rediacc update bridge us-east
 ```
 
 ##### Auto-Generated cURL Examples
@@ -101,7 +101,7 @@ Changes the name of an existing machine. The new name must be unique across the 
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli update machine example-team
+rediacc update machine example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -157,12 +157,12 @@ Changes which bridge processes queue items for a machine. Useful for load balanc
 #### Examples
 
 ```bash
-rediacc-cli update machine-bridge prod db-01 us-west-bridge
+rediacc update machine-bridge prod db-01 us-west-bridge
 ```
 Move machine to different bridge
 
 ```bash
-rediacc-cli update machine-bridge dev test-server local-bridge
+rediacc update machine-bridge dev test-server local-bridge
 ```
 Reassign test server to local bridge
 
@@ -170,7 +170,7 @@ Reassign test server to local bridge
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli update machine-bridge example-team my-machine-01
+rediacc update machine-bridge example-team my-machine-01
 ```
 
 ##### Auto-Generated cURL Examples
@@ -231,7 +231,7 @@ Sets a custom status message for a machine, useful for maintenance windows, debu
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli update machine-status example-team my-machine-01
+rediacc update machine-status example-team my-machine-01
 ```
 
 ##### Auto-Generated cURL Examples
@@ -288,7 +288,7 @@ Changes the name of an existing region. All bridges within the region remain ass
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli update region
+rediacc update region
 ```
 
 ##### Auto-Generated cURL Examples
@@ -344,7 +344,7 @@ Changes the name of an existing repository within a team. Repository data and co
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli update repository example-team
+rediacc update repository example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -401,12 +401,12 @@ Updates the encrypted configuration data for a repository. Used to modify reposi
 #### Examples
 
 ```bash
-rediacc-cli update repository-vault dev web-app --vault '{"size":"30G"}'
+rediacc update repository-vault dev web-app --vault '{"size":"30G"}'
 ```
 Update repository size
 
 ```bash
-rediacc-cli update repository-vault prod api --vault-file new-config.json
+rediacc update repository-vault prod api --vault-file new-config.json
 ```
 Update repository config from file
 
@@ -414,7 +414,7 @@ Update repository config from file
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli update repository-vault example-team my-repo
+rediacc update repository-vault example-team my-repo
 ```
 
 ##### Auto-Generated cURL Examples
@@ -474,7 +474,7 @@ Changes the name of an existing schedule. The cron expression and task configura
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli update schedule example-team
+rediacc update schedule example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -531,12 +531,12 @@ Updates the encrypted vault containing schedule settings including cron expressi
 #### Examples
 
 ```bash
-rediacc-cli update schedule-vault ops backup --vault '{"cron":"0 3 * * *"}'
+rediacc update schedule-vault ops backup --vault '{"cron":"0 3 * * *"}'
 ```
 Change schedule time to 3 AM
 
 ```bash
-rediacc-cli update schedule-vault prod sync --vault-file new-schedule.json
+rediacc update schedule-vault prod sync --vault-file new-schedule.json
 ```
 Update complete schedule config
 
@@ -544,7 +544,7 @@ Update complete schedule config
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli update schedule-vault example-team daily-backup
+rediacc update schedule-vault example-team daily-backup
 ```
 
 ##### Auto-Generated cURL Examples
@@ -604,7 +604,7 @@ Changes the name of an existing storage configuration. The actual storage backen
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli update storage example-team
+rediacc update storage example-team
 ```
 
 ##### Auto-Generated cURL Examples
@@ -661,12 +661,12 @@ Updates the encrypted vault containing storage credentials and settings. Used to
 #### Examples
 
 ```bash
-rediacc-cli update storage-vault backup s3-main --vault-file new-creds.json
+rediacc update storage-vault backup s3-main --vault-file new-creds.json
 ```
 Update S3 credentials from file
 
 ```bash
-rediacc-cli update storage-vault data azure-storage --vault '{"container":"new-container"}'
+rediacc update storage-vault data azure-storage --vault '{"container":"new-container"}'
 ```
 Change Azure container
 
@@ -674,7 +674,7 @@ Change Azure container
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli update storage-vault example-team backup-storage
+rediacc update storage-vault example-team backup-storage
 ```
 
 ##### Auto-Generated cURL Examples
@@ -733,7 +733,7 @@ Changes the name of an existing team. All resources remain associated with the t
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli update team
+rediacc update team
 ```
 
 ##### Auto-Generated cURL Examples

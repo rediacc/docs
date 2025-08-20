@@ -42,7 +42,7 @@ export default function DevOpsSolution() {
               Automate your entire infrastructure lifecycle from code commit to production deployment
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/console/login?register=true">
+              <Link className="button button--primary button--lg" to="/console/login?register=quick">
                 Start Automating
               </Link>
               <a 
@@ -448,7 +448,7 @@ deploy:
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link
                 className="button button--primary button--lg"
-                to="/console/login?register=true"
+                to="/console/login?register=quick"
                 target="_blank">
                 Play on Sandbox
               </Link>
@@ -459,7 +459,7 @@ deploy:
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/console/login?register=true">
+                to="/console/login?register=manual">
                 Read Documentation
               </Link>
             </div>

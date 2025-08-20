@@ -613,7 +613,7 @@ html:not([data-theme='dark']) .navbar__link:hover {
   background-color: rgba(125, 155, 73, 0.1);
 }
 
-/* Login button - styled like Start Free Trial button */
+/* Login button - styled like Register button */
 .navbar-login-link {
   background-color: var(--ifm-color-primary) !important;
   border-color: var(--ifm-color-primary) !important;

@@ -201,7 +201,7 @@ export default function Landing4() {
           
           <Link 
             style={styles.ctaButton}
-            to="/console/login?register=true&promo=BUNDLE40"
+            to="/console/login?register=manual&promo=BUNDLE40"
             target="_blank">
             Get The Bundle Now → Save $50,000
           </Link>
@@ -246,7 +246,7 @@ export default function Landing4() {
             
             <p style={{marginTop: '30px', fontSize: '1.3rem', fontWeight: 'bold', color: '#10b981'}}>
               Plus, you'll get our exclusive AI Safety Webinar recordings (2 hours of implementation strategies) 
-              absolutely free when you start your trial today.
+              absolutely free when you register today.
             </p>
           </div>
         </div>
@@ -373,7 +373,7 @@ export default function Landing4() {
           <div style={{textAlign: 'center'}}>
             <Link 
               style={{...styles.ctaButton, fontSize: '1.5rem', padding: '20px 50px'}}
-              to="/console/login?register=true&promo=BUNDLE40"
+              to="/console/login?register=manual&promo=BUNDLE40"
               target="_blank">
               Get The Bundle → Save $50,000 Today
             </Link>
@@ -443,7 +443,7 @@ export default function Landing4() {
           <div style={{textAlign: 'center', marginTop: '40px'}}>
             <Link 
               style={styles.ctaButton}
-              to="/console/login?register=true&promo=BUNDLE40"
+              to="/console/login?register=manual&promo=BUNDLE40"
               target="_blank">
               Activate AI Safety Now →
             </Link>
@@ -517,7 +517,7 @@ export default function Landing4() {
           <div style={{textAlign: 'center', marginTop: '40px'}}>
             <Link 
               style={styles.ctaButton}
-              to="/console/login?register=true&promo=BUNDLE40"
+              to="/console/login?register=manual&promo=BUNDLE40"
               target="_blank">
               Enable Time Travel Recovery →
             </Link>
@@ -606,7 +606,7 @@ export default function Landing4() {
           <div style={{textAlign: 'center', marginTop: '40px'}}>
             <Link 
               style={styles.ctaButton}
-              to="/console/login?register=true&promo=BUNDLE40"
+              to="/console/login?register=manual&promo=BUNDLE40"
               target="_blank">
               Calculate Your Savings →
             </Link>
@@ -748,7 +748,7 @@ export default function Landing4() {
             backdropFilter: 'blur(10px)'
           }}>
             <h3 style={{fontSize: '1.5rem', marginBottom: '20px'}}>
-              Start Your Free Trial Now
+              Register Now
             </h3>
             <ul style={{textAlign: 'left', fontSize: '1.1rem', lineHeight: '2', marginBottom: '20px'}}>
               <li>✅ No credit card required</li>
@@ -768,7 +768,7 @@ export default function Landing4() {
               boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
               transform: 'scale(1.05)'
             }}
-            to="/console/login?register=true&promo=BUNDLE40"
+            to="/console/login?register=manual&promo=BUNDLE40"
             target="_blank">
             Get The Bundle Now → Save $92,100
           </Link>

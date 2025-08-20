@@ -38,17 +38,17 @@ Creates an authentication session and receives an API token for subsequent reque
 #### Examples
 
 ```bash
-rediacc-cli login
+rediacc login
 ```
 Interactive login with prompts
 
 ```bash
-rediacc-cli login --email user@company.com --password 'P@ssw0rd'
+rediacc login --email user@company.com --password 'P@ssw0rd'
 ```
 Direct login with credentials
 
 ```bash
-rediacc-cli login --email admin@company.com --tfa-code 123456 --permissions admin
+rediacc login --email admin@company.com --tfa-code 123456 --permissions admin
 ```
 Admin login with TFA
 
@@ -56,7 +56,7 @@ Admin login with TFA
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli login
+rediacc login
 ```
 
 ##### Auto-Generated cURL Examples
@@ -106,7 +106,7 @@ Terminates the current authentication session on the server and removes the stor
 #### Examples
 
 ```bash
-rediacc-cli logout
+rediacc logout
 ```
 Log out current session
 

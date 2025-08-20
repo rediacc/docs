@@ -33,7 +33,7 @@ Elevates an authentication request with special privileges. Used for administrat
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli auth privilege
+rediacc auth privilege
 ```
 
 ##### Auto-Generated cURL Examples
@@ -85,7 +85,7 @@ Queries the status of a pending authentication request by its hash. Used to veri
 #### Examples
 
 ```bash
-rediacc-cli auth status a1b2c3d4e5f6789
+rediacc auth status a1b2c3d4e5f6789
 ```
 Check status of auth request
 
@@ -93,7 +93,7 @@ Check status of auth request
 
 ```bash
 # Basic usage (required parameters only)
-rediacc-cli auth status
+rediacc auth status
 ```
 
 ##### Auto-Generated cURL Examples

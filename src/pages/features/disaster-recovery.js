@@ -51,7 +51,7 @@ export default function DisasterRecoveryFeature() {
               <Link className="button button--primary button--lg" to="/solutions/infrastructure-protection">
                 DR Planning Guide
               </Link>
-              <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
+              <Link className="button button--secondary button--lg" to="/console/login?register=quick" target="_blank">
                 Play on Sandbox
               </Link>
             </div>
@@ -421,7 +421,7 @@ export default function DisasterRecoveryFeature() {
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link
                 className="button button--primary button--lg"
-                to="/console/login?register=true"
+                to="/console/login?register=quick"
                 target="_blank">
                 Play on Sandbox
               </Link>

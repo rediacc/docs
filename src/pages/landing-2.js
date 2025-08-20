@@ -485,7 +485,7 @@ export default function InfrastructureRevolutionComplete() {
               
               <Link 
                 className="cta-button"
-                to="/console/login?register=true" 
+                to="/console/login?register=manual" 
                 target="_blank">
                 Start Your Transformation Free
               </Link>
@@ -902,7 +902,7 @@ export default function InfrastructureRevolutionComplete() {
 
             <Link 
               className="cta-button" 
-              to="/console/login?register=true" 
+              to="/console/login?register=manual" 
               target="_blank"
               style={{fontSize: '1.4rem', padding: '2rem 4rem', marginBottom: '2rem'}}
             >

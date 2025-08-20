@@ -132,7 +132,7 @@ sudo chmod -R 755 /opt/rediacc/datastore
 **Solutions:**
 1. Check bridge status:
    ```bash
-   rediacc-cli list bridges --status
+   rediacc list bridges --status
    ```
 2. Verify machine is online and accessible
 3. Check bridge logs for errors

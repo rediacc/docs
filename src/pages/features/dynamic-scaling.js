@@ -45,7 +45,7 @@ export default function DynamicScalingFeature() {
               <Link className="button button--primary button--lg" to="/docs/solutions/dynamic-resource-scaling">
                 View Case Study
               </Link>
-              <Link className="button button--secondary button--lg" to="/console/login?register=true" target="_blank">
+              <Link className="button button--secondary button--lg" to="/console/login?register=manual" target="_blank">
                 Try It Now
               </Link>
             </div>
@@ -407,8 +407,8 @@ export default function DynamicScalingFeature() {
               <Link className="button button--secondary button--lg" style={{background: 'white', color: 'var(--ifm-color-primary)'}} to="/contact">
                 Calculate Your ROI
               </Link>
-              <Link className="button button--outline button--lg" style={{borderColor: 'white', color: 'white'}} to="/console/login?register=true" target="_blank">
-                Start Free Trial
+              <Link className="button button--outline button--lg" style={{borderColor: 'white', color: 'white'}} to="/console/login?register=manual" target="_blank">
+                Register
               </Link>
             </div>
           </div>

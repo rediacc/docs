@@ -68,7 +68,7 @@ Each version stores:
 
 ```bash
 # Get version history for a machine
-./rediacc-cli get vault-history --type machine --name prod-server-01
+./rediacc get vault-history --type machine --name prod-server-01
 ```
 
 ## Version Operations
@@ -242,7 +242,7 @@ Integration options:
 ### Version Comparison API
 ```bash
 # Compare two versions
-./rediacc-cli compare-vault \
+./rediacc compare-vault \
   --type machine \
   --name prod-server-01 \
   --version1 v5 \

@@ -99,14 +99,14 @@
     "advanced": {
       "name": "pricing.tiers.advanced.title",
       "isPopular": false,
-      "ctaText": "common.startFreeTrial",
+      "ctaText": "common.register",
       "ctaLink": "#demo",
       "ctaVariant": "primary"
     },
     "premium": {
       "name": "pricing.tiers.premium.title",
       "isPopular": false,
-      "ctaText": "common.startFreeTrial",
+      "ctaText": "common.register",
       "ctaLink": "#demo",
       "ctaVariant": "primary"
     },

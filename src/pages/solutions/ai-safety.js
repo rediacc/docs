@@ -263,7 +263,7 @@ export default function AISafetySolution() {
               Join enterprises that have made AI disasters impossible with Rediacc's proven technology.
             </p>
             <div style={{marginTop: '2rem'}}>
-              <Link className="button button--primary button--lg" to="/console/login?register=true" target="_blank" style={{
+              <Link className="button button--primary button--lg" to="/console/login?register=quick" target="_blank" style={{
                 marginRight: '1rem'
               }}>
                 Play on Sandbox

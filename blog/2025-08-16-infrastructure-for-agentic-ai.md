@@ -202,7 +202,7 @@ You have three options:
 
 The choice seems obvious, but we understand hesitation. That's why we offer a free Community tier. Try it. Clone your production database. Let an AI agent attack the clone. Watch it fail harmlessly. Then imagine what AI could do for your business without fear.
 
-Visit our [homepage](/) to start your free trial. Set it up in minutes. Sleep better tonight knowing AI can't hurt you anymore.
+Visit our [homepage](/) to register. Set it up in minutes. Sleep better tonight knowing AI can't hurt you anymore.
 
 Because in the age of AI, the question isn't whether an agent will make a mistake. It's whether you'll survive it.
 
@@ -212,4 +212,4 @@ With Rediacc, you always will.
 
 *Rediacc: Infrastructure for the AI age. Because production should be untouchable.*
 
-**Ready to make AI disasters impossible?** [Start your free trial](/contact) or [schedule a demo](/contact) with our team.
+**Ready to make AI disasters impossible?** [Register now](/contact) or [schedule a demo](/contact) with our team.

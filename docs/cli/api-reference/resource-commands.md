@@ -99,19 +99,19 @@ Most resource commands support these options:
 
 ```bash
 # Create a new machine
-rediacc-cli create machine --name prod-server-01 --team production
+rediacc create machine --name prod-server-01 --team production
 
 # List all machines with JSON output
-rediacc-cli list machines --team production --output json
+rediacc list machines --team production --output json
 
 # Inspect a specific machine
-rediacc-cli inspect machine prod-server-01
+rediacc inspect machine prod-server-01
 
 # Update machine configuration
-rediacc-cli update machine prod-server-01 --status maintenance
+rediacc update machine prod-server-01 --status maintenance
 
 # Remove a machine (with confirmation)
-rediacc-cli rm machine old-server --team production
+rediacc rm machine old-server --team production
 ```
 
 ## Best Practices
