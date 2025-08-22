@@ -187,31 +187,27 @@ export default function About() {
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', maxWidth: '1000px', margin: '0 auto'}}>
               {[
                 {
-                  name: 'Muhammed Fatih BAYRAKTAR',
+                  name: 'Muhammed Fatih Bayraktar',
                   role: 'Founder',
                   image: '/img/profiles/mfb.jpeg',
-                  description: 'Visionary leader with a passion for building great products and even greater teams.',
                   linkedin: 'https://www.linkedin.com/in/muhammed-fatih-bayraktar/'
                 },
                 {
-                  name: 'Hamza ÖZSARAC',
+                  name: 'Hamza Özsaraç',
                   role: 'Full Stack Developer',
                   image: '/img/profiles/hmz.jpeg',
-                  description: 'Expert in scalable systems and cutting-edge technology, driving our technical vision.',
                   linkedin: 'https://www.linkedin.com/in/hamza-ozsarac/'
                 },
                 {
-                  name: 'Hasan Anıl KARTAL',
+                  name: 'Hasan Anıl Kartal',
                   role: 'Software Test & Quality Expert',
                   image: '/img/profiles/hak.jpeg',
-                  description: 'Creative mind behind our user-centric design, making complexity feel simple.',
                   linkedin: 'https://www.linkedin.com/in/hasananilkartal/'
                 },
                 {
                   name: 'Yüksel Demirel',
                   role: 'System And DevOps Engineer',
                   image: '/img/profiles/yd.jpeg',
-                  description: 'Dedicated to crafting robust and efficient code that powers our platform.',
                   linkedin: 'https://www.linkedin.com/in/y%C3%BCksel-demirel-92065749/'
                 }
               ].map((member, index) => (
@@ -236,8 +232,7 @@ export default function About() {
                     />
                   </div>
                   <h3>{member.name}</h3>
-                  <p style={{color: 'var(--ifm-color-primary)', marginBottom: '0.5rem', fontWeight: 'bold'}}>{member.role}</p>
-                  <p style={{fontSize: '0.95rem', marginBottom: '1rem'}}>{member.description}</p>
+                  <p style={{color: 'var(--ifm-color-primary)', marginBottom: '1rem', fontWeight: 'bold'}}>{member.role}</p>
                   <div style={{display: 'flex', justifyContent: 'center', gap: '0.5rem'}}>
                     <a 
                       href={member.linkedin}
