@@ -89,7 +89,7 @@ rediacc login --email bridge-user@company.com \
 # Start bridge service (on the bridge server)
 ./bridge --bridge-mode \
   token=$BRIDGE_TOKEN \
-  api_url=https://api.rediacc.com \
+  api_url=https://www.rediacc.com \
   master_password=$MASTER_PASSWORD \
   batch_size=5
 ```

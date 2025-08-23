@@ -11,7 +11,7 @@ The Rediacc REST API provides programmatic access to all system functionality. W
 All API endpoints follow the same pattern:
 
 ```
-POST https://api.rediacc.com/api/StoredProcedure/{ProcedureName}
+POST https://www.rediacc.com/api/StoredProcedure/{ProcedureName}
 ```
 
 For detailed endpoint documentation, see the [API Reference](/docs/cli/api-reference) section where each command documents its corresponding REST endpoint.

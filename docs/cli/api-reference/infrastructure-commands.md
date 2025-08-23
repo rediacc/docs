@@ -96,7 +96,7 @@ rediacc bridge authorize region-us-bridge --team production
 # 3. Start bridge process (on bridge server)
 ./bridge --bridge-mode \
   token=<auth-token> \
-  api_url=https://api.rediacc.com \
+  api_url=https://www.rediacc.com \
   master_password=<password> \
   batch_size=5
 

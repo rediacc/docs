@@ -122,7 +122,7 @@ The bridge will automatically provision and connect to your infrastructure.
    ```bash
    ./bridge --bridge-mode \
      token=<your-api-token> \
-     api_url=https://api.rediacc.com \
+     api_url=https://www.rediacc.com \
      master_password=<your-password> \
      batch_size=5
    ```

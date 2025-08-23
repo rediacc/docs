@@ -126,7 +126,7 @@ rediacc logout
 
 ```bash
 # Set middleware server URL (defaults to localhost:8080)
-export SYSTEM_API_URL="https://api.rediacc.com"
+export SYSTEM_API_URL="https://www.rediacc.com"
 
 # Set middleware port (defaults to 8080)
 export SYSTEM_MIDDLEWARE_PORT="8080"

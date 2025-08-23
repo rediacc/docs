@@ -52,7 +52,7 @@ rediacc-mcp-server init
 
 # Or configure directly
 rediacc-mcp-server configure \
-  --api-url=https://api.rediacc.com \
+  --api-url=https://www.rediacc.com \
   --api-token=your-token \
   --safety-mode=maximum \
   --auto-sandbox=true
@@ -73,7 +73,7 @@ Create `mcp-config.json`:
   },
   "rediacc": {
     "api": {
-      "url": "https://api.rediacc.com",
+      "url": "https://www.rediacc.com",
       "token": "${REDIACC_API_TOKEN}"
     },
     "safety": {

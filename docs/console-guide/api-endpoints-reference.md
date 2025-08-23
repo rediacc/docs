@@ -9,7 +9,7 @@ This document provides a comprehensive reference of all API endpoints used by th
 ## Base URL
 
 ```
-Production: https://api.rediacc.com/api/StoredProcedure/
+Production: https://www.rediacc.com/api/StoredProcedure/
 Development: http://localhost:7322/api/StoredProcedure/
 ```
 

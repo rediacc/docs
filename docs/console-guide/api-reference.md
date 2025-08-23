@@ -12,7 +12,7 @@ The Console API is built on the Rediacc middleware layer and provides RESTful en
 
 ### Base URL
 ```
-https://api.rediacc.com/api/StoredProcedure/
+https://www.rediacc.com/api/StoredProcedure/
 ```
 
 For local development:
@@ -603,7 +603,7 @@ Retrieves authentication token for bridge to connect to API.
 {
   "success": true,
   "token": "bridge-api-token",
-  "apiUrl": "https://api.rediacc.com",
+  "apiUrl": "https://www.rediacc.com",
   "masterPassword": "encrypted-master-password",
   "nextRequestToken": "..."
 }
@@ -1118,7 +1118,7 @@ class RediaccClient:
 if __name__ == '__main__':
     # Initialize client
     client = RediaccClient(
-        'https://api.rediacc.com',
+        'https://www.rediacc.com',
         'admin@rediacc.io',
         'your-password',
         'master-password'

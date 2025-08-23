@@ -6,7 +6,7 @@ Get up and running with Rediacc CLI in minutes. This guide covers authentication
 
 - Rediacc CLI installed ([Installation Guide](./installation.md))
 - Active Rediacc account
-- API server URL (default: https://api.rediacc.com)
+- API server URL (default: https://www.rediacc.com)
 
 ## First-Time Setup
 

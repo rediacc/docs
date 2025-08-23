@@ -12,7 +12,7 @@ The Rediacc API is a RESTful service that manages all system operations through 
 
 ### Base URL
 ```
-Production: https://api.rediacc.com
+Production: https://www.rediacc.com
 Development: http://localhost:7321
 ```
 
@@ -403,7 +403,7 @@ class RediaccAPI:
         })
 
 # Usage
-api = RediaccAPI('https://api.rediacc.com', 'user@example.com', 'password')
+api = RediaccAPI('https://www.rediacc.com', 'user@example.com', 'password')
 result = api.create_queue_item(
     'Production',
     'server-01',
@@ -481,7 +481,7 @@ class RediaccClient {
 
 // Usage
 (async () => {
-  const client = new RediaccClient('https://api.rediacc.com');
+  const client = new RediaccClient('https://www.rediacc.com');
   await client.authenticate('user@example.com', 'password');
   
   const machine = await client.createMachine(
@@ -512,7 +512,7 @@ class RediaccClient {
 
 ```bash
 # Initial authentication
-TOKEN=$(curl -X POST https://api.rediacc.com/api/StoredProcedure/CreateAuthenticationRequest \
+TOKEN=$(curl -X POST https://www.rediacc.com/api/StoredProcedure/CreateAuthenticationRequest \
   -H "Content-Type: application/json" \
   -d '{
     "email": "user@example.com",
@@ -522,7 +522,7 @@ TOKEN=$(curl -X POST https://api.rediacc.com/api/StoredProcedure/CreateAuthentic
   }' | jq -r '.data.token')
 
 # Use token for subsequent requests
-curl -X POST https://api.rediacc.com/api/StoredProcedure/GetMachinesByTeam \
+curl -X POST https://www.rediacc.com/api/StoredProcedure/GetMachinesByTeam \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: $TOKEN" \
   -d '{"teamName": "Production"}'

@@ -476,12 +476,12 @@ Set up notifications for:
 Programmatic queue management:
 ```bash
 # List queue items
-curl -X POST https://api.rediacc.com/api/StoredProcedure/GetQueueItems \
+curl -X POST https://www.rediacc.com/api/StoredProcedure/GetQueueItems \
   -H "Rediacc-RequestToken: $TOKEN" \
   -d '{"teamName": "Production", "status": "PENDING"}'
 
 # Cancel task
-curl -X POST https://api.rediacc.com/api/StoredProcedure/CancelQueueItem \
+curl -X POST https://www.rediacc.com/api/StoredProcedure/CancelQueueItem \
   -H "Rediacc-RequestToken: $TOKEN" \
   -d '{"taskId": "f0103610-8fef-4488-8cc8-60fc98bdf303"}'
 ```
