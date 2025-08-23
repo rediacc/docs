@@ -776,7 +776,7 @@ export default function Landing4() {
           <div style={{marginTop: '30px', fontSize: '0.9rem', opacity: '0.9'}}>
             <p>🔒 Bank-level security • Enterprise-grade protection</p>
             <p style={{marginTop: '10px'}}>
-              Questions? Call our team: 1-800-REDIACC or email sales@rediacc.io
+              Questions? Email our team: sales@rediacc.io
             </p>
           </div>
         </div>

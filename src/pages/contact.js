@@ -101,7 +101,7 @@ export default function Contact() {
             "areaServed": "Worldwide",
             "availableLanguage": ["English"],
             "contactOption": ["TollFree", "Email"],
-            "telephone": "+1-800-REDIACC"
+            // "telephone": "+1-800-REDIACC"
           })}
         </script>
       </Head>
@@ -128,7 +128,7 @@ export default function Contact() {
                 <h3>Let's Collaborate</h3>
                 <p>Ready to explore how Rediacc can transform your infrastructure together?</p>
                 <p style={{fontWeight: 'bold', color: 'var(--ifm-color-primary)'}}>collab@rediacc.com</p>
-                <p>+1-800-REDIACC</p>
+                {/* <p>+1-800-REDIACC</p> */}
               </div>
               
               <div className="feature-card" style={{textAlign: 'center', padding: '2rem', minHeight: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
@@ -363,7 +363,7 @@ export default function Contact() {
           </div>
         </section>
 
-        {/* Office Locations */}
+        {/* Office Locations - Hidden
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center'}}>Global Offices</h2>
@@ -426,6 +426,7 @@ export default function Contact() {
             </div>
           </div>
         </section>
+        */}
 
         {/* FAQ Section */}
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
@@ -440,7 +441,7 @@ export default function Contact() {
                   What's the best way to reach you?
                 </summary>
                 <p style={{marginTop: '1rem', lineHeight: '1.6'}}>
-                  For collaboration and sales inquiries, email collab@rediacc.com or call +1-800-REDIACC. For technical support, 
+                  For collaboration and sales inquiries, email collab@rediacc.com. For technical support, 
                   our support portal at support.rediacc.com is the fastest way to get help. Enterprise customers 
                   have access to dedicated Slack channels and phone support.
                 </p>
@@ -503,11 +504,11 @@ export default function Contact() {
 
                 Play on Sandbox
               </Link>
-              <a
+              {/* <a
                 className="button button--secondary button--lg"
                 href="tel:+1-800-REDIACC">
                 Call Us Now
-              </a>
+              </a> */}
             </div>
           </div>
         </section>

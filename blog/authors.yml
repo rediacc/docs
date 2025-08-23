@@ -26,6 +26,13 @@ hasan:
   image_url: /img/profiles/hak.jpeg
   email: hasan@rediacc.com
 
+omer:
+  name: Ömer İşegüven
+  title: Software Developer @ Rediacc
+  url: https://github.com/rediacc
+  image_url: /img/profiles/oi.jpeg
+  email: omer@rediacc.com
+
 yuksel:
   name: Yüksel Demirel
   title: System And DevOps Engineer @ Rediacc

@@ -283,7 +283,7 @@ Create separate configurations for different environments:
 ```bash
 # Production profile
 rediacc config init --profile production
-rediacc config set --profile production server.url "https://prod.rediacc.com"
+rediacc config set --profile production server.url "https://www.rediacc.com"
 rediacc config set --profile production format.default "json"
 
 # Staging profile  
