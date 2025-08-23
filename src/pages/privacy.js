@@ -59,14 +59,28 @@ export default function Privacy() {
               <li>Browser type and operating system</li>
             </ul>
 
-            <h3>2.3 Infrastructure Data</h3>
-            <p>To provide our Service, we process:</p>
+            <h3>2.3 How Rediacc Works</h3>
+            <p>
+              Rediacc operates as an orchestration platform that manages your infrastructure remotely:
+            </p>
             <ul>
-              <li>Machine configurations and specifications</li>
-              <li>Repository and backup data (encrypted)</li>
-              <li>Queue items and task execution logs</li>
-              <li>Vault data (encrypted with your master password)</li>
+              <li>Repositories are created as encrypted containers directly on your servers</li>
+              <li>Docker environments and applications run on your infrastructure</li>
+              <li>Your backups, files, and databases remain on your machines</li>
+              <li>All data processing occurs on your hardware through secure SSH connections</li>
             </ul>
+            <p>
+              <strong>What We Store:</strong> We maintain only the encrypted metadata necessary to manage your infrastructure:
+            </p>
+            <ul>
+              <li>Encrypted SSH connection details for accessing your machines</li>
+              <li>Task queue information and execution status</li>
+              <li>Configuration settings (protected by your passphrase)</li>
+            </ul>
+            <p>
+              When you create a repository or perform operations, our platform sends commands to your machines, 
+              where the actual work happens using your resources. Your data stays where you put it.
+            </p>
           </section>
 
           <section style={{marginBottom: '3rem'}}>
@@ -111,17 +125,17 @@ export default function Privacy() {
 
             <h3>4.3 What This Means for You</h3>
             <p>
-              With our zero-knowledge architecture:
+              Our zero-knowledge approach ensures:
             </p>
             <ul>
-              <li>Your infrastructure credentials and sensitive data remain private to you</li>
-              <li>We cannot access your vault contents, even if required by legal process</li>
-              <li>If you use a master password, even our runtime systems cannot decrypt your data</li>
-              <li>You maintain complete control and ownership of your data</li>
+              <li>Your infrastructure credentials and sensitive data remain private</li>
+              <li>We cannot decrypt your vault contents, maintaining your privacy</li>
+              <li>When using a master password, you have an additional layer of protection</li>
+              <li>You retain full control and ownership of your data</li>
             </ul>
             <p>
-              <strong>Important:</strong> Because we cannot access your passphrases, we cannot recover your data if you lose your master password. 
-              Please store your credentials securely.
+              <strong>Please Note:</strong> Since we don't have access to your passphrases, we're unable to recover 
+              your encrypted data if you lose your master password. We recommend keeping your credentials in a safe place.
             </p>
           </section>
 
@@ -131,14 +145,20 @@ export default function Privacy() {
             
             <h3>5.1 Service Providers</h3>
             <p>
-              We may share information with third-party service providers who perform services on our behalf, such as:
+              We work with trusted third-party providers to operate our service:
             </p>
             <ul>
-              <li>Cloud infrastructure providers (AWS, Google Cloud)</li>
-              <li>Payment processors</li>
-              <li>Analytics services</li>
-              <li>Customer support tools</li>
+              <li><strong>Infrastructure hosting:</strong> For our API servers and web console</li>
+              <li><strong>Payment processing:</strong> To handle billing and subscriptions</li>
+              <li><strong>Analytics:</strong> To understand and improve our service</li>
+              <li><strong>Support tools:</strong> To manage customer inquiries</li>
             </ul>
+            <p>
+              <strong>About Your Infrastructure Data:</strong> Since Rediacc works by orchestrating operations 
+              on your own machines, your actual data (repositories, backups, files) remains on your infrastructure. 
+              We don't transfer or store this data on our servers or any third-party services. Operations like 
+              creating encrypted containers, running Docker, and processing backups all happen directly on your servers.
+            </p>
 
             <h3>5.2 Legal Requirements and Limitations</h3>
             <p>
