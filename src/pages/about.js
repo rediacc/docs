@@ -182,7 +182,7 @@ export default function About() {
         {/* Team Section */}
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
-            <h2 style={{fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center'}}>Leadership Team</h2>
+            <h2 style={{fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center'}}>Meet the Team</h2>
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', maxWidth: '1000px', margin: '0 auto'}}>
               {[

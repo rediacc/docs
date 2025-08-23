@@ -355,7 +355,6 @@ const config = {
               <div style="display: flex; gap: 2rem;">
                 <a href="/privacy" style="color: var(--ifm-footer-link-color);">Privacy Policy</a>
                 <a href="/terms" style="color: var(--ifm-footer-link-color);">Terms of Service</a>
-                <a href="/security" style="color: var(--ifm-footer-link-color);">Security</a>
               </div>
             </div>
           </div>
