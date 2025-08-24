@@ -85,7 +85,7 @@ export default function About() {
                   linkedin: 'https://www.linkedin.com/in/hasananilkartal/'
                 },
                 {
-                  name: 'Ömer İşegüven',
+                  name: 'Ömer İ.',
                   role: 'Software Developer',
                   image: '/img/profiles/oi.jpeg',
                   linkedin: null
