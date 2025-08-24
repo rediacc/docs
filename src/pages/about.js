@@ -59,128 +59,8 @@ export default function About() {
           </div>
         </section>
 
-        {/* Mission Section */}
-        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
-          <div className="container">
-            <div style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
-              <h2 style={{fontSize: '2.5rem', marginBottom: '2rem'}}>Our Mission</h2>
-              <p style={{fontSize: '1.3rem', lineHeight: '1.8', marginBottom: '2rem'}}>
-                To democratize enterprise-grade infrastructure management by making it simple, affordable, and 
-                accessible to organizations of all sizes.
-              </p>
-              <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--ifm-font-color-secondary)'}}>
-                We believe that every company, regardless of size or budget, deserves access to the same powerful 
-                infrastructure tools that Fortune 500 companies use. That's why we built Rediacc—to level the playing field 
-                and empower businesses to focus on what they do best, while we handle the infrastructure complexity.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Values Section */}
-        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
-          <div className="container">
-            <h2 style={{fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center'}}>Our Values</h2>
-            
-            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
-              <div className="feature-card">
-                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="target" size={32} /></div>
-                <h3>Simplicity First</h3>
-                <p>Complex problems don't require complex solutions. We obsess over making powerful features simple to use.</p>
-              </div>
-              <div className="feature-card">
-                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="shield" size={32} /></div>
-                <h3>Security by Design</h3>
-                <p>Security isn't an afterthought—it's built into every line of code, every feature, every decision we make.</p>
-              </div>
-              <div className="feature-card">
-                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="handshake" size={32} /></div>
-                <h3>Customer Success</h3>
-                <p>Your success is our success. We're not happy unless you're achieving extraordinary results with our platform.</p>
-              </div>
-              <div className="feature-card">
-                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="deploy" size={32} /></div>
-                <h3>Continuous Innovation</h3>
-                <p>The tech world never stops evolving, and neither do we. We're always pushing boundaries and exploring new possibilities.</p>
-              </div>
-              <div className="feature-card">
-                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="globe" size={32} /></div>
-                <h3>Global Thinking</h3>
-                <p>Infrastructure is global, and so is our perspective. We build for users everywhere, respecting local needs and regulations.</p>
-              </div>
-              <div className="feature-card">
-                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="sparkles" size={32} /></div>
-                <h3>Transparency</h3>
-                <p>Open communication, honest pricing, and clear documentation. No hidden fees, no surprises, no fine print.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Story Section */}
-        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
-          <div className="container">
-            <div style={{maxWidth: '800px', margin: '0 auto'}}>
-              <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>Our Story</h2>
-              
-              <div style={{lineHeight: '1.8', fontSize: '1.1rem'}}>
-                <h3 style={{marginBottom: '1rem', color: 'var(--ifm-color-primary)'}}>The Beginning</h3>
-                <p style={{marginBottom: '1.5rem'}}>
-                  The calendar showed September 2018. I had resigned (was an extremely difficult resignation) from the institution where I worked as a software engineer, wanting to code my own dreams. I could only sleep for maybe 4-5 hours due to excitement; I was working day and night. This pace continued like this for about 5-6 months. One day, two police officers showed up at my door. They told me that an investigation had been opened against me and that I was being called to give a statement.
-                </p>
-                
-                <p style={{marginBottom: '1.5rem'}}>
-                  It was a very long day. I spoke with police officers, a commissioner, a doctor, and finally, the prosecutor. All without any lawyer support. In short, they took my statement and then seized my high-tech computers and many disk drives from my home 'for a short time' to clone the data.
-                </p>
-                
-                <p style={{marginBottom: '1.5rem'}}>
-                  Until that time I had covered all my expenses, including my rent payments, car loan payment, and all the expenses of my startup entirely with other high-interest loans. I had no backup of my work, and even if I had, what could I have done? I had used completely on-premises hardware, and I no longer had the financial means to purchase new equipment. To pay off my debts and continue living with my wife and son, I had to return to a salaried job.
-                </p>
-                
-                <p style={{marginBottom: '1.5rem'}}>
-                  It took me "20 months" to get my devices back, and 3-4 years later, a non-prosecution decision was made, proving my innocence. During this time, I had drifted far from my dreams and started living in another world. The lawyers of the banks I owed money to were calling me every week. After the police, lawyers and bailiffs from three different banks started visiting our home.
-                </p>
-                
-                <h3 style={{marginBottom: '1rem', marginTop: '2rem', color: 'var(--ifm-color-primary)'}}>The Turning Point</h3>
-                <p style={{marginBottom: '1.5rem'}}>
-                  Years later, I kept thinking about what I could do to prevent such a problem from happening again in the future. I needed a tool that would allow me to move my systems to another environment whenever I wanted, activate them whenever needed, back them up easily, and store them securely no matter where I moved them. Virtual machines weren't the answer, as I required native performance without the overhead of virtualization.
-                </p>
-                
-                <p style={{marginBottom: '1.5rem'}}>
-                  In 2021, I watched NetworkChuck's video, "you need to learn Docker RIGHT NOW!! // Docker Containers 101". Then I was shocked. I wanted to go out to the balcony and scream as loud as I could. I wished I had known about this technology earlier!
-                </p>
-                
-                <p style={{marginBottom: '1.5rem'}}>
-                  Still, this technology didn't solve all my problems. Moving container files from one system to another was difficult. I faced compatibility issues with file ownership, and most importantly, as the data size grew, transferring it took longer. Moreover, I had to keep services offline until system migration finished and the technology almost has nothing about security.
-                </p>
-                
-                <h3 style={{marginBottom: '1rem', marginTop: '2rem', color: 'var(--ifm-color-primary)'}}>Birth of Rediacc</h3>
-                <p style={{marginBottom: '1.5rem'}}>
-                  It all started with the development of a portable file system logic. From there, I integrated a backup module. Then came one of the most critical challenges: enabling live system transfers with minimal downtime, regardless of data size. Then I added unique features based on my needs.
-                </p>
-                
-                <p style={{marginBottom: '1.5rem'}}>
-                  This is how Rediacc was born—a product forged through the toughest moments of my life. Now, it's available to everyone. Use it and don't let anything hold your business back—be ready to accelerate.
-                </p>
-                
-                <blockquote style={{
-                  borderLeft: '4px solid var(--ifm-color-primary)',
-                  paddingLeft: '1.5rem',
-                  marginTop: '2rem',
-                  marginBottom: '2rem',
-                  fontStyle: 'italic',
-                  fontSize: '1.2rem',
-                  color: 'var(--ifm-color-primary)'
-                }}>
-                  "When they took my machines, I lost my work. But I found my purpose."
-                </blockquote>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Team Section */}
-        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
+        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center'}}>Meet the Team</h2>
             
@@ -256,6 +136,126 @@ export default function About() {
                   )}
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Mission Section */}
+        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
+          <div className="container">
+            <div style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
+              <h2 style={{fontSize: '2.5rem', marginBottom: '2rem'}}>Our Mission</h2>
+              <p style={{fontSize: '1.3rem', lineHeight: '1.8', marginBottom: '2rem'}}>
+                To democratize enterprise-grade infrastructure management by making it simple, affordable, and 
+                accessible to organizations of all sizes.
+              </p>
+              <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--ifm-font-color-secondary)'}}>
+                We believe that every company, regardless of size or budget, deserves access to the same powerful 
+                infrastructure tools that Fortune 500 companies use. That's why we built Rediacc—to level the playing field 
+                and empower businesses to focus on what they do best, while we handle the infrastructure complexity.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Values Section */}
+        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
+          <div className="container">
+            <h2 style={{fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center'}}>Our Values</h2>
+            
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
+              <div className="feature-card">
+                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="target" size={32} /></div>
+                <h3>Simplicity First</h3>
+                <p>Complex problems don't require complex solutions. We obsess over making powerful features simple to use.</p>
+              </div>
+              <div className="feature-card">
+                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="shield" size={32} /></div>
+                <h3>Security by Design</h3>
+                <p>Security isn't an afterthought—it's built into every line of code, every feature, every decision we make.</p>
+              </div>
+              <div className="feature-card">
+                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="handshake" size={32} /></div>
+                <h3>Customer Success</h3>
+                <p>Your success is our success. We're not happy unless you're achieving extraordinary results with our platform.</p>
+              </div>
+              <div className="feature-card">
+                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="deploy" size={32} /></div>
+                <h3>Continuous Innovation</h3>
+                <p>The tech world never stops evolving, and neither do we. We're always pushing boundaries and exploring new possibilities.</p>
+              </div>
+              <div className="feature-card">
+                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="globe" size={32} /></div>
+                <h3>Global Thinking</h3>
+                <p>Infrastructure is global, and so is our perspective. We build for users everywhere, respecting local needs and regulations.</p>
+              </div>
+              <div className="feature-card">
+                <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="sparkles" size={32} /></div>
+                <h3>Transparency</h3>
+                <p>Open communication, honest pricing, and clear documentation. No hidden fees, no surprises, no fine print.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Story Section */}
+        <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
+          <div className="container">
+            <div style={{maxWidth: '800px', margin: '0 auto'}}>
+              <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>Our Story</h2>
+              
+              <div style={{lineHeight: '1.8', fontSize: '1.1rem'}}>
+                <h3 style={{marginBottom: '1rem', color: 'var(--ifm-color-primary)'}}>The Beginning</h3>
+                <p style={{marginBottom: '1.5rem'}}>
+                  The calendar showed September 2018. I had resigned (was an extremely difficult resignation) from the institution where I worked as a software engineer, wanting to code my own dreams. I could only sleep for maybe 4-5 hours due to excitement; I was working day and night. This pace continued like this for about 5-6 months. One day, two police officers showed up at my door. They told me that an investigation had been opened against me and that I was being called to give a statement.
+                </p>
+                
+                <p style={{marginBottom: '1.5rem'}}>
+                  It was a very long day. I spoke with police officers, a commissioner, a doctor, and finally, the prosecutor. All without any lawyer support. In short, they took my statement and then seized my high-tech computers and many disk drives from my home 'for a short time' to clone the data.
+                </p>
+                
+                <p style={{marginBottom: '1.5rem'}}>
+                  Until that time I had covered all my expenses, including my rent payments, car loan payment, and all the expenses of my startup entirely with other high-interest loans. I had no backup of my work, and even if I had, what could I have done? I had used completely on-premises hardware, and I no longer had the financial means to purchase new equipment. To pay off my debts and continue living with my wife and son, I had to return to a salaried job.
+                </p>
+                
+                <p style={{marginBottom: '1.5rem'}}>
+                  It took me "20 months" to get my devices back, and 3-4 years later, a non-prosecution decision was made, proving my innocence. During this time, I had drifted far from my dreams and started living in another world. The lawyers of the banks I owed money to were calling me every week. After the police, lawyers and bailiffs from three different banks started visiting our home.
+                </p>
+                
+                <h3 style={{marginBottom: '1rem', marginTop: '2rem', color: 'var(--ifm-color-primary)'}}>The Turning Point</h3>
+                <p style={{marginBottom: '1.5rem'}}>
+                  Years later, I kept thinking about what I could do to prevent such a problem from happening again in the future. I needed a tool that would allow me to move my systems to another environment whenever I wanted, activate them whenever needed, back them up easily, and store them securely no matter where I moved them. Virtual machines weren't the answer, as I required native performance without the overhead of virtualization.
+                </p>
+                
+                <p style={{marginBottom: '1.5rem'}}>
+                  In 2021, I watched NetworkChuck's video, "you need to learn Docker RIGHT NOW!! // Docker Containers 101". Then I was shocked. I wanted to go out to the balcony and scream as loud as I could. I wished I had known about this technology earlier!
+                </p>
+                
+                <p style={{marginBottom: '1.5rem'}}>
+                  Still, this technology didn't solve all my problems. Moving container files from one system to another was difficult. I faced compatibility issues with file ownership, and most importantly, as the data size grew, transferring it took longer. Moreover, I had to keep services offline until system migration finished and the technology almost has nothing about security.
+                </p>
+                
+                <h3 style={{marginBottom: '1rem', marginTop: '2rem', color: 'var(--ifm-color-primary)'}}>Birth of Rediacc</h3>
+                <p style={{marginBottom: '1.5rem'}}>
+                  It all started with the development of a portable file system logic. From there, I integrated a backup module. Then came one of the most critical challenges: enabling live system transfers with minimal downtime, regardless of data size. Then I added unique features based on my needs.
+                </p>
+                
+                <p style={{marginBottom: '1.5rem'}}>
+                  This is how Rediacc was born—a product forged through the toughest moments of my life. Now, it's available to everyone. Use it and don't let anything hold your business back—be ready to accelerate.
+                </p>
+                
+                <blockquote style={{
+                  borderLeft: '4px solid var(--ifm-color-primary)',
+                  paddingLeft: '1.5rem',
+                  marginTop: '2rem',
+                  marginBottom: '2rem',
+                  fontStyle: 'italic',
+                  fontSize: '1.2rem',
+                  color: 'var(--ifm-color-primary)'
+                }}>
+                  "When they took my machines, I lost my work. But I found my purpose."
+                </blockquote>
+              </div>
             </div>
           </div>
         </section>
