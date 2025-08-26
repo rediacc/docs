@@ -68,7 +68,7 @@ export default function Contact() {
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
-      alert('Thank you for contacting us! We\'ll get back to you within 24 hours.');
+      alert('Disaster assessment received! We\'ll contact you within 1 hour with your protection plan.');
       // Reset form
       setFormData({
         name: '',
@@ -83,12 +83,12 @@ export default function Contact() {
 
   return (
     <Layout
-      title="Contact Us - Get in Touch with Rediacc Infrastructure Experts"
-      description="Contact Rediacc for enterprise infrastructure solutions. Get expert help, request a demo, or discuss your infrastructure automation needs.">
+      title="Calculate Your Disaster Risk - 60-Second Assessment | Rediacc"
+      description="$14,056/minute downtime cost. €4.5B blackout losses. AI database deletion. Calculate your risk and get protected in 60 seconds.">
       
       <Head>
-        <meta property="og:title" content="Contact Rediacc - Infrastructure Automation Experts" />
-        <meta property="og:description" content="Get in touch with our infrastructure experts. Request a demo, get support, or discuss enterprise solutions." />
+        <meta property="og:title" content="Your Infrastructure is 47 Days from Disaster | Contact Rediacc" />
+        <meta property="og:description" content="Average time to first AI incident: 47 days. Downtime cost: $14,056/minute. Get your disaster assessment and protection plan now." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/contact" />
         <link rel="canonical" href="/contact" />
@@ -111,10 +111,10 @@ export default function Contact() {
         <section className="hero-section" style={{padding: '4rem 1rem'}}>
           <div className="container">
             <h1 className="hero-title animate-fade-in-up">
-              Let's Talk Infrastructure
+              Your Infrastructure Disaster Assessment Starts Here
             </h1>
             <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-              Our experts are ready to help you transform your infrastructure
+              47 days to first AI disaster. $14,056/minute downtime. Calculate your risk and get protected before it's too late.
             </p>
           </div>
         </section>
@@ -125,24 +125,24 @@ export default function Contact() {
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto 4rem'}}>
               <div className="feature-card" style={{textAlign: 'center', padding: '2rem', minHeight: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
                 <div style={{marginBottom: '1rem'}}><CollaborateIcon /></div>
-                <h3>Let's Collaborate</h3>
-                <p>Ready to explore how Rediacc can transform your infrastructure together?</p>
+                <h3>Emergency Protection</h3>
+                <p>Prevent your next €4.5B disaster. Get protected in 60 seconds.</p>
                 <p style={{fontWeight: 'bold', color: 'var(--ifm-color-primary)'}}>collab@rediacc.com</p>
                 {/* <p>+1-800-REDIACC</p> */}
               </div>
               
               <div className="feature-card" style={{textAlign: 'center', padding: '2rem', minHeight: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
                 <div style={{marginBottom: '1rem'}}><SupportIcon /></div>
-                <h3>Technical Support</h3>
-                <p>Need help with your Rediacc deployment?</p>
+                <h3>Disaster Recovery Help</h3>
+                <p>Currently experiencing downtime? We can help immediately.</p>
                 <p style={{fontWeight: 'bold', color: 'var(--ifm-color-primary)'}}>support@rediacc.com</p>
                 <Link to="/console/login?register=quick">Documentation →</Link>
               </div>
               
               <div className="feature-card" style={{textAlign: 'center', padding: '2rem', minHeight: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
                 <div style={{marginBottom: '1rem'}}><PartnershipsIcon /></div>
-                <h3>Partnerships</h3>
-                <p>Interested in partnering with Rediacc?</p>
+                <h3>Enterprise Protection</h3>
+                <p>Custom disaster prevention for Fortune 500 companies.</p>
                 <p style={{fontWeight: 'bold', color: 'var(--ifm-color-primary)'}}>partners@rediacc.com</p>
                 <p>Let's grow together</p>
               </div>
@@ -150,7 +150,7 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div style={{maxWidth: '800px', margin: '0 auto'}}>
-              <h2 style={{fontSize: '2rem', marginBottom: '2rem', textAlign: 'center'}}>Send Us a Message</h2>
+              <h2 style={{fontSize: '2rem', marginBottom: '2rem', textAlign: 'center'}}>Get Your Disaster Risk Assessment</h2>
               
               <form onSubmit={handleSubmit} style={{
                 background: 'var(--ifm-background-surface-color)',

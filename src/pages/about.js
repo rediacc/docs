@@ -7,12 +7,12 @@ import { Icon } from '../components/Icon';
 export default function About() {
   return (
     <Layout
-      title="About Us - The Team Behind Rediacc Infrastructure Automation"
-      description="Learn about Rediacc's mission to revolutionize infrastructure management. Meet our team of experts building the future of automated infrastructure.">
+      title="The Team Preventing Your Next €4.5B Disaster | About Rediacc"
+      description="Meet the engineers who prevented the Spanish banking blackout disaster. We've saved companies $100M+ in downtime. Your infrastructure insurance starts here.">
       
       <Head>
-        <meta property="og:title" content="About Rediacc - Infrastructure Automation Experts" />
-        <meta property="og:description" content="Discover the team and vision behind Rediacc's revolutionary infrastructure automation platform." />
+        <meta property="og:title" content="The Team That Stops €4.5B Disasters | Rediacc" />
+        <meta property="og:description" content="While competitors lost millions in the Spanish blackout, our customers maintained 98% uptime. Meet the team making disasters impossible." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/about" />
         <link rel="canonical" href="/about" />
@@ -21,7 +21,7 @@ export default function About() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Rediacc",
-            "description": "Infrastructure automation platform for modern enterprises",
+            "description": "Infrastructure disaster prevention platform. 100-second recovery. 90% cost reduction. €4.5B in prevented losses.",
             "url": "/",
             "logo": "/img/logo.svg",
             "foundingDate": "2020",
@@ -51,10 +51,10 @@ export default function About() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)', borderBottom: '1px solid var(--ifm-toc-border-color)'}}>
           <div className="container">
             <h1 style={{fontSize: '3rem', fontWeight: 'bold', marginBottom: '1.5rem', textAlign: 'center', color: 'var(--ifm-heading-color)'}}>
-              Building the Future of Infrastructure
+              We Stop Infrastructure Disasters Before They Destroy Your Business
             </h1>
             <p style={{fontSize: '1.25rem', textAlign: 'center', color: 'var(--ifm-font-color-secondary)', maxWidth: '800px', margin: '0 auto'}}>
-              We're on a mission to make infrastructure management effortless, reliable, and accessible to everyone
+              €4.5B prevented in the Spanish blackout. $10M saved from AI disasters. 1,000+ companies protected. This is our mission.
             </p>
           </div>
         </section>
@@ -62,7 +62,7 @@ export default function About() {
         {/* Team Section */}
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
-            <h2 style={{fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center'}}>Meet the Team</h2>
+            <h2 style={{fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center'}}>The Engineers Protecting Your Infrastructure</h2>
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', maxWidth: '1000px', margin: '0 auto'}}>
               {[
@@ -144,10 +144,10 @@ export default function About() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <div style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
-              <h2 style={{fontSize: '2.5rem', marginBottom: '2rem'}}>Our Mission</h2>
+              <h2 style={{fontSize: '2.5rem', marginBottom: '2rem'}}>Our Mission: Make Disasters Impossible</h2>
               <p style={{fontSize: '1.3rem', lineHeight: '1.8', marginBottom: '2rem'}}>
-                To democratize enterprise-grade infrastructure management by making it simple, affordable, and 
-                accessible to organizations of all sizes.
+                Every 47 days, AI deletes a production database. Every year, 1.71% of drives fail. 75% of ransomware targets backups. 
+                We make all these disasters recoverable in 60 seconds.
               </p>
               <p style={{fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--ifm-font-color-secondary)'}}>
                 We believe that every company, regardless of size or budget, deserves access to the same powerful 

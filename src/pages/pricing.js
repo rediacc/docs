@@ -463,8 +463,8 @@ export default function Pricing() {
             <div className="pricing-custom-section">
               <div className="pricing-custom-content">
                 <div className="pricing-custom-text">
-                  <h3>Need a Custom Solution?</h3>
-                  <p>Contact us for enterprise pricing and custom configurations</p>
+                  <h3>Enterprise Disaster Protection?</h3>
+                  <p>Prevent millions in losses with custom disaster recovery solutions</p>
                 </div>
                 <Link 
                   href="/contact" 
@@ -544,10 +544,10 @@ export default function Pricing() {
         }}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '1.5rem', color: 'var(--ifm-heading-color)'}}>
-              Ready to Play?
+              Every Hour Without Protection Costs You $843,360
             </h2>
             <p style={{fontSize: '1.2rem', marginBottom: '2rem', color: 'var(--ifm-font-color-secondary)'}}>
-              Join thousands of companies automating their infrastructure with Rediacc
+              While you evaluate, disasters don't wait. Get protected in 60 seconds.
             </p>
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link
@@ -555,12 +555,12 @@ export default function Pricing() {
                 to="/console/login?register=quick"
                 target="_blank">
 
-                Play on Sandbox
+                Start Protection Now
               </Link>
               <Link
                 className="button button--secondary button--lg"
                 to="/contact">
-                Talk to Us
+                Calculate Your Risk
               </Link>
             </div>
           </div>

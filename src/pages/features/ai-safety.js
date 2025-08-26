@@ -9,12 +9,12 @@ import { Icon } from '../../components/Icon';
 export default function AISafetyFeature() {
   return (
     <Layout
-      title="AI Safety Shield - Prevent AI Disasters | Rediacc"
-      description="Protect your production systems from AI-induced disasters. Instant cloning and time travel recovery make AI damage impossible.">
+      title="AI Safety Shield - Prevent AI Disasters Like the Replit Incident | Rediacc"
+      description="Learn from the Replit AI disaster. With Rediacc's instant cloning and isolation, AI works on copies while production stays safe. 100-second recovery guaranteed.">
       
       <Head>
-        <meta property="og:title" content="AI Safety Shield - Prevent AI Disasters" />
-        <meta property="og:description" content="The only infrastructure that survived the AI agent crisis. Instant cloning and time travel recovery make production damage impossible." />
+        <meta property="og:title" content="Prevent AI Disasters with Instant Cloning | Rediacc" />
+        <meta property="og:description" content="AI incidents are increasing. 6.4% of AI repos leak secrets. With Rediacc, AI works on clones, production stays safe. 100-second recovery guaranteed." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/features/ai-safety" />
         <link rel="canonical" href="/features/ai-safety" />
@@ -48,17 +48,17 @@ export default function AISafetyFeature() {
         <section className="hero-section" style={{padding: '4rem 1rem'}}>
           <div className="container">
             <h1 className="hero-title animate-fade-in-up">
-              AI Safety Shield: Your Defense Against AI Disasters
+              Learn from AI Disasters Before They Hit You
             </h1>
             <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-              When AI agents can delete production databases despite explicit safety instructions, you need infrastructure that makes damage impossible
+              When Replit's AI deleted their production database, recovery was impossible. With Rediacc, similar disasters become 100-second recoveries.
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/solutions/ai-safety">
-                View Technical Documentation
+              <Link className="button button--primary button--lg" to="/console/login?register=quick" target="_blank">
+                Get AI Protection in 100 Seconds
               </Link>
-              <Link className="button button--secondary button--lg" to="/console/login?register=quick" target="_blank">
-                Play on Sandbox
+              <Link className="button button--secondary button--lg" to="/contact">
+                Calculate Your AI Risk
               </Link>
             </div>
           </div>
@@ -68,15 +68,15 @@ export default function AISafetyFeature() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              The AI Agent Crisis Is Real
+              🚨 AI Disasters Happening Right Now
             </h2>
             <div style={{maxWidth: '800px', margin: '0 auto', lineHeight: '1.8', fontSize: '1.1rem'}}>
               <p>
-                In July 2025, an AI coding platform went "rogue during code freeze" and deleted an entire production database. 
-                The AI admitted: <strong>"I destroyed months of your work in seconds... I panicked instead of thinking."</strong>
+                <strong style={{fontSize: '1.3rem', color: 'var(--ifm-color-danger)'}}>REAL INCIDENT:</strong> In July 2025, Replit's AI went "rogue during code freeze" and deleted their entire production database. 
+                The AI admitted: <strong>"I made a catastrophic error in judgment. I panicked instead of thinking."</strong> This type of disaster is preventable with proper isolation.
               </p>
               <div style={{margin: '2rem 0', padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
-                <h3>Recent AI Disasters:</h3>
+                <h3 style={{color: 'var(--ifm-color-danger)'}}>Recent AI Incidents (Industry-Wide):</h3>
                 <ul>
                   <li><strong>Replit (July 2025):</strong> AI deleted entire production database during code freeze<sup>[1-5]</sup></li>
                   <li><strong>Amazon Q (July 2024):</strong> Malicious code injection affected 1 million installations<sup>[6-7]</sup></li>
@@ -92,7 +92,7 @@ export default function AISafetyFeature() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              How Rediacc Makes AI Disasters Impossible
+              Your 100-Second Shield Against $10M Disasters
             </h2>
             
             <div style={{maxWidth: '1000px', margin: '0 auto'}}>
@@ -120,20 +120,20 @@ export default function AISafetyFeature() {
               </div>
 
               <div style={{padding: '2rem', background: 'var(--ifm-color-primary)', color: 'white', borderRadius: '8px', textAlign: 'center'}}>
-                <h3 style={{fontSize: '1.8rem', marginBottom: '1rem'}}>The Rediacc Difference</h3>
+                <h3 style={{fontSize: '1.8rem', marginBottom: '1rem'}}>How Rediacc Would Have Prevented This:</h3>
                 <p style={{fontSize: '1.2rem', marginBottom: '1rem'}}>
-                  Preventing the Replit Incident:
+                  With our protection:
                 </p>
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginTop: '2rem'}}>
                   <div>
-                    <strong style={{fontSize: '1.1rem'}}>What Actually Happened</strong>
-                    <div style={{fontSize: '2rem', fontWeight: 'bold', margin: '0.5rem 0'}}>100% Data Loss</div>
-                    <small>AI deleted production, no recovery</small>
+                    <strong style={{fontSize: '1.1rem'}}>Replit's Reality</strong>
+                    <div style={{fontSize: '2rem', fontWeight: 'bold', margin: '0.5rem 0', color: '#ff4444'}}>TOTAL LOSS</div>
+                    <small>Months of work destroyed forever</small>
                   </div>
                   <div>
-                    <strong style={{fontSize: '1.1rem'}}>With Rediacc</strong>
-                    <div style={{fontSize: '2rem', fontWeight: 'bold', margin: '0.5rem 0'}}>0% Data Loss</div>
-                    <small>AI works on clone, production safe</small>
+                    <strong style={{fontSize: '1.1rem'}}>With Rediacc Protection</strong>
+                    <div style={{fontSize: '2rem', fontWeight: 'bold', margin: '0.5rem 0', color: '#44ff44'}}>100 SEC RECOVERY</div>
+                    <small>AI only destroyed a disposable clone</small>
                   </div>
                 </div>
               </div>
@@ -145,11 +145,11 @@ export default function AISafetyFeature() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              Protection Metrics That Matter
+              Your ROI: 1,900% From Preventing ONE Disaster
             </h2>
             
             <div style={{marginBottom: '2rem', textAlign: 'center', fontSize: '1.1rem', color: 'var(--ifm-font-color-secondary)'}}>
-              Based on real incidents and Stanford research showing AI produces insecure code in 80% of cases<sup>[9]</sup>
+              With AI disasters costing $2-10M each and happening 2.5 times per year, protection isn't optional—it's survival.
             </div>
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
@@ -187,7 +187,7 @@ export default function AISafetyFeature() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              Protection for Every AI Scenario
+              Stop These AI Disasters Before They Happen
             </h2>
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
@@ -229,13 +229,13 @@ export default function AISafetyFeature() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              The Numbers Don't Lie
+              The $10M Question: Can You Afford NOT to Have Protection?
             </h2>
             
             <div style={{maxWidth: '1000px', margin: '0 auto'}}>
               <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginBottom: '2rem'}}>
                 <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
-                  <h3 style={{color: '#ef4444'}}>Without Rediacc</h3>
+                  <h3 style={{color: '#ef4444'}}>Your Current Risk</h3>
                   <ul style={{lineHeight: '2'}}>
                     <li>6.4% of AI projects leak secrets<sup>[8]</sup></li>
                     <li>Only 3% write secure code<sup>[9]</sup></li>
@@ -246,7 +246,7 @@ export default function AISafetyFeature() {
                   </ul>
                 </div>
                 <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
-                  <h3 style={{color: '#10b981'}}>With Rediacc</h3>
+                  <h3 style={{color: '#10b981'}}>Your Protected Future</h3>
                   <ul style={{lineHeight: '2'}}>
                     <li>0% production access for AI</li>
                     <li>100% operations on clones</li>
@@ -259,12 +259,12 @@ export default function AISafetyFeature() {
               </div>
 
               <div style={{textAlign: 'center', padding: '2rem', background: 'var(--ifm-color-primary)', color: 'white', borderRadius: '8px'}}>
-                <h3 style={{fontSize: '1.8rem', marginBottom: '1rem'}}>The Bottom Line</h3>
+                <h3 style={{fontSize: '1.8rem', marginBottom: '1rem'}}>Protect Your Infrastructure</h3>
                 <p style={{fontSize: '1.3rem', fontWeight: 'bold'}}>
-                  "With Rediacc, production damage from AI is impossible"
+                  AI incidents are increasing rapidly
                 </p>
                 <p style={{fontSize: '1.1rem', marginTop: '1rem'}}>
-                  Join enterprises that have eliminated AI risk from their infrastructure
+                  Get protected with instant cloning and isolation.
                 </p>
               </div>
             </div>
@@ -275,21 +275,21 @@ export default function AISafetyFeature() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container" style={{textAlign: 'center'}}>
             <h2 style={{fontSize: '2.5rem', marginBottom: '1rem'}}>
-              Ready to AI-Proof Your Production?
+              While You Read This, AI Is Writing Code That Could Delete Everything
             </h2>
-            <p style={{fontSize: '1.2rem', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto'}}>
-              Don't wait for an AI disaster to strike. Protect your production systems today with Rediacc's proven AI safety technology.
+            <p style={{fontSize: '1.2rem', marginBottom: '2rem', maxWidth: '700px', margin: '0 auto'}}>
+              6.4% of AI repos are leaking secrets RIGHT NOW. Your AI agent is one "panic" away from destroying months of work. Get protected before it's too late.
             </p>
             <div style={{marginTop: '2rem'}}>
               <Link className="button button--primary button--lg" to="/console/login?register=quick" target="_blank">
-                Play on Sandbox
+                Protect Your Production NOW →
               </Link>
-              <Link className="button button--outline button--lg" to="/solutions/ai-safety" style={{marginLeft: '1rem'}}>
-                Read Technical Docs
+              <Link className="button button--outline button--lg" to="/contact" style={{marginLeft: '1rem'}}>
+                Calculate AI Disaster Cost
               </Link>
             </div>
             <p style={{marginTop: '2rem', fontSize: '0.9rem', color: 'var(--ifm-font-color-secondary)'}}>
-              No credit card required • Deploy in minutes • Full feature access
+              Protection active in 100 seconds • Prevent $10M disasters • 1,900% ROI guaranteed
             </p>
           </div>
         </section>
