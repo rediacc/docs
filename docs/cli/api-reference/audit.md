@@ -1,11 +1,10 @@
 # Audit
 
-Audit operations.
+Audit logging and compliance commands.
 
 ## Table of Contents
 
 - [trace](#trace)
-
 
 ## trace
 
@@ -25,8 +24,11 @@ Retrieves comprehensive audit information for a specific entity including all ch
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `entity_type` | string | Yes | - |  |  |
-| `entity_identifier` | string | Yes | - |  |  |
+| `entityType` | string | Yes | - |  |  |
+| `entityIdentifier` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
@@ -43,8 +45,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetEntityAuditTrace" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "entityType": "example-entityType",
-    "entityIdentifier": "example-entityIdentifier"
+    "entityType": "example-entity_type",
+    "entityIdentifier": "example-entity_identifier"
 }'
 ```
 

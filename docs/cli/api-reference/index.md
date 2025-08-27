@@ -1,66 +1,84 @@
-# Rediacc CLI API Reference
+# CLI API Reference
 
-This documentation is automatically generated from the CLI configuration file and provides a complete reference for all available commands and functions.
+Complete API reference documentation for the Rediacc CLI.
 
-## Documentation Structure
+## Command Categories
 
-The API reference is organized into the following sections:
+### [Audit](./audit)
+Audit logging and compliance commands.
 
-### Core Operations
+### [Authentication](./auth)
+Authentication and session management commands.
 
-- **[Queue Functions](queue-functions.md)** - Queue functions are executed on machines via the bridge system. They handle repository management, system setup, and data operations.
+### [Bridge](./bridge)
+Bridge management and operations.
 
-### Resource Management
+### [Clone](./clone)
+Clone resources and configurations.
 
-- **[Create](create-commands.md)** - Create new resources in the system.
-- **[List](list-commands.md)** - List and view resources.
-- **[Rm](rm-commands.md)** - Remove resources from the system.
-- **[Update](update-commands.md)** - Update existing resources.
+### [Company](./company)
+Company management commands.
 
-### Operations
+### [Create](./create)
+Create new resources in the system.
 
-- **[Audit](audit-commands.md)** - Audit operations.
-- **[Auth](auth-commands.md)** - Auth operations.
-- **[Authentication](authentication.md)** - Manage authentication and sessions.
-- **[Bridge](bridge-commands.md)** - Bridge operations.
-- **[Clone](clone-commands.md)** - Clone operations.
-- **[Company](company-commands.md)** - Company operations.
-- **[Distributed-Storage](distributed-storage-commands.md)** - Distributed-Storage operations.
-- **[Inspect](inspect-commands.md)** - Inspect operations.
-- **[Machine](machine-commands.md)** - Machine operations.
-- **[Misc](misc-commands.md)** - Misc operations.
-- **[Permission](permission-commands.md)** - Permission operations.
-- **[Queue](queue-commands.md)** - Queue operations.
-- **[Region](region-commands.md)** - Region operations.
-- **[Team](team-commands.md)** - Team operations.
-- **[Team-Member](team-member-commands.md)** - Team-Member operations.
-- **[User](user-commands.md)** - User operations.
-- **[Vault](vault-commands.md)** - Vault operations.
+### [Distributed Storage](./distributed-storage)
+Manage distributed storage clusters and pools.
 
-## Command Structure
+### [Inspect](./inspect)
+Inspect resources and their details.
 
-Most commands follow this pattern:
+### [List](./list)
+List and view resources.
+
+### [Machine](./machine)
+Machine-specific operations.
+
+### [Miscellaneous](./misc)
+Other commands and utilities.
+
+### [Permissions](./permissions)
+Manage user and resource permissions.
+
+### [Queue](./queue)
+Queue management and operations.
+
+### [Region](./region)
+Region management commands.
+
+### [Remove](./rm)
+Remove/delete resources from the system.
+
+### [Team](./team)
+Team management commands.
+
+### [Team Members](./team-members)
+Manage team membership.
+
+### [Update](./update)
+Update existing resources.
+
+### [User](./user)
+User management commands.
+
+### [Vault](./vault)
+Manage encrypted vault data for resources.
+
+## Quick Links
+
+- [Authentication](./auth) - Login and logout commands
+- [Create](./create) - Create new resources
+- [List](./list) - List and view resources
+- [Update](./update) - Update existing resources
+- [Remove](./rm) - Delete resources
+- [Vault](./vault) - Manage encrypted configurations
+
+## Getting Started
+
+To use the CLI, first authenticate:
 
 ```bash
-rediacc <command> [subcommand] [arguments] [options]
+rediacc login
 ```
 
-### Common Options
-
-- `--output json` - Output results in JSON format
-- `--force` - Skip confirmation prompts
-- `--help` - Show command help
-
-## Authentication
-
-All commands (except `login` and `create company`) require authentication. Use `rediacc login` to authenticate before running other commands.
-
-## Error Handling
-
-Commands return standard exit codes:
-- `0` - Success
-- `1` - General error
-- `2` - Authentication error
-- `3` - Permission denied
-- `4` - Resource not found
-- `5` - Validation error
+Then you can use any of the documented commands. Most commands require authentication and will use the stored token from your login session.

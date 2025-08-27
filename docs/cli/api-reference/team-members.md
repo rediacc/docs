@@ -1,12 +1,11 @@
-# Team-Member
+# Team Members
 
-Team-Member operations.
+Manage team membership.
 
 ## Table of Contents
 
 - [add](#add)
 - [remove](#remove)
-
 
 ## add
 
@@ -27,7 +26,8 @@ Grants a user membership in a team, giving them access to all team resources inc
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team name | dev-team |
-| `new_user_email` | string | Yes | - |  |  |
+| `newUserEmail` | string | Yes | - |  |  |
+
 
 #### Examples
 
@@ -45,7 +45,7 @@ Add admin to production team
 
 ```bash
 # Basic usage (required parameters only)
-rediacc team-member add example-team
+rediacc team-member add --team <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -56,8 +56,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateTeamMembership" 
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "newUserEmail": "example-newUserEmail"
+    "team": "dev-team",
+    "newUserEmail": "example-new_user_email"
 }'
 ```
 
@@ -78,6 +78,9 @@ User must exist and be activated. You must be a team member to add others. Chang
 - Operation is logged in audit trail
 - Triggers notification email to the added user
 
+#### Success Message
+
+`Successfully added {email} to team {team}`
 
 ## remove
 
@@ -98,7 +101,8 @@ Revokes a user's team membership, removing their access to all team resources. T
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team name | dev-team |
-| `remove_user_email` | string | Yes | - |  |  |
+| `removeUserEmail` | string | Yes | - |  |  |
+
 
 #### Examples
 
@@ -116,7 +120,7 @@ Force remove without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc team-member remove example-team
+rediacc team-member remove --team <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -127,8 +131,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteUserFromTeam" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "removeUserEmail": "example-removeUserEmail"
+    "team": "dev-team",
+    "removeUserEmail": "example-remove_user_email"
 }'
 ```
 
@@ -148,4 +152,12 @@ Cannot remove last team member. User loses access immediately. Consider impact o
 - Any running operations by the user continue to completion
 - User's personal data and contributions are preserved
 - Triggers notification email to the removed user
+
+#### Success Message
+
+`Successfully removed {email} from team {team}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to remove '{email}' from team '{team}'?`
 

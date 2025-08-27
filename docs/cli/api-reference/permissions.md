@@ -1,6 +1,6 @@
-# Permission
+# Permissions
 
-Permission operations.
+Manage user and resource permissions.
 
 ## Table of Contents
 
@@ -11,7 +11,6 @@ Permission operations.
 - [list-group](#list-group)
 - [list-groups](#list-groups)
 - [remove](#remove)
-
 
 ## add
 
@@ -34,6 +33,7 @@ Grants a specific API endpoint permission to a permission group. Users in the gr
 | `group` | string | Yes | - | Permission group to modify | developers |
 | `name` | string | Yes | - | Permission name (API endpoint) | CreateMachine |
 
+
 #### Examples
 
 ```bash
@@ -50,7 +50,7 @@ Allow read-only users to list machines
 
 ```bash
 # Basic usage (required parameters only)
-rediacc permission add example-name
+rediacc permission add --group <value> --name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -61,8 +61,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreatePermissionInGrou
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "permissionGroupName": "example-permissionGroupName",
-    "permissionName": "example-permissionName"
+    "group": "developers",
+    "name": "CreateMachine"
 }'
 ```
 
@@ -83,6 +83,9 @@ Permission names correspond to API endpoints. Use 'list lookup-data' to see avai
 - Each addition is logged in audit trail
 - Company boundaries are strictly enforced
 
+#### Success Message
+
+`Successfully added permission: {name} to group {group}`
 
 ## assign
 
@@ -103,7 +106,8 @@ Changes a user's permission group, granting them all permissions associated with
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `group` | string | Yes | - | Permission group to assign | developers |
-| `user_email` | string | Yes | - |  |  |
+| `userEmail` | string | Yes | - |  |  |
+
 
 #### Examples
 
@@ -121,7 +125,7 @@ Limit contractor to read-only access
 
 ```bash
 # Basic usage (required parameters only)
-rediacc permission assign
+rediacc permission assign --group <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -132,8 +136,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateUserAssignedPerm
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "userEmail": "example-userEmail",
-    "permissionGroupName": "example-permissionGroupName"
+    "group": "developers",
+    "userEmail": "example-user_email"
 }'
 ```
 
@@ -154,6 +158,9 @@ Replaces user's current permission group. Changes take effect on next login. Req
 - Assignment is logged with token modification count
 - Users can only belong to one permission group
 
+#### Success Message
+
+`Successfully assigned permission group {group} to user {email}`
 
 ## create-group
 
@@ -175,6 +182,7 @@ Creates a permission group that can be assigned to users. Permission groups cont
 |-----------|------|----------|---------|-------------|---------|
 | `name` | string | Yes | - | Unique name for the permission group | developers |
 
+
 #### Examples
 
 ```bash
@@ -191,7 +199,7 @@ Create a read-only access group
 
 ```bash
 # Basic usage (required parameters only)
-rediacc permission create-group example-name
+rediacc permission create-group --name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -202,7 +210,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreatePermissionGroup"
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "permissionGroupName": "example-permissionGroupName"
+    "name": "developers"
 }'
 ```
 
@@ -223,6 +231,9 @@ Requires admin permissions. Group names must be unique within the company. Add p
 - New groups start empty with no permissions
 - Group creation is logged in audit trail
 
+#### Success Message
+
+`Successfully created permission group: {name}`
 
 ## delete-group
 
@@ -245,6 +256,7 @@ Permanently removes a permission group. Users assigned to this group will lose t
 | `name` | string | Yes | - | Permission group name to delete | old-group |
 | `force` | string | No | - | Skip confirmation prompt | --force |
 
+
 #### Examples
 
 ```bash
@@ -261,7 +273,7 @@ Delete without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc permission delete-group example-name
+rediacc permission delete-group --name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -272,7 +284,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeletePermissionGroup"
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "permissionGroupName": "example-permissionGroupName"
+    "name": "old-group",
+    "force": "--force"
 }'
 ```
 
@@ -293,6 +306,13 @@ Cannot delete system groups. Check user assignments before deletion. This is irr
 - Operation is permanent and cannot be undone
 - Deletion is logged in audit trail
 
+#### Success Message
+
+`Successfully deleted permission group: {name}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to delete permission group '{name}'?`
 
 ## list-group
 
@@ -314,6 +334,7 @@ Lists all API endpoint permissions granted to a permission group. Shows which op
 |-----------|------|----------|---------|-------------|---------|
 | `name` | string | Yes | - | Permission group name | developers |
 
+
 #### Examples
 
 ```bash
@@ -330,7 +351,7 @@ List admin permissions in JSON
 
 ```bash
 # Basic usage (required parameters only)
-rediacc permission list-group example-name
+rediacc permission list-group --name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -341,7 +362,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetPermissionGroupDeta
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "permissionGroupName": "example-permissionGroupName"
+    "name": "developers"
 }'
 ```
 
@@ -362,7 +383,6 @@ Permission names correspond to API endpoints. Compare groups to understand acces
 - Access attempts are tracked for security
 - Returns error if group doesn't exist
 
-
 ## list-groups
 
 List all permission groups
@@ -376,6 +396,11 @@ List all permission groups
 #### Details
 
 Shows all permission groups in the company including system groups and custom groups. Displays group names and member counts.
+
+#### Parameters
+
+No parameters required.
+
 
 #### Examples
 
@@ -403,8 +428,7 @@ rediacc permission list-groups
 curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCompanyPermissionGroups" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
-  -d '{
-}'
+  -d '{}'
 ```
 
 #### Notes
@@ -423,7 +447,6 @@ System groups like 'Admins' and 'Bridges' cannot be modified. Shows user count f
 - Maintenance mode blocks non-admin access
 - Operation is company-specific
 - Failed attempts are logged for security
-
 
 ## remove
 
@@ -447,6 +470,7 @@ Revokes a specific API endpoint permission from a permission group. Users in the
 | `name` | string | Yes | - | Permission name to remove | DeleteMachine |
 | `force` | string | No | - | Skip confirmation prompt | --force |
 
+
 #### Examples
 
 ```bash
@@ -463,7 +487,7 @@ Remove permission without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc permission remove example-name
+rediacc permission remove --group <value> --name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -474,8 +498,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeletePermissionFromGr
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "permissionGroupName": "example-permissionGroupName",
-    "permissionName": "example-permissionName"
+    "group": "developers",
+    "name": "DeleteMachine",
+    "force": "--force"
 }'
 ```
 
@@ -495,4 +520,12 @@ Takes effect immediately for all users in the group. Use 'list-group' to see cur
 - Change takes effect without requiring re-login
 - Removal is permanent and logged in audit trail
 - Only appropriate admin privileges allow this operation
+
+#### Success Message
+
+`Successfully removed permission: {name} from group {group}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to remove permission '{name}' from group '{group}'?`
 

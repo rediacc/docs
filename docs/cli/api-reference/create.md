@@ -15,7 +15,6 @@ Create new resources in the system.
 - [team](#team)
 - [user](#user)
 
-
 ## bridge
 
 Create a new bridge for task processing
@@ -35,8 +34,10 @@ Bridges are autonomous queue processors that poll for tasks and execute them on 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `region` | string | Yes | - | Region where the bridge will be created | us-east |
-| `vault` | string | No | - | JSON configuration for the bridge (batch size, timeout settings) | `{"batch_size": 5, "poll_interval": 30}` |
+| `vault` | string | No | - | JSON configuration for the bridge (batch size, timeout settings) | {"batch_size": 5, "poll_interval": 30} |
 | `bridge` | string | Yes | - |  |  |
+| `name` | string | Yes | - |  |  |
+
 
 #### Examples
 
@@ -54,7 +55,7 @@ Create bridge with custom batch size
 
 ```bash
 # Basic usage (required parameters only)
-rediacc create bridge bridge-01 us-east
+rediacc create bridge --region <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -65,14 +66,15 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateBridge" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "regionName": "us-east",
-    "bridgeName": "bridge-01"
+    "region": "us-east",
+    "vault": "{"batch_size": 5, "poll_interval": 30}",
+    "bridge": "example-bridge"
 }'
 ```
 
 #### Notes
 
-After creation, start the bridge with './bridge --bridge-mode token=&lt;token&gt; api_url=&lt;url&gt; master_password=&lt;pwd&gt;'. Use 'rediacc login --target bridge-name' to get a bridge-specific token.
+After creation, start the bridge with './bridge --bridge-mode token=<token> api_url=<url> master_password=<pwd>'. Use 'rediacc login --target bridge-name' to get a bridge-specific token.
 
 #### Business Rules
 
@@ -87,6 +89,9 @@ After creation, start the bridge with './bridge --bridge-mode token=&lt;token&gt
 - A bridge user account is automatically created for authentication
 - Bridge credentials are stored securely in the vault
 
+#### Success Message
+
+`Successfully created bridge: {name} in region {region}`
 
 ## company
 
@@ -106,10 +111,13 @@ Creates a new Rediacc company along with its admin user account. The email and p
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `activation_code` | string | No | - |  |  |
-| `vault_defaults` | string | No | - |  |  |
-| `company_name` | string | Yes | - |  |  |
-| `subscription_plan` | string | Yes | - |  |  |
+| `activationCode` | string | No | - |  |  |
+| `vaultDefaults` | string | No | - |  |  |
+| `companyName` | string | Yes | - |  |  |
+| `subscriptionPlan` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
@@ -124,11 +132,12 @@ rediacc create company
 # Using credential authentication
 curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateNewCompany" \
   -H "Content-Type: application/json" \
-  -H "Rediacc-UserEmail: user@example.com" \
+  -H "Rediacc-UserEmail: user@company.com" \
   -H "Rediacc-UserHash: YOUR_PASSWORD_HASH" \
   -d '{
-    "companyName": "example-companyName",
-    "subscriptionPlan": "example-subscriptionPlan"
+    "activationCode": "example-activation_code",
+    "vaultDefaults": "example-vault_defaults",
+    "companyName": "example-company_name"
 }'
 ```
 
@@ -145,6 +154,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateNewCompany" \
 - Company creation is atomic - all or nothing operation
 - Email validation checks for proper format with @ symbol and domain
 
+#### Success Message
+
+`Successfully created company: {name}`
 
 ## machine
 
@@ -166,8 +178,10 @@ Machines are remote servers that execute tasks via SSH. They must be associated 
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that will own this machine | production-team |
 | `bridge` | string | Yes | - | Bridge to connect through (must exist in a region) | us-east-bridge-01 |
-| `vault` | string | No | - | JSON with machine config (ip, user, ssh_port, datastore) | `{"ip": "10.0.0.5", "user": "rediacc", "datastore": "/mnt/datastore"}` |
+| `vault` | string | No | - | JSON with machine config (ip, user, ssh_port, datastore) | {"ip": "10.0.0.5", "user": "rediacc", "datastore": "/mnt/datastore"} |
 | `machine` | string | Yes | - |  |  |
+| `name` | string | Yes | - |  |  |
+
 
 #### Examples
 
@@ -185,7 +199,7 @@ Create machine with IP configuration
 
 ```bash
 # Basic usage (required parameters only)
-rediacc create machine example-team my-machine-01 bridge-01
+rediacc create machine --team <value> --bridge <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -196,9 +210,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateMachine" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "bridgeName": "bridge-01",
-    "machineName": "my-machine-01"
+    "team": "production-team",
+    "bridge": "us-east-bridge-01",
+    "vault": "{"ip": "10.0.0.5", "user": "rediacc", "datastore": "/mnt/datastore"}"
 }'
 ```
 
@@ -219,6 +233,9 @@ You must be a member of the team. The bridge must exist and be accessible. Machi
 - Machine names are case-sensitive
 - Bridge must be accessible and properly configured
 
+#### Success Message
+
+`Successfully created machine: {name} for team {team}`
 
 ## queue-item
 
@@ -241,8 +258,9 @@ Queue items represent tasks to be executed on machines by bridges. The bridge po
 | `team` | string | Yes | - | Team that owns the machine | production-team |
 | `machine` | string | Yes | - | Target machine for execution | web-server-01 |
 | `bridge` | string | Yes | - | Bridge to process this queue item | us-east-bridge-01 |
-| `vault` | string | No | - | JSON with task configuration and parameters | `{"function": "deploy", "version": "1.2.3"}` |
+| `vault` | string | No | - | JSON with task configuration and parameters | {"function": "deploy", "version": "1.2.3"} |
 | `priority` | string | No | 3 | Priority level (1=highest, 5=lowest) | 1 |
+
 
 #### Examples
 
@@ -260,7 +278,7 @@ Create high priority item with task config
 
 ```bash
 # Basic usage (required parameters only)
-rediacc create queue-item example-team my-machine-01 bridge-01
+rediacc create queue-item --team <value> --machine <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -271,10 +289,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateQueueItem" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "machineName": "my-machine-01",
-    "bridgeName": "bridge-01",
-    "priority": "example-priority"
+    "team": "production-team",
+    "machine": "web-server-01",
+    "bridge": "us-east-bridge-01"
 }'
 ```
 
@@ -295,6 +312,9 @@ Priority 1-2 requires Premium/Elite subscription. Community/Advanced limited to 
 - Task execution is subject to subscription concurrency limits
 - Bridge must be in the same company as the machine
 
+#### Success Message
+
+`Successfully created queue item for machine {machine} with priority {priority}`
 
 ## region
 
@@ -315,8 +335,9 @@ Regions are logical or geographic groupings for bridges. They help organize infr
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `name` | string | Yes | - | Unique name for the region (e.g., us-east, europe-west) | us-east |
-| `vault` | string | No | - | JSON configuration for the region (provider settings, metadata) | `{"provider": "aws", "zone": "us-east-1"}` |
+| `vault` | string | No | - | JSON configuration for the region (provider settings, metadata) | {"provider": "aws", "zone": "us-east-1"} |
 | `vault-file` | string | No | - | File containing JSON vault configuration | region-config.json |
+
 
 #### Examples
 
@@ -334,7 +355,7 @@ Create region with provider configuration
 
 ```bash
 # Basic usage (required parameters only)
-rediacc create region example-name
+rediacc create region --name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -345,7 +366,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateRegion" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "regionName": "us-east"
+    "name": "us-east",
+    "vault": "{"provider": "aws", "zone": "us-east-1"}",
+    "vault-file": "region-config.json"
 }'
 ```
 
@@ -366,6 +389,9 @@ Regions cannot be deleted if they contain bridges. Region names must be unique a
 - Region creation is tracked in audit log
 - Admin permissions may be required depending on company settings
 
+#### Success Message
+
+`Successfully created region: {name}`
 
 ## repository
 
@@ -386,16 +412,19 @@ Repositories are isolated environments for storing code, data, or applications. 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that will own this repository | dev-team |
-| `vault` | string | No | - | JSON configuration (size, type, settings) | `{"size": "10G", "type": "docker"}` |
-| `parent_repo` | string | No | - |  |  |
+| `vault` | string | No | - | JSON configuration (size, type, settings) | {"size": "10G", "type": "docker"} |
+| `parentRepo` | string | No | - |  |  |
 | `repository` | string | Yes | - |  |  |
-| `repo_guid` | string | Yes | - |  |  |
+| `repoGuid` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc create repository example-team my-repo
+rediacc create repository --team <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -406,9 +435,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateRepository" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "repoName": "my-repo",
-    "repoGuid": "example-repoGuid"
+    "team": "dev-team",
+    "vault": "{"size": "10G", "type": "docker"}",
+    "parentRepo": "example-parent_repo"
 }'
 ```
 
@@ -428,6 +457,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateRepository" \
 - GUID must be unique across all repositories if specified
 - GUID is auto-generated if not provided
 
+#### Success Message
+
+`Successfully created repository: {name} for team {team}`
 
 ## schedule
 
@@ -448,8 +480,9 @@ Schedules automatically create queue items at specified intervals. They support 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that will own this schedule | ops-team |
-| `vault` | string | No | - | JSON with schedule configuration (cron, function, target) | `{"cron": "0 2 * * *", "timezone": "UTC", "function": "repo_push", "machine": "backup-01", "params": {...}}` |
+| `vault` | string | No | - | JSON with schedule configuration (cron, function, target) | {"cron": "0 2 * * *", "timezone": "UTC", "function": "repo_push", "machine": "backup-01", "params": {...}} |
 | `schedule` | string | Yes | - |  |  |
+
 
 #### Examples
 
@@ -467,7 +500,7 @@ Create hourly sync schedule
 
 ```bash
 # Basic usage (required parameters only)
-rediacc create schedule example-team daily-backup
+rediacc create schedule --team <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -478,8 +511,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateSchedule" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "scheduleName": "daily-backup"
+    "team": "ops-team",
+    "vault": "{"cron": "0 2 * * *", "timezone": "UTC", "function": "repo_push", "machine": "backup-01", "params": {...}}",
+    "schedule": "example-schedule"
 }'
 ```
 
@@ -500,6 +534,9 @@ Schedules require Premium or Elite subscription. Cron expressions follow standar
 - Schedule names are case-sensitive
 - Cron expressions must follow standard format
 
+#### Success Message
+
+`Successfully created schedule: {name} for team {team}`
 
 ## storage
 
@@ -520,8 +557,9 @@ Storage resources represent external storage systems like S3 buckets, Azure Blob
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that will own this storage | data-team |
-| `vault` | string | No | - | JSON with storage credentials and configuration | `{"type": "s3", "bucket": "my-backups", "region": "us-east-1", "access_key": "...", "secret_key": "..."}` |
+| `vault` | string | No | - | JSON with storage credentials and configuration | {"type": "s3", "bucket": "my-backups", "region": "us-east-1", "access_key": "...", "secret_key": "..."} |
 | `storage` | string | Yes | - |  |  |
+
 
 #### Examples
 
@@ -539,7 +577,7 @@ Create Azure storage with credentials from file
 
 ```bash
 # Basic usage (required parameters only)
-rediacc create storage example-team backup-storage
+rediacc create storage --team <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -550,8 +588,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateStorage" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "storageName": "backup-storage"
+    "team": "data-team",
+    "vault": "{"type": "s3", "bucket": "my-backups", "region": "us-east-1", "access_key": "...", "secret_key": "..."}",
+    "storage": "example-storage"
 }'
 ```
 
@@ -572,6 +611,9 @@ Storage credentials are encrypted in the vault. Supported types include S3, Azur
 - Credentials in vault are automatically encrypted
 - Storage types must be supported (S3, Azure, GCS, SFTP, SMB)
 
+#### Success Message
+
+`Successfully created storage: {name} for team {team}`
 
 ## team
 
@@ -592,8 +634,9 @@ Teams are organizational units that own machines, repositories, and other resour
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `name` | string | Yes | - | Unique name for the team | production-team |
-| `vault` | string | No | - | JSON object with team configuration (SSH keys, settings) | `{"SSH_PRIVATE_KEY": "-----BEGIN RSA..."}` |
+| `vault` | string | No | - | JSON object with team configuration (SSH keys, settings) | {"SSH_PRIVATE_KEY": "-----BEGIN RSA..."} |
 | `vault-file` | string | No | - | File containing JSON vault data | team-config.json |
+
 
 #### Examples
 
@@ -611,7 +654,7 @@ Create team with vault configuration from file
 
 ```bash
 # Basic usage (required parameters only)
-rediacc create team example-name
+rediacc create team --name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -622,7 +665,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateTeam" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team"
+    "name": "production-team",
+    "vault": "{"SSH_PRIVATE_KEY": "-----BEGIN RSA..."}",
+    "vault-file": "team-config.json"
 }'
 ```
 
@@ -643,6 +688,9 @@ Team creation counts against your subscription limits. The creator automatically
 - Team creation is tracked in audit log
 - Bridge users cannot be added to teams
 
+#### Success Message
+
+`Successfully created team: {name}`
 
 ## user
 
@@ -662,9 +710,12 @@ Creates a new user account that can access the company resources. Users must be 
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `activation_code` | string | No | - |  |  |
-| `new_user_email` | string | Yes | - |  |  |
-| `new_user_hash` | string | Yes | - |  |  |
+| `activationCode` | string | No | - |  |  |
+| `newUserEmail` | string | Yes | - |  |  |
+| `newUserHash` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
@@ -681,8 +732,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateNewUser" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "newUserEmail": "example-newUserEmail",
-    "newUserHash": "example-newUserHash"
+    "activationCode": "example-activation_code",
+    "newUserEmail": "example-new_user_email",
+    "newUserHash": "example-new_user_hash"
 }'
 ```
 
@@ -698,4 +750,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateNewUser" \
 - Empty user vault is created automatically
 - Resource limits depend on subscription plan
 - User email must be unique across the entire system
+
+#### Success Message
+
+`Successfully created user: {email}`
 

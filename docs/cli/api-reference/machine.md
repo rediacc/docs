@@ -1,6 +1,6 @@
 # Machine
 
-Machine operations.
+Machine-specific operations.
 
 ## Table of Contents
 
@@ -9,8 +9,9 @@ Machine operations.
 - [update-machine-cluster-removal](#update-machine-cluster-removal)
 - [update-machine-vault](#update-machine-vault)
 
-
 ## list-machine-assignment-status
+
+list-machine-assignment-status command
 
 #### API Information
 
@@ -25,11 +26,14 @@ Machine operations.
 | `machine` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc machine list-machine-assignment-status example-team my-machine-01
+rediacc machine list-machine-assignment-status
 ```
 
 ##### Auto-Generated cURL Examples
@@ -40,13 +44,18 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetMachineAssignmentSt
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "machineName": "my-machine-01",
-    "teamName": "example-team"
+    "machine": "example-machine",
+    "team": "example-team"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## update-machine-cluster-assignment
+
+update-machine-cluster-assignment command
 
 #### API Information
 
@@ -62,11 +71,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetMachineAssignmentSt
 | `machine` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc machine update-machine-cluster-assignment example-team my-machine-01
+rediacc machine update-machine-cluster-assignment
 ```
 
 ##### Auto-Generated cURL Examples
@@ -77,14 +89,19 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineClusterAs
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "clusterName": "example-clusterName",
-    "machineName": "my-machine-01",
-    "teamName": "example-team"
+    "cluster": "example-cluster",
+    "machine": "example-machine",
+    "team": "example-team"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## update-machine-cluster-removal
+
+update-machine-cluster-removal command
 
 #### API Information
 
@@ -99,11 +116,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineClusterAs
 | `machine` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc machine update-machine-cluster-removal example-team my-machine-01
+rediacc machine update-machine-cluster-removal
 ```
 
 ##### Auto-Generated cURL Examples
@@ -114,13 +134,18 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineClusterRe
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "machineName": "my-machine-01",
-    "teamName": "example-team"
+    "machine": "example-machine",
+    "team": "example-team"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## update-machine-vault
+
+update-machine-vault command
 
 #### API Information
 
@@ -134,13 +159,16 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineClusterRe
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - |  |  |
 | `machine` | string | Yes | - |  |  |
-| `vault_version` | string | No | - |  |  |
+| `vaultVersion` | string | No | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc machine update-machine-vault example-team my-machine-01
+rediacc machine update-machine-vault
 ```
 
 ##### Auto-Generated cURL Examples
@@ -151,8 +179,13 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineVault" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "machineName": "my-machine-01"
+    "team": "example-team",
+    "machine": "example-machine",
+    "vaultVersion": "example-vault_version"
 }'
 ```
+
+#### Success Message
+
+`Operation completed successfully`
 

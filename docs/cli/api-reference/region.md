@@ -1,13 +1,14 @@
 # Region
 
-Region operations.
+Region management commands.
 
 ## Table of Contents
 
 - [update-region-vault](#update-region-vault)
 
-
 ## update-region-vault
+
+update-region-vault command
 
 #### API Information
 
@@ -21,13 +22,16 @@ Region operations.
 |-----------|------|----------|---------|-------------|---------|
 | `region` | string | Yes | - |  |  |
 | `vault` | string | No | - |  |  |
-| `vault_version` | string | No | - |  |  |
+| `vaultVersion` | string | No | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc region update-region-vault us-east
+rediacc region update-region-vault
 ```
 
 ##### Auto-Generated cURL Examples
@@ -38,7 +42,13 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateRegionVault" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "regionName": "us-east"
+    "region": "example-region",
+    "vault": "example-vault",
+    "vaultVersion": "example-vault_version"
 }'
 ```
+
+#### Success Message
+
+`Operation completed successfully`
 

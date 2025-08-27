@@ -1,6 +1,6 @@
 # Company
 
-Company operations.
+Company management commands.
 
 ## Table of Contents
 
@@ -10,7 +10,6 @@ Company operations.
 - [import-data](#import-data)
 - [update-vault](#update-vault)
 - [update-vaults](#update-vaults)
-
 
 ## block-user-requests
 
@@ -32,6 +31,7 @@ Controls whether new users can request accounts in your company. When blocked, o
 |-----------|------|----------|---------|-------------|---------|
 | `block` | string | Yes | - | Block user requests (true/false) | true |
 
+
 #### Examples
 
 ```bash
@@ -48,7 +48,7 @@ Allow new user registrations
 
 ```bash
 # Basic usage (required parameters only)
-rediacc company block-user-requests
+rediacc company block-user-requests --block <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -59,7 +59,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateCompanyBlockUser
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "blockUserRequests": "example-blockUserRequests"
+    "block": "true"
 }'
 ```
 
@@ -80,6 +80,9 @@ Requires company admin permissions. Existing users are not affected. Useful duri
 - Setting is stored at company level
 - Change is logged in audit trail
 
+#### Success Message
+
+`Successfully updated company user request blocking: {block}`
 
 ## export-data
 
@@ -94,6 +97,11 @@ Export all company data to JSON format
 #### Details
 
 Exports complete company configuration including teams, users, permissions, regions, bridges, and machines. Vault data is included in encrypted form.
+
+#### Parameters
+
+No parameters required.
+
 
 #### Examples
 
@@ -121,8 +129,7 @@ rediacc company export-data
 curl -X POST "https://www.rediacc.com/api/StoredProcedure/ExportCompanyData" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
-  -d '{
-}'
+  -d '{}'
 ```
 
 #### Notes
@@ -140,6 +147,9 @@ Requires admin permissions. Export includes all entity configurations and relati
 - Can be used with import-data for migration
 - Operation is logged in audit trail
 
+#### Success Message
+
+`Successfully exported company data`
 
 ## get-vaults
 
@@ -154,6 +164,11 @@ Retrieve all company vault data
 #### Details
 
 Fetches all vault configurations stored at the company level, including encrypted settings and credentials. Useful for backup or inspection.
+
+#### Parameters
+
+No parameters required.
+
 
 #### Examples
 
@@ -181,8 +196,7 @@ rediacc company get-vaults
 curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCompanyVaults" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
-  -d '{
-}'
+  -d '{}'
 ```
 
 #### Notes
@@ -201,7 +215,6 @@ Requires company admin permissions. Vault data is returned encrypted unless mast
 - Access is logged in audit trail
 - Response may be large for companies with extensive configs
 - Read-only operation with no side effects
-
 
 ## import-data
 
@@ -224,6 +237,7 @@ Imports company configuration from a previously exported JSON file. Supports ski
 | `vault-file` | string | Yes | - | File containing exported company data | company-backup.json |
 | `import-mode` | string | No | skip | Import mode: skip or override | override |
 
+
 #### Examples
 
 ```bash
@@ -240,7 +254,7 @@ Import with override mode
 
 ```bash
 # Basic usage (required parameters only)
-rediacc company import-data
+rediacc company import-data --vault-file <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -251,6 +265,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/ImportCompanyData" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
+    "vault-file": "company-backup.json",
+    "import-mode": "override"
 }'
 ```
 
@@ -270,6 +286,9 @@ Requires admin permissions. Skip mode preserves existing data. Override mode upd
 - Partial imports may occur if errors encountered
 - Vault data must be compatible with current passphrase
 
+#### Success Message
+
+`Successfully imported company data`
 
 ## update-vault
 
@@ -289,9 +308,10 @@ Updates the encrypted vault containing company-wide settings, credentials, and c
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `vault` | string | No | - | JSON vault data to store | `{"UNIVERSAL_USER_NAME": "system", "API_KEY": "abc123"}` |
+| `vault` | string | No | - | JSON vault data to store | {"UNIVERSAL_USER_NAME": "system", "API_KEY": "abc123"} |
 | `vault-file` | string | No | - | File containing JSON vault data | company-vault.json |
 | `vault-version` | string | No | - | Vault schema version | 2 |
+
 
 #### Examples
 
@@ -320,6 +340,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateCompanyVault" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
+    "vault": "{"UNIVERSAL_USER_NAME": "system", "API_KEY": "abc123"}",
+    "vault-file": "company-vault.json",
+    "vault-version": "2"
 }'
 ```
 
@@ -340,6 +363,9 @@ Requires company admin permissions. Vault data is encrypted with master password
 - Update is tracked in audit logs
 - Cannot be undone - backup before updating
 
+#### Success Message
+
+`Successfully updated company vault`
 
 ## update-vaults
 
@@ -359,9 +385,12 @@ Updates multiple vault configurations at once. Useful for restoring from backup 
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `vault` | string | No | - | JSON object containing multiple vaults | `{"primary": {...}, "secondary": {...}}` |
+| `vault` | string | No | - | JSON object containing multiple vaults | {"primary": {...}, "secondary": {...}} |
 | `vault-file` | string | No | - | File containing JSON vaults data | all-vaults.json |
 | `updates` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
@@ -378,6 +407,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateCompanyVaults" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
+    "vault": "{"primary": {...}, "secondary": {...}}",
+    "vault-file": "all-vaults.json",
     "updates": "example-updates"
 }'
 ```
@@ -394,4 +425,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateCompanyVaults" \
 - TFA vaults cannot be updated through this operation
 - Either all updates succeed or none are applied
 - Updates are logged with count of vaults modified
+
+#### Success Message
+
+`Successfully updated company vaults`
 

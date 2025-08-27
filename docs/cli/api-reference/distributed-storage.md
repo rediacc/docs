@@ -1,6 +1,6 @@
-# Distributed-Storage
+# Distributed Storage
 
-Distributed-Storage operations.
+Manage distributed storage clusters and pools.
 
 ## Table of Contents
 
@@ -24,7 +24,6 @@ Distributed-Storage operations.
 - [update-machine-distributed-storage](#update-machine-distributed-storage)
 - [update-vault](#update-vault)
 
-
 ## create-cluster
 
 Create a distributed storage cluster
@@ -43,9 +42,12 @@ Creates a cluster configuration for distributed storage across multiple machines
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `vault` | string | No | - | JSON configuration for the cluster | `{"replication_factor": 3, "storage_class": "ssd"}` |
+| `vault` | string | No | - | JSON configuration for the cluster | {"replication_factor": 3, "storage_class": "ssd"} |
 | `vault-file` | string | No | - | File containing JSON vault data | cluster-config.json |
 | `cluster` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
@@ -62,7 +64,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStora
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "clusterName": "example-clusterName"
+    "vault": "{"replication_factor": 3, "storage_class": "ssd"}",
+    "vault-file": "cluster-config.json",
+    "cluster": "example-cluster"
 }'
 ```
 
@@ -79,8 +83,13 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStora
 - Vault data is encrypted using company master password
 - Cluster creation is logged in audit trail
 
+#### Success Message
+
+`Successfully created distributed storage cluster: {name} for team {team}`
 
 ## create-distributed-storage-pool
+
+create-distributed-storage-pool command
 
 #### API Information
 
@@ -96,11 +105,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStora
 | `team` | string | Yes | - |  |  |
 | `pool` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage create-distributed-storage-pool example-team
+rediacc distributed-storage create-distributed-storage-pool
 ```
 
 ##### Auto-Generated cURL Examples
@@ -111,14 +123,19 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStora
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "clusterName": "example-clusterName",
-    "teamName": "example-team",
-    "poolName": "example-poolName"
+    "cluster": "example-cluster",
+    "team": "example-team",
+    "pool": "example-pool"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## create-distributed-storage-rbd-clone
+
+create-distributed-storage-rbd-clone command
 
 #### API Information
 
@@ -136,11 +153,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStora
 | `team` | string | Yes | - |  |  |
 | `clone` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage create-distributed-storage-rbd-clone example-team
+rediacc distributed-storage create-distributed-storage-rbd-clone
 ```
 
 ##### Auto-Generated cURL Examples
@@ -151,16 +171,19 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStora
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "snapshotName": "example-snapshotName",
-    "imageName": "example-imageName",
-    "poolName": "example-poolName",
-    "teamName": "example-team",
-    "cloneName": "example-cloneName"
+    "snapshot": "example-snapshot",
+    "image": "example-image",
+    "pool": "example-pool"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## create-distributed-storage-rbd-image
+
+create-distributed-storage-rbd-image command
 
 #### API Information
 
@@ -177,11 +200,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStora
 | `image` | string | Yes | - |  |  |
 | `machine` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage create-distributed-storage-rbd-image example-team my-machine-01
+rediacc distributed-storage create-distributed-storage-rbd-image
 ```
 
 ##### Auto-Generated cURL Examples
@@ -192,15 +218,19 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStora
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "poolName": "example-poolName",
-    "teamName": "example-team",
-    "imageName": "example-imageName",
-    "machineName": "my-machine-01"
+    "pool": "example-pool",
+    "team": "example-team",
+    "image": "example-image"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## create-distributed-storage-rbd-snapshot
+
+create-distributed-storage-rbd-snapshot command
 
 #### API Information
 
@@ -217,11 +247,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStora
 | `team` | string | Yes | - |  |  |
 | `snapshot` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage create-distributed-storage-rbd-snapshot example-team
+rediacc distributed-storage create-distributed-storage-rbd-snapshot
 ```
 
 ##### Auto-Generated cURL Examples
@@ -232,13 +265,15 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateDistributedStora
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "imageName": "example-imageName",
-    "poolName": "example-poolName",
-    "teamName": "example-team",
-    "snapshotName": "example-snapshotName"
+    "image": "example-image",
+    "pool": "example-pool",
+    "team": "example-team"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## delete-cluster
 
@@ -261,6 +296,9 @@ Permanently removes a distributed storage cluster configuration. Does not delete
 | `force` | string | No | - | Skip confirmation prompt | --force |
 | `cluster` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
@@ -276,7 +314,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "clusterName": "example-clusterName"
+    "force": "--force",
+    "cluster": "example-cluster"
 }'
 ```
 
@@ -291,10 +330,19 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
 - Associated vault data is automatically cleaned up
 - Machine distributed storage flags remain unchanged
 - Operation is permanent and cannot be undone
-- Deletion is logged in audit trail for monitoring
+- Deletion is logged in audit trail for compliance
 
+#### Success Message
+
+`Successfully deleted distributed storage cluster: {name}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to delete distributed storage cluster '{name}' from team '{team}'?`
 
 ## delete-distributed-storage-pool
+
+delete-distributed-storage-pool command
 
 #### API Information
 
@@ -309,11 +357,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
 | `pool` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage delete-distributed-storage-pool example-team
+rediacc distributed-storage delete-distributed-storage-pool
 ```
 
 ##### Auto-Generated cURL Examples
@@ -324,13 +375,18 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "poolName": "example-poolName",
-    "teamName": "example-team"
+    "pool": "example-pool",
+    "team": "example-team"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## delete-distributed-storage-rbd-clone
+
+delete-distributed-storage-rbd-clone command
 
 #### API Information
 
@@ -348,11 +404,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
 | `pool` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage delete-distributed-storage-rbd-clone example-team
+rediacc distributed-storage delete-distributed-storage-rbd-clone
 ```
 
 ##### Auto-Generated cURL Examples
@@ -363,16 +422,19 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "cloneName": "example-cloneName",
-    "snapshotName": "example-snapshotName",
-    "imageName": "example-imageName",
-    "poolName": "example-poolName",
-    "teamName": "example-team"
+    "clone": "example-clone",
+    "snapshot": "example-snapshot",
+    "image": "example-image"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## delete-distributed-storage-rbd-image
+
+delete-distributed-storage-rbd-image command
 
 #### API Information
 
@@ -388,11 +450,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
 | `pool` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage delete-distributed-storage-rbd-image example-team
+rediacc distributed-storage delete-distributed-storage-rbd-image
 ```
 
 ##### Auto-Generated cURL Examples
@@ -403,14 +468,19 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "imageName": "example-imageName",
-    "poolName": "example-poolName",
-    "teamName": "example-team"
+    "image": "example-image",
+    "pool": "example-pool",
+    "team": "example-team"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## delete-distributed-storage-rbd-snapshot
+
+delete-distributed-storage-rbd-snapshot command
 
 #### API Information
 
@@ -427,11 +497,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
 | `pool` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage delete-distributed-storage-rbd-snapshot example-team
+rediacc distributed-storage delete-distributed-storage-rbd-snapshot
 ```
 
 ##### Auto-Generated cURL Examples
@@ -442,15 +515,19 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "snapshotName": "example-snapshotName",
-    "imageName": "example-imageName",
-    "poolName": "example-poolName",
-    "teamName": "example-team"
+    "snapshot": "example-snapshot",
+    "image": "example-image",
+    "pool": "example-pool"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## list-distributed-storage-cluster-machines
+
+list-distributed-storage-cluster-machines command
 
 #### API Information
 
@@ -463,6 +540,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteDistributedStora
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `cluster` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
@@ -479,18 +559,30 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageC
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "clusterName": "example-clusterName"
+    "cluster": "example-cluster"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## list-distributed-storage-clusters
+
+list-distributed-storage-clusters command
 
 #### API Information
 
 **Endpoint:** `POST /api/StoredProcedure/GetDistributedStorageClusters`
 
 **Authentication:** Required (token-based with Rediacc-RequestToken header)
+
+#### Parameters
+
+No parameters required.
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
@@ -506,12 +598,16 @@ rediacc distributed-storage list-distributed-storage-clusters
 curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageClusters" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
-  -d '{
-}'
+  -d '{}'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## list-distributed-storage-pools
+
+list-distributed-storage-pools command
 
 #### API Information
 
@@ -526,11 +622,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageC
 | `team` | string | Yes | - |  |  |
 | `cluster` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage list-distributed-storage-pools example-team
+rediacc distributed-storage list-distributed-storage-pools
 ```
 
 ##### Auto-Generated cURL Examples
@@ -541,13 +640,18 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageP
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "clusterName": "example-clusterName"
+    "team": "example-team",
+    "cluster": "example-cluster"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## list-distributed-storage-rbd-clones
+
+list-distributed-storage-rbd-clones command
 
 #### API Information
 
@@ -564,11 +668,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageP
 | `pool` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage list-distributed-storage-rbd-clones example-team
+rediacc distributed-storage list-distributed-storage-rbd-clones
 ```
 
 ##### Auto-Generated cURL Examples
@@ -579,15 +686,19 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageR
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "snapshotName": "example-snapshotName",
-    "imageName": "example-imageName",
-    "poolName": "example-poolName",
-    "teamName": "example-team"
+    "snapshot": "example-snapshot",
+    "image": "example-image",
+    "pool": "example-pool"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## list-distributed-storage-rbd-images
+
+list-distributed-storage-rbd-images command
 
 #### API Information
 
@@ -602,11 +713,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageR
 | `pool` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage list-distributed-storage-rbd-images example-team
+rediacc distributed-storage list-distributed-storage-rbd-images
 ```
 
 ##### Auto-Generated cURL Examples
@@ -617,13 +731,18 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageR
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "poolName": "example-poolName",
-    "teamName": "example-team"
+    "pool": "example-pool",
+    "team": "example-team"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## list-distributed-storage-rbd-snapshots
+
+list-distributed-storage-rbd-snapshots command
 
 #### API Information
 
@@ -639,11 +758,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageR
 | `pool` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage list-distributed-storage-rbd-snapshots example-team
+rediacc distributed-storage list-distributed-storage-rbd-snapshots
 ```
 
 ##### Auto-Generated cURL Examples
@@ -654,14 +776,19 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageR
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "imageName": "example-imageName",
-    "poolName": "example-poolName",
-    "teamName": "example-team"
+    "image": "example-image",
+    "pool": "example-pool",
+    "team": "example-team"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## update-distributed-storage-pool-vault
+
+update-distributed-storage-pool-vault command
 
 #### API Information
 
@@ -675,13 +802,16 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetDistributedStorageR
 |-----------|------|----------|---------|-------------|---------|
 | `pool` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
-| `vault_version` | string | No | - |  |  |
+| `vaultVersion` | string | No | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage update-distributed-storage-pool-vault example-team
+rediacc distributed-storage update-distributed-storage-pool-vault
 ```
 
 ##### Auto-Generated cURL Examples
@@ -692,13 +822,19 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateDistributedStora
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "poolName": "example-poolName",
-    "teamName": "example-team"
+    "pool": "example-pool",
+    "team": "example-team",
+    "vaultVersion": "example-vault_version"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## update-machine-distributed-storage
+
+update-machine-distributed-storage command
 
 #### API Information
 
@@ -714,11 +850,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateDistributedStora
 | `machine` | string | Yes | - |  |  |
 | `cluster` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage update-machine-distributed-storage example-team my-machine-01
+rediacc distributed-storage update-machine-distributed-storage
 ```
 
 ##### Auto-Generated cURL Examples
@@ -729,12 +868,15 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineDistribut
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "machineName": "my-machine-01",
-    "clusterName": "example-clusterName"
+    "team": "example-team",
+    "machine": "example-machine",
+    "cluster": "example-cluster"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## update-vault
 
@@ -755,16 +897,19 @@ Updates the encrypted configuration for a distributed storage cluster including 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `cluster` | string | Yes | - | Cluster name | main-cluster |
-| `vault` | string | No | - | JSON configuration data | `{"replication_factor": 3, "consistency_level": "strong"}` |
+| `vault` | string | No | - | JSON configuration data | {"replication_factor": 3, "consistency_level": "strong"} |
 | `vault-file` | string | No | - | File containing JSON vault data | cluster-config.json |
 | `vault-version` | string | No | - | Vault schema version (default: 1) | 2 |
-| `vault_version` | string | No | - |  |  |
+| `vaultVersion` | string | No | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc distributed-storage update-vault
+rediacc distributed-storage update-vault --cluster <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -775,7 +920,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateDistributedStora
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "clusterName": "example-clusterName"
+    "cluster": "main-cluster",
+    "vault": "{"replication_factor": 3, "consistency_level": "strong"}",
+    "vault-file": "cluster-config.json"
 }'
 ```
 
@@ -791,4 +938,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateDistributedStora
 - Each update increments vault version number
 - Previous vault data is completely replaced
 - Update is logged in audit trail
+
+#### Success Message
+
+`Successfully updated distributed storage cluster vault: {cluster}`
 

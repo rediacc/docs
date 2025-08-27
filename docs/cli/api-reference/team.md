@@ -1,13 +1,14 @@
 # Team
 
-Team operations.
+Team management commands.
 
 ## Table of Contents
 
 - [update-team-vault](#update-team-vault)
 
-
 ## update-team-vault
+
+update-team-vault command
 
 #### API Information
 
@@ -21,13 +22,16 @@ Team operations.
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - |  |  |
 | `vault` | string | No | - |  |  |
-| `vault_version` | string | No | - |  |  |
+| `vaultVersion` | string | No | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc team update-team-vault example-team
+rediacc team update-team-vault
 ```
 
 ##### Auto-Generated cURL Examples
@@ -38,7 +42,13 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateTeamVault" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team"
+    "team": "example-team",
+    "vault": "example-vault",
+    "vaultVersion": "example-vault_version"
 }'
 ```
+
+#### Success Message
+
+`Operation completed successfully`
 

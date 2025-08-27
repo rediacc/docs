@@ -1,6 +1,6 @@
 # User
 
-User operations.
+User management commands.
 
 ## Table of Contents
 
@@ -8,7 +8,6 @@ User operations.
 - [deactivate](#deactivate)
 - [update-email](#update-email)
 - [update-password](#update-password)
-
 
 ## activate
 
@@ -31,6 +30,7 @@ Activates a newly created user account using an activation code. Users must be a
 | `email` | string | Yes | - | Email address of user to activate | newuser@company.com |
 | `code` | string | No | - | Activation code (default: 111111) | 123456 |
 
+
 #### Examples
 
 ```bash
@@ -47,7 +47,7 @@ Activate with custom code
 
 ```bash
 # Basic usage (required parameters only)
-rediacc user activate
+rediacc user activate --email <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -56,9 +56,11 @@ rediacc user activate
 # Using credential authentication
 curl -X POST "https://www.rediacc.com/api/StoredProcedure/ActivateUserAccount" \
   -H "Content-Type: application/json" \
-  -H "Rediacc-UserEmail: user@example.com" \
+  -H "Rediacc-UserEmail: user@company.com" \
   -H "Rediacc-UserHash: YOUR_PASSWORD_HASH" \
   -d '{
+    "email": "newuser@company.com",
+    "code": "123456"
 }'
 ```
 
@@ -79,6 +81,9 @@ No authentication required for activation. Activation codes are set during user 
 - Counts toward company's active user limit
 - Activation is logged in audit trail
 
+#### Success Message
+
+`Successfully activated user: {email}`
 
 ## deactivate
 
@@ -101,6 +106,7 @@ Deactivates a user account, preventing login while preserving all data and histo
 | `email` | string | Yes | - | Email address of user to deactivate | user@company.com |
 | `force` | string | No | - | Skip confirmation prompt | --force |
 
+
 #### Examples
 
 ```bash
@@ -117,7 +123,7 @@ Deactivate without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc user deactivate
+rediacc user deactivate --email <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -128,7 +134,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateUserToDeactivate
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "userEmail": "example-userEmail"
+    "email": "user@company.com",
+    "force": "--force"
 }'
 ```
 
@@ -149,6 +156,13 @@ Deactivated users cannot log in but their data is preserved. Use for employees w
 - Deactivation is logged in audit trail
 - Pending tasks assigned to user continue
 
+#### Success Message
+
+`Successfully deactivated user: {email}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to deactivate user '{email}'?`
 
 ## update-email
 
@@ -168,8 +182,9 @@ Updates a user's email address across the system. The new email becomes the logi
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `current_email` | string | Yes | - | Current email address | old@company.com |
-| `new_email` | string | Yes | - | New email address | new@company.com |
+| `currentEmail` | string | Yes | - | Current email address | old@company.com |
+| `newEmail` | string | Yes | - | New email address | new@company.com |
+
 
 #### Examples
 
@@ -187,7 +202,7 @@ Update email after name change
 
 ```bash
 # Basic usage (required parameters only)
-rediacc user update-email
+rediacc user update-email --current-email <value> --new-email <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -198,8 +213,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateUserEmail" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "currentUserEmail": "example-currentUserEmail",
-    "newUserEmail": "example-newUserEmail"
+    "currentEmail": "old@company.com",
+    "newEmail": "new@company.com"
 }'
 ```
 
@@ -220,6 +235,9 @@ New email must be unique. User must log in with new email after change. Consider
 - Change notification sent to both email addresses
 - Email change is logged in audit trail
 
+#### Success Message
+
+`Successfully updated user email: {current_email} → {new_email}`
 
 ## update-password
 
@@ -241,6 +259,7 @@ Updates the password for the currently authenticated user. The new password is h
 |-----------|------|----------|---------|-------------|---------|
 | `new-password` | string | Yes | - | New password (will be prompted if not provided) | SecureP@ssw0rd! |
 
+
 #### Examples
 
 ```bash
@@ -257,7 +276,7 @@ Change password directly (less secure)
 
 ```bash
 # Basic usage (required parameters only)
-rediacc user update-password
+rediacc user update-password --new-password <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -268,6 +287,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateUserPassword" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
+    "new-password": "SecureP@ssw0rd!"
 }'
 ```
 
@@ -287,4 +307,8 @@ Requires current authentication. Password requirements depend on company policy.
 - Account must be activated to change password
 - No password complexity rules enforced by system
 - Password change is logged in audit trail
+
+#### Success Message
+
+`Successfully updated user password`
 

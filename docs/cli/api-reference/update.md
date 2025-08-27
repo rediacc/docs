@@ -17,7 +17,6 @@ Update existing resources.
 - [storage-vault](#storage-vault)
 - [team](#team)
 
-
 ## bridge
 
 Rename a bridge
@@ -37,14 +36,17 @@ Changes the name of an existing bridge within a region. Machine assignments rema
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `region` | string | Yes | - | Region containing the bridge | us-east |
-| `current_bridge_name` | string | Yes | - |  |  |
-| `new_name` | string | Yes | - | New bridge name (unique within region) | new-bridge |
+| `currentBridgeName` | string | Yes | - |  |  |
+| `newName` | string | Yes | - | New bridge name (unique within region) | new-bridge |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc update bridge us-east
+rediacc update bridge --region <value> --new-name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -55,9 +57,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateBridgeName" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "regionName": "us-east",
-    "currentBridgeName": "example-currentBridgeName",
-    "newBridgeName": "example-newBridgeName"
+    "region": "us-east",
+    "currentBridgeName": "example-current_bridge_name",
+    "newName": "new-bridge"
 }'
 ```
 
@@ -74,6 +76,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateBridgeName" \
 - Active connections are not interrupted
 - Name change is tracked in audit logs
 
+#### Success Message
+
+`Successfully updated bridge name: {name} → {new_name}`
 
 ## machine
 
@@ -94,14 +99,17 @@ Changes the name of an existing machine. The new name must be unique across the 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that owns the machine | production-team |
-| `current_machine_name` | string | Yes | - |  |  |
-| `new_name` | string | Yes | - | New machine name (company-wide unique) | new-server |
+| `currentMachineName` | string | Yes | - |  |  |
+| `newName` | string | Yes | - | New machine name (company-wide unique) | new-server |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc update machine example-team
+rediacc update machine --team <value> --new-name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -112,9 +120,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineName" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "currentMachineName": "example-currentMachineName",
-    "newMachineName": "example-newMachineName"
+    "team": "production-team",
+    "currentMachineName": "example-current_machine_name",
+    "newName": "new-server"
 }'
 ```
 
@@ -131,6 +139,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineName" \
 - Repository associations are maintained
 - Name change is tracked in audit logs
 
+#### Success Message
+
+`Successfully updated machine name: {name} → {new_name}`
 
 ## machine-bridge
 
@@ -152,7 +163,10 @@ Changes which bridge processes queue items for a machine. Useful for load balanc
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that owns the machine | production-team |
 | `machine` | string | Yes | - |  |  |
-| `new_name` | string | Yes | - |  |  |
+| `newName` | string | Yes | - |  |  |
+| `name` | string | Yes | - |  |  |
+| `newBridge` | string | Yes | - |  |  |
+
 
 #### Examples
 
@@ -170,7 +184,7 @@ Reassign test server to local bridge
 
 ```bash
 # Basic usage (required parameters only)
-rediacc update machine-bridge example-team my-machine-01
+rediacc update machine-bridge --team <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -181,9 +195,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineAssignedB
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "machineName": "my-machine-01",
-    "newBridgeName": "example-newBridgeName"
+    "team": "production-team",
+    "machine": "example-machine",
+    "newName": "example-new_name"
 }'
 ```
 
@@ -204,6 +218,9 @@ New queue items will be processed by the new bridge. Existing items in PENDING s
 - Machine remains accessible through new bridge
 - Assignment change is tracked in audit logs
 
+#### Success Message
+
+`Successfully updated machine bridge: {name} → {new_bridge}`
 
 ## machine-status
 
@@ -226,12 +243,16 @@ Sets a custom status message for a machine, useful for maintenance windows, debu
 | `team` | string | Yes | - | Team that owns the machine | production-team |
 | `status` | string | Yes | - |  |  |
 | `machine` | string | Yes | - |  |  |
+| `name` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc update machine-status example-team my-machine-01
+rediacc update machine-status --team <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -242,9 +263,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineStatus" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "machineName": "my-machine-01",
-    "machineStatus": "example-machineStatus"
+    "team": "production-team",
+    "status": "example-status",
+    "machine": "example-machine"
 }'
 ```
 
@@ -262,6 +283,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateMachineStatus" \
 - Status update is tracked in audit logs
 - Bridges can update status of any machine in teams where they own at least one machine
 
+#### Success Message
+
+`Successfully updated machine status: {name}`
 
 ## region
 
@@ -281,14 +305,17 @@ Changes the name of an existing region. All bridges within the region remain ass
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `new_name` | string | Yes | - | New region name (must be unique) | new-region |
-| `current_region_name` | string | Yes | - |  |  |
+| `newName` | string | Yes | - | New region name (must be unique) | new-region |
+| `currentRegionName` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc update region
+rediacc update region --new-name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -299,8 +326,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateRegionName" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "currentRegionName": "example-currentRegionName",
-    "newRegionName": "example-newRegionName"
+    "newName": "new-region",
+    "currentRegionName": "example-current_region_name"
 }'
 ```
 
@@ -317,6 +344,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateRegionName" \
 - Region vault data remains unchanged
 - Name change is tracked in audit logs
 
+#### Success Message
+
+`Successfully updated region name: {name} → {new_name}`
 
 ## repository
 
@@ -337,14 +367,17 @@ Changes the name of an existing repository within a team. Repository data and co
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that owns the repository | dev-team |
-| `current_repo_name` | string | Yes | - |  |  |
-| `new_name` | string | Yes | - | New repository name (unique within team) | new-app |
+| `currentRepoName` | string | Yes | - |  |  |
+| `newName` | string | Yes | - | New repository name (unique within team) | new-app |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc update repository example-team
+rediacc update repository --team <value> --new-name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -355,9 +388,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateRepositoryName" 
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "currentRepoName": "example-currentRepoName",
-    "newRepoName": "example-newRepoName"
+    "team": "dev-team",
+    "currentRepoName": "example-current_repo_name",
+    "newName": "new-app"
 }'
 ```
 
@@ -374,6 +407,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateRepositoryName" 
 - Schedule references are automatically updated
 - Name change is tracked in audit logs
 
+#### Success Message
+
+`Successfully updated repository name: {name} → {new_name}`
 
 ## repository-vault
 
@@ -394,9 +430,10 @@ Updates the encrypted configuration data for a repository. Used to modify reposi
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that owns the repository | dev-team |
-| `vault` | string | No | - | JSON configuration data | `{"size": "20G", "env": {"NODE_ENV": "production"}}` |
+| `vault` | string | No | - | JSON configuration data | {"size": "20G", "env": {"NODE_ENV": "production"}} |
 | `repository` | string | Yes | - |  |  |
-| `vault_version` | string | No | - |  |  |
+| `vaultVersion` | string | No | - |  |  |
+
 
 #### Examples
 
@@ -414,7 +451,7 @@ Update repository config from file
 
 ```bash
 # Basic usage (required parameters only)
-rediacc update repository-vault example-team my-repo
+rediacc update repository-vault --team <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -425,8 +462,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateRepositoryVault"
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "repoName": "my-repo"
+    "team": "dev-team",
+    "vault": "{"size": "20G", "env": {"NODE_ENV": "production"}}",
+    "repository": "example-repository"
 }'
 ```
 
@@ -447,6 +485,9 @@ Vault data is encrypted. Changes may require repository restart. Use 'inspect re
 - Changes take effect on next repository mount
 - Vault update is tracked in audit logs
 
+#### Success Message
+
+`Successfully updated repository vault: {name}`
 
 ## schedule
 
@@ -467,14 +508,17 @@ Changes the name of an existing schedule. The cron expression and task configura
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that owns the schedule | ops-team |
-| `current_schedule_name` | string | Yes | - |  |  |
-| `new_name` | string | Yes | - | New schedule name (unique within team) | daily-backup |
+| `currentScheduleName` | string | Yes | - |  |  |
+| `newName` | string | Yes | - | New schedule name (unique within team) | daily-backup |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc update schedule example-team
+rediacc update schedule --team <value> --new-name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -485,9 +529,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateScheduleName" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "currentScheduleName": "example-currentScheduleName",
-    "newScheduleName": "example-newScheduleName"
+    "team": "ops-team",
+    "currentScheduleName": "example-current_schedule_name",
+    "newName": "daily-backup"
 }'
 ```
 
@@ -504,6 +548,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateScheduleName" \
 - Execution history is maintained
 - Name change is tracked in audit logs
 
+#### Success Message
+
+`Successfully updated schedule name: {name} → {new_name}`
 
 ## schedule-vault
 
@@ -524,9 +571,10 @@ Updates the encrypted vault containing schedule settings including cron expressi
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that owns the schedule | ops-team |
-| `vault` | string | No | - | JSON with schedule configuration | `{"cron": "0 2 * * *", "function": "repo_push", "machine": "backup-01", "params": {...}}` |
+| `vault` | string | No | - | JSON with schedule configuration | {"cron": "0 2 * * *", "function": "repo_push", "machine": "backup-01", "params": {...}} |
 | `schedule` | string | Yes | - |  |  |
-| `vault_version` | string | No | - |  |  |
+| `vaultVersion` | string | No | - |  |  |
+
 
 #### Examples
 
@@ -544,7 +592,7 @@ Update complete schedule config
 
 ```bash
 # Basic usage (required parameters only)
-rediacc update schedule-vault example-team daily-backup
+rediacc update schedule-vault --team <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -555,8 +603,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateScheduleVault" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "scheduleName": "daily-backup"
+    "team": "ops-team",
+    "vault": "{"cron": "0 2 * * *", "function": "repo_push", "machine": "backup-01", "params": {...}}",
+    "schedule": "example-schedule"
 }'
 ```
 
@@ -577,6 +626,9 @@ Requires Premium or Elite subscription. Changes take effect at next scheduled ru
 - Changes take effect on next schedule evaluation
 - Vault update is tracked in audit logs
 
+#### Success Message
+
+`Successfully updated schedule vault: {name}`
 
 ## storage
 
@@ -597,14 +649,17 @@ Changes the name of an existing storage configuration. The actual storage backen
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that owns the storage | backup-team |
-| `current_storage_name` | string | Yes | - |  |  |
-| `new_name` | string | Yes | - | New storage name (unique within team) | new-backup |
+| `currentStorageName` | string | Yes | - |  |  |
+| `newName` | string | Yes | - | New storage name (unique within team) | new-backup |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc update storage example-team
+rediacc update storage --team <value> --new-name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -615,9 +670,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateStorageName" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "currentStorageName": "example-currentStorageName",
-    "newStorageName": "example-newStorageName"
+    "team": "backup-team",
+    "currentStorageName": "example-current_storage_name",
+    "newName": "new-backup"
 }'
 ```
 
@@ -634,6 +689,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateStorageName" \
 - Active backup operations are not affected
 - Name change is tracked in audit logs
 
+#### Success Message
+
+`Successfully updated storage name: {name} → {new_name}`
 
 ## storage-vault
 
@@ -654,9 +712,10 @@ Updates the encrypted vault containing storage credentials and settings. Used to
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that owns the storage | backup-team |
-| `vault` | string | No | - | JSON with storage credentials and config | `{"type": "s3", "bucket": "backups", "access_key": "...", "secret_key": "..."}` |
+| `vault` | string | No | - | JSON with storage credentials and config | {"type": "s3", "bucket": "backups", "access_key": "...", "secret_key": "..."} |
 | `storage` | string | Yes | - |  |  |
-| `vault_version` | string | No | - |  |  |
+| `vaultVersion` | string | No | - |  |  |
+
 
 #### Examples
 
@@ -674,7 +733,7 @@ Change Azure container
 
 ```bash
 # Basic usage (required parameters only)
-rediacc update storage-vault example-team backup-storage
+rediacc update storage-vault --team <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -685,8 +744,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateStorageVault" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "storageName": "backup-storage"
+    "team": "backup-team",
+    "vault": "{"type": "s3", "bucket": "backups", "access_key": "...", "secret_key": "..."}",
+    "storage": "example-storage"
 }'
 ```
 
@@ -707,6 +767,9 @@ Credentials are encrypted. Test access after updating. Supports S3, Azure Blob, 
 - Changes take effect on next backup operation
 - Vault update is tracked in audit logs
 
+#### Success Message
+
+`Successfully updated storage vault: {name}`
 
 ## team
 
@@ -726,14 +789,17 @@ Changes the name of an existing team. All resources remain associated with the t
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `new_name` | string | Yes | - | New team name (must be unique) | new-team-name |
-| `current_team_name` | string | Yes | - |  |  |
+| `newName` | string | Yes | - | New team name (must be unique) | new-team-name |
+| `currentTeamName` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc update team
+rediacc update team --new-name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -744,8 +810,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateTeamName" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "currentTeamName": "example-currentTeamName",
-    "newTeamName": "example-newTeamName"
+    "newName": "new-team-name",
+    "currentTeamName": "example-current_team_name"
 }'
 ```
 
@@ -761,4 +827,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateTeamName" \
 - All references to the team are automatically updated
 - Team vault data remains unchanged
 - Name change is tracked in audit logs
+
+#### Success Message
+
+`Successfully updated team name: {name} → {new_name}`
 

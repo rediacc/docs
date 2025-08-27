@@ -1,6 +1,6 @@
 # Queue
 
-Queue operations.
+Queue management and operations.
 
 ## Table of Contents
 
@@ -11,7 +11,6 @@ Queue operations.
 - [retry](#retry)
 - [trace](#trace)
 - [update-response](#update-response)
-
 
 ## cancel
 
@@ -31,8 +30,9 @@ Marks a queue item as cancelled, preventing further processing. If already proce
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `task_id` | string | Yes | - | Task ID (GUID) to cancel | 550e8400-e29b-41d4-a716-446655440000 |
+| `taskId` | string | Yes | - | Task ID (GUID) to cancel | 550e8400-e29b-41d4-a716-446655440000 |
 | `force` | string | No | - | Skip confirmation prompt | --force |
+
 
 #### Examples
 
@@ -50,7 +50,7 @@ Cancel without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc queue cancel
+rediacc queue cancel --task-id <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -61,7 +61,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CancelQueueItem" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "taskId": "example-taskId"
+    "taskId": "550e8400-e29b-41d4-a716-446655440000",
+    "force": "--force"
 }'
 ```
 
@@ -82,6 +83,13 @@ Cancellation is immediate for PENDING items. PROCESSING items may continue brief
 - Cancellation is logged in queue item history
 - Associated resources may need manual cleanup
 
+#### Success Message
+
+`Successfully cancelled queue item: {task_id}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to cancel queue item '{task_id}'?`
 
 ## complete
 
@@ -101,15 +109,18 @@ Marks a processing queue item as successfully completed with optional result dat
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `task_id` | string | Yes | - | Task ID (GUID) to complete | 550e8400-e29b-41d4-a716-446655440000 |
-| `vault` | string | No | - | JSON result data to store | `{"status": "success", "output": "Task completed"}` |
-| `final_status` | string | Yes | - |  |  |
+| `taskId` | string | Yes | - | Task ID (GUID) to complete | 550e8400-e29b-41d4-a716-446655440000 |
+| `vault` | string | No | - | JSON result data to store | {"status": "success", "output": "Task completed"} |
+| `finalStatus` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc queue complete
+rediacc queue complete --task-id <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -120,8 +131,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateQueueItemToCompl
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "taskId": "example-taskId",
-    "finalStatus": "example-finalStatus"
+    "taskId": "550e8400-e29b-41d4-a716-446655440000",
+    "vault": "{"status": "success", "output": "Task completed"}",
+    "finalStatus": "example-final_status"
 }'
 ```
 
@@ -138,6 +150,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateQueueItemToCompl
 - Completion is logged in task history
 - Bridge that processed task is recorded
 
+#### Success Message
+
+`Successfully completed queue item: {task_id}`
 
 ## get-next
 
@@ -158,6 +173,7 @@ Retrieves and assigns the next available queue items to the caller. Used by brid
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `count` | string | No | - | Number of items to retrieve (default: 3) | 5 |
+
 
 #### Examples
 
@@ -186,6 +202,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetQueueItemsNext" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
+    "count": "5"
 }'
 ```
 
@@ -205,7 +222,6 @@ Designed for bridges. Items are assigned to caller's identity. Returns empty arr
 - Caller identity is recorded on assigned items
 - Items expire if not completed within timeout
 - Load balances across available bridges
-
 
 ## list
 
@@ -230,23 +246,26 @@ View queue items across teams with powerful filtering options. Monitor task stat
 | `bridge` | string | No | - | Filter by specific bridge | us-east-bridge |
 | `status` | string | No | - | Filter by status (PENDING,ASSIGNED,PROCESSING,COMPLETED,FAILED,CANCELLED) | PENDING,PROCESSING |
 | `priority` | string | No | - | Filter by exact priority (1-5) | 1 |
-| `created_by_user_email` | string | Yes | - |  |  |
-| `min_priority` | string | Yes | - |  |  |
-| `max_priority` | string | Yes | - |  |  |
-| `date_from` | string | Yes | - |  |  |
-| `date_to` | string | Yes | - |  |  |
-| `task_id` | string | Yes | - |  |  |
-| `include_completed` | string | Yes | - |  |  |
-| `include_cancelled` | string | Yes | - |  |  |
-| `only_stale` | string | Yes | - |  |  |
-| `stale_threshold_minutes` | string | Yes | - |  |  |
-| `max_records` | integer | Yes | - |  |  |
+| `createdByUserEmail` | string | Yes | - |  |  |
+| `minPriority` | string | Yes | - |  |  |
+| `maxPriority` | string | Yes | - |  |  |
+| `dateFrom` | string | Yes | - |  |  |
+| `dateTo` | string | Yes | - |  |  |
+| `taskId` | string | Yes | - |  |  |
+| `includeCompleted` | string | Yes | - |  |  |
+| `includeCancelled` | string | Yes | - |  |  |
+| `onlyStale` | string | Yes | - |  |  |
+| `staleThresholdMinutes` | string | Yes | - |  |  |
+| `maxRecords` | integer | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc queue list example-team my-machine-01 bridge-01
+rediacc queue list
 ```
 
 ##### Auto-Generated cURL Examples
@@ -257,18 +276,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetTeamQueueItems" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "priority": "example-priority",
-    "minPriority": "example-minPriority",
-    "maxPriority": "example-maxPriority",
-    "dateFrom": "example-dateFrom",
-    "dateTo": "example-dateTo",
-    "taskId": "example-taskId",
-    "includeCompleted": "example-includeCompleted",
-    "includeCancelled": "example-includeCancelled",
-    "onlyStale": "example-onlyStale",
-    "staleThresholdMinutes": "example-staleThresholdMinutes",
-    "maxRecords": 100,
-    "createdByUserEmail": "example-createdByUserEmail"
+    "team": "prod,staging",
+    "machine": "web-server-01",
+    "bridge": "us-east-bridge"
 }'
 ```
 
@@ -284,7 +294,6 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetTeamQueueItems" \
 - Shows task ID, status, priority, and timestamps
 - Response data is decrypted if master password is set
 - High-priority items (1-2) are highlighted in output
-
 
 ## retry
 
@@ -304,7 +313,8 @@ Creates a new queue item with the same configuration as a failed item. The origi
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `task_id` | string | Yes | - | Task ID (GUID) of failed item to retry | 550e8400-e29b-41d4-a716-446655440000 |
+| `taskId` | string | Yes | - | Task ID (GUID) of failed item to retry | 550e8400-e29b-41d4-a716-446655440000 |
+
 
 #### Examples
 
@@ -322,7 +332,7 @@ Retry all failed tasks
 
 ```bash
 # Basic usage (required parameters only)
-rediacc queue retry
+rediacc queue retry --task-id <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -333,7 +343,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/RetryFailedQueueItem" 
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "taskId": "example-taskId"
+    "taskId": "550e8400-e29b-41d4-a716-446655440000"
 }'
 ```
 
@@ -354,6 +364,9 @@ Only FAILED items can be retried. Creates a new item with same priority and conf
 - Links to original item for audit trail
 - May fail again if underlying issue not resolved
 
+#### Success Message
+
+`Successfully retried queue item: {task_id}`
 
 ## trace
 
@@ -373,7 +386,8 @@ Retrieves detailed execution history and logs for a specific queue item, includi
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `task_id` | string | Yes | - | Task ID (GUID) to trace | 550e8400-e29b-41d4-a716-446655440000 |
+| `taskId` | string | Yes | - | Task ID (GUID) to trace | 550e8400-e29b-41d4-a716-446655440000 |
+
 
 #### Examples
 
@@ -391,7 +405,7 @@ Extract logs from trace
 
 ```bash
 # Basic usage (required parameters only)
-rediacc queue trace
+rediacc queue trace --task-id <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -402,7 +416,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetQueueItemTrace" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "taskId": "example-taskId"
+    "taskId": "550e8400-e29b-41d4-a716-446655440000"
 }'
 ```
 
@@ -423,7 +437,6 @@ Shows complete task lifecycle. Useful for debugging failed tasks or monitoring e
 - Vault data shown if master password is set
 - Access is logged in audit trail
 
-
 ## update-response
 
 Update progress/status of a processing queue item
@@ -442,8 +455,9 @@ Updates a queue item with intermediate results or progress information while it'
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `task_id` | string | Yes | - | Task ID (GUID) to update | 550e8400-e29b-41d4-a716-446655440000 |
-| `vault` | string | No | - | JSON progress data | `{"progress": 50, "status": "Processing file 2 of 4"}` |
+| `taskId` | string | Yes | - | Task ID (GUID) to update | 550e8400-e29b-41d4-a716-446655440000 |
+| `vault` | string | No | - | JSON progress data | {"progress": 50, "status": "Processing file 2 of 4"} |
+
 
 #### Examples
 
@@ -461,7 +475,7 @@ Update from status file
 
 ```bash
 # Basic usage (required parameters only)
-rediacc queue update-response
+rediacc queue update-response --task-id <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -472,7 +486,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateQueueItemRespons
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "taskId": "example-taskId"
+    "taskId": "550e8400-e29b-41d4-a716-446655440000",
+    "vault": "{"progress": 50, "status": "Processing file 2 of 4"}"
 }'
 ```
 
@@ -492,4 +507,8 @@ Used by bridges during task execution. Can be called multiple times. Does not ch
 - Each update includes timestamp
 - Previous responses are preserved
 - Can be used to stream output data
+
+#### Success Message
+
+`Successfully updated queue item response: {task_id}`
 

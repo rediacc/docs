@@ -1,6 +1,6 @@
 # Clone
 
-Clone operations.
+Clone resources and configurations.
 
 ## Table of Contents
 
@@ -10,8 +10,9 @@ Clone operations.
 - [update-clone-machine-assignments](#update-clone-machine-assignments)
 - [update-clone-machine-removals](#update-clone-machine-removals)
 
-
 ## list-available-machines-for-clone
+
+list-available-machines-for-clone command
 
 #### API Information
 
@@ -25,11 +26,14 @@ Clone operations.
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc clone list-available-machines-for-clone example-team
+rediacc clone list-available-machines-for-clone
 ```
 
 ##### Auto-Generated cURL Examples
@@ -40,12 +44,17 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetAvailableMachinesFo
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team"
+    "team": "example-team"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## list-clone-machine-assignment-validation
+
+list-clone-machine-assignment-validation command
 
 #### API Information
 
@@ -58,13 +67,16 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetAvailableMachinesFo
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - |  |  |
-| `machine_names` | string | Yes | - |  |  |
+| `machineNames` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc clone list-clone-machine-assignment-validation example-team
+rediacc clone list-clone-machine-assignment-validation
 ```
 
 ##### Auto-Generated cURL Examples
@@ -75,13 +87,18 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCloneMachineAssignm
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "machineNames": "example-machineNames"
+    "team": "example-team",
+    "machineNames": "example-machine_names"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## list-clone-machines
+
+list-clone-machines command
 
 #### API Information
 
@@ -99,11 +116,14 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCloneMachineAssignm
 | `pool` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
 
+
+#### Examples
+
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc clone list-clone-machines example-team
+rediacc clone list-clone-machines
 ```
 
 ##### Auto-Generated cURL Examples
@@ -114,16 +134,19 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCloneMachines" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "cloneName": "example-cloneName",
-    "snapshotName": "example-snapshotName",
-    "imageName": "example-imageName",
-    "poolName": "example-poolName",
-    "teamName": "example-team"
+    "clone": "example-clone",
+    "snapshot": "example-snapshot",
+    "image": "example-image"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## update-clone-machine-assignments
+
+update-clone-machine-assignments command
 
 #### API Information
 
@@ -140,13 +163,16 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetCloneMachines" \
 | `image` | string | Yes | - |  |  |
 | `pool` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
-| `machine_names` | string | Yes | - |  |  |
+| `machineNames` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc clone update-clone-machine-assignments example-team
+rediacc clone update-clone-machine-assignments
 ```
 
 ##### Auto-Generated cURL Examples
@@ -157,17 +183,19 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateCloneMachineAssi
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "cloneName": "example-cloneName",
-    "snapshotName": "example-snapshotName",
-    "imageName": "example-imageName",
-    "poolName": "example-poolName",
-    "teamName": "example-team",
-    "machineNames": "example-machineNames"
+    "clone": "example-clone",
+    "snapshot": "example-snapshot",
+    "image": "example-image"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## update-clone-machine-removals
+
+update-clone-machine-removals command
 
 #### API Information
 
@@ -184,13 +212,16 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateCloneMachineAssi
 | `image` | string | Yes | - |  |  |
 | `pool` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
-| `machine_names` | string | Yes | - |  |  |
+| `machineNames` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc clone update-clone-machine-removals example-team
+rediacc clone update-clone-machine-removals
 ```
 
 ##### Auto-Generated cURL Examples
@@ -201,12 +232,13 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateCloneMachineRemo
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "cloneName": "example-cloneName",
-    "snapshotName": "example-snapshotName",
-    "imageName": "example-imageName",
-    "poolName": "example-poolName",
-    "teamName": "example-team",
-    "machineNames": "example-machineNames"
+    "clone": "example-clone",
+    "snapshot": "example-snapshot",
+    "image": "example-image"
 }'
 ```
+
+#### Success Message
+
+`Operation completed successfully`
 

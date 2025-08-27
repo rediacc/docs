@@ -1,12 +1,11 @@
 # Bridge
 
-Bridge operations.
+Bridge management and operations.
 
 ## Table of Contents
 
 - [reset-auth](#reset-auth)
 - [update-bridge-vault](#update-bridge-vault)
-
 
 ## reset-auth
 
@@ -28,14 +27,17 @@ Resets the authentication credentials for a bridge. The running bridge process w
 |-----------|------|----------|---------|-------------|---------|
 | `name` | string | Yes | - | Bridge name to reset | main-bridge |
 | `force` | string | No | - | Skip confirmation prompt | --force |
-| `cloud_managed` | string | No | - |  |  |
+| `cloudManaged` | string | No | - |  |  |
 | `bridge` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc bridge reset-auth bridge-01 example-name
+rediacc bridge reset-auth --name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -46,7 +48,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/ResetBridgeAuthorizati
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "bridgeName": "bridge-01"
+    "name": "main-bridge",
+    "force": "--force",
+    "cloudManaged": "example-cloud_managed"
 }'
 ```
 
@@ -63,8 +67,17 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/ResetBridgeAuthorizati
 - Token reset is tracked in audit logs for security
 - New token must be securely transmitted to bridge operator
 
+#### Success Message
+
+`Successfully reset authorization for bridge: {name}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to reset authorization for bridge '{name}'? This will generate new credentials.`
 
 ## update-bridge-vault
+
+update-bridge-vault command
 
 #### API Information
 
@@ -78,13 +91,17 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/ResetBridgeAuthorizati
 |-----------|------|----------|---------|-------------|---------|
 | `region` | string | Yes | - |  |  |
 | `bridge` | string | Yes | - |  |  |
-| `vault_version` | string | No | - |  |  |
+| `vaultVersion` | string | No | - |  |  |
+| `name` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc bridge update-bridge-vault bridge-01 us-east
+rediacc bridge update-bridge-vault
 ```
 
 ##### Auto-Generated cURL Examples
@@ -95,8 +112,13 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateBridgeVault" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "regionName": "us-east",
-    "bridgeName": "bridge-01"
+    "region": "example-region",
+    "bridge": "example-bridge",
+    "vaultVersion": "example-vault_version"
 }'
 ```
+
+#### Success Message
+
+`Operation completed successfully`
 

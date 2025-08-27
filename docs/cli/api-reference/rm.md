@@ -1,6 +1,6 @@
-# Rm
+# Remove
 
-Remove resources from the system.
+Remove/delete resources from the system.
 
 ## Table of Contents
 
@@ -12,7 +12,6 @@ Remove resources from the system.
 - [schedule](#schedule)
 - [storage](#storage)
 - [team](#team)
-
 
 ## bridge
 
@@ -34,6 +33,8 @@ Removes a bridge configuration. Ensure no machines are assigned to this bridge a
 |-----------|------|----------|---------|-------------|---------|
 | `region` | string | Yes | - | Region containing the bridge | us-east |
 | `bridge` | string | Yes | - |  |  |
+| `name` | string | Yes | - |  |  |
+
 
 #### Examples
 
@@ -51,7 +52,7 @@ Force delete without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc rm bridge bridge-01 us-east
+rediacc rm bridge --region <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -62,8 +63,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteBridge" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "regionName": "us-east",
-    "bridgeName": "bridge-01"
+    "region": "us-east",
+    "bridge": "example-bridge",
+    "name": "example-name"
 }'
 ```
 
@@ -82,8 +84,15 @@ Cannot delete if machines are assigned. Reassign machines first using 'update ma
 - Only bridges with FAILED, COMPLETED, or CANCELLED queue items can be deleted
 - Deletion will also remove all bridge vault data
 - Operation is permanent and cannot be undone
-- Bridge deletion is tracked in audit logs for monitoring
+- Bridge deletion is tracked in audit logs for compliance
 
+#### Success Message
+
+`Successfully deleted bridge: {name}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to delete bridge '{name}' from region '{region}'?`
 
 ## machine
 
@@ -105,6 +114,8 @@ Permanently removes a machine configuration. Does not affect the actual server, 
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that owns the machine | dev-team |
 | `machine` | string | Yes | - |  |  |
+| `name` | string | Yes | - |  |  |
+
 
 #### Examples
 
@@ -122,7 +133,7 @@ Delete without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc rm machine example-team my-machine-01
+rediacc rm machine --team <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -133,8 +144,9 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteMachine" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "machineName": "my-machine-01"
+    "team": "dev-team",
+    "machine": "example-machine",
+    "name": "example-name"
 }'
 ```
 
@@ -155,6 +167,13 @@ Check for pending queue items before deletion. The actual server is not affected
 - No special admin privileges required beyond team membership
 - Actual server is not affected, only Rediacc configuration removed
 
+#### Success Message
+
+`Successfully deleted machine: {name}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to delete machine '{name}' from team '{team}'?`
 
 ## queue-item
 
@@ -174,8 +193,9 @@ Removes a pending queue item to prevent execution. Only PENDING or CANCELLED ite
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `taskid` | string | Yes | - |  | - |
-| `task_id` | string | Yes | - |  |  |
+| `taskid` | string | Yes | - |  |  |
+| `taskId` | string | Yes | - |  |  |
+
 
 #### Examples
 
@@ -204,7 +224,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteQueueItem" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "taskId": "example-taskId"
+    "taskid": "example-taskid",
+    "taskId": "example-task_id"
 }'
 ```
 
@@ -225,6 +246,13 @@ Cannot delete running or completed items. Use 'queue cancel' for running tasks. 
 - Operation is permanent and cannot be undone
 - Queue item deletion is tracked in audit logs
 
+#### Success Message
+
+`Successfully deleted queue item: {task_id}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to delete queue item '{task_id}'?`
 
 ## region
 
@@ -247,6 +275,7 @@ Removes a region and cascades deletion to all bridges within it. Ensure no machi
 | `name` | string | Yes | - | Region name to delete | old-region |
 | `force` | string | No | - | Skip confirmation prompt | --force |
 
+
 #### Examples
 
 ```bash
@@ -263,7 +292,7 @@ Force delete without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc rm region example-name
+rediacc rm region --name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -274,7 +303,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteRegion" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "regionName": "us-east"
+    "name": "old-region",
+    "force": "--force"
 }'
 ```
 
@@ -293,8 +323,15 @@ WARNING: Cascades to all bridges in the region. Cannot delete if bridges have as
 - All bridges must be deleted or moved before region deletion
 - Region vault data will be permanently removed
 - Operation is permanent and cannot be undone
-- Region deletion is tracked in audit logs for monitoring
+- Region deletion is tracked in audit logs for compliance
 
+#### Success Message
+
+`Successfully deleted region: {name}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to delete region '{name}'? This will remove all bridges in the region.`
 
 ## repository
 
@@ -314,8 +351,9 @@ Permanently removes a repository and all its data. The repository's Docker conta
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `team` | string | Yes | - |  | - |
+| `team` | string | Yes | - |  |  |
 | `repository` | string | Yes | - |  |  |
+
 
 #### Examples
 
@@ -333,7 +371,7 @@ Force delete without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc rm repository example-team my-repo
+rediacc rm repository
 ```
 
 ##### Auto-Generated cURL Examples
@@ -344,8 +382,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteRepository" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "repoName": "my-repo"
+    "team": "example-team",
+    "repository": "example-repository"
 }'
 ```
 
@@ -366,6 +404,13 @@ Ensure all data is backed up before deletion. Running containers will be stopped
 - Operation is permanent and cannot be undone
 - Repository deletion is tracked in audit logs
 
+#### Success Message
+
+`Successfully deleted repository: {name}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to delete repository '{name}' from team '{team}'?`
 
 ## schedule
 
@@ -385,8 +430,9 @@ Permanently removes a scheduled task. Any pending executions will be cancelled, 
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `team` | string | Yes | - |  | - |
+| `team` | string | Yes | - |  |  |
 | `schedule` | string | Yes | - |  |  |
+
 
 #### Examples
 
@@ -404,7 +450,7 @@ Force delete without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc rm schedule example-team daily-backup
+rediacc rm schedule
 ```
 
 ##### Auto-Generated cURL Examples
@@ -415,8 +461,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteSchedule" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "scheduleName": "daily-backup"
+    "team": "example-team",
+    "schedule": "example-schedule"
 }'
 ```
 
@@ -437,6 +483,13 @@ Disable schedule before deletion. Running tasks will complete. History is retain
 - Operation is permanent and cannot be undone
 - Schedule deletion is tracked in audit logs
 
+#### Success Message
+
+`Successfully deleted schedule: {name}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to delete schedule '{name}' from team '{team}'?`
 
 ## storage
 
@@ -456,8 +509,9 @@ Removes a storage configuration including credentials and settings. Does not del
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `team` | string | Yes | - |  | - |
+| `team` | string | Yes | - |  |  |
 | `storage` | string | Yes | - |  |  |
+
 
 #### Examples
 
@@ -475,7 +529,7 @@ Force delete without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc rm storage example-team backup-storage
+rediacc rm storage
 ```
 
 ##### Auto-Generated cURL Examples
@@ -486,8 +540,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteStorage" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team",
-    "storageName": "backup-storage"
+    "team": "example-team",
+    "storage": "example-storage"
 }'
 ```
 
@@ -508,6 +562,13 @@ Only removes Rediacc configuration. Data in external storage systems remains unt
 - Operation is permanent and cannot be undone
 - Storage deletion is tracked in audit logs
 
+#### Success Message
+
+`Successfully deleted storage: {name}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to delete storage '{name}' from team '{team}'?`
 
 ## team
 
@@ -530,6 +591,7 @@ Permanently removes a team and all associated resources including machines, repo
 | `name` | string | Yes | - | Name of the team to delete | old-team |
 | `force` | string | No | - | Skip confirmation prompt | --force |
 
+
 #### Examples
 
 ```bash
@@ -546,7 +608,7 @@ Delete team without confirmation
 
 ```bash
 # Basic usage (required parameters only)
-rediacc rm team example-name
+rediacc rm team --name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -557,7 +619,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/DeleteTeam" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team"
+    "name": "old-team",
+    "force": "--force"
 }'
 ```
 
@@ -577,4 +640,12 @@ WARNING: This cascades to all team resources. Ensure data is backed up. Requires
 - Team must have no schedules before deletion
 - Team must have no storage configurations before deletion
 - Deletion removes all memberships, vault data, and audit logs are created
+
+#### Success Message
+
+`Successfully deleted team: {name}`
+
+#### Confirmation Required
+
+This operation requires confirmation: `Are you sure you want to delete team '{name}'? This will remove all resources in the team.`
 

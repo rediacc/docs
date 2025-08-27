@@ -1,6 +1,6 @@
-# Misc
+# Miscellaneous
 
-Misc operations.
+Other commands and utilities.
 
 ## Table of Contents
 
@@ -8,8 +8,9 @@ Misc operations.
 - [update-image-machine-assignment](#update-image-machine-assignment)
 - [update-user2-f-a](#update-user2-f-a)
 
-
 ## is-registered
+
+is-registered command
 
 #### API Information
 
@@ -21,7 +22,10 @@ Misc operations.
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `user_name` | string | Yes | - |  |  |
+| `userName` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
@@ -38,12 +42,17 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/IsRegistered" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "userName": "example-userName"
+    "userName": "example-user_name"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## update-image-machine-assignment
+
+update-image-machine-assignment command
 
 #### API Information
 
@@ -58,13 +67,16 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/IsRegistered" \
 | `image` | string | Yes | - |  |  |
 | `pool` | string | Yes | - |  |  |
 | `team` | string | Yes | - |  |  |
-| `new_name` | string | Yes | - |  |  |
+| `newName` | string | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
 ```bash
 # Basic usage (required parameters only)
-rediacc misc update-image-machine-assignment example-team
+rediacc misc update-image-machine-assignment
 ```
 
 ##### Auto-Generated cURL Examples
@@ -75,15 +87,19 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateImageMachineAssi
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "imageName": "example-imageName",
-    "poolName": "example-poolName",
-    "teamName": "example-team",
-    "newMachineName": "example-newMachineName"
+    "image": "example-image",
+    "pool": "example-pool",
+    "team": "example-team"
 }'
 ```
 
+#### Success Message
+
+`Operation completed successfully`
 
 ## update-user2-f-a
+
+update-user2-f-a command
 
 #### API Information
 
@@ -96,12 +112,15 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateImageMachineAssi
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `enable` | string | Yes | - |  |  |
-| `user_hash` | string | Yes | - |  |  |
-| `current_code` | string | Yes | - |  |  |
-| `generate_only` | boolean | Yes | - |  |  |
-| `verification_code` | string | Yes | - |  |  |
+| `userHash` | string | Yes | - |  |  |
+| `currentCode` | string | Yes | - |  |  |
+| `generateOnly` | boolean | Yes | - |  |  |
+| `verificationCode` | string | Yes | - |  |  |
 | `secret` | string | Yes | - |  |  |
-| `confirm_enable` | boolean | Yes | - |  |  |
+| `confirmEnable` | boolean | Yes | - |  |  |
+
+
+#### Examples
 
 ##### Auto-Generated CLI Examples
 
@@ -119,12 +138,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/UpdateUserTFA" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
     "enable": "example-enable",
-    "userHash": "example-userHash",
-    "currentCode": "example-currentCode",
-    "generateOnly": true,
-    "verificationCode": "example-verificationCode",
-    "secret": "example-secret",
-    "confirmEnable": true
+    "userHash": "example-user_hash",
+    "currentCode": "example-current_code"
 }'
 ```
 

@@ -1,12 +1,11 @@
 # Inspect
 
-Inspect operations.
+Inspect resources and their details.
 
 ## Table of Contents
 
 - [machine](#machine)
 - [repository](#repository)
-
 
 ## machine
 
@@ -29,6 +28,7 @@ Shows comprehensive information about a specific machine including its configura
 | `team` | string | Yes | - | Team that owns the machine | production |
 | `name` | string | Yes | - | Machine name | web-server-01 |
 
+
 #### Examples
 
 ```bash
@@ -45,7 +45,7 @@ Get machine details in JSON format
 
 ```bash
 # Basic usage (required parameters only)
-rediacc inspect machine example-team example-name
+rediacc inspect machine --team <value> --name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -56,7 +56,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetTeamMachines" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team"
+    "team": "production",
+    "name": "web-server-01"
 }'
 ```
 
@@ -76,7 +77,6 @@ Shows decrypted vault if master password is set. Includes IP address, SSH creden
 - Includes datastore path configuration
 - Reveals all custom fields in machine vault
 - Access is logged in audit trail
-
 
 ## repository
 
@@ -99,6 +99,7 @@ Shows comprehensive information about a specific repository including vault conf
 | `team` | string | Yes | - | Team that owns the repository | dev-team |
 | `name` | string | Yes | - | Repository name | web-app |
 
+
 #### Examples
 
 ```bash
@@ -115,7 +116,7 @@ Get repository details in JSON
 
 ```bash
 # Basic usage (required parameters only)
-rediacc inspect repository example-team example-name
+rediacc inspect repository --team <value> --name <value>
 ```
 
 ##### Auto-Generated cURL Examples
@@ -126,7 +127,8 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/GetTeamRepositories" \
   -H "Content-Type: application/json" \
   -H "Rediacc-RequestToken: YOUR_TOKEN_HERE" \
   -d '{
-    "teamName": "example-team"
+    "team": "dev-team",
+    "name": "web-app"
 }'
 ```
 
