@@ -204,7 +204,7 @@ export default function Careers() {
             <div style={{textAlign: 'center', marginBottom: '2rem'}}>
               <Link 
                 className="button button--primary" 
-                to="/blog/expert-collaboration-model">
+                to="/blog/collaboration-model">
                 Learn About Our Model
               </Link>
             </div>

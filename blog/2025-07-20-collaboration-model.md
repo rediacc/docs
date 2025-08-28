@@ -3,7 +3,7 @@ slug: collaboration-model
 title: "Our Profit-Sharing Model"
 authors: [rediacc]
 tags: [careers, culture, profit-sharing, collaboration, remote-work]
-date: 2025-04-20
+date: 2025-07-20
 ---
 
 # Our Profit-Sharing Model

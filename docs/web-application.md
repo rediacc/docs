@@ -507,5 +507,3 @@ Based on the database design and foreign key relationships, here's the recommend
 - Real-time status updates
 
 These enhancements ensure that the Rediacc web application remains a modern, secure, and user-friendly interface for managing your system infrastructure.
-
-> **Internal Documentation**: For technical teams with appropriate access, detailed security implementation documentation is available in the [internal documentation section](/docs/internal/security-implementation).

@@ -308,7 +308,7 @@ Updates the encrypted vault containing company-wide settings, credentials, and c
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `vault` | string | No | - | JSON vault data to store | {"UNIVERSAL_USER_NAME": "system", "API_KEY": "abc123"} |
+| `vault` | string | No | - | JSON vault data to store | `{"UNIVERSAL_USER_NAME": "system", "API_KEY": "abc123"}` |
 | `vault-file` | string | No | - | File containing JSON vault data | company-vault.json |
 | `vault-version` | string | No | - | Vault schema version | 2 |
 
@@ -385,7 +385,7 @@ Updates multiple vault configurations at once. Useful for restoring from backup 
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `vault` | string | No | - | JSON object containing multiple vaults | {"primary": {...}, "secondary": {...}} |
+| `vault` | string | No | - | JSON object containing multiple vaults | `{"primary": {...}, "secondary": {...}}` |
 | `vault-file` | string | No | - | File containing JSON vaults data | all-vaults.json |
 | `updates` | string | Yes | - |  |  |
 

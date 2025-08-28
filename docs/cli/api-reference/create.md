@@ -34,7 +34,7 @@ Bridges are autonomous queue processors that poll for tasks and execute them on 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `region` | string | Yes | - | Region where the bridge will be created | us-east |
-| `vault` | string | No | - | JSON configuration for the bridge (batch size, timeout settings) | {"batch_size": 5, "poll_interval": 30} |
+| `vault` | string | No | - | JSON configuration for the bridge (batch size, timeout settings) | `{"batch_size": 5, "poll_interval": 30}` |
 | `bridge` | string | Yes | - |  |  |
 | `name` | string | Yes | - |  |  |
 
@@ -74,7 +74,7 @@ curl -X POST "https://www.rediacc.com/api/StoredProcedure/CreateBridge" \
 
 #### Notes
 
-After creation, start the bridge with './bridge --bridge-mode token=<token> api_url=<url> master_password=<pwd>'. Use 'rediacc login --target bridge-name' to get a bridge-specific token.
+After creation, start the bridge with './bridge --bridge-mode token=&lt;token&gt; api_url=&lt;url&gt; master_password=&lt;pwd&gt;'. Use 'rediacc login --target bridge-name' to get a bridge-specific token.
 
 #### Business Rules
 
@@ -178,7 +178,7 @@ Machines are remote servers that execute tasks via SSH. They must be associated 
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that will own this machine | production-team |
 | `bridge` | string | Yes | - | Bridge to connect through (must exist in a region) | us-east-bridge-01 |
-| `vault` | string | No | - | JSON with machine config (ip, user, ssh_port, datastore) | {"ip": "10.0.0.5", "user": "rediacc", "datastore": "/mnt/datastore"} |
+| `vault` | string | No | - | JSON with machine config (ip, user, ssh_port, datastore) | `{"ip": "10.0.0.5", "user": "rediacc", "datastore": "/mnt/datastore"}` |
 | `machine` | string | Yes | - |  |  |
 | `name` | string | Yes | - |  |  |
 
@@ -258,7 +258,7 @@ Queue items represent tasks to be executed on machines by bridges. The bridge po
 | `team` | string | Yes | - | Team that owns the machine | production-team |
 | `machine` | string | Yes | - | Target machine for execution | web-server-01 |
 | `bridge` | string | Yes | - | Bridge to process this queue item | us-east-bridge-01 |
-| `vault` | string | No | - | JSON with task configuration and parameters | {"function": "deploy", "version": "1.2.3"} |
+| `vault` | string | No | - | JSON with task configuration and parameters | `{"function": "deploy", "version": "1.2.3"}` |
 | `priority` | string | No | 3 | Priority level (1=highest, 5=lowest) | 1 |
 
 
@@ -335,7 +335,7 @@ Regions are logical or geographic groupings for bridges. They help organize infr
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `name` | string | Yes | - | Unique name for the region (e.g., us-east, europe-west) | us-east |
-| `vault` | string | No | - | JSON configuration for the region (provider settings, metadata) | {"provider": "aws", "zone": "us-east-1"} |
+| `vault` | string | No | - | JSON configuration for the region (provider settings, metadata) | `{"provider": "aws", "zone": "us-east-1"}` |
 | `vault-file` | string | No | - | File containing JSON vault configuration | region-config.json |
 
 
@@ -412,7 +412,7 @@ Repositories are isolated environments for storing code, data, or applications. 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that will own this repository | dev-team |
-| `vault` | string | No | - | JSON configuration (size, type, settings) | {"size": "10G", "type": "docker"} |
+| `vault` | string | No | - | JSON configuration (size, type, settings) | `{"size": "10G", "type": "docker"}` |
 | `parentRepo` | string | No | - |  |  |
 | `repository` | string | Yes | - |  |  |
 | `repoGuid` | string | Yes | - |  |  |
@@ -480,7 +480,7 @@ Schedules automatically create queue items at specified intervals. They support 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that will own this schedule | ops-team |
-| `vault` | string | No | - | JSON with schedule configuration (cron, function, target) | {"cron": "0 2 * * *", "timezone": "UTC", "function": "repo_push", "machine": "backup-01", "params": {...}} |
+| `vault` | string | No | - | JSON with schedule configuration (cron, function, target) | `{"cron": "0 2 * * *", "timezone": "UTC", "function": "repo_push", "machine": "backup-01", "params": {...}}` |
 | `schedule` | string | Yes | - |  |  |
 
 
@@ -557,7 +557,7 @@ Storage resources represent external storage systems like S3 buckets, Azure Blob
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that will own this storage | data-team |
-| `vault` | string | No | - | JSON with storage credentials and configuration | {"type": "s3", "bucket": "my-backups", "region": "us-east-1", "access_key": "...", "secret_key": "..."} |
+| `vault` | string | No | - | JSON with storage credentials and configuration | `{"type": "s3", "bucket": "my-backups", "region": "us-east-1", "access_key": "...", "secret_key": "..."}` |
 | `storage` | string | Yes | - |  |  |
 
 
@@ -634,7 +634,7 @@ Teams are organizational units that own machines, repositories, and other resour
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `name` | string | Yes | - | Unique name for the team | production-team |
-| `vault` | string | No | - | JSON object with team configuration (SSH keys, settings) | {"SSH_PRIVATE_KEY": "-----BEGIN RSA..."} |
+| `vault` | string | No | - | JSON object with team configuration (SSH keys, settings) | `{"SSH_PRIVATE_KEY": "-----BEGIN RSA..."}` |
 | `vault-file` | string | No | - | File containing JSON vault data | team-config.json |
 
 

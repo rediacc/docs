@@ -430,7 +430,7 @@ Updates the encrypted configuration data for a repository. Used to modify reposi
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that owns the repository | dev-team |
-| `vault` | string | No | - | JSON configuration data | {"size": "20G", "env": {"NODE_ENV": "production"}} |
+| `vault` | string | No | - | JSON configuration data | `{"size": "20G", "env": {"NODE_ENV": "production"}}` |
 | `repository` | string | Yes | - |  |  |
 | `vaultVersion` | string | No | - |  |  |
 
@@ -571,7 +571,7 @@ Updates the encrypted vault containing schedule settings including cron expressi
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that owns the schedule | ops-team |
-| `vault` | string | No | - | JSON with schedule configuration | {"cron": "0 2 * * *", "function": "repo_push", "machine": "backup-01", "params": {...}} |
+| `vault` | string | No | - | JSON with schedule configuration | `{"cron": "0 2 * * *", "function": "repo_push", "machine": "backup-01", "params": {...}}` |
 | `schedule` | string | Yes | - |  |  |
 | `vaultVersion` | string | No | - |  |  |
 
@@ -712,7 +712,7 @@ Updates the encrypted vault containing storage credentials and settings. Used to
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `team` | string | Yes | - | Team that owns the storage | backup-team |
-| `vault` | string | No | - | JSON with storage credentials and config | {"type": "s3", "bucket": "backups", "access_key": "...", "secret_key": "..."} |
+| `vault` | string | No | - | JSON with storage credentials and config | `{"type": "s3", "bucket": "backups", "access_key": "...", "secret_key": "..."}` |
 | `storage` | string | Yes | - |  |  |
 | `vaultVersion` | string | No | - |  |  |
 

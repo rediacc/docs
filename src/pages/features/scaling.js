@@ -361,7 +361,7 @@ export default function ScalingFeature() {
               <div className="feature-card">
                 <h3><Icon name="analyze" size={20} style={{marginRight: '0.5rem'}} />Data Processing</h3>
                 <p>Scale compute for big data jobs. Process terabytes in minutes, then scale down to zero cost.</p>
-                <Link to="/docs/cli/tutorials/job-orchestration">Learn more →</Link>
+                <Link to="/docs/cli/rest-api-guide">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3><Icon name="api" size={20} style={{marginRight: '0.5rem'}} />API Services</h3>

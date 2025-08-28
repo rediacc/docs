@@ -20,47 +20,11 @@ const sidebars = {
     'intro',
     {
       type: 'category',
-      label: 'Console Guide',
-      collapsed: false,
-      items: [
-        'console-guide/introduction',
-        'console-guide/quick-start',
-        'console-guide/authentication',
-        'console-guide/dashboard',
-        'console-guide/resources/index',
-        'console-guide/queue',
-        'console-guide/system',
-        'console-guide/mcp-integration',
-        'console-guide/api-integration',
-        'console-guide/troubleshooting-guide',
-      ],
-    },
-    {
-      type: 'category',
       label: 'Developer Tools',
       collapsed: false,
       items: [
         // Getting Started
-        'cli/introduction',
-        'cli/installation',
-        'cli/quick-start',
-        'cli/configuration',
         'cli/rest-api-guide',
-        
-        // Tutorials
-        {
-          type: 'category',
-          label: 'Tutorials',
-          collapsed: true,
-          items: [
-            'cli/tutorials/getting-started-tutorial',
-            'cli/tutorials/authentication-workflows',
-            'cli/tutorials/team-management-workflow',
-            'cli/tutorials/infrastructure-setup',
-            'cli/tutorials/job-orchestration',
-            'cli/tutorials/permission-management',
-          ],
-        },
         
         // API Reference
         {
@@ -69,26 +33,17 @@ const sidebars = {
           collapsed: true,
           items: [
             'cli/api-reference/index',
-            {
-              type: 'category',
-              label: 'Authentication',
-              collapsed: true,
-              items: [
-                'cli/api-reference/authentication',
-                'cli/api-reference/auth-commands',
-              ],
-            },
+            'cli/api-reference/auth',
             {
               type: 'category',
               label: 'Resource Management',
               collapsed: true,
               items: [
-                'cli/api-reference/resource-commands',
-                'cli/api-reference/create-commands',
-                'cli/api-reference/list-commands',
-                'cli/api-reference/inspect-commands',
-                'cli/api-reference/update-commands',
-                'cli/api-reference/rm-commands',
+                'cli/api-reference/create',
+                'cli/api-reference/list',
+                'cli/api-reference/inspect',
+                'cli/api-reference/update',
+                'cli/api-reference/rm',
               ],
             },
             {
@@ -96,9 +51,8 @@ const sidebars = {
               label: 'User & Access Control',
               collapsed: true,
               items: [
-                'cli/api-reference/user-permission-commands',
-                'cli/api-reference/user-commands',
-                'cli/api-reference/permission-commands',
+                'cli/api-reference/user',
+                'cli/api-reference/permissions',
               ],
             },
             {
@@ -106,10 +60,9 @@ const sidebars = {
               label: 'Organization',
               collapsed: true,
               items: [
-                'cli/api-reference/organization-commands',
-                'cli/api-reference/company-commands',
-                'cli/api-reference/team-commands',
-                'cli/api-reference/team-member-commands',
+                'cli/api-reference/company',
+                'cli/api-reference/team',
+                'cli/api-reference/team-members',
               ],
             },
             {
@@ -117,11 +70,10 @@ const sidebars = {
               label: 'Infrastructure',
               collapsed: true,
               items: [
-                'cli/api-reference/infrastructure-commands',
-                'cli/api-reference/bridge-commands',
-                'cli/api-reference/machine-commands',
-                'cli/api-reference/region-commands',
-                'cli/api-reference/distributed-storage-commands',
+                'cli/api-reference/bridge',
+                'cli/api-reference/machine',
+                'cli/api-reference/region',
+                'cli/api-reference/distributed-storage',
               ],
             },
             {
@@ -129,11 +81,9 @@ const sidebars = {
               label: 'System Operations',
               collapsed: true,
               items: [
-                'cli/api-reference/system-commands',
-                'cli/api-reference/queue-commands',
-                'cli/api-reference/queue-functions',
-                'cli/api-reference/vault-commands',
-                'cli/api-reference/audit-commands',
+                'cli/api-reference/queue',
+                'cli/api-reference/vault',
+                'cli/api-reference/audit',
               ],
             },
             {
@@ -141,8 +91,8 @@ const sidebars = {
               label: 'Other Commands',
               collapsed: true,
               items: [
-                'cli/api-reference/clone-commands',
-                'cli/api-reference/misc-commands',
+                'cli/api-reference/clone',
+                'cli/api-reference/misc',
               ],
             },
           ],
@@ -154,7 +104,6 @@ const sidebars = {
       label: 'Solutions',
       collapsed: false,
       items: [
-        'guides/ai-safety-guide',
         'solutions/zero-cost',
         'solutions/time-travel',
         'solutions/cross-backup',

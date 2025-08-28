@@ -328,4 +328,4 @@ Long-running tasks use the queue system:
 - **Trace requests**: Use network tracing tools to examine request/response details
 - **Isolate components**: Test components in isolation to identify problems
 
-For implementation examples, see the [CLI tutorials](/docs/cli/tutorials/authentication-workflows) which demonstrate these patterns in practice.
+For implementation examples, see the [API Reference](/docs/cli/api-reference) which demonstrates these patterns in practice.

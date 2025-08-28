@@ -42,7 +42,7 @@ Creates a cluster configuration for distributed storage across multiple machines
 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
-| `vault` | string | No | - | JSON configuration for the cluster | {"replication_factor": 3, "storage_class": "ssd"} |
+| `vault` | string | No | - | JSON configuration for the cluster | `{"replication_factor": 3, "storage_class": "ssd"}` |
 | `vault-file` | string | No | - | File containing JSON vault data | cluster-config.json |
 | `cluster` | string | Yes | - |  |  |
 
@@ -897,7 +897,7 @@ Updates the encrypted configuration for a distributed storage cluster including 
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `cluster` | string | Yes | - | Cluster name | main-cluster |
-| `vault` | string | No | - | JSON configuration data | {"replication_factor": 3, "consistency_level": "strong"} |
+| `vault` | string | No | - | JSON configuration data | `{"replication_factor": 3, "consistency_level": "strong"}` |
 | `vault-file` | string | No | - | File containing JSON vault data | cluster-config.json |
 | `vault-version` | string | No | - | Vault schema version (default: 1) | 2 |
 | `vaultVersion` | string | No | - |  |  |

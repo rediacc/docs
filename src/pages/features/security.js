@@ -48,7 +48,7 @@ export default function SecurityFeature() {
               Military-grade encryption, real-time threat detection, and enterprise protection
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/docs/console-guide/advanced-security">
+              <Link className="button button--primary button--lg" to="/docs/web-application">
                 Security Guide
               </Link>
               <Link className="button button--secondary button--lg" to="/console/login?register=quick" target="_blank">
@@ -404,7 +404,7 @@ export default function SecurityFeature() {
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link
                 className="button button--primary button--lg"
-                to="/docs/console-guide/advanced-security">
+                to="/docs/web-application">
                 View Security Docs
               </Link>
               <Link
@@ -441,10 +441,10 @@ export default function SecurityFeature() {
               <Link to="/features/disaster-recovery" className="quick-link">
                 Disaster Recovery →
               </Link>
-              <Link to="/docs/console-guide/advanced-security" className="quick-link">
+              <Link to="/docs/web-application" className="quick-link">
                 Advanced Security Guide →
               </Link>
-              <Link to="/docs/console-guide/advanced-security" className="quick-link">
+              <Link to="/docs/web-application" className="quick-link">
                 Security Guide →
               </Link>
             </div>

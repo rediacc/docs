@@ -110,7 +110,7 @@ Marks a processing queue item as successfully completed with optional result dat
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `taskId` | string | Yes | - | Task ID (GUID) to complete | 550e8400-e29b-41d4-a716-446655440000 |
-| `vault` | string | No | - | JSON result data to store | {"status": "success", "output": "Task completed"} |
+| `vault` | string | No | - | JSON result data to store | `{"status": "success", "output": "Task completed"}` |
 | `finalStatus` | string | Yes | - |  |  |
 
 
@@ -456,7 +456,7 @@ Updates a queue item with intermediate results or progress information while it'
 | Parameter | Type | Required | Default | Description | Example |
 |-----------|------|----------|---------|-------------|---------|
 | `taskId` | string | Yes | - | Task ID (GUID) to update | 550e8400-e29b-41d4-a716-446655440000 |
-| `vault` | string | No | - | JSON progress data | {"progress": 50, "status": "Processing file 2 of 4"} |
+| `vault` | string | No | - | JSON progress data | `{"progress": 50, "status": "Processing file 2 of 4"}` |
 
 
 #### Examples

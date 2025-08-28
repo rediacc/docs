@@ -354,8 +354,8 @@ export default function ZeroCostBackupFeature() {
               <Link to="/solutions/enterprise" className="quick-link">
                 Enterprise Solutions →
               </Link>
-              <Link to="/docs/cli/quick-start" className="quick-link">
-                Quick Start Guide →
+              <Link to="/docs/cli/rest-api-guide" className="quick-link">
+                API Documentation →
               </Link>
             </div>
           </div>

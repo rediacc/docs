@@ -3,6 +3,7 @@ slug: infrastructure-for-agentic-ai
 title: "The Infrastructure That Makes AI Agents Safe"
 authors: [muhammed]
 tags: [ai-safety, infrastructure, agentic-ai, disaster-recovery, mcp-protocol]
+date: 2025-07-28
 ---
 
 # Why Every AI Agent Needs Rediacc: The Infrastructure Layer That Prevents Disasters

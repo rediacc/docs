@@ -192,7 +192,7 @@ export default function AISafetySolution() {
               <div className="feature-card">
                 <h3>Compliance & Audit</h3>
                 <p>Complete audit trail of all AI operations for regulatory requirements.</p>
-                <Link to="/docs/console-guide/audit">Audit system →</Link>
+                <Link to="/docs/web-application">Learn more →</Link>
               </div>
               
               <div className="feature-card">
