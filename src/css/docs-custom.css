@@ -145,8 +145,8 @@ html[data-theme='dark'] nav.navbar,
 /* Footer styling */
 .footer {
   background: var(--ifm-background-surface-color);
-  padding: 3rem 0 2rem;
-  margin-top: 4rem;
+  padding: 1.5rem 0 0.75rem;
+  margin-top: 0;
 }
 
 .footer__title {
@@ -173,9 +173,8 @@ html[data-theme='dark'] nav.navbar,
 }
 
 .footer__copyright {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--ifm-toc-border-color);
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
   font-size: 0.9rem;
   color: var(--ifm-font-color-secondary);
 }
@@ -394,7 +393,6 @@ html, body {
 .button {
   border-radius: 9999px; /* rounded-full */
   font-weight: 500;
-  transition: all 0.3s ease;
 }
 
 .button--primary {
@@ -405,7 +403,6 @@ html, body {
 
 .button--primary:hover {
   background: linear-gradient(to right, var(--color-brand-dark-hover), var(--color-brand-darker-hover));
-  transform: translateY(-1px);
   color: white !important;
 }
 
@@ -420,7 +417,6 @@ html, body {
   background-color: var(--ifm-color-primary);
   color: white !important;
   border-color: var(--ifm-color-primary);
-  transform: translateY(-1px);
 }
 
 /* Outline button styles with better visibility */
@@ -435,7 +431,6 @@ html, body {
   background-color: var(--ifm-color-primary);
   border-color: var(--ifm-color-primary);
   color: white;
-  transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(85, 107, 47, 0.2);
 }
 
@@ -474,7 +469,6 @@ html:not([data-theme='dark']) .button--secondary:hover {
   background-color: var(--ifm-color-primary-light) !important;
   border-color: var(--ifm-color-primary-light) !important;
   color: #1f2937 !important;
-  transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(125, 155, 73, 0.3);
 }
 

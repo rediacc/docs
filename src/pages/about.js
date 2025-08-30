@@ -8,11 +8,11 @@ export default function About() {
   return (
     <Layout
       title="The Team Preventing Your Next €4.5B Disaster | About Rediacc"
-      description="Meet the engineers who prevented the Spanish banking blackout disaster. We've saved companies $100M+ in downtime. Your infrastructure insurance starts here.">
+      description="Meet the engineers building disaster-proof infrastructure. Designed to save companies $100M+ in potential downtime. Your infrastructure insurance starts here.">
       
       <Head>
         <meta property="og:title" content="The Team That Stops €4.5B Disasters | Rediacc" />
-        <meta property="og:description" content="While competitors lost millions in the Spanish blackout, our customers maintained 98% uptime. Meet the team making disasters impossible." />
+        <meta property="og:description" content="Building infrastructure that could maintain 98% uptime during disasters. Meet the team making disasters impossible." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/about" />
         <link rel="canonical" href="/about" />
@@ -21,10 +21,10 @@ export default function About() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Rediacc",
-            "description": "Infrastructure disaster prevention platform. 100-second recovery. 90% cost reduction. €4.5B in prevented losses.",
+            "description": "Infrastructure disaster prevention platform. 100-second recovery capability. 90% cost reduction potential. Designed to prevent billions in losses.",
             "url": "/",
             "logo": "/img/logo.svg",
-            "foundingDate": "2020",
+            "foundingDate": "2024",
             "founders": [
               {
                 "@type": "Person",
@@ -54,7 +54,7 @@ export default function About() {
               We Stop Infrastructure Disasters Before They Destroy Your Business
             </h1>
             <p style={{fontSize: '1.25rem', textAlign: 'center', color: 'var(--ifm-font-color-secondary)', maxWidth: '800px', margin: '0 auto'}}>
-              €4.5B prevented in the Spanish blackout. $10M saved from AI disasters. 1,000+ companies protected. This is our mission.
+              Building systems designed to prevent billions in disaster losses. Our platform could save $10M+ from AI disasters. This is our mission.
             </p>
           </div>
         </section>
@@ -267,7 +267,7 @@ export default function About() {
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', maxWidth: '1000px', margin: '0 auto', textAlign: 'center'}}>
               <div>
-                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>2020</div>
+                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>2024</div>
                 <p>Founded</p>
               </div>
               <div>

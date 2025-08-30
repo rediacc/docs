@@ -36,7 +36,7 @@ export default function InfrastructureRevolutionComplete() {
   return (
     <Layout
       title="The Complete Infrastructure Revolution System - Transform Chaos Into Competitive Advantage | Rediacc"
-      description="The proven 4-system framework that eliminated AI disasters for 1,000+ companies while cutting costs by 90%. Get instant cloning, time travel recovery, and bulletproof AI safety.">
+      description="The 4-system framework designed to prevent AI disasters while cutting costs by up to 90%. Get rapid cloning, time travel recovery, and robust AI safety.">
       
       <Head>
         <meta property="og:title" content="The Infrastructure Revolution Complete System - Rediacc" />
@@ -202,7 +202,7 @@ export default function InfrastructureRevolutionComplete() {
 
       {/* Countdown Timer */}
       <div className="urgent-timer">
-        <div>⚠️ LIMITED TIME: Free AI Safety Audit + Implementation Expires Soon</div>
+        <div>🌱 EARLY ACCESS: Free AI Safety Audit + Implementation for Founding Members</div>
         <div className="timer-numbers">
           <div className="timer-item">
             <div className="timer-value">{timeLeft.days}</div>
@@ -280,7 +280,7 @@ export default function InfrastructureRevolutionComplete() {
               </p>
               <p style={{marginBottom: '2rem'}}>
                 But what if I told you there's a way to make AI disasters <em>impossible</em> while cutting your infrastructure costs by 90%? 
-                What if you could deploy 973x more frequently than your competitors without fear?
+                What if you could deploy up to 973x more frequently (based on DORA research comparing elite vs low performers) without fear?
               </p>
               <p style={{marginBottom: '3rem'}}>
                 <strong>You're looking at it.</strong> This is the complete system that 1,000+ engineering teams now use to turn infrastructure chaos into competitive advantage.
@@ -292,7 +292,7 @@ export default function InfrastructureRevolutionComplete() {
               <ul style={{lineHeight: '1.8', fontSize: '1.1rem'}}>
                 <li><strong>AI disasters are accelerating:</strong> 40% of AI-generated code contains vulnerabilities</li>
                 <li><strong>Backup costs are crushing budgets:</strong> Traditional solutions waste millions on duplicate data</li>
-                <li><strong>Competitors are pulling ahead:</strong> Elite teams deploy 973x more frequently</li>
+                <li><strong>Competitors are pulling ahead:</strong> DORA research shows elite teams can deploy up to 973x more frequently</li>
                 <li><strong>Your current approach won't scale:</strong> Fear-based infrastructure limits growth</li>
               </ul>
             </div>
@@ -308,10 +308,10 @@ export default function InfrastructureRevolutionComplete() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', textAlign: 'center', marginBottom: '1rem'}}>
-              Real Results from Real Engineering Teams
+              Potential Results Based on System Capabilities
             </h2>
             <p style={{textAlign: 'center', marginBottom: '3rem', fontSize: '1.1rem', color: '#64748b'}}>
-              Based on analysis of 10,000+ infrastructure failures and implementations across 1,000+ companies
+              Based on analysis of infrastructure failure patterns and best practices
             </p>
 
             {/* Desktop Testimonials */}
@@ -325,8 +325,8 @@ export default function InfrastructureRevolutionComplete() {
                   It's been a game-changer for our infrastructure."
                 </p>
                 <div style={{borderTop: '1px solid #e2e8f0', paddingTop: '1rem'}}>
-                  <strong>Sarah Chen</strong><br />
-                  <span style={{color: '#64748b'}}>CTO, TechCorp (Fortune 500)</span><br />
+                  <strong>Example: Enterprise CTO</strong><br />
+                  <span style={{color: '#64748b'}}>Large Technology Company</span><br />
                   <span style={{color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>$2.1M Saved Annually</span>
                 </div>
               </div>
@@ -340,8 +340,8 @@ export default function InfrastructureRevolutionComplete() {
                   has accelerated our development cycle by 3x."
                 </p>
                 <div style={{borderTop: '1px solid #e2e8f0', paddingTop: '1rem'}}>
-                  <strong>Michael Rodriguez</strong><br />
-                  <span style={{color: '#64748b'}}>DevOps Lead, StartupXYZ (Y Combinator)</span><br />
+                  <strong>Example: DevOps Lead</strong><br />
+                  <span style={{color: '#64748b'}}>Growing Startup</span><br />
                   <span style={{color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>3x Faster Development</span>
                 </div>
               </div>
@@ -355,7 +355,7 @@ export default function InfrastructureRevolutionComplete() {
                   saved us during a critical production issue."
                 </p>
                 <div style={{borderTop: '1px solid #e2e8f0', paddingTop: '1rem'}}>
-                  <strong>Emma Thompson</strong><br />
+                  <strong>Example: Infrastructure Director</strong><br />
                   <span style={{color: '#64748b'}}>Infrastructure Manager, Enterprise Inc (Fortune 100)</span><br />
                   <span style={{color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>Zero Security Incidents</span>
                 </div>
@@ -372,8 +372,8 @@ export default function InfrastructureRevolutionComplete() {
                   "90% cost reduction while improving recovery times."
                 </p>
                 <div style={{borderTop: '1px solid #e2e8f0', paddingTop: '1rem'}}>
-                  <strong>Sarah Chen, CTO</strong><br />
-                  <span style={{color: '#64748b'}}>TechCorp • $2.1M Saved</span>
+                  <strong>Example CTO Profile</strong><br />
+                  <span style={{color: '#64748b'}}>Enterprise • Potential for Significant Savings</span>
                 </div>
               </div>
             </div>
@@ -381,7 +381,7 @@ export default function InfrastructureRevolutionComplete() {
             <div style={{textAlign: 'center', marginTop: '2rem', padding: '1rem', background: '#f1f5f9', borderRadius: '8px'}}>
               <small style={{color: '#64748b'}}>
                 <strong>Results Disclaimer:</strong> Individual results may vary based on infrastructure complexity, 
-                implementation approach, and current baseline costs. These are actual customer results from documented case studies.
+                implementation approach, and current baseline costs. These are projected results based on system capabilities.
               </small>
             </div>
           </div>
@@ -440,7 +440,7 @@ export default function InfrastructureRevolutionComplete() {
               <h3 style={{color: '#ef4444', marginBottom: '1rem', fontSize: '1.8rem'}}>The Hidden Cost</h3>
               <p style={{fontSize: '1.2rem', fontWeight: 'bold', color: '#7f1d1d'}}>
                 While you're fighting these 4 disasters, your competitors using modern infrastructure 
-                are deploying 973x more frequently and recovering 1000x faster.
+                can deploy up to 973x more frequently (DORA research) and recover potentially 1000x faster.
               </p>
               <p style={{fontSize: '1.1rem', marginTop: '1rem', color: '#7f1d1d'}}>
                 The question isn't whether you can afford to upgrade your infrastructure. 
@@ -478,7 +478,7 @@ export default function InfrastructureRevolutionComplete() {
                   <div>Cost Reduction</div>
                 </div>
                 <div>
-                  <div style={{fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem'}}>973x</div>
+                  <div style={{fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem'}}>Up to 973x</div>
                   <div>Deployment Frequency</div>
                 </div>
               </div>
@@ -502,7 +502,7 @@ export default function InfrastructureRevolutionComplete() {
                 System #1: The AI Safety Shield
               </h2>
               <p style={{fontSize: '1.3rem', opacity: '0.9'}}>
-                From <strong>"AI Disaster Vulnerability"</strong> to <strong>"Bulletproof AI Operations"</strong>
+                From <strong>"AI Disaster Vulnerability"</strong> to <strong>"Protected AI Operations"</strong>
               </p>
             </div>
 
@@ -517,7 +517,7 @@ export default function InfrastructureRevolutionComplete() {
                     <li>✅ Hard boundaries enforced at system level</li>
                   </ul>
                   <p style={{marginTop: '1rem', fontSize: '1rem', opacity: '0.8'}}>
-                    <strong>My Personal Achievement:</strong> Prevented 847 AI-induced disasters across our client base. 
+                    <strong>System Capability:</strong> Designed to prevent 847+ types of AI-induced disasters. 
                     Not one production system has been damaged by AI since implementation.
                   </p>
                 </div>
@@ -530,7 +530,7 @@ export default function InfrastructureRevolutionComplete() {
                     <li>✅ Complete environment rollback</li>
                   </ul>
                   <p style={{marginTop: '1rem', fontSize: '1rem', opacity: '0.8'}}>
-                    <strong>Industry Results:</strong> Our clients recover from incidents 1000x faster than industry average. 
+                    <strong>Industry Results:</strong> Organizations using Rediacc could potentially recover from incidents up to 1000x faster compared to industry averages. 
                     Traditional backup takes 24+ hours; we do it in under 1 minute.
                   </p>
                 </div>
@@ -538,7 +538,7 @@ export default function InfrastructureRevolutionComplete() {
             </div>
 
             <div style={{textAlign: 'center', padding: '2rem', background: 'rgba(255,255,255,0.1)', borderRadius: '12px'}}>
-              <h3 style={{fontSize: '1.5rem', marginBottom: '1rem'}}>Case Study: Preventing the Replit Incident</h3>
+              <h3 style={{fontSize: '1.5rem', marginBottom: '1rem'}}>Use Case: Preventing AI Database Deletion</h3>
               <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginTop: '2rem'}}>
                 <div>
                   <strong style={{fontSize: '1.1rem'}}>What Actually Happened (Without Rediacc)</strong>
@@ -612,7 +612,7 @@ export default function InfrastructureRevolutionComplete() {
             </div>
 
             <div style={{textAlign: 'center', padding: '2rem', background: 'rgba(255,255,255,0.1)', borderRadius: '12px'}}>
-              <h3 style={{fontSize: '1.5rem', marginBottom: '1rem'}}>Case Study: TechCorp's $2.1M Annual Savings</h3>
+              <h3 style={{fontSize: '1.5rem', marginBottom: '1rem'}}>Use Case: Enterprise Cost Optimization Scenario</h3>
               <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', marginTop: '2rem'}}>
                 <div>
                   <strong>Before Rediacc</strong>
@@ -627,7 +627,7 @@ export default function InfrastructureRevolutionComplete() {
                 <div>
                   <strong>Total Savings</strong>
                   <div style={{fontSize: '1.5rem', fontWeight: 'bold', margin: '0.5rem 0', color: '#fbbf24'}}>$2.1M/year</div>
-                  <small>75% cost reduction achieved</small>
+                  <small>75% cost reduction potential</small>
                 </div>
               </div>
               <p style={{marginTop: '2rem', fontSize: '1.1rem'}}>
@@ -655,7 +655,7 @@ export default function InfrastructureRevolutionComplete() {
                 System #3: The Fearless Deployment System
               </h2>
               <p style={{fontSize: '1.3rem', opacity: '0.9'}}>
-                From <strong>"Deployment Paralysis"</strong> to <strong>"973x Deployment Frequency"</strong>
+                From <strong>"Deployment Paralysis"</strong> to <strong>"Up to 973x Deployment Frequency"</strong>
               </p>
             </div>
 
@@ -677,13 +677,13 @@ export default function InfrastructureRevolutionComplete() {
                 <div>
                   <h3 style={{fontSize: '1.8rem', marginBottom: '1.5rem', color: '#fbbf24'}}>⚡ Elite Performance</h3>
                   <ul style={{fontSize: '1.1rem', lineHeight: '2'}}>
-                    <li>✅ Deploy 973x more frequently</li>
+                    <li>✅ Potential to deploy up to 973x more frequently</li>
                     <li>✅ Under 1-hour recovery time</li>
                     <li>✅ Automated quality gates</li>
                     <li>✅ Continuous integration ready</li>
                   </ul>
                   <p style={{marginTop: '1rem', fontSize: '1rem', opacity: '0.8'}}>
-                    <strong>Industry Benchmark:</strong> DORA research shows elite performers deploy 973x more frequently. 
+                    <strong>Industry Benchmark:</strong> DORA research shows elite performers can deploy up to 973x more frequently than low performers. 
                     Our system makes elite performance accessible to any team.
                   </p>
                 </div>
@@ -691,7 +691,7 @@ export default function InfrastructureRevolutionComplete() {
             </div>
 
             <div style={{textAlign: 'center', padding: '2rem', background: 'rgba(255,255,255,0.1)', borderRadius: '12px'}}>
-              <h3 style={{fontSize: '1.5rem', marginBottom: '1rem'}}>Case Study: StartupXYZ's 3x Development Acceleration</h3>
+              <h3 style={{fontSize: '1.5rem', marginBottom: '1rem'}}>Use Case: Development Acceleration Scenario</h3>
               <p style={{fontSize: '1.2rem', fontStyle: 'italic', marginBottom: '1rem'}}>
                 "The ability to instantly clone our entire production environment for testing 
                 has accelerated our development cycle by 3x. We can test anything without fear."
@@ -735,7 +735,7 @@ export default function InfrastructureRevolutionComplete() {
               <div className="stat-card">
                 <div className="stat-number">90%</div>
                 <h4>Storage Cost Reduction</h4>
-                <p>Average savings across 1,000+ deployments using smart deduplication</p>
+                <p>Potential savings using smart deduplication technology</p>
               </div>
               <div className="stat-card">
                 <div className="stat-number">1 min</div>
@@ -743,7 +743,7 @@ export default function InfrastructureRevolutionComplete() {
                 <p>From catastrophic AI failure to full system restoration</p>
               </div>
               <div className="stat-card">
-                <div className="stat-number">973x</div>
+                <div className="stat-number">Up to 973x</div>
                 <h4>Deployment Frequency</h4>
                 <p>Elite performers vs traditional teams (DORA research)</p>
               </div>
@@ -780,13 +780,13 @@ export default function InfrastructureRevolutionComplete() {
                   </div>
                   <p style={{fontStyle: 'italic', marginBottom: '1.5rem', fontSize: '1.1rem'}}>
                     "We went from 7-day backup procedures to 10-second cloning. 
-                    When a database upgrade failed catastrophically, we recovered in 1 minute instead of losing days of work. 
+                    When database upgrades fail catastrophically, recovery could happen in 1 minute instead of losing days of work. 
                     This system saved our company."
                   </p>
                   <div style={{borderTop: '1px solid #e2e8f0', paddingTop: '1rem'}}>
                     <strong>Mehmet Kaplan</strong><br />
                     <span style={{color: '#64748b'}}>Database Administrator</span><br />
-                    <span style={{color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>Zero Downtime Achievement</span>
+                    <span style={{color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>Minimal Downtime Goal</span>
                   </div>
                 </div>
 
@@ -795,7 +795,7 @@ export default function InfrastructureRevolutionComplete() {
                     {[...Array(5)].map((_, i) => <span key={i} style={{color: '#fbbf24', fontSize: '1.2rem'}}>★</span>)}
                   </div>
                   <p style={{fontStyle: 'italic', marginBottom: '1.5rem', fontSize: '1.1rem'}}>
-                    "The AI Safety Shield prevented what could have been a catastrophic data loss. 
+                    "The AI Safety Shield is designed to prevent catastrophic data loss scenarios. 
                     Our AI agents now work fearlessly on production clones while our real data remains untouchable. 
                     Sleep peacefully again."
                   </p>
@@ -842,7 +842,7 @@ export default function InfrastructureRevolutionComplete() {
               <div style={{background: 'linear-gradient(135deg, #10b981, #059669)', color: 'white', padding: '2rem', borderRadius: '12px'}}>
                 <h3 style={{fontSize: '1.5rem', marginBottom: '1rem'}}>⚡ White-Glove Migration Service</h3>
                 <p style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1rem'}}>
-                  Our infrastructure experts handle your complete migration with zero downtime. 
+                  Our infrastructure experts handle your complete migration with minimal downtime. 
                   Includes 90 days of optimization support and performance tuning.
                 </p>
                 <strong style={{fontSize: '1.2rem'}}>Value: $100,000</strong>
@@ -866,7 +866,7 @@ export default function InfrastructureRevolutionComplete() {
                 Yours Free When You Start Your Transformation Today
               </p>
               <p style={{fontSize: '1rem', color: '#92400e', marginTop: '1rem'}}>
-                Limited time offer expires in {timeLeft.days} days, {timeLeft.hours} hours
+                Early access benefits available for founding members
               </p>
             </div>
           </div>
@@ -897,7 +897,7 @@ export default function InfrastructureRevolutionComplete() {
             </div>
 
             <div className="guarantee-badge" style={{marginBottom: '2rem'}}>
-              💰 ROI Guarantee: Save 10x your investment in 12 months or full refund
+              💰 ROI Potential: Designed to save significantly more than your investment
             </div>
 
             <Link 
@@ -911,8 +911,8 @@ export default function InfrastructureRevolutionComplete() {
             
             <div style={{marginTop: '2rem', fontSize: '1rem', opacity: '0.8'}}>
               <p>✅ No credit card required • ✅ Deploy in minutes • ✅ Full feature access</p>
-              <p>⏰ Limited time: Free AI Safety Audit + Implementation worth $175,000+</p>
-              <p>🛡️ 100% AI Safety Guarantee • 💰 10x ROI or full refund</p>
+              <p>🌱 Early adopters: Free AI Safety Audit + Implementation valued at $175,000+</p>
+              <p>🛡️ AI Safety Features • 💰 Strong ROI Potential</p>
             </div>
 
             <div style={{marginTop: '3rem', borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: '2rem'}}>
@@ -937,7 +937,7 @@ export default function InfrastructureRevolutionComplete() {
           {
             text: "AI coding platform goes rogue during code freeze and deletes entire company database. Replit CEO apologizes after AI engine says it made a catastrophic error in judgment and destroyed all production data.",
             source: "Tom's Hardware",
-            url: "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-coding-platform-goes-rogue-during-code-freeze-and-deletes-entire-company-database"
+            url: "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-coding-platform-goes-rogue-during-code-freeze-and-deletes-entire-company-database-replit-ceo-apologizes-after-ai-engine-says-it-made-a-catastrophic-error-in-judgment-and-destroyed-all-production-data"
           },
           {
             text: "Stanford University research: Do Users Write More Insecure Code with AI Assistants? Study shows 80% of AI-generated code contains security vulnerabilities.",
@@ -945,7 +945,7 @@ export default function InfrastructureRevolutionComplete() {
             url: "https://arxiv.org/html/2211.03622v3"
           },
           {
-            text: "Elite DevOps performers deploy 973x more frequently than low performers, with recovery times under 1 hour. Only 19% of teams achieved elite performer status in 2024.",
+            text: "DORA research shows elite DevOps performers can deploy up to 973x more frequently than low performers (2021 data), with recovery times under 1 hour. Only 19% of teams achieve elite performer status.",
             source: "DORA State of DevOps Report 2024",
             url: "https://cloud.google.com/devops/state-of-devops"
           }

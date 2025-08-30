@@ -4,32 +4,32 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: '💾 Intelligent Backup Solutions',
+    title: '🛡️ AI Safety & Protection',
+    Svg: require('@site/static/img/advanced-security.svg').default,
+    description: (
+      <>
+        Prevent AI disasters with rapid production cloning. AI works on copies, 
+        keeping production data safe. Fast recovery from AI mistakes.
+      </>
+    ),
+  },
+  {
+    title: '⚡ Rapid Disaster Recovery',
+    Svg: require('@site/static/img/time-travel.svg').default,
+    description: (
+      <>
+        Recover from ransomware, outages, or human errors quickly. 
+        Immutable backups with geographic redundancy and automatic failover.
+      </>
+    ),
+  },
+  {
+    title: '💰 Zero-Cost Infrastructure',
     Svg: require('@site/static/img/backup-optimization.svg').default,
     description: (
       <>
-        Save up to 90% on storage costs with our smart differential backup technology.
-        Restore your system to any point in time with automated snapshots.
-      </>
-    ),
-  },
-  {
-    title: '🛡️ Advanced Security',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Keep your systems secure with real-time defense against threats, 
-        repository encryption, and multi-factor authentication across all tiers.
-      </>
-    ),
-  },
-  {
-    title: '📈 Seamless Scaling',
-    Svg: require('@site/static/img/hybrid-cloud-scaling.svg').default,
-    description: (
-      <>
-        Instantly clone your environment to the cloud during peak hours and 
-        synchronize changes back to on-premise systems when demand decreases.
+        Cut storage costs by up to 90% with smart deduplication. Clone large databases quickly 
+        using minimal storage. Potentially up to 70% more cost-effective compared to traditional enterprise backup solutions.
       </>
     ),
   },

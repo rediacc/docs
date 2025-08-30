@@ -39,7 +39,7 @@ export default function CloudMigrationSolution() {
               Move to the Cloud Without Moving Mountains
             </h1>
             <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-              Zero-downtime cloud migrations with guaranteed cost savings and performance improvements
+              Cloud migrations with minimal downtime and potential cost savings and performance improvements
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
               <Link className="button button--primary button--lg" to="/docs/intro">
@@ -75,7 +75,7 @@ export default function CloudMigrationSolution() {
                 <div style={{padding: '1.5rem', background: 'var(--ifm-color-primary)', color: 'white', borderRadius: '8px'}}>
                   <h3><Icon name="success" size={20} style={{marginRight: '8px'}} />Our Approach</h3>
                   <ul style={{lineHeight: '2'}}>
-                    <li><span style={{display: 'inline-flex', alignItems: 'center'}}><Icon name="speed" size={16} style={{marginRight: '8px'}} />Zero-downtime migration guaranteed</span></li>
+                    <li><span style={{display: 'inline-flex', alignItems: 'center'}}><Icon name="speed" size={16} style={{marginRight: '8px'}} />Minimal-downtime migration approach</span></li>
                     <li><span style={{display: 'inline-flex', alignItems: 'center'}}><Icon name="cost" size={16} style={{marginRight: '8px'}} />Fixed-price migrations with savings</span></li>
                     <li><span style={{display: 'inline-flex', alignItems: 'center'}}><Icon name="deploy" size={16} style={{marginRight: '8px'}} />Performance baseline and optimization</span></li>
                     <li><span style={{display: 'inline-flex', alignItems: 'center'}}><Icon name="security" size={16} style={{marginRight: '8px'}} />Security-first migration process</span></li>
@@ -323,13 +323,13 @@ export default function CloudMigrationSolution() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              Guaranteed Cost Savings
+              Potential Cost Savings
             </h2>
             
             <div style={{maxWidth: '1000px', margin: '0 auto'}}>
               <div style={{marginBottom: '3rem', padding: '2rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
                 <h3 style={{color: 'var(--ifm-color-primary)', textAlign: 'center', marginBottom: '2rem'}}>
-                  Average Customer Savings
+                  Potential Savings
                 </h3>
                 <div style={{fontSize: '3rem', fontWeight: 'bold', textAlign: 'center', color: 'var(--ifm-color-primary)'}}>
                   47% Lower Costs
@@ -384,7 +384,7 @@ export default function CloudMigrationSolution() {
                   <p><strong>Solution:</strong> Phased migration with real-time replication</p>
                   <p><strong>Results:</strong></p>
                   <ul>
-                    <li>Zero downtime achieved</li>
+                    <li>Minimal downtime possible</li>
                     <li>60% cost reduction</li>
                     <li>3x performance improvement</li>
                     <li>Completed in 8 weeks</li>
@@ -400,7 +400,7 @@ export default function CloudMigrationSolution() {
                     <li>Full regulatory compliance</li>
                     <li>45% operational savings</li>
                     <li>Improved disaster recovery</li>
-                    <li>Zero data loss</li>
+                    <li>Minimal data loss risk</li>
                   </ul>
                 </div>
 
@@ -468,7 +468,7 @@ export default function CloudMigrationSolution() {
               Start Your Cloud Journey Today
             </h2>
             <p style={{fontSize: '1.2rem', marginBottom: '2rem', color: 'var(--ifm-font-color-secondary)'}}>
-              Free migration assessment • Fixed pricing • Zero downtime guaranteed
+              Free migration assessment • Fixed pricing • Minimal downtime approach
             </p>
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link

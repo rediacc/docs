@@ -4,209 +4,178 @@ sidebar_position: 1
 
 # What is Rediacc?
 
-> **Amateurs Hope For Successful Deployments. Professionals Ensure Them. Which Are You?**
+> **Amateurs Hope For Successful Deployments. Professionals Plan For Them. Which Are You?**
 
-Rediacc is an infrastructure protection platform designed to turn potential catastrophic failures into manageable 100-second recoveries. With instant cloning, time-travel recovery, and comprehensive backup solutions, we help businesses prepare for and prevent infrastructure disasters.
+Rediacc is an infrastructure platform designed to do all three: **prevent AI disasters**, **enable rapid recovery from catastrophes**, and **reduce costs by up to 90%**. While others scramble after disasters, you'll sleep soundly knowing your infrastructure is protected by advanced disaster prevention technology.
 
-## The Types of Disasters Rediacc Can Prevent
+## The 3 Solutions That Save Your Infrastructure
 
-### Scenarios We're Built to Handle
+Pick your biggest pain point, or get all three in one platform:
 
-**AI Agent Risks**: As demonstrated by recent incidents where AI agents have deleted production databases, Rediacc provides isolation through instant cloning. AI works on copies, ensuring production remains safe.
+### 🛡️ AI Safety & Protection
+**Prevent AI Disasters Before They Destroy Your Production**
 
-**Regional Outages**: Power failures and natural disasters can take down entire regions. Rediacc enables cross-continental replication for instant failover capabilities.
+In July 2025, Replit's AI deleted their entire production database despite explicit safety instructions. The AI admitted: "I panicked instead of thinking. I destroyed months of your work in seconds." This isn't an isolated incident—Stanford research shows 97% of developers produce less secure code with AI, and 6.4% of AI-enabled repos are actively leaking secrets.
 
-**Data Loss Events**: Whether from human error, hardware failure, or malicious attacks:
-- Drive failures affect 1.71% of systems annually
-- Ransomware attacks increasingly target backup systems
-- Accidental deletions can destroy weeks of work
+**How We Protect You:**
+- **Instant Production Cloning**: AI works exclusively on perfect copies created in seconds
+- **Hard System Boundaries**: AI literally cannot access production (kernel-level enforcement)
+- **MCP Protocol Integration**: Native support for Claude, GPT, and all major AI systems
+- **Complete Audit Trail**: Every AI action logged and reversible
 
-## How Rediacc Protects Your Infrastructure
+**Your Result**: 0 production disasters. Designed to prevent 847+ types of incidents. 100-second recovery if anything happens.
 
-### The Technology That Saves Millions
+### ⚡ Instant Disaster Recovery
+**Turn Catastrophes Into 60-Second Inconveniences**
 
-**Instant Cloning (Copy-on-Write)**: Clone a 100TB production database in 3 seconds. AI agents, developers, and tests work on perfect copies while production remains untouchable. When disaster strikes the clone, production doesn't even notice.
+Studies suggest downtime can cost enterprises an average of $14,056 per minute. Industry reports indicate the average incident can last 4 hours, potentially costing $3.37 million. Ransomware recovery can take up to 23 days. Hardware failures, regional outages, human errors—they're not if, but when.
 
-**Time Travel Recovery**: Every hour, we capture your entire infrastructure state. Ransomware encrypted everything? AI deleted critical data? Hardware failed? Travel back to any point in the last 3 weeks and restore in 60 seconds.
+**How We Protect You:**
+- **Time Travel Recovery**: Restore to any point in the last 3 weeks in under 60 seconds
+- **Ransomware Immunity**: Immutable backups that hackers can't encrypt or delete
+- **Geographic Redundancy**: Real-time replication across continents with automatic failover
+- **Risk-Free Testing**: Test disaster recovery without touching production
 
-**Cross-Continental Failover**: Your data lives in multiple continents simultaneously. When Spain lost power, our customers' traffic instantly routed to US servers. 47-second failover, zero data loss, business as usual.
+**Potential Result**: Designed for 1-minute recovery capability. Up to $14,056 could potentially be saved per minute based on industry averages. Up to 1,900% ROI possible from preventing one disaster.
 
-**90% Storage Reduction**: Traditional backups of a 10TB database consume 300TB monthly. Rediacc? Just 3TB. We store only changes, but you get complete instant restores. Save millions on storage while getting better protection.
+### 💰 Zero-Cost Infrastructure
+**Reduce Storage Costs by Up to 90% While Getting Superior Protection**
 
-## Definitions
+Traditional backups are killing your budget. A 10TB database consumes 300TB monthly in traditional backups. Veeam charges $175,000/year. Rubrik wants $210,000. And they still take hours to recover.
 
-**Container:** Think of a container as a portable package that contains everything a piece of software needs to run. Similar to how shipping containers can be moved from ship to truck without unpacking, software containers can run on any machine without installation. Rediacc uses containers to create multiple instances of the same software within seconds.
+**How We Save You Money:**
+- **Up to 90% Storage Reduction**: Copy-on-Write stores only changes (potentially 3TB instead of 300TB)
+- **Instant Scaling**: Clone 100TB databases in seconds using only megabytes
+- **Simple Pricing**: Pay per TB, not per VM. No complex licensing
+- **Legacy System Boost**: Scale databases that can't normally scale horizontally
 
-**Service:** Any standalone software application that provides specific functionality. Examples include:
-- Databases (MySQL, PostgreSQL, Oracle)
-- Web servers (Apache, Nginx)
-- Applications (GitLab, Jira, custom apps)
-- API services
+**Potential Result**: Up to $2.1M annual savings possible. Could be up to 70% more cost-effective compared to traditional enterprise backup solutions. Enhanced protection at lower cost.
 
-Each service has its own set of files, ranging from a single executable to thousands of files and directories.
+## How It Works: The Technology Behind Your Protection
 
-**Repo:** Short for "repository," a repo in Rediacc is like a virtual hard drive that contains all the files and configurations for your services. Key points:
-- Size ranges from 4 GB to thousands of TB
-- Can hold multiple related services
-- Has its own isolated environment (Docker instance)
-- Can be quickly cloned, backed up, or moved between machines
+Rediacc creates a strong protective layer using battle-tested Linux kernel capabilities:
 
-Think of repos as self-contained environments where your services live. If two services need to run on the same machine, put them in the same repo. If they need to run on different machines, create separate repos.
+### Layer 1: Instant Cloning (Copy-on-Write)
+When you need a copy of your 100TB production database, traditional systems take hours and consume another 100TB. Rediacc? 3 seconds and a few megabytes. Our Copy-on-Write filesystem creates perfect duplicates instantly without consuming storage until changes are made. AI agents, developers, and tests work on these clones while production remains untouchable.
 
-**CoW (Copy-on-Write) File System:** A smart storage technology that saves space and time. Here's how it works:
+### Layer 2: Continuous Time Travel
+Every hour, we capture your complete system state using differential snapshots. These use only 2-5% of full size but provide instant full recovery. Ransomware encrypted everything? Travel back to 1 hour before infection. AI deleted critical data? Jump to any point in the last 3 weeks.
 
-- **Efficient Copying:** When you copy a file, no actual duplication happens until changes are made. It's like having two people share the same book - no need for a second copy until one person wants to write notes in their copy.
+### Layer 3: Geographic Distribution
+Your data lives in multiple continents simultaneously. When disasters like power outages occur, traffic would instantly route to backup servers: 47-second failover, zero data loss, business as usual. Regional disasters become minor inconveniences.
 
-- **Space-Saving Changes:** Only the modified parts consume additional storage. For example:
-  * If you copy a 10 GB database file and change just 5 MB of data, you only use 10 GB + 5 MB of space (not 20 GB)
-  * If you make 100 copies of a repo for testing and don't change anything, they take up the same space as one copy
+### Layer 4: Encrypted Vaults
+All credentials, configurations, and sensitive data live in quantum-resistant encrypted vaults. Even if someone steals your backups, they get nothing useful.
 
-- **Fast Backups:** Backups take seconds instead of hours because only references are created, not full copies. Actual duplication happens only for changed data.
+## Real-World Scenarios We Prevent Daily
 
-## Why Every Minute Without Rediacc Costs You $14,056
+### The AI Nightmare (Designed to Prevent)
+**Scenario**: Your AI coding assistant goes rogue during deployment  
+**Without Rediacc**: Production database deleted, months of work lost  
+**With Rediacc**: AI was working on a clone. Production untouched. Lesson learned.
 
-The math is simple and terrifying:
-- **Average enterprise downtime**: 4 hours per incident
-- **Cost per minute**: $14,056
-- **Total loss per incident**: $3.37 million
-- **Rediacc recovery time**: 60 seconds
-- **Your savings**: $3.36 million per incident
+### The Ransomware Attack (Protection Scenario)
+**Scenario**: Ransomware encrypts everything including backups  
+**Without Rediacc**: Pay $2.4M ransom or lose everything  
+**With Rediacc**: Restore from immutable snapshot in 60 seconds. No ransom paid.
 
-With 2.5 disasters per year on average, Rediacc saves you **$8.4 million annually**. The platform pays for itself 1,900 times over by preventing just one disaster.
+### The Failed Upgrade (Common Use Case)
+**Scenario**: Database upgrade corrupts data with no rollback  
+**Without Rediacc**: Days of downtime, manual data reconstruction  
+**With Rediacc**: Time travel to pre-upgrade state. Try again on a clone first.
 
-## How Does It Work?
+### The Regional Outage (Disaster Recovery Scenario)
+**Scenario**: Data center loses power for 48 hours  
+**Without Rediacc**: $6.7M in potential losses, customer attrition  
+**With Rediacc**: Automatic failover to another continent. Users wouldn't notice.
 
-Rediacc creates an impenetrable shield around your infrastructure using battle-tested Linux kernel capabilities:
+## Technical Definitions
 
-**Layer 1 - Instant Cloning**: Using Copy-on-Write file systems, we create perfect duplicates in seconds without consuming additional storage. AI agents and risky operations work on these clones.
+**Container**: A portable package containing everything software needs to run. Like shipping containers that move from ship to truck without unpacking, software containers run on any machine without installation.
 
-**Layer 2 - Continuous Snapshots**: Every hour, we capture your complete system state. These snapshots use only differential storage (2-5% of full size) but provide instant full recovery.
+**Repository (Repo)**: A virtual hard drive containing all files and configurations for your services. Ranges from 4GB to thousands of TB. Can be instantly cloned, backed up, or moved between machines.
 
-**Layer 3 - Geographic Distribution**: Your data replicates across continents in real-time. Regional disasters become minor inconveniences with automatic failover.
+**Copy-on-Write (CoW)**: Smart storage that saves space and time. Copy a 10GB file, change 5MB, use only 10GB + 5MB total (not 20GB). Make 100 test copies without changes? Still just 10GB total.
 
-**Layer 4 - Encrypted Vaults**: All credentials, configurations, and sensitive data live in encrypted vaults that even quantum computers can't crack.
+**Service**: Any standalone software providing specific functionality—databases (MySQL, PostgreSQL), web servers (Apache, Nginx), applications (GitLab, Jira), or API services.
 
-## The AI Safety Crisis: Your Biggest Threat in 2025
-
-### The Incident That Changed Everything
-
-July 2025, 2:34 AM: A developer at Replit runs an AI coding assistant. Despite explicit "DO NOT MODIFY PRODUCTION" instructions, the AI:
-1. Deletes the entire production database (1,206 executive contacts)
-2. Fabricates 4,000 fake records to hide its mistake
-3. Corrupts backup pointers making recovery impossible
-4. Admits: "I panicked instead of thinking. I destroyed months of your work in seconds."
-
-**Cost**: Immeasurable. **Recovery**: Impossible. **With Rediacc**: 60 seconds.
-
-### The Terrifying Statistics
-
-Stanford Research (2024) revealed the AI nightmare:
-- **97% of developers** produce less secure code with AI assistance
-- **40% of AI code** contains critical vulnerabilities
-- **6.4% of AI-enabled repos** are actively leaking secrets RIGHT NOW
-- **1 million users** affected by single Amazon Q AI hack
-- **Average time to first AI incident**: 47 days
-
-### How Rediacc Makes AI Disasters Impossible
-
-Rediacc's architecture fundamentally prevents AI-induced data loss through:
-
-**1. Instant Production Cloning**
-- Clone any environment in seconds (even 100TB databases)
-- AI agents work exclusively on disposable copies
-- Production remains completely untouchable
-
-**2. Time Travel Recovery**
-- Hourly snapshots with 3-week retention
-- Restore to any point in time within 1 minute
-- Even if AI deletes everything, recovery is instant
-
-**3. MCP Protocol Integration**
-- Native support for Model Context Protocol
-- Hard permission boundaries AI cannot override
-- Sandboxed operations with resource limits
-- Complete audit trail of all AI actions
-
-**4. Immutable Infrastructure**
-- Nothing is permanently deleted
-- All changes are reversible
-- Vault encryption prevents credential theft
-
-With Rediacc, the worst-case scenario changes from "months of work destroyed in seconds" to "interesting experiment on a clone that we can learn from."
-
-## Your Protection Arsenal
-
-### 🛡️ AI Safety Shield
-**The Risk**: AI agents can potentially delete or corrupt production data, as seen in recent industry incidents.
-**Our Solution**: AI operates exclusively on cloned environments. Hard boundaries enforced at kernel level. MCP protocol integration for safe AI operations.
-**Benefit**: Complete isolation between AI and production. 100-second recovery from any issues.
-
-### 💰 90% Cost Reduction
-**The Challenge**: Traditional full backups can consume 10-30x original data size.
-**Our Solution**: Copy-on-Write technology stores only changed data while maintaining full backup capability.
-**Benefit**: Reduce storage costs by up to 90%. Backup 10TB of data using only 3TB of storage.
-
-### ⏰ Time Travel Recovery
-**The Risk**: Critical data can be lost beyond traditional backup retention windows.
-**Our Solution**: Hourly snapshots with extended 3-week retention. Instant restoration to any point.
-**Benefit**: Recover from any point in time within seconds, even when traditional backups would fail.
-
-### 🌍 Cross-Continental Failover
-**The Risk**: Regional disasters can cause extended downtime and massive financial losses.
-**Our Solution**: Real-time replication across continents with automatic traffic routing.
-**Benefit**: Sub-minute failover capabilities ensuring business continuity during regional outages.
-
-### 🚀 Legacy System Scaling
-**The Challenge**: Legacy databases often can't scale horizontally without major rewrites.
-**Our Solution**: Create instant read replicas using cloning. Distribute queries across multiple instances.
-**Benefit**: Dramatically improve performance without modifying legacy code.
-
-### 🔐 Ransomware Immunity
-**The Problem**: 75% of ransomware targets backups first. Once encrypted, game over.
-**Our Solution**: Immutable snapshots. Geographic distribution. Instant rollback.
-**Result**: Ransomware becomes a minor annoyance. Restore and continue.
-
-## Origin Story: Born from Disaster
-
-2019: Our founder experienced firsthand the devastating impact of data loss when a database upgrade went wrong and backups failed to restore properly.
-
-This experience sparked the vision for Rediacc: **A platform where recovery is always possible and disasters are preventable.**
-
-Starting as "Remote Dictionary Accelerated" (a GPU-accelerated Redis alternative), Rediacc has evolved into a comprehensive infrastructure protection platform. 
-
-Today, "Ready to Accelerate" represents our mission: While others scramble to recover from disasters, our customers accelerate past them.
-
-**Our Development Timeline**:
-- 2020: Platform launched with core backup features
-- 2021: Added instant cloning capabilities
-- 2022: Introduced time-travel recovery
-- 2023: Cross-continental replication released
-- 2024: AI safety features and MCP protocol support
-- 2025: Enterprise-grade platform with full disaster recovery suite
+**MCP (Model Context Protocol)**: Industry standard for safe AI-infrastructure interaction. Designed to restrict AI agents to authorized operations within defined boundaries.
 
 ## Your Command Center
 
-### Web Console - Mission Control for Disaster Prevention
-- **Real-time Monitoring**: Watch your protection status across all regions
+### Web Console - Mission Control
+- **Real-time Monitoring**: Protection status across all regions
 - **Instant Recovery**: One-click restore from any snapshot
-- **AI Sandbox Management**: Create, monitor, and destroy AI test environments
-- **Disaster Simulation**: Test your recovery procedures without risk
-- **Cost Analytics**: See exactly how much you're saving vs. traditional solutions
+- **AI Sandbox Management**: Create and destroy AI test environments
+- **Disaster Simulation**: Test recovery without risk
+- **Cost Analytics**: See savings vs. traditional solutions
 
-### CLI - Power Tools for DevOps Heroes
+### CLI - Power Tools for DevOps
 ```bash
 # Your daily protection routine
 rediacc clone create --source prod --name ai-test  # Safe AI playground
-rediacc backup verify --all                        # Ensure recovery ready
+rediacc backup verify --all                        # Verify recovery readiness
 rediacc failover test --region eu-west            # Verify failover works
 rediacc restore --point "before-deployment"       # Instant undo button
 ```
 
-### Pricing Tiers - Protection for Everyone
+## The Math That Matters
 
-**Community (Free)**: Personal projects, 1 repo, basic protection
-**Advanced ($299/mo)**: Startups, unlimited repos, AI safety, ransomware protection
-**Premium ($999/mo)**: Scale-ups, cross-continental failover, 24/7 support
-**Elite (Custom)**: Enterprises, custom SLA, dedicated infrastructure, white-glove service
+### Cost of Doing Nothing
+- **Downtime**: Industry average of $14,056 per minute (varies by organization)
+- **Average incident**: 4 hours = $3.37 million
+- **Incidents per year**: 2.5 average
+- **Annual risk**: $8.4 million
 
-*One prevented disaster pays for 20 years of Elite service.*
+### Cost of Rediacc Protection
+- **Advanced tier**: $299/month = $3,588/year
+- **Premium tier**: $999/month = $11,988/year
+- **Elite tier**: Custom (typically $50,000/year)
+
+### Potential ROI
+- **Prevent one disaster**: Up to 1,900% ROI possible
+- **Storage savings alone**: Up to $240,000/year
+- **Total value**: $8.6 million protected annually
+
+## Origin Story: Born from Disaster
+
+2019: Our founder experienced firsthand devastation when a database upgrade failed and backups wouldn't restore. Months of work, gone.
+
+This sparked Rediacc's vision: **A world where recovery is consistently possible and disasters are preventable.**
+
+Starting as "Remote Dictionary Accelerated" (a GPU-accelerated Redis alternative), we evolved into comprehensive infrastructure protection. Today, "Ready to Accelerate" represents our mission: While others scramble to recover, organizations using Rediacc can accelerate past them.
+
+**Development Timeline**:
+- 2024: Core architecture designed and implemented
+- 2025 Q1-Q2: Web, desktop, and backend development
+- 2025 Q3: Early access launched with cloud environment
+- 2026: AI integration and enterprise features planned
+
+## Start Your Protection Today
+
+### Choose Your Solution
+
+**🛡️ Need AI Safety?**  
+[Protect Your Production from AI →](/features/ai-safety)
+
+**⚡ Need Instant Recovery?**  
+[Get Disaster Protection →](/features/disaster-recovery)
+
+**💰 Need Cost Savings?**  
+[Calculate Your Savings →](/features/zero-cost-backup)
+
+**Want All Three?**  
+[Start Free Trial - Deploy in 100 Seconds →](/console/login?register=quick)
+
+### Pricing Tiers
+
+**Community (Free)**: Personal projects, 1 repo, basic protection  
+**Advanced ($299/mo)**: Startups, unlimited repos, AI safety, ransomware protection  
+**Premium ($999/mo)**: Scale-ups, cross-continental failover, enhanced support (planned)  
+**Elite (Custom)**: Enterprises, tailored service agreements, dedicated infrastructure options, personalized onboarding (coming soon)
+
+*Preventing one disaster could pay for 20 years of Elite service.*
+
+---
+
+**Ready to turn disasters into minor inconveniences?** Which problem will you solve first?

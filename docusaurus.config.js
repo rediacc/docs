@@ -115,15 +115,6 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
-      // Announcement bar for beta warning
-      announcementBar: {
-        id: 'beta_warning',
-        content:
-          '🚧 <strong>Beta Preview:</strong> Platform in active development until <strong>Oct 1, 2025</strong>. Data may be reset during updates. For testing only.',
-        backgroundColor: '#fff3cd',
-        textColor: '#856404',
-        isCloseable: false,
-      },
       // Hide navbar completely through CSS
       navbar: {
         style: 'primary',
@@ -135,12 +126,6 @@ const config = {
           href: '/',
         },
         items: [
-          {
-            to: '/',
-            label: 'Home',
-            position: 'left',
-            activeBaseRegex: '^/$',
-          },
           {
             type: 'dropdown',
             label: 'Solutions',
@@ -269,6 +254,10 @@ const config = {
                 to: '/about',
               },
               {
+                label: 'Transparency',
+                to: '/transparency',
+              },
+              {
                 label: 'Careers',
                 to: '/careers',
               },
@@ -309,6 +298,7 @@ const config = {
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
               <div>© ${new Date().getFullYear()} Rediacc, Inc. All rights reserved.</div>
               <div style="display: flex; gap: 2rem;">
+                <a href="/transparency" style="color: var(--ifm-footer-link-color);">Transparency</a>
                 <a href="/privacy" style="color: var(--ifm-footer-link-color);">Privacy Policy</a>
                 <a href="/terms" style="color: var(--ifm-footer-link-color);">Terms of Service</a>
               </div>

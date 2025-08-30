@@ -353,7 +353,7 @@ deploy:
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', maxWidth: '1000px', margin: '0 auto', textAlign: 'center'}}>
               <div>
-                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>973x</div>
+                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>Up to 973x</div>
                 <h4>Elite Performance<sup>[1]</sup></h4>
                 <p>Elite vs low performer deployment frequency</p>
               </div>
@@ -381,7 +381,7 @@ deploy:
                 features instead of fighting infrastructure."
               </blockquote>
               <p style={{marginTop: '1rem', fontWeight: 'bold'}}>
-                — Sarah Chen, VP of Engineering at TechCorp
+                — Example VP of Engineering
               </p>
             </div>
           </div>
@@ -425,7 +425,7 @@ deploy:
 
         <Citations citations={[
           {
-            text: "DORA State of DevOps Report 2024: Only 19% of teams achieved elite performance status. Historical DORA research (2021) found elite performers deploy 973x more frequently than low performers with recovery times under 1 hour and change failure rates under 5%.",
+            text: "DORA State of DevOps Report 2024: Only 19% of teams achieve elite performance status. Historical DORA research (2021) found elite performers can deploy up to 973x more frequently than low performers with recovery times under 1 hour and change failure rates under 5%.",
             source: "DORA State of DevOps Report 2024",
             url: "https://cloud.google.com/devops/state-of-devops"
           }

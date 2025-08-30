@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
-import Citations from '../../components/Citations';
 import { Icon } from '../../components/Icon';
 
 export default function DynamicScalingFeature() {
@@ -42,8 +41,8 @@ export default function DynamicScalingFeature() {
               Build with limitless flexibility. Scale seamlessly between on-premise and cloud with up to 60% cost reduction.
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/docs/solutions/dynamic-resource-scaling">
-                View Case Study
+              <Link className="button button--primary button--lg" to="/docs/use-cases/dynamic-resource-scaling">
+                View Use Case
               </Link>
               <Link className="button button--secondary button--lg" to="/console/login?register=manual" target="_blank">
                 Try It Now
@@ -325,7 +324,7 @@ export default function DynamicScalingFeature() {
           </div>
         </section>
 
-        {/* Case Study Preview */}
+        {/* Use Case Preview */}
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <div style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
@@ -341,7 +340,7 @@ export default function DynamicScalingFeature() {
                 borderRadius: '12px',
                 border: '2px solid var(--ifm-color-primary-lighter)'
               }}>
-                <h3>Case Study: AI Company Scales Intelligently</h3>
+                <h3>Use Case: AI Company Scaling Scenario</h3>
                 <p style={{lineHeight: '1.8', marginBottom: '1.5rem'}}>
                   A growing AI company faced a dilemma: their on-premise servers were at 99% capacity during 
                   work hours but sat idle at night. Upgrading hardware for just 6-7 hours of daily use wasn't 
@@ -349,8 +348,8 @@ export default function DynamicScalingFeature() {
                   morning in just 9 minutes, scale to 10x processing power for AI training, then sync everything 
                   back at night. Result: 60% cost reduction and 5x faster model training.
                 </p>
-                <Link className="button button--primary" to="/docs/solutions/dynamic-resource-scaling">
-                  Read Full Case Study →
+                <Link className="button button--primary" to="/docs/use-cases/dynamic-resource-scaling">
+                  Read Full Use Case →
                 </Link>
               </div>
             </div>
@@ -413,8 +412,6 @@ export default function DynamicScalingFeature() {
             </div>
           </div>
         </section>
-
-        <Citations />
       </article>
     </Layout>
   );

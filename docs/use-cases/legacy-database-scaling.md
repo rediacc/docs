@@ -1,10 +1,14 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Legacy Database Scaling
 
 > **Your Legacy Database Is Holding You Back. Break Free Without Breaking It.**
+
+:::info Note
+This is a **use case example** demonstrating how Rediacc can solve this problem. As a startup, these scenarios represent potential applications rather than completed case studies.
+:::
 
 :::danger Crisis Scenario
 Despite scaling servers 10 times with Kubernetes, performance only improved 2 times. Customers complained about slow query times, costs increased without satisfactory results, and reputation was at risk.

@@ -6,6 +6,10 @@ sidebar_position: 1
 
 > **Is Your Cloud Architecture Rigid? Build With Limitless Flexibility.**
 
+:::info Note
+This is a **use case example** demonstrating how Rediacc can solve this problem. As a startup, these scenarios represent potential applications rather than completed case studies.
+:::
+
 :::danger Crisis Scenario
 AI training times **extended 2-3 times**, causing project delays. Engineers experienced significant productivity loss while waiting for resources, threatening the company's competitive advantage.
 :::

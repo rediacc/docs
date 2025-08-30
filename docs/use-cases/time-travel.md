@@ -6,11 +6,15 @@ sidebar_position: 2
 
 > **When Others Lose Data Forever, You Can Travel Back In Time.**
 
+:::info Note
+This is a **use case example** demonstrating how Rediacc can solve this problem. As a startup, these scenarios represent potential applications rather than completed case studies.
+:::
+
 :::danger Crisis Scenario
 A newly hired employee **accidentally deleted** critical data from the live database 3 weeks ago. The company's backup system only kept backups for 2 weeks, making data recovery nearly impossible through conventional means.
 :::
 
-## The Problem
+## 🔍 The Problem
 
 Mehmet is a system expert responsible for the database of a large online shopping company. One morning, upon customer complaints, he notices that some past order records **are not visible** in the system. The investigation reveals that a newly hired employee **accidentally deleted** some critical data from the live database 3 weeks ago, **connecting to the live database instead of the test environment**.
 
@@ -38,7 +42,7 @@ Due to lost data:
 * To reduce storage costs, the company keeps **only the last 2 weeks of backups**
 * The deleted data is not in the **last 14 days of backups**
 
-## Rediacc Solution
+## ✅ Rediacc Solution
 
 Mehmet offers a "time machine"-like solution with Rediacc:
 

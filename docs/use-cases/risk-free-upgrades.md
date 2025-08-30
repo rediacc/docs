@@ -1,10 +1,14 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
-# 🔄 Risk-Free Upgrades
+# Risk-Free Upgrades
 
 > **Test Everything. Risk Nothing. Upgrade With Confidence.**
+
+:::info Note
+This is a **use case example** demonstrating how Rediacc can solve this problem. As a startup, these scenarios represent potential applications rather than completed case studies.
+:::
 
 :::danger Crisis Scenario
 During a database upgrade, an **unexpected error** occurred that prevented reverting to the old version or proceeding to the new one. Customers couldn't access systems, and 5000+ employees couldn't work.

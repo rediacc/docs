@@ -43,11 +43,11 @@ export default function InfrastructureCommandCenter() {
   return (
     <Layout
       title="Infrastructure Command Center Bundle - Eliminate Chaos, Cut Costs 90% | Rediacc"
-      description="The complete infrastructure management system that prevented 10,000+ disasters. Get AI Safety Shield, Zero-Cost Backup, and Time Travel Recovery. Deploy 973x faster with zero fear.">
+      description="The complete infrastructure management system designed to prevent disasters. Get AI Safety Shield, Zero-Cost Backup, and Time Travel Recovery. Deploy up to 973x more frequently (DORA research) with zero fear.">
       
       <Head>
         <meta property="og:title" content="Infrastructure Command Center Bundle - Transform Your DevOps | Rediacc" />
-        <meta property="og:description" content="Join 1,000+ companies that eliminated infrastructure chaos. 90% cost reduction, 1-minute recovery, bulletproof AI safety. Limited time offer includes $250K in bonuses." />
+        <meta property="og:description" content="Eliminate infrastructure chaos with our platform. 90% cost reduction potential, rapid recovery capability, robust AI safety. Limited time offer includes valuable bonuses." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/img/hero-graphic.svg" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -546,7 +546,7 @@ export default function InfrastructureCommandCenter() {
 
       {/* Countdown Timer Bar */}
       <div className="countdown-bar">
-        <span>🔥 LIMITED TIME: Complete Infrastructure Bundle + $250K in Bonuses Expires In:</span>
+        <span>🌱 EARLY ACCESS: Complete Infrastructure Bundle + Founding Member Benefits</span>
         <div className="countdown-numbers">
           <div className="countdown-item">
             <strong>{timeRemaining.days}</strong> days
@@ -576,13 +576,13 @@ export default function InfrastructureCommandCenter() {
               
               <p className="hero-subtitle">
                 The Complete System That Eliminates Infrastructure Chaos, 
-                Prevents AI Disasters, and Cuts Costs by 90% — Guaranteed
+                Designed to Prevent AI Disasters and Cut Costs by Up to 90%
               </p>
 
               <ul className="hero-bullets">
                 <li>Make AI disasters impossible with instant production cloning</li>
                 <li>Reduce backup costs by 90% with smart deduplication</li>
-                <li>Deploy 973x more frequently without fear of downtime</li>
+                <li>Potential to deploy up to 973x more frequently without fear of downtime</li>
                 <li>Recover from any incident in 1 minute (not days)</li>
               </ul>
 
@@ -596,7 +596,7 @@ export default function InfrastructureCommandCenter() {
               </div>
 
               <p style={{ marginTop: '2rem', fontSize: '0.9rem', color: '#94a3b8' }}>
-                ⚡ Deploy in minutes • 🛡️ 100% AI Safety Guarantee • 💰 10x ROI or Full Refund
+                ⚡ Deploy in minutes • 🛡️ AI Safety Features • 💰 Strong ROI Potential
               </p>
 
               <div className="hero-images">
@@ -652,7 +652,7 @@ export default function InfrastructureCommandCenter() {
               </p>
 
               <p style={{ marginBottom: '1.5rem' }}>
-                Third, fear is paralyzing your deployments. While elite performers deploy 973x more frequently, 
+                Third, fear is paralyzing your deployments. While DORA research shows elite performers can deploy up to 973x more frequently, 
                 81% of teams are stuck in deployment paralysis, terrified that one wrong move will bring down production. 
                 Every deployment is Russian roulette with your reputation.
               </p>
@@ -664,7 +664,7 @@ export default function InfrastructureCommandCenter() {
                 <ul style={{ margin: 0, paddingLeft: '1.5rem', color: '#78350f' }}>
                   <li><strong>AI adoption is accelerating:</strong> 67% of companies now use AI in production</li>
                   <li><strong>Data volumes double every 18 months:</strong> Your costs will only increase</li>
-                  <li><strong>Competitors are pulling ahead:</strong> Elite teams ship 973x faster than you</li>
+                  <li><strong>Competitors are pulling ahead:</strong> DORA research shows elite teams can ship up to 973x faster</li>
                   <li><strong>Ransomware attacks increased 105%:</strong> You're one attack from disaster</li>
                 </ul>
                 <p style={{ marginTop: '1rem', fontWeight: 'bold', color: '#92400e' }}>
@@ -689,27 +689,27 @@ export default function InfrastructureCommandCenter() {
         <section className="social-proof-section">
           <div className="container">
             <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '1rem' }}>
-              Join 1,000+ Companies Already Transformed
+              Join the Infrastructure Revolution
             </h2>
             <p style={{ textAlign: 'center', fontSize: '1.2rem', color: '#64748b', marginBottom: '3rem' }}>
-              Real results from real engineering teams using the Infrastructure Command Center
+              Example scenarios showing potential system capabilities
             </p>
 
             <div className="testimonial-grid">
               <div className="testimonial-card">
                 <div className="testimonial-stars">★★★★★</div>
                 <p className="testimonial-text">
-                  "We went from weekly deployments to hourly deployments. The fear is completely gone. 
-                  When our AI agent accidentally corrupted data, we recovered in 47 seconds. 
-                  This system paid for itself in the first month."
+                  "Organizations could go from weekly to hourly deployments. 
+                  When AI agents accidentally corrupt data, recovery could happen in under a minute. 
+                  The system has the potential to pay for itself quickly."
                 </p>
                 <div className="testimonial-author">
                   <div className="testimonial-avatar">SC</div>
                   <div>
-                    <strong>Sarah Chen</strong><br />
+                    <strong>Example: Enterprise CTO</strong><br />
                     <span style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                      CTO, TechCorp (Fortune 500)<br />
-                      <strong style={{ color: 'var(--ifm-color-primary)' }}>$2.1M Annual Savings</strong>
+                      Large Technology Company<br />
+                      <strong style={{ color: 'var(--ifm-color-primary)' }}>Potential for Significant Savings</strong>
                     </span>
                   </div>
                 </div>
@@ -718,17 +718,17 @@ export default function InfrastructureCommandCenter() {
               <div className="testimonial-card">
                 <div className="testimonial-stars">★★★★★</div>
                 <p className="testimonial-text">
-                  "Our backup bill dropped from $180K to $18K annually. But the real win? 
-                  We can now clone our entire 100TB production environment in seconds for testing. 
-                  Development velocity increased 3x overnight."
+                  "Backup costs could drop by 90%. The real benefit? 
+                  You could clone entire production environments in seconds for testing. 
+                  Development velocity has the potential to increase 3x."
                 </p>
                 <div className="testimonial-author">
                   <div className="testimonial-avatar">MR</div>
                   <div>
-                    <strong>Michael Rodriguez</strong><br />
+                    <strong>Example: DevOps Lead</strong><br />
                     <span style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                      DevOps Lead, StartupXYZ<br />
-                      <strong style={{ color: 'var(--ifm-color-primary)' }}>90% Cost Reduction</strong>
+                      Growing Startup<br />
+                      <strong style={{ color: 'var(--ifm-color-primary)' }}>Up to 90% Cost Reduction Possible</strong>
                     </span>
                   </div>
                 </div>
@@ -737,17 +737,17 @@ export default function InfrastructureCommandCenter() {
               <div className="testimonial-card">
                 <div className="testimonial-stars">★★★★★</div>
                 <p className="testimonial-text">
-                  "After a ransomware attack, traditional recovery would have taken 3-5 days. 
-                  With Rediacc's time travel, we were back online in 55 seconds. 
-                  Our board now sees infrastructure as our competitive advantage."
+                  "After a ransomware attack, traditional recovery could take 3-5 days. 
+                  With Rediacc's time travel, you could be back online in under a minute. 
+                  Infrastructure could become your competitive advantage."
                 </p>
                 <div className="testimonial-author">
                   <div className="testimonial-avatar">ET</div>
                   <div>
-                    <strong>Emma Thompson</strong><br />
+                    <strong>Example: Infrastructure Director</strong><br />
                     <span style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                      Infrastructure Director, Enterprise Inc<br />
-                      <strong style={{ color: 'var(--ifm-color-primary)' }}>Zero Security Incidents</strong>
+                      Enterprise Organization<br />
+                      <strong style={{ color: 'var(--ifm-color-primary)' }}>Enhanced Security Posture</strong>
                     </span>
                   </div>
                 </div>
@@ -756,16 +756,16 @@ export default function InfrastructureCommandCenter() {
               <div className="testimonial-card">
                 <div className="testimonial-stars">★★★★★</div>
                 <p className="testimonial-text">
-                  "We replaced Veeam, saved 70% on costs, and got capabilities Veeam doesn't even offer. 
-                  The ability to test database upgrades on production clones eliminated our weekend maintenance windows."
+                  "You could replace traditional backup solutions, save 70% on costs, and get additional capabilities. 
+                  The ability to test database upgrades on production clones could eliminate weekend maintenance windows."
                 </p>
                 <div className="testimonial-author">
                   <div className="testimonial-avatar">MK</div>
                   <div>
-                    <strong>Mehmet Kaplan</strong><br />
+                    <strong>Example: Database Administrator</strong><br />
                     <span style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                      Database Administrator<br />
-                      <strong style={{ color: 'var(--ifm-color-primary)' }}>Zero Downtime Achieved</strong>
+                      Database Team<br />
+                      <strong style={{ color: 'var(--ifm-color-primary)' }}>Minimal Downtime Possible</strong>
                     </span>
                   </div>
                 </div>
@@ -774,17 +774,17 @@ export default function InfrastructureCommandCenter() {
               <div className="testimonial-card">
                 <div className="testimonial-stars">★★★★★</div>
                 <p className="testimonial-text">
-                  "Our AI training environments used to cost us fortune and took days to provision. 
-                  Now we spin up production clones instantly, train fearlessly, and our models improved 40% 
-                  because we can test on real data."
+                  "AI training environments that cost fortunes and take days to provision could be replaced. 
+                  You could spin up production clones quickly, train fearlessly, and potentially improve models 
+                  by testing on real data."
                 </p>
                 <div className="testimonial-author">
                   <div className="testimonial-avatar">YD</div>
                   <div>
-                    <strong>Yüksel Demir</strong><br />
+                    <strong>Example: Systems Engineer</strong><br />
                     <span style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                      Systems Engineer<br />
-                      <strong style={{ color: 'var(--ifm-color-primary)' }}>5x Performance Boost</strong>
+                      Engineering Team<br />
+                      <strong style={{ color: 'var(--ifm-color-primary)' }}>Performance Gains Possible</strong>
                     </span>
                   </div>
                 </div>
@@ -793,17 +793,17 @@ export default function InfrastructureCommandCenter() {
               <div className="testimonial-card">
                 <div className="testimonial-stars">★★★★★</div>
                 <p className="testimonial-text">
-                  "We thought our 847 microservices made this impossible to implement. 
-                  Rediacc handled our complexity effortlessly. Now we deploy without meetings, 
+                  "Even with hundreds of microservices, implementation is possible. 
+                  Rediacc is designed to handle complexity effortlessly. Deploy without meetings, 
                   test without fear, and sleep without worry."
                 </p>
                 <div className="testimonial-author">
                   <div className="testimonial-avatar">LC</div>
                   <div>
-                    <strong>Dr. Lisa Chen</strong><br />
+                    <strong>Example: Platform Architect</strong><br />
                     <span style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                      Platform Architect<br />
-                      <strong style={{ color: 'var(--ifm-color-primary)' }}>847 Services Protected</strong>
+                      Architecture Team<br />
+                      <strong style={{ color: 'var(--ifm-color-primary)' }}>Scalable Protection</strong>
                     </span>
                   </div>
                 </div>
@@ -811,7 +811,7 @@ export default function InfrastructureCommandCenter() {
             </div>
 
             <p style={{ textAlign: 'center', marginTop: '2rem', fontSize: '0.9rem', color: '#64748b' }}>
-              <em>Results verified through documented case studies. Individual results vary based on implementation.</em>
+              <em>These are hypothetical scenarios based on system capabilities. Actual results will vary.</em>
             </p>
           </div>
         </section>
@@ -869,7 +869,7 @@ export default function InfrastructureCommandCenter() {
                   <li>Only 19% achieve elite deployment frequency</li>
                   <li>Average downtime costs $5,600 per minute</li>
                   <li>Fear-driven processes slow innovation</li>
-                  <li>Competitors deploy 973x more frequently</li>
+                  <li>Competitors can deploy up to 973x more frequently (DORA research)</li>
                 </ul>
               </div>
 
@@ -901,7 +901,7 @@ export default function InfrastructureCommandCenter() {
               <h3 style={{ color: '#dc2626', marginBottom: '1rem' }}>The Brutal Truth</h3>
               <p style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#7f1d1d' }}>
                 While you fight these 4 nightmares with band-aid solutions, 
-                your competitors using modern infrastructure deploy 973x faster, 
+                your competitors using modern infrastructure can deploy up to 973x faster (based on DORA research), 
                 recover 1000x quicker, and spend 90% less.
               </p>
               <p style={{ marginTop: '1rem', color: '#991b1b' }}>
@@ -950,7 +950,7 @@ export default function InfrastructureCommandCenter() {
                   <div className="feature-icon">🚀</div>
                   <h4>Fearless Deployment</h4>
                   <p style={{ color: '#64748b' }}>
-                    Deploy 973x more with zero-downtime confidence
+                    Deploy up to 973x more frequently with zero-downtime confidence
                   </p>
                 </div>
                 <div className="solution-feature">
@@ -971,7 +971,7 @@ export default function InfrastructureCommandCenter() {
                   <div className="feature-icon">📈</div>
                   <h4>Dynamic Scaling</h4>
                   <p style={{ color: '#64748b' }}>
-                    Scale resources instantly without limits
+                    Scale resources rapidly as needed
                   </p>
                 </div>
               </div>
@@ -1034,7 +1034,7 @@ export default function InfrastructureCommandCenter() {
                   marginTop: '2rem' 
                 }}>
                   <p style={{ margin: 0, fontWeight: 'bold', color: '#0369a1' }}>
-                    Personal Credibility: We've prevented 847 AI disasters across our client base. 
+                    System Capability: Designed to prevent 847+ types of AI disasters. 
                     Zero production systems damaged since implementation.
                   </p>
                 </div>
@@ -1060,7 +1060,7 @@ export default function InfrastructureCommandCenter() {
                     </div>
                     <div className="metric-item">
                       <div className="metric-value">847</div>
-                      <div className="metric-label">Disasters Prevented</div>
+                      <div className="metric-label">Disaster Types Covered</div>
                     </div>
                   </div>
                 </div>
@@ -1072,7 +1072,7 @@ export default function InfrastructureCommandCenter() {
                   borderRadius: '8px' 
                 }}>
                   <h4 style={{ color: '#92400e', marginBottom: '0.5rem' }}>
-                    Case Study: Preventing the Replit Disaster
+                    Use Case: Preventing AI Database Deletion
                   </h4>
                   <p style={{ margin: 0, fontSize: '0.95rem', color: '#78350f' }}>
                     <strong>Without Rediacc:</strong> 100% data loss, months of work destroyed<br />
@@ -1091,7 +1091,7 @@ export default function InfrastructureCommandCenter() {
               <div className="feature-icon-large">💎</div>
               <h2 className="feature-title">Module 2: The Zero-Cost Backup System</h2>
               <p className="feature-transformation">
-                From "$2M+ Wasted Annually" to "90% Cost Reduction Guaranteed"
+                From "Millions Wasted Annually" to "Up to 90% Cost Reduction Possible"
               </p>
             </div>
 
@@ -1110,7 +1110,7 @@ export default function InfrastructureCommandCenter() {
                     Week 52 backup takes same space as week 1.
                   </li>
                   <li>
-                    <strong>Instant Access:</strong> No delayed restoration. All backups instantly accessible. 
+                    <strong>Quick Access:</strong> No delayed restoration. All backups readily accessible. 
                     Mount any backup as live filesystem in seconds.
                   </li>
                   <li>
@@ -1127,7 +1127,7 @@ export default function InfrastructureCommandCenter() {
                 }}>
                   <p style={{ margin: 0, fontWeight: 'bold', color: '#0369a1' }}>
                     Industry Disruption: We charge $25/TB/month for what Veeam charges $100/TB/month. 
-                    Our clients save an average of $2.1M annually.
+                    Organizations could save an average of $2.1M annually.
                   </p>
                 </div>
               </div>
@@ -1164,7 +1164,7 @@ export default function InfrastructureCommandCenter() {
                   borderRadius: '8px' 
                 }}>
                   <h4 style={{ color: '#14532d', marginBottom: '0.5rem' }}>
-                    Real Customer Result: TechCorp
+                    Example Scenario: Enterprise Implementation
                   </h4>
                   <p style={{ margin: 0, fontSize: '0.95rem', color: '#166534' }}>
                     <strong>Before:</strong> $2.8M/year with traditional backup<br />
@@ -1219,7 +1219,7 @@ export default function InfrastructureCommandCenter() {
                   marginTop: '2rem' 
                 }}>
                   <p style={{ margin: 0, fontWeight: 'bold', color: '#0369a1' }}>
-                    DORA Research Validated: Elite performers deploy 973x more frequently. 
+                    DORA Research Validated: Elite performers can deploy up to 973x more frequently than low performers. 
                     Our system makes elite performance accessible to any team.
                   </p>
                 </div>
@@ -1232,7 +1232,7 @@ export default function InfrastructureCommandCenter() {
                   </h4>
                   <div className="metric-grid">
                     <div className="metric-item">
-                      <div className="metric-value">973x</div>
+                      <div className="metric-value">Up to 973x</div>
                       <div className="metric-label">More Deployments</div>
                     </div>
                     <div className="metric-item">
@@ -1274,7 +1274,7 @@ export default function InfrastructureCommandCenter() {
         <section className="results-section">
           <div className="container">
             <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '1rem' }}>
-              The Numbers Don't Lie: Proven Results Across 1,000+ Companies
+              The Numbers Don't Lie: Expected Results Based on System Capabilities
             </h2>
             <p style={{ textAlign: 'center', fontSize: '1.2rem', color: '#64748b', marginBottom: '3rem' }}>
               Average improvements measured over 12-month implementation periods
@@ -1289,7 +1289,7 @@ export default function InfrastructureCommandCenter() {
                 </div>
               </div>
               <div className="stat-card">
-                <div className="stat-number">973x</div>
+                <div className="stat-number">Up to 973x</div>
                 <div className="stat-label">Deployment Frequency</div>
                 <div className="stat-description">
                   From monthly to hourly deployments
@@ -1384,7 +1384,7 @@ export default function InfrastructureCommandCenter() {
                   ⚡ White-Glove Migration
                 </h3>
                 <p style={{ marginBottom: '1rem' }}>
-                  Our experts handle your complete migration with zero downtime. 
+                  Our experts handle your complete migration with minimal downtime. 
                   Includes 90 days of optimization support and performance tuning.
                 </p>
                 <strong style={{ fontSize: '1.2rem' }}>Value: $100,000</strong>
@@ -1467,7 +1467,7 @@ export default function InfrastructureCommandCenter() {
                 Total Bonus Value: $250,000
               </h3>
               <p style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#78350f' }}>
-                Yours FREE when you start today (Expires in {timeRemaining.days} days)
+                Included FREE for founding members who join early
               </p>
             </div>
           </div>
@@ -1480,7 +1480,7 @@ export default function InfrastructureCommandCenter() {
               Your Infrastructure Revolution Starts Right Now
             </h2>
             <p className="cta-subtitle">
-              Join 1,000+ companies that transformed chaos into competitive advantage
+              Transform chaos into competitive advantage
             </p>
 
             <div className="cta-box">
@@ -1489,7 +1489,7 @@ export default function InfrastructureCommandCenter() {
               </h3>
               
               <div className="cta-features">
-                <div className="cta-feature">AI Safety Shield (Instant Cloning)</div>
+                <div className="cta-feature">AI Safety Shield (Rapid Cloning)</div>
                 <div className="cta-feature">Zero-Cost Backup System</div>
                 <div className="cta-feature">Fearless Deployment Framework</div>
                 <div className="cta-feature">Time Travel Recovery (1-min)</div>
@@ -1504,7 +1504,7 @@ export default function InfrastructureCommandCenter() {
               </div>
 
               <div className="guarantee-badge">
-                💰 10x ROI Guarantee: Save 10x your investment or get a full refund
+                💰 Strong ROI Potential: Designed to deliver significant savings
               </div>
 
               <Link className="cta-button-primary" to="/console/login?register=manual" target="_blank">
@@ -1513,7 +1513,7 @@ export default function InfrastructureCommandCenter() {
 
               <p style={{ marginTop: '1rem', fontSize: '0.95rem', color: '#cbd5e1' }}>
                 ✅ No credit card required • ✅ Deploy in minutes • ✅ Cancel anytime<br />
-                ⏰ Limited time bonus worth $250,000 expires soon
+                🌱 Founding member benefits included for early adopters
               </p>
 
               <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
@@ -1548,11 +1548,10 @@ export default function InfrastructureCommandCenter() {
             </div>
 
             <div className="disclaimer">
-              <strong>Results Disclaimer:</strong> Individual results vary based on infrastructure complexity, 
-              current costs, and implementation approach. Results shown are from documented case studies over 
-              12-month periods. Average results: 60-90% cost reduction, 5-20x deployment frequency increase, 
-              recovery times under 5 minutes. Your results may differ. We provide detailed ROI calculations 
-              during consultation based on your specific environment.
+              <strong>Results Disclaimer:</strong> Individual results will vary based on infrastructure complexity, 
+              current costs, and implementation approach. Results shown are projections based on system capabilities. 
+              Potential outcomes: 60-90% cost reduction, 5-20x deployment frequency increase, 
+              recovery times under 5 minutes. Actual results depend on your specific environment and implementation.
             </div>
           </div>
         </section>

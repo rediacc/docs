@@ -46,7 +46,7 @@ const VideoShowcase = () => {
       iconName: 'archive',
       highlight: 'Efficient archival solution',
       gradient: 'linear-gradient(135deg, #556b2f 0%, #10b981 100%)',
-      docsLink: '/docs/solutions/zero-cost',
+      docsLink: '/docs/use-cases/zero-cost',
       videoUrl: 'https://www.youtube.com/embed/JMYQmGfTltY?si=465jIzKOqgdkuCOw&title=Intelligent%20Backup',
       useCase: {
         title: 'System Administrators',
@@ -63,7 +63,7 @@ const VideoShowcase = () => {
       iconName: 'clock',
       highlight: 'Instant point-in-time recovery',
       gradient: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)',
-      docsLink: '/docs/solutions/time-travel',
+      docsLink: '/docs/use-cases/time-travel',
       videoUrl: 'https://www.youtube.com/embed/JMYQmGfTltY?si=465jIzKOqgdkuCOw&title=Time%20Travel%20Recovery',
       useCase: {
         title: 'Database Administrators',
@@ -80,7 +80,7 @@ const VideoShowcase = () => {
       iconName: 'sync',
       highlight: 'Seamless platform migration',
       gradient: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
-      docsLink: '/docs/solutions/cross-backup',
+      docsLink: '/docs/use-cases/cross-backup',
       videoUrl: 'https://www.youtube.com/embed/JMYQmGfTltY?si=465jIzKOqgdkuCOw&title=Cross-platform%20Backup',
       useCase: {
         title: 'DevOps Teams',
@@ -114,7 +114,7 @@ const VideoShowcase = () => {
       iconName: 'scaling',
       highlight: 'Automatic resource optimization',
       gradient: 'linear-gradient(135deg, #556b2f 0%, #84cc16 100%)',
-      docsLink: '/docs/solutions/dynamic-resource-scaling',
+      docsLink: '/docs/use-cases/dynamic-resource-scaling',
       videoUrl: 'https://www.youtube.com/embed/JMYQmGfTltY?si=465jIzKOqgdkuCOw&title=Dynamic%20Scaling',
       useCase: {
         title: 'Cloud Architects',
@@ -131,7 +131,7 @@ const VideoShowcase = () => {
       iconName: 'disaster-recovery',
       highlight: 'Intercontinental data mirroring',
       gradient: 'linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%)',
-      docsLink: '/docs/solutions/cross-backup',
+      docsLink: '/docs/use-cases/cross-backup',
       videoUrl: 'https://www.youtube.com/embed/JMYQmGfTltY?si=465jIzKOqgdkuCOw&title=Business%20Continuity',
       useCase: {
         title: 'Financial Services',
@@ -148,7 +148,7 @@ const VideoShowcase = () => {
       iconName: 'database',
       highlight: 'Boost legacy performance',
       gradient: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
-      docsLink: '/docs/solutions/legacy-database-scaling',
+      docsLink: '/docs/use-cases/legacy-database-scaling',
       videoUrl: 'https://www.youtube.com/embed/JMYQmGfTltY?si=465jIzKOqgdkuCOw&title=Legacy%20Enhancement',
       useCase: {
         title: 'Database Administrators',
@@ -165,7 +165,7 @@ const VideoShowcase = () => {
       iconName: 'protected',
       highlight: 'Safe system updates',
       gradient: 'linear-gradient(135deg, #7d9b49 0%, #f59e0b 100%)',
-      docsLink: '/docs/operations/risk-free-upgrades',
+      docsLink: '/docs/use-cases/risk-free-upgrades',
       videoUrl: 'https://www.youtube.com/embed/JMYQmGfTltY?si=465jIzKOqgdkuCOw&title=Risk-Free%20Upgrades',
       useCase: {
         title: 'System Administrators',

@@ -10,7 +10,7 @@ export default function FooterWrapper(props) {
   const {logo} = navbar;
 
   return (
-    <>
+    <div className="footer-wrapper">
       <div className="footer-bar">
         <div className="footer-bar__inner">
           {logo && (
@@ -31,6 +31,6 @@ export default function FooterWrapper(props) {
         </div>
       </div>
       <FooterOriginal {...props} />
-    </>
+    </div>
   );
 }

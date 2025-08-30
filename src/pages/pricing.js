@@ -188,9 +188,9 @@ export default function Pricing() {
           'Everything in Premium plus:',
           'Unlimited storage',
           'Dedicated account manager',
-          'Custom SLA guarantees',
-          'Priority feature requests',
-          'White-glove onboarding',
+          'Tailored service agreements (coming soon)',
+          'Feature request consideration',
+          'Personalized onboarding support (planned)',
           'Custom integrations',
           'Executive reporting'
         ]
@@ -497,8 +497,9 @@ export default function Pricing() {
                   What's included in the Community (Free) plan?
                 </summary>
                 <p style={{marginTop: '1rem', lineHeight: '1.6'}}>
-                  The Community plan is perfect for personal projects and testing. You get access to core features with 
-                  reasonable limits, community support, and the ability to scale up anytime you need more resources.
+                  The Community plan is designed for personal projects and testing. As we're in early access, 
+                  feature availability may vary. This plan helps us test our infrastructure while giving you free access 
+                  to experiment with our platform.
                 </p>
               </details>
 
@@ -514,11 +515,12 @@ export default function Pricing() {
 
               <details style={{marginBottom: '1rem', padding: '1rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
                 <summary style={{cursor: 'pointer', fontWeight: 'bold', fontSize: '1.2rem'}}>
-                  Can I change my plan later?
+                  Are you production-ready?
                 </summary>
                 <p style={{marginTop: '1rem', lineHeight: '1.6'}}>
-                  Yes! You can upgrade or downgrade your plan at any time. When upgrading, you'll only pay the prorated 
-                  difference. When downgrading, we'll credit your account for the unused portion.
+                  We're in early access! Core components (web, desktop, backend) are complete with automated tests. 
+                  Our cloud environment is live with early access users actively testing. Full platform with AI integration 
+                  and enhanced CLI capabilities planned for Q2 2026.
                 </p>
               </details>
 
@@ -527,8 +529,21 @@ export default function Pricing() {
                   Do you offer special discounts?
                 </summary>
                 <p style={{marginTop: '1rem', lineHeight: '1.6'}}>
-                  Yes! We offer special discounts during Black Friday, Cyber Monday, New Year, and other occasions. 
-                  We also provide discounts for non-profits, educational institutions, and startups. Contact our sales team for details.
+                  As an early-stage startup, we're offering founding member pricing which is already heavily discounted. 
+                  Early adopters who join now will lock in these rates for life. We may offer special programs for 
+                  non-profits and educational institutions in the future.
+                </p>
+              </details>
+
+              <details style={{marginBottom: '1rem', padding: '1rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
+                <summary style={{cursor: 'pointer', fontWeight: 'bold', fontSize: '1.2rem'}}>
+                  Do you have any customers yet?
+                </summary>
+                <p style={{marginTop: '1rem', lineHeight: '1.6'}}>
+                  We're in early access with active users testing the platform. The examples and case studies shown are 
+                  hypothetical scenarios demonstrating potential use cases. We're gathering feedback from early access users 
+                  to improve the platform before general availability. 
+                  <Link to="/transparency" style={{marginLeft: '0.5rem'}}>Learn more about our journey →</Link>
                 </p>
               </details>
             </div>
@@ -544,10 +559,10 @@ export default function Pricing() {
         }}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '1.5rem', color: 'var(--ifm-heading-color)'}}>
-              Every Hour Without Protection Costs You $843,360
+              Every Hour Without Protection Could Cost You Significantly
             </h2>
             <p style={{fontSize: '1.2rem', marginBottom: '2rem', color: 'var(--ifm-font-color-secondary)'}}>
-              While you evaluate, disasters don't wait. Get protected in 60 seconds.
+              Join as an early adopter and help shape the future of infrastructure protection.
             </p>
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
               <Link
@@ -562,6 +577,38 @@ export default function Pricing() {
                 to="/contact">
                 Calculate Your Risk
               </Link>
+            </div>
+          </div>
+        </section>
+        
+        {/* Pricing Disclaimer Section */}
+        <section style={{
+          padding: '2rem 1rem',
+          background: 'var(--ifm-background-surface-color)',
+          borderTop: '1px solid var(--ifm-color-emphasis-200)'
+        }}>
+          <div className="container" style={{maxWidth: '800px', margin: '0 auto'}}>
+            <div style={{
+              padding: '1.5rem',
+              background: 'var(--ifm-background-color)',
+              borderRadius: '8px',
+              border: '1px solid var(--ifm-color-emphasis-300)',
+              fontSize: '0.9rem',
+              lineHeight: '1.6'
+            }}>
+              <h3 style={{fontSize: '1.2rem', marginBottom: '1rem'}}>Pricing Information</h3>
+              <p style={{marginBottom: '0.75rem'}}>
+                <strong>Early Access Pricing:</strong> As an early-stage startup, we're offering special founding member rates. Prices shown are subject to change as we scale our infrastructure and add features.
+              </p>
+              <p style={{marginBottom: '0.75rem'}}>
+                <strong>Early Access Features:</strong> Some features listed are in early access or planned development. Early adopters get lifetime access to all features as they become available.
+              </p>
+              <p style={{marginBottom: '0.75rem'}}>
+                <strong>Custom Enterprise Plans:</strong> Enterprise pricing is tailored to your specific needs and scale. Contact us for a custom quote based on your infrastructure requirements.
+              </p>
+              <p style={{fontStyle: 'italic', color: 'var(--ifm-color-emphasis-600)', marginBottom: 0}}>
+                Join as a founding member and lock in these rates before general availability.
+              </p>
             </div>
           </div>
         </section>

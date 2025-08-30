@@ -10,11 +10,11 @@ export default function AISafetyFeature() {
   return (
     <Layout
       title="AI Safety Shield - Prevent AI Disasters Like the Replit Incident | Rediacc"
-      description="Learn from the Replit AI disaster. With Rediacc's instant cloning and isolation, AI works on copies while production stays safe. 100-second recovery guaranteed.">
+      description="Learn from the Replit AI disaster. With Rediacc's rapid cloning and isolation, AI works on copies while production stays safe. Fast recovery capability.">
       
       <Head>
-        <meta property="og:title" content="Prevent AI Disasters with Instant Cloning | Rediacc" />
-        <meta property="og:description" content="AI incidents are increasing. 6.4% of AI repos leak secrets. With Rediacc, AI works on clones, production stays safe. 100-second recovery guaranteed." />
+        <meta property="og:title" content="Prevent AI Disasters with Rapid Cloning | Rediacc" />
+        <meta property="og:description" content="AI incidents are increasing. 6.4% of AI repos leak secrets. With Rediacc, AI works on clones, production stays safe. Fast recovery capability." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/features/ai-safety" />
         <link rel="canonical" href="/features/ai-safety" />
@@ -120,7 +120,7 @@ export default function AISafetyFeature() {
               </div>
 
               <div style={{padding: '2rem', background: 'var(--ifm-color-primary)', color: 'white', borderRadius: '8px', textAlign: 'center'}}>
-                <h3 style={{fontSize: '1.8rem', marginBottom: '1rem'}}>How Rediacc Would Have Prevented This:</h3>
+                <h3 style={{fontSize: '1.8rem', marginBottom: '1rem'}}>How Rediacc Could Prevent This:</h3>
                 <p style={{fontSize: '1.2rem', marginBottom: '1rem'}}>
                   With our protection:
                 </p>
@@ -145,7 +145,7 @@ export default function AISafetyFeature() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              Your ROI: 1,900% From Preventing ONE Disaster
+              Potential ROI: Up to 1,900% From Preventing ONE Disaster
             </h2>
             
             <div style={{marginBottom: '2rem', textAlign: 'center', fontSize: '1.1rem', color: 'var(--ifm-font-color-secondary)'}}>
@@ -155,7 +155,7 @@ export default function AISafetyFeature() {
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
               <div style={{textAlign: 'center'}}>
                 <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>1 min</div>
-                <h3>Recovery Time<sup>[14]</sup></h3>
+                <h3>Recovery Time<sup>[11]</sup></h3>
                 <p>Restore from any AI disaster instantly using time travel snapshots vs days with traditional backups</p>
               </div>
               <div style={{textAlign: 'center'}}>
@@ -165,8 +165,8 @@ export default function AISafetyFeature() {
               </div>
               <div style={{textAlign: 'center'}}>
                 <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>1,900%</div>
-                <h3>ROI on Prevention<sup>[15]</sup></h3>
-                <p>Preventing one AI disaster pays for Rediacc for 20 years based on average incident costs</p>
+                <h3>Potential ROI on Prevention<sup>[12]</sup></h3>
+                <p>Preventing one AI disaster could pay for Rediacc for years based on typical incident costs</p>
               </div>
             </div>
 
@@ -204,7 +204,7 @@ export default function AISafetyFeature() {
               <div className="feature-card">
                 <h3>Database Migration Testing</h3>
                 <p>AI can test complex migrations on clones, break things, and iterate without touching production data.</p>
-                <Link to="/docs/operations/risk-free-upgrades">Risk-Free Testing →</Link>
+                <Link to="/docs/use-cases/risk-free-upgrades">Risk-Free Testing →</Link>
               </div>
               <div className="feature-card">
                 <h3>Security Testing</h3>
@@ -242,7 +242,7 @@ export default function AISafetyFeature() {
                     <li>1 million users affected by single hack<sup>[6]</sup></li>
                     <li>Complete data loss possible</li>
                     <li>Days to weeks for recovery</li>
-                    <li>$2-10M average incident cost<sup>[15]</sup></li>
+                    <li>$2-10M average incident cost<sup>[12]</sup></li>
                   </ul>
                 </div>
                 <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
@@ -253,7 +253,7 @@ export default function AISafetyFeature() {
                     <li>1 minute recovery time</li>
                     <li>Zero data loss guarantee</li>
                     <li>Complete audit trail</li>
-                    <li>1,900% ROI on prevention<sup>[15]</sup></li>
+                    <li>1,900% ROI on prevention<sup>[12]</sup></li>
                   </ul>
                 </div>
               </div>
@@ -289,7 +289,7 @@ export default function AISafetyFeature() {
               </Link>
             </div>
             <p style={{marginTop: '2rem', fontSize: '0.9rem', color: 'var(--ifm-font-color-secondary)'}}>
-              Protection active in 100 seconds • Prevent $10M disasters • 1,900% ROI guaranteed
+              Protection active in 100 seconds • Prevent major disasters • Strong ROI potential
             </p>
           </div>
         </section>
@@ -347,21 +347,6 @@ export default function AISafetyFeature() {
             source: 'Read analysis'
           },
           {
-            text: 'CISA. "AI Data Security: Best Practices for Securing Data Used to Train & Operate AI Systems" (2024).',
-            url: 'https://www.cisa.gov/resources-tools/resources/ai-data-security-best-practices-securing-data-used-train-operate-ai-systems',
-            source: 'View guidelines'
-          },
-          {
-            text: 'TechTarget. "Security risks of AI-generated code and how to manage them" (2024).',
-            url: 'https://www.techtarget.com/searchsecurity/tip/Security-risks-of-AI-generated-code-and-how-to-manage-them',
-            source: 'Read guide'
-          },
-          {
-            text: 'Microsoft Learn. "Secure AI - Cloud Adoption Framework" (2024).',
-            url: 'https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/secure',
-            source: 'View framework'
-          },
-          {
             text: 'Based on Rediacc\'s time travel recovery capability with hourly snapshots.',
             source: 'Internal documentation'
           },
@@ -370,6 +355,35 @@ export default function AISafetyFeature() {
             source: 'Gartner, CISA, industry reports'
           }
         ]} />
+        
+        {/* AI Safety Disclaimer */}
+        <section style={{
+          padding: '2rem 1rem',
+          background: 'var(--ifm-background-surface-color)',
+          borderTop: '1px solid var(--ifm-color-emphasis-200)',
+          marginTop: '3rem'
+        }}>
+          <div className="container" style={{maxWidth: '800px', margin: '0 auto'}}>
+            <div style={{
+              padding: '1.5rem',
+              background: 'var(--ifm-background-color)',
+              borderRadius: '8px',
+              border: '1px solid var(--ifm-color-emphasis-300)',
+              fontSize: '0.9rem',
+              lineHeight: '1.6'
+            }}>
+              <p style={{marginBottom: '0.75rem'}}>
+                <strong>Development Status:</strong> AI Safety features are currently in active development. While our architecture is designed to prevent AI disasters, full functionality is being rolled out in phases.
+              </p>
+              <p style={{marginBottom: '0.75rem'}}>
+                <strong>Performance Claims:</strong> All statistics about AI incidents and recovery times are based on system design capabilities and industry research. Actual prevention effectiveness will depend on proper implementation and configuration.
+              </p>
+              <p style={{fontStyle: 'italic', color: 'var(--ifm-color-emphasis-600)', marginBottom: 0}}>
+                We're committed to building the most comprehensive AI safety platform. Early adopters help shape our development priorities.
+              </p>
+            </div>
+          </div>
+        </section>
       </article>
     </Layout>
   );

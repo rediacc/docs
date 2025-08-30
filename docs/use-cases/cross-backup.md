@@ -1,10 +1,14 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 # Cross Backup Strategy
 
 > **When Disaster Strikes, Will Your Data Survive? With Rediacc, It Always Does.**
+
+:::info Note
+This is a **use case example** demonstrating how Rediacc can solve this problem. As a startup, these scenarios represent potential applications rather than completed case studies.
+:::
 
 :::danger Crisis Scenario
 After a customer call, services were found to be not working due to a **disk failure**. The remote backup server's last backup was **3 weeks old**, leading to significant data loss.

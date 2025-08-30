@@ -9,11 +9,11 @@ export default function BackupRecoverySolution() {
   return (
     <Layout
       title="Backup & Recovery Solutions - Enterprise Data Protection | Rediacc"
-      description="Comprehensive backup and recovery solutions with up to 90% cost reduction, instant recovery, and bulletproof data protection. Zero data loss guaranteed.">
+      description="Comprehensive backup and recovery solutions with up to 90% cost reduction, rapid recovery, and robust data protection.">
       
       <Head>
         <meta property="og:title" content="Enterprise Backup & Recovery Solutions" />
-        <meta property="og:description" content="Next-generation backup platform with 90% cost reduction, instant recovery, and zero data loss. Protect against ransomware, disasters, and human error." />
+        <meta property="og:description" content="Next-generation backup platform with up to 90% cost reduction, rapid recovery, and minimal data loss risk. Protect against ransomware, disasters, and human error." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/solutions/backup-recovery" />
         <link rel="canonical" href="/solutions/backup-recovery" />
@@ -137,7 +137,7 @@ export default function BackupRecoverySolution() {
                   </div>
                   <h3>Global Deduplication</h3>
                   <p>10:1 to 20:1 reduction ratios mean 90-95% less storage needed. Store months of backups in the space of one.</p>
-                  <Link to="/docs/solutions/zero-cost">Learn more →</Link>
+                  <Link to="/docs/use-cases/zero-cost">Learn more →</Link>
                 </div>
                 
                 <div className="feature-card">
@@ -305,7 +305,7 @@ export default function BackupRecoverySolution() {
 
                 <div style={{padding: '2rem', background: 'var(--ifm-background-color)', borderRadius: '8px'}}>
                   <h3 style={{color: 'var(--ifm-color-primary)'}}><Icon name="finance" size={20} style={{marginRight: '8px'}} />Financial Services</h3>
-                  <p><strong>Challenge:</strong> Zero data loss requirement, strict security needs, detailed audit trails</p>
+                  <p><strong>Challenge:</strong> Minimal data loss requirement, strict security needs, detailed audit trails</p>
                   <p><strong>Solution:</strong></p>
                   <ul>
                     <li>Continuous data protection with zero RPO</li>
@@ -498,7 +498,7 @@ export default function BackupRecoverySolution() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              Proven Results Across Industries
+              Expected Results Across Industries
             </h2>
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto', textAlign: 'center'}}>
@@ -530,7 +530,7 @@ export default function BackupRecoverySolution() {
               <div>
                 <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>10:1</div>
                 <h4>Dedup Ratio</h4>
-                <p>Typical data reduction achieved</p>
+                <p>Typical data reduction possible</p>
               </div>
             </div>
           </div>
@@ -589,7 +589,7 @@ export default function BackupRecoverySolution() {
           {
             text: "Veeam's 2024 Data Protection Trends Report reveals that organizations face an average of 2.5 ransomware attacks annually with 75% of attacks targeting backups.",
             source: "Veeam Data Protection Trends Report 2024",
-            url: "https://www.veeam.com/resources/wp-2024-data-protection-trends-report.html"
+            url: "https://www.veeam.com/resources/wp-data-protection-trends-report-insights.html"
           },
           {
             text: "IBM Cost of a Data Breach Report 2024: The global average cost of a data breach is $4.4 million, a 9% decrease from 2023.",

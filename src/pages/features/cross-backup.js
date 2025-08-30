@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
-import Citations from '../../components/Citations';
 import { Icon } from '../../components/Icon';
 
 export default function CrossBackupFeature() {
@@ -42,8 +41,8 @@ export default function CrossBackupFeature() {
               With Rediacc Cross-Backup, it always does. Reduce backup time from weeks to minutes with up to 98% less bandwidth.
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/docs/solutions/cross-backup">
-                View Case Study
+              <Link className="button button--primary button--lg" to="/docs/use-cases/cross-backup">
+                View Use Case
               </Link>
               <Link className="button button--secondary button--lg" to="/console/login?register=manual" target="_blank">
                 Try It Now
@@ -219,7 +218,7 @@ export default function CrossBackupFeature() {
           </div>
         </section>
 
-        {/* Case Study Preview */}
+        {/* Use Case Preview */}
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
             <div style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
@@ -235,7 +234,7 @@ export default function CrossBackupFeature() {
                 borderRadius: '12px',
                 border: '2px solid var(--ifm-color-primary-lighter)'
               }}>
-                <h3>Case Study: Preventing Total Data Loss</h3>
+                <h3>Use Case: Preventing Total Data Loss</h3>
                 <p style={{lineHeight: '1.8', marginBottom: '1.5rem'}}>
                   After experiencing a catastrophic disk failure, a company discovered their remote backup 
                   server's last successful backup was 3 weeks old. With Rediacc Cross-Backup, they now maintain 
@@ -243,8 +242,8 @@ export default function CrossBackupFeature() {
                   the remote backup was activated in just 7 minutes, preventing significant data loss and 
                   maintaining business continuity.
                 </p>
-                <Link className="button button--primary" to="/docs/solutions/cross-backup">
-                  Read Full Case Study →
+                <Link className="button button--primary" to="/docs/use-cases/cross-backup">
+                  Read Full Use Case →
                 </Link>
               </div>
             </div>
@@ -270,8 +269,6 @@ export default function CrossBackupFeature() {
             </div>
           </div>
         </section>
-
-        <Citations />
       </article>
     </Layout>
   );

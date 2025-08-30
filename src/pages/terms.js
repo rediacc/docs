@@ -131,9 +131,9 @@ export default function Terms() {
               <li>We use third-party payment processors and do not store payment card details</li>
             </ul>
 
-            <h3>5.3 Free Trial and Beta Features</h3>
+            <h3>5.3 Free Trial and Early Access Features</h3>
             <p>
-              We may offer free trials or beta features. These are provided "as is" without warranties. 
+              We may offer free trials or early access features. These are provided "as is" without warranties. 
               We may discontinue or modify these offerings at any time.
             </p>
 

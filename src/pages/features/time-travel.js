@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
-import Citations from '../../components/Citations';
 import { Icon } from '../../components/Icon';
 
 export default function TimeTravelFeature() {
@@ -42,8 +41,8 @@ export default function TimeTravelFeature() {
               Instantly restore to any point in time, even weeks or months in the past, with our revolutionary snapshot technology
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/docs/solutions/time-travel">
-                View Case Study
+              <Link className="button button--primary button--lg" to="/docs/use-cases/time-travel">
+                View Use Case
               </Link>
               <Link className="button button--secondary button--lg" to="/console/login?register=quick" target="_blank">
                 Try It Now
@@ -167,7 +166,7 @@ export default function TimeTravelFeature() {
           </div>
         </section>
 
-        {/* Case Study Preview */}
+        {/* Use Case Preview */}
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <div style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
@@ -183,15 +182,15 @@ export default function TimeTravelFeature() {
                 borderRadius: '12px',
                 border: '2px solid var(--ifm-color-primary-lighter)'
               }}>
-                <h3>Case Study: E-Commerce Database Recovery</h3>
+                <h3>Use Case: E-Commerce Database Recovery</h3>
                 <p style={{lineHeight: '1.8', marginBottom: '1.5rem'}}>
                   A major online retailer discovered that critical order data had been accidentally deleted 
                   3 weeks prior - beyond their traditional backup retention. With Rediacc's Time Travel Recovery, 
                   they were able to restore the data completely within minutes, preventing significant financial 
                   loss and maintaining customer trust.
                 </p>
-                <Link className="button button--primary" to="/docs/solutions/time-travel">
-                  Read Full Case Study →
+                <Link className="button button--primary" to="/docs/use-cases/time-travel">
+                  Read Full Use Case →
                 </Link>
               </div>
             </div>
@@ -217,8 +216,6 @@ export default function TimeTravelFeature() {
             </div>
           </div>
         </section>
-
-        <Citations />
       </article>
     </Layout>
   );

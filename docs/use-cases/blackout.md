@@ -1,10 +1,14 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 ---
 
-# 🏦 Banking Continuity During Blackout
+# Banking Continuity During Blackout
 
 > **When The Lights Go Out, Your Business Stays On.**
+
+:::info Note
+This is a **use case example** demonstrating how Rediacc can solve this problem. As a startup, these scenarios represent potential applications rather than completed case studies.
+:::
 
 :::danger Crisis Scenario
 A massive blackout affected Spain and Portugal on April 28, 2025, triggered by a damaged transmission line in France. The power outage brought down critical IT infrastructure, causing major banks and tech companies to lose access to their systems.

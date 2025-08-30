@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
-import Citations from '../../components/Citations';
 import { Icon } from '../../components/Icon';
 
 export default function RiskFreeUpgradesFeature() {
@@ -42,8 +41,8 @@ export default function RiskFreeUpgradesFeature() {
               Upgrade with confidence. Clone, test, and validate before touching production - all in seconds, not days.
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/docs/operations/risk-free-upgrades">
-                View Case Study
+              <Link className="button button--primary button--lg" to="/docs/use-cases/risk-free-upgrades">
+                View Use Case
               </Link>
               <Link className="button button--secondary button--lg" to="/console/login?register=quick" target="_blank">
                 Try It Now
@@ -62,7 +61,7 @@ export default function RiskFreeUpgradesFeature() {
               <p>
                 System upgrades are a necessary evil. They bring new features and security patches, but 
                 they also bring risk. One wrong step can bring down your entire infrastructure, leaving 
-                customers stranded and employees unable to work.
+                users stranded and employees unable to work.
               </p>
               <div style={{margin: '2rem 0', padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
                 <h3>Traditional Upgrade Risks:</h3>
@@ -272,7 +271,7 @@ export default function RiskFreeUpgradesFeature() {
                   <p><strong>Solution:</strong> Clone in 10 seconds, test upgrade fully</p>
                   <p><strong>Result:</strong> Zero-downtime upgrade completed</p>
                   <div style={{marginTop: '1rem', padding: '0.5rem', background: 'var(--ifm-background-color)', borderRadius: '4px'}}>
-                    <strong>Impact:</strong> No customer disruption
+                    <strong>Impact:</strong> No user disruption
                   </div>
                 </div>
 
@@ -282,7 +281,7 @@ export default function RiskFreeUpgradesFeature() {
                   <p><strong>Solution:</strong> Test entire release on production clone</p>
                   <p><strong>Result:</strong> Issues caught before production</p>
                   <div style={{marginTop: '1rem', padding: '0.5rem', background: 'var(--ifm-background-color)', borderRadius: '4px'}}>
-                    <strong>Impact:</strong> Prevented major outage
+                    <strong>Impact:</strong> Outage prevention capability
                   </div>
                 </div>
 
@@ -330,7 +329,7 @@ export default function RiskFreeUpgradesFeature() {
           </div>
         </section>
 
-        {/* Case Study Preview */}
+        {/* Use Case Preview */}
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <div style={{maxWidth: '800px', margin: '0 auto', textAlign: 'center'}}>
@@ -346,7 +345,7 @@ export default function RiskFreeUpgradesFeature() {
                 borderRadius: '12px',
                 border: '2px solid var(--ifm-color-primary-lighter)'
               }}>
-                <h3>Case Study: 100TB Database Upgrade</h3>
+                <h3>Use Case: 100TB Database Upgrade</h3>
                 <p style={{lineHeight: '1.8', marginBottom: '1.5rem'}}>
                   A system administrator needed to upgrade a critical 100TB PostgreSQL database. Traditional 
                   backup would take 7 days, and the scheduled 4-hour maintenance window was risky. Using 
@@ -355,8 +354,8 @@ export default function RiskFreeUpgradesFeature() {
                   a perfect upgrade with zero downtime. The company avoided what could have been a 
                   catastrophic failure affecting 5000+ employees.
                 </p>
-                <Link className="button button--primary" to="/docs/operations/risk-free-upgrades">
-                  Read Full Case Study →
+                <Link className="button button--primary" to="/docs/use-cases/risk-free-upgrades">
+                  Read Full Use Case →
                 </Link>
               </div>
             </div>
@@ -433,8 +432,6 @@ export default function RiskFreeUpgradesFeature() {
             </div>
           </div>
         </section>
-
-        <Citations />
       </article>
     </Layout>
   );

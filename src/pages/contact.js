@@ -84,11 +84,11 @@ export default function Contact() {
   return (
     <Layout
       title="Calculate Your Disaster Risk - 60-Second Assessment | Rediacc"
-      description="$14,056/minute downtime cost. €4.5B blackout losses. AI database deletion. Calculate your risk and get protected in 60 seconds.">
+      description="Industry average downtime cost: $14,056/minute. Historical blackout losses: €4.5B. AI database deletion risks. Calculate your risk and get protected in 60 seconds.">
       
       <Head>
         <meta property="og:title" content="Your Infrastructure is 47 Days from Disaster | Contact Rediacc" />
-        <meta property="og:description" content="Average time to first AI incident: 47 days. Downtime cost: $14,056/minute. Get your disaster assessment and protection plan now." />
+        <meta property="og:description" content="Average time to first AI incident: 47 days. Industry average downtime cost: $14,056/minute. Get your disaster assessment and protection plan now." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/contact" />
         <link rel="canonical" href="/contact" />
@@ -114,7 +114,7 @@ export default function Contact() {
               Your Infrastructure Disaster Assessment Starts Here
             </h1>
             <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-              47 days to first AI disaster. $14,056/minute downtime. Calculate your risk and get protected before it's too late.
+              Industry data suggests 47 days to first AI incident. Average downtime cost: $14,056/minute. Calculate your risk and get protected before it's too late.
             </p>
           </div>
         </section>

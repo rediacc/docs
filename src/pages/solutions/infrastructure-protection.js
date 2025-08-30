@@ -665,7 +665,7 @@ export default function InfrastructureProtectionSolution() {
             <div style={{maxWidth: '1200px', margin: '0 auto'}}>
               <div style={{marginBottom: '3rem', padding: '2rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
                 <h3 style={{textAlign: 'center', marginBottom: '2rem', color: 'var(--ifm-color-primary)'}}>
-                  Average Customer Results
+                  Expected Results
                 </h3>
                 <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', textAlign: 'center'}}>
                   <div>
@@ -759,7 +759,7 @@ export default function InfrastructureProtectionSolution() {
                     <li>High-frequency trading security</li>
                   </ul>
                   <p style={{marginTop: '1rem', fontStyle: 'italic'}}>
-                    "Prevented $50M in potential fraud with AI-powered detection"
+                    "Could prevent millions in potential fraud with AI-powered detection"
                   </p>
                 </div>
 
@@ -801,7 +801,7 @@ export default function InfrastructureProtectionSolution() {
                     <li>IP and trade secret protection</li>
                   </ul>
                   <p style={{marginTop: '1rem', fontStyle: 'italic'}}>
-                    "Prevented production line sabotage saving $10M"
+                    "Designed to prevent production line sabotage and save millions"
                   </p>
                 </div>
 
@@ -857,7 +857,7 @@ export default function InfrastructureProtectionSolution() {
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/docs/operations/blackout">
+                to="/docs/use-cases/blackout">
                 Disaster Recovery Guide
               </Link>
               <Link

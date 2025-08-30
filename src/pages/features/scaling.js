@@ -55,8 +55,8 @@ export default function ScalingFeature() {
               Intelligent auto-scaling that handles traffic spikes and saves money during quiet periods
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
-              <Link className="button button--primary button--lg" to="/docs/solutions/dynamic-resource-scaling">
-                View Case Study
+              <Link className="button button--primary button--lg" to="/docs/use-cases/dynamic-resource-scaling">
+                View Use Case
               </Link>
               <Link className="button button--secondary button--lg" to="/console/login?register=quick" target="_blank">
                 Play on Sandbox
@@ -290,7 +290,7 @@ export default function ScalingFeature() {
             <div style={{maxWidth: '1000px', margin: '0 auto'}}>
               <div style={{padding: '2rem', background: 'var(--ifm-background-surface-color)', borderTop: '1px solid var(--ifm-toc-border-color)', borderRadius: '8px', marginBottom: '3rem'}}>
                 <h3 style={{fontSize: '1.8rem', marginBottom: '2rem', textAlign: 'center', color: 'var(--ifm-heading-color)'}}>
-                  Average Customer Savings
+                  Potential Savings
                 </h3>
                 <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', textAlign: 'center'}}>
                   <div>
@@ -342,17 +342,17 @@ export default function ScalingFeature() {
               <div className="feature-card">
                 <h3><Icon name="ecommerce" size={20} style={{marginRight: '0.5rem'}} />E-Commerce</h3>
                 <p>Handle Black Friday traffic spikes effortlessly. In 2024, Black Friday generated $10.8B in sales with 65% traffic surge<sup>[1]</sup>. Scale automatically to meet demand.</p>
-                <Link to="/docs/solutions/zero-cost">Learn more →</Link>
+                <Link to="/docs/use-cases/zero-cost">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3><Icon name="saas" size={20} style={{marginRight: '0.5rem'}} />SaaS Applications</h3>
                 <p>Multi-tenant scaling with isolation. 86% of enterprise software is now delivered as SaaS<sup>[2]</sup>. Dynamic resource allocation for each tenant.</p>
-                <Link to="/docs/solutions/dynamic-resource-scaling">Learn more →</Link>
+                <Link to="/docs/use-cases/dynamic-resource-scaling">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3><Icon name="media" size={20} style={{marginRight: '0.5rem'}} />Media Streaming</h3>
                 <p>Handle viral content without buffering. Video streaming market reached $129.26B in 2024<sup>[3]</sup>. Scale CDN infrastructure in real-time.</p>
-                <Link to="/docs/solutions/cross-backup">Learn more →</Link>
+                <Link to="/docs/use-cases/cross-backup">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3><Icon name="gaming" size={20} style={{marginRight: '0.5rem'}} />Gaming</h3>
@@ -367,7 +367,7 @@ export default function ScalingFeature() {
               <div className="feature-card">
                 <h3><Icon name="api" size={20} style={{marginRight: '0.5rem'}} />API Services</h3>
                 <p>Handle API traffic bursts gracefully. Auto-scale to handle millions of requests with intelligent rate limiting.</p>
-                <Link to="/docs/operations/risk-free-upgrades">Learn more →</Link>
+                <Link to="/docs/use-cases/risk-free-upgrades">Learn more →</Link>
               </div>
             </div>
           </div>
@@ -462,7 +462,7 @@ export default function ScalingFeature() {
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/docs/solutions/dynamic-resource-scaling">
+                to="/docs/use-cases/dynamic-resource-scaling">
                 View Demo
               </Link>
               <Link
@@ -487,17 +487,12 @@ export default function ScalingFeature() {
         {
           text: "86% of enterprise software is expected to be delivered as a service, with the SaaS market valued at $358.33 billion in 2024",
           source: "Grand View Research - SaaS Market Analysis",
-          url: "https://www.grandviewresearch.com/industry-analysis/software-as-a-service-saas-market"
+          url: "https://www.grandviewresearch.com/industry-analysis/saas-market-report"
         },
         {
           text: "The global video streaming market size was $129.26 billion in 2024, projected to reach $416.8 billion by 2030 (21.5% CAGR)",
           source: "Grand View Research - Video Streaming Market",
           url: "https://www.grandviewresearch.com/industry-analysis/video-streaming-market"
-        },
-        {
-          text: "Live video streaming expected to account for 238 EB out of 453 EB total CDN traffic by 2024",
-          source: "Deloitte Insights - CDN video streaming",
-          url: "https://www2.deloitte.com/us/en/insights/industry/technology/technology-media-and-telecom-predictions/2020/content-delivery-networks-video-streaming.html"
         }
       ]} />
     </Layout>

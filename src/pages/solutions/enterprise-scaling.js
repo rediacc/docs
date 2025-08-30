@@ -46,8 +46,8 @@ export default function EnterpriseScalingSolution() {
               <Link className="button button--primary button--lg" to="/contact">
                 Get Scaling Assessment
               </Link>
-              <Link className="button button--secondary button--lg" to="/docs/solutions/legacy-database-scaling">
-                View Case Studies
+              <Link className="button button--secondary button--lg" to="/docs/use-cases/legacy-database-scaling">
+                View Use Cases
               </Link>
             </div>
           </div>
@@ -74,19 +74,19 @@ export default function EnterpriseScalingSolution() {
                 <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', textAlign: 'center'}}>
                   <div>
                     <div style={{fontSize: '3rem', fontWeight: 'bold'}}>70%</div>
-                    <p>of transformations fail<sup>[1]</sup></p>
+                    <p>of transformations fail<sup>[3]</sup></p>
                   </div>
                   <div>
                     <div style={{fontSize: '3rem', fontWeight: 'bold'}}>31%</div>
-                    <p>success rate<sup>[2]</sup></p>
+                    <p>success rate<sup>[1]</sup></p>
                   </div>
                   <div>
                     <div style={{fontSize: '3rem', fontWeight: 'bold'}}>$5.26T</div>
-                    <p>global IT spending<sup>[3]</sup></p>
+                    <p>global IT spending<sup>[2]</sup></p>
                   </div>
                   <div>
                     <div style={{fontSize: '3rem', fontWeight: 'bold'}}>30%</div>
-                    <p>deliver value<sup>[4]</sup></p>
+                    <p>deliver value<sup>[3]</sup></p>
                   </div>
                 </div>
               </div>
@@ -321,7 +321,7 @@ export default function EnterpriseScalingSolution() {
                       <li>CDN for static assets</li>
                     </ul>
                     <p style={{marginTop: '1rem', fontWeight: 'bold', color: '#10b981'}}>
-                      Result: Horizontal scaling achieved
+                      Result: Horizontal scaling capability
                     </p>
                   </div>
                 </div>
@@ -596,7 +596,7 @@ export default function EnterpriseScalingSolution() {
                     <ul style={{marginBottom: 0}}>
                       <li>Improved transaction throughput</li>
                       <li>99.999% uptime maintained</li>
-                      <li>$45M saved</li>
+                      <li>Potential for millions in savings</li>
                       <li>Delivered in 3 months</li>
                     </ul>
                   </div>
@@ -676,7 +676,7 @@ export default function EnterpriseScalingSolution() {
                     <ul style={{marginBottom: 0}}>
                       <li>15x booking capacity</li>
                       <li>Sub-second search results</li>
-                      <li>$25M saved</li>
+                      <li>Significant cost reduction possible</li>
                       <li>Live in 8 weeks</li>
                     </ul>
                   </div>
@@ -842,8 +842,8 @@ export default function EnterpriseScalingSolution() {
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/docs/solutions/legacy-database-scaling">
-                Read Case Studies
+                to="/docs/use-cases/legacy-database-scaling">
+                Read Use Cases
               </Link>
               <Link
                 className="button button--secondary button--lg"
@@ -859,19 +859,14 @@ export default function EnterpriseScalingSolution() {
 
         <Citations citations={[
           {
-            text: "McKinsey reports that 70% of complex, large-scale change programs don't reach their stated goals due to employee resistance and lack of management support.",
-            source: "McKinsey - Successful large-scale change programs",
-            url: "https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/successful-large-scale-change-programs-start-with-the-organization-not-the-initiative"
-          },
-          {
             text: "Studies show that only 31% of IT projects are delivered on time, on budget, with required features - large projects have even lower success rates at 2%.",
             source: "PMI Pulse of the Profession 2024",
-            url: "https://www.pmi.org/learning/thought-leadership/pulse/pulse-of-the-profession-2024"
+            url: "https://www.pinnaclemanagement.com/download-pmi-pulse-of-the-profession-2024-report"
           },
           {
             text: "Gartner forecasts worldwide IT spending to reach $5.26 trillion in 2024, a 7.5% increase, with modernization and AI driving major budget allocations.",
             source: "Gartner IT Spending Forecast 2024",
-            url: "https://www.gartner.com/en/newsroom/press-releases/2024-10-21-gartner-forecasts-worldwide-it-spending-to-reach-5-trillion-in-2024"
+            url: "https://www.gartner.com/en/newsroom/press-releases/01-17-2024-gartner-forecasts-worldwide-it-spending-to-grow-six-point-eight-percent-in-2024"
           },
           {
             text: "BCG research shows that 70% of digital transformations fall short of their goals, with only 30% delivering expected value.",

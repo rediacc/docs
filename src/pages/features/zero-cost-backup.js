@@ -10,7 +10,7 @@ export default function ZeroCostBackupFeature() {
   return (
     <Layout
       title="Stop Paying Disaster Prices for Backup Storage | Rediacc"
-      description="10TB database, 300TB monthly backup cost? Not anymore. Cut storage by 90% (down to 3TB) while getting 100-second recovery. Real case: e-commerce saved $2M/year.">
+      description="10TB database, 300TB monthly backup cost? Not anymore. Cut storage by up to 90% (down to 3TB) while getting 100-second recovery capability.">
       
       <Head>
         <meta property="og:title" content="Your Backups Cost 10x Too Much. Here's the Fix | Rediacc" />
@@ -51,7 +51,7 @@ export default function ZeroCostBackupFeature() {
               300TB Monthly Backup Bill? We'll Make It 3TB.
             </h1>
             <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-              E-commerce giant saved $2M/year. 7-day backups now take 10 seconds. When disk failure struck, they recovered in 7 minutes—not 3 weeks.
+              Organizations could save millions per year. 7-day backups could take just seconds. When disk failure strikes, recovery could happen in minutes—not weeks.
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
               <Link className="button button--primary button--lg" to="/console/login?register=quick" target="_blank">
@@ -73,7 +73,7 @@ export default function ZeroCostBackupFeature() {
             <div style={{maxWidth: '800px', margin: '0 auto', lineHeight: '1.8', fontSize: '1.1rem'}}>
               <p>
                 <strong>True Story:</strong> Mehmet's e-commerce company had a 10TB database. Daily full backups = 300TB monthly storage = bankruptcy-level costs. 
-                Then disk failure hit. Last backup? 3 weeks old. Customer contracts? Cancelled. Reputation? Destroyed.
+                Then disk failure hit. Last backup? 3 weeks old. Potential consequences? Contract cancellations, reputation damage.
               </p>
               <div style={{margin: '2rem 0', padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
                 <h3 style={{color: 'var(--ifm-color-danger)'}}>Your Current Nightmare:</h3>
@@ -195,12 +195,12 @@ export default function ZeroCostBackupFeature() {
               <div className="feature-card">
                 <h3>Database Backup</h3>
                 <p>Protect MySQL, PostgreSQL, MongoDB, Oracle, and SQL Server databases with intelligent differential backups</p>
-                <Link to="/docs/solutions/zero-cost">Learn more →</Link>
+                <Link to="/docs/use-cases/zero-cost">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3>Application Backup</h3>
                 <p>Back up entire application stacks including code, configurations, and data with single-click restore</p>
-                <Link to="/docs/solutions/cross-backup">Learn more →</Link>
+                <Link to="/docs/use-cases/cross-backup">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3>Disaster Recovery</h3>
@@ -210,7 +210,7 @@ export default function ZeroCostBackupFeature() {
               <div className="feature-card">
                 <h3>Dev/Test Environments</h3>
                 <p>Clone production data instantly for development and testing without storage overhead</p>
-                <Link to="/docs/solutions/dynamic-resource-scaling">Learn more →</Link>
+                <Link to="/docs/use-cases/dynamic-resource-scaling">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3>Long-term Archives</h3>
@@ -316,8 +316,8 @@ export default function ZeroCostBackupFeature() {
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/docs/solutions/zero-cost">
-                Read Case Study
+                to="/docs/use-cases/zero-cost">
+                Read Use Case
               </Link>
               <Link
                 className="button button--secondary button--lg"

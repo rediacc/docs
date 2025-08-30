@@ -40,27 +40,27 @@ export default function Landing4() {
 
   const testimonials = [
     {
-      name: "Sarah Chen",
-      company: "TechVault Inc.",
-      role: "CTO",
-      quote: "After Replit's AI deleted our staging database, we knew we needed Rediacc. Now our AI agents work on clones - production is untouchable.",
-      result: "Zero AI incidents in 6 months",
+      name: "Example CTO",
+      company: "Technology Company",
+      role: "Chief Technology Officer",
+      quote: "After seeing AI delete staging databases, organizations need protection. With Rediacc, AI agents could work on clones - production stays untouchable.",
+      result: "Zero AI incidents possible",
       image: "⭐⭐⭐⭐⭐"
     },
     {
-      name: "Marcus Thompson",
-      company: "DataForge Systems",
+      name: "Example VP",
+      company: "Engineering Organization",
       role: "VP Engineering",
-      quote: "We recovered from a ransomware attack in 1 minute instead of weeks. The time travel feature literally saved our company.",
-      result: "$2.4M in prevented losses",
+      quote: "Recovery from ransomware could happen in 1 minute instead of weeks. The time travel feature has the potential to save companies.",
+      result: "$2.4M in potential loss prevention",
       image: "⭐⭐⭐⭐⭐"
     },
     {
-      name: "Elena Rodriguez",
-      company: "CloudScale Corp",
+      name: "Example Director",
+      company: "Infrastructure Team",
       role: "Head of Infrastructure",
-      quote: "Our backup costs dropped 70% while protection increased 10x. The cross-backup technology is revolutionary.",
-      result: "70% cost reduction, 99.9% uptime",
+      quote: "Backup costs could drop 70% while protection increases 10x. The cross-backup technology shows revolutionary potential.",
+      result: "Up to 70% cost reduction possible",
       image: "⭐⭐⭐⭐⭐"
     }
   ];
@@ -168,14 +168,14 @@ export default function Landing4() {
 
       {/* Urgency Banner */}
       <div style={styles.urgencyBanner}>
-        ⚠️ LIMITED OFFER ENDS IN: {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m - Save $50,000+ on Enterprise Protection
+        ⚠️ LIMITED OFFER ENDS IN: {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m - Special Enterprise Pricing Available
       </div>
 
       {/* Hero Section */}
       <section style={styles.hero}>
         <div className="container">
           <div style={styles.countdown}>
-            🔥 FLASH SALE: 40% OFF + FREE MIGRATION (Worth $25,000)
+            🔥 SPECIAL OFFER: Discounted Pricing + FREE MIGRATION
           </div>
           
           <h1 style={{fontSize: '3.5rem', marginBottom: '20px', fontWeight: '900'}}>
@@ -188,7 +188,7 @@ export default function Landing4() {
           
           <div style={{maxWidth: '800px', margin: '0 auto 40px', fontSize: '1.2rem', lineHeight: '1.8'}}>
             <strong>After AI agents deleted entire production databases at Replit, Amazon, and dozens of other companies,</strong> 
-            {' '}smart enterprises are switching to the only protection that makes disasters impossible.
+            {' '}smart enterprises are switching to protection designed to prevent disasters.
           </div>
           
           <div style={{marginBottom: '40px'}}>
@@ -203,7 +203,7 @@ export default function Landing4() {
             style={styles.ctaButton}
             to="/console/login?register=manual&promo=BUNDLE40"
             target="_blank">
-            Get The Bundle Now → Save $50,000
+            Get The Bundle Now → Special Pricing
           </Link>
           
           <div style={{marginTop: '20px', fontSize: '0.9rem', opacity: '0.8'}}>
@@ -234,7 +234,7 @@ export default function Landing4() {
             
             <p style={{marginTop: '20px', padding: '20px', background: '#fef3c7', borderLeft: '4px solid #f59e0b'}}>
               <strong>For the next {timeLeft.days} days only,</strong> we're offering our complete Enterprise 
-              Protection Bundle at 40% off - that's over $50,000 in savings. Plus, we'll migrate you from your 
+              Protection Bundle at special pricing. Plus, we'll migrate you from your 
               current solution completely free (normally $25,000).
             </p>
             
@@ -375,7 +375,7 @@ export default function Landing4() {
               style={{...styles.ctaButton, fontSize: '1.5rem', padding: '20px 50px'}}
               to="/console/login?register=manual&promo=BUNDLE40"
               target="_blank">
-              Get The Bundle → Save $50,000 Today
+              Get The Bundle → Special Pricing Today
             </Link>
           </div>
         </div>
@@ -409,18 +409,18 @@ export default function Landing4() {
             
             <div style={{padding: '20px', background: '#ecfdf5', borderRadius: '8px', marginBottom: '20px'}}>
               <strong>My Personal Guarantee:</strong> I've personally overseen 200+ AI safety implementations. 
-              In July 2025 alone, we prevented 47 potential AI disasters that would have caused $23M in damages. 
+              Our system is designed to prevent AI disasters that could cause millions in damages. 
               This isn't theory - it's proven protection.
             </div>
             
             <div style={{fontSize: '0.9rem', color: '#6b7280'}}>
-              <strong>Individual results may vary.</strong> Based on analysis of 47 prevented incidents in July 2025. 
+              <strong>Individual results may vary.</strong> Based on projected system capabilities. 
               Average prevention rate: 98.7% when properly configured.
             </div>
           </div>
           
           <div style={{marginTop: '40px', padding: '30px', background: 'white', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)'}}>
-            <h4 style={{fontSize: '1.3rem', marginBottom: '20px'}}>Real Customer Results:</h4>
+            <h4 style={{fontSize: '1.3rem', marginBottom: '20px'}}>Expected Results:</h4>
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px'}}>
               <div>
                 <strong>TechVault Inc:</strong>
@@ -483,7 +483,7 @@ export default function Landing4() {
             </div>
             
             <div style={{fontSize: '0.9rem', color: '#6b7280'}}>
-              <strong>Recovery times based on actual customer metrics.</strong> 1-minute recovery achieved in 94% of cases. 
+              <strong>Recovery times based on system capabilities.</strong> 1-minute recovery possible in optimal conditions. 
               Complex multi-system recoveries may take up to 10 minutes.
             </div>
           </div>
@@ -552,8 +552,8 @@ export default function Landing4() {
             </ul>
             
             <div style={{padding: '20px', background: '#ecfdf5', borderRadius: '8px', marginBottom: '20px'}}>
-              <strong>CFO Approved:</strong> Average enterprise saves $240,000 annually on storage costs alone. 
-              ROI achieved in under 3 months. Full payback in 6 months guaranteed.
+              <strong>Financial Benefits:</strong> Enterprises could save up to $240,000 annually on storage costs alone. 
+              ROI possible in under 3 months. Full payback potential within 6 months.
             </div>
           </div>
           
@@ -663,7 +663,7 @@ export default function Landing4() {
               <h4 style={{fontSize: '1.2rem', marginBottom: '10px'}}>ROI</h4>
               <p>Return on investment</p>
               <div style={{marginTop: '20px', fontSize: '0.9rem', color: '#6b7280'}}>
-                Based on prevented incidents
+                Based on system capabilities
               </div>
             </div>
             
