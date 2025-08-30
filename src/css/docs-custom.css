@@ -145,7 +145,6 @@ html[data-theme='dark'] nav.navbar,
 /* Footer styling */
 .footer {
   background: var(--ifm-background-surface-color);
-  border-top: 1px solid var(--ifm-toc-border-color);
   padding: 3rem 0 2rem;
   margin-top: 4rem;
 }

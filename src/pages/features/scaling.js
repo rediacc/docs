@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
 import Citations from '../../components/Citations';
 import { Icon } from '../../components/Icon';
+import RelatedResources from '../../components/RelatedResources';
 import {
   PredictiveAnalyticsIcon,
   InstantProvisioningIcon,
@@ -474,25 +475,7 @@ export default function ScalingFeature() {
         </section>
 
         {/* Related Resources */}
-        <section style={{padding: '3rem 1rem', background: 'var(--ifm-background-color)'}}>
-          <div className="container">
-            <h3 style={{textAlign: 'center', marginBottom: '2rem'}}>Related Resources</h3>
-            <div style={{display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap'}}>
-              <Link to="/features/zero-cost-backup" className="quick-link">
-                Backup Solutions →
-              </Link>
-              <Link to="/features/disaster-recovery" className="quick-link">
-                Disaster Recovery →
-              </Link>
-              <Link to="/solutions/cloud-migration" className="quick-link">
-                Cloud Migration →
-              </Link>
-              <Link to="/docs/solutions/dynamic-resource-scaling" className="quick-link">
-                Scaling Guide →
-              </Link>
-            </div>
-          </div>
-        </section>
+        <RelatedResources currentPage="scaling" />
       </article>
       
       <Citations citations={[

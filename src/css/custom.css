@@ -406,8 +406,6 @@ table thead tr {
 /* Footer Bar - Above Footer */
 .footer-bar {
   background: linear-gradient(135deg, var(--ifm-background-surface-color) 0%, var(--ifm-background-color) 100%);
-  border-top: 1px solid var(--ifm-toc-border-color);
-  border-bottom: 1px solid var(--ifm-toc-border-color);
   padding: 2rem 0;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
 }

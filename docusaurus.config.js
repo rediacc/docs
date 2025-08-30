@@ -143,57 +143,9 @@ const config = {
           },
           {
             type: 'dropdown',
-            label: 'Platform',
+            label: 'Solutions',
             position: 'left',
             items: [
-              {
-                type: 'html',
-                value: '<div class="dropdown-section-header">Features</div>',
-              },
-              {
-                to: '/features/ai-safety',
-                label: 'AI Safety Shield',
-                className: 'navbar-item-with-icon',
-                'data-icon': 'shield',
-              },
-              {
-                to: '/features/zero-cost-backup',
-                label: 'Zero-Cost Backup',
-                className: 'navbar-item-with-icon',
-                'data-icon': 'archive',
-              },
-              {
-                to: '/features/time-travel',
-                label: 'Time Travel Recovery',
-                className: 'navbar-item-with-icon',
-                'data-icon': 'history',
-              },
-              {
-                to: '/features/cross-backup',
-                label: 'Cross-Backup',
-                className: 'navbar-item-with-icon',
-                'data-icon': 'globe',
-              },
-              {
-                to: '/features/dynamic-scaling',
-                label: 'Dynamic Scaling',
-                className: 'navbar-item-with-icon',
-                'data-icon': 'trending-up',
-              },
-              {
-                to: '/features/risk-free-upgrades',
-                label: 'Risk-Free Upgrades',
-                className: 'navbar-item-with-icon',
-                'data-icon': 'refresh-cw',
-              },
-              {
-                type: 'html',
-                value: '<hr class="dropdown-separator">',
-              },
-              {
-                type: 'html',
-                value: '<div class="dropdown-section-header">Solutions</div>',
-              },
               {
                 to: '/solutions/backup-recovery',
                 label: 'Backup & Recovery',
@@ -282,30 +234,30 @@ const config = {
                 label: 'API Reference',
                 to: '/docs/cli/api-reference',
               },
+              {
+                label: 'Blog',
+                to: '/blog',
+              },
             ],
           },
           {
-            title: 'Solutions',
+            title: 'Resources',
             items: [
               {
-                label: 'AI Safety',
-                to: '/solutions/ai-safety',
+                label: 'Documentation',
+                to: '/docs/intro',
               },
               {
-                label: 'Enterprise',
-                to: '/solutions/enterprise',
+                label: 'API Reference',
+                to: '/docs/cli/api-reference',
               },
               {
-                label: 'DevOps',
-                to: '/solutions/devops',
+                label: 'Blog',
+                to: '/blog',
               },
               {
-                label: 'Database',
-                to: '/solutions/database',
-              },
-              {
-                label: 'Cloud Migration',
-                to: '/solutions/cloud-migration',
+                label: 'Status Page',
+                href: 'http://status.rediacc.com',
               },
             ],
           },
@@ -323,6 +275,10 @@ const config = {
               {
                 label: 'Contact',
                 to: '/contact',
+              },
+              {
+                label: 'Blog',
+                to: '/blog',
               },
             ],
           },
@@ -349,7 +305,7 @@ const config = {
           },
         ],
         copyright: `
-          <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--ifm-toc-border-color);">
+          <div style="margin-top: 2rem; padding-top: 2rem;">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
               <div>© ${new Date().getFullYear()} Rediacc, Inc. All rights reserved.</div>
               <div style="display: flex; gap: 2rem;">

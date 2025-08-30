@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
 import Citations from '../../components/Citations';
 import { Icon } from '../../components/Icon';
+import RelatedResources from '../../components/RelatedResources';
 
 export default function DisasterRecoveryFeature() {
   return (
@@ -448,25 +449,7 @@ export default function DisasterRecoveryFeature() {
         ]} />
         
         {/* Related Resources */}
-        <section style={{padding: '3rem 1rem', background: 'var(--ifm-background-color)'}}>
-          <div className="container">
-            <h3 style={{textAlign: 'center', marginBottom: '2rem'}}>Related Resources</h3>
-            <div style={{display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap'}}>
-              <Link to="/features/zero-cost-backup" className="quick-link">
-                Backup Solutions →
-              </Link>
-              <Link to="/features/security" className="quick-link">
-                Security Features →
-              </Link>
-              <Link to="/features/time-travel" className="quick-link">
-                Time Travel →
-              </Link>
-              <Link to="/solutions/enterprise" className="quick-link">
-                Enterprise Solutions →
-              </Link>
-            </div>
-          </div>
-        </section>
+        <RelatedResources currentPage="disaster-recovery" />
       </article>
     </Layout>
   );

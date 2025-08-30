@@ -390,7 +390,7 @@ export default function BackupFeature() {
 <p>
   Our backup solution integrates seamlessly with our 
   <Link to="/features/disaster-recovery">disaster recovery</Link> and 
-  <Link to="/solutions/enterprise">enterprise automation</Link> capabilities.
+  <Link to="/solutions/enterprise-scaling">enterprise scaling</Link> capabilities.
 </p>
 
 // In documentation, link to feature pages

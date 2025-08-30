@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
 import Citations from '../../components/Citations';
 import { Icon } from '../../components/Icon';
+import RelatedResources from '../../components/RelatedResources';
 
 export default function SecurityFeature() {
   return (
@@ -431,25 +432,7 @@ export default function SecurityFeature() {
         ]} />
         
         {/* Related Resources */}
-        <section style={{padding: '3rem 1rem', background: 'var(--ifm-background-color)'}}>
-          <div className="container">
-            <h3 style={{textAlign: 'center', marginBottom: '2rem'}}>Related Resources</h3>
-            <div style={{display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap'}}>
-              <Link to="/features/zero-cost-backup" className="quick-link">
-                Backup Security →
-              </Link>
-              <Link to="/features/disaster-recovery" className="quick-link">
-                Disaster Recovery →
-              </Link>
-              <Link to="/docs/web-application" className="quick-link">
-                Advanced Security Guide →
-              </Link>
-              <Link to="/docs/web-application" className="quick-link">
-                Security Guide →
-              </Link>
-            </div>
-          </div>
-        </section>
+        <RelatedResources currentPage="security" />
       </article>
     </Layout>
   );
