@@ -491,24 +491,7 @@ export default function InfrastructureCommandCenter() {
           .cta-feature::before {
             content: '✅';
           }
-          .cta-button-primary {
-            display: inline-block;
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white !important;
-            padding: 1.5rem 4rem;
-            border-radius: 12px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
-            margin-bottom: 1rem;
-          }
-          .cta-button-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
-            color: white !important;
-          }
+          /* CTA button styles removed - using standard button classes */
           .guarantee-badge {
             display: inline-block;
             background: #fbbf24;
@@ -1507,7 +1490,7 @@ export default function InfrastructureCommandCenter() {
                 💰 Strong ROI Potential: Designed to deliver significant savings
               </div>
 
-              <Link className="cta-button-primary" to="/console/login?register=manual" target="_blank">
+              <Link className="button button--primary button--lg" to="/console/login?register=manual" target="_blank">
                 Register Now →
               </Link>
 

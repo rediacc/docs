@@ -203,30 +203,7 @@
   font-weight: 600;
 }
 
-.pricing-tier-button {
-  display: inline-block;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, scale 0.15s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.pricing-tier-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  scale: 1.02;
-}
-
-.pricing-tier-button:active {
-  transform: translateY(-1px);
-  scale: 0.98;
-  transition: transform 0.1s ease, scale 0.1s ease;
-}
-
-.pricing-tier-button:focus-visible {
-  outline: 2px solid var(--ifm-color-primary);
-  outline-offset: 2px;
-}
+/* Removed pricing-tier-button - using standard button classes instead */
 
 /* Dark theme adjustments */
 [data-theme='dark'] .pricing-comparison-container {
@@ -301,12 +278,7 @@
     font-size: 1rem;
   }
   
-  /* Improve button touch targets */
-  .pricing-tier-button {
-    min-height: 44px;
-    font-size: 0.9rem;
-    padding: 0.75rem 1rem;
-  }
+  /* Button styles handled by standard button classes */
 }
 
 @media (max-width: 640px) {

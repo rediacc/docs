@@ -403,10 +403,10 @@ export default function DynamicScalingFeature() {
               Start scaling intelligently today. Pay for what you use, when you use it.
             </p>
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
-              <Link className="button button--secondary button--lg" style={{background: 'white', color: 'var(--ifm-color-primary)'}} to="/contact">
+              <Link className="button button--primary button--lg" to="/contact">
                 Calculate Your ROI
               </Link>
-              <Link className="button button--outline button--lg" style={{borderColor: 'white', color: 'white'}} to="/console/login?register=manual" target="_blank">
+              <Link className="button button--secondary button--lg" to="/console/login?register=manual" target="_blank">
                 Register
               </Link>
             </div>

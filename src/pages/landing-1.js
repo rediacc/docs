@@ -151,23 +151,7 @@ export default function InfrastructureRevolutionRecap() {
             font-weight: bold;
             color: var(--ifm-color-primary);
           }
-          .cta-button {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white !important;
-            padding: 1.5rem 3rem;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 12px;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-          }
-          .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
-            color: white !important;
-          }
+          /* CTA button styles removed - using standard button classes */
           .guarantee-badge {
             background: #fbbf24;
             color: #92400e;
@@ -653,7 +637,7 @@ export default function InfrastructureRevolutionRecap() {
               </div>
 
               <Link 
-                className="cta-button" 
+                className="button button--primary button--lg" 
                 to="/console/login?register=manual" 
                 target="_blank"
                 style={{display: 'block', margin: '2rem auto', maxWidth: 'fit-content'}}
@@ -740,7 +724,7 @@ export default function InfrastructureRevolutionRecap() {
             </p>
             
             <Link 
-              className="cta-button" 
+              className="button button--primary button--lg" 
               to="/console/login?register=manual" 
               target="_blank"
               style={{marginBottom: '2rem'}}
@@ -750,13 +734,13 @@ export default function InfrastructureRevolutionRecap() {
             
             <div style={{marginTop: '2rem'}}>
               <Link
-                className="button button--outline button--lg"
+                className="button button--secondary button--lg"
                 to="/pricing"
                 style={{marginRight: '1rem'}}>
                 View All Plans
               </Link>
               <Link
-                className="button button--outline button--lg"
+                className="button button--secondary button--lg"
                 to="/contact">
                 Talk to Expert
               </Link>

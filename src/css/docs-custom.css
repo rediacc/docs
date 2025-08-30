@@ -389,98 +389,91 @@ html, body {
   letter-spacing: 0.05em;
 }
 
-/* Override button styles to match react-app */
+/* Consolidated Button System - Only 2 Types */
+
+/* Base button styles */
 .button {
-  border-radius: 9999px; /* rounded-full */
-  font-weight: 500;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
 }
 
+/* Size modifiers */
+.button--lg {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.button--md {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.button--sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Primary Button - Main CTA */
 .button--primary {
-  background: linear-gradient(to right, var(--color-brand-primary), var(--color-brand-secondary));
-  border: none;
+  background: linear-gradient(135deg, #10b981, #059669);
   color: white !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 }
 
 .button--primary:hover {
-  background: linear-gradient(to right, var(--color-brand-dark-hover), var(--color-brand-darker-hover));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
   color: white !important;
+  background: linear-gradient(135deg, #059669, #047857);
 }
 
-.button--secondary {
-  background-color: var(--ifm-background-surface-color);
-  border: 2px solid var(--ifm-color-primary);
-  color: var(--ifm-color-primary);
-  font-weight: 600;
-}
-
-.button--secondary:hover {
-  background-color: var(--ifm-color-primary);
-  color: white !important;
-  border-color: var(--ifm-color-primary);
-}
-
-/* Outline button styles with better visibility */
+/* Secondary Button - Outlined */
+.button--secondary,
 .button--outline {
   background-color: transparent;
   border: 2px solid var(--ifm-color-primary);
   color: var(--ifm-color-primary);
-  font-weight: 600;
 }
 
+.button--secondary:hover,
 .button--outline:hover {
   background-color: var(--ifm-color-primary);
+  color: white !important;
   border-color: var(--ifm-color-primary);
-  color: white;
   box-shadow: 0 4px 12px rgba(85, 107, 47, 0.2);
 }
 
-/* Ensure visibility in light theme */
+/* Light theme adjustments */
+html:not([data-theme='dark']) .button--secondary,
 html:not([data-theme='dark']) .button--outline {
-  border-color: var(--ifm-color-primary) !important;
-  color: var(--ifm-color-primary) !important;
-  background-color: white !important;
+  background-color: white;
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
 }
 
+html:not([data-theme='dark']) .button--secondary:hover,
 html:not([data-theme='dark']) .button--outline:hover {
-  background-color: var(--ifm-color-primary) !important;
+  background-color: var(--ifm-color-primary);
   color: white !important;
 }
 
-/* Light theme secondary button */
-html:not([data-theme='dark']) .button--secondary {
-  background-color: white !important;
-  border-color: var(--ifm-color-primary) !important;
-  color: var(--ifm-color-primary) !important;
-}
-
-html:not([data-theme='dark']) .button--secondary:hover {
-  background-color: var(--ifm-color-primary) !important;
-  color: white !important;
-}
-
-/* Dark theme secondary button - Fix visibility */
-[data-theme='dark'] .button--secondary {
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  border-color: var(--ifm-color-primary-light) !important;
-  color: var(--ifm-color-primary-light) !important;
-}
-
-[data-theme='dark'] .button--secondary:hover {
-  background-color: var(--ifm-color-primary-light) !important;
-  border-color: var(--ifm-color-primary-light) !important;
-  color: #1f2937 !important;
-  box-shadow: 0 4px 12px rgba(125, 155, 73, 0.3);
-}
-
-/* Dark theme outline button */
+/* Dark theme adjustments */
+[data-theme='dark'] .button--secondary,
 [data-theme='dark'] .button--outline {
+  background-color: rgba(255, 255, 255, 0.05);
   border-color: var(--ifm-color-primary-light);
   color: var(--ifm-color-primary-light);
-  background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
+[data-theme='dark'] .button--secondary:hover,
 [data-theme='dark'] .button--outline:hover {
-  background-color: var(--ifm-color-primary-light) !important;
+  background-color: var(--ifm-color-primary-light);
   border-color: var(--ifm-color-primary-light);
   color: var(--ifm-background-color) !important;
   box-shadow: 0 4px 12px rgba(125, 155, 73, 0.3);

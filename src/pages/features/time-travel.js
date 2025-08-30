@@ -207,10 +207,10 @@ export default function TimeTravelFeature() {
               Start protecting your data with Time Travel Recovery today
             </p>
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
-              <Link className="button button--secondary button--lg" style={{background: 'white', color: 'var(--ifm-color-primary)'}} to="/contact">
+              <Link className="button button--primary button--lg" to="/contact">
                 Request Demo
               </Link>
-              <Link className="button button--outline button--lg" style={{borderColor: 'white', color: 'white'}} to="/console/login?register=quick" target="_blank">
+              <Link className="button button--primary button--lg" to="/console/login?register=quick" target="_blank">
                 Try Free Sandbox
               </Link>
             </div>

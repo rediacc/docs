@@ -260,10 +260,10 @@ export default function CrossBackupFeature() {
               Start using Cross-Backup today and ensure your data survives any disaster
             </p>
             <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
-              <Link className="button button--secondary button--lg" style={{background: 'white', color: 'var(--ifm-color-primary)'}} to="/contact">
+              <Link className="button button--primary button--lg" to="/contact">
                 Request Demo
               </Link>
-              <Link className="button button--outline button--lg" style={{borderColor: 'white', color: 'white'}} to="/pricing">
+              <Link className="button button--secondary button--lg" to="/pricing">
                 View Pricing
               </Link>
             </div>

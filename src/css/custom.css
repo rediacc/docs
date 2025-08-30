@@ -1255,19 +1255,6 @@ table thead tr {
   margin-bottom: 3rem;
 }
 
-.hero-buttons .button {
-  font-weight: 600;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  min-height: 48px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.hero-buttons .button:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
 /* Feature Grid */
 .features-grid {
   display: grid;

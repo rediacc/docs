@@ -157,25 +157,7 @@ export default function InfrastructureRevolutionComplete() {
             color: var(--ifm-color-primary);
             line-height: 1;
           }
-          .cta-button {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white !important;
-            padding: 1.5rem 3rem;
-            font-size: 1.3rem;
-            font-weight: bold;
-            border-radius: 12px;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-          }
-          .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
-            color: white !important;
-          }
+          /* CTA button styles removed - using standard button classes */
           .guarantee-badge {
             background: #fbbf24;
             color: #92400e;
@@ -484,7 +466,7 @@ export default function InfrastructureRevolutionComplete() {
               </div>
               
               <Link 
-                className="cta-button"
+                className="button button--primary button--lg"
                 to="/console/login?register=manual" 
                 target="_blank">
                 Start Your Transformation Free
@@ -559,7 +541,7 @@ export default function InfrastructureRevolutionComplete() {
 
             <div style={{textAlign: 'center', marginTop: '3rem'}}>
               <Link 
-                className="cta-button"
+                className="button button--primary button--lg"
                 to="/features/ai-safety">
                 Get AI Safety Shield
               </Link>
@@ -638,7 +620,7 @@ export default function InfrastructureRevolutionComplete() {
 
             <div style={{textAlign: 'center', marginTop: '3rem'}}>
               <Link 
-                className="cta-button"
+                className="button button--primary button--lg"
                 to="/features/zero-cost-backup">
                 Get Zero-Cost Backup
               </Link>
@@ -716,7 +698,7 @@ export default function InfrastructureRevolutionComplete() {
 
             <div style={{textAlign: 'center', marginTop: '3rem'}}>
               <Link 
-                className="cta-button"
+                className="button button--primary button--lg"
                 to="/features/risk-free-upgrades">
                 Get Fearless Deployment
               </Link>
@@ -901,7 +883,7 @@ export default function InfrastructureRevolutionComplete() {
             </div>
 
             <Link 
-              className="cta-button" 
+              className="button button--primary button--lg" 
               to="/console/login?register=manual" 
               target="_blank"
               style={{fontSize: '1.4rem', padding: '2rem 4rem', marginBottom: '2rem'}}
@@ -917,13 +899,13 @@ export default function InfrastructureRevolutionComplete() {
 
             <div style={{marginTop: '3rem', borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: '2rem'}}>
               <Link
-                className="button button--outline button--lg"
+                className="button button--secondary button--lg"
                 to="/pricing"
                 style={{marginRight: '1rem', color: 'white', borderColor: 'white'}}>
                 View All Plans
               </Link>
               <Link
-                className="button button--outline button--lg"
+                className="button button--secondary button--lg"
                 to="/contact"
                 style={{color: 'white', borderColor: 'white'}}>
                 Talk to Expert

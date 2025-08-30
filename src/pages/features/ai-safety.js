@@ -284,7 +284,7 @@ export default function AISafetyFeature() {
               <Link className="button button--primary button--lg" to="/console/login?register=quick" target="_blank">
                 Protect Your Production NOW →
               </Link>
-              <Link className="button button--outline button--lg" to="/contact" style={{marginLeft: '1rem'}}>
+              <Link className="button button--secondary button--lg" to="/contact">
                 Calculate AI Disaster Cost
               </Link>
             </div>

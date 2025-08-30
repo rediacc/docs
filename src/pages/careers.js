@@ -146,10 +146,10 @@ export default function Careers() {
               Partner with us as an Expert in building next-generation infrastructure management solutions through our unique profit-sharing model
             </p>
             <div style={{marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
-              <a className="button button--secondary button--lg" href="#open-positions" style={{color: 'var(--ifm-color-primary)'}}>
+              <a className="button button--primary button--lg" href="#open-positions">
                 View Expert Opportunities
               </a>
-              <a className="button button--outline button--lg" href="#culture" style={{color: 'white', borderColor: 'white'}}>
+              <a className="button button--secondary button--lg" href="#culture">
                 Discover Our Model
               </a>
             </div>
@@ -475,7 +475,7 @@ export default function Careers() {
                           <Link className="button button--primary button--lg" to="/contact">
                             Express Interest
                           </Link>
-                          <Link className="button button--outline button--lg" to={`/contact?position=${position.id}`}>
+                          <Link className="button button--secondary button--lg" to={`/contact?position=${position.id}`}>
                             Learn More
                           </Link>
                         </div>
@@ -535,7 +535,7 @@ export default function Careers() {
                 Join as Expert
               </Link>
               <Link
-                className="button button--outline button--lg"
+                className="button button--secondary button--lg"
                 to="mailto:careers@rediacc.com"
                 style={{color: 'white', borderColor: 'white'}}>
                 Email Us

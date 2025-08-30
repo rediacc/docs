@@ -334,7 +334,6 @@ function MainFeatureCategories() {
               <Link 
                 className="button button--primary button--lg"
                 to={category.cta.link}
-                style={{fontSize: '1.1rem', padding: '1rem 2.5rem'}}
               >
                 {category.cta.primary} →
               </Link>
@@ -358,16 +357,9 @@ function MainFeatureCategories() {
             An infrastructure platform designed to prevent AI disasters, enable rapid recovery, and cut costs by up to 90%
           </p>
           <Link 
-            className="button button--secondary button--lg"
+            className="button button--primary button--lg"
             to="/console/login?register=quick"
             target="_blank"
-            style={{
-              fontSize: '1.2rem',
-              padding: '1rem 3rem',
-              background: 'white',
-              color: 'var(--ifm-color-primary)',
-              fontWeight: 'bold'
-            }}
           >
             Start Free Trial - Deploy in 100 Seconds
           </Link>
@@ -465,16 +457,9 @@ function CTASection() {
             Deploy in 100 seconds. No credit card. Significant ROI potential from disaster prevention.
           </p>
           <Link
-            className="button button--secondary button--lg"
+            className="button button--primary button--lg"
             to="/console/login?register=quick"
-            target="_blank"
-            style={{
-              background: 'white',
-              color: 'var(--ifm-color-primary)',
-              fontSize: '1.2rem',
-              padding: '1rem 2.5rem',
-              fontWeight: 'bold'
-            }}>
+            target="_blank">
             Start Free Trial - All 3 Solutions →
           </Link>
         </div>
@@ -540,7 +525,7 @@ export default function Home() {
               We believe in transparency and building trust through honest communication. Join us as an early adopter and help shape the future of infrastructure management.
             </p>
             <div style={{textAlign: 'center'}}>
-              <Link to="/transparency" className="button button--outline button--primary">
+              <Link to="/transparency" className="button button--secondary button--primary">
                 Learn More About Our Journey →
               </Link>
             </div>
