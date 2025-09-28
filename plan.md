@@ -342,15 +342,15 @@ export default function BackupFeature() {
   return (
     <>
       <Head>
-        <title>Enterprise Backup Solutions - Save 90% on Storage | Rediacc</title>
-        <meta name="description" content="Reduce backup storage costs by 90% with Rediacc's intelligent differential backup technology. Enterprise-grade solution with instant recovery." />
+        <title>Enterprise Backup Solutions - Save 99.99% on Storage | Rediacc</title>
+        <meta name="description" content="Reduce backup storage costs by 99.99% (depending on update ratio of the total data between snapshots) with Rediacc's intelligent differential backup technology. Enterprise-grade solution with instant recovery." />
         <link rel="canonical" href="https://rediacc.com/features/backup" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Product",
             "name": "Rediacc Backup Solution",
-            "description": "Enterprise backup with 90% storage savings",
+            "description": "Enterprise backup with 99.99% (depending on update ratio of the total data between snapshots) storage savings",
             "offers": {
               "@type": "Offer",
               "price": "0",
@@ -361,7 +361,7 @@ export default function BackupFeature() {
       </Head>
       
       <article>
-        <h1>Enterprise Backup Solutions That Save 90% on Storage Costs</h1>
+        <h1>Enterprise Backup Solutions That Save 99.99% on Storage Costs</h1>
         {/* 1500+ words of SEO-optimized content */}
         
         <section id="how-it-works">
@@ -396,7 +396,7 @@ export default function BackupFeature() {
 // In documentation, link to feature pages
 <p>
   Learn more about our <Link to="/features/backup">backup technology</Link> 
-  or see <Link to="/use-cases/reduce-costs">how customers save 90%</Link>.
+  or see <Link to="/use-cases/reduce-costs">how customers save 99.99% (depending on update ratio of the total data between snapshots)</Link>.
 </p>
 ```
 

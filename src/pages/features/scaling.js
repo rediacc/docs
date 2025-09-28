@@ -79,7 +79,7 @@ export default function ScalingFeature() {
               <div style={{margin: '2rem 0', padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
                 <h3>Common Scaling Problems:</h3>
                 <ul>
-                  <li><strong>Wasted Resources:</strong> 70% of provisioned capacity sits idle during off-peak hours</li>
+                  <li><strong>Wasted Resources:</strong> 99.99% of provisioned capacity sits idle during off-peak hours</li>
                   <li><strong>Traffic Spikes:</strong> Black Friday can bring 10x normal traffic in minutes</li>
                   <li><strong>Manual Scaling:</strong> Hours to provision new servers when you need them in seconds</li>
                   <li><strong>Downtime Risk:</strong> $5,600 per minute average cost of infrastructure downtime</li>

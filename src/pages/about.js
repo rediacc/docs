@@ -21,7 +21,7 @@ export default function About() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Rediacc",
-            "description": "Infrastructure disaster prevention platform. 100-second recovery capability. 90% cost reduction potential. Designed to prevent billions in losses.",
+            "description": "Infrastructure disaster prevention platform. 100-second recovery capability. 99.99% (depending on update ratio of the total data between snapshots) cost reduction potential. Designed to prevent billions in losses.",
             "url": "/",
             "logo": "/img/logo.svg",
             "foundingDate": "2024",

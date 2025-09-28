@@ -380,7 +380,7 @@ export default function DynamicScalingFeature() {
                     <ul style={{textAlign: 'left', lineHeight: '2'}}>
                       <li>Base hardware: $150K</li>
                       <li>Cloud usage: $50K/year</li>
-                      <li>Utilization: 90%</li>
+                      <li>Utilization: 99.99%</li>
                       <li>Total 3-year cost: $300K</li>
                     </ul>
                   </div>

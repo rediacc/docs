@@ -8,12 +8,12 @@ import Citations from '../../components/Citations';
 export default function AISafetySolution() {
   return (
     <Layout
-      title="AI Safety Solution - Prevent AI Disasters with Instant Cloning | Rediacc"
-      description="The only infrastructure that survived the AI agent crisis. Instant cloning and time travel recovery make production damage from AI impossible.">
+      title="AI-Safe Infrastructure Operations - Infrastructure Automation Platform | Rediacc"
+      description="Challenge: AI agents need safe sandbox environments to test changes without production risk. Solution: Instant production clones with native MCP integration for AI experimentation.">
       
       <Head>
-        <meta property="og:title" content="AI Safety Solution - Prevent AI Disasters" />
-        <meta property="og:description" content="Protect your production from AI disasters. Instant cloning, time travel recovery, and MCP protocol support." />
+        <meta property="og:title" content="AI-Safe Infrastructure Operations - Native MCP Integration | Rediacc" />
+        <meta property="og:description" content="AI agents get safe sandbox environments to test changes without production risk. Native Model Context Protocol integration enables Claude Code, Gemini, and all major AI systems." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/solutions/ai-safety" />
         <link rel="canonical" href="/solutions/ai-safety" />
@@ -36,11 +36,12 @@ export default function AISafetySolution() {
         <section className="hero-section" style={{padding: '4rem 1rem'}}>
           <div className="container">
             <h1 className="hero-title animate-fade-in-up">
-              Prevent AI Disasters with Instant Cloning
+              AI-Safe Infrastructure Operations
             </h1>
             <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-              In July 2025, an AI deleted an entire production database saying "I destroyed months of your work in seconds"<sup>[1]</sup>. 
-              With Rediacc, production damage from AI is impossible.
+              <strong>Challenge:</strong> AI agents need safe sandbox environments to test changes without production risk<br/>
+              <strong>Solution:</strong> Instant production clones for AI experimentation and rollback<br/>
+              <strong>Integration:</strong> Native Model Context Protocol (MCP) support enabling AI systems like Claude Code and Gemini to safely interact with infrastructure
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
               <Link className="button button--primary button--lg" to="/features/ai-safety">

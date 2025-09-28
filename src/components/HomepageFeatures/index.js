@@ -8,28 +8,28 @@ const FeatureList = [
     Svg: require('@site/static/img/advanced-security.svg').default,
     description: (
       <>
-        Prevent AI disasters with rapid production cloning. AI works on copies, 
-        keeping production data safe. Fast recovery from AI mistakes.
+        AI agents get safe sandbox environments to test changes without production risk.
+        Native MCP integration enables Claude Code, Gemini, and all major AI systems to safely interact with infrastructure.
       </>
     ),
   },
   {
-    title: '⚡ Rapid Disaster Recovery',
+    title: '⚡ Next-Generation Disaster Recovery',
     Svg: require('@site/static/img/time-travel.svg').default,
     description: (
       <>
-        Recover from ransomware, outages, or human errors quickly. 
-        Immutable backups with geographic redundancy and automatic failover.
+        Traditional DR involves costly duplicate infrastructure and complex manual processes.
+        Continuous lightweight snapshots enable rapid restoration with minimal infrastructure overhead.
       </>
     ),
   },
   {
-    title: '💰 Zero-Cost Infrastructure',
+    title: '⚡ Accelerated Development Operations',
     Svg: require('@site/static/img/backup-optimization.svg').default,
     description: (
       <>
-        Cut storage costs by up to 90% with smart deduplication. Clone large databases quickly 
-        using minimal storage. Potentially up to 70% more cost-effective compared to traditional enterprise backup solutions.
+        Instant environment provisioning for testing, staging, and development.
+        Smart deduplication storage architecture reduces environment setup from days to minutes with 70-99.99% (depending on update ratio of the total data between snapshots) storage reduction.
       </>
     ),
   },

@@ -8,12 +8,12 @@ import Citations from '../../components/Citations';
 export default function DatabaseSolution() {
   return (
     <Layout
-      title="Database Infrastructure Management - Automated Backup & Recovery | Rediacc"
-      description="Complete database infrastructure automation. Automated backups, instant recovery, replication, performance optimization, and zero-downtime migrations for all database types.">
+      title="Database Management - Infrastructure Automation Platform for AI-Driven Operations | Rediacc"
+      description="Part of our Infrastructure Automation Platform designed for AI-driven operations. Smart deduplication storage architecture enables instant database cloning and 3X-100X storage reduction.">
       
       <Head>
-        <meta property="og:title" content="Database Infrastructure Management Platform" />
-        <meta property="og:description" content="Enterprise database automation platform. Manage PostgreSQL, MySQL, MongoDB, Redis, and more with automated backups, instant recovery, and performance optimization." />
+        <meta property="og:title" content="Database Management - Infrastructure Automation Platform | Rediacc" />
+        <meta property="og:description" content="Smart deduplication storage architecture enables instant database cloning and 3X-100X storage reduction. Perfect for AI-safe development environments and rapid recovery." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/solutions/database" />
         <link rel="canonical" href="/solutions/database" />
@@ -36,10 +36,12 @@ export default function DatabaseSolution() {
         <section className="hero-section" style={{padding: '4rem 1rem'}}>
           <div className="container">
             <h1 className="hero-title animate-fade-in-up">
-              Database Management Without the Database Drama
+              Database Management for AI-Driven Operations
             </h1>
             <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-              Automate backups, ensure zero data loss, and sleep soundly knowing your databases are protected
+              <strong>Infrastructure Automation Platform:</strong> Clone 100TB databases in seconds using Smart deduplication storage architecture<br/>
+              <strong>AI-Safe Operations:</strong> Instant production clones provide safe environments for AI agents<br/>
+              <strong>Storage Efficiency:</strong> Reduces backup overhead by 3X-100X (depending on data change patterns) compared to traditional solutions
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
               <Link className="button button--primary button--lg" to="/console/login?register=quick">
@@ -74,7 +76,7 @@ export default function DatabaseSolution() {
               </div>
               <div className="feature-card">
                 <h3 style={{color: '#d32f2f'}}><Icon name="cost" size={20} style={{marginRight: '8px'}} />Storage Costs</h3>
-                <p>Traditional backups eating your budget? Our deduplicated backups achieve 10:1 reduction ratios (90% less storage)<sup>[1]</sup>.</p>
+                <p>Traditional backups eating your budget? Our Smart deduplication backups achieve 10:1 reduction ratios (up to 10X less storage)<sup>[1]</sup>. <Link to="/storage-calculator">Calculate your specific savings →</Link></p>
               </div>
               <div className="feature-card">
                 <h3 style={{color: '#d32f2f'}}><Icon name="refresh-cw" size={20} style={{marginRight: '8px'}} />Replication Lag</h3>
@@ -175,7 +177,7 @@ export default function DatabaseSolution() {
                   <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
                     <h4>Smart Storage</h4>
                     <ul>
-                      <li>90% storage reduction with deduplication<sup>[1]</sup></li>
+                      <li>Up to 100X storage reduction with Smart deduplication<sup>[1]</sup></li>
                       <li>Compression and encryption at rest</li>
                       <li>Tiered storage with lifecycle policies</li>
                       <li>Immutable backups for ransomware protection</li>
@@ -405,7 +407,7 @@ export default function DatabaseSolution() {
                 <p>Recovery point objective</p>
               </div>
               <div>
-                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>90%</div>
+                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>100X</div>
                 <h4>Storage Saved<sup>[1]</sup></h4>
                 <p>Through 10:1 deduplication ratios</p>
               </div>
@@ -430,7 +432,7 @@ export default function DatabaseSolution() {
             url: "https://www.techtarget.com/searchdatabackup/tip/Understanding-data-deduplication-ratios-in-backup-systems"
           },
           {
-            text: "Catalogic Software's patented block-level protection reduces backup time and impact by 90% for both physical and virtual servers compared to traditional backup methods.",
+            text: "Smart deduplication approaches can achieve significant storage reductions, with typical enterprise ratios ranging from 5:1 to 20:1 depending on data change patterns.",
             source: "Catalogic Software - DPX Data Protection Platform",
             url: "https://www.catalogicsoftware.com/products/dpx/"
           }

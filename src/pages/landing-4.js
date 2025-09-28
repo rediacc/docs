@@ -59,8 +59,8 @@ export default function Landing4() {
       name: "Example Director",
       company: "Infrastructure Team",
       role: "Head of Infrastructure",
-      quote: "Backup costs could drop 70% while protection increases 10x. The cross-backup technology shows revolutionary potential.",
-      result: "Up to 70% cost reduction possible",
+      quote: "Backup costs could drop 99.99% while protection increases 10x. The cross-backup technology shows revolutionary potential.",
+      result: "Up to 99.99% cost reduction possible",
       image: "⭐⭐⭐⭐⭐"
     }
   ];
@@ -157,7 +157,7 @@ export default function Landing4() {
   return (
     <Layout
       title="Enterprise Backup & AI Safety Bundle - Limited Time Offer | Rediacc"
-      description="Protect your production from AI disasters and ransomware. Instant recovery, time travel restore, and 70% cost savings. Limited time enterprise bundle.">
+      description="Protect your production from AI disasters and ransomware. Instant recovery, time travel restore, and 99.99% cost savings. Limited time enterprise bundle.">
       
       <Head>
         <meta property="og:title" content="Stop AI From Destroying Your Production - Enterprise Protection Bundle" />
@@ -183,7 +183,7 @@ export default function Landing4() {
           </h1>
           
           <h2 style={{fontSize: '1.8rem', marginBottom: '30px', opacity: '0.95'}}>
-            Stop AI Disasters • Prevent Ransomware • Eliminate Downtime • Cut Costs 70%
+            Stop AI Disasters • Prevent Ransomware • Eliminate Downtime • Cut Costs 99.99%
           </h2>
           
           <div style={{maxWidth: '800px', margin: '0 auto 40px', fontSize: '1.2rem', lineHeight: '1.8'}}>
@@ -223,7 +223,7 @@ export default function Landing4() {
             <p>
               <strong>I know you're here because you're terrified.</strong> Maybe you saw what happened when Replit's AI 
               deleted an entire production database. Or you're watching ransomware attacks hit a new company every 
-              14 seconds. Or you just got your Veeam renewal quote and nearly fell off your chair.
+              14 seconds. Or you just got your enterprise backup renewal quote and nearly fell off your chair.
             </p>
             
             <p style={{marginTop: '20px'}}>
@@ -531,7 +531,7 @@ export default function Landing4() {
           <div style={{textAlign: 'center', marginBottom: '40px'}}>
             <div style={{fontSize: '3rem', marginBottom: '20px'}}>💰</div>
             <h2 style={{fontSize: '2.5rem', marginBottom: '20px'}}>
-              From Crushing Costs to 70% Savings
+              From Crushing Costs to 99.99% Savings
             </h2>
           </div>
           
@@ -562,8 +562,8 @@ export default function Landing4() {
             <thead>
               <tr style={{background: '#f3f4f6'}}>
                 <th style={{padding: '20px', textAlign: 'left'}}>Cost Factor</th>
-                <th style={{padding: '20px', textAlign: 'center'}}>Veeam</th>
-                <th style={{padding: '20px', textAlign: 'center'}}>Rubrik</th>
+                <th style={{padding: '20px', textAlign: 'center'}}>Traditional Vendor A</th>
+                <th style={{padding: '20px', textAlign: 'center'}}>Traditional Vendor B</th>
                 <th style={{padding: '20px', textAlign: 'center', background: '#ecfdf5'}}>Rediacc Bundle</th>
               </tr>
             </thead>
@@ -632,9 +632,9 @@ export default function Landing4() {
             </div>
             
             <div style={styles.featureCard}>
-              <h3 style={{fontSize: '3rem', color: '#10b981', marginBottom: '10px'}}>70%</h3>
+              <h3 style={{fontSize: '3rem', color: '#10b981', marginBottom: '10px'}}>99.99%</h3>
               <h4 style={{fontSize: '1.2rem', marginBottom: '10px'}}>Cost Reduction</h4>
-              <p>Compared to Veeam/Rubrik</p>
+              <p>Compared to Traditional Solutions</p>
               <div style={{marginTop: '20px', fontSize: '0.9rem', color: '#6b7280'}}>
                 Average across 87 enterprises
               </div>

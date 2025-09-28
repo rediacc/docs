@@ -42,12 +42,12 @@ export default function InfrastructureCommandCenter() {
 
   return (
     <Layout
-      title="Infrastructure Command Center Bundle - Eliminate Chaos, Cut Costs 90% | Rediacc"
+      title="Infrastructure Command Center Bundle - Eliminate Chaos, Cut Costs up to 100X | Rediacc"
       description="The complete infrastructure management system designed to prevent disasters. Get AI Safety Shield, Zero-Cost Backup, and Time Travel Recovery. Deploy up to 973x more frequently (DORA research) with zero fear.">
       
       <Head>
         <meta property="og:title" content="Infrastructure Command Center Bundle - Transform Your DevOps | Rediacc" />
-        <meta property="og:description" content="Eliminate infrastructure chaos with our platform. 90% cost reduction potential, rapid recovery capability, robust AI safety. Limited time offer includes valuable bonuses." />
+        <meta property="og:description" content="Eliminate infrastructure chaos with our platform. Up to 100X cost reduction potential, rapid recovery capability, robust AI safety. Limited time offer includes valuable bonuses." />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/img/hero-graphic.svg" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -559,12 +559,12 @@ export default function InfrastructureCommandCenter() {
               
               <p className="hero-subtitle">
                 The Complete System That Eliminates Infrastructure Chaos, 
-                Designed to Prevent AI Disasters and Cut Costs by Up to 90%
+                Designed to Prevent AI Disasters and Cut Costs by Up to 100X
               </p>
 
               <ul className="hero-bullets">
                 <li>Make AI disasters impossible with instant production cloning</li>
-                <li>Reduce backup costs by 90% with smart deduplication</li>
+                <li>Reduce backup costs by up to 100X with Smart deduplication</li>
                 <li>Potential to deploy up to 973x more frequently without fear of downtime</li>
                 <li>Recover from any incident in 1 minute (not days)</li>
               </ul>
@@ -594,7 +594,7 @@ export default function InfrastructureCommandCenter() {
                   <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>💾</div>
                   <h3>Smart Backup System</h3>
                   <p style={{ fontSize: '0.9rem', color: '#94a3b8' }}>
-                    90% storage cost reduction
+                    Up to 100X storage cost reduction
                   </p>
                 </div>
                 <div className="hero-image-card">
@@ -630,7 +630,7 @@ export default function InfrastructureCommandCenter() {
 
               <p style={{ marginBottom: '1.5rem' }}>
                 Second, your backup costs are spiraling out of control. Companies waste $2M+ annually on storage 
-                that grows exponentially while recovery times get slower. Traditional vendors like Veeam charge 
+                that grows exponentially while recovery times get slower. Traditional vendors charge 
                 premium prices for basic features, locking you into complex licensing that punishes growth.
               </p>
 
@@ -701,7 +701,7 @@ export default function InfrastructureCommandCenter() {
               <div className="testimonial-card">
                 <div className="testimonial-stars">★★★★★</div>
                 <p className="testimonial-text">
-                  "Backup costs could drop by 90%. The real benefit? 
+                  "Backup costs could drop by up to 100X. The real benefit? 
                   You could clone entire production environments in seconds for testing. 
                   Development velocity has the potential to increase 3x."
                 </p>
@@ -711,7 +711,7 @@ export default function InfrastructureCommandCenter() {
                     <strong>Example: DevOps Lead</strong><br />
                     <span style={{ color: '#64748b', fontSize: '0.9rem' }}>
                       Growing Startup<br />
-                      <strong style={{ color: 'var(--ifm-color-primary)' }}>Up to 90% Cost Reduction Possible</strong>
+                      <strong style={{ color: 'var(--ifm-color-primary)' }}>Up to 100X Cost Reduction Possible</strong>
                     </span>
                   </div>
                 </div>
@@ -739,7 +739,7 @@ export default function InfrastructureCommandCenter() {
               <div className="testimonial-card">
                 <div className="testimonial-stars">★★★★★</div>
                 <p className="testimonial-text">
-                  "You could replace traditional backup solutions, save 70% on costs, and get additional capabilities. 
+                  "You could replace traditional backup solutions, save up to 100X on costs, and get additional capabilities. 
                   The ability to test database upgrades on production clones could eliminate weekend maintenance windows."
                 </p>
                 <div className="testimonial-author">
@@ -835,7 +835,7 @@ export default function InfrastructureCommandCenter() {
                 </p>
                 <ul style={{ margin: 0, paddingLeft: '1.5rem', fontSize: '0.95rem' }}>
                   <li>Average enterprise wastes $2M+ annually</li>
-                  <li>Veeam charges $25K for 50TB over 5 years</li>
+                  <li>Traditional solutions charge $25K for 50TB over 5 years</li>
                   <li>Recovery times increase as data grows</li>
                   <li>Complex licensing punishes success</li>
                 </ul>
@@ -885,7 +885,7 @@ export default function InfrastructureCommandCenter() {
               <p style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#7f1d1d' }}>
                 While you fight these 4 nightmares with band-aid solutions, 
                 your competitors using modern infrastructure can deploy up to 973x faster (based on DORA research), 
-                recover 1000x quicker, and spend 90% less.
+                recover 1000x quicker, and spend up to 100X less.
               </p>
               <p style={{ marginTop: '1rem', color: '#991b1b' }}>
                 The gap widens every single day. How much longer can you afford to fall behind?
@@ -926,7 +926,7 @@ export default function InfrastructureCommandCenter() {
                   <div className="feature-icon">💎</div>
                   <h4>Zero-Cost Backup</h4>
                   <p style={{ color: '#64748b' }}>
-                    Cut storage costs 90% with smart deduplication
+                    Cut storage costs up to 100X with Smart deduplication
                   </p>
                 </div>
                 <div className="solution-feature">
@@ -947,7 +947,7 @@ export default function InfrastructureCommandCenter() {
                   <div className="feature-icon">🔄</div>
                   <h4>Cross-Backup Tech</h4>
                   <p style={{ color: '#64748b' }}>
-                    Protect everything with 99% less storage
+                    Protect everything with up to 100X less storage
                   </p>
                 </div>
                 <div className="solution-feature">
@@ -1074,7 +1074,7 @@ export default function InfrastructureCommandCenter() {
               <div className="feature-icon-large">💎</div>
               <h2 className="feature-title">Module 2: The Zero-Cost Backup System</h2>
               <p className="feature-transformation">
-                From "Millions Wasted Annually" to "Up to 90% Cost Reduction Possible"
+                From "Millions Wasted Annually" to "Up to 100X Cost Reduction Possible"
               </p>
             </div>
 
@@ -1085,11 +1085,11 @@ export default function InfrastructureCommandCenter() {
                 </h3>
                 <ul className="feature-benefits">
                   <li>
-                    <strong>Smart Deduplication:</strong> Our Copy-on-Write filesystem only stores changes, 
+                    <strong>Smart Deduplication:</strong> Our Smart deduplication filesystem only stores changes, 
                     not duplicates. 100TB of similar data might use only 10TB of actual storage.
                   </li>
                   <li>
-                    <strong>Cross-Backup Technology:</strong> Incremental forever with up to 99% reduction. 
+                    <strong>Cross-Backup Technology:</strong> Incremental forever with up to 100X reduction. 
                     Week 52 backup takes same space as week 1.
                   </li>
                   <li>
@@ -1109,7 +1109,7 @@ export default function InfrastructureCommandCenter() {
                   marginTop: '2rem' 
                 }}>
                   <p style={{ margin: 0, fontWeight: 'bold', color: '#0369a1' }}>
-                    Industry Disruption: We charge $25/TB/month for what Veeam charges $100/TB/month. 
+                    Industry Disruption: We charge $25/TB/month for what traditional vendors charge $100/TB/month. 
                     Organizations could save an average of $2.1M annually.
                   </p>
                 </div>
@@ -1122,7 +1122,7 @@ export default function InfrastructureCommandCenter() {
                   </h4>
                   <div className="metric-grid">
                     <div className="metric-item">
-                      <div className="metric-value">90%</div>
+                      <div className="metric-value">100X</div>
                       <div className="metric-label">Storage Reduction</div>
                     </div>
                     <div className="metric-item">
@@ -1134,8 +1134,8 @@ export default function InfrastructureCommandCenter() {
                       <div className="metric-label">Clone Time (100TB)</div>
                     </div>
                     <div className="metric-item">
-                      <div className="metric-value">70%</div>
-                      <div className="metric-label">Less Than Veeam</div>
+                      <div className="metric-value">100X</div>
+                      <div className="metric-label">Less Than Traditional Solutions</div>
                     </div>
                   </div>
                 </div>
@@ -1265,7 +1265,7 @@ export default function InfrastructureCommandCenter() {
 
             <div className="stats-grid">
               <div className="stat-card">
-                <div className="stat-number">90%</div>
+                <div className="stat-number">100X</div>
                 <div className="stat-label">Cost Reduction</div>
                 <div className="stat-description">
                   Average storage and infrastructure savings
@@ -1533,7 +1533,7 @@ export default function InfrastructureCommandCenter() {
             <div className="disclaimer">
               <strong>Results Disclaimer:</strong> Individual results will vary based on infrastructure complexity, 
               current costs, and implementation approach. Results shown are projections based on system capabilities. 
-              Potential outcomes: 60-90% cost reduction, 5-20x deployment frequency increase, 
+              Potential outcomes: 3X-100X cost reduction, 5-20x deployment frequency increase, 
               recovery times under 5 minutes. Actual results depend on your specific environment and implementation.
             </div>
           </div>

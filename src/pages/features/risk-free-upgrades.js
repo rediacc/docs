@@ -191,7 +191,7 @@ export default function RiskFreeUpgradesFeature() {
                   }}>1</div>
                   <div>
                     <h3>Clone Production</h3>
-                    <p>Create an instant, perfect copy of your production environment. Whether it's 10GB or 100TB, cloning takes seconds using CoW technology.</p>
+                    <p>Create an instant, perfect copy of your production environment. Whether it's 10GB or 100TB, cloning takes seconds using Smart deduplication technology.</p>
                   </div>
                 </div>
 
@@ -372,9 +372,9 @@ export default function RiskFreeUpgradesFeature() {
             <div style={{maxWidth: '1000px', margin: '0 auto'}}>
               <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center'}}>
                 <div>
-                  <h3>Copy-on-Write (CoW) Technology</h3>
+                  <h3>Smart deduplication (Smart deduplication) Technology</h3>
                   <p style={{lineHeight: '1.8', marginBottom: '1.5rem'}}>
-                    Risk-Free Upgrades leverage advanced CoW filesystem technology to create instant clones 
+                    Risk-Free Upgrades leverage advanced Smart deduplication filesystem technology to create instant clones 
                     without duplicating data. Changes are tracked at the block level, enabling lightning-fast 
                     cloning and minimal storage overhead.
                   </p>

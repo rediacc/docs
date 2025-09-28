@@ -101,6 +101,14 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Core Concepts',
+      collapsed: false,
+      items: [
+        'concepts/smart-deduplication',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Use Cases',
       collapsed: false,
       items: [

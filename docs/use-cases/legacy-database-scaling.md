@@ -63,5 +63,5 @@ System engineer Yüksel, using Rediacc's cross-backup feature:
 
 **Time Gain:**
 * The solution was implemented **within 3 weeks**
-* Customer complaints were resolved by **90%**
+* Customer complaints were resolved by **99.99% (depending on update ratio of the total data between snapshots)**
 :::

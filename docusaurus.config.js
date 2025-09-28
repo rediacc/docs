@@ -11,7 +11,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Rediacc',
-  tagline: 'When Disasters Strike, Will Your Business Survive?',
+  tagline: 'Infrastructure Automation Platform Designed for AI-Driven Operations',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here

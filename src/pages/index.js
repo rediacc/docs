@@ -12,11 +12,11 @@ function HomepageHero() {
     <section className="hero-section">
       <div className="container">
         <h1 className="hero-title animate-fade-in-up">
-          The Only Infrastructure Platform That Does All 3
+          Infrastructure Automation Platform Designed for AI-Driven Operations
         </h1>
         <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-          Prevent AI disasters. Enable rapid recovery. Cut costs up to 90%.<br />
-          Pick one problem or solve all three.
+          <strong>The Speed Mismatch Problem:</strong> AI agents can modify systems in seconds—but traditional recovery takes hours to days.<br />
+          Close this dangerous gap with three converging solutions.
         </p>
         
         {/* Three Pillars Preview */}
@@ -55,8 +55,8 @@ function HomepageHero() {
             border: '1px solid rgba(255, 255, 255, 0.2)'
           }}>
             <div style={{fontSize: '2rem', marginBottom: '0.5rem'}}>💰</div>
-            <div style={{fontWeight: 'bold'}}>Zero-Cost</div>
-            <small>Up to 90% savings possible</small>
+            <div style={{fontWeight: 'bold'}}>Dev Acceleration</div>
+            <small>Minutes not days for environments</small>
           </div>
         </div>
         
@@ -116,8 +116,8 @@ function MainFeatureCategories() {
       features: [
         {
           iconName: 'ai-safety',
-          title: 'Fast Production Cloning',
-          description: 'AI works on perfect copies created in seconds. Your real production data remains completely untouchable by AI agents.',
+          title: 'Fast Production Cloning with MCP Support',
+          description: 'Native Model Context Protocol (MCP) integration enables Claude Code, Gemini, and all major AI systems to work safely on perfect copies. Your real production data remains completely untouchable by AI agents.',
           link: '/features/ai-safety',
         },
         {
@@ -139,7 +139,7 @@ function MainFeatureCategories() {
         subValue: '847',
         subLabel: 'Incident Types Covered'
       },
-      targetAudience: 'Perfect for teams using GitHub Copilot, Claude, GPT, or any AI coding assistants',
+      targetAudience: 'Perfect for teams using GitHub Copilot, Claude Code, GPT, Gemini, or any AI coding assistants. Native MCP integration.',
       cta: {
         primary: 'Get AI Protection Now',
         link: '/features/ai-safety'
@@ -182,39 +182,43 @@ function MainFeatureCategories() {
       }
     },
     {
-      title: '💰 Zero-Cost Infrastructure',
-      subtitle: 'Cut Storage Costs by 90% While Getting 10x Better Protection',
-      description: 'Stop wasting millions on bloated backup bills and complex licensing',
+      title: '⚡ Accelerated Development Operations',
+      subtitle: 'Instant Environment Provisioning for Testing, Staging, and Development',
+      description: 'Developers wait hours or days for production-like environments. We provide instant provisioning.',
+      challenge: 'Developers wait hours or days for production-like environments',
+      solution: 'Instant environment provisioning for testing, staging, and development',
+      impact: 'Reduces environment setup from days to minutes',
       features: [
         {
-          iconName: 'backup',
-          title: '90% Storage Reduction',
-          description: 'Smart deduplication stores only unique data. 100TB of backups might use only 10TB of actual storage.',
-          link: '/features/zero-cost-backup',
-        },
-        {
           iconName: 'scaling',
-          title: 'Instant Scaling',
-          description: 'Clone 100TB databases in seconds using only megabytes. Scale without infrastructure investment.',
+          title: 'Instant Environment Cloning',
+          description: 'Clone entire production environments in seconds using Smart deduplication storage architecture. 100TB environments use only megabytes.',
           link: '/features/dynamic-scaling',
         },
         {
+          iconName: 'backup',
+          title: 'Up to 100X Storage Reduction',
+          description: 'Smart deduplication storage architecture reduces overhead by 3X-100X compared to full-copy solutions. Smart deduplication stores only unique data.',
+          link: '/storage-calculator',
+        },
+        {
           iconName: 'simple',
-          title: 'Simple Pricing',
-          description: 'Pay per TB, not per VM. No complex licensing, no surprise renewals. Potentially up to 70% more cost-effective vs enterprise backup solutions.',
-          link: '/pricing',
+          title: 'Days to Minutes',
+          description: 'Environment setup that traditionally takes days now happens in minutes. No infrastructure investment required.',
+          link: '/features/dynamic-scaling',
         },
       ],
       stats: {
-        mainValue: '$2.1M',
-        mainLabel: 'Annual Savings',
-        subValue: '90%',
-        subLabel: 'Cost Reduction'
+        mainValue: 'Minutes',
+        mainLabel: 'Environment Setup',
+        subValue: '100X',
+        subLabel: 'Storage Reduction'
       },
-      targetAudience: 'Loved by CFOs, IT budget holders, and fast-growing companies',
+      targetAudience: 'Essential for development teams, DevOps engineers, and fast-growing companies',
+      cowArchitecture: 'Smart deduplication storage architecture reduces backup overhead by 3X-100X compared to full-copy solutions',
       cta: {
-        primary: 'Calculate Your Savings',
-        link: '/pricing'
+        primary: 'Accelerate Development',
+        link: '/features/dynamic-scaling'
       }
     }
   ];
@@ -223,9 +227,12 @@ function MainFeatureCategories() {
     <section id="solutions" style={{padding: '5rem 0', background: 'var(--ifm-background-color)'}}>
       <div className="container">
         <h2 style={{textAlign: 'center', marginBottom: '1rem', fontSize: '3rem', fontWeight: 'bold'}}>
-          3 Ways We Save Your Infrastructure
+          Three Converging Market Applications
         </h2>
-        <p style={{textAlign: 'center', marginBottom: '4rem', fontSize: '1.3rem', color: 'var(--ifm-font-color-secondary)', maxWidth: '800px', margin: '0 auto 4rem'}}>
+        <p style={{textAlign: 'center', marginBottom: '2rem', fontSize: '1.3rem', color: 'var(--ifm-font-color-secondary)', maxWidth: '800px', margin: '0 auto 2rem'}}>
+          Traditional backup vendors were built for earlier infrastructure challenges. They typically require hours to weeks for recovery.<br />AI systems can encounter issues much more quickly.
+        </p>
+        <p style={{textAlign: 'center', marginBottom: '4rem', fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--ifm-color-primary)', maxWidth: '600px', margin: '0 auto 4rem'}}>
           Pick your biggest pain point. We'll solve it in 100 seconds.
         </p>
         
@@ -354,7 +361,7 @@ function MainFeatureCategories() {
             Get All 3 Solutions in One Platform
           </h3>
           <p style={{fontSize: '1.2rem', marginBottom: '2rem', opacity: 0.95}}>
-            An infrastructure platform designed to prevent AI disasters, enable rapid recovery, and cut costs by up to 90%
+            An infrastructure platform designed to prevent AI disasters, enable rapid recovery, and cut costs by up to 100X
           </p>
           <Link 
             className="button button--primary button--lg"
@@ -432,12 +439,12 @@ function CTASection() {
             textAlign: 'left'
           }}>
             <div style={{fontSize: '1.5rem', marginBottom: '0.5rem'}}>💰</div>
-            <h3 style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>Backup bills crushing you?</h3>
+            <h3 style={{fontSize: '1.2rem', marginBottom: '0.5rem'}}>Slow environment setup?</h3>
             <p style={{fontSize: '0.95rem', color: 'var(--ifm-font-color-secondary)', marginBottom: '1rem'}}>
-              Cut costs 90% with smart deduplication.
+              Clone environments in minutes with Smart deduplication architecture.
             </p>
-            <Link to="/pricing" style={{color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>
-              Calculate savings →
+            <Link to="/features/dynamic-scaling" style={{color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>
+              Accelerate development →
             </Link>
           </div>
         </div>
@@ -472,10 +479,10 @@ export default function Home() {
   return (
     <Layout
       title="AI Safety, Rapid Recovery & Cost Savings | Rediacc"
-      description="The infrastructure platform designed to prevent AI disasters, enable 60-second recovery, and reduce costs by up to 90%. Deploy in 100 seconds.">
+      description="The infrastructure platform designed to prevent AI disasters, enable 60-second recovery, and reduce costs by up to 100X. Deploy in 100 seconds.">
       <Head>
-        <meta property="og:title" content="Prevent AI Disasters. Recover Quickly. Save Up to 90% | Rediacc" />
-        <meta property="og:description" content="The only platform that does all 3: AI safety with production cloning, 60-second disaster recovery, and 90% cost reduction. Start free trial, deploy in 100 seconds." />
+        <meta property="og:title" content="Prevent AI Disasters. Recover Quickly. Save Up to 100X | Rediacc" />
+        <meta property="og:description" content="The only platform that does all 3: AI safety with production cloning, 60-second disaster recovery, and up to 100X cost reduction. Start free trial, deploy in 100 seconds." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -485,7 +492,7 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Rediacc",
-            "description": "An infrastructure platform that prevents AI disasters, enables rapid recovery from catastrophes, and reduces costs by up to 90%. Three solutions, one platform.",
+            "description": "An infrastructure platform that prevents AI disasters, enables rapid recovery from catastrophes, and reduces costs by up to 100X. Three solutions, one platform.",
             "url": "/",
             "logo": "/img/logo.svg",
             "sameAs": [

@@ -44,7 +44,7 @@ Think of it this way: AI is like a powerful sports car. Rediacc is the test trac
 
 Here's how it works in simple terms:
 
-1. **Rapid Cloning**: We can copy your entire system in seconds using Copy-on-Write technology (even large databases up to 100TB)
+1. **Rapid Cloning**: We can copy your entire system in seconds using Smart deduplication technology (even large databases up to 100TB)
 2. **AI Playground**: AI agents work exclusively on these copies, not on your real system
 3. **Time Travel**: If something goes wrong, we can restore everything to any point in the past
 4. **Hard Boundaries**: AI agents can't override our safety rules, no matter what
@@ -55,7 +55,7 @@ The result? AI can be as creative, experimental, or even reckless as it wants. Y
 
 ### Instant Production Cloning
 
-Most backup systems take hours to copy large databases. Our Copy-on-Write technology enables cloning in seconds by creating references rather than duplicating data. 
+Most backup systems take hours to copy large databases. Our Smart deduplication technology enables cloning in seconds by creating references rather than duplicating data. 
 
 Here's a simple analogy: Imagine you need to copy a huge book. Traditional systems write out every page by hand. We just make a note saying "same as the original." We only write new pages when something changes. That's why even a 100TB database can be cloned rapidly - typically in under 10 seconds.
 
@@ -121,9 +121,11 @@ After Rediacc: AI-generated monitoring reports in hours with zero patient data r
 
 Let's talk money. Here's what Rediacc means for your bottom line:
 
-### 90% Lower Storage Costs
+### Significant Storage Cost Reduction
 
-Traditional backups store complete copies multiple times. Our approach stores primarily changes. A 100TB database with 1% daily changes would use approximately 101TB of storage, compared to 700TB for a week of traditional full backups.
+Traditional backups store complete copies multiple times. Our Smart deduplication approach stores only changes. A 100TB database with 1X daily changes would use approximately 107TB of storage for a week of backups plus 3 development copies, compared to 1,000TB for traditional full backups—a **9X reduction**.
+
+Storage savings depend on your change ratio: stable databases achieve 20X-100X reduction, while high-change environments typically see 3X-5X savings. [Calculate your specific savings →](/storage-calculator)
 
 ### Zero Downtime Testing
 
@@ -158,7 +160,7 @@ That's it. No complex migrations. No system redesigns. Just safety.
 Clones inherit the same security as your production. AI sees only what you permit, with full encryption and access controls.
 
 **"How fast is cloning really?"**
-Using Copy-on-Write technology: A 10GB database typically clones in under 1 second. A 100TB database typically clones in under 10 seconds. The speed comes from creating references rather than copying data.
+Using Smart deduplication technology: A 10GB database typically clones in under 1 second. A 100TB database typically clones in under 10 seconds. The speed comes from creating references rather than copying data.
 
 **"What about security and monitoring?"**
 Every AI action is logged. Every change is tracked. We provide comprehensive monitoring and security controls. Your security team will love the detailed audit trail.

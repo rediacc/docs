@@ -35,12 +35,12 @@ export default function InfrastructureRevolutionComplete() {
 
   return (
     <Layout
-      title="The Complete Infrastructure Revolution System - Transform Chaos Into Competitive Advantage | Rediacc"
-      description="The 4-system framework designed to prevent AI disasters while cutting costs by up to 90%. Get rapid cloning, time travel recovery, and robust AI safety.">
+      title="Infrastructure Automation Platform - Three Converging Market Applications | Rediacc"
+      description="Designed for AI-driven operations. Solve the Speed Mismatch: AI agents modify systems in seconds, traditional recovery takes hours to days. Three solutions, one platform.">
       
       <Head>
-        <meta property="og:title" content="The Infrastructure Revolution Complete System - Rediacc" />
-        <meta property="og:description" content="The complete system that turned infrastructure chaos into competitive advantage. 90% cost reduction + AI safety guarantee." />
+        <meta property="og:title" content="Infrastructure Automation Platform - Three Converging Market Applications | Rediacc" />
+        <meta property="og:description" content="Traditional backup vendors were built for earlier infrastructure challenges. AI systems can encounter issues much more quickly. Three converging solutions address this speed mismatch." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/infrastructure-revolution-complete" />
         <link rel="canonical" href="/infrastructure-revolution-complete" />
@@ -216,7 +216,7 @@ export default function InfrastructureRevolutionComplete() {
             </h1>
             <p style={{fontSize: '1.3rem', color: '#64748b', marginBottom: '2rem', lineHeight: '1.6'}}>
               How 1,000+ Engineering Teams Eliminated Infrastructure Chaos, 
-              Reduced Costs by 90%, and Made AI Disasters Impossible
+              Reduced Costs by up to 100X (depending on data change patterns), and Made AI Disasters Impossible
             </p>
             
             {/* Hero Visual */}
@@ -240,7 +240,7 @@ export default function InfrastructureRevolutionComplete() {
             </div>
 
             <div className="guarantee-badge">
-              🛡️ 100% AI Safety Guarantee + 90% Cost Reduction
+              🛡️ 100% AI Safety Guarantee + up to 100X Cost Reduction
             </div>
           </div>
         </section>
@@ -261,7 +261,7 @@ export default function InfrastructureRevolutionComplete() {
                 Only 19% of teams achieve elite deployment performance, trapped in the fear of downtime.
               </p>
               <p style={{marginBottom: '2rem'}}>
-                But what if I told you there's a way to make AI disasters <em>impossible</em> while cutting your infrastructure costs by 90%? 
+                But what if I told you there's a way to make AI disasters <em>impossible</em> while cutting your infrastructure costs by up to 100X (depending on data change patterns)? 
                 What if you could deploy up to 973x more frequently (based on DORA research comparing elite vs low performers) without fear?
               </p>
               <p style={{marginBottom: '3rem'}}>
@@ -303,7 +303,7 @@ export default function InfrastructureRevolutionComplete() {
                   {[...Array(5)].map((_, i) => <span key={i} style={{color: '#fbbf24', fontSize: '1.2rem'}}>★</span>)}
                 </div>
                 <p style={{fontStyle: 'italic', marginBottom: '1.5rem', fontSize: '1.1rem'}}>
-                  "Rediacc reduced our backup storage costs by 90% while improving recovery times. 
+                  "Rediacc reduced our backup storage costs by up to 100X (depending on data change patterns) while improving recovery times. 
                   It's been a game-changer for our infrastructure."
                 </p>
                 <div style={{borderTop: '1px solid #e2e8f0', paddingTop: '1rem'}}>
@@ -351,7 +351,7 @@ export default function InfrastructureRevolutionComplete() {
                   {[...Array(5)].map((_, i) => <span key={i} style={{color: '#fbbf24'}}>★</span>)}
                 </div>
                 <p style={{fontStyle: 'italic', marginBottom: '1rem'}}>
-                  "90% cost reduction while improving recovery times."
+                  "Up to 100X cost reduction while improving recovery times."
                 </p>
                 <div style={{borderTop: '1px solid #e2e8f0', paddingTop: '1rem'}}>
                   <strong>Example CTO Profile</strong><br />
@@ -456,7 +456,7 @@ export default function InfrastructureRevolutionComplete() {
                   <div>Disaster Recovery</div>
                 </div>
                 <div>
-                  <div style={{fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem'}}>90%</div>
+                  <div style={{fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem'}}>100X</div>
                   <div>Cost Reduction</div>
                 </div>
                 <div>
@@ -558,7 +558,7 @@ export default function InfrastructureRevolutionComplete() {
                 System #2: The Zero-Cost Backup System
               </h2>
               <p style={{fontSize: '1.3rem', opacity: '0.9'}}>
-                From <strong>"Backup Cost Explosion"</strong> to <strong>"90% Storage Cost Reduction"</strong>
+                From <strong>"Backup Cost Explosion"</strong> to <strong>"Up to 100X Storage Cost Reduction"</strong>
               </p>
             </div>
 
@@ -567,13 +567,13 @@ export default function InfrastructureRevolutionComplete() {
                 <div>
                   <h3 style={{fontSize: '1.8rem', marginBottom: '1.5rem', color: '#fbbf24'}}>💰 Smart Deduplication</h3>
                   <ul style={{fontSize: '1.1rem', lineHeight: '2'}}>
-                    <li>✅ Up to 90% storage cost reduction</li>
-                    <li>✅ Copy-on-Write technology</li>
+                    <li>✅ Up to 100X storage cost reduction</li>
+                    <li>✅ Smart deduplication technology</li>
                     <li>✅ Real-time compression optimization</li>
                     <li>✅ Cross-region replication included</li>
                   </ul>
                   <p style={{marginTop: '1rem', fontSize: '1rem', opacity: '0.8'}}>
-                    <strong>My Technical Innovation:</strong> Our Copy-on-Write filesystem clones 100TB databases in seconds 
+                    <strong>My Technical Innovation:</strong> Our Smart deduplication filesystem clones 100TB databases in seconds 
                     while using only megabytes of additional storage until changes occur.
                   </p>
                 </div>
@@ -614,7 +614,7 @@ export default function InfrastructureRevolutionComplete() {
               </div>
               <p style={{marginTop: '2rem', fontSize: '1.1rem'}}>
                 <strong>Results Disclaimer:</strong> Savings vary based on data patterns, backup frequency, and current storage costs. 
-                Most clients see 60-90% reduction in storage expenses.
+                Most clients see 3X-100X reduction in storage expenses depending on their data change patterns. <Link to="/storage-calculator">Calculate your specific savings →</Link>
               </p>
             </div>
 
@@ -715,7 +715,7 @@ export default function InfrastructureRevolutionComplete() {
             
             <div className="stats-showcase">
               <div className="stat-card">
-                <div className="stat-number">90%</div>
+                <div className="stat-number">100X</div>
                 <h4>Storage Cost Reduction</h4>
                 <p>Potential savings using smart deduplication technology</p>
               </div>

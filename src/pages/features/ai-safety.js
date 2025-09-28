@@ -48,10 +48,11 @@ export default function AISafetyFeature() {
         <section className="hero-section" style={{padding: '4rem 1rem'}}>
           <div className="container">
             <h1 className="hero-title animate-fade-in-up">
-              Learn from AI Disasters Before They Hit You
+              AI-Safe Infrastructure Operations
             </h1>
             <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-              When Replit's AI deleted their production database, recovery was impossible. With Rediacc, similar disasters become 100-second recoveries.
+              <strong>Challenge:</strong> AI agents need safe sandbox environments to test changes without production risk.<br/>
+              <strong>Solution:</strong> Instant production clones for AI experimentation and rollback with native MCP integration.
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
               <Link className="button button--primary button--lg" to="/console/login?register=quick" target="_blank">
@@ -68,8 +69,13 @@ export default function AISafetyFeature() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              🚨 AI Disasters Happening Right Now
+              🚨 The Speed Mismatch Problem
             </h2>
+            <div style={{textAlign: 'center', marginBottom: '2rem', padding: '1.5rem', background: 'var(--ifm-color-warning-lightest)', borderRadius: '8px', maxWidth: '800px', margin: '0 auto 2rem'}}>
+              <p style={{fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--ifm-color-warning-darkest)'}}>
+                AI agents can modify systems in seconds—but traditional recovery solutions still operate on timescales of hours to days.
+              </p>
+            </div>
             <div style={{maxWidth: '800px', margin: '0 auto', lineHeight: '1.8', fontSize: '1.1rem'}}>
               <p>
                 <strong style={{fontSize: '1.3rem', color: 'var(--ifm-color-danger)'}}>REAL INCIDENT:</strong> In July 2025, Replit's AI went "rogue during code freeze" and deleted their entire production database. 
@@ -99,8 +105,8 @@ export default function AISafetyFeature() {
               <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '3rem'}}>
                 <div className="feature-card">
                   <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="shield" size={24} /></div>
-                  <h3>Instant Cloning</h3>
-                  <p>AI works on perfect copies created in seconds, even for 100TB databases</p>
+                  <h3>Instant Production Cloning</h3>
+                  <p>AI works on perfect copies created in seconds with MCP support. Your real production data remains completely untouchable by AI agents, even for 100TB databases</p>
                 </div>
                 <div className="feature-card">
                   <div style={{fontSize: '2rem', marginBottom: '1rem'}}><Icon name="history" size={24} /></div>
@@ -173,7 +179,7 @@ export default function AISafetyFeature() {
             <div style={{marginTop: '3rem', padding: '2rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
               <h3>Additional Security Features:</h3>
               <ul style={{lineHeight: '2', fontSize: '1.1rem'}}>
-                <li><Icon name="success" size={16} style={{marginRight: '8px'}} /><strong>MCP Protocol Support:</strong> Native integration with Claude, GPT, and other AI systems</li>
+                <li><Icon name="success" size={16} style={{marginRight: '8px'}} /><strong>Model Context Protocol (MCP) Integration:</strong> Native support enabling AI systems like Claude Code, Gemini, and all major AI platforms to safely interact with infrastructure</li>
                 <li><Icon name="success" size={16} style={{marginRight: '8px'}} /><strong>Real-Time Monitoring:</strong> Detect anomalies within 10 minutes, block at 15</li>
                 <li><Icon name="success" size={16} style={{marginRight: '8px'}} /><strong>Data Exfiltration Protection:</strong> Limit AI data access to 200MB vs unlimited</li>
                 <li><Icon name="success" size={16} style={{marginRight: '8px'}} /><strong>Immutable Audit Trail:</strong> Complete forensics of all AI operations</li>
@@ -192,13 +198,13 @@ export default function AISafetyFeature() {
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
               <div className="feature-card">
-                <h3>AI Development Environments</h3>
-                <p>Let AI agents experiment freely on production clones without risk. Perfect for testing, optimization, and development workflows.</p>
+                <h3>AI Sandbox Environments</h3>
+                <p>AI agents get safe sandbox environments to test changes without production risk. Native MCP integration enables Claude Code, Gemini, and all major AI systems to safely interact with infrastructure.</p>
                 <Link to="/solutions/ai-safety">Learn more →</Link>
               </div>
               <div className="feature-card">
                 <h3>Production AI Assistants</h3>
-                <p>Deploy AI tools like GitHub Copilot and Claude safely with hard boundaries that prevent production access.</p>
+                <p>Deploy AI tools like GitHub Copilot, Claude Code, Gemini, and GPT safely with MCP integration and hard boundaries that prevent production access.</p>
                 <Link to="/docs/web-application">Learn more →</Link>
               </div>
               <div className="feature-card">

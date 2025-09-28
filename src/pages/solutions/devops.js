@@ -8,12 +8,12 @@ import { Icon } from '../../components/Icon';
 export default function DevOpsSolution() {
   return (
     <Layout
-      title="DevOps Infrastructure Automation - CI/CD Pipeline Integration | Rediacc"
-      description="Seamlessly integrate infrastructure automation into your DevOps workflows. Automate deployments, testing, rollbacks, and monitoring across your CI/CD pipeline.">
+      title="Accelerated Development Operations - Infrastructure Automation for AI-Driven Operations | Rediacc"
+      description="Part of our Infrastructure Automation Platform designed for AI-driven operations. Instant environment provisioning reduces setup from days to minutes with Smart deduplication storage architecture.">
       
       <Head>
-        <meta property="og:title" content="DevOps Infrastructure Automation Platform" />
-        <meta property="og:description" content="Complete DevOps automation for infrastructure. Integrate with CI/CD pipelines, automate deployments, and achieve continuous delivery at scale." />
+        <meta property="og:title" content="Accelerated Development Operations - Infrastructure Automation Platform | Rediacc" />
+        <meta property="og:description" content="Instant environment provisioning for testing, staging, and development. Smart deduplication storage architecture reduces environment setup from days to minutes." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/solutions/devops" />
         <link rel="canonical" href="/solutions/devops" />
@@ -36,10 +36,12 @@ export default function DevOpsSolution() {
         <section className="hero-section" style={{padding: '4rem 1rem'}}>
           <div className="container">
             <h1 className="hero-title animate-fade-in-up">
-              DevOps Without the Infrastructure Headaches
+              Accelerated Development Operations
             </h1>
             <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-              Automate your entire infrastructure lifecycle from code commit to production deployment
+              <strong>Challenge:</strong> Developers wait hours or days for production-like environments<br/>
+              <strong>Solution:</strong> Instant environment provisioning for testing, staging, and development<br/>
+              <strong>Impact:</strong> Reduces environment setup from days to minutes
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
               <Link className="button button--primary button--lg" to="/console/login?register=quick">
@@ -61,8 +63,13 @@ export default function DevOpsSolution() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              Modern DevOps Challenges We Solve
+              Three Converging Market Applications: Development Operations
             </h2>
+            <div style={{textAlign: 'center', marginBottom: '2rem', padding: '1.5rem', background: 'var(--ifm-color-primary-lightest)', borderRadius: '8px', maxWidth: '800px', margin: '0 auto 2rem'}}>
+              <p style={{fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--ifm-color-primary-darkest)'}}>
+                Smart deduplication storage architecture reduces backup overhead by 70-99.99% (depending on update ratio of the total data between snapshots) compared to full-copy solutions while enabling instant environment cloning.
+              </p>
+            </div>
             
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
               <div className="feature-card">

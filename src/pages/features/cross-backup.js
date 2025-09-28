@@ -67,7 +67,7 @@ export default function CrossBackupFeature() {
                 <h3>Traditional Remote Backup Challenges:</h3>
                 <ul>
                   <li><strong>Time Consuming:</strong> Backing up large datasets can take weeks</li>
-                  <li><strong>Bandwidth Intensive:</strong> Can consume 90% of available bandwidth</li>
+                  <li><strong>Bandwidth Intensive:</strong> Can consume 99.99% of available bandwidth</li>
                   <li><strong>Outdated Protection:</strong> Infrequent backups leave data vulnerable</li>
                   <li><strong>Regional Risks:</strong> Local disasters affect all nearby backup sites</li>
                 </ul>
@@ -116,7 +116,7 @@ export default function CrossBackupFeature() {
                   <div>
                     <strong style={{fontSize: '1.1rem'}}>Traditional Backup</strong>
                     <div style={{fontSize: '1.8rem', fontWeight: 'bold', margin: '0.5rem 0'}}>2 Weeks</div>
-                    <small>90% bandwidth consumption</small>
+                    <small>99.99% bandwidth consumption</small>
                   </div>
                   <div>
                     <strong style={{fontSize: '1.1rem'}}>Cross-Backup</strong>

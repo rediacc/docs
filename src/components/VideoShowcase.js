@@ -50,7 +50,7 @@ const VideoShowcase = () => {
       videoUrl: 'https://www.youtube.com/embed/JMYQmGfTltY?si=465jIzKOqgdkuCOw&title=Intelligent%20Backup',
       useCase: {
         title: 'System Administrators',
-        description: 'Reduce backup storage costs by up to 90% while maintaining instant recovery capabilities.',
+        description: 'Reduce backup storage costs by up to 99.99% while maintaining instant recovery capabilities.',
         iconName: 'server'
       }
     },

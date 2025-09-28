@@ -9,12 +9,12 @@ import RelatedResources from '../../components/RelatedResources';
 export default function DisasterRecoveryFeature() {
   return (
     <Layout
-      title="Disaster Recovery Solutions - Minimal Data Loss, Rapid Recovery | Rediacc"
-      description="Enterprise disaster recovery with RPO of zero and RTO in minutes. Automated failover, geo-redundancy, and complete business continuity protection.">
+      title="Next-Generation Disaster Recovery - 60-Second Recovery from Any Disaster | Rediacc"
+      description="Traditional DR involves costly duplicate infrastructure and hours-to-weeks recovery times. We provide continuous lightweight snapshots for rapid restoration with minimal overhead.">
       
       <Head>
-        <meta property="og:title" content="Enterprise Disaster Recovery Solutions" />
-        <meta property="og:description" content="Achieve minimal data loss and rapid recovery with Rediacc's disaster recovery platform. Automated failover, geo-redundancy, and tested recovery procedures." />
+        <meta property="og:title" content="Next-Generation Disaster Recovery - Turn Catastrophes Into 60-Second Inconveniences | Rediacc" />
+        <meta property="og:description" content="Challenge: Traditional DR involves costly duplicate infrastructure and complex manual processes. Solution: Continuous lightweight snapshots enable rapid restoration with minimal infrastructure overhead." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/features/disaster-recovery" />
         <link rel="canonical" href="/features/disaster-recovery" />
@@ -43,10 +43,12 @@ export default function DisasterRecoveryFeature() {
         <section className="hero-section" style={{padding: '4rem 1rem'}}>
           <div className="container">
             <h1 className="hero-title animate-fade-in-up">
-              Turn Disasters Into Minor Inconveniences
+              Next-Generation Disaster Recovery
             </h1>
             <p className="hero-subtitle animate-fade-in-up animate-delay-100">
-              Minimal data loss, rapid recovery, and complete business continuity designed into the system
+              <strong>Challenge:</strong> Traditional DR involves costly duplicate infrastructure, complex manual processes, and recovery times measured in hours<br/>
+              <strong>Solution:</strong> Continuous lightweight snapshots enable rapid restoration with minimal infrastructure overhead<br/>
+              <strong>Advantage:</strong> Smart deduplication storage architecture reduces backup overhead by 70-99.99% (depending on update ratio of the total data between snapshots) compared to full-copy solutions
             </p>
             <div className="hero-buttons animate-fade-in-up animate-delay-200">
               <Link className="button button--primary button--lg" to="/solutions/infrastructure-protection">
@@ -63,11 +65,16 @@ export default function DisasterRecoveryFeature() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              When Disaster Strikes, Every Second Counts
+              The Speed Mismatch in Recovery Operations
             </h2>
+            <div style={{textAlign: 'center', marginBottom: '2rem', padding: '1.5rem', background: 'var(--ifm-color-warning-lightest)', borderRadius: '8px', maxWidth: '800px', margin: '0 auto 2rem'}}>
+              <p style={{fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--ifm-color-warning-darkest)'}}>
+                Traditional backup vendors were built for earlier infrastructure challenges. They typically require hours to weeks for recovery.
+              </p>
+            </div>
             <div style={{maxWidth: '800px', margin: '0 auto', lineHeight: '1.8', fontSize: '1.1rem'}}>
               <p>
-                Industry research indicates enterprise downtime costs can average $14,056 per minute<sup>[1]</sup>, with 90% of enterprises reporting costs exceeding $300,000 per hour<sup>[1]</sup>. 
+                Industry research indicates enterprise downtime costs can average $14,056 per minute<sup>[1]</sup>, with 99.99% of enterprises reporting costs exceeding $300,000 per hour<sup>[1]</sup>. 
                 Yet most disaster recovery plans are untested, outdated, and take hours or days to execute.
               </p>
               <div style={{margin: '2rem 0', padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
@@ -77,7 +84,7 @@ export default function DisasterRecoveryFeature() {
                   <li><strong>Large Enterprises:</strong> $23,750 per minute for organizations with 1000+ employees</li>
                   <li><strong>Critical Sectors:</strong> Over $5 million per hour for finance and healthcare</li>
                   <li><strong>41% of Enterprises:</strong> Report $1-5 million per hour in downtime costs</li>
-                  <li><strong>90% of Enterprises:</strong> Experience costs exceeding $300,000 per hour</li>
+                  <li><strong>99.99% of Enterprises:</strong> Experience costs exceeding $300,000 per hour</li>
                 </ul>
               </div>
             </div>
@@ -88,7 +95,7 @@ export default function DisasterRecoveryFeature() {
         <section style={{padding: '4rem 1rem', background: 'var(--ifm-background-surface-color)'}}>
           <div className="container">
             <h2 style={{fontSize: '2.5rem', marginBottom: '2rem', textAlign: 'center'}}>
-              Enterprise-Grade Disaster Recovery Architecture
+              Lightweight Architecture vs Traditional Duplicate Infrastructure
             </h2>
             
             <div style={{maxWidth: '1000px', margin: '0 auto'}}>
@@ -442,7 +449,7 @@ export default function DisasterRecoveryFeature() {
 
         <Citations citations={[
           {
-            text: "ITIC 2024 Hourly Cost of Downtime Survey: 90% of mid-size and large enterprises report downtime costs exceeding $300,000/hour, with unplanned downtime averaging $14,056 per minute and up to $23,750 per minute for large enterprises.",
+            text: "ITIC 2024 Hourly Cost of Downtime Survey: 99.99% of mid-size and large enterprises report downtime costs exceeding $300,000/hour, with unplanned downtime averaging $14,056 per minute and up to $23,750 per minute for large enterprises.",
             source: "ITIC 2024 Hourly Cost of Downtime Report",
             url: "https://itic-corp.com/itic-2024-hourly-cost-of-downtime-report/"
           }

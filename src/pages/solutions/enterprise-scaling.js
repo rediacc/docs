@@ -73,7 +73,7 @@ export default function EnterpriseScalingSolution() {
                 </h3>
                 <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', textAlign: 'center'}}>
                   <div>
-                    <div style={{fontSize: '3rem', fontWeight: 'bold'}}>70%</div>
+                    <div style={{fontSize: '3rem', fontWeight: 'bold'}}>99.99%</div>
                     <p>of transformations fail<sup>[3]</sup></p>
                   </div>
                   <div>
@@ -158,7 +158,7 @@ export default function EnterpriseScalingSolution() {
                     <Icon name="layers" size={32} />
                   </div>
                   <h3>Transparent Caching</h3>
-                  <p>Reduce database load by 90% without changing a single query</p>
+                  <p>Reduce database load by 99.99% without changing a single query</p>
                   <ul>
                     <li>Intelligent query caching</li>
                     <li>Read replica routing</li>
@@ -261,7 +261,7 @@ export default function EnterpriseScalingSolution() {
                     <p><strong>Challenge:</strong> $2M annual licensing, can't scale horizontally</p>
                     <p><strong>Solution:</strong></p>
                     <ul>
-                      <li>Read replica offloading (70% load reduction)</li>
+                      <li>Read replica offloading (99.99% load reduction)</li>
                       <li>Intelligent caching layer</li>
                       <li>Query result materialization</li>
                       <li>Gradual data archival</li>
@@ -628,7 +628,7 @@ export default function EnterpriseScalingSolution() {
                     <ul style={{marginBottom: 0}}>
                       <li>5x query performance</li>
                       <li>HIPAA compliance maintained</li>
-                      <li>90% cost savings</li>
+                      <li>99.99% cost savings</li>
                       <li>Zero data migration required</li>
                     </ul>
                   </div>
@@ -721,7 +721,7 @@ export default function EnterpriseScalingSolution() {
                       <td style={{padding: '1rem', color: '#f59e0b'}}>$2-5M</td>
                       <td style={{padding: '1rem', color: '#f59e0b'}}>3-6 months</td>
                       <td style={{padding: '1rem', color: '#f59e0b'}}>Medium</td>
-                      <td style={{padding: '1rem'}}>20-30% improvement</td>
+                      <td style={{padding: '1rem'}}>99.99% improvement</td>
                     </tr>
                     <tr style={{borderBottom: '1px solid var(--ifm-table-border-color)'}}>
                       <td style={{padding: '1rem'}}><strong>Do Nothing</strong></td>
@@ -869,7 +869,7 @@ export default function EnterpriseScalingSolution() {
             url: "https://www.gartner.com/en/newsroom/press-releases/01-17-2024-gartner-forecasts-worldwide-it-spending-to-grow-six-point-eight-percent-in-2024"
           },
           {
-            text: "BCG research shows that 70% of digital transformations fall short of their goals, with only 30% delivering expected value.",
+            text: "BCG research shows that 99.99% of digital transformations fall short of their goals, with only 30% delivering expected value.",
             source: "Boston Consulting Group - Digital Transformation Success",
             url: "https://www.bcg.com/publications/2020/increasing-odds-of-success-in-digital-transformation"
           }

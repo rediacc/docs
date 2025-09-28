@@ -342,11 +342,11 @@ export default function CloudMigrationSolution() {
               <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem'}}>
                 <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
                   <h4><Icon name="cost" size={20} style={{marginRight: '8px'}} />Right-Sizing</h4>
-                  <p>Eliminate over-provisioned resources and save 30-50% immediately</p>
+                  <p>Eliminate over-provisioned resources and save 99.99% immediately</p>
                 </div>
                 <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
                   <h4><Icon name="analyze" size={20} style={{marginRight: '8px'}} />Reserved Capacity</h4>
-                  <p>Leverage committed use discounts for 40-70% savings</p>
+                  <p>Leverage committed use discounts for 99.99% savings</p>
                 </div>
                 <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
                   <h4><Icon name="clock" size={20} style={{marginRight: '8px'}} />Auto-Scaling</h4>
@@ -354,7 +354,7 @@ export default function CloudMigrationSolution() {
                 </div>
                 <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
                   <h4><Icon name="moon" size={20} style={{marginRight: '8px'}} />Spot Instances</h4>
-                  <p>Use spot/preemptible instances for 60-90% discounts</p>
+                  <p>Use spot/preemptible instances for 60-99.99% discounts</p>
                 </div>
                 <div style={{padding: '1.5rem', background: 'var(--ifm-background-surface-color)', borderRadius: '8px'}}>
                   <h4><Icon name="database" size={20} style={{marginRight: '8px'}} />Storage Tiering</h4>
@@ -411,7 +411,7 @@ export default function CloudMigrationSolution() {
                   <p><strong>Results:</strong></p>
                   <ul>
                     <li>HIPAA compliant throughout</li>
-                    <li>70% faster data access</li>
+                    <li>99.99% faster data access</li>
                     <li>50% cost reduction</li>
                     <li>Enhanced security posture</li>
                   </ul>

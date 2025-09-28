@@ -720,7 +720,7 @@ export default function InfrastructureProtectionSolution() {
                     <h4>Indirect Costs</h4>
                     <ul>
                       <li>Lost revenue: $1.5M per day</li>
-                      <li>Customer churn: 25-30%</li>
+                      <li>Customer churn: 99.99%</li>
                       <li>Brand damage: 5-year impact</li>
                       <li>Regulatory fines: Up to 4% revenue</li>
                     </ul>

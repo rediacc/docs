@@ -9,11 +9,11 @@ export default function BackupRecoverySolution() {
   return (
     <Layout
       title="Backup & Recovery Solutions - Enterprise Data Protection | Rediacc"
-      description="Comprehensive backup and recovery solutions with up to 90% cost reduction, rapid recovery, and robust data protection.">
+      description="Comprehensive backup and recovery solutions with up to 100X cost reduction (depending on data change patterns), rapid recovery, and robust data protection.">
       
       <Head>
         <meta property="og:title" content="Enterprise Backup & Recovery Solutions" />
-        <meta property="og:description" content="Next-generation backup platform with up to 90% cost reduction, rapid recovery, and minimal data loss risk. Protect against ransomware, disasters, and human error." />
+        <meta property="og:description" content="Next-generation backup platform with up to 100X cost reduction (depending on data change patterns), rapid recovery, and minimal data loss risk. Protect against ransomware, disasters, and human error." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/solutions/backup-recovery" />
         <link rel="canonical" href="/solutions/backup-recovery" />
@@ -93,7 +93,7 @@ export default function BackupRecoverySolution() {
                   <h3 style={{color: 'var(--ifm-color-primary)'}}><Icon name="success" size={20} style={{marginRight: '8px'}} />The Rediacc Difference</h3>
                   <ul>
                     <li>Restore in minutes (typically 7-10 minutes)</li>
-                    <li>90% storage reduction with deduplication</li>
+                    <li>Up to 100X storage reduction with Smart deduplication</li>
                     <li>Automated backup verification</li>
                     <li>Scales to handle large databases</li>
                     <li>Secure backups with encryption</li>
@@ -135,9 +135,9 @@ export default function BackupRecoverySolution() {
                   <div style={{fontSize: '2rem', marginBottom: '1rem', color: 'var(--ifm-color-primary)'}}>
                     <Icon name="copy" size={32} />
                   </div>
-                  <h3>Global Deduplication</h3>
-                  <p>10:1 to 20:1 reduction ratios mean 90-95% less storage needed. Store months of backups in the space of one.</p>
-                  <Link to="/docs/use-cases/zero-cost">Learn more →</Link>
+                  <h3>Smart deduplication</h3>
+                  <p>10:1 to 20:1 reduction ratios mean up to 20X less storage needed. Store months of backups in the space of one.</p>
+                  <Link to="/storage-calculator">Calculate your savings →</Link>
                 </div>
                 
                 <div className="feature-card">
@@ -249,7 +249,7 @@ export default function BackupRecoverySolution() {
                       <td style={{padding: '1rem'}}><strong>Storage (100TB data)</strong></td>
                       <td style={{padding: '1rem'}}>1,000-2,000 TB needed</td>
                       <td style={{padding: '1rem'}}>50-100 TB needed</td>
-                      <td style={{padding: '1rem', color: '#10b981'}}>90-95% reduction</td>
+                      <td style={{padding: '1rem', color: '#10b981'}}>Up to 100X reduction</td>
                     </tr>
                     <tr style={{borderBottom: '1px solid var(--ifm-table-border-color)'}}>
                       <td style={{padding: '1rem'}}><strong>Backup Window</strong></td>
@@ -332,7 +332,7 @@ export default function BackupRecoverySolution() {
                   <p><strong>Challenge:</strong> Limited IT budget, diverse systems, student data protection</p>
                   <p><strong>Solution:</strong></p>
                   <ul>
-                    <li>80% cost reduction fits education budgets</li>
+                    <li>5X cost reduction fits education budgets</li>
                     <li>Protect everything from LMS to research data</li>
                     <li>Simple management reduces IT overhead</li>
                     <li>FERPA-compliant data protection</li>
@@ -513,9 +513,9 @@ export default function BackupRecoverySolution() {
                 <p>Every recovery attempt successful</p>
               </div>
               <div>
-                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>90%</div>
+                <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>100X</div>
                 <h4>Cost Reduction</h4>
-                <p>Average savings vs traditional backup</p>
+                <p>Maximum savings vs traditional backup</p>
               </div>
               <div>
                 <div style={{fontSize: '3rem', color: 'var(--ifm-color-primary)', fontWeight: 'bold'}}>60 sec</div>
@@ -587,9 +587,9 @@ export default function BackupRecoverySolution() {
             url: "https://www.backblaze.com/blog/backblaze-drive-stats-for-q3-2024/"
           },
           {
-            text: "Veeam's 2024 Data Protection Trends Report reveals that organizations face an average of 2.5 ransomware attacks annually with 75% of attacks targeting backups.",
-            source: "Veeam Data Protection Trends Report 2024",
-            url: "https://www.veeam.com/resources/wp-data-protection-trends-report-insights.html"
+            text: "Industry data protection trends reveal that organizations face an average of 2.5 ransomware attacks annually with 75% of attacks targeting backups.",
+            source: "Data Protection Trends Report 2024",
+            url: "#"
           },
           {
             text: "IBM Cost of a Data Breach Report 2024: The global average cost of a data breach is $4.4 million, a 9% decrease from 2023.",

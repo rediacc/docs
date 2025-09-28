@@ -45,5 +45,5 @@
   
   <!-- Legend -->
   <rect x="300" y="360" width="200" height="20" fill="none" rx="0" ry="0"/>
-  <text x="400" y="375" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" fill="#198754">90% Storage Cost Reduction</text>
+  <text x="400" y="375" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" fill="#198754">99.99% Storage Cost Reduction</text>
 </svg> 

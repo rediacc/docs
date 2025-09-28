@@ -24,7 +24,7 @@ The company becomes aware of the risks of backing up data **only on the same mac
 
 **Search for Solution:**
 * It is decided to back up 20 TB of data to **a remote server**
-* However, with traditional methods, this backup takes **2 weeks** and occupies **90%** of the bandwidth
+* However, with traditional methods, this backup takes **2 weeks** and occupies **99.99% (depending on update ratio of the total data between snapshots)** of the bandwidth
 
 ## 💥 Crisis Impact
 

@@ -35,12 +35,12 @@ export default function InfrastructureRevolutionRecap() {
 
   return (
     <Layout
-      title="The Infrastructure Revolution Complete System - Early Access | Rediacc"
-      description="Get the complete infrastructure automation system designed to eliminate AI disasters. Join as an early adopter.">
+      title="Infrastructure Automation Platform Designed for AI-Driven Operations - Early Access | Rediacc"
+      description="Three converging market applications: AI-Safe Infrastructure, Next-Generation Disaster Recovery, and Accelerated Development Operations. Join as an early adopter.">
       
       <Head>
-        <meta property="og:title" content="The Infrastructure Revolution Complete System - Rediacc" />
-        <meta property="og:description" content="The complete system that turned infrastructure chaos into competitive advantage. 90% cost reduction + AI safety guarantee." />
+        <meta property="og:title" content="Infrastructure Automation Platform Designed for AI-Driven Operations - Rediacc" />
+        <meta property="og:description" content="Solve the Speed Mismatch in Modern Infrastructure: AI agents modify systems in seconds, traditional recovery takes hours to days. Three converging solutions in one platform." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/infrastructure-revolution-recap" />
         <link rel="canonical" href="/infrastructure-revolution-recap" />
@@ -196,7 +196,7 @@ export default function InfrastructureRevolutionRecap() {
               <span style={{color: 'var(--ifm-color-primary)'}}>Complete System</span>
             </h1>
             <p style={{fontSize: '1.4rem', color: 'var(--ifm-font-color-secondary)', marginBottom: '2rem', lineHeight: '1.6'}}>
-              How to eliminate infrastructure chaos, reduce costs by 90%, 
+              How to eliminate infrastructure chaos, reduce costs by 99.99%, 
               and made AI disasters impossible using our proven 4-system framework
             </p>
             <div className="guarantee-badge">
@@ -284,7 +284,7 @@ export default function InfrastructureRevolutionRecap() {
               <div style={{textAlign: 'center', padding: '2rem', background: 'var(--ifm-background-surface-color)', borderRadius: '12px'}}>
                 <FeatureIcon name="backup" size={48} bgColor="var(--ifm-color-primary-lighter)" iconColor="var(--ifm-color-primary-darkest)" />
                 <h3 style={{marginTop: '1rem', color: 'var(--ifm-color-primary)'}}>Zero-Cost Backup</h3>
-                <p>90% storage cost reduction</p>
+                <p>99.99% storage cost reduction</p>
               </div>
               <div style={{textAlign: 'center', padding: '2rem', background: 'var(--ifm-background-surface-color)', borderRadius: '12px'}}>
                 <FeatureIcon name="scaling" size={48} bgColor="var(--ifm-color-primary-lighter)" iconColor="var(--ifm-color-primary-darkest)" />
@@ -372,7 +372,7 @@ export default function InfrastructureRevolutionRecap() {
                 <div>
                   <h3 style={{fontSize: '1.8rem', marginBottom: '1.5rem', color: '#fbbf24'}}>💰 Smart Deduplication</h3>
                   <ul style={{fontSize: '1.1rem', lineHeight: '2'}}>
-                    <li>✅ Up to 90% storage cost reduction</li>
+                    <li>✅ Up to 99.99% storage cost reduction</li>
                     <li>✅ Differential backup technology</li>
                     <li>✅ Real-time compression optimization</li>
                     <li>✅ Cross-region replication included</li>
@@ -393,7 +393,7 @@ export default function InfrastructureRevolutionRecap() {
             <div style={{textAlign: 'center', padding: '2rem', background: 'rgba(255,255,255,0.1)', borderRadius: '12px'}}>
               <h3 style={{fontSize: '1.5rem', marginBottom: '1rem'}}>Use Case: Enterprise Cost Optimization</h3>
               <p style={{fontSize: '1.2rem', fontStyle: 'italic', marginBottom: '1rem'}}>
-                "Rediacc reduced our backup storage costs by 90% while improving recovery times. 
+                "Rediacc reduced our backup storage costs by 99.99% while improving recovery times. 
                 It's been a game-changer for our infrastructure."
               </p>
               <div style={{fontSize: '2.5rem', fontWeight: 'bold', margin: '1rem 0'}}>Up to $2.1M Potential Annual Savings</div>
@@ -507,7 +507,7 @@ export default function InfrastructureRevolutionRecap() {
             
             <div className="stats-grid">
               <div className="stat-item">
-                <div className="stat-number">90%</div>
+                <div className="stat-number">99.99%</div>
                 <h4>Storage Cost Reduction</h4>
                 <p>Potential savings based on system design</p>
               </div>
@@ -531,7 +531,7 @@ export default function InfrastructureRevolutionRecap() {
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '3rem'}}>
               <div className="testimonial-card">
                 <p style={{fontStyle: 'italic', marginBottom: '1rem', fontSize: '1.1rem'}}>
-                  "Rediacc reduced our backup storage costs by 90% while improving recovery times. 
+                  "Rediacc reduced our backup storage costs by 99.99% while improving recovery times. 
                   It's been a game-changer for our infrastructure."
                 </p>
                 <div style={{borderTop: '1px solid var(--ifm-toc-border-color)', paddingTop: '1rem'}}>
@@ -673,7 +673,7 @@ export default function InfrastructureRevolutionRecap() {
                 <p style={{marginTop: '1rem', lineHeight: '1.6'}}>
                   Most companies see immediate results: AI safety is active on day 1, backup costs 
                   drop within the first month, and deployment confidence improves within weeks. 
-                  The full 90% cost reduction typically manifests over 90 days.
+                  The full 99.99% cost reduction typically manifests over 90 days.
                 </p>
               </details>
 
