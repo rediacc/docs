@@ -1,8 +1,8 @@
 // Pricing configuration service
 export const fetchPricingConfig = async () => {
   try {
-    // Try to fetch localized version first, fall back to base
-    const response = await fetch('/data/pricing.en.json').catch(() => fetch('/data/pricing.json'));
+    // Fetch base pricing.json (English content)
+    const response = await fetch('/data/pricing.json');
     if (!response.ok) {
       throw new Error(`Failed to fetch pricing config: ${response.status}`);
     }
@@ -71,16 +71,5 @@ export const fetchPricingConfig = async () => {
         }
       }
     };
-  }
-};
-
-// Fetch localized pricing config
-export const fetchLocalizedPricingConfig = async (language = 'en') => {
-  try {
-    const response = await fetch(`/data/pricing.${language}.json`);
-    return response.ok ? await response.json() : fetchPricingConfig();
-  } catch (error) {
-    console.error('Error fetching localized pricing config:', error);
-    return fetchPricingConfig();
   }
 };
