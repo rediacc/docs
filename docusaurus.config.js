@@ -15,9 +15,9 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://rediacc.com',
+  url: 'https://docs.rediacc.com',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // Now serving at root since docs is the main site
+  // Serving at root of docs subdomain
   baseUrl: '/',
   // Custom configuration for integration with React app
   customFields: {
