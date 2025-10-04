@@ -497,6 +497,54 @@ table thead tr {
   color: var(--ifm-color-primary);
 }
 
+.navbar__search-input,
+.navbar__search-input:focus,
+.navbar__search-input:not(:focus) {
+  width: 12.5rem !important;
+  min-width: 12.5rem !important;
+}
+
+@media (max-width: 400px) {
+  .navbar__search-input,
+  .navbar__search-input:focus,
+  .navbar__search-input:not(:focus) {
+    width: 10rem !important;
+    min-width: 10rem !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 996px) {
+  .navbar__item {
+    display: block !important;
+  }
+  
+  .navbar__items {
+    display: flex !important;
+    justify-content: center;
+  }
+  
+  .navbar__link {
+    display: inline-flex !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-top-bar .navbar__search,
+  .navbar-top-bar [class*="searchBox"],
+  .navbar-top-bar .DocSearch,
+  .navbar-top-bar .navbar__theme-toggle {
+    display: none !important;
+  }
+  
+  .navbar:not(.navbar-top-bar) {
+    display: none !important;
+  }
+  
+  .navbar-top-bar {
+    top: 0 !important;
+  }
+}
+
 /* Top Bar Styling */
 .navbar-top-bar {
   background-color: var(--ifm-background-surface-color);
@@ -571,7 +619,7 @@ table thead tr {
   box-shadow: 0 1px 0 0 var(--ifm-toc-border-color);
   backdrop-filter: blur(8px);
   background: rgba(255, 255, 255, 0.95);
-  top: 0;
+  top: 46.141px;
 }
 
 [data-theme='dark'] .navbar {

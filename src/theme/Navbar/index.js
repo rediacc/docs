@@ -5,6 +5,7 @@ import Link from '@docusaurus/Link';
 import ThemedImage from '@theme/ThemedImage';
 import {useColorMode} from '@docusaurus/theme-common';
 import SearchBar from '@theme/SearchBar';
+import MobileHeader from '@site/src/components/MobileHeader';
 
 export default function NavbarWrapper(props) {
   const {siteConfig} = useDocusaurusContext();
@@ -64,6 +65,7 @@ export default function NavbarWrapper(props) {
           </div>
         </div>
       </div>
+      <MobileHeader />
       <NavbarOriginal {...props} />
     </>
   );
