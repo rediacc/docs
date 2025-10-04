@@ -182,9 +182,16 @@ html[data-theme='dark'] nav.navbar,
 /* Custom styles for documentation pages */
 .main-wrapper {
   max-width: var(--docs-max-width);
+  width: 100%;
   margin: 0 auto;
   padding: var(--docs-padding-top) 1rem 2rem;
   background-color: var(--ifm-background-color);
+}
+
+@media (max-width: 480px) {
+  .main-wrapper {
+    padding: var(--docs-padding-top) 0 2rem;
+  }
 }
 
 /* Make the sidebar stay in place even without navbar */
