@@ -17,14 +17,22 @@
 const sidebars = {
   // Custom organized sidebar
   tutorialSidebar: [
-    'intro',
+    {
+      type: 'doc',
+      id: 'intro',
+      label: 'What is Rediacc?',
+    },
     {
       type: 'category',
       label: 'Developer Tools',
       collapsed: false,
       items: [
         // Getting Started
-        'cli/rest-api-guide',
+        {
+          type: 'doc',
+          id: 'cli/rest-api-guide',
+          label: 'REST API Guide',
+        },
         
         // API Reference
         {
@@ -32,18 +40,26 @@ const sidebars = {
           label: 'API Reference',
           collapsed: true,
           items: [
-            'cli/api-reference/index',
-            'cli/api-reference/auth',
+            {
+              type: 'doc',
+              id: 'cli/api-reference/index',
+              label: 'API Overview',
+            },
+            {
+              type: 'doc',
+              id: 'cli/api-reference/auth',
+              label: 'Authentication',
+            },
             {
               type: 'category',
               label: 'Resource Management',
               collapsed: true,
               items: [
-                'cli/api-reference/create',
-                'cli/api-reference/list',
-                'cli/api-reference/inspect',
-                'cli/api-reference/update',
-                'cli/api-reference/rm',
+                {type: 'doc', id: 'cli/api-reference/create', label: 'Create Resources'},
+                {type: 'doc', id: 'cli/api-reference/list', label: 'List Resources'},
+                {type: 'doc', id: 'cli/api-reference/inspect', label: 'Inspect Resources'},
+                {type: 'doc', id: 'cli/api-reference/update', label: 'Update Resources'},
+                {type: 'doc', id: 'cli/api-reference/rm', label: 'Remove Resources'},
               ],
             },
             {
@@ -51,8 +67,8 @@ const sidebars = {
               label: 'User & Access Control',
               collapsed: true,
               items: [
-                'cli/api-reference/user',
-                'cli/api-reference/permissions',
+                {type: 'doc', id: 'cli/api-reference/user', label: 'User Management'},
+                {type: 'doc', id: 'cli/api-reference/permissions', label: 'Permissions'},
               ],
             },
             {
@@ -60,9 +76,9 @@ const sidebars = {
               label: 'Organization',
               collapsed: true,
               items: [
-                'cli/api-reference/company',
-                'cli/api-reference/team',
-                'cli/api-reference/team-members',
+                {type: 'doc', id: 'cli/api-reference/company', label: 'Company Management'},
+                {type: 'doc', id: 'cli/api-reference/team', label: 'Team Management'},
+                {type: 'doc', id: 'cli/api-reference/team-members', label: 'Team Members'},
               ],
             },
             {
@@ -70,10 +86,10 @@ const sidebars = {
               label: 'Infrastructure',
               collapsed: true,
               items: [
-                'cli/api-reference/bridge',
-                'cli/api-reference/machine',
-                'cli/api-reference/region',
-                'cli/api-reference/distributed-storage',
+                {type: 'doc', id: 'cli/api-reference/bridge', label: 'Bridge'},
+                {type: 'doc', id: 'cli/api-reference/machine', label: 'Machine'},
+                {type: 'doc', id: 'cli/api-reference/region', label: 'Region'},
+                {type: 'doc', id: 'cli/api-reference/distributed-storage', label: 'Distributed Storage'},
               ],
             },
             {
@@ -81,9 +97,9 @@ const sidebars = {
               label: 'System Operations',
               collapsed: true,
               items: [
-                'cli/api-reference/queue',
-                'cli/api-reference/vault',
-                'cli/api-reference/audit',
+                {type: 'doc', id: 'cli/api-reference/queue', label: 'Queue'},
+                {type: 'doc', id: 'cli/api-reference/vault', label: 'Vault'},
+                {type: 'doc', id: 'cli/api-reference/audit', label: 'Audit Logs'},
               ],
             },
             {
@@ -91,8 +107,8 @@ const sidebars = {
               label: 'Other Commands',
               collapsed: true,
               items: [
-                'cli/api-reference/clone',
-                'cli/api-reference/misc',
+                {type: 'doc', id: 'cli/api-reference/clone', label: 'Clone'},
+                {type: 'doc', id: 'cli/api-reference/misc', label: 'Miscellaneous'},
               ],
             },
           ],
@@ -104,7 +120,7 @@ const sidebars = {
       label: 'Core Concepts',
       collapsed: false,
       items: [
-        'concepts/smart-deduplication',
+        {type: 'doc', id: 'concepts/smart-deduplication', label: 'Smart Deduplication'},
       ],
     },
     {
@@ -112,13 +128,13 @@ const sidebars = {
       label: 'Use Cases',
       collapsed: false,
       items: [
-        'use-cases/dynamic-resource-scaling',
-        'use-cases/time-travel',
-        'use-cases/legacy-database-scaling',
-        'use-cases/risk-free-upgrades',
-        'use-cases/cross-backup',
-        'use-cases/blackout',
-        'use-cases/zero-cost',
+        {type: 'doc', id: 'use-cases/dynamic-resource-scaling', label: 'Dynamic Resource Scaling'},
+        {type: 'doc', id: 'use-cases/time-travel', label: 'Time Travel'},
+        {type: 'doc', id: 'use-cases/legacy-database-scaling', label: 'Legacy Database Scaling'},
+        {type: 'doc', id: 'use-cases/risk-free-upgrades', label: 'Risk-Free Upgrades'},
+        {type: 'doc', id: 'use-cases/cross-backup', label: 'Cross-Region Backup'},
+        {type: 'doc', id: 'use-cases/blackout', label: 'Blackout Recovery'},
+        {type: 'doc', id: 'use-cases/zero-cost', label: 'Zero-Cost Backup'},
       ],
     },
   ],

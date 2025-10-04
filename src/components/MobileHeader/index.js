@@ -5,11 +5,17 @@ import SearchBar from '@theme/SearchBar';
 import { useColorMode } from '@docusaurus/theme-common';
 import './styles.css';
 
+// Import sidebar structure  
+import sidebarsConfig from '@site/sidebars';
+
 export default function MobileHeader() {
   const { siteConfig } = useDocusaurusContext();
   const { navbar } = siteConfig.themeConfig;
   const { colorMode, setColorMode } = useColorMode();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  
+  // Use sidebar config
+  const docsSidebar = sidebarsConfig.tutorialSidebar || [];
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -17,6 +23,94 @@ export default function MobileHeader() {
 
   const closeSidebar = () => {
     setSidebarOpen(false);
+  };
+  
+  // Format doc ID to title
+  const formatTitle = (docId) => {
+    const parts = docId.split('/');
+    const filename = parts[parts.length - 1];
+    return filename
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+  
+  // Render sidebar items recursively
+  const renderDocItem = (item, level = 0) => {
+    // Handle doc items (with type: 'doc')
+    if (item.type === 'doc') {
+      const docPath = `/docs/${item.id.endsWith('/index') ? item.id.slice(0, -6) : item.id}`;
+      const isActive = typeof window !== 'undefined' && window.location.pathname === docPath;
+      
+      return (
+        <Link
+          key={item.id}
+          to={docPath}
+          className={`mobile-sidebar__sublink ${isActive ? 'mobile-sidebar__sublink--active' : ''}`}
+          style={{ paddingLeft: `${level * 1.5 + 1}rem`, marginLeft: 0 }}
+          onClick={closeSidebar}
+        >
+          {item.label}
+        </Link>
+      );
+    }
+    
+    // Handle string items (doc IDs) - fallback for old format
+    if (typeof item === 'string') {
+      const docPath = `/docs/${item.endsWith('/index') ? item.slice(0, -6) : item}`;
+      const isActive = typeof window !== 'undefined' && window.location.pathname === docPath;
+      
+      return (
+        <Link
+          key={item}
+          to={docPath}
+          className={`mobile-sidebar__sublink ${isActive ? 'mobile-sidebar__sublink--active' : ''}`}
+          style={{ paddingLeft: `${level * 1.5 + 1}rem`, marginLeft: 0 }}
+          onClick={closeSidebar}
+        >
+          {formatTitle(item)}
+        </Link>
+      );
+    }
+    
+    // Handle category items
+    if (item.type === 'category') {
+      const hasActiveChild = (items) => {
+        if (typeof window === 'undefined') return false;
+        return items.some(child => {
+          if (child.type === 'doc') {
+            const childPath = `/docs/${child.id.endsWith('/index') ? child.id.slice(0, -6) : child.id}`;
+            return window.location.pathname === childPath;
+          }
+          if (typeof child === 'string') {
+            const childPath = `/docs/${child.endsWith('/index') ? child.slice(0, -6) : child}`;
+            return window.location.pathname === childPath;
+          }
+          if (child.type === 'category') {
+            return hasActiveChild(child.items);
+          }
+          return false;
+        });
+      };
+      
+      const shouldBeOpen = hasActiveChild(item.items);
+      
+      return (
+        <details 
+          key={item.label} 
+          className="mobile-sidebar__dropdown" 
+          style={{ marginLeft: 0 }}
+          open={shouldBeOpen}
+        >
+          <summary className="mobile-sidebar__sublink" style={{ paddingLeft: `${level * 1.5 + 1}rem` }}>{item.label}</summary>
+          <div className="mobile-sidebar__submenu">
+            {item.items.map(subItem => renderDocItem(subItem, level + 1))}
+          </div>
+        </details>
+      );
+    }
+    
+    return null;
   };
 
   return (
@@ -72,7 +166,18 @@ export default function MobileHeader() {
         <nav className="mobile-sidebar__nav">
           {navbar.items.map((item, index) => (
             <div key={index} className="mobile-sidebar__item">
-              {item.type === 'dropdown' ? (
+              {item.label === 'Documentation' ? (
+                // Special handling for Documentation - use Docusaurus sidebar
+                <details 
+                  className="mobile-sidebar__dropdown"
+                  open={typeof window !== 'undefined' && window.location.pathname.startsWith('/docs')}
+                >
+                  <summary className="mobile-sidebar__link">Documentation</summary>
+                  <div className="mobile-sidebar__submenu">
+                    {docsSidebar.map(docItem => renderDocItem(docItem))}
+                  </div>
+                </details>
+              ) : item.type === 'dropdown' ? (
                 <details className="mobile-sidebar__dropdown">
                   <summary className="mobile-sidebar__link">{item.label}</summary>
                   <div className="mobile-sidebar__submenu">

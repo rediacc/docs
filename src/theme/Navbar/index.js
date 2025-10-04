@@ -6,6 +6,7 @@ import ThemedImage from '@theme/ThemedImage';
 import {useColorMode} from '@docusaurus/theme-common';
 import SearchBar from '@theme/SearchBar';
 import MobileHeader from '@site/src/components/MobileHeader';
+import TabletDocsDropdown from '@site/src/components/TabletDocsDropdown';
 
 export default function NavbarWrapper(props) {
   const {siteConfig} = useDocusaurusContext();
@@ -66,6 +67,7 @@ export default function NavbarWrapper(props) {
         </div>
       </div>
       <MobileHeader />
+      <TabletDocsDropdown />
       <NavbarOriginal {...props} />
     </>
   );
