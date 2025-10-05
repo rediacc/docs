@@ -182,36 +182,22 @@ html[data-theme='dark'] nav.navbar,
 /* Custom styles for documentation pages */
 .main-wrapper {
   max-width: var(--docs-max-width);
+  width: 100%;
   margin: 0 auto;
-  padding: var(--docs-padding-top) 1rem 2rem;
+  /* padding: var(--docs-padding-top) 1rem 2rem; */
   background-color: var(--ifm-background-color);
+}
+
+@media (max-width: 480px) {
+  .main-wrapper {
+    padding: var(--docs-padding-top) 0 2rem;
+  }
 }
 
 /* Make the sidebar stay in place even without navbar */
 .main-wrapper .container {
   padding-top: 1rem;
   margin-top: 0;
-}
-
-/* Improve the docs main container */
-.container--fluid {
-  padding: 0 !important;
-}
-
-/* Full-width layout without extra padding */
-.docPage {
-  padding: 0 !important;
-  background-color: var(--ifm-background-color) !important;
-}
-
-/* Enhance sidebar styling to match react-app */
-.docSidebarContainer {
-  border-right: 1px solid var(--ifm-toc-border-color);
-  will-change: width;
-  margin-top: 0;
-  padding-top: 0;
-  width: 270px !important;
-  background-color: var(--ifm-sidebar-background-color);
 }
 
 /* Add some padding to the sidebar */
